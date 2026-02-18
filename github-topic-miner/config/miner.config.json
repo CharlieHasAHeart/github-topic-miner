@@ -1,0 +1,56 @@
+{
+  "topics": ["tauri", "svelte", "rust", "sqlite"],
+  "perTopicLimit": 10,
+  "minStars": 50,
+  "pushedWithinDays": 30,
+  "maxNewReposPerRun": 5,
+  "maxItersGapLoop": 2,
+  "allowRefresh": false,
+  "llm": { "provider": "qwen", "model": "qwen3-max-2026-01-23", "temperature": 0.2 },
+  "output": { "specDir": "specs", "runsDir": "runs" },
+  "gapLoop": {
+    "enabled": true,
+    "maxIters": 2,
+    "evidenceMaxTotal": 30,
+    "readmeFallbackEnabled": true,
+    "readmeFallbackPaths": ["README.md", "docs/README.md", "docs/index.md"],
+    "issuesExtraLimit": 25,
+    "issuesKeywordBoost": true,
+    "issuesKeywordTopK": 12,
+    "releasesExtraLimit": 5,
+    "rerunStrategy": "synth_only",
+    "writeReportsEachIter": true
+  },
+  "budget": {
+    "enabled": true,
+    "maxReposPerRun": 10,
+    "maxGapItersPerRepo": 2,
+    "maxLlmCallsPerRepo": 8,
+    "maxRepairAttempts": 2,
+    "maxEvidenceLinesForPrompt": 30,
+    "maxWallTimeSeconds": 900,
+    "maxTotalLlmCallsPerRun": 60,
+    "maxTotalTokensApproxPerRun": 250000,
+    "maxTotalCostUsd": null
+  },
+  "regression": {
+    "enabled": false,
+    "suiteName": "baseline",
+    "repos": ["rqlite/rqlite", "speakeasy-api/speakeasy"],
+    "runMode": "bridge_only",
+    "outputDir": "regression",
+    "failOnRegressionDrop": true,
+    "thresholds": {
+      "minSpecsSucceeded": 1,
+      "maxAvgAttemptsUsed": 1,
+      "maxAvgGapIters": 2
+    }
+  },
+  "pruning": {
+    "enabled": true,
+    "iter2PlusStrategy": "synth_only",
+    "skipScoutInventorWhenIterGt1": true,
+    "skipEngineerWhenIterGt1": true,
+    "rerunSynthWithoutEnrichOnce": true
+  }
+}

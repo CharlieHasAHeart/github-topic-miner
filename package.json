@@ -1,0 +1,24 @@
+{
+  "name": "github-topic-miner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Part 0 scaffold for GitHub Topic Miner using LangGraph TS",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "miner": "npm run build && node dist/github-topic-miner/scripts/run.js",
+    "miner:dev": "tsx github-topic-miner/scripts/run.ts",
+    "miner:ci": "node github-topic-miner/scripts/ci-runner.js",
+    "test:unit": "npm run build && node dist/github-topic-miner/scripts/bridge/cover.test.js && node dist/github-topic-miner/scripts/bridge/patchOps.test.js && node dist/github-topic-miner/scripts/retry.test.js && node dist/github-topic-miner/scripts/bridge/runBridge.test.js && node dist/github-topic-miner/scripts/github.retry.test.js"
+  },
+  "dependencies": {
+    "@langchain/langgraph": "^0.2.39",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

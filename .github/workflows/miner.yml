@@ -1,0 +1,104 @@
+name: Miner Automation
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Optional single topic override"
+        required: false
+        type: string
+      maxReposPerRun:
+        description: "Optional max repos override"
+        required: false
+        type: string
+      dryRun:
+        description: "Run miner but skip commit/push"
+        required: false
+        type: boolean
+        default: false
+  push:
+    paths-ignore:
+      - "specs/**"
+      - "specs/index.json"
+      - "evidence/**"
+      - "reports/**"
+      - "runs/**"
+      - "regression/**"
+
+concurrency:
+  group: miner-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  miner:
+    if: github.event_name != 'push' || (!contains(github.event.head_commit.message, '[skip actions]') && !contains(github.event.head_commit.message, '[skip ci]'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run Miner
+        id: miner
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOPIC: ${{ github.event.inputs.topic || secrets.TOPIC_DEFAULT || '' }}
+          MAX_REPOS_PER_RUN: ${{ github.event.inputs.maxReposPerRun || '' }}
+          DRY_RUN: ${{ github.event.inputs.dryRun || 'false' }}
+        run: npm run miner:ci
+
+      - name: Commit and Push Artifacts
+        if: success() && (github.event.inputs.dryRun != 'true')
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add specs evidence reports runs regression specs/index.json || true
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          DATE_UTC="$(date -u +%F)"
+          git commit -m "chore(miner): update specs for ${DATE_UTC} [skip actions]"
+          git push
+
+      - name: Upload Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: miner-artifacts-${{ steps.miner.outputs.run_id || github.run_id }}
+          retention-days: 7
+          path: |
+            runs/**
+            reports/**
+            specs/index.json
+            specs/**/*.json
+            evidence/**/*.json
+            regression/**/*.json
+
+      - name: Fail Job If Miner Failed
+        if: failure()
+        run: exit 1
