@@ -1,17 +1,51 @@
+########################################
+# Node / build / env
+########################################
 node_modules/
 dist/
+
 .env
 .env.*
 
-# Runtime outputs
-runs/*.json
-specs/*
-evidence/*
-reports/*
-regression/*
-cache/*
-!specs/.gitkeep
+########################################
+# Miner outputs policy
+# - Track: runs/specs/evidence/reports/regression (JSON artifacts)
+# - Ignore: cache (speed-up only)
+########################################
+
+# --- Ignore by default (folders may contain non-artifact temp files) ---
+runs/**
+specs/**
+evidence/**
+reports/**
+regression/**
+cache/**
+
+# --- Keep placeholder files ---
 !runs/.gitkeep
+!specs/.gitkeep
+!evidence/.gitkeep
 !reports/.gitkeep
 !regression/.gitkeep
 !cache/.gitkeep
+
+# --- Track artifact JSON files ---
+!runs/**/*.json
+!specs/**/*.json
+!evidence/**/*.json
+!reports/**/*.json
+!regression/**/*.json
+
+# --- (Optional) if you ever write markdown summaries, allow them too ---
+# !reports/**/*.md
+# !regression/**/*.md
+
+########################################
+# OS / editor junk
+########################################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
