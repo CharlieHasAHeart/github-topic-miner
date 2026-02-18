@@ -69,6 +69,7 @@ jobs:
           TOPIC: ${{ github.event.inputs.topic || secrets.TOPIC_DEFAULT || '' }}
           MAX_REPOS_PER_RUN: ${{ github.event.inputs.maxReposPerRun || '' }}
           DRY_RUN: ${{ github.event.inputs.dryRun || 'false' }}
+          MIN_SPECS_SUCCEEDED: "1"
         run: npm run miner:ci
 
       - name: Commit and Push Artifacts
@@ -76,7 +77,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add specs evidence reports runs regression specs/index.json || true
+          for p in specs evidence reports runs regression; do
+            if [ -e "$p" ]; then
+              git add -A "$p"
+            fi
+          done
+          if [ -f "specs/index.json" ]; then
+            git add "specs/index.json"
+          fi
           if git diff --cached --quiet; then
             echo "No changes"
             exit 0

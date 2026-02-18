@@ -47,6 +47,10 @@ function main() {
   const maxReposRaw = process.env.MAX_REPOS_PER_RUN;
   const maxRepos = maxReposRaw ? Number(maxReposRaw) : NaN;
   const dryRun = parseBool(process.env.DRY_RUN || "");
+  const minSpecsSucceededRaw = process.env.MIN_SPECS_SUCCEEDED;
+  const minSpecsSucceeded = Number.isFinite(Number(minSpecsSucceededRaw))
+    ? Math.max(0, Number(minSpecsSucceededRaw))
+    : 1;
 
   const originalConfigRaw = fs.readFileSync(CONFIG_PATH, "utf8");
   const config = JSON.parse(originalConfigRaw);
@@ -101,6 +105,31 @@ function main() {
 
   if (result.status !== 0) {
     process.exit(1);
+  }
+
+  if (runPath) {
+    const absRunPath = path.join(ROOT, runPath);
+    if (fs.existsSync(absRunPath)) {
+      const payload = JSON.parse(fs.readFileSync(absRunPath, "utf8"));
+      const status = payload?.status;
+      const attempted = Number(payload?.stats?.specs_attempted ?? 0);
+      const succeeded = Number(payload?.stats?.specs_succeeded ?? 0);
+      console.log(`CI_SPECS_ATTEMPTED=${attempted}`);
+      console.log(`CI_SPECS_SUCCEEDED=${succeeded}`);
+      writeGithubOutput("specs_attempted", String(attempted));
+      writeGithubOutput("specs_succeeded", String(succeeded));
+
+      if (status !== "ok") {
+        console.error(`CI check failed: run status is ${status}`);
+        process.exit(1);
+      }
+      if (attempted > 0 && succeeded < minSpecsSucceeded) {
+        console.error(
+          `CI check failed: specs_succeeded (${succeeded}) < MIN_SPECS_SUCCEEDED (${minSpecsSucceeded}) with attempted=${attempted}`,
+        );
+        process.exit(1);
+      }
+    }
   }
 }
 
