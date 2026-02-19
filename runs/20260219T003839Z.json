@@ -1,0 +1,3266 @@
+{
+  "run_id": "20260219T003839Z",
+  "generated_at": "2026-02-19T00:38:39.910Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "openapi",
+      "orm",
+      "postgresql",
+      "redis",
+      "rest-api",
+      "atproto",
+      "b4x",
+      "api",
+      "cli",
+      "database"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 2,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 1,
+    "new_candidates": 4,
+    "repo_cards_built": 4,
+    "gaps_count": 0,
+    "specs_attempted": 4,
+    "specs_succeeded": 4,
+    "specs_failed": 0,
+    "evidence_validated": 4,
+    "evidence_valid_ok": 4,
+    "evidence_valid_failed": 0,
+    "evidence_written": 4,
+    "evidence_write_failed": 0,
+    "evidence_total": 50,
+    "evidence_by_type": {
+      "readme": 32,
+      "issue": 5,
+      "release": 9,
+      "root_files": 4
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-02-19T00:39:58.820Z",
+    "repo_count": 9
+  },
+  "candidates": [
+    {
+      "full_name": "twentyhq/twenty",
+      "html_url": "https://github.com/twentyhq/twenty",
+      "description": "Building a modern alternative to Salesforce, powered by the community.",
+      "topics": [
+        "crm",
+        "crm-system",
+        "customer",
+        "good-first-issue",
+        "graphql",
+        "hacktoberfest",
+        "javascript",
+        "marketing",
+        "monorepo",
+        "nestjs",
+        "open-source",
+        "postgresql",
+        "react",
+        "reactjs",
+        "sales",
+        "typescript",
+        "web"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 39802,
+      "forks_count": 5189,
+      "open_issues_count": 216,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:36Z",
+      "created_at": "2022-12-01T13:04:40Z"
+    },
+    {
+      "full_name": "authzed/spicedb",
+      "html_url": "https://github.com/authzed/spicedb",
+      "description": "Open Source, Google Zanzibar-inspired database for scalably storing and querying fine-grained authorization data",
+      "topics": [
+        "abac",
+        "acl",
+        "authorization",
+        "ciam",
+        "cloud-native",
+        "database",
+        "distributed-systems",
+        "entitlements",
+        "fga",
+        "fine-grained-access-control",
+        "fine-grained-authorization",
+        "kubernetes",
+        "permissions",
+        "rbac",
+        "rebac",
+        "security",
+        "security-tools",
+        "zanzibar"
+      ],
+      "language": "Go",
+      "stargazers_count": 6438,
+      "forks_count": 364,
+      "open_issues_count": 137,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:20Z",
+      "created_at": "2021-08-16T15:32:09Z"
+    },
+    {
+      "full_name": "cockroachdb/cockroach",
+      "html_url": "https://github.com/cockroachdb/cockroach",
+      "description": "CockroachDB — the cloud native, distributed SQL database designed for high availability, effortless scale, and control over data placement.",
+      "topics": [
+        "cockroachdb",
+        "database",
+        "distributed-database",
+        "go",
+        "hacktoberfest",
+        "sql"
+      ],
+      "language": "Go",
+      "stargazers_count": 31884,
+      "forks_count": 4083,
+      "open_issues_count": 7837,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-02-19T00:38:17Z",
+      "created_at": "2014-02-06T00:18:47Z"
+    },
+    {
+      "full_name": "airbytehq/terraform-provider-airbyte",
+      "html_url": "https://github.com/airbytehq/terraform-provider-airbyte",
+      "description": "Terraform Provider for Airbyte API",
+      "topics": [
+        "airbyte",
+        "api",
+        "terraform",
+        "terraform-provider"
+      ],
+      "language": "Go",
+      "stargazers_count": 62,
+      "forks_count": 26,
+      "open_issues_count": 106,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:13Z",
+      "created_at": "2023-03-24T17:03:22Z"
+    },
+    {
+      "full_name": "scalar/scalar",
+      "html_url": "https://github.com/scalar/scalar",
+      "description": "Scalar is an open-source API platform:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　🌐 Modern Rest API Client　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　📖 Beautiful API References　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　✨ 1st-Class OpenAPI/Swagger Support",
+      "topics": [
+        "api",
+        "api-client",
+        "docs",
+        "http-client",
+        "openapi",
+        "openapi3",
+        "reference",
+        "rest-api",
+        "swagger",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13959,
+      "forks_count": 742,
+      "open_issues_count": 172,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:07Z",
+      "created_at": "2023-08-16T13:42:32Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "twentyhq/twenty",
+      "html_url": "https://github.com/twentyhq/twenty",
+      "description": "Building a modern alternative to Salesforce, powered by the community.",
+      "topics": [
+        "crm",
+        "crm-system",
+        "customer",
+        "good-first-issue",
+        "graphql",
+        "hacktoberfest",
+        "javascript",
+        "marketing",
+        "monorepo",
+        "nestjs",
+        "open-source",
+        "postgresql",
+        "react",
+        "reactjs",
+        "sales",
+        "typescript",
+        "web"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 39802,
+      "forks_count": 5189,
+      "open_issues_count": 216,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:36Z",
+      "created_at": "2022-12-01T13:04:40Z"
+    },
+    {
+      "full_name": "authzed/spicedb",
+      "html_url": "https://github.com/authzed/spicedb",
+      "description": "Open Source, Google Zanzibar-inspired database for scalably storing and querying fine-grained authorization data",
+      "topics": [
+        "abac",
+        "acl",
+        "authorization",
+        "ciam",
+        "cloud-native",
+        "database",
+        "distributed-systems",
+        "entitlements",
+        "fga",
+        "fine-grained-access-control",
+        "fine-grained-authorization",
+        "kubernetes",
+        "permissions",
+        "rbac",
+        "rebac",
+        "security",
+        "security-tools",
+        "zanzibar"
+      ],
+      "language": "Go",
+      "stargazers_count": 6438,
+      "forks_count": 364,
+      "open_issues_count": 137,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:20Z",
+      "created_at": "2021-08-16T15:32:09Z"
+    },
+    {
+      "full_name": "cockroachdb/cockroach",
+      "html_url": "https://github.com/cockroachdb/cockroach",
+      "description": "CockroachDB — the cloud native, distributed SQL database designed for high availability, effortless scale, and control over data placement.",
+      "topics": [
+        "cockroachdb",
+        "database",
+        "distributed-database",
+        "go",
+        "hacktoberfest",
+        "sql"
+      ],
+      "language": "Go",
+      "stargazers_count": 31884,
+      "forks_count": 4083,
+      "open_issues_count": 7837,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-02-19T00:38:17Z",
+      "created_at": "2014-02-06T00:18:47Z"
+    },
+    {
+      "full_name": "scalar/scalar",
+      "html_url": "https://github.com/scalar/scalar",
+      "description": "Scalar is an open-source API platform:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　🌐 Modern Rest API Client　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　📖 Beautiful API References　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　✨ 1st-Class OpenAPI/Swagger Support",
+      "topics": [
+        "api",
+        "api-client",
+        "docs",
+        "http-client",
+        "openapi",
+        "openapi3",
+        "reference",
+        "rest-api",
+        "swagger",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13959,
+      "forks_count": 742,
+      "open_issues_count": 172,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:07Z",
+      "created_at": "2023-08-16T13:42:32Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "twentyhq/twenty",
+      "html_url": "https://github.com/twentyhq/twenty",
+      "description": "Building a modern alternative to Salesforce, powered by the community.",
+      "topics": [
+        "crm",
+        "crm-system",
+        "customer",
+        "good-first-issue",
+        "graphql",
+        "hacktoberfest",
+        "javascript",
+        "marketing",
+        "monorepo",
+        "nestjs",
+        "open-source",
+        "postgresql",
+        "react",
+        "reactjs",
+        "sales",
+        "typescript",
+        "web"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 39802,
+      "forks_count": 5189,
+      "open_issues_count": 216,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:36Z",
+      "created_at": "2022-12-01T13:04:40Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://www.twenty.com\">\n    <img src=\"./packages/twenty-website/public/images/core/logo.svg\" width=\"100px\" alt=\"Twenty logo\" />\n  </a>\n</p>\n\n<h2 align=\"center\" >The #1 Open-Source CRM </h2>\n\n<p align=\"center\"><a href=\"https://twenty.com\">🌐 Website</a> · <a href=\"https://docs.twenty.com\">📚 Documentation</a> · <a href=\"https://github.com/orgs/twentyhq/projects/1\"><img src=\"./packages/twenty-website/public/images/readme/planner-icon.svg\" width=\"12\" height=\"12\"/> Roadmap </a> · <a href=\"https://discord.gg/cx5n4Jzs57\"><img src=\"./packages/twenty-website/public/images/readme/discord-icon.svg\" width=\"12\" height=\"12\"/> Discord</a> · <a href=\"https://www.figma.com/file/xt8O9mFeLl46C5InWwoMrN/Twenty\"><img src=\"./packages/twenty-website/public/images/readme/figma-icon.png\"  width=\"12\" height=\"12\"/>  Figma</a></p>\n<br />\n\n\n<p align=\"center\">\n  <a href=\"https://www.twenty.com\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/github-cover-dark.png\" />\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/github-cover-light.png\" />\n      <img src=\"./packages/twenty-website/public/images/readme/github-cover-light.png\" alt=\"Cover\" />\n    </picture>\n  </a>\n</p>\n\n<br />\n\n# Installation\n\nSee:\n🚀 [Self-hosting](https://docs.twenty.com/developers/self-hosting/docker-compose)\n🖥️ [Local Setup](https://docs.twenty.com/developers/local-setup)\n\n# Does the world need another CRM?\n\nWe built Twenty for three reasons:\n\n**CRMs are too expensive, and users are trapped.** Companies use locked-in customer data to hike prices. It shouldn't be that way.\n\n**A fresh start is required to build a better experience.** We can learn from past mistakes and craft a cohesive experience inspired by new UX patterns from tools like Notion, Airtable or Linear.\n\n**We believe in Open-source and community.** Hundreds of developers are already building Twenty together. Once we have plugin capabilities, a whole ecosystem will grow around it.\n\n<br />\n\n# What You Can Do With Twenty\n\nPlease feel free to flag any specific needs you have by creating an issue.\n\nBelow are a few features we have implemented to date:\n\n+ [Personalize layouts with filters, sort, group by, kanban and table views](#personalize-layouts-with-filters-sort-group-by-kanban-and-table-views)\n+ [Customize your objects and fields](#customize-your-objects-and-fields)\n+ [Create and manage permissions with custom roles](#create-and-manage-permissions-with-custom-roles)\n+ [Automate workflow with triggers and actions](#automate-workflow-with-triggers-and-actions)\n+ [Emails, calendar events, files, and more](#emails-calendar-events-files-and-more)\n\n\n## Personalize layouts with filters, sort, group by, kanban and table views\n\n<p align=\"center\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/views-dark.png\" />\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/views-light.png\" />\n      <img src=\"./packages/twenty-website/public/images/readme/views-light.png\" alt=\"Companies Kanban Views\" />\n    </picture>\n</p>\n\n## Customize your objects and fields\n\n<p align=\"center\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/data-model-dark.png\" />\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/data-model-light.png\" />\n      <img src=\"./packages/twenty-website/public/images/readme/data-model-light.png\" alt=\"Setting Custom Objects\" />\n    </picture>\n</p>\n\n## Create and manage permissions with custom roles\n\n<p align=\"center\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/permissions-dark.png\" />\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/permissions-light.png\" />\n      <img src=\"./packages/twenty-website/public/images/readme/permissions-light.png\" alt=\"Permissions\" />\n    </picture>\n</p>\n\n## Automate workflow with triggers and actions\n\n<p align=\"center\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/workflows-dark.png\" />\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/workflows-light.png\" />\n      <img src=\"./packages/twenty-website/public/images/readme/workflows-light.png\" alt=\"Workflows\" />\n    </picture>\n</p>\n\n## Emails, calendar events, files, and more\n\n<p align=\"center\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/plus-other-features-dark.png\" />\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/plus-other-features-light.png\" />\n      <img src=\"./packages/twenty-website/public/images/readme/plus-other-features-light.png\" alt=\"Other Features\" />\n    </picture>\n</p>\n\n<br />\n\n# Stack\n- [TypeScript](https://www.typescriptlang.org/)\n- [Nx](https://nx.dev/)\n- [NestJS](https://nestjs.com/), with [BullMQ](https://bullmq.io/), [PostgreSQL](https://www.postgresql.org/), [Redis](https://redis.io/)\n- [React](https://reactjs.org/), with [Recoil](https://recoiljs.org/), [Emotion](https://emotion.sh/) and [Lingui](https://lingui.dev/)\n\n\n\n# Thanks\n\n<p align=\"center\">\n  <a href=\"https://www.chromatic.com/\"><img src=\"./packages/twenty-website/public/images/readme/chromatic.png\" height=\"30\" alt=\"Chromatic\" /></a>\n  <a href=\"https://greptile.com\"><img src=\"./packages/twenty-website/public/images/readme/greptile.png\" height=\"30\" alt=\"Greptile\" /></a>\n  <a href=\"https://sentry.io/\"><img src=\"./packages/twenty-website/public/images/readme/sentry.png\" height=\"30\" alt=\"Sentry\" /></a>\n  <a href=\"https://crowdin.com/\"><img src=\"./packages/twenty-website/public/images/readme/crowdin.png\" height=\"30\" alt=\"Crowdin\" /></a>\n</p>\n\n  Thanks to these amazing services that we use and recommend for UI testing (Chromatic), code review (Greptile), catching bugs (Sentry) and translating (Crowdin).\n\n\n# Join the Community\n\n- Star the repo\n- Subscribe to releases (watch -> custom -> releases)\n- Follow us on [Twitter](https://twitter.com/twentycrm) or [LinkedIn](https://www.linkedin.com/company/twenty/)\n- Join our [Discord](https://discord.gg/cx5n4Jzs57)\n- Improve translations on [Crowdin](https://twenty.crowdin.com/twenty)\n- [Contributions](https://github.com/twentyhq/twenty/contribute) are, of course, most welcome!\n",
+        "truncated": false,
+        "bytes": 7482,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.17.0",
+            "tag_name": "v1.17.0",
+            "published_at": "2026-02-18T16:47:20Z",
+            "body_excerpt": "## What's Changed\r\n* Add prometheus exporter by @thomtrp in https://github.com/twentyhq/twenty/pull/17392\r\n* Fix event logic for soft-delete and restore by @lucasbordeau in https://github.com/twentyhq/twenty/pull/17393\r\n* Change `formatResult` to return string instead of `Date` object for `DATE_TIME` by @lucasbordeau in https://github.com/twentyhq/twenty/pull/17407\r\n* fix(twenty-server): add SSRF protection to webhook requests by @FelixMalfait in https://github.com/twentyhq/twenty/pull/17403\r\n* fix(twenty-server): preserve input order in createMany response by @FelixMalfait in https://github.com/twentyhq/twenty/pull/17412\r\n* fix: refresh virtualized table when field metadata is updated ( #16388 ) by @carbonFibreCode in https://github.com/twentyhq/twenty/pull/17214\r\n* docs: align type import guidelines with ESLint configuration by @kratisinghh in https://github.com/twentyhq/twenty/pull/17275\r\n* Migrate attachments to morph relations + fix morph join column filtering by @mabdullahabaid in https://github.com/twentyhq/twenty/pull/17381\r\n* Fix the default value of search record if the filter is boolean type by @araj00 in https://github.com/twentyhq/twenty/pull/17297\r\n* `[Debug log level]` Print validation build result failure by @prastoin in https://github.com/twentyhq/twenty/pull/17423\r\n* feat: fix junction toggle persistence and add type-safe documentation paths by @FelixMalfait in https://github.com/twentyhq/twenty/pull/17421\r\n* i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17424\r\n* Fix upgrade command order `backfillStandardPageLayoutsCommand` by @prastoin in https://github.com/twentyhq/twenty/pull/17430\r\n* i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17426\r\n* i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17433\r\n* i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17434\r\n* Add front component wi"
+          },
+          {
+            "name": "v1.16.0",
+            "tag_name": "v1.16.0",
+            "published_at": "2026-01-24T09:40:43Z",
+            "body_excerpt": "## What's Changed\r\n* Add a CARD layout to the Field widget by @Devessier in https://github.com/twentyhq/twenty/pull/16995\r\n* Remove `sync-metadata` and `IS_WORKSPACE_CREATION_V2_ENABLED` feature flag by @prastoin in https://github.com/twentyhq/twenty/pull/16997\r\n* i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17024\r\n* i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17025\r\n* i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17026\r\n* Migrate `MicrosoftAPIRefreshAccessTokenService` to `@azure/msal-node` by @neo773 in https://github.com/twentyhq/twenty/pull/16954\r\n* [Dashboards] use select option colors when grouping by SELECT/MULTI_SELECT fields by @ehconitin in https://github.com/twentyhq/twenty/pull/16973\r\n* i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17029\r\n* Use canvas layout for all advanced RPL widgets by @Devessier in https://github.com/twentyhq/twenty/pull/17028\r\n* feat: improve the design of the fields widget by @mabdullahabaid in https://github.com/twentyhq/twenty/pull/17003\r\n* i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17037\r\n* Improve application ast by @martmull in https://github.com/twentyhq/twenty/pull/17016\r\n* Made the code more resilient to stale value prop in date filter by @lucasbordeau in https://github.com/twentyhq/twenty/pull/17038\r\n* Cascade delete Task targets when tasks deleted - logic + migration command by @etiennejouan in https://github.com/twentyhq/twenty/pull/17019\r\n* i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17048\r\n* Improve application ast 2 by @martmull in https://github.com/twentyhq/twenty/pull/17045\r\n* Fix MS Office preview for private/local URLs by @FelixMalfait in https://github.com/twentyhq/twenty/pull/17044\r\n* i18n - translations by @github-actions[bot] in https://github.com/t"
+          },
+          {
+            "name": "v1.15.0",
+            "tag_name": "v1.15.0",
+            "published_at": "2026-01-08T16:01:24Z",
+            "body_excerpt": "## What's Changed\r\n* Destroy core view by @BOHEUS in https://github.com/twentyhq/twenty/pull/16868\r\n* Clean workflow run stoppage flag by @thomtrp in https://github.com/twentyhq/twenty/pull/16950\r\n* Add metrics for completed and failed jobs by @thomtrp in https://github.com/twentyhq/twenty/pull/16969\r\n* fix e2e tests by @charlesBochet in https://github.com/twentyhq/twenty/pull/16970\r\n* Remove tests run on push on main  by @ijreilly in https://github.com/twentyhq/twenty/pull/16971\r\n* fix calendar save events transaction by @neo773 in https://github.com/twentyhq/twenty/pull/16763\r\n* fix: enable save button when changing currency default value by @mabdullahabaid in https://github.com/twentyhq/twenty/pull/16864\r\n* Set default SMTP value to true by @FelixMalfait in https://github.com/twentyhq/twenty/pull/16967\r\n* fix(16819): Add NoteDeleteOnePostQueryHook for soft removing note targets by @alvhix in https://github.com/twentyhq/twenty/pull/16826\r\n* fix purple color palette by @ehconitin in https://github.com/twentyhq/twenty/pull/16972\r\n* If else node tests by @abdulrahmancodes in https://github.com/twentyhq/twenty/pull/16916\r\n* Workspace creation prefill fix by @prastoin in https://github.com/twentyhq/twenty/pull/16983\r\n* Fix view field updates not persisting by @RajdeepDs in https://github.com/twentyhq/twenty/pull/16672\r\n* Fix memory crash when creating record in table view by @etiennejouan in https://github.com/twentyhq/twenty/pull/16984\r\n* Updated the user guide with new article + updated old content by @StephanieJoly4 in https://github.com/twentyhq/twenty/pull/16955\r\n* [PAGE LAYOUTS] Add widgets validation by @bosiraphael in https://github.com/twentyhq/twenty/pull/16635\r\n* i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/16989\r\n* Add otel collector to reserved subdomains by @charlesBochet in https://github.com/twentyhq/twenty/pull/16988\r\n* Provide executed step output instead of result by @thomtrp in https://github.com/twentyhq/tw"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".cursor",
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".mcp.json",
+        ".nvmrc",
+        ".vscode",
+        ".yarn",
+        ".yarnrc.yml",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "eslint.config.mjs",
+        "jest.preset.js",
+        "nx.json",
+        "package.json",
+        "packages",
+        "tsconfig.base.json",
+        "yarn.config.cjs",
+        "yarn.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://www.twenty.com\"> <img src=\"./packages/twenty-website/public/images/core/logo.svg\" width=\"100px\" alt=\"Twenty logo\" /> </a> </p>",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"><a href=\"https://twenty.com\">🌐 Website</a> · <a href=\"https://docs.twenty.com\">📚 Documentation</a> · <a href=\"https://github.com/orgs/twentyhq/projects/1\"><img src=\"./packages/twenty-website/public/images/readme/planner-icon.svg\" width=\"12\" height=\"12\"/> Roadmap </a> · <a href=\"https://discord.gg/cx5n4Jzs57\"><img src=\"./packages/twenty-website/public/images/readme/discord-icon.svg\" width=\"12\" height=\"12\"/> Discord</a> · <a href=\"https://www.figma.com/file/xt8O9mFeLl46C5InWwoMrN/Twenty\"><img src=\"./packages/twenty-website/public/images/readme/figma-icon.png\" width=\"12\" height=\"12\"/> Figma</a></p> <br />",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://www.twenty.com\"> <picture> <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/github-cover-dark.png\" /> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-website/public/images/readme/github-cover-light.png\" /> <img src=\"./packages/twenty-website/public/images/readme/github-cover-light.png\" alt=\"Cover\" /> </picture> </a> </p>",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 4)",
+          "excerpt": "See: 🚀 [Self-hosting](https://docs.twenty.com/developers/self-hosting/docker-compose) 🖥️ [Local Setup](https://docs.twenty.com/developers/local-setup)",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 5)",
+          "excerpt": "**CRMs are too expensive, and users are trapped.** Companies use locked-in customer data to hike prices. It shouldn't be that way.",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**A fresh start is required to build a better experience.** We can learn from past mistakes and craft a cohesive experience inspired by new UX patterns from tools like Notion, Airtable or Linear.",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 7)",
+          "excerpt": "**We believe in Open-source and community.** Hundreds of developers are already building Twenty together. Once we have plugin capabilities, a whole ecosystem will grow around it.",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/twentyhq/twenty#readme",
+          "title": "README (segment 8)",
+          "excerpt": "+ [Personalize layouts with filters, sort, group by, kanban and table views](#personalize-layouts-with-filters-sort-group-by-kanban-and-table-views) + [Customize your objects and fields](#customize-your-objects-and-fields) + [Create and manage permissions with custom roles](#create-and-manage-permissions-with-custom-roles) + [Automate workflow with triggers and actions](#automate-workflow-with-triggers-and-actions) + [Emails, calendar events, files, and more](#emails-calendar-events-files-and-more)",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/twentyhq/twenty/releases",
+          "title": "v1.17.0",
+          "excerpt": "## What's Changed * Add prometheus exporter by @thomtrp in https://github.com/twentyhq/twenty/pull/17392 * Fix event logic for soft-delete and restore by @lucasbordeau in https://github.com/twentyhq/twenty/pull/17393 * Change `formatResult` to return string instead of `Date` object for `DATE_TIME` by @lucasbordeau in https://github.com/twentyhq/twenty/pull/17407 * fix(twenty-server): add SSRF protection to webhook requests by @FelixMalfait in https://github.com/twentyhq/twenty/pull/17403 * fix(twenty-server): preserve input order in createMany response by @FelixMalfait in https://github.com/twentyhq/twenty/pull/17412 * fix: refresh virtualized table when field metadata is updated ( #16388 ) by @carbonFibreCode in https://github.com/twentyhq/twenty/pull/17214 * docs: align type import guidelines with ESLint configuration by @kratisinghh in https://github.com/twentyhq/twenty/pull/17275 * Migrate attachments to morph relations + fix morph join column filtering by @mabdullahabaid in https://github.com/twentyhq/twenty/pull/17381 * Fix the default value of search record if the filter is boolean type by @araj00 in https://github.com/twentyhq/twenty/pull/17297 * `[Debug log level]` Print …",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "tag_name": "v1.17.0",
+            "published_at": "2026-02-18T16:47:20Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/twentyhq/twenty/releases",
+          "title": "v1.16.0",
+          "excerpt": "## What's Changed * Add a CARD layout to the Field widget by @Devessier in https://github.com/twentyhq/twenty/pull/16995 * Remove `sync-metadata` and `IS_WORKSPACE_CREATION_V2_ENABLED` feature flag by @prastoin in https://github.com/twentyhq/twenty/pull/16997 * i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17024 * i18n - translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17025 * i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17026 * Migrate `MicrosoftAPIRefreshAccessTokenService` to `@azure/msal-node` by @neo773 in https://github.com/twentyhq/twenty/pull/16954 * [Dashboards] use select option colors when grouping by SELECT/MULTI_SELECT fields by @ehconitin in https://github.com/twentyhq/twenty/pull/16973 * i18n - docs translations by @github-actions[bot] in https://github.com/twentyhq/twenty/pull/17029 * Use canvas layout for all advanced RPL widgets by @Devessier in https://github.com/twentyhq/twenty/pull/17028 * feat: improve the design of the fields widget by @mabdullahabaid in https://github.com/twentyhq/twenty/pull/17003 * i18n - translations by @github-actions[b…",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "tag_name": "v1.16.0",
+            "published_at": "2026-01-24T09:40:43Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/twentyhq/twenty/releases",
+          "title": "v1.15.0",
+          "excerpt": "## What's Changed * Destroy core view by @BOHEUS in https://github.com/twentyhq/twenty/pull/16868 * Clean workflow run stoppage flag by @thomtrp in https://github.com/twentyhq/twenty/pull/16950 * Add metrics for completed and failed jobs by @thomtrp in https://github.com/twentyhq/twenty/pull/16969 * fix e2e tests by @charlesBochet in https://github.com/twentyhq/twenty/pull/16970 * Remove tests run on push on main by @ijreilly in https://github.com/twentyhq/twenty/pull/16971 * fix calendar save events transaction by @neo773 in https://github.com/twentyhq/twenty/pull/16763 * fix: enable save button when changing currency default value by @mabdullahabaid in https://github.com/twentyhq/twenty/pull/16864 * Set default SMTP value to true by @FelixMalfait in https://github.com/twentyhq/twenty/pull/16967 * fix(16819): Add NoteDeleteOnePostQueryHook for soft removing note targets by @alvhix in https://github.com/twentyhq/twenty/pull/16826 * fix purple color palette by @ehconitin in https://github.com/twentyhq/twenty/pull/16972 * If else node tests by @abdulrahmancodes in https://github.com/twentyhq/twenty/pull/16916 * Workspace creation prefill fix by @prastoin in https://github.com/twenty…",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "tag_name": "v1.15.0",
+            "published_at": "2026-01-08T16:01:24Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/twentyhq/twenty",
+          "title": "ROOT_FILES",
+          "excerpt": ".cursor, .dockerignore, .gitattributes, .github, .gitignore, .mcp.json, .nvmrc, .vscode, .yarn, .yarnrc.yml, CLAUDE.md, LICENSE, README.md, eslint.config.mjs, jest.preset.js, nx.json, package.json, packages, tsconfig.base.json, yarn.config.cjs, yarn.lock",
+          "fetched_at": "2026-02-19T00:38:43.899Z",
+          "meta": {
+            "repo_full_name": "twentyhq/twenty",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "authzed/spicedb",
+      "html_url": "https://github.com/authzed/spicedb",
+      "description": "Open Source, Google Zanzibar-inspired database for scalably storing and querying fine-grained authorization data",
+      "topics": [
+        "abac",
+        "acl",
+        "authorization",
+        "ciam",
+        "cloud-native",
+        "database",
+        "distributed-systems",
+        "entitlements",
+        "fga",
+        "fine-grained-access-control",
+        "fine-grained-authorization",
+        "kubernetes",
+        "permissions",
+        "rbac",
+        "rebac",
+        "security",
+        "security-tools",
+        "zanzibar"
+      ],
+      "language": "Go",
+      "stargazers_count": 6438,
+      "forks_count": 364,
+      "open_issues_count": 137,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:20Z",
+      "created_at": "2021-08-16T15:32:09Z",
+      "readme": {
+        "fetched": true,
+        "text": "<h1 align=\"center\">\n    <a href=\"https://authzed.com#gh-dark-mode-only\" target=\"_blank\">\n        <img width=\"300\" src=\"https://github.com/user-attachments/assets/0ebf4718-283b-4c40-b567-1d577c0a2e03\" alt=\"spicedb logo\">\n    </a>\n    <a href=\"https://authzed.com#gh-light-mode-only\" target=\"_blank\">\n        <img width=\"300\" src=\"https://github.com/user-attachments/assets/577a72f9-4fdd-49f8-b1d6-e53025d219b8\" alt=\"spicedb Logo\">\n    </a>\n</h1>\n\n<h3 align=\"center\">\n  SpiceDB sets the standard for authorization that <i>scales</i>.\n  <br/><br/>Scale with<br/>\n  Traffic • Dev Velocity • Functionality • Geography\n</h3>\n\n<p align=\"center\">\n  <a href=\"https://github.com/authzed/spicedb/releases\"><img alt=\"release badge\" src=\"https://img.shields.io/github/v/release/authzed/spicedb?color=%236EC93F&label=latest%20release&sort=semver&style=flat-square\"></a>\n  &nbsp;\n  <a href=\"https://hub.docker.com/repository/docker/authzed/spicedb\" target=\"_blank\"><img alt=\"docker pulls badge\" src=\"https://img.shields.io/docker/pulls/authzed/spicedb?color=%23448CE6&style=flat-square\"></a>\n  &nbsp;\n  <a href=\"https://authzed.com/blog/go-ecosystem\"><img alt=\"built with Go badge\" src=\"https://img.shields.io/badge/built_with-Go-367B99.svg?style=flat-square\"></a>\n  &nbsp;\n  <a href=\"https://app.codecov.io/gh/authzed/spicedb\"><img alt=\"coverage\" src=\"https://img.shields.io/codecov/c/github/authzed/spicedb\"></a>\n  &nbsp;\n  <a href=\"https://www.bestpractices.dev/en/projects/6348\" target=\"_blank\"><img alt=\"cii badge\" src=\"https://img.shields.io/cii/percentage/6348?style=flat-square&label=cii%20best%20practices&color=F8D44B\"></a>\n  &nbsp;\n  <a href=\"https://securityscorecards.dev/viewer/?uri=github.com/authzed/spicedb\" target=\"_blank\"><img alt=\"ssf badge\" src=\"https://api.securityscorecards.dev/projects/github.com/authzed/spicedb/badge\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://authzed.com/discord\"><img alt=\"discord badge\" src=\"https://img.shields.io/badge/discord-spicedb-7289da?style=flat-square\"></a>\n\t&nbsp;\n    <a href=\"https://twitter.com/authzed\"><img alt=\"twitter badge\" src=\"https://img.shields.io/badge/twitter-@authzed-1d9bf0.svg?style=flat-square\"></a>\n    &nbsp;\n    <a href=\"https://www.linkedin.com/company/authzed/\"><img alt=\"linkedin badge\" src=\"https://img.shields.io/badge/linkedin-+authzed-2D65BC.svg?style=flat-square\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=396856161\" target=\"_blank\"><img alt=\"launch codespaces badge\" src=\"https://img.shields.io/badge/launch-Codespaces-blue?style=flat-square\"></a>\n  &nbsp;\n  <a href=\"https://gitpod.io/#https://github.com/authzed/spicedb\" target=\"_blank\"><img alt=\"launch gitpod badge\" src=\"https://img.shields.io/badge/Gitpod-ready--to--code-blue?style=flat-square\"></a>\n</p>\n\n## What is SpiceDB?\n\n<a href=\"https://authzed.com#gh-dark-mode-only\" target=\"_blank\"><img align=\"right\" width=\"300\" src=\"https://github.com/user-attachments/assets/e0e70549-91dc-4a07-9309-2e18942a7902\" alt=\"spicedb diagram\" /></a>\n<a href=\"https://authzed.com#gh-light-mode-only\" target=\"_blank\"><img align=\"right\" width=\"300\" src=\"https://github.com/user-attachments/assets/97342fce-d94b-42b6-b02f-fe3958d13981\" alt=\"spicedb diagram\" /></a>\n\nSpiceDB is the most mature open source project inspired by Google's internal authorization system: [Zanzibar].\n\nAs of 2021, [broken access control became the #1 threat to web security according to OWASP][owasp].\nWith SpiceDB, platform and product teams can be be protected by answering this question easily: **\"can subject X perform action Y on resource Z?\"**\n\nSimilar to a relational database, developers define a **schema**, write data in the form of **relationships**, and then use SpiceDB's clients to issue **permission checks** in their application to determine what actions a user can take on a resource. Other queries are also possible, such as \"What can `subject` do?\" or \"Who can access `resource`?\".\n\nSpiceDB is often ran as a centralized service shared across product suites and microservice architectures.\n\nSpiceDB is focused purely on *authorization* and is designed to be fully agnostic to *authentication* solutions/identity providers.\n\n[owasp]: https://owasp.org/Top10/A01_2021-Broken_Access_Control/\n\n### What is Google Zanzibar?\n\nIn 2019, Google released the paper \"[Zanzibar: Google's Consistent, Global Authorization System][zanzibar]\" providing the original inspiration for SpiceDB.\nThe paper presents the design, implementation, and deployment of, Zanzibar, Google's internal system for storing and evaluating access control lists.\nOriginally designed for [Google+ Circles][circles], Zanzibar now sits at the core Google's entire product suite (Calendar, Drive, Maps, Photos, YouTube) and powers the Google Cloud IAM service.\n\nWhile SpiceDB has gone on to innovate well beyond the functionality outlined in the paper, development of SpiceDB aims to always remain faithful to the paper's values and goals.\n\n[zanzibar]: https://authzed.com/zanzibar\n[circles]: https://en.wikipedia.org/wiki/Google+#Circles\n\n### Why SpiceDB?\n\n- [**World-class engineering**][about]: painstakingly built by experts that pioneered the cloud-native ecosystem\n- [**Authentic design**][zanzibar]: mature and feature-complete implementation of Google's Zanzibar paper\n- [**Proven in production**][1M]: 5ms p95 when scaled to millions of queries/s, billions of relationships\n- [**Global consistency**][consistency]: consistency configured per-request unlocks correctness while maintaining performance\n- [**Multi-paradigm**][caveats]: caveated relationships combine the best concepts in authorization: ABAC & ReBAC\n- [**Safety in tooling**][tooling]: designs schemas with real-time validation or validate in your CI/CD workflow\n- [**Reverse Indexes**][reverse-indexes]: queries for \"What can `subject` do?\", \"Who can access `resource`?\"\n\n[about]: https://authzed.com/why-authzed\n[1M]: https://authzed.com/blog/google-scale-authorization\n[caveats]: https://netflixtechblog.com/abac-on-spicedb-enabling-netflixs-complex-identity-types-c118f374fa89\n[tooling]: https://authzed.com/docs/spicedb/modeling/validation-testing-debugging\n[reverse-indexes]: https://authzed.com/docs/spicedb/getting-started/faq#what-is-a-reverse-index\n[consistency]: https://authzed.com/docs/spicedb/concepts/consistency\n\n### Who uses SpiceDB?\n\nSpiceDB is a powerful tool in a variety of domains and in organizations of all sizes; we've chosen to highlight a few interesting community members:\n\n- [IBM's AI Data & Model Factory Platform](https://youtu.be/4K2a9HcRhXA)\n- [Red Hat's Insights Platform](https://www.redhat.com/en/technologies/management/insights)\n- [GitPod](https://github.com/gitpod-io/gitpod/issues/15632)\n- [TubiTV China (中文)](https://zhuanlan.zhihu.com/p/685603356)\n- [DMM Online Salon (日本語)](https://inside.dmm.com/articles/salon-datebase-migration-challenges/)\n\nBeyond the community, you can also read [customer stories][stories] for commercial usage of SpiceDB.\n\n[stories]: https://authzed.com/customers\n\n## Getting Started\n\n### Installing the binary\n\nBinary releases are available for Linux, macOS, and Windows on AMD64 and ARM64 architectures.\n\n[Homebrew] users for both macOS and Linux can install the latest binary releases of SpiceDB and [zed] using the official tap:\n\n```command\nbrew install authzed/tap/spicedb authzed/tap/zed\n```\n\n[Debian-based Linux] users can install SpiceDB packages by adding a new APT source:\n\n```command\nsudo apt update && sudo apt install -y curl ca-certificates gpg\ncurl https://pkg.authzed.com/apt/gpg.key | sudo apt-key add -\nsudo echo \"deb https://pkg.authzed.com/apt/ * *\" > /etc/apt/sources.list.d/fury.list\nsudo apt update && sudo apt install -y spicedb zed\n```\n\n[RPM-based Linux] users can install SpiceDB packages by adding a new YUM repository:\n\n```command\nsudo cat << EOF >> /etc/yum.repos.d/Authzed-Fury.repo\n[authzed-fury]\nname=AuthZed Fury Repository\nbaseurl=https://pkg.authzed.com/yum/\nenabled=1\ngpgcheck=0\nEOF\nsudo dnf install -y spicedb zed\n```\n\n[zed]: https://github.com/authzed/zed\n[homebrew]: https://docs.authzed.com/spicedb/installing#brew\n[Debian-based Linux]: https://en.wikipedia.org/wiki/List_of_Linux_distributions#Debian-based\n[RPM-based Linux]: https://en.wikipedia.org/wiki/List_of_Linux_distributions#RPM-based\n  \n### Running a container\n\nContainer images are available for AMD64 and ARM64 architectures on the following registries:\n\n- [authzed/spicedb](https://hub.docker.com/r/authzed/spicedb)\n- [ghcr.io/authzed/spicedb](https://github.com/authzed/spicedb/pkgs/container/spicedb)\n- [quay.io/authzed/spicedb](https://quay.io/authzed/spicedb)\n\n[Docker] users can run the latest SpiceDB container with the following:\n\n```shell\n# expose grpc and http. http is used in the examples below.\ndocker run --rm -p 50051:50051 -p 8443:8443 authzed/spicedb serve --http-enabled true --grpc-preshared-key \"somerandomkeyhere\"\n```\n\nSpiceDB containers use [Chainguard Images] to ship the bare minimum userspace which is a huge boon to security, but can complicate debugging.\nIf you want to execute a user session into a running SpiceDB container and install packages, you can use one of our debug images.\n\nAppending `-debug` to any tag will provide you an image that has a userspace with debug tooling:\n\n```command\ndocker run --rm -ti --entrypoint sh authzed/spicedb:latest-debug\n```\n\nContainers are also available for each git commit to the `main` branch under `${REGISTRY}/authzed/spicedb-git:${COMMIT}`.\n\n[Docker]: https://docs.docker.com/get-docker/\n[Chainguard Images]: https://github.com/chainguard-images/images\n\n### Write your own schema and relationships\n\nNow that you have SpiceDB running, you must define your **schema** and write **relationships** that represent the permissions in your application. There are various way to do this:\n\n- Use the [client libraries].\n- Use the [hosted Playground] or [run it yourself locally]. The playground contains a set of example schemas and test data for different scenarios.\n- Use the [zed] CLI.\n- Use the [gRPC](https://buf.build/authzed/api/docs/main:authzed.api.v1) or the [HTTP](https://authzed.com/docs/spicedb/api/http-api) APIs. For example:\n  \n```shell\n    # write a schema\n    curl --location 'http://localhost:8443/v1/schema/write' \\\n    --header 'Content-Type: application/json' \\\n    --header 'Accept: application/json' \\\n    --header 'Authorization: Bearer somerandomkeyhere' \\\n    --data '{\n        \"schema\": \"definition user {} \\n definition folder { \\n relation parent: folder\\n relation viewer: user \\n permission view = viewer + parent->view \\n } \\n definition document {\\n relation folder: folder \\n relation viewer: user \\n permission view = viewer + folder->view \\n }\"\n    }'\n\n    # write a relationship\n    curl --location 'http://localhost:8443/v1/relationships/write' \\\n    --header 'Content-Type: application/json' \\\n    --header 'Accept: application/json' \\\n    --header 'Authorization: Bearer somerandomkeyhere' \\\n    --data '{\n        \"updates\": [\n            {\n                \"operation\": \"OPERATION_TOUCH\",\n                \"relationship\": {\n                    \"resource\": {\n                        \"objectType\": \"folder\",\n                        \"objectId\": \"budget\"\n                    },\n                    \"relation\": \"viewer\",\n                    \"subject\": {\n                        \"object\": {\n                            \"objectType\": \"user\",\n                            \"objectId\": \"anne\"\n                        }\n                    }\n                }\n            }\n        ]\n    }'\n```\n\nYou can follow a [guide for developing a schema] or review the the schema language [design documentation].\n\nFinally, you can watch the [SpiceDB primer video on schema development](https://www.youtube.com/watch?v=AoK0LrkGFDY).\n\n[hosted Playground]: https://play.authzed.com\n[run it yourself locally]: https://github.com/authzed/playground\n[Playground]: https://github.com/authzed/playground\n[guide for developing a schema]: https",
+        "truncated": true,
+        "bytes": 19367,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.49.1",
+            "tag_name": "v1.49.1",
+            "published_at": "2026-02-09T15:05:59Z",
+            "body_excerpt": "## Highlights\r\n* A fix for a [low-severity GHSA](https://github.com/authzed/spicedb/security/advisories/GHSA-vhvq-fv9f-wh4q) in #2878 \r\n\r\n## What's Changed\r\n* fix: update IterSubjects for wildcards and Alias iterators for confomance by @barakmich in https://github.com/authzed/spicedb/pull/2864\r\n* ci: use arm runners in integration tests by @tstirrat15 in https://github.com/authzed/spicedb/pull/2877\r\n* fix: prevent panic on malformed cursor by @tstirrat15 in https://github.com/authzed/spicedb/pull/2878\r\n* fix: improve LR consistency and support multiple resourcetypes by @barakmich in https://github.com/authzed/spicedb/pull/2875\r\n* chore: add metrics and tests to all cache implementations by @miparnisari in https://github.com/authzed/spicedb/pull/2874\r\n* fix: query both subrelation and ellipses on arrows for IterResources by @barakmich in https://github.com/authzed/spicedb/pull/2879\r\n* chore(deps): bump the github-actions group with 5 updates by @dependabot[bot] in https://github.com/authzed/spicedb/pull/2870\r\n* feat: finish LR consistency tests with the fix to the recursive iterator by @barakmich in https://github.com/authzed/spicedb/pull/2881\r\n* fix: handle `self` keyword in warnings checks, and check these warnings are error-free in consistency by @barakmich in https://github.com/authzed/spicedb/pull/2884\r\n* fix: make sure that use self comes out of formatter when self is used by @tstirrat15 in https://github.com/authzed/spicedb/pull/2885\r\n* build: add new mustcallcheck analyzer and fix instances by @tstirrat15 in https://github.com/authzed/spicedb/pull/2886\r\n* chore: implement self in schemav2 by @tstirrat15 in https://github.com/authzed/spicedb/pull/2887\r\n\r\n\r\n**Full Changelog**: https://github.com/authzed/spicedb/compare/v1.49.0...v1.49.1\r\n\r\n## Docker Images\r\nThis release is available at `authzed/spicedb:v1.49.1`, `quay.io/authzed/spicedb:v1.49.1`, `ghcr.io/authzed/spicedb:v1.49.1`\r\n\r\n"
+          },
+          {
+            "name": "v1.49.0",
+            "tag_name": "v1.49.0",
+            "published_at": "2026-02-03T20:16:52Z",
+            "body_excerpt": "## Highlights\r\n### Support for `self` keyword added to permissions\r\nPreviously, if you wanted to represent something like \"a user should be able to view themselves,\" this required adding a relation to the schema and then writing a relation from the user to itself. We've added support for a `self` keyword in permissions that represents this directly, which reduces storage requirements, removes the need for a trip to the database, and removes a relationship that needs to be synced.\r\nFor more information, see [the Docs](https://authzed.com/docs/spicedb/concepts/schema#the-self-keyword) and the PR: #2785\r\n### Experimental\r\n#### Postgres Foreign Data Wrapper\r\nIn #2806, we added a new experimental command to SpiceDB that serves a [Postgres Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers): `spicedb postgres-fdw [flags]`.\r\nIf you configure your Postgres instance accordingly, it can speak to SpiceDB through the FDW as a proxy, allowing you to write queries like:\r\n```sql\r\n-- Check if user:alice has permission to view document:readme\r\nSELECT has_permission\r\nFROM permissions\r\nWHERE resource_type = 'document'\r\n  AND resource_id = 'readme'\r\n  AND permission = 'view'\r\n  AND subject_type = 'user'\r\n  AND subject_id = 'alice';\r\n```\r\nYou can now express checks and lookups as `SELECT`s and `JOIN`s in your main application code, and you can read, write, and delete relationships using Postgres as the client.\r\nFor more information, see the [documentation](https://github.com/authzed/spicedb/tree/main/internal/fdw) in the repo.\r\n##### Warnings\r\n* This feature is experimental. We'd welcome you trying it out and providing feedback, but it will likely change before its final GA'd form.\r\n* This feature DOES NOT solve the [Dual-Write Problem](https://authzed.com/blog/the-dual-write-problem). You *can* make updates in the context of a Postgres transaction, but Postgres's FDW protocol doesn't support a two-phase commit semantic, which means there are still failure mode"
+          },
+          {
+            "name": "v1.48.0",
+            "tag_name": "v1.48.0",
+            "published_at": "2025-12-12T01:37:39Z",
+            "body_excerpt": "## Added\r\n* feat: add Memory Protection Middleware (enabled by default, use `--enable-memory-protection-middleware=false` to disable) by @miparnisari in https://github.com/authzed/spicedb/pull/2691. \r\n  ⚠️ Now, if your server's memory usage is too high, incoming requests may be rejected with code \"ResourceExhausted\" (HTTP 429).\r\n\r\n## Changed\r\n* use FAILED_PRECONDITION for recursion depth errors by @tstirrat15 in https://github.com/authzed/spicedb/pull/2729\r\n* docs: improve description of some flags by @miparnisari in https://github.com/authzed/spicedb/pull/2692\r\n* Updated Go to 1.25.5 by @tstirrat15 in https://github.com/authzed/spicedb/pull/2740\r\n## Fixed\r\n* expose x-request-id header in HTTP Gateway responses by @Verolop in https://github.com/authzed/spicedb/pull/2712\r\n* error message when cannot run 'datastore gc' or 'datastore repair' by @miparnisari in https://github.com/authzed/spicedb/pull/2609\r\n* Postgres:\r\n\t* wire up missing revision timestamp on PG ReadWriteTx by [@vroldanbet](https://authzed.slack.com/team/U03HU4QUZU3) in https://github.com/authzed/spicedb/pull/2725\r\n* Spanner:\r\n\t* Watch API by @miparnisari in https://github.com/authzed/spicedb/pull/2560\r\n\t* statistics by @miparnisari in https://github.com/authzed/spicedb/pull/2745\r\n\r\n**Full Changelog**: https://github.com/authzed/spicedb/compare/v1.47.1...v1.48.0\r\n\r\n## Docker Images\r\nThis release is available at `authzed/spicedb:v1.48.0`, `quay.io/authzed/spicedb:v1.48.0`, `ghcr.io/authzed/spicedb:v1.48.0`\r\n\r\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 2905,
+            "title": "Add cockroachdb v26.1.0 to matrix",
+            "state": "open",
+            "url": "https://github.com/authzed/spicedb/issues/2905"
+          },
+          {
+            "number": 2525,
+            "title": "Using Read Replica on AWS Aurora Postgres causing errors",
+            "state": "open",
+            "url": "https://github.com/authzed/spicedb/issues/2525"
+          },
+          {
+            "number": 15,
+            "title": "Enable arbitrary nesting of arrow operators",
+            "state": "open",
+            "url": "https://github.com/authzed/spicedb/issues/15"
+          }
+        ]
+      },
+      "root_files": [
+        ".devcontainer",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".golangci.yaml",
+        ".goreleaser.nightly.yml",
+        ".goreleaser.windows.yml",
+        ".goreleaser.yml",
+        ".markdownlint.yaml",
+        ".prettierignore",
+        ".vscode",
+        ".yamllint",
+        "CODE-OF-CONDUCT.md",
+        "CODEOWNERS",
+        "CONTRIBUTING.md",
+        "DCO",
+        "Dockerfile",
+        "Dockerfile.release",
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "ROADMAP.md",
+        "SECURITY.md",
+        "TELEMETRY.md",
+        "buf.gen.yaml",
+        "buf.work.yaml",
+        "cmd",
+        "codecov.yaml",
+        "configuration.sql",
+        "development",
+        "docker-compose.postgres.yaml",
+        "docker-compose.spanner.yaml",
+        "docker-compose.yaml",
+        "docs",
+        "e2e",
+        "go.mod",
+        "go.sum",
+        "internal",
+        "mage.go",
+        "magefiles",
+        "pkg",
+        "proto",
+        "tools"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<h1 align=\"center\"> <a href=\"https://authzed.com#gh-dark-mode-only\" target=\"_blank\"> <img width=\"300\" src=\"https://github.com/user-attachments/assets/0ebf4718-283b-4c40-b567-1d577c0a2e03\" alt=\"spicedb logo\"> </a> <a href=\"https://authzed.com#gh-light-mode-only\" target=\"_blank\"> <img width=\"300\" src=\"https://github.com/user-attachments/assets/577a72f9-4fdd-49f8-b1d6-e53025d219b8\" alt=\"spicedb Logo\"> </a> </h1>",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<h3 align=\"center\"> SpiceDB sets the standard for authorization that <i>scales</i>. <br/><br/>Scale with<br/> Traffic • Dev Velocity • Functionality • Geography </h3>",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/authzed/spicedb/releases\"><img alt=\"release badge\" src=\"https://img.shields.io/github/v/release/authzed/spicedb?color=%236EC93F&label=latest%20release&sort=semver&style=flat-square\"></a> &nbsp; <a href=\"https://hub.docker.com/repository/docker/authzed/spicedb\" target=\"_blank\"><img alt=\"docker pulls badge\" src=\"https://img.shields.io/docker/pulls/authzed/spicedb?color=%23448CE6&style=flat-square\"></a> &nbsp; <a href=\"https://authzed.com/blog/go-ecosystem\"><img alt=\"built with Go badge\" src=\"https://img.shields.io/badge/built_with-Go-367B99.svg?style=flat-square\"></a> &nbsp; <a href=\"https://app.codecov.io/gh/authzed/spicedb\"><img alt=\"coverage\" src=\"https://img.shields.io/codecov/c/github/authzed/spicedb\"></a> &nbsp; <a href=\"https://www.bestpractices.dev/en/projects/6348\" target=\"_blank\"><img alt=\"cii badge\" src=\"https://img.shields.io/cii/percentage/6348?style=flat-square&label=cii%20best%20practices&color=F8D44B\"></a> &nbsp; <a href=\"https://securityscorecards.dev/viewer/?uri=github.com/authzed/spicedb\" target=\"_blank\"><img alt=\"ssf badge\" src=\"https://api.securityscorecards.dev/projects/github.com/authzed/spicedb/badge\"></a> </p>",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://authzed.com/discord\"><img alt=\"discord badge\" src=\"https://img.shields.io/badge/discord-spicedb-7289da?style=flat-square\"></a> &nbsp; <a href=\"https://twitter.com/authzed\"><img alt=\"twitter badge\" src=\"https://img.shields.io/badge/twitter-@authzed-1d9bf0.svg?style=flat-square\"></a> &nbsp; <a href=\"https://www.linkedin.com/company/authzed/\"><img alt=\"linkedin badge\" src=\"https://img.shields.io/badge/linkedin-+authzed-2D65BC.svg?style=flat-square\"></a> </p>",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=396856161\" target=\"_blank\"><img alt=\"launch codespaces badge\" src=\"https://img.shields.io/badge/launch-Codespaces-blue?style=flat-square\"></a> &nbsp; <a href=\"https://gitpod.io/#https://github.com/authzed/spicedb\" target=\"_blank\"><img alt=\"launch gitpod badge\" src=\"https://img.shields.io/badge/Gitpod-ready--to--code-blue?style=flat-square\"></a> </p>",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<a href=\"https://authzed.com#gh-dark-mode-only\" target=\"_blank\"><img align=\"right\" width=\"300\" src=\"https://github.com/user-attachments/assets/e0e70549-91dc-4a07-9309-2e18942a7902\" alt=\"spicedb diagram\" /></a> <a href=\"https://authzed.com#gh-light-mode-only\" target=\"_blank\"><img align=\"right\" width=\"300\" src=\"https://github.com/user-attachments/assets/97342fce-d94b-42b6-b02f-fe3958d13981\" alt=\"spicedb diagram\" /></a>",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 7)",
+          "excerpt": "SpiceDB is the most mature open source project inspired by Google's internal authorization system: [Zanzibar].",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/authzed/spicedb#readme",
+          "title": "README (segment 8)",
+          "excerpt": "As of 2021, [broken access control became the #1 threat to web security according to OWASP][owasp]. With SpiceDB, platform and product teams can be be protected by answering this question easily: **\"can subject X perform action Y on resource Z?\"**",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/authzed/spicedb/issues/2905",
+          "title": "Add cockroachdb v26.1.0 to matrix",
+          "excerpt": "Add cockroachdb v26.1.0 to matrix (state:open)",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "number": 2905
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/authzed/spicedb/issues/2525",
+          "title": "Using Read Replica on AWS Aurora Postgres causing errors",
+          "excerpt": "Using Read Replica on AWS Aurora Postgres causing errors (state:open)",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "number": 2525
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/authzed/spicedb/issues/15",
+          "title": "Enable arbitrary nesting of arrow operators",
+          "excerpt": "Enable arbitrary nesting of arrow operators (state:open)",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "number": 15
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/authzed/spicedb/releases",
+          "title": "v1.49.1",
+          "excerpt": "## Highlights * A fix for a [low-severity GHSA](https://github.com/authzed/spicedb/security/advisories/GHSA-vhvq-fv9f-wh4q) in #2878 ## What's Changed * fix: update IterSubjects for wildcards and Alias iterators for confomance by @barakmich in https://github.com/authzed/spicedb/pull/2864 * ci: use arm runners in integration tests by @tstirrat15 in https://github.com/authzed/spicedb/pull/2877 * fix: prevent panic on malformed cursor by @tstirrat15 in https://github.com/authzed/spicedb/pull/2878 * fix: improve LR consistency and support multiple resourcetypes by @barakmich in https://github.com/authzed/spicedb/pull/2875 * chore: add metrics and tests to all cache implementations by @miparnisari in https://github.com/authzed/spicedb/pull/2874 * fix: query both subrelation and ellipses on arrows for IterResources by @barakmich in https://github.com/authzed/spicedb/pull/2879 * chore(deps): bump the github-actions group with 5 updates by @dependabot[bot] in https://github.com/authzed/spicedb/pull/2870 * feat: finish LR consistency tests with the fix to the recursive iterator by @barakmich in https://github.com/authzed/spicedb/pull/2881 * fix: handle `self` keyword in warnings checks, an…",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "tag_name": "v1.49.1",
+            "published_at": "2026-02-09T15:05:59Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/authzed/spicedb/releases",
+          "title": "v1.49.0",
+          "excerpt": "## Highlights ### Support for `self` keyword added to permissions Previously, if you wanted to represent something like \"a user should be able to view themselves,\" this required adding a relation to the schema and then writing a relation from the user to itself. We've added support for a `self` keyword in permissions that represents this directly, which reduces storage requirements, removes the need for a trip to the database, and removes a relationship that needs to be synced. For more information, see [the Docs](https://authzed.com/docs/spicedb/concepts/schema#the-self-keyword) and the PR: #2785 ### Experimental #### Postgres Foreign Data Wrapper In #2806, we added a new experimental command to SpiceDB that serves a [Postgres Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers): `spicedb postgres-fdw [flags]`. If you configure your Postgres instance accordingly, it can speak to SpiceDB through the FDW as a proxy, allowing you to write queries like: ```sql -- Check if user:alice has permission to view document:readme SELECT has_permission FROM permissions WHERE resource_type = 'document' AND resource_id = 'readme' AND permission = 'view' AND subject_type …",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "tag_name": "v1.49.0",
+            "published_at": "2026-02-03T20:16:52Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/authzed/spicedb/releases",
+          "title": "v1.48.0",
+          "excerpt": "## Added * feat: add Memory Protection Middleware (enabled by default, use `--enable-memory-protection-middleware=false` to disable) by @miparnisari in https://github.com/authzed/spicedb/pull/2691. ⚠️ Now, if your server's memory usage is too high, incoming requests may be rejected with code \"ResourceExhausted\" (HTTP 429). ## Changed * use FAILED_PRECONDITION for recursion depth errors by @tstirrat15 in https://github.com/authzed/spicedb/pull/2729 * docs: improve description of some flags by @miparnisari in https://github.com/authzed/spicedb/pull/2692 * Updated Go to 1.25.5 by @tstirrat15 in https://github.com/authzed/spicedb/pull/2740 ## Fixed * expose x-request-id header in HTTP Gateway responses by @Verolop in https://github.com/authzed/spicedb/pull/2712 * error message when cannot run 'datastore gc' or 'datastore repair' by @miparnisari in https://github.com/authzed/spicedb/pull/2609 * Postgres: * wire up missing revision timestamp on PG ReadWriteTx by [@vroldanbet](https://authzed.slack.com/team/U03HU4QUZU3) in https://github.com/authzed/spicedb/pull/2725 * Spanner: * Watch API by @miparnisari in https://github.com/authzed/spicedb/pull/2560 * statistics by @miparnisari in htt…",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "tag_name": "v1.48.0",
+            "published_at": "2025-12-12T01:37:39Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/authzed/spicedb",
+          "title": "ROOT_FILES",
+          "excerpt": ".devcontainer, .gitattributes, .github, .gitignore, .golangci.yaml, .goreleaser.nightly.yml, .goreleaser.windows.yml, .goreleaser.yml, .markdownlint.yaml, .prettierignore, .vscode, .yamllint, CODE-OF-CONDUCT.md, CODEOWNERS, CONTRIBUTING.md, DCO, Dockerfile, Dockerfile.release, LICENSE, NOTICE, README.md, ROADMAP.md, SECURITY.md, TELEMETRY.md, buf.gen.yaml, buf.work.yaml, cmd, codecov.yaml, configuration.sql, development, docker-compose.postgres.yaml, docker-compose.spanner.yaml, docker-compose.yaml, docs, e2e, go.mod, go.sum, internal, mage.go, magefiles, pkg, proto, tools",
+          "fetched_at": "2026-02-19T00:38:43.998Z",
+          "meta": {
+            "repo_full_name": "authzed/spicedb",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "cockroachdb/cockroach",
+      "html_url": "https://github.com/cockroachdb/cockroach",
+      "description": "CockroachDB — the cloud native, distributed SQL database designed for high availability, effortless scale, and control over data placement.",
+      "topics": [
+        "cockroachdb",
+        "database",
+        "distributed-database",
+        "go",
+        "hacktoberfest",
+        "sql"
+      ],
+      "language": "Go",
+      "stargazers_count": 31884,
+      "forks_count": 4083,
+      "open_issues_count": 7837,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-02-19T00:38:17Z",
+      "created_at": "2014-02-06T00:18:47Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src='docs/media/cockroach_db.png?raw=true' width='70%'>\n</p>\n\n---\n\nCockroachDB is a cloud-native distributed SQL database designed to build,\nscale, and manage modern, data-intensive applications. \n\n- [What is CockroachDB?](#what-is-cockroachdb)\n- [Docs](#docs)\n- [Starting with Cockroach Cloud](#starting-with-cockroachcloud)\n- [Starting with CockroachDB](#starting-with-cockroachdb)\n- [Client Drivers](#client-drivers)\n- [Deployment](#deployment)\n- [Need Help?](#need-help)\n- [Contributing](#contributing)\n- [Design](#design)\n- [Comparison with Other Databases](#comparison-with-other-databases)\n- [See Also](#see-also)\n\n## What is CockroachDB?\n\nCockroachDB is a distributed SQL database built on a transactional and\nstrongly-consistent key-value store. It **scales** horizontally;\n**survives** disk, machine, rack, and even datacenter failures with\nminimal latency disruption and no manual intervention; supports\n**strongly-consistent** ACID transactions; and provides a familiar\n**SQL** API for structuring, manipulating, and querying data.\n\nFor more details, see our [product overview](https://www.cockroachlabs.com/product/overview/), [FAQ](https://cockroachlabs.com/docs/stable/frequently-asked-questions.html) or [architecture document](\nhttps://www.cockroachlabs.com/docs/stable/architecture/overview.html).\n\n## Docs\n\nFor guidance on installation, development, deployment, and administration, see our [User Documentation](https://cockroachlabs.com/docs/stable/).\n\n## Starting with CockroachCloud\n\nWe can run CockroachDB for you, so you don't have to run your own cluster.\n\nSee our online documentation: [Quickstart with CockroachCloud](https://www.cockroachlabs.com/docs/cockroachcloud/quickstart.html)\n\n## Starting with CockroachDB\n\n1. Install CockroachDB:  [using a pre-built executable](https://www.cockroachlabs.com/docs/stable/install-cockroachdb.html) or [build it from source](https://cockroachlabs.atlassian.net/wiki/spaces/CRDB/pages/181338446/Getting+and+building+CockroachDB+from+source).\n2. [Start a local cluster](https://www.cockroachlabs.com/docs/stable/start-a-local-cluster.html) and connect to it via the [built-in SQL client](https://www.cockroachlabs.com/docs/stable/use-the-built-in-sql-client.html).\n3. [Learn more about CockroachDB SQL](https://www.cockroachlabs.com/docs/stable/learn-cockroachdb-sql.html).\n4. Use a PostgreSQL-compatible driver or ORM to [build an app with CockroachDB](https://www.cockroachlabs.com/docs/stable/hello-world-example-apps.html).\n5. [Explore core features](https://www.cockroachlabs.com/docs/stable/demo-data-replication.html), such as data replication, automatic rebalancing, and fault tolerance and recovery.\n\n## Client Drivers\n\nCockroachDB supports the PostgreSQL wire protocol, so you can use any available PostgreSQL client drivers to connect from various languages.\n\n- For recommended drivers that we've tested, see [Install Client Drivers](https://www.cockroachlabs.com/docs/stable/install-client-drivers.html).\n- For tutorials using these drivers, as well as supported ORMs, see [Example Apps](https://www.cockroachlabs.com/docs/stable/example-apps.html).\n\n## Deployment\n\n- [CockroachCloud](https://www.cockroachlabs.com/docs/cockroachcloud/quickstart) - Steps to create a [free CockroachCloud cluster](https://cockroachlabs.cloud/signup?referralId=githubquickstart) on your preferred Cloud platform.\n- [Manual](https://www.cockroachlabs.com/docs/stable/manual-deployment.html) - Steps to deploy a CockroachDB cluster manually on multiple machines.\n- [Cloud](https://www.cockroachlabs.com/docs/stable/cloud-deployment.html) - Guides for deploying CockroachDB on various cloud platforms.\n- [Orchestration](https://www.cockroachlabs.com/docs/stable/orchestration.html) - Guides for running CockroachDB with popular open-source orchestration systems.\n\n## Need Help?\n\n- [CockroachDB Community Slack](https://go.crdb.dev/p/slack) - Join our slack to connect with our engineers and other users running CockroachDB.\n- [CockroachDB Forum](https://forum.cockroachlabs.com/) and [Stack Overflow](https://stackoverflow.com/questions/tagged/cockroachdb) - Ask questions, find answers, and help other users.\n- [Troubleshooting documentation](https://www.cockroachlabs.com/docs/stable/troubleshooting-overview.html) - Learn how to troubleshoot common errors, cluster setup, and SQL query behavior.\n- For filing bugs, suggesting improvements, or requesting new features, help us out by [opening an issue](https://github.com/cockroachdb/cockroach/issues/new).\n\n## Building from source\n\nSee [our wiki](https://wiki.crdb.io/wiki/spaces/CRDB/pages/181338446/Getting+and+building+from+source) for more details.\n\n## Contributing\n\nWe welcome your contributions! If you're looking for issues to work on, try looking at the [good first issue list](https://github.com/cockroachdb/cockroach/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22). We do our best to tag issues suitable for new external contributors with that label, so it's a great way to find something you can help with!\n\nSee [our wiki](https://wiki.crdb.io/wiki/spaces/CRDB/pages/73204033/Contributing+to+CockroachDB) for more details.\n\nEngineering discussions take place on our public mailing list, [cockroach-db@googlegroups.com](https://groups.google.com/forum/#!forum/cockroach-db). Also please join our [Community Slack](https://go.crdb.dev/p/slack) (there's a dedicated #contributors channel!) to ask questions, discuss your ideas, and connect with other contributors.\n\n## Design\n\nFor an in-depth discussion of the CockroachDB architecture, see our\n[Architecture\nGuide](https://www.cockroachlabs.com/docs/stable/architecture/overview.html).\nFor the original design motivation, see our [design\ndoc](https://github.com/cockroachdb/cockroach/blob/master/docs/design.md).\n\n## Licensing\n\nAll versions released on or after November 18, 2024 (specifically, major version series v24.3 and later, and patch fixes for v23.1.29+, v23.2.16+, v24.1.7+, and v24.2.5+) are published under the [CockroachDB Software License (CSL)](./LICENSE). Source code in a given file is licensed under the CSL and the copyright belongs to The Cockroach Authors unless otherwise noted in the file or in a LICENSE or README file located in the same or a parent directory of the file.\n\n## Comparison with Other Databases\n\nTo see how key features of CockroachDB stack up against other databases,\ncheck out [CockroachDB in Comparison](https://www.cockroachlabs.com/docs/stable/cockroachdb-in-comparison.html).\n\n## See Also\n\n- [Tech Talks](https://www.cockroachlabs.com/community/tech-talks/) (by CockroachDB founders, engineers, and customers!)\n- [CockroachDB User Documentation](https://cockroachlabs.com/docs/stable/)\n- [The CockroachDB Blog](https://www.cockroachlabs.com/blog/)\n- Key design documents\n  - [Serializable, Lockless, Distributed: Isolation in CockroachDB](https://www.cockroachlabs.com/blog/serializable-lockless-distributed-isolation-cockroachdb/)\n  - [Consensus, Made Thrive](https://www.cockroachlabs.com/blog/consensus-made-thrive/)\n  - [Trust, But Verify: How CockroachDB Checks Replication](https://www.cockroachlabs.com/blog/trust-but-verify-cockroachdb-checks-replication/)\n  - [Living Without Atomic Clocks](https://www.cockroachlabs.com/blog/living-without-atomic-clocks/)\n  - [The CockroachDB Architecture Document](https://github.com/cockroachdb/cockroach/blob/master/docs/design.md)\n",
+        "truncated": false,
+        "bytes": 7432,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 162591,
+            "title": "pkg/sql/sqlstats/insights/integration/integration_test: TestInsightsPriorityIntegration failed",
+            "state": "closed",
+            "url": "https://github.com/cockroachdb/cockroach/issues/162591"
+          }
+        ]
+      },
+      "root_files": [
+        ".bazelignore",
+        ".bazelrc",
+        ".bazelversion",
+        ".claude",
+        ".cursor",
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".gitmodules",
+        ".mcp.json",
+        ".node-version",
+        ".trunk",
+        "AUTHORS",
+        "BUILD.bazel",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "DEPS.bzl",
+        "EXTERNAL-CONTRIBUTORS-HALL-OF-FAME.md",
+        "GNUmakefile",
+        "LICENSE",
+        "README.md",
+        "TEAMS.yaml",
+        "WORKSPACE",
+        "build",
+        "c-deps",
+        "cloud",
+        "datadoggen",
+        "dev",
+        "docs",
+        "githooks",
+        "go.mod",
+        "go.sum",
+        "licenses",
+        "monitoring",
+        "pkg",
+        "scripts",
+        "tools"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src='docs/media/cockroach_db.png?raw=true' width='70%'> </p>",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 2)",
+          "excerpt": "CockroachDB is a cloud-native distributed SQL database designed to build, scale, and manage modern, data-intensive applications.",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 3)",
+          "excerpt": "- [What is CockroachDB?](#what-is-cockroachdb) - [Docs](#docs) - [Starting with Cockroach Cloud](#starting-with-cockroachcloud) - [Starting with CockroachDB](#starting-with-cockroachdb) - [Client Drivers](#client-drivers) - [Deployment](#deployment) - [Need Help?](#need-help) - [Contributing](#contributing) - [Design](#design) - [Comparison with Other Databases](#comparison-with-other-databases) - [See Also](#see-also)",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 4)",
+          "excerpt": "CockroachDB is a distributed SQL database built on a transactional and strongly-consistent key-value store. It **scales** horizontally; **survives** disk, machine, rack, and even datacenter failures with minimal latency disruption and no manual intervention; supports **strongly-consistent** ACID transactions; and provides a familiar **SQL** API for structuring, manipulating, and querying data.",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 5)",
+          "excerpt": "For more details, see our [product overview](https://www.cockroachlabs.com/product/overview/), [FAQ](https://cockroachlabs.com/docs/stable/frequently-asked-questions.html) or [architecture document]( https://www.cockroachlabs.com/docs/stable/architecture/overview.html).",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 6)",
+          "excerpt": "For guidance on installation, development, deployment, and administration, see our [User Documentation](https://cockroachlabs.com/docs/stable/).",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 7)",
+          "excerpt": "See our online documentation: [Quickstart with CockroachCloud](https://www.cockroachlabs.com/docs/cockroachcloud/quickstart.html)",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/cockroachdb/cockroach#readme",
+          "title": "README (segment 8)",
+          "excerpt": "1. Install CockroachDB: [using a pre-built executable](https://www.cockroachlabs.com/docs/stable/install-cockroachdb.html) or [build it from source](https://cockroachlabs.atlassian.net/wiki/spaces/CRDB/pages/181338446/Getting+and+building+CockroachDB+from+source). 2. [Start a local cluster](https://www.cockroachlabs.com/docs/stable/start-a-local-cluster.html) and connect to it via the [built-in SQL client](https://www.cockroachlabs.com/docs/stable/use-the-built-in-sql-client.html). 3. [Learn more about CockroachDB SQL](https://www.cockroachlabs.com/docs/stable/learn-cockroachdb-sql.html). 4. Use a PostgreSQL-compatible driver or ORM to [build an app with CockroachDB](https://www.cockroachlabs.com/docs/stable/hello-world-example-apps.html). 5. [Explore core features](https://www.cockroachlabs.com/docs/stable/demo-data-replication.html), such as data replication, automatic rebalancing, and fault tolerance and recovery.",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/cockroachdb/cockroach/issues/162591",
+          "title": "pkg/sql/sqlstats/insights/integration/integration_test: TestInsightsPriorityIntegration failed",
+          "excerpt": "pkg/sql/sqlstats/insights/integration/integration_test: TestInsightsPriorityIntegration failed (state:closed)",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "number": 162591
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/cockroachdb/cockroach",
+          "title": "ROOT_FILES",
+          "excerpt": ".bazelignore, .bazelrc, .bazelversion, .claude, .cursor, .editorconfig, .gitattributes, .github, .gitignore, .gitmodules, .mcp.json, .node-version, .trunk, AUTHORS, BUILD.bazel, CLAUDE.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, DEPS.bzl, EXTERNAL-CONTRIBUTORS-HALL-OF-FAME.md, GNUmakefile, LICENSE, README.md, TEAMS.yaml, WORKSPACE, build, c-deps, cloud, datadoggen, dev, docs, githooks, go.mod, go.sum, licenses, monitoring, pkg, scripts, tools",
+          "fetched_at": "2026-02-19T00:38:43.893Z",
+          "meta": {
+            "repo_full_name": "cockroachdb/cockroach",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "scalar/scalar",
+      "html_url": "https://github.com/scalar/scalar",
+      "description": "Scalar is an open-source API platform:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　🌐 Modern Rest API Client　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　📖 Beautiful API References　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　✨ 1st-Class OpenAPI/Swagger Support",
+      "topics": [
+        "api",
+        "api-client",
+        "docs",
+        "http-client",
+        "openapi",
+        "openapi3",
+        "reference",
+        "rest-api",
+        "swagger",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13959,
+      "forks_count": 742,
+      "open_issues_count": 172,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-19T00:38:07Z",
+      "created_at": "2023-08-16T13:42:32Z",
+      "readme": {
+        "fetched": true,
+        "text": "[![CI](https://github.com/scalar/scalar/actions/workflows/ci.yml/badge.svg)](https://github.com/scalar/scalar/actions/workflows/ci.yml)\n[![Contributors](https://img.shields.io/github/contributors/scalar/scalar)](https://github.com/scalar/scalar/graphs/contributors)\n[![GitHub License](https://img.shields.io/github/license/scalar/scalar)](https://github.com/scalar/scalar/blob/main/LICENSE)\n[![Twitter](https://img.shields.io/twitter/follow/scalar)](https://x.com/scalar)\n[![Discord](https://img.shields.io/discord/1135330207960678410?style=flat&color=5865F2)](https://discord.gg/scalar)\n\n<h1>\n\t<p>Scalar</p>\n\t<p>\n\t\t<a href=\"https://docs.scalar.com/swagger-editor\" target=\"_blank\">\n\t\t\t<picture>\n\t\t\t\t<source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/9b639f2d-0204-4b15-b918-158072a9afa5\">\n\t\t\t\t<source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/be723d07-ec9c-4edb-b657-05a8bc05c7d6\">\n\t\t\t\t<img width=\"48.494%\" height=\"250\" src=\"https://github.com/user-attachments/assets/9b639f2d-0204-4b15-b918-158072a9afa5#gh-light-mode-only\" alt=\"Scalar API Reference\">\n\t\t\t</picture>\n\t \t</a>\n\t\t<a href=\"https://scalar.com/download\" target=\"_blank\">\n\t\t\t<picture>\n\t\t\t\t<source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/b391b82f-d993-4e97-8a17-1c3c7ccbb19b\">\n\t\t\t\t<source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/579d0853-b2a5-4ea8-b2bd-a98753faeaf3\">\n\t\t\t\t<img width=\"48.494%\" height=\"250\" src=\"https://github.com/user-attachments/assets/b391b82f-d993-4e97-8a17-1c3c7ccbb19b#gh-light-mode-only\" alt=\"Scalar API client\">\n\t\t\t</picture>\n\t\t</a>\n\t</p>\n</h1>\n\n<p>\n\t<img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/3a24fc5c-5d3c-4be4-8b9e-399bd49e4fb7#gh-light-mode-only\">\n\t<img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/76f123ae-f458-409f-84d3-b9ad14fd3fb2#gh-dark-mode-only\">\n</p>\n\n### Interactive API Reference from OpenAPI/Swagger\n\n└ Renders OpenAPI/Swagger documents<br>\n└ Comes with an API testing tool<br>\n└ Doesn't look like 2011<br>\n└ Generates code examples for many languages & frameworks<br>\n└ Integrates with your favorite framework<br>\n└ <a href=\"https://docs.scalar.com/swagger-editor\">Try Demo</a>\n\n<!-- minimal line break-->\n<p>\n\t<img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/7d7e7ba7-2b02-49f3-abcd-b24c566a3c16#gh-light-mode-only\">\n\t<img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/341bfb1d-5cb0-4ec6-89eb-4b1dcc07eeb7#gh-dark-mode-only\">\n</p>\n<!-- end minimal line break-->\n\n<p>\n\t<img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/d9f90c51-82d4-4948-9365-658ccc7d78c4#gh-light-mode-only\">\n\t<img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/e7c2023e-dfbc-428c-bc85-c06d8a6e4b67#gh-dark-mode-only\">\n</p>\n\n### An offline-first API Client built for OpenAPI\n\n└ Free and open-source<br>\n└ First-class OpenAPI/Swagger support<br>\n└ Integrates with dozens of API Frameworks (Elysia, Hono, FastAPI, etc)<br>\n└ Syncs with your favorite server framework (Watch Mode)<br>\n└ Has environment variables, dynamic parameters and everything<br>\n└ <a href=\"https://client.scalar.com/\">Try It in the Browser</a>\n└ <a href=\"https://scalar.com/download\">Download (Windows, MacOS, Linux)</a><br>\n\n<!-- minimal line break-->\n<p>\n\t<img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/7d7e7ba7-2b02-49f3-abcd-b24c566a3c16#gh-light-mode-only\">\n\t<img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/341bfb1d-5cb0-4ec6-89eb-4b1dcc07eeb7#gh-dark-mode-only\">\n</p>\n<!-- end minimal line break-->\n\n### Trusted by:\n\n<br>\n\n<p>\n\t<picture>\n\t\t<source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/73dcef95-fc4f-4111-bb09-f3ce37453a81#gh-light-mode-only\">\n\t\t<source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/c792c977-8551-432c-9417-3ea05e408151#gh-dark-mode-only\">\n\t\t<img width=\"48.494%\" height=\"330\" src=\"https://github.com/user-attachments/assets/73dcef95-fc4f-4111-bb09-f3ce37453a81#gh-light-mode-only\" alt=\"Scalar API client\">\n\t</picture>\n\t<picture>\n\t\t<source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/1da6b904-34be-4760-b535-0dd2160e6d12#gh-light-mode-only\">\n\t\t<source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/54a9ea69-c50a-4f49-8c3e-ddd6f8fbe1f3#gh-dark-mode-only\">\n\t\t<img width=\"48.494%\" height=\"330\" src=\"https://github.com/user-attachments/assets/1da6b904-34be-4760-b535-0dd2160e6d12#gh-light-mode-only\" alt=\"Scalar API client\">\n\t</picture>\n</p>\n\n### Quickstart\n\nAll you need is a single HTML file to create an amazing API reference:\n\n```html\n<!doctype html>\n<html>\n  <head>\n    <title>Scalar API Reference</title>\n    <meta charset=\"utf-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1\" />\n  </head>\n\n  <body>\n    <div id=\"app\"></div>\n\n    <!-- Load the Script -->\n    <script src=\"https://cdn.jsdelivr.net/npm/@scalar/api-reference\"></script>\n\n    <!-- Initialize the Scalar API Reference -->\n    <script>\n      Scalar.createApiReference('#app', {\n        // The URL of the OpenAPI/Swagger document\n        url: 'https://registry.scalar.com/@scalar/apis/galaxy?format=json',\n        // Avoid CORS issues\n        proxyUrl: 'https://proxy.scalar.com',\n      })\n    </script>\n  </body>\n</html>\n```\n\n> Need a Custom Header? Check out this example: https://codepen.io/scalarorg/pen/VwOXqam\n\nAnd there's an ever-growing list of plugins and integrations:\n\n### Integrations\n\n- [HTML/JS API](https://scalar.com/products/api-references/integrations/html-js) (works everywhere)\n- [.NET ASP.NET Core](https://scalar.com/products/api-references/integrations/aspnetcore/integration)\n- [.NET Aspire](https://scalar.com/products/api-references/integrations/aspire)\n- [AdonisJS](https://scalar.com/products/api-references/integrations/adonisjs)\n- [Astro](https://scalar.com/products/api-references/integrations/astro)\n- [Django Ninja](https://scalar.com/products/api-references/integrations/django-ninja)\n- [Django](https://scalar.com/products/api-references/integrations/django)\n- [Docker](https://scalar.com/products/api-references/integrations/docker)\n- [Docusaurus](https://scalar.com/products/api-references/integrations/docusaurus)\n- [Elixir](https://scalar.com/products/api-references/integrations/elixir)\n- [Express](https://scalar.com/products/api-references/integrations/express)\n- [FastAPI](https://scalar.com/products/api-references/integrations/fastapi)\n- [Fastify](https://scalar.com/products/api-references/integrations/fastify)\n- [Flask](https://scalar.com/products/api-references/integrations/flask)\n- [Go](https://scalar.com/products/api-references/integrations/go)\n- [Hapi](https://scalar.com/products/api-references/integrations/hapi)\n- [Hono](https://scalar.com/products/api-references/integrations/hono)\n- [Laravel Scribe](https://scalar.com/products/api-references/integrations/laravel-scribe)\n- [Laravel](https://scalar.com/products/api-references/integrations/laravel)\n- [Micronaut](https://scalar.com/products/api-references/integrations/micronaut)\n- [NestJS](https://scalar.com/products/api-references/integrations/nestjs)\n- [Next.js](https://scalar.com/products/api-references/integrations/nextjs)\n- [Nuxt](https://scalar.com/products/api-references/integrations/nuxt)\n- [Python](https://scalar.com/products/api-references/integrations/python)\n- [React](https://scalar.com/products/api-references/integrations/react)\n- [Ruby on Rails](https://scalar.com/products/api-references/integrations/ruby-on-rails)\n- [Rust](https://scalar.com/products/api-references/integrations/rust)\n- [Spring Boot](https://scalar.com/products/api-references/integrations/spring-boot)\n- [SvelteKit](https://scalar.com/products/api-references/integrations/sveltekit)\n- [Ts.ED](https://scalar.com/products/api-references/integrations/tsed)\n- [Vue.js](https://scalar.com/products/api-references/integrations/vue)\n\n### Built-in Support\n\nThe following frameworks have chosen Scalar API Reference as their default OpenAPI documentation UI, recognizing its developer-friendly features and modern design:\n\n- [Effect](https://scalar.com/products/api-references/integrations/effect)\n- [ElysiaJS](https://scalar.com/products/api-references/integrations/elysiajs)\n- [HappyX](https://github.com/HapticX/happyx)\n- [Litestar](https://docs.litestar.dev/latest/usage/openapi/ui_plugins.html)\n- [Nitro](https://scalar.com/products/api-references/integrations/nitro)\n- [oRPC](https://orpc.unnoq.com/docs/openapi/plugins/openapi-reference)\n- [Platformatic](https://scalar.com/products/api-references/integrations/platformatic)\n\n<br>\n\n### Managed Hosting\n\nWe're offering a free and paid managed hosting on the edge, too:\n\n- Write your API documentation and publish API references (free)\n- `YOUR_NAME_HERE.apidocumentation.com` subdomain and SSL (free)\n- [GitHub Sync](https://scalar.com/products/docs/github-sync)\n- Write free-form documentation\n- Collaborate with your team\n- Use any domain\n\nReady? [Create your Scalar Account](https://scalar.com)\n\n<br>\n\n### Documentation\n\n| Topic                                                                     | Description                          |\n| ------------------------------------------------------------------------- | ------------------------------------ |\n| [Configuration](https://scalar.com/products/api-references/configuration) | The universal configuration object   |\n| [Themes](https://scalar.com/products/api-references/themes)               | Predefined themes, layouts & styling |\n| [OpenAPI](https://scalar.com/products/api-references/openapi)             | OpenAPI specification extensions     |\n| [Markdown](https://scalar.com/products/api-references/markdown)           | Supported Markdown syntax            |\n| [Plugins](https://scalar.com/products/api-references/plugins)             | Extend the functionality             |\n\n<br>\n\n### Projects\n\n| Project                                                                            | Description                      |\n| ---------------------------------------------------------------------------------- | -------------------------------- |\n| [Scalar API Reference](https://scalar.com/products/api-references/getting-started) | Self-hosted API Reference        |\n| [Scalar API Client](https://scalar.com/download)                                   | Postman alternative              |\n| [Scalar Registry](https://scalar.com/products/registry/getting-started)            | Manage OpenAPI documents         |\n| [Scalar Docs](https://scalar.com/products/docs/getting-started)                    | Hosted documentation             |\n| [Scalar Docs Starter](https://github.com/scalar/starter)                           | Starter template for Scalar Docs |\n| [Scalar SDKs](https://scalar.com/products/sdks/getting-started)                    | SDK generation                   |\n| [Scalar CLI](https://scalar.com/tools/cli/getting-started)                         | Command-line interface           |\n| [Scalar Mock Server](https://scalar.com/products/mock-server/getting-started)      | Mock APIs from OpenAPI documents |\n| [Scalar Galaxy](packages/galaxy/README.md)                                         | Our OpenAPI Example              |\n| [Scalar Editor](https://editor.scalar.com/)                                        | OpenAPI Online Editor            |\n| [Scalar OpenAPI Parser](packages/openapi-parser/README.md)                         | Parse OpenAPI documents          |\n| [Scalar OpenAPI to Markdown](packages/openapi-to-markdown/README.md)               | OpenAPI > Markdown/HTML          |\n| [Scalar OpenAPI Upgrader](packages/openapi-upgrader/README.md)                     | Upgrade OpenAPI documents",
+        "truncated": true,
+        "bytes": 71511,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Release 2026-02-19",
+            "tag_name": "release-2026-02-19-30bab86",
+            "published_at": "2026-02-19T00:29:59Z",
+            "body_excerpt": "# Releases\n## @scalar/api-client@2.28.0\n\n### Minor Changes\n\n-   [#8199](https://github.com/scalar/scalar/pull/8199): feat: create draft example\n\n### Patch Changes\n\n-   [#8162](https://github.com/scalar/scalar/pull/8162): feat: allow editing tags\n-   [#8167](https://github.com/scalar/scalar/pull/8167): Accept header now defaults to the response content types defined in the OpenAPI spec instead of always using _/_\n-   [#8197](https://github.com/scalar/scalar/pull/8197): fix: include path in redirect uri\n-   [#8132](https://github.com/scalar/scalar/pull/8132): chore: unify the app and web layout\n-   [#8191](https://github.com/scalar/scalar/pull/8191): chore: rename create document command\n-   [#7826](https://github.com/scalar/scalar/pull/7826): feat: added migrator for v1 local storage to v2 indexdb\n-   [#8194](https://github.com/scalar/scalar/pull/8194): fix: correctly display the env pill on light mode\n-   [#8204](https://github.com/scalar/scalar/pull/8204): fix: remove DocumentRedirect component\n-   [#8160](https://github.com/scalar/scalar/pull/8160): fix: update sidebar entry when the operation summary changes\n-   [#8174](https://github.com/scalar/scalar/pull/8174): feat: add `createAnySecurityScheme` config option to control generic auth scheme creation\n\n#### Updated Dependencies\n\n-   **@scalar/workspace-store@0.33.0**\n    -   [#8162](https://github.com/scalar/scalar/pull/8162): feat: allow editing tags\n    -   [#8151](https://github.com/scalar/scalar/pull/8151): fix: resolve external references on windows\n    -   [#8191](https://github.com/scalar/scalar/pull/8191): chore: rename create document command\n    -   [#8199](https://github.com/scalar/scalar/pull/8199): feat: create draft example\n    -   [#7826](https://github.com/scalar/scalar/pull/7826): feat: added migrator for v1 local storage to v2 indexdb\n    -   [#8160](https://github.com/scalar/scalar/pull/8160): fix: update sidebar entry when the operation summary changes\n    -   [#8133](https://github.com/scala"
+          },
+          {
+            "name": "Release 2026-02-16",
+            "tag_name": "release-2026-02-16-f450c21",
+            "published_at": "2026-02-16T02:08:55Z",
+            "body_excerpt": "# Releases\n## @scalar/astro@0.1.17\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/docusaurus@0.7.37\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/types@0.6.3**\n\n## @scalar/express-api-reference@0.8.41\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/fastify-api-reference@1.44.20\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/openapi-parser@0.24.10**\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/hono-api-reference@0.9.41\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/nestjs-api-reference@1.0.24\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/nextjs-api-reference@0.9.19\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/nuxt@0.5.77\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/api-reference@1.44.20**\n    -   [#8159](https://github.com/scalar/scalar/pull/8159): fix: do not mutate document after ingress\n    -   [#8178](https://github.com/scalar/scalar/pull/8178): chore: package bump due to ci failure\n\n-   **@scalar/api-client@2.27.1**\n    -   [#8159](https://github.com/scalar/scalar/pull/8159): fix: do not mutate document after ingress\n    -   [#8158](https://github.com/scalar/scalar/pull/8158): fix: disable all listeners when modal is closed\n    -   [#8178](https://github.com/scalar/scalar/pull/8178): chore: package bump due to ci failure\n\n-   **@scalar/types@0.6.3**\n\n## @scalar/sveltekit@0.1.45\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/core@0.3.38**\n\n## @scalar/agent-chat@0.5.11\n\n### Patch Changes\n\n-   [#8178](https://github.com/scalar/scalar/pull/8178): chore: package bump due to ci failure\n\n#### Updated Dependencies\n\n-   **@scalar/workspace-store@0.32.1**\n    -   [#8159](https://github.com/scalar/scalar/pull/8159): fix: do not mutate document after ingress\n    -   [#8178](https://github.com/scalar/scalar/pull/8178): cho"
+          },
+          {
+            "name": "Release 2026-02-16",
+            "tag_name": "release-2026-02-16-656c886",
+            "published_at": "2026-02-16T00:57:02Z",
+            "body_excerpt": "# Releases\n## @scalar/api-client@2.27.0\n\n### Minor Changes\n\n-   [#8152](https://github.com/scalar/scalar/pull/8152): feat: support custom themes\n\n### Patch Changes\n\n-   [#8135](https://github.com/scalar/scalar/pull/8135): feat: added support for OpenID Connect Discovery\n-   [#8149](https://github.com/scalar/scalar/pull/8149): fix: prefill parameter inputs from parameter-level examples\n-   [#8155](https://github.com/scalar/scalar/pull/8155): fix(api-reference): bugs with cards rendering\n-   [#8138](https://github.com/scalar/scalar/pull/8138): chore: some minor style and ui updates\n-   [#8157](https://github.com/scalar/scalar/pull/8157): fix: navigate to workspace settings from the menu\n-   [#8154](https://github.com/scalar/scalar/pull/8154): fix: scrolling issues in client modal\n-   [#8156](https://github.com/scalar/scalar/pull/8156): fix: only trigger send request when client is open\n\n#### Updated Dependencies\n\n-   **@scalar/workspace-store@0.32.0**\n    -   [#8135](https://github.com/scalar/scalar/pull/8135): feat: added support for OpenID Connect Discovery\n    -   [#8152](https://github.com/scalar/scalar/pull/8152): feat: support custom themes\n\n-   **@scalar/components@0.19.3**\n    -   [#8155](https://github.com/scalar/scalar/pull/8155): fix(api-reference): bugs with cards rendering\n\n-   **@scalar/oas-utils@0.6.41**\n\n-   **@scalar/sidebar@0.7.34**\n\n-   **@scalar/use-codemirror@0.13.38**\n\n## @scalar/workspace-store@0.32.0\n\n### Minor Changes\n\n-   [#8152](https://github.com/scalar/scalar/pull/8152): feat: support custom themes\n\n### Patch Changes\n\n-   [#8135](https://github.com/scalar/scalar/pull/8135): feat: added support for OpenID Connect Discovery\n\n## @scalar/nuxt@0.5.76\n\n### Patch Changes\n\n#### Updated Dependencies\n\n-   **@scalar/api-client@2.27.0**\n    -   [#8135](https://github.com/scalar/scalar/pull/8135): feat: added support for OpenID Connect Discovery\n    -   [#8149](https://github.com/scalar/scalar/pull/8149): fix: prefill parameter inputs from parameter-le"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 6153,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/scalar/scalar/issues/6153"
+          }
+        ]
+      },
+      "root_files": [
+        ".changeset",
+        ".cursor",
+        ".devcontainer",
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".npmrc",
+        ".nvmrc",
+        ".prettierignore",
+        ".prettierrc",
+        ".vscode",
+        ".zed",
+        "CHANGELOG.md",
+        "CITATION.cff",
+        "CLAUDE.md",
+        "CODEOWNERS",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "RELEASE.md",
+        "SECURITY.md",
+        "biome.json",
+        "cloudbuild.json",
+        "documentation",
+        "eslint.config.mjs",
+        "examples",
+        "integrations",
+        "knip.jsonc",
+        "lefthook.yml",
+        "oss-pledge.json",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "projects",
+        "scalar.config.json",
+        "tooling",
+        "tsconfig.json",
+        "turbo.json",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![CI](https://github.com/scalar/scalar/actions/workflows/ci.yml/badge.svg)](https://github.com/scalar/scalar/actions/workflows/ci.yml) [![Contributors](https://img.shields.io/github/contributors/scalar/scalar)](https://github.com/scalar/scalar/graphs/contributors) [![GitHub License](https://img.shields.io/github/license/scalar/scalar)](https://github.com/scalar/scalar/blob/main/LICENSE) [![Twitter](https://img.shields.io/twitter/follow/scalar)](https://x.com/scalar) [![Discord](https://img.shields.io/discord/1135330207960678410?style=flat&color=5865F2)](https://discord.gg/scalar)",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<h1> <p>Scalar</p> <p> <a href=\"https://docs.scalar.com/swagger-editor\" target=\"_blank\"> <picture> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/9b639f2d-0204-4b15-b918-158072a9afa5\"> <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/be723d07-ec9c-4edb-b657-05a8bc05c7d6\"> <img width=\"48.494%\" height=\"250\" src=\"https://github.com/user-attachments/assets/9b639f2d-0204-4b15-b918-158072a9afa5#gh-light-mode-only\" alt=\"Scalar API Reference\"> </picture> </a> <a href=\"https://scalar.com/download\" target=\"_blank\"> <picture> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/b391b82f-d993-4e97-8a17-1c3c7ccbb19b\"> <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/579d0853-b2a5-4ea8-b2bd-a98753faeaf3\"> <img width=\"48.494%\" height=\"250\" src=\"https://github.com/user-attachments/assets/b391b82f-d993-4e97-8a17-1c3c7ccbb19b#gh-light-mode-only\" alt=\"Scalar API client\"> </picture> </a> </p> </h1>",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p> <img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/3a24fc5c-5d3c-4be4-8b9e-399bd49e4fb7#gh-light-mode-only\"> <img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/76f123ae-f458-409f-84d3-b9ad14fd3fb2#gh-dark-mode-only\"> </p>",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 4)",
+          "excerpt": "└ Renders OpenAPI/Swagger documents<br> └ Comes with an API testing tool<br> └ Doesn't look like 2011<br> └ Generates code examples for many languages & frameworks<br> └ Integrates with your favorite framework<br> └ <a href=\"https://docs.scalar.com/swagger-editor\">Try Demo</a>",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<!-- minimal line break--> <p> <img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/7d7e7ba7-2b02-49f3-abcd-b24c566a3c16#gh-light-mode-only\"> <img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/341bfb1d-5cb0-4ec6-89eb-4b1dcc07eeb7#gh-dark-mode-only\"> </p> <!-- end minimal line break-->",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<p> <img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/d9f90c51-82d4-4948-9365-658ccc7d78c4#gh-light-mode-only\"> <img width=\"830\" height=\"auto\" src=\"https://github.com/user-attachments/assets/e7c2023e-dfbc-428c-bc85-c06d8a6e4b67#gh-dark-mode-only\"> </p>",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 7)",
+          "excerpt": "└ Free and open-source<br> └ First-class OpenAPI/Swagger support<br> └ Integrates with dozens of API Frameworks (Elysia, Hono, FastAPI, etc)<br> └ Syncs with your favorite server framework (Watch Mode)<br> └ Has environment variables, dynamic parameters and everything<br> └ <a href=\"https://client.scalar.com/\">Try It in the Browser</a> └ <a href=\"https://scalar.com/download\">Download (Windows, MacOS, Linux)</a><br>",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/scalar/scalar#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<!-- minimal line break--> <p> <img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/7d7e7ba7-2b02-49f3-abcd-b24c566a3c16#gh-light-mode-only\"> <img width=\"1200\" height=\"1\" src=\"https://github.com/user-attachments/assets/341bfb1d-5cb0-4ec6-89eb-4b1dcc07eeb7#gh-dark-mode-only\"> </p> <!-- end minimal line break-->",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/scalar/scalar/issues/6153",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "number": 6153
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/scalar/scalar/releases",
+          "title": "release-2026-02-19-30bab86",
+          "excerpt": "# Releases ## @scalar/api-client@2.28.0 ### Minor Changes - [#8199](https://github.com/scalar/scalar/pull/8199): feat: create draft example ### Patch Changes - [#8162](https://github.com/scalar/scalar/pull/8162): feat: allow editing tags - [#8167](https://github.com/scalar/scalar/pull/8167): Accept header now defaults to the response content types defined in the OpenAPI spec instead of always using _/_ - [#8197](https://github.com/scalar/scalar/pull/8197): fix: include path in redirect uri - [#8132](https://github.com/scalar/scalar/pull/8132): chore: unify the app and web layout - [#8191](https://github.com/scalar/scalar/pull/8191): chore: rename create document command - [#7826](https://github.com/scalar/scalar/pull/7826): feat: added migrator for v1 local storage to v2 indexdb - [#8194](https://github.com/scalar/scalar/pull/8194): fix: correctly display the env pill on light mode - [#8204](https://github.com/scalar/scalar/pull/8204): fix: remove DocumentRedirect component - [#8160](https://github.com/scalar/scalar/pull/8160): fix: update sidebar entry when the operation summary changes - [#8174](https://github.com/scalar/scalar/pull/8174): feat: add `createAnySecurityScheme` con…",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "tag_name": "release-2026-02-19-30bab86",
+            "published_at": "2026-02-19T00:29:59Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/scalar/scalar/releases",
+          "title": "release-2026-02-16-f450c21",
+          "excerpt": "# Releases ## @scalar/astro@0.1.17 ### Patch Changes #### Updated Dependencies - **@scalar/core@0.3.38** ## @scalar/docusaurus@0.7.37 ### Patch Changes #### Updated Dependencies - **@scalar/types@0.6.3** ## @scalar/express-api-reference@0.8.41 ### Patch Changes #### Updated Dependencies - **@scalar/core@0.3.38** ## @scalar/fastify-api-reference@1.44.20 ### Patch Changes #### Updated Dependencies - **@scalar/openapi-parser@0.24.10** - **@scalar/core@0.3.38** ## @scalar/hono-api-reference@0.9.41 ### Patch Changes #### Updated Dependencies - **@scalar/core@0.3.38** ## @scalar/nestjs-api-reference@1.0.24 ### Patch Changes #### Updated Dependencies - **@scalar/core@0.3.38** ## @scalar/nextjs-api-reference@0.9.19 ### Patch Changes #### Updated Dependencies - **@scalar/core@0.3.38** ## @scalar/nuxt@0.5.77 ### Patch Changes #### Updated Dependencies - **@scalar/api-reference@1.44.20** - [#8159](https://github.com/scalar/scalar/pull/8159): fix: do not mutate document after ingress - [#8178](https://github.com/scalar/scalar/pull/8178): chore: package bump due to ci failure - **@scalar/api-client@2.27.1** - [#8159](https://github.com/scalar/scalar/pull/8159): fix: do not mutate document afte…",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "tag_name": "release-2026-02-16-f450c21",
+            "published_at": "2026-02-16T02:08:55Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/scalar/scalar/releases",
+          "title": "release-2026-02-16-656c886",
+          "excerpt": "# Releases ## @scalar/api-client@2.27.0 ### Minor Changes - [#8152](https://github.com/scalar/scalar/pull/8152): feat: support custom themes ### Patch Changes - [#8135](https://github.com/scalar/scalar/pull/8135): feat: added support for OpenID Connect Discovery - [#8149](https://github.com/scalar/scalar/pull/8149): fix: prefill parameter inputs from parameter-level examples - [#8155](https://github.com/scalar/scalar/pull/8155): fix(api-reference): bugs with cards rendering - [#8138](https://github.com/scalar/scalar/pull/8138): chore: some minor style and ui updates - [#8157](https://github.com/scalar/scalar/pull/8157): fix: navigate to workspace settings from the menu - [#8154](https://github.com/scalar/scalar/pull/8154): fix: scrolling issues in client modal - [#8156](https://github.com/scalar/scalar/pull/8156): fix: only trigger send request when client is open #### Updated Dependencies - **@scalar/workspace-store@0.32.0** - [#8135](https://github.com/scalar/scalar/pull/8135): feat: added support for OpenID Connect Discovery - [#8152](https://github.com/scalar/scalar/pull/8152): feat: support custom themes - **@scalar/components@0.19.3** - [#8155](https://github.com/scalar/scal…",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "tag_name": "release-2026-02-16-656c886",
+            "published_at": "2026-02-16T00:57:02Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/scalar/scalar",
+          "title": "ROOT_FILES",
+          "excerpt": ".changeset, .cursor, .devcontainer, .dockerignore, .gitattributes, .github, .gitignore, .npmrc, .nvmrc, .prettierignore, .prettierrc, .vscode, .zed, CHANGELOG.md, CITATION.cff, CLAUDE.md, CODEOWNERS, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, README.md, RELEASE.md, SECURITY.md, biome.json, cloudbuild.json, documentation, eslint.config.mjs, examples, integrations, knip.jsonc, lefthook.yml, oss-pledge.json, package.json, packages, pnpm-lock.yaml, pnpm-workspace.yaml, projects, scalar.config.json, tooling, tsconfig.json, turbo.json, vitest.config.ts",
+          "fetched_at": "2026-02-19T00:38:44.203Z",
+          "meta": {
+            "repo_full_name": "scalar/scalar",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "twentyhq/twenty",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "authzed/spicedb",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 3,
+      "releases_count": 3
+    },
+    {
+      "full_name": "cockroachdb/cockroach",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 0
+    },
+    {
+      "full_name": "scalar/scalar",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 1,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "twentyhq/twenty",
+      "ok": true,
+      "spec_path": "specs/2026-02-19/twentyhq__twenty.json"
+    },
+    {
+      "repo": "authzed/spicedb",
+      "ok": true,
+      "spec_path": "specs/2026-02-19/authzed__spicedb.json"
+    },
+    {
+      "repo": "cockroachdb/cockroach",
+      "ok": true,
+      "spec_path": "specs/2026-02-19/cockroachdb__cockroach.json"
+    },
+    {
+      "repo": "scalar/scalar",
+      "ok": true,
+      "spec_path": "specs/2026-02-19/scalar__scalar.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "twentyhq/twenty",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-19/twentyhq__twenty.json"
+    },
+    {
+      "repo": "authzed/spicedb",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-19/authzed__spicedb.json"
+    },
+    {
+      "repo": "cockroachdb/cockroach",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-19/cockroachdb__cockroach.json"
+    },
+    {
+      "repo": "scalar/scalar",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-19/scalar__scalar.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "twentyhq/twenty",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-19/twentyhq__twenty.json"
+      ]
+    },
+    {
+      "repo": "authzed/spicedb",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-19/authzed__spicedb.json"
+      ]
+    },
+    {
+      "repo": "cockroachdb/cockroach",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-19/cockroachdb__cockroach.json"
+      ]
+    },
+    {
+      "repo": "scalar/scalar",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-19/scalar__scalar.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-02-19T00:38:58.983Z",
+      "run_id": "20260219T003839Z",
+      "repo": "twentyhq/twenty",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "967a53ec8050371dfaa71c294767d70f439ea5e946ac13974da17deaa80be31f",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 11591
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14775,
+      "prompt_chars": 11591,
+      "completion_chars": 2390
+    },
+    {
+      "ts": "2026-02-19T00:39:16.512Z",
+      "run_id": "20260219T003839Z",
+      "repo": "authzed/spicedb",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2215fc22fb48e1d1aa3b43dc490965cfd12ff5b85b2a78eb954b2fd0d2408ad1",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 13532
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17519,
+      "prompt_chars": 13532,
+      "completion_chars": 3507
+    },
+    {
+      "ts": "2026-02-19T00:39:27.734Z",
+      "run_id": "20260219T003839Z",
+      "repo": "cockroachdb/cockroach",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "56d2343303ee13e7e0f1df79f77fd5441607ff23fa8d577914344893db56f0a9",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 8836
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11210,
+      "prompt_chars": 8836,
+      "completion_chars": 2314
+    },
+    {
+      "ts": "2026-02-19T00:39:58.816Z",
+      "run_id": "20260219T003839Z",
+      "repo": "scalar/scalar",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bd81c077e216599a3688d763bdf1c4ac247cbd153631bd8a3e875746810416cd",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13089
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 31079,
+      "prompt_chars": 13089,
+      "completion_chars": 5231
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "twentyhq/twenty",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "authzed/spicedb",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "cockroachdb/cockroach",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "scalar/scalar",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "twentyhq/twenty",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "authzed/spicedb",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "cockroachdb/cockroach",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "scalar/scalar",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 4,
+    "attempts_used_hist": {
+      "0": 4,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 4,
+    "success": 4
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1771461519919,
+    "llmCallsTotal": 4,
+    "llmCallsPerRepo": {
+      "twentyhq/twenty": 1,
+      "authzed/spicedb": 1,
+      "cockroachdb/cockroach": 1,
+      "scalar/scalar": 1
+    },
+    "tokensApproxTotal": 15124,
+    "tokensApproxPerRepo": {
+      "twentyhq/twenty": 3496,
+      "authzed/spicedb": 4260,
+      "cockroachdb/cockroach": 2788,
+      "scalar/scalar": 4580
+    },
+    "reposProcessed": 4,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "twentyhq/twenty": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Twenty\",\n    \"one_sentence\": \"Building a modern open-source alternative to Salesforce with community-driven innovation.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with customizable CRM objects through dynamic views (table, kanban, etc.), configure fields and permissions, and automate workflows using triggers and actions.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Dashboard\",\n      \"purpose\": \"Provide an overview of CRM data with personalized layouts including filters, sorting, grouping, and multiple view types.\",\n      \"primary_actions\": [\n        \"Switch view type (table, kanban)\",\n        \"Apply filters and sorts\",\n        \"Group records by field\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a CRM record with validation and soft-delete support.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"crm_objects\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"metadata\",\n            \"type\": \"json\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up local development environment\",\n          \"Implement basic object creation UI\",\n          \"Add table view rendering\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can create a new CRM object and see it in the table view.\",\n    \"User can switch between table and kanban views without data loss.\"\n  ],\n  \"open_questions\": [\n    \"How will plugin architecture integrate with core data model?\",\n    \"What is the scope of initial permission roles?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 3,\n    \"complexity_control\": 3,\n    \"debuggabilit"
+      }
+    },
+    "authzed/spicedb": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"SpiceDB\",\n    \"one_sentence\": \"Open Source, Google Zanzibar-inspired database for scalably storing and querying fine-grained authorization data.\",\n    \"inspired_by\": \"Google Zanzibar\"\n  },\n  \"core_loop\": \"Evaluate whether subject X can perform action Y on resource Z using a scalable, fine-grained authorization system.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Authorization Dashboard\",\n      \"purpose\": \"Display and manage fine-grained permissions and relationships for subjects and resources.\",\n      \"primary_actions\": [\n        \"Check permission\",\n        \"Write relationship\",\n        \"View schema\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"check_permission\",\n      \"purpose\": \"Determine if a subject has a specific permission on a resource.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"write_relationship\",\n      \"purpose\": \"Create or update a relationship tuple in the authorization graph.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"relationships\",\n        \"fields\": [\n          {\n            \"name\": \"subject\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"relation\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"resource\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"schemas\",\n        \"fields\": [\n          {\n            \"name\": \"definition\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"version\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core Zanzibar-inspired permission checking engine\",\n          \"Support basic relationship writes and reads\",\n          \"Expose gRPC and HTTP APIs for check and write operations\"\n        ]\n      }\n"
+      }
+    },
+    "cockroachdb/cockroach": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"CockroachDB\",\n    \"one_sentence\": \"A cloud-native distributed SQL database designed to build, scale, and manage modern, data-intensive applications.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users deploy CockroachDB clusters, interact via SQL clients or drivers, and leverage its distributed architecture for scalable, resilient data operations.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Cluster Dashboard\",\n      \"purpose\": \"Monitor and manage CockroachDB cluster health, nodes, and SQL workloads.\",\n      \"primary_actions\": [\n        \"Start local cluster\",\n        \"Connect via SQL client\",\n        \"View replication status\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"start_local_cluster\",\n      \"purpose\": \"Initialize a local CockroachDB cluster for development or testing.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"cluster_nodes\",\n        \"fields\": [\n          {\n            \"name\": \"node_id\",\n            \"type\": \"INT\"\n          },\n          {\n            \"name\": \"status\",\n            \"type\": \"STRING\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Install CockroachDB executable\",\n          \"Start local cluster\",\n          \"Connect via built-in SQL client\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Verify local cluster starts successfully and accepts SQL connections.\",\n    \"Confirm data replication across simulated node failures.\"\n  ],\n  \"open_questions\": [\n    \"How does CockroachDB handle region-aware data placement in MVP scope?\",\n    \"What PostgreSQL driver compatibility is required for initial app integration?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 3,\n    \"complexity_control\": 3,\n    \"debuggability\": 3,\n    \"demo_value\": 3\n  },\n  \"overall_recommendation\": \"go\",\n  \"citations\": {\n    \""
+      }
+    },
+    "scalar/scalar": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Scalar\",\n    \"one_sentence\": \"Scalar is an open-source API platform featuring a modern REST API client, beautiful API references, and first-class OpenAPI/Swagger support.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with Scalar by loading OpenAPI documents, exploring API endpoints through a clean UI, testing requests via the built-in client, and generating code examples—all while benefiting from live sync with server frameworks and environment management.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"API Reference Viewer\",\n      \"purpose\": \"Display and navigate OpenAPI/Swagger documentation with interactive elements for testing and code generation.\",\n      \"primary_actions\": [\n        \"View endpoint details\",\n        \"Send test requests\",\n        \"Generate code snippets\",\n        \"Switch between light/dark themes\"\n      ]\n    },\n    {\n      \"id\": \"client\",\n      \"name\": \"API Client\",\n      \"purpose\": \"Provide a full-featured HTTP client to compose, send, and inspect API requests with environment and parameter support.\",\n      \"primary_actions\": [\n        \"Create and edit requests\",\n        \"Manage environments\",\n        \"View response data\",\n        \"Save request drafts\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"create_document\",\n      \"purpose\": \"Initialize a new API document or reference from an OpenAPI spec.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"edit_tags\",\n      \"purpose\": \"Modify tags associated with API operations for better organization.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"migrate_storage\",\n      \"purpose\": \"Migrate user data from v1 localStorage to v2 IndexedDB.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"api_documents\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "twentyhq/twenty",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "authzed/spicedb",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "cockroachdb/cockroach",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "scalar/scalar",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"openapi\" returned=10",
+    "[repo_finder] topic=\"orm\" returned=10",
+    "[repo_finder] topic=\"postgresql\" returned=10",
+    "[repo_finder] topic=\"redis\" returned=10",
+    "[repo_finder] topic=\"rest-api\" returned=10",
+    "[repo_finder] topic=\"atproto\" returned=10",
+    "[repo_finder] topic=\"b4x\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] topic=\"database\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=5",
+    "[deduper] candidates_total=5 new=4 skipped=1",
+    "[repo_card_builder] cockroachdb/cockroach evidence total=10 readme=8 issue=1 release=0 root_files=1",
+    "[repo_card_builder] twentyhq/twenty evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] authzed/spicedb evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] scalar/scalar evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=4 readme_ok=4/4 evidence_total=50 gaps=0",
+    "[llm_spec_generator] twentyhq/twenty canonical spec ok (iter=1) -> specs/2026-02-19/twentyhq__twenty.json",
+    "[llm_spec_generator] authzed/spicedb canonical spec ok (iter=1) -> specs/2026-02-19/authzed__spicedb.json",
+    "[llm_spec_generator] cockroachdb/cockroach canonical spec ok (iter=1) -> specs/2026-02-19/cockroachdb__cockroach.json",
+    "[llm_spec_generator] scalar/scalar canonical spec ok (iter=1) -> specs/2026-02-19/scalar__scalar.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-02-19T00:38:39.918Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:39.941Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260219T003839Z"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:39.941Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:39.946Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "openapi"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:40.427Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "openapi",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:40.427Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "orm"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:40.838Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "orm",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:40.838Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "postgresql"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:41.195Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "postgresql",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:41.195Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "redis"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:41.580Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "redis",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:41.580Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "rest-api"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:41.971Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "rest-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:41.971Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "atproto"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:42.286Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "atproto",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:42.286Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "b4x"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:42.475Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "b4x",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:42.475Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:42.834Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:42.834Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.138Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.138Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "database"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.567Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "database",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.570Z",
+      "run_id": "20260219T003839Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 5
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.570Z",
+      "run_id": "20260219T003839Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 4,
+        "skipped": 1,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.574Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-19T00:38:43.574Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "twentyhq__twenty/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.575Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "twentyhq__twenty/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.576Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "twentyhq__twenty/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.578Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "twentyhq__twenty/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.579Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-19T00:38:43.579Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "authzed__spicedb/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.580Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "authzed__spicedb/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.582Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "authzed__spicedb/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.583Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "authzed__spicedb/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.585Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-19T00:38:43.585Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cockroachdb__cockroach/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.586Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cockroachdb__cockroach/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.587Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cockroachdb__cockroach/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.589Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cockroachdb__cockroach/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.892Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7432,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.892Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.892Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.893Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 308
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.893Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 8,
+        "issues": 1,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.893Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-19T00:38:43.893Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scalar__scalar/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.894Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scalar__scalar/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.894Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scalar__scalar/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.895Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scalar__scalar/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.899Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7482,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.899Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.899Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.899Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 325
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.900Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.998Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 19367,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.998Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.998Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.998Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 419
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:43.998Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.203Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 71511,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.203Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.203Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.203Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 310
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.203Z",
+      "run_id": "20260219T003839Z",
+      "node": "repo_card_builder",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.207Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:44.207Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.983Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2390,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.988Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "twentyhq/twenty",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.990Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.991Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-19/twentyhq__twenty.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.992Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "twentyhq/twenty",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-19/twentyhq__twenty.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.992Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-19T00:38:58.992Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.512Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3507,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.521Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "authzed/spicedb",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.521Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.522Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-19/authzed__spicedb.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.522Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "authzed/spicedb",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-19/authzed__spicedb.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.523Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:16.523Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.734Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2314,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.735Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "cockroachdb/cockroach",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.735Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.736Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-19/cockroachdb__cockroach.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.736Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "cockroachdb/cockroach",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-19/cockroachdb__cockroach.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.736Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:27.736Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.816Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5231,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.818Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "scalar/scalar",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.819Z",
+      "run_id": "20260219T003839Z",
+      "node": "llm_spec_generator",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.820Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-19/scalar__scalar.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.820Z",
+      "run_id": "20260219T003839Z",
+      "node": "artifacts",
+      "repo": "scalar/scalar",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-19/scalar__scalar.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.823Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 4,
+        "attempts_used_hist": {
+          "0": 4,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.823Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1771461519919,
+        "llmCallsTotal": 4,
+        "llmCallsPerRepo": {
+          "twentyhq/twenty": 1,
+          "authzed/spicedb": 1,
+          "cockroachdb/cockroach": 1,
+          "scalar/scalar": 1
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 4,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.823Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-02-19T00:39:58.823Z",
+      "run_id": "20260219T003839Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 4,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-02-19",
+    "evidence_dir": "evidence/2026-02-19"
+  }
+}
