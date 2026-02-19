@@ -1,0 +1,70 @@
+name: Topics Refresh
+
+on:
+  schedule:
+    - cron: "0 2 * * 0"
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/topics-refresh.yml"
+      - "github-topic-miner/scripts/topics/**"
+      - "package.json"
+      - "tsconfig.json"
+    paths-ignore:
+      - "github-topic-miner/config/topics/**"
+
+concurrency:
+  group: topics-refresh-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.event_name != 'push' || (!contains(github.event.head_commit.message, '[skip actions]') && !contains(github.event.head_commit.message, '[skip ci]'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Refresh Topics Pool
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run topics:refresh
+
+      - name: Commit and Push Topic Pool
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add github-topic-miner/config/topics/raw_pool.json github-topic-miner/config/topics/candidate_pool.json github-topic-miner/config/topics/active_pool.json github-topic-miner/config/topics/seed_pool.json
+          if git diff --cached --quiet; then
+            echo "No topic pool changes"
+            exit 0
+          fi
+          DATE_UTC="$(date -u +%F)"
+          git commit -m "chore(topics): refresh topic pools ${DATE_UTC} [skip actions]"
+          git push
+
+      - name: Upload Topic Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: topics-pool-${{ github.run_id }}
+          retention-days: 7
+          path: |
+            github-topic-miner/config/topics/raw_pool.json
+            github-topic-miner/config/topics/candidate_pool.json
+            github-topic-miner/config/topics/active_pool.json
+            github-topic-miner/config/topics/seed_pool.json

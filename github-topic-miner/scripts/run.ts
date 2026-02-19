@@ -6,6 +6,7 @@ import { createMinerGraph } from "./graph";
 import { fetchRepoByFullName } from "./github";
 import { createLogger } from "./logger";
 import { runRegressionSuite, type RegressionConfig } from "./regression";
+import { finalizeTopicSelectionRun, selectTopicsForRun } from "./topics/selector";
 import type { FailKind, MinerConfig, MinerState } from "./types";
 
 const CONFIG_PATH = path.join("github-topic-miner", "config", "miner.config.json");
@@ -140,16 +141,49 @@ async function main() {
   const generatedAt = new Date().toISOString();
   let logger: ReturnType<typeof createLogger> | null = null;
   let config: MinerConfig | null = null;
+  let topicSelectionSummary:
+    | {
+        enabled: boolean;
+        batch_size: number;
+        quotas: { core: number; adjacent: number; explore: number };
+        source_path: string;
+        state_path: string;
+        skipped_by_cooldown: number;
+        skipped_by_freeze: number;
+      }
+    | undefined;
 
   try {
     const configRaw = await readFile(CONFIG_PATH, "utf-8");
     config = withDefaults(JSON.parse(configRaw) as MinerConfig);
     logger = createLogger(runId);
+    const selected = selectTopicsForRun(config, runId);
+    config = { ...config, topics: selected.topics };
+    topicSelectionSummary = selected.summary;
+    logger.log({
+      node: "bootstrap",
+      level: "info",
+      event: "TOPICS_SELECTED",
+      data: {
+        count: selected.topics.length,
+        enabled: selected.summary.enabled,
+        quotas: selected.summary.quotas,
+      },
+    });
 
     const budgetManager = createBudgetManager(config.budget as BudgetConfig, logger, runId);
     const graph = createMinerGraph(logger, budgetManager);
     const initialState = createInitialState(runId, generatedAt, config);
     const finalState = await graph.invoke(initialState);
+    const topicResultCounts: Record<string, number> = {};
+    for (const event of logger.getEvents()) {
+      if (event.event !== "TOPIC_SEARCH_OK") continue;
+      const data = event.data as { topic?: unknown; count?: unknown } | undefined;
+      const topic = typeof data?.topic === "string" ? data.topic.toLowerCase() : "";
+      const count = typeof data?.count === "number" ? data.count : 0;
+      if (topic) topicResultCounts[topic] = count;
+    }
+    finalizeTopicSelectionRun(config, runId, topicResultCounts);
 
     const attemptsHist = { "0": 0, "1": 0, "2": 0 };
     for (const item of finalState.per_repo_bridge) {
@@ -261,6 +295,7 @@ async function main() {
       generated_at: finalState.generated_at,
       config_path: CONFIG_PATH,
       config: finalState.config,
+      topic_selection_summary: topicSelectionSummary,
       status: finalState.status,
       stats: finalState.stats,
       index_summary: {
@@ -351,6 +386,7 @@ async function main() {
       generated_at: generatedAt,
       config_path: CONFIG_PATH,
       ...(config ? { config } : {}),
+      ...(topicSelectionSummary ? { topic_selection_summary: topicSelectionSummary } : {}),
       status: "error",
       stats: {
         topics_searched: 0,

@@ -203,6 +203,53 @@ Logic/Stability Optimization (B):
   - 查看 Actions job logs
   - 下载 artifacts（包含 `runs/**` 与 `reports/**`，以及相关产物）
 
+## Topics 初始池（github/explore）
+
+- 生成脚本：
+  - `npm run topics:bootstrap`
+- 数据来源：
+  - `github/explore` 仓库中的 `topics/` 与 `_topics/`
+- 输出文件：
+  - `github-topic-miner/config/topics/raw_pool.json`
+  - `github-topic-miner/config/topics/candidate_pool.json`
+  - `github-topic-miner/config/topics/active_pool.json`
+  - `github-topic-miner/config/topics/seed_pool.json`（首批运行池）
+
+建议流程：
+- 先运行脚本生成三层池（raw/candidate/active）
+- 生成首批池：`npm run topics:seed`
+- 一键刷新（bootstrap + seed）：`npm run topics:refresh`
+- 运行时自动从 `seed_pool.json` 选 topic（见 `topicSelection`）
+
+### Topic Selection（运行时自动选题）
+
+- 配置位置：`github-topic-miner/config/miner.config.json` -> `topicSelection`
+- 默认策略：
+  - 单次选 `batchSize=10`
+  - 分层配额：`core 50% / adjacent 30% / explore 20%`
+  - 游标轮换：每次 run 向后推进，避免固定重复
+  - 冷却窗口：最近 `cooldownRuns=3` 次 run 已选 topic 暂不重复
+  - 低产冻结：某 topic 连续 `3` 次结果为 0，则冻结 `3` 次 run
+- 状态文件：`specs/topic_selection_state.json`
+- 每次 run 的选题摘要会写入 `runs/<run_id>.json` 的 `topic_selection_summary`
+
+### Topics 自动补充（GitHub Actions）
+
+- Workflow：`.github/workflows/topics-refresh.yml`
+- 触发方式：
+  - 每周日 02:00 UTC 定时
+  - `workflow_dispatch` 手动触发
+- 执行内容：
+  - `npm run topics:refresh`
+  - 自动提交更新后的 topic 池文件：
+    - `github-topic-miner/config/topics/raw_pool.json`
+    - `github-topic-miner/config/topics/candidate_pool.json`
+    - `github-topic-miner/config/topics/active_pool.json`
+    - `github-topic-miner/config/topics/seed_pool.json`
+- 防循环：
+  - commit message 含 `[skip actions]`
+  - `push.paths-ignore` 忽略 topic 池产物路径
+
 Part 4 adds a LangGraph `llm_spec_generator` node with role flow:
 
 - `Scout -> Inventor -> Engineer -> Skeptic -> Synthesizer`

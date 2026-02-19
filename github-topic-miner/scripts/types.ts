@@ -61,6 +61,18 @@ export interface MinerConfig {
     skipEngineerWhenIterGt1: boolean;
     rerunSynthWithoutEnrichOnce: boolean;
   };
+  topicSelection?: {
+    enabled: boolean;
+    sourcePath?: string;
+    statePath?: string;
+    batchSize?: number;
+    coreRatio?: number;
+    adjacentRatio?: number;
+    exploreRatio?: number;
+    cooldownRuns?: number;
+    lowYieldFreezeThreshold?: number;
+    lowYieldFreezeRuns?: number;
+  };
 }
 
 export interface CandidateRepo {
