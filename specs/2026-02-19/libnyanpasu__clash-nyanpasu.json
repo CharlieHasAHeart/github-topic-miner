@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "run_id": "20260219T011126Z",
+    "generated_at": "2026-02-19T01:11:26.158Z",
+    "source_repo": {
+      "full_name": "libnyanpasu/clash-nyanpasu",
+      "url": "https://github.com/libnyanpasu/clash-nyanpasu"
+    },
+    "topics": [
+      "clash",
+      "clash-meta",
+      "clash-nyanpasu",
+      "clash-rs",
+      "material-you",
+      "mihomo",
+      "react",
+      "rust",
+      "tauri",
+      "tauri-app"
+    ]
+  },
+  "app": {
+    "name": "Clash Nyanpasu",
+    "one_sentence": "A Clash GUI based on Tauri with support for Clash Premium, Mihomo, and Clash Rust.",
+    "inspired_by": null
+  },
+  "core_loop": "Users manage proxy profiles, configure providers, and control network traffic through a Material You-designed interface built with Tauri and React.",
+  "screens": [
+    {
+      "id": "main",
+      "name": "Dashboard",
+      "purpose": "Display overview of proxy status, quick actions, and current configuration.",
+      "primary_actions": [
+        "Toggle proxy state",
+        "Switch profiles",
+        "Access settings"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist user configuration or profile data to disk.",
+      "async": true,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "profiles",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "tauri_capabilities": [],
+  "mvp_plan": {
+    "milestones": [
+      {
+        "week": 1,
+        "tasks": [
+          "Set up Tauri v2 project structure",
+          "Implement basic profile loading and saving",
+          "Create dashboard UI with Material You styling"
+        ]
+      }
+    ]
+  },
+  "acceptance_tests": [
+    "User can toggle proxy state from the dashboard.",
+    "Application supports importing local configuration files."
+  ],
+  "open_questions": [
+    "How should Lua/JavaScript profile enhancements be sandboxed?",
+    "What is the optimal strategy for syncing config_dir across devices?"
+  ],
+  "scores": {
+    "closure": 3,
+    "feasibility": 3,
+    "stack_fit": 3,
+    "complexity_control": 3,
+    "debuggability": 3,
+    "demo_value": 3
+  },
+  "overall_recommendation": "go",
+  "citations": {
+    "app": [
+      "E-RD-001",
+      "E-RD-002",
+      "E-RD-003"
+    ],
+    "core_loop": [
+      "E-RD-002",
+      "E-RD-004",
+      "E-RL-003"
+    ],
+    "screens": {
+      "main": [
+        "E-RD-005",
+        "E-RD-006",
+        "E-RL-003"
+      ]
+    },
+    "commands": {
+      "save_item": [
+        "E-RD-001",
+        "E-RF-001"
+      ]
+    },
+    "tables": {
+      "profiles": [
+        "E-RD-002",
+        "E-RD-004"
+      ]
+    },
+    "acceptance_tests": {
+      "0": [
+        "E-RL-001",
+        "E-RL-003"
+      ],
+      "1": [
+        "E-RD-001",
+        "E-RL-003"
+      ]
+    }
+  }
+}
