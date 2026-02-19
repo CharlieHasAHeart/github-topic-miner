@@ -53,7 +53,17 @@ jobs:
           fi
           DATE_UTC="$(date -u +%F)"
           git commit -m "chore(topics): refresh topic pools ${DATE_UTC} [skip actions]"
-          git push
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Push succeeded on attempt $i"
+              exit 0
+            fi
+            echo "Push rejected, rebasing (attempt $i)"
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "Failed to push after retries"
+          exit 1
 
       - name: Upload Topic Artifacts
         if: always()
