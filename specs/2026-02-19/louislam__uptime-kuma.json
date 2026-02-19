@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "run_id": "20260219T045551Z",
+    "generated_at": "2026-02-19T04:55:51.049Z",
+    "source_repo": {
+      "full_name": "louislam/uptime-kuma",
+      "url": "https://github.com/louislam/uptime-kuma"
+    },
+    "topics": [
+      "docker",
+      "monitor",
+      "monitoring",
+      "responsive",
+      "self-hosted",
+      "selfhosted",
+      "single-page-app",
+      "socket-io",
+      "uptime",
+      "uptime-monitoring",
+      "webapp",
+      "websocket"
+    ]
+  },
+  "app": {
+    "name": "Uptime Kuma",
+    "one_sentence": "A fancy self-hosted monitoring tool for tracking uptime of various services.",
+    "inspired_by": null
+  },
+  "core_loop": "Users configure monitors for HTTP(s), TCP, DNS, Docker containers, and other services; the system checks their status at intervals (as frequent as every 20 seconds) and displays real-time status on a reactive dashboard, sending notifications via 90+ supported channels when issues occur.",
+  "screens": [
+    {
+      "id": "main",
+      "name": "Dashboard",
+      "purpose": "Display real-time status of all configured monitors with visual indicators, tags, and groupings.",
+      "primary_actions": [
+        "Add new monitor",
+        "View monitor details",
+        "Edit monitor settings",
+        "Toggle monitor groups"
+      ]
+    },
+    {
+      "id": "status_pages",
+      "name": "Status Pages",
+      "purpose": "Provide public or private status pages that can be mapped to specific domains and sorted by name, tags, or uptime.",
+      "primary_actions": [
+        "Create status page",
+        "Sort monitors by name/tags/uptime",
+        "Map to custom domain"
+      ]
+    },
+    {
+      "id": "notifications",
+      "name": "Notifications",
+      "purpose": "Configure and manage notification integrations across 90+ services including Discord, Telegram, Email, and PagerDuty.",
+      "primary_actions": [
+        "Add notification provider",
+        "Test notification",
+        "Customize message templates"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_monitor_config",
+      "purpose": "Persist monitor configuration including type, interval, and notification settings.",
+      "async": true,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "send_notification_alert",
+      "purpose": "Dispatch alert to configured notification providers when monitor status changes.",
+      "async": true,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "check_domain_expiry",
+      "purpose": "Verify domain certificate expiry and trigger notifications only if TLD supports RDAP.",
+      "async": true,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "monitors",
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "name": "interval",
+            "type": "integer"
+          },
+          {
+            "name": "tags",
+            "type": "array"
+          },
+          {
+            "name": "group_id",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "name": "notifications",
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer"
+          },
+          {
+            "name": "provider",
+            "type": "string"
+          },
+          {
+            "name": "config",
+            "type": "json"
+          },
+          {
+            "name": "monitor_id",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "name": "status_pages",
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "type": "string"
+          },
+          {
+            "name": "sort_order",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "tauri_capabilities": [],
+  "mvp_plan": {
+    "milestones": [
+      {
+        "week": 1,
+        "tasks": [
+          "Implement core monitor types: HTTP, Ping, DNS",
+          "Build reactive dashboard UI",
+          "Add basic notification support (Discord, Email)",
+          "Persist data to local SQLite database"
+        ]
+      },
+      {
+        "week": 2,
+        "tasks": [
+          "Support monitor grouping and tagging",
+          "Implement status pages with sorting",
+          "Add domain expiry monitoring with RDAP check",
+          "Enable 2FA and user authentication"
+        ]
+      }
+    ]
+  },
+  "acceptance_tests": [
+    "Given a monitor is down, when the system detects failure, then a notification is sent via configured provider with correct title and metadata.",
+    "Given a status page exists, when user selects sort by 'uptime', then monitors are reordered by descending uptime percentage.",
+    "Given a domain with unsupported TLD, when domain expiry check runs, then no expiry notification is triggered.",
+    "Given a Browser Engine monitor, when screenshot delay option is set, then the system waits specified time before capturing screenshot."
+  ],
+  "open_questions": [
+    "How to handle high-frequency polling without overwhelming target services?",
+    "What is the optimal strategy for caching DNS/SRV records in GameDig monitors?",
+    "Should status page sorting be persisted per user or globally?"
+  ],
+  "scores": {
+    "closure": 3,
+    "feasibility": 3,
+    "stack_fit": 3,
+    "complexity_control": 3,
+    "debuggability": 3,
+    "demo_value": 3
+  },
+  "overall_recommendation": "go",
+  "citations": {
+    "app": [
+      "E-RD-001",
+      "E-RD-005"
+    ],
+    "core_loop": [
+      "E-RD-003",
+      "E-RD-005"
+    ],
+    "screens": {
+      "main": [
+        "E-RD-003",
+        "E-RD-005"
+      ],
+      "status_pages": [
+        "E-IS-001",
+        "E-RD-005"
+      ],
+      "notifications": [
+        "E-RD-005",
+        "E-RL-001"
+      ]
+    },
+    "commands": {
+      "save_monitor_config": [
+        "E-RD-001",
+        "E-RF-001"
+      ],
+      "send_notification_alert": [
+        "E-IS-003",
+        "E-RL-001"
+      ],
+      "check_domain_expiry": [
+        "E-RL-001",
+        "E-RL-002"
+      ]
+    },
+    "tables": {
+      "monitors": [
+        "E-RD-005",
+        "E-RF-001"
+      ],
+      "notifications": [
+        "E-RD-005",
+        "E-RF-001"
+      ],
+      "status_pages": [
+        "E-IS-001",
+        "E-RD-005"
+      ]
+    },
+    "acceptance_tests": {
+      "0": [
+        "E-IS-003",
+        "E-RL-001"
+      ],
+      "1": [
+        "E-IS-001",
+        "E-RD-005"
+      ],
+      "2": [
+        "E-RL-001",
+        "E-RL-002"
+      ],
+      "3": [
+        "E-RD-005",
+        "E-RL-003"
+      ]
+    }
+  }
+}

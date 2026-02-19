@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "run_id": "20260219T045551Z",
+    "generated_at": "2026-02-19T04:55:51.049Z",
+    "source_repo": {
+      "full_name": "requestly/requestly",
+      "url": "https://github.com/requestly/requestly"
+    },
+    "topics": [
+      "api",
+      "api-client",
+      "api-mock",
+      "api-rest",
+      "api-testing",
+      "bruno",
+      "bruno-alternative",
+      "charles-proxy",
+      "chrome-extension",
+      "fiddler",
+      "firefox-extension",
+      "hacktoberfest",
+      "http-interceptor",
+      "insomnia",
+      "mock-server",
+      "open-source",
+      "postman",
+      "postman-api",
+      "postman-collection",
+      "postman-environment"
+    ]
+  },
+  "app": {
+    "name": "Requestly",
+    "one_sentence": "A local-first API client and HTTP interceptor with testing, mocking, and collaboration features.",
+    "inspired_by": null
+  },
+  "core_loop": "Users create, modify, and test API requests locally, intercept and mock HTTP traffic, and optionally sync data via Git or cloud services.",
+  "screens": [
+    {
+      "id": "main",
+      "name": "API Client Workspace",
+      "purpose": "Primary interface for creating, editing, and running API requests with support for environments, collections, and scripting.",
+      "primary_actions": [
+        "Create new request",
+        "Run request",
+        "Import from cURL or Postman",
+        "Switch workspace"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist an API request or collection to local disk within the current workspace.",
+      "async": true,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "run_request",
+      "purpose": "Execute an API request with pre-request and post-response script support.",
+      "async": true,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "requests",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "name": "method",
+            "type": "string"
+          },
+          {
+            "name": "headers",
+            "type": "object"
+          },
+          {
+            "name": "body",
+            "type": "string"
+          },
+          {
+            "name": "workspace_id",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "workspaces",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "type": "string"
+          },
+          {
+            "name": "sync_method",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "tauri_capabilities": [],
+  "mvp_plan": {
+    "milestones": [
+      {
+        "week": 1,
+        "tasks": [
+          "Implement local workspace creation and file-based storage",
+          "Build basic request editor with method, URL, headers, body",
+          "Add run button with simple fetch execution",
+          "Support importing cURL commands into request fields"
+        ]
+      }
+    ]
+  },
+  "acceptance_tests": [
+    "User can paste a cURL command into the URL bar and have all request fields auto-populated.",
+    "User can save a request to a local workspace directory and reopen it later.",
+    "User can switch between multiple local workspaces without losing state.",
+    "rq.iterationData.get() correctly retrieves JSON data during Runner execution."
+  ],
+  "open_questions": [
+    "How are async pre-request and post-response scripts executed securely?",
+    "What is the exact schema for environment variables and iteration data?",
+    "How does workspace syncing with Git/Google Drive/iCloud integrate at the file level?"
+  ],
+  "scores": {
+    "closure": 3,
+    "feasibility": 3,
+    "stack_fit": 3,
+    "complexity_control": 3,
+    "debuggability": 3,
+    "demo_value": 3
+  },
+  "overall_recommendation": "go",
+  "citations": {
+    "app": [
+      "E-RD-001",
+      "E-RD-002",
+      "E-RD-003"
+    ],
+    "core_loop": [
+      "E-RD-003",
+      "E-RD-007",
+      "E-RD-008"
+    ],
+    "screens": {
+      "main": [
+        "E-RD-002",
+        "E-RD-006",
+        "E-RL-001"
+      ]
+    },
+    "commands": {
+      "save_item": [
+        "E-IS-001",
+        "E-RF-001"
+      ],
+      "run_request": [
+        "E-RL-002",
+        "E-RL-003"
+      ]
+    },
+    "tables": {
+      "requests": [
+        "E-RD-002",
+        "E-RD-006"
+      ],
+      "workspaces": [
+        "E-RD-007",
+        "E-RD-008"
+      ]
+    },
+    "acceptance_tests": {
+      "0": [
+        "E-RL-001"
+      ],
+      "1": [
+        "E-RD-007"
+      ],
+      "2": [
+        "E-RD-008"
+      ],
+      "3": [
+        "E-IS-001"
+      ]
+    }
+  }
+}
