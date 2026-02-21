@@ -55,9 +55,14 @@ export function normalizeWireToCanonical(
   const fixes: string[] = [];
   const warnings: string[] = [];
 
+  // Forge canonical prefers one_liner.
+  const oneLinerFromWire =
+    (wire.app && typeof (wire.app as any).one_liner === "string" ? (wire.app as any).one_liner : undefined) ??
+    (wire.app?.one_sentence ?? undefined);
+
   const app = {
     name: asString(wire.app?.name, "Untitled App"),
-    one_sentence: asString(wire.app?.one_sentence, "A desktop app generated from repository evidence."),
+    one_liner: asString(oneLinerFromWire, "A desktop app generated from repository evidence."),
     inspired_by: wire.app?.inspired_by ?? null,
   };
 
@@ -133,22 +138,23 @@ export function normalizeWireToCanonical(
       if (typeof item === "string") {
         return {
           name: item,
-          fields: [{ name: "id", type: "TEXT" }],
+          columns: [{ name: "id", type: "TEXT" }],
           indexes: [],
         };
       }
-      const fields = (item.fields ?? [])
-        .map((f) => ({
-          name: asString(f.name, "field"),
-          type: asString(f.type, "TEXT"),
-          ...(typeof f.notes === "string" ? { notes: f.notes } : {}),
+      const rawCols: unknown[] = (item as any).columns ?? (item as any).fields ?? [];
+      const columns = rawCols
+        .map((f: unknown) => ({
+          name: asString((f as any).name, "field"),
+          type: asString((f as any).type, "TEXT"),
+          ...(typeof (f as any).notes === "string" ? { notes: (f as any).notes } : {}),
         }))
-        .filter((f) => f.name && f.type);
+        .filter((f: { name: string; type: string }) => f.name && f.type);
       return {
-        name: asString(item.name, `table_${idx + 1}`),
-        fields: fields.length > 0 ? fields : [{ name: "id", type: "TEXT" }],
-        indexes: Array.isArray(item.indexes)
-          ? item.indexes.filter((x): x is string => typeof x === "string")
+        name: asString((item as any).name, `table_${idx + 1}`),
+        columns: columns.length > 0 ? columns : [{ name: "id", type: "TEXT" }],
+        indexes: Array.isArray((item as any).indexes)
+          ? (item as any).indexes.filter((x: unknown): x is string => typeof x === "string")
           : undefined,
       };
     })
@@ -156,7 +162,7 @@ export function normalizeWireToCanonical(
   if (tables.length === 0) {
     tables.push({
       name: "records",
-      fields: [
+      columns: [
         { name: "id", type: "TEXT" },
         { name: "created_at", type: "TEXT" },
       ],
@@ -173,16 +179,35 @@ export function normalizeWireToCanonical(
       })
     : [];
 
-  const milestones = (wire.mvp_plan?.milestones ?? [])
+  const milestoneSource =
+    !Array.isArray(wire.mvp_plan) && Array.isArray(wire.mvp_plan?.milestones)
+      ? wire.mvp_plan.milestones
+      : [];
+  const milestones = milestoneSource
     .map((m, idx) => ({
       week: typeof m.week === "number" ? Math.max(1, Math.trunc(m.week)) : Number(m.week) || idx + 1,
       tasks: Array.isArray(m.tasks) ? m.tasks.filter((x): x is string => typeof x === "string") : [],
     }))
     .filter((m) => m.tasks.length > 0);
 
-  const mvp_plan = {
-    milestones: milestones.length > 0 ? milestones : [{ week: 1, tasks: ["Implement MVP flow"] }],
-  };
+  // Forge canonical requires a flattened string[] plan.
+  const mvp_plan: string[] = (() => {
+    if (Array.isArray(wire.mvp_plan)) {
+      const xs = wire.mvp_plan.filter((x): x is string => typeof x === "string" && x.trim().length > 0);
+      return xs.length > 0 ? xs : ["week 1: Implement MVP flow"];
+    }
+    const ms = milestones.length > 0 ? milestones : [{ week: 1, tasks: ["Implement MVP flow"] }];
+    const out: string[] = [];
+    for (const m of ms) {
+      const week = typeof m.week === "number" ? m.week : 1;
+      for (const t of m.tasks) {
+        const task = typeof t === "string" ? t.trim() : "";
+        if (!task) continue;
+        out.push(`week ${week}: ${task}`);
+      }
+    }
+    return out.length > 0 ? out : ["week 1: Implement MVP flow"];
+  })();
 
   const acceptance_tests = (wire.acceptance_tests ?? [])
     .map((item) => {
@@ -321,7 +346,7 @@ export function normalizeWireToCanonical(
   }
 
   const canonical: CanonicalSpec = {
-    schema_version: 1,
+    schema_version: 2,
     meta: {
       run_id,
       generated_at,

@@ -26,7 +26,9 @@ const FieldSchema = z.object({
 
 const TableSchema = z.object({
   name: z.string().optional(),
+  // accept both old and new keys from LLM outputs
   fields: z.array(FieldSchema).optional(),
+  columns: z.array(FieldSchema).optional(),
   indexes: z.array(z.string()).optional(),
 });
 
@@ -64,7 +66,9 @@ export const WireSpecSchema = z
     app: z
       .object({
         name: z.string().optional(),
+        // accept both old and new keys from LLM outputs
         one_sentence: z.string().optional(),
+        one_liner: z.string().optional(),
         inspired_by: z.union([z.string(), z.null()]).optional(),
       })
       .optional(),
@@ -76,17 +80,21 @@ export const WireSpecSchema = z
         tables: z.array(z.union([z.string(), TableSchema])).optional(),
       })
       .optional(),
+    // accept both old structured plan and new flattened plan
     mvp_plan: z
-      .object({
-        milestones: z
-          .array(
-            z.object({
-              week: z.union([z.number(), z.string()]).optional(),
-              tasks: z.array(z.string()).optional(),
-            }),
-          )
-          .optional(),
-      })
+      .union([
+        z.array(z.string()),
+        z.object({
+          milestones: z
+            .array(
+              z.object({
+                week: z.union([z.number(), z.string()]).optional(),
+                tasks: z.array(z.string()).optional(),
+              }),
+            )
+            .optional(),
+        }),
+      ])
       .optional(),
     acceptance_tests: z.array(z.union([z.string(), z.object({ test: z.string().optional() })])).optional(),
     open_questions: z.array(z.string()).optional(),

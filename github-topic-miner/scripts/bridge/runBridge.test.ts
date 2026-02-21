@@ -76,6 +76,9 @@ async function run() {
 
     assert.equal(out.ok, true);
     assert.ok(out.canonical);
+    // canonical output is now Forge-compatible
+    assert.equal(out.canonical?.schema_version, 2);
+    assert.ok(out.canonical?.app.one_liner);
     assert.ok((out.report.stages || []).some((s) => s.name === "cover"));
     assert.ok((out.report.stages || []).some((s) => s.name === "repair" && s.ok));
     assert.deepEqual(out.canonical?.citations.app, ["E-RD-001"]);

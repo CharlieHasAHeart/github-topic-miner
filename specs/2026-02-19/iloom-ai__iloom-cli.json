@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "meta": {
     "run_id": "20260219T011126Z",
     "generated_at": "2026-02-19T01:11:26.158Z",
@@ -18,8 +18,8 @@
   },
   "app": {
     "name": "iloom",
-    "one_sentence": "A developer workflow system delivered as a CLI and VS Code extension for structured AI-assisted development that persists analysis, plans, and decisions to your issue tracker.",
-    "inspired_by": null
+    "inspired_by": null,
+    "one_liner": "A developer workflow system delivered as a CLI and VS Code extension for structured AI-assisted development that persists analysis, plans, and decisions to your issue tracker."
   },
   "core_loop": "Developers use the iloom CLI to start tasks, generate code with AI agents, review artifacts, create draft PRs with full issue context, and manage hierarchical workflows, while the VS Code extension provides real-time visibility into AI decisions, risks, and assumptions.",
   "screens": [
@@ -68,7 +68,7 @@
     "tables": [
       {
         "name": "loom_tasks",
-        "fields": [
+        "columns": [
           {
             "name": "id",
             "type": "string"
@@ -93,7 +93,7 @@
       },
       {
         "name": "artifact_reviews",
-        "fields": [
+        "columns": [
           {
             "name": "loom_id",
             "type": "string"
@@ -114,7 +114,7 @@
       },
       {
         "name": "issue_tracker_cache",
-        "fields": [
+        "columns": [
           {
             "name": "project_key",
             "type": "string"
@@ -132,19 +132,12 @@
     ]
   },
   "tauri_capabilities": [],
-  "mvp_plan": {
-    "milestones": [
-      {
-        "week": 1,
-        "tasks": [
-          "Implement core CLI commands: `il start`, `il issues`, `il cleanup`",
-          "Integrate draft PR creation with issue context embedding",
-          "Build local caching layer for issue/PR metadata",
-          "Enable VS Code extension installation via `il vscode`"
-        ]
-      }
-    ]
-  },
+  "mvp_plan": [
+    "week 1: Implement core CLI commands: `il start`, `il issues`, `il cleanup`",
+    "week 1: Integrate draft PR creation with issue context embedding",
+    "week 1: Build local caching layer for issue/PR metadata",
+    "week 1: Enable VS Code extension installation via `il vscode`"
+  ],
   "acceptance_tests": [
     "User can run `il start` on an unconfigured project and accept sensible defaults with one keypress.",
     "Running `il issues` lists open GitHub/Linear issues and non-draft PRs, caches results for 2 minutes, and prefixes PRs with [PR].",

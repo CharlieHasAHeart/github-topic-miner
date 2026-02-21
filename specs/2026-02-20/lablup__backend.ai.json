@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "meta": {
     "run_id": "20260220T044927Z",
     "generated_at": "2026-02-20T04:49:27.316Z",
@@ -23,8 +23,8 @@
   },
   "app": {
     "name": "Backend.AI",
-    "one_sentence": "A container-based computing cluster platform for hosting ML frameworks and programming languages with heterogeneous accelerator support.",
-    "inspired_by": null
+    "inspired_by": null,
+    "one_liner": "A container-based computing cluster platform for hosting ML frameworks and programming languages with heterogeneous accelerator support."
   },
   "core_loop": "Users request compute sessions with specific resources and frameworks; the system schedules and isolates these sessions on a multi-tenant cluster using the Sokovan orchestrator, while managing access, quotas, and observability via integrated services.",
   "screens": [
@@ -59,7 +59,7 @@
     "tables": [
       {
         "name": "sessions",
-        "fields": [
+        "columns": [
           {
             "name": "id",
             "type": "string"
@@ -88,7 +88,7 @@
       },
       {
         "name": "kernels",
-        "fields": [
+        "columns": [
           {
             "name": "id",
             "type": "string"
@@ -109,7 +109,7 @@
       },
       {
         "name": "images",
-        "fields": [
+        "columns": [
           {
             "name": "name",
             "type": "string"
@@ -127,18 +127,11 @@
     ]
   },
   "tauri_capabilities": [],
-  "mvp_plan": {
-    "milestones": [
-      {
-        "week": 1,
-        "tasks": [
-          "Define core GraphQL V2 schema for Session, Kernel, and Image entities",
-          "Implement session creation command with RBAC scope validation",
-          "Set up PostgreSQL tables for sessions, kernels, and images"
-        ]
-      }
-    ]
-  },
+  "mvp_plan": [
+    "week 1: Define core GraphQL V2 schema for Session, Kernel, and Image entities",
+    "week 1: Implement session creation command with RBAC scope validation",
+    "week 1: Set up PostgreSQL tables for sessions, kernels, and images"
+  ],
   "acceptance_tests": [
     "User can create a SessionV2 via GraphQL mutation and see it appear in the session list",
     "System enforces fair-share scheduling based on domain/project usage history when allocating resources",

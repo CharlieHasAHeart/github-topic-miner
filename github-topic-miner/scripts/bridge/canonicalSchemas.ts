@@ -3,7 +3,7 @@ import { z } from "zod";
 const EvidenceIdsSchema = z.array(z.string());
 
 export const CanonicalSpecSchema = z.object({
-  schema_version: z.literal(1),
+  schema_version: z.literal(2),
   meta: z.object({
     run_id: z.string().min(1),
     generated_at: z.string().min(1),
@@ -15,7 +15,7 @@ export const CanonicalSpecSchema = z.object({
   }),
   app: z.object({
     name: z.string().min(1),
-    one_sentence: z.string().min(1),
+    one_liner: z.string().min(1),
     inspired_by: z.string().nullable(),
   }),
   core_loop: z.string().min(1),
@@ -40,7 +40,7 @@ export const CanonicalSpecSchema = z.object({
     tables: z.array(
       z.object({
         name: z.string().min(1),
-        fields: z.array(
+        columns: z.array(
           z.object({
             name: z.string().min(1),
             type: z.string().min(1),
@@ -52,14 +52,8 @@ export const CanonicalSpecSchema = z.object({
     ),
   }),
   tauri_capabilities: z.array(z.string()),
-  mvp_plan: z.object({
-    milestones: z.array(
-      z.object({
-        week: z.number().int().min(1),
-        tasks: z.array(z.string()),
-      }),
-    ),
-  }),
+  // Forge-compatible: flattened plan steps
+  mvp_plan: z.array(z.string().min(1)),
   acceptance_tests: z.array(z.string()),
   open_questions: z.array(z.string()),
   scores: z.object({

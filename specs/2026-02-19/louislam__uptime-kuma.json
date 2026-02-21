@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "meta": {
     "run_id": "20260219T045551Z",
     "generated_at": "2026-02-19T04:55:51.049Z",
@@ -24,8 +24,8 @@
   },
   "app": {
     "name": "Uptime Kuma",
-    "one_sentence": "A fancy self-hosted monitoring tool for tracking uptime of various services.",
-    "inspired_by": null
+    "inspired_by": null,
+    "one_liner": "A fancy self-hosted monitoring tool for tracking uptime of various services."
   },
   "core_loop": "Users configure monitors for HTTP(s), TCP, DNS, Docker containers, and other services; the system checks their status at intervals (as frequent as every 20 seconds) and displays real-time status on a reactive dashboard, sending notifications via 90+ supported channels when issues occur.",
   "screens": [
@@ -88,7 +88,7 @@
     "tables": [
       {
         "name": "monitors",
-        "fields": [
+        "columns": [
           {
             "name": "id",
             "type": "integer"
@@ -121,7 +121,7 @@
       },
       {
         "name": "notifications",
-        "fields": [
+        "columns": [
           {
             "name": "id",
             "type": "integer"
@@ -142,7 +142,7 @@
       },
       {
         "name": "status_pages",
-        "fields": [
+        "columns": [
           {
             "name": "id",
             "type": "integer"
@@ -164,28 +164,16 @@
     ]
   },
   "tauri_capabilities": [],
-  "mvp_plan": {
-    "milestones": [
-      {
-        "week": 1,
-        "tasks": [
-          "Implement core monitor types: HTTP, Ping, DNS",
-          "Build reactive dashboard UI",
-          "Add basic notification support (Discord, Email)",
-          "Persist data to local SQLite database"
-        ]
-      },
-      {
-        "week": 2,
-        "tasks": [
-          "Support monitor grouping and tagging",
-          "Implement status pages with sorting",
-          "Add domain expiry monitoring with RDAP check",
-          "Enable 2FA and user authentication"
-        ]
-      }
-    ]
-  },
+  "mvp_plan": [
+    "week 1: Implement core monitor types: HTTP, Ping, DNS",
+    "week 1: Build reactive dashboard UI",
+    "week 1: Add basic notification support (Discord, Email)",
+    "week 1: Persist data to local SQLite database",
+    "week 2: Support monitor grouping and tagging",
+    "week 2: Implement status pages with sorting",
+    "week 2: Add domain expiry monitoring with RDAP check",
+    "week 2: Enable 2FA and user authentication"
+  ],
   "acceptance_tests": [
     "Given a monitor is down, when the system detects failure, then a notification is sent via configured provider with correct title and metadata.",
     "Given a status page exists, when user selects sort by 'uptime', then monitors are reordered by descending uptime percentage.",

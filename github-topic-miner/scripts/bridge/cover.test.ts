@@ -3,20 +3,20 @@ import { ensureCitationCoverage } from "./cover";
 import type { CanonicalSpec } from "./canonicalSchemas";
 
 const base: CanonicalSpec = {
-  schema_version: 1,
+  schema_version: 2,
   meta: {
     run_id: "r1",
     generated_at: "2026-01-01T00:00:00.000Z",
     source_repo: { full_name: "owner/repo", url: "https://github.com/owner/repo" },
     topics: ["rust"],
   },
-  app: { name: "App", one_sentence: "desc", inspired_by: null },
+  app: { name: "App", one_liner: "desc", inspired_by: null },
   core_loop: "loop",
   screens: [{ id: "main", name: "Main", purpose: "p", primary_actions: ["run"] }],
   rust_commands: [{ name: "sync", purpose: "p", async: true, input: {}, output: {} }],
-  data_model: { tables: [{ name: "items", fields: [{ name: "id", type: "TEXT" }] }] },
+  data_model: { tables: [{ name: "items", columns: [{ name: "id", type: "TEXT" }] }] },
   tauri_capabilities: [],
-  mvp_plan: { milestones: [{ week: 1, tasks: ["t"] }] },
+  mvp_plan: ["week 1: t"],
   acceptance_tests: ["t1"],
   open_questions: [],
   scores: {
