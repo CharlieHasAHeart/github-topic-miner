@@ -13,6 +13,41 @@ function asString(value: unknown, fallback: string): string {
   return typeof value === "string" && value.trim() ? value : fallback;
 }
 
+function ensureNonEmptyPayload(value: unknown): unknown {
+  if (value === null || value === undefined) return { placeholder: true };
+  if (typeof value === "string") return value.trim().length > 0 ? value : "placeholder";
+  if (Array.isArray(value)) return value.length > 0 ? value : ["placeholder"];
+  if (typeof value === "object") {
+    return Object.keys(value as Record<string, unknown>).length > 0 ? value : { placeholder: true };
+  }
+  return value;
+}
+
+function normalizeColumnType(raw: unknown): string {
+  const text = typeof raw === "string" ? raw.trim().toLowerCase() : "";
+  if (!text) return "TEXT";
+  if (["int", "integer", "i32", "i64", "u32", "u64", "number_int"].includes(text)) return "INTEGER";
+  if (["float", "double", "real", "decimal", "number_float"].includes(text)) return "REAL";
+  if (["bool", "boolean"].includes(text)) return "BOOLEAN";
+  if (["blob", "binary", "bytes"].includes(text)) return "BLOB";
+  if (["json", "jsonb", "object", "map", "dict"].includes(text)) return "JSON";
+  if (["datetime", "timestamp", "date", "time"].includes(text)) return "DATETIME";
+  if (["string", "str", "text", "varchar", "char"].includes(text)) return "TEXT";
+  return text.toUpperCase();
+}
+
+function uniqueName(baseRaw: string, used: Set<string>): string {
+  const base = baseRaw.trim() || "item";
+  let name = base;
+  let n = 2;
+  while (used.has(name)) {
+    name = `${base}_${n}`;
+    n += 1;
+  }
+  used.add(name);
+  return name;
+}
+
 export function normalizeWireToCanonical(
   params: NormalizeParams,
 ): { canonical: CanonicalSpec; normalize_report: { fixes: string[]; warnings: string[] } } {
@@ -56,6 +91,16 @@ export function normalizeWireToCanonical(
     });
     fixes.push("screens defaulted to single main screen");
   }
+  {
+    const used = new Set<string>();
+    for (const s of screens) {
+      const prev = s.name;
+      s.name = uniqueName(s.name, used);
+      s.primary_actions = [...new Set(s.primary_actions)].sort((a, b) => a.localeCompare(b));
+      if (prev !== s.name) fixes.push(`rule:name_unique:screens:${prev}->${s.name}`);
+    }
+    screens.sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   const rust_commands = (wire.rust_commands ?? [])
     .map((item, idx) => {
@@ -72,8 +117,8 @@ export function normalizeWireToCanonical(
         name: asString(item.name, `cmd_${idx + 1}`),
         purpose: asString(item.purpose, "Execute core operation"),
         async: typeof item.async === "boolean" ? item.async : true,
-        input: item.input ?? {},
-        output: item.output ?? {},
+        input: ensureNonEmptyPayload(item.input),
+        output: ensureNonEmptyPayload(item.output),
       };
     })
     .filter((item) => item.name);
@@ -83,10 +128,21 @@ export function normalizeWireToCanonical(
       name: "run_main_flow",
       purpose: "Execute core flow",
       async: true,
-      input: {},
-      output: {},
+      input: { placeholder: true },
+      output: { placeholder: true },
     });
     fixes.push("rust_commands defaulted to run_main_flow");
+  }
+  {
+    const used = new Set<string>();
+    for (const c of rust_commands) {
+      const prev = c.name;
+      c.name = uniqueName(c.name, used);
+      c.input = ensureNonEmptyPayload(c.input);
+      c.output = ensureNonEmptyPayload(c.output);
+      if (prev !== c.name) fixes.push(`rule:name_unique:rust_commands:${prev}->${c.name}`);
+    }
+    rust_commands.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   const tables = (wire.data_model?.tables ?? [])
@@ -101,7 +157,7 @@ export function normalizeWireToCanonical(
       const columns = rawCols
         .map((f: unknown) => ({
           name: asString((f as any).name, "field"),
-          type: asString((f as any).type, "TEXT"),
+          type: normalizeColumnType((f as any).type),
         }))
         .filter((f: { name: string; type: string }) => f.name && f.type);
       return {
@@ -120,6 +176,24 @@ export function normalizeWireToCanonical(
       ],
     });
     fixes.push("data_model.tables defaulted to records");
+  }
+  {
+    const usedTableNames = new Set<string>();
+    for (const t of tables) {
+      const prev = t.name;
+      t.name = uniqueName(t.name, usedTableNames);
+      if (prev !== t.name) fixes.push(`rule:name_unique:tables:${prev}->${t.name}`);
+
+      const usedColumnNames = new Set<string>();
+      for (const col of t.columns) {
+        const prevCol = col.name;
+        col.name = uniqueName(col.name, usedColumnNames);
+        col.type = normalizeColumnType(col.type);
+        if (prevCol !== col.name) fixes.push(`rule:name_unique:columns:${t.name}.${prevCol}->${col.name}`);
+      }
+      t.columns.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    tables.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   const milestoneSource =
@@ -150,6 +224,7 @@ export function normalizeWireToCanonical(
     }
     return out.length > 0 ? out : ["week 1: Implement MVP flow"];
   })();
+  mvp_plan.sort((a, b) => a.localeCompare(b));
 
   const acceptance_tests = (wire.acceptance_tests ?? [])
     .map((item) => {
@@ -162,6 +237,7 @@ export function normalizeWireToCanonical(
     acceptance_tests.push("Given valid input, when run, then result is stored and displayed.");
     fixes.push("acceptance_tests defaulted to one baseline test");
   }
+  acceptance_tests.sort((a, b) => a.localeCompare(b));
 
   const canonical: CanonicalSpec = {
     schema_version: 3,
