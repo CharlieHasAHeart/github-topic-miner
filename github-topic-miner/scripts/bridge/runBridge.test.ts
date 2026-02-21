@@ -10,7 +10,6 @@ function jsonResponse(body: unknown, status = 200): Response {
 
 async function run() {
   const originalFetch = global.fetch;
-  const fetchCalls: Array<{ url: string }> = [];
 
   process.env.LLM_PROVIDER = "qwen";
   process.env.QWEN_API_KEY = "test-key";
@@ -18,7 +17,6 @@ async function run() {
 
   global.fetch = (async (input: RequestInfo | URL) => {
     const url = typeof input === "string" ? input : input.toString();
-    fetchCalls.push({ url });
     if (url.includes("/chat/completions")) {
       const patch = {
         app: ["E-RD-001"],
@@ -76,14 +74,11 @@ async function run() {
 
     assert.equal(out.ok, true);
     assert.ok(out.canonical);
-    // canonical output is now Forge-compatible
-    assert.equal(out.canonical?.schema_version, 2);
+    // canonical output is now Forge-compatible and minimal
+    assert.equal(out.canonical?.schema_version, 3);
     assert.ok(out.canonical?.app.one_liner);
-    assert.ok((out.report.stages || []).some((s) => s.name === "cover"));
-    assert.ok((out.report.stages || []).some((s) => s.name === "repair" && s.ok));
-    assert.deepEqual(out.canonical?.citations.app, ["E-RD-001"]);
-    assert.deepEqual(out.canonical?.citations.commands.save_item, ["E-RD-001"]);
-    assert.ok(fetchCalls.some((c) => c.url.includes("/chat/completions")));
+    // no cover/repair stages in v3
+    assert.ok(!(out.report.stages || []).some((s) => s.name === "cover"));
   } finally {
     global.fetch = originalFetch;
   }

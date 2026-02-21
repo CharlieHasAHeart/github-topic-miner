@@ -1,35 +1,11 @@
 {
-  "schema_version": 2,
-  "meta": {
-    "run_id": "20260220T044927Z",
-    "generated_at": "2026-02-20T04:49:27.316Z",
-    "source_repo": {
-      "full_name": "lablup/backend.ai",
-      "url": "https://github.com/lablup/backend.ai"
-    },
-    "topics": [
-      "api",
-      "backendai",
-      "cloud-computing",
-      "containers",
-      "distributed-computing",
-      "docker",
-      "documentation",
-      "hpc",
-      "monitoring",
-      "paas",
-      "python"
-    ]
-  },
+  "schema_version": 3,
   "app": {
     "name": "Backend.AI",
-    "inspired_by": null,
     "one_liner": "A container-based computing cluster platform for hosting ML frameworks and programming languages with heterogeneous accelerator support."
   },
-  "core_loop": "Users request compute sessions with specific resources and frameworks; the system schedules and isolates these sessions on a multi-tenant cluster using the Sokovan orchestrator, while managing access, quotas, and observability via integrated services.",
   "screens": [
     {
-      "id": "main",
       "name": "Session Dashboard",
       "purpose": "View and manage active and historical compute sessions across projects and domains.",
       "primary_actions": [
@@ -126,7 +102,6 @@
       }
     ]
   },
-  "tauri_capabilities": [],
   "mvp_plan": [
     "week 1: Define core GraphQL V2 schema for Session, Kernel, and Image entities",
     "week 1: Implement session creation command with RBAC scope validation",
@@ -136,65 +111,5 @@
     "User can create a SessionV2 via GraphQL mutation and see it appear in the session list",
     "System enforces fair-share scheduling based on domain/project usage history when allocating resources",
     "KernelV2 resolver correctly returns associated agent and resource details via DataLoader"
-  ],
-  "open_questions": [
-    "How are legacy SessionV1 migrations handled during MVP?",
-    "What is the exact scope resolution logic for RBACFieldCreator in session creation?"
-  ],
-  "scores": {
-    "closure": 3,
-    "feasibility": 3,
-    "stack_fit": 3,
-    "complexity_control": 3,
-    "debuggability": 3,
-    "demo_value": 3
-  },
-  "overall_recommendation": "go",
-  "citations": {
-    "app": [
-      "E-RD-001",
-      "E-RD-002"
-    ],
-    "core_loop": [
-      "E-RD-002",
-      "E-RD-003"
-    ],
-    "screens": {
-      "main": [
-        "E-RD-002"
-      ]
-    },
-    "commands": {
-      "create_session": [
-        "E-IS-002",
-        "E-RL-002"
-      ],
-      "terminate_session": [
-        "E-RL-001"
-      ]
-    },
-    "tables": {
-      "sessions": [
-        "E-RD-002",
-        "E-RF-001"
-      ],
-      "kernels": [
-        "E-RL-001"
-      ],
-      "images": [
-        "E-RL-001"
-      ]
-    },
-    "acceptance_tests": {
-      "0": [
-        "E-IS-002"
-      ],
-      "1": [
-        "E-RL-003"
-      ],
-      "2": [
-        "E-RL-001"
-      ]
-    }
-  }
+  ]
 }

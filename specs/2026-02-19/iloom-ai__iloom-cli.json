@@ -1,30 +1,11 @@
 {
-  "schema_version": 2,
-  "meta": {
-    "run_id": "20260219T011126Z",
-    "generated_at": "2026-02-19T01:11:26.158Z",
-    "source_repo": {
-      "full_name": "iloom-ai/iloom-cli",
-      "url": "https://github.com/iloom-ai/iloom-cli"
-    },
-    "topics": [
-      "agentic-ai",
-      "ai-development",
-      "claude-code",
-      "cli",
-      "context-management",
-      "hatchbox"
-    ]
-  },
+  "schema_version": 3,
   "app": {
     "name": "iloom",
-    "inspired_by": null,
     "one_liner": "A developer workflow system delivered as a CLI and VS Code extension for structured AI-assisted development that persists analysis, plans, and decisions to your issue tracker."
   },
-  "core_loop": "Developers use the iloom CLI to start tasks, generate code with AI agents, review artifacts, create draft PRs with full issue context, and manage hierarchical workflows, while the VS Code extension provides real-time visibility into AI decisions, risks, and assumptions.",
   "screens": [
     {
-      "id": "main",
       "name": "Main Workflow Screen",
       "purpose": "Orchestrate AI-assisted development tasks including planning, implementation, and review within isolated workflows.",
       "primary_actions": [
@@ -131,7 +112,6 @@
       }
     ]
   },
-  "tauri_capabilities": [],
   "mvp_plan": [
     "week 1: Implement core CLI commands: `il start`, `il issues`, `il cleanup`",
     "week 1: Integrate draft PR creation with issue context embedding",
@@ -144,83 +124,5 @@
     "Draft PRs created during `il start` include full issue title, body, and 'Fixes #XXX' keyword for auto-closure on merge.",
     "Child loom draft PRs correctly target the parent loom's branch instead of main to support stacked PR workflows.",
     "The `il cleanup` command successfully deletes local branches even when associated with draft PRs."
-  ],
-  "open_questions": [
-    "How should artifact review severity levels map to required human intervention?",
-    "What is the optimal cache invalidation strategy for issue tracker data across team members?",
-    "Can JiraWiki formatting inconsistencies in issue comments be fully resolved through normalization?"
-  ],
-  "scores": {
-    "closure": 4,
-    "feasibility": 5,
-    "stack_fit": 5,
-    "complexity_control": 4,
-    "debuggability": 4,
-    "demo_value": 5
-  },
-  "overall_recommendation": "go",
-  "citations": {
-    "app": [
-      "E-RD-001",
-      "E-RD-002",
-      "E-RD-006"
-    ],
-    "core_loop": [
-      "E-RD-001",
-      "E-RD-002",
-      "E-RL-001",
-      "E-RL-003"
-    ],
-    "screens": {
-      "main": [
-        "E-RD-002",
-        "E-RD-003"
-      ]
-    },
-    "commands": {
-      "il_start": [
-        "E-RL-002",
-        "E-RL-003"
-      ],
-      "il_issues": [
-        "E-RL-001",
-        "E-RL-002"
-      ],
-      "il_cleanup": [
-        "E-RL-002"
-      ],
-      "il_vscode": [
-        "E-RD-002"
-      ]
-    },
-    "tables": {
-      "loom_tasks": [
-        "E-RD-002",
-        "E-RL-002"
-      ],
-      "artifact_reviews": [
-        "E-RL-003"
-      ],
-      "issue_tracker_cache": [
-        "E-RL-001"
-      ]
-    },
-    "acceptance_tests": {
-      "0": [
-        "E-RL-003"
-      ],
-      "1": [
-        "E-RL-001"
-      ],
-      "2": [
-        "E-RL-002"
-      ],
-      "3": [
-        "E-RL-002"
-      ],
-      "4": [
-        "E-RL-002"
-      ]
-    }
-  }
+  ]
 }
