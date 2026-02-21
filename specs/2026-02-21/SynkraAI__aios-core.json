@@ -1,0 +1,116 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AIOS Core",
+    "one_liner": "An AI-Orchestrated System for Full Stack Development powered by self-modifying, agent-driven agile development."
+  },
+  "screens": [
+    {
+      "name": "Agent Activation & Command Interface",
+      "purpose": "Enable users to activate AI agents and issue initial commands via their chosen IDE or CLI.",
+      "primary_actions": [
+        "Activate agent via IDE-specific trigger (e.g., /agent-name in Claude)",
+        "Confirm successful greeting and useful output",
+        "Run initial command (*help or equivalent)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "aios_init",
+      "purpose": "Initialize a new AIOS project in a specified directory.",
+      "async": true,
+      "input": {
+        "request": {
+          "activation_path": "",
+          "name": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "aios_install",
+      "purpose": "Install AIOS into an existing project.",
+      "async": true,
+      "input": {
+        "request": {
+          "activation_path": "",
+          "name": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "aios_update",
+      "purpose": "Update the AIOS framework to the latest version.",
+      "async": true,
+      "input": {
+        "id": "",
+        "changes": {
+          "activation_path": "",
+          "name": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "updated": 1
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "activation_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "ide_integrations",
+        "columns": [
+          {
+            "name": "activation_syntax",
+            "type": "TEXT"
+          },
+          {
+            "name": "hook_parity",
+            "type": "TEXT"
+          },
+          {
+            "name": "ide_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define agent activation protocol across supported IDEs",
+    "week 1: Document IDE-specific integration paths and limitations",
+    "week 1: Establish first-value validation flow (greeting + *help)",
+    "week 1: Implement core CLI commands: init, install, update"
+  ],
+  "acceptance_tests": [
+    "The `aios-core update` command correctly resolves and installs the latest published version without attempting to install `@synkra/aios-core@null`.",
+    "User can run `npx aios-core init my-project` and successfully create a new project with valid agent files compatible with GitHub Copilot/CLI Custom Agents format.",
+    "User can run `npx aios-core install` in an existing project and activate an agent in Claude Code using `/agent-name`, receiving a valid greeting and useful response to `*help` within 10 minutes.",
+    "YAML agent definition files (e.g., oalanicolas.md) parse correctly without syntax errors during squad creation."
+  ]
+}

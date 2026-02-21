@@ -1,0 +1,250 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Tera",
+    "one_liner": "A terminal-based internet radio player powered by Radio Browser that enables searching, favoriting, and playing stations with full keyboard navigation."
+  },
+  "screens": [
+    {
+      "name": "Favorites & Lists",
+      "purpose": "View and manage user-curated station lists with duplicate detection.",
+      "primary_actions": [
+        "Add/remove stations",
+        "Create new list",
+        "Sync with GitHub Gist"
+      ]
+    },
+    {
+      "name": "Main Menu",
+      "purpose": "Central hub for station search, quick play, favorites, and navigation to other views.",
+      "primary_actions": [
+        "Access favorites and custom lists",
+        "Navigate to settings or history",
+        "Play random station via 'I Feel Lucky'",
+        "Search stations by name/tag/country"
+      ]
+    },
+    {
+      "name": "Now Playing",
+      "purpose": "Displays currently playing station with playback controls and metadata.",
+      "primary_actions": [
+        "Adjust volume",
+        "Mute audio",
+        "Pause/resume playback",
+        "Save station to list",
+        "Vote for station"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure app behavior, themes, and integration tokens.",
+      "primary_actions": [
+        "Manage GitHub token",
+        "Select theme",
+        "Toggle update checker"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "feel_lucky",
+      "purpose": "Fetch and play a random station based on optional keyword.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "uuid": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "play_station",
+      "purpose": "Launch mpv to stream a station URL with persistent playback state.",
+      "async": true,
+      "input": {
+        "request": {
+          "uuid": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "save_to_list",
+      "purpose": "Add a station to a named favorites list with duplicate prevention.",
+      "async": true,
+      "input": {
+        "blocked_stations": {
+          "uuid": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
+    },
+    {
+      "name": "search_stations",
+      "purpose": "Query Radio Browser API for stations matching criteria (name, tag, country, etc.).",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "uuid": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "sync_gist",
+      "purpose": "Backup or restore favorites lists via GitHub Gist.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "uuid": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "vote_station",
+      "purpose": "Submit upvote for a station to Radio Browser.",
+      "async": true,
+      "input": {
+        "request": {
+          "uuid": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "blocked_stations",
+        "columns": [
+          {
+            "name": "uuid",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "config",
+        "columns": [
+          {
+            "name": "check_updates",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "github_token_ref",
+            "type": "TEXT"
+          },
+          {
+            "name": "theme",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "favorites_lists",
+        "columns": [
+          {
+            "name": "list_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "station_uuids",
+            "type": "ARRAY<STRING>"
+          }
+        ]
+      },
+      {
+        "name": "stations",
+        "columns": [
+          {
+            "name": "country",
+            "type": "TEXT"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_played",
+            "type": "DATETIME"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "play_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "tags",
+            "type": "ARRAY<STRING>"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          },
+          {
+            "name": "uuid",
+            "type": "TEXT"
+          },
+          {
+            "name": "voted",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic favorites list with local persistence",
+    "week 1: Build main menu and now-playing screen",
+    "week 1: Implement core station search and mpv playback",
+    "week 2: Add block list functionality",
+    "week 2: Implement 'I Feel Lucky' random station",
+    "week 2: Integrate Radio Browser voting",
+    "week 3: Add unified config.yaml support",
+    "week 3: Enable GitHub Gist sync for favorites",
+    "week 3: Implement theme customization"
+  ],
+  "acceptance_tests": [
+    "App detects and migrates v2 config automatically on first run.",
+    "Blocked stations do not appear in search results or 'I Feel Lucky'.",
+    "Gist sync correctly uploads and downloads favorites lists.",
+    "Stations added to favorites persist across app restarts.",
+    "User can search for stations by name and play one within 3 keystrokes.",
+    "Voting on a station updates its status in the UI immediately."
+  ]
+}

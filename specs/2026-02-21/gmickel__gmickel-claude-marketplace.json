@@ -1,0 +1,150 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Flow-Next",
+    "one_liner": "A spec-driven AI coding workflow plugin for Claude Code that enables planning, interviewing, and autonomous execution with multi-model review gates."
+  },
+  "screens": [
+    {
+      "name": "Flow-Next Dashboard",
+      "purpose": "Orchestrate spec-driven workflows, manage epics, and trigger autonomous Ralph sessions.",
+      "primary_actions": [
+        "Create new spec",
+        "Run /flow-next:interview",
+        "Run /flow-next:plan",
+        "Start Ralph mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "flow_next_epic_review",
+      "purpose": "Performs cross-model epic-completion review to catch requirement gaps before closing.",
+      "async": true,
+      "input": {
+        "request": {
+          "spec_id": "",
+          "status": "",
+          "title": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "flow_next_interview",
+      "purpose": "Refines and clarifies the structured spec through interactive questioning.",
+      "async": true,
+      "input": {
+        "request": {
+          "spec_id": "",
+          "status": "",
+          "title": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "flow_next_plan",
+      "purpose": "Breaks down a structured spec into actionable implementation tasks.",
+      "async": true,
+      "input": {
+        "request": {
+          "spec_id": "",
+          "status": "",
+          "title": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "flow_next_setup",
+      "purpose": "Installs CLAUDE.md/AGENTS.md snippets with structured spec templates into the project.",
+      "async": true,
+      "input": {
+        "request": {
+          "spec_id": "",
+          "status": "",
+          "title": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "epics",
+        "columns": [
+          {
+            "name": "spec_id",
+            "type": "FOREIGN_KEY"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "specs",
+        "columns": [
+          {
+            "name": "acceptance_criteria",
+            "type": "TEXT"
+          },
+          {
+            "name": "api_contracts",
+            "type": "TEXT"
+          },
+          {
+            "name": "architecture_data_models",
+            "type": "TEXT"
+          },
+          {
+            "name": "boundaries",
+            "type": "TEXT"
+          },
+          {
+            "name": "decision_context",
+            "type": "TEXT"
+          },
+          {
+            "name": "edge_cases_constraints",
+            "type": "TEXT"
+          },
+          {
+            "name": "goal_context",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build /flow-next:plan task decomposition logic",
+    "week 1: Implement spec template scaffolding via /flow-next:setup",
+    "week 1: Integrate cross-model review gate for epic completion"
+  ],
+  "acceptance_tests": [
+    "After running /flow-next:setup, CLAUDE.md contains a structured spec template with all required sections (Goal & Context, Architecture & Data Models, etc.).",
+    "Epic-level reviews catch missing requirements that per-task reviews missed.",
+    "Executing /flow-next:plan on a valid spec produces a list of granular, actionable implementation tasks.",
+    "Ralph mode executes overnight with fresh context per iteration and blocks stuck tasks automatically."
+  ]
+}
