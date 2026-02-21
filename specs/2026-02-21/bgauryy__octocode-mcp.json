@@ -1,0 +1,127 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Octocode MCP",
+    "one_liner": "Empower your AI assistant with the skills of a Senior Staff Engineer by connecting it to real-time semantic code research across public and private repositories and local codebases."
+  },
+  "screens": [
+    {
+      "name": "Octocode Setup & Skills Marketplace",
+      "purpose": "Guide users through interactive GitHub OAuth setup, MCP server installation, and skill selection.",
+      "primary_actions": [
+        "Authenticate with GitHub",
+        "Browse and add skills",
+        "Install MCP server"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "local_fetch_content",
+      "purpose": "Read entire files or extract specific sections using pattern matching.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "context_lines": 0,
+            "file_path": "",
+            "pattern": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "local_find_files",
+      "purpose": "Discover files by metadata such as modification time, size, or permissions.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "context_lines": 0,
+            "file_path": "",
+            "pattern": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "local_ripgrep",
+      "purpose": "Perform fast regex-based pattern search in local codebase with context lines and pagination.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "context_lines": 0,
+            "file_path": "",
+            "pattern": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "local_view_structure",
+      "purpose": "Display directory tree with file sizes and filtering options.",
+      "async": true,
+      "input": {
+        "request": {
+          "context_lines": 0,
+          "file_path": "",
+          "pattern": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "FileContentQuery",
+        "columns": [
+          {
+            "name": "context_lines",
+            "type": "INTEGER"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "pattern",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add local filesystem commands using ripgrep and native tools",
+    "week 1: Build interactive setup wizard with OAuth flow",
+    "week 1: Implement core MCP server with GitHub/GitLab integration"
+  ],
+  "acceptance_tests": [
+    "Agent successfully retrieves code context from GitHub without termination error when using supported models (e.g., Gemini).",
+    "Local ripgrep command returns paginated results matching a regex pattern with surrounding context lines.",
+    "Setup wizard completes GitHub OAuth and installs MCP server via one-line installer script on macOS, Linux, and Windows."
+  ]
+}

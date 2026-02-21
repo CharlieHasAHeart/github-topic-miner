@@ -1,0 +1,107 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "wuchale",
+    "one_liner": "A compile-time internationalization toolkit that requires no code changes and automatically extracts and replaces translatable messages at build time."
+  },
+  "screens": [
+    {
+      "name": "Welcome Screen",
+      "purpose": "Display a clean, natural-language UI component that will be automatically internationalized at build time without any developer annotations.",
+      "primary_actions": [
+        "Display personalized greeting",
+        "Render localized welcome message",
+        "Show localized call-to-action button"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "compile_catalogs",
+      "purpose": "Compile extracted .po files into compact JavaScript/TypeScript modules exporting message arrays.",
+      "async": true,
+      "input": {
+        "request": {
+          "ast_nodes": {},
+          "path": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "extract_strings",
+      "purpose": "Scan source files and extract translatable strings into standard .po files using AST analysis.",
+      "async": true,
+      "input": {
+        "request": {
+          "ast_nodes": {},
+          "path": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "replace_strings_with_translations",
+      "purpose": "Replace original string literals in source code with calls to translation functions that index into compiled message arrays.",
+      "async": true,
+      "input": {
+        "request": {
+          "ast_nodes": {},
+          "path": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "source_file",
+        "columns": [
+          {
+            "name": "ast_nodes",
+            "type": "JSON"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "translation_catalog",
+        "columns": [
+          {
+            "name": "locale",
+            "type": "TEXT"
+          },
+          {
+            "name": "message_array",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build catalog compiler that outputs indexed message arrays",
+    "week 1: Generate .po files from extracted strings",
+    "week 1: Implement AST-based string extraction for JSX/TSX",
+    "week 1: Inject translation function calls during build"
+  ],
+  "acceptance_tests": [
+    "Framework-agnostic integration works in React, Svelte, and plain JS without code changes",
+    "Generated compiled catalogs do not produce type errors when using plural functions",
+    "Newly added translatable strings are extracted without requiring server restart (regression test for issue #204)",
+    "Source locale content is correctly preserved and not overwritten during extraction or compilation"
+  ]
+}

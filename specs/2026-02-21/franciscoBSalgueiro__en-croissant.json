@@ -1,0 +1,216 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "En-Croissant",
+    "one_liner": "An open-source, cross-platform chess GUI that aims to be powerful, customizable and easy to use."
+  },
+  "screens": [
+    {
+      "name": "Application Settings",
+      "purpose": "Configure engines, UI preferences, and update behavior.",
+      "primary_actions": [
+        "Check for updates",
+        "Enable WDL evaluation",
+        "Manage UCI engines",
+        "Toggle move highlights"
+      ]
+    },
+    {
+      "name": "Database Browser",
+      "purpose": "Search and explore chess games in local or reference databases by position or metadata.",
+      "primary_actions": [
+        "Filter by player or event",
+        "Load game into main board",
+        "Perform position search"
+      ]
+    },
+    {
+      "name": "Main Chess Board",
+      "purpose": "Display the current game or position with interactive board, engine analysis, and move navigation.",
+      "primary_actions": [
+        "Load PGN game",
+        "Navigate moves and variations",
+        "Start engine analysis",
+        "Toggle evaluation bar (CP/WDL)"
+      ]
+    },
+    {
+      "name": "Puzzle Practice",
+      "purpose": "Solve tactical puzzles with timer and performance tracking.",
+      "primary_actions": [
+        "Retry failed puzzles",
+        "Start new puzzle",
+        "View solve time and accuracy"
+      ]
+    },
+    {
+      "name": "Repertoire Trainer",
+      "purpose": "Build and train opening repertoires using spaced repetition.",
+      "primary_actions": [
+        "Add new line to repertoire",
+        "Review statistics",
+        "Train with spaced repetition"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "check_for_updates",
+      "purpose": "Check remote server for new application releases.",
+      "async": true,
+      "input": {
+        "id": "",
+        "changes": {
+          "name": "",
+          "path": "",
+          "uci_options": {}
+        }
+      },
+      "output": {
+        "update_available": "boolean",
+        "latest_version": "string?"
+      }
+    },
+    {
+      "name": "load_reference_database",
+      "purpose": "Load and index a chess database for fast position searches.",
+      "async": true,
+      "input": {
+        "db_path": "string"
+      },
+      "output": {
+        "indexed": "boolean",
+        "game_count": "number"
+      }
+    },
+    {
+      "name": "run_engine_analysis",
+      "purpose": "Start multi-engine UCI analysis on a given position.",
+      "async": true,
+      "input": {
+        "fen": "string",
+        "engine_configs": "array<object>"
+      },
+      "output": {
+        "analysis_started": "boolean"
+      }
+    },
+    {
+      "name": "save_pgn_game",
+      "purpose": "Persist a chess game in PGN format to disk.",
+      "async": true,
+      "input": {
+        "game_id": "string",
+        "pgn_content": "string",
+        "file_path": "string"
+      },
+      "output": {
+        "success": "boolean",
+        "error_message": "string?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "engines",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "uci_options",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "games",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "pgn",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "puzzles",
+        "columns": [
+          {
+            "name": "fen",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "rating",
+            "type": "REAL"
+          },
+          {
+            "name": "solution",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "repertoire_lines",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "moves",
+            "type": "TEXT"
+          },
+          {
+            "name": "next_review",
+            "type": "DATETIME"
+          },
+          {
+            "name": "side",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic PGN parsing and board rendering",
+    "week 1: Integrate one UCI engine for analysis",
+    "week 1: Set up Tauri + React project with pnpm",
+    "week 2: Add database loading and position search",
+    "week 2: Create settings screen for engine management",
+    "week 2: Implement save/load game functionality",
+    "week 3: Add puzzle module with timer",
+    "week 3: Build repertoire trainer with spaced repetition logic",
+    "week 3: Implement WDL/CP eval bar toggle"
+  ],
+  "acceptance_tests": [
+    "Database search returns correct games for a given FEN within 2 seconds after initial indexing.",
+    "Engine analysis starts correctly when UCI_ShowWDL is enabled and user clicks eval bar to toggle mode.",
+    "On macOS, 'Check for updates' initiates background version check without freezing UI.",
+    "Puzzle timer starts on first move and records solve time accurately.",
+    "Repertoire training session presents next due line based on spaced repetition schedule.",
+    "User can load a PGN file and navigate through all moves without crash."
+  ]
+}
