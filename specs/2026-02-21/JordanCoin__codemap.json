@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "codemap",
+    "one_liner": "A project brain for your AI that gives LLMs instant architectural context without burning tokens."
+  },
+  "screens": [
+    {
+      "name": "CLI Output View",
+      "purpose": "Display structured project context including file trees, dependency flows, or diffs based on user flags.",
+      "primary_actions": [
+        "Run codemap with path/URL",
+        "Apply filtering flags (--only, --exclude)",
+        "Toggle visualization modes (--skyline, --deps)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "codemap_run",
+      "purpose": "Execute the main codemap command to generate project context output in various modes.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "codemap_handoff",
+      "purpose": "Generate a cross-agent handoff summary for AI collaboration.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "codemap_diff",
+      "purpose": "Show files changed versus main branch or specified reference.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "codemap_deps",
+      "purpose": "Analyze and display dependency flow within the project.",
+      "async": false,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "project_context",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "string"
+          },
+          {
+            "name": "extension",
+            "type": "string"
+          },
+          {
+            "name": "depth",
+            "type": "integer"
+          },
+          {
+            "name": "is_changed",
+            "type": "boolean"
+          },
+          {
+            "name": "importers",
+            "type": "array"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core CLI parsing and file scanning",
+    "week 1: Add support for --depth, --only, --exclude flags",
+    "week 1: Integrate basic dependency analysis"
+  ],
+  "acceptance_tests": [
+    "CLI successfully outputs project tree with default settings",
+    "Filtering by extension (--only) correctly limits output",
+    "Exclusion patterns (--exclude) omit matching files",
+    "Diff mode (--diff) shows only changed files vs main",
+    "Handoff command generates valid cross-agent summary",
+    "Dependency mode (--deps) displays correct import relationships"
+  ]
+}

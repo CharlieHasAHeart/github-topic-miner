@@ -1,0 +1,83 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "tRPC",
+    "one_liner": "Move fast and break nothing with end-to-end typesafe APIs made easy."
+  },
+  "screens": [
+    {
+      "name": "API Definition & Consumption",
+      "purpose": "Enable developers to define and call typesafe remote procedures seamlessly between client and server.",
+      "primary_actions": [
+        "Define server-side procedures",
+        "Call procedures from client with type safety",
+        "Batch multiple requests automatically"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "create_procedure",
+      "purpose": "Define a new typesafe remote procedure endpoint on the server.",
+      "async": true,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "invoke_procedure",
+      "purpose": "Call a remote procedure from the client with validated input and typed response.",
+      "async": true,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "procedures",
+        "columns": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "input_schema",
+            "type": "TypeScript type"
+          },
+          {
+            "name": "output_type",
+            "type": "TypeScript type"
+          }
+        ]
+      },
+      {
+        "name": "requests",
+        "columns": [
+          {
+            "name": "procedure_name",
+            "type": "string"
+          },
+          {
+            "name": "input_data",
+            "type": "any"
+          },
+          {
+            "name": "batch_id",
+            "type": "optional string"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Set up tRPC server with basic procedure definition",
+    "week 1: Implement client-side procedure invocation with type inference",
+    "week 1: Enable automatic request batching"
+  ],
+  "acceptance_tests": [
+    "Client can call a server procedure and receive a strongly typed response without runtime schema validation.",
+    "Multiple client requests made simultaneously are automatically batched into a single HTTP request.",
+    "WebSocket-based subscriptions work with custom encoders as specified in connection parameters.",
+    "FormData inputs are correctly serialized when used directly in procedure inputs."
+  ]
+}
