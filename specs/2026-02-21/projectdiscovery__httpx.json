@@ -1,0 +1,77 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "httpx",
+    "one_liner": "httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library."
+  },
+  "screens": [
+    {
+      "name": "Main Probe Interface",
+      "purpose": "Display probe configuration options and real-time results from HTTP requests across multiple targets.",
+      "primary_actions": [
+        "Configure probe types (e.g., status code, title, TLS)",
+        "Execute probing with concurrency control",
+        "Input target list (URLs, hosts, CIDRs)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_http_probes",
+      "purpose": "Execute configured HTTP probes against a list of targets using retryablehttp with smart fallbacks and WAF handling.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "probe_results",
+        "columns": [
+          {
+            "name": "content_length",
+            "type": "INTEGER"
+          },
+          {
+            "name": "response_time_ms",
+            "type": "INTEGER"
+          },
+          {
+            "name": "status_code",
+            "type": "INTEGER"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "tls_certificate",
+            "type": "JSON"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          },
+          {
+            "name": "web_server",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for basic probes: status code, title, content length",
+    "week 1: Build CLI interface for target input and probe selection",
+    "week 1: Implement core HTTP probing engine with retryablehttp integration"
+  ],
+  "acceptance_tests": [
+    "Given a list of URLs, httpx returns status codes, titles, and content lengths for each reachable endpoint.",
+    "When the -pr http11 flag is used, the tool respects HTTP/1.1 only without falling back to HTTP/2."
+  ]
+}

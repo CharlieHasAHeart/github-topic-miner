@@ -1,0 +1,166 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Claude Code History Viewer",
+    "one_liner": "Desktop app that reads conversation history from Claude Code, Codex CLI, and OpenCode with analytics, session boards, and real-time monitoring."
+  },
+  "screens": [
+    {
+      "name": "Conversation Browser",
+      "purpose": "Navigate conversations by project/session with worktree grouping and access analytics dashboard, token stats, and recent edits.",
+      "primary_actions": [
+        "Access Session Board for multi-session analysis",
+        "Browse sessions by project",
+        "Search across all conversations",
+        "View token usage and API cost"
+      ]
+    },
+    {
+      "name": "Session Board",
+      "purpose": "Multi-session visual analysis tool with pixel view, attribute brushing, and activity timeline for pattern identification.",
+      "primary_actions": [
+        "Compare multiple sessions visually",
+        "Filter by tools, commands, and MCP servers",
+        "View draggable tooltips with session details",
+        "Zoom between detailed and overview modes"
+      ]
+    },
+    {
+      "name": "Settings Manager",
+      "purpose": "Edit Claude Code settings directly within the app with support for project-level and global scopes, including MCP server presets.",
+      "primary_actions": [
+        "Edit JSON settings with real-time validation",
+        "Manage MCP server presets",
+        "Switch between global and project-level settings"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "copy_session_id",
+      "purpose": "Copy the current session ID to clipboard from session context menu.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    },
+    {
+      "name": "monitor_session_files",
+      "purpose": "Watch session files in real time for instant updates when new messages are added.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    },
+    {
+      "name": "resume_session_command",
+      "purpose": "Generate and copy the resume command for a selected session.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "mcp_servers",
+        "columns": [
+          {
+            "name": "config",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "preset_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "server_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "messages",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "message_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "role",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "tool_calls",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "project_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "start_time",
+            "type": "DATETIME"
+          },
+          {
+            "name": "token_usage",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic conversation browser UI",
+    "week 1: Implement session file parser for Claude Code format",
+    "week 1: Set up Tauri + React base project",
+    "week 2: Add global search across sessions",
+    "week 2: Implement token usage analytics",
+    "week 2: Integrate real-time file watcher",
+    "week 3: Add MCP server preset library",
+    "week 3: Develop Session Board pixel view",
+    "week 3: Implement settings editor with JSON validation"
+  ],
+  "acceptance_tests": [
+    "App monitors session files and updates UI instantly when new messages arrive.",
+    "Session Board loads multiple sessions and allows filtering by tool/command.",
+    "Settings manager validates JSON in real time and supports scope switching.",
+    "Terminal tool calls display fully without horizontal cutoff.",
+    "User can right-click a session and copy its ID or resume command via context menu."
+  ]
+}

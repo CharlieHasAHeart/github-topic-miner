@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "agnix",
+    "one_liner": "Lint agent configurations before they break your workflow."
+  },
+  "screens": [
+    {
+      "name": "Main Linter Interface",
+      "purpose": "Display linting results and auto-fix suggestions for agent configuration files.",
+      "primary_actions": [
+        "Apply auto-fixes",
+        "Run lint check on selected config file",
+        "View rule documentation"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_fixes",
+      "purpose": "Apply auto-fixes to a given agent configuration file based on lint diagnostics.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    },
+    {
+      "name": "lint_config",
+      "purpose": "Analyze an agent configuration file against known rules and return diagnostics.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agent_configs",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "tool_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "valid",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "lint_rules",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "rule_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "tool_scope",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic auto-fix support for common syntax errors",
+    "week 1: Implement core linter engine for CLAUDE.md and SKILL.md",
+    "week 1: Integrate with VS Code extension scaffold"
+  ],
+  "acceptance_tests": [
+    "Auto-fix command successfully repairs broken SKILL.md file",
+    "Linter correctly identifies invalid CLAUDE.md syntax and suggests fix",
+    "Linter supports Cursor-specific CLAUDE.md extensions without false positives"
+  ]
+}

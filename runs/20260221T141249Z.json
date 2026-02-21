@@ -1,0 +1,3935 @@
+{
+  "run_id": "20260221T141249Z",
+  "generated_at": "2026-02-21T14:12:49.451Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 90,
+    "candidates_kept": 5,
+    "candidates_deduped": 0,
+    "new_candidates": 5,
+    "repo_cards_built": 5,
+    "gaps_count": 0,
+    "specs_attempted": 5,
+    "specs_succeeded": 5,
+    "specs_failed": 0,
+    "evidence_validated": 5,
+    "evidence_valid_ok": 5,
+    "evidence_valid_failed": 0,
+    "evidence_written": 5,
+    "evidence_write_failed": 0,
+    "evidence_total": 72,
+    "evidence_by_type": {
+      "readme": 40,
+      "issue": 12,
+      "release": 15,
+      "root_files": 5
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-02-21T14:15:07.055Z",
+    "repo_count": 50
+  },
+  "candidates": [
+    {
+      "full_name": "swiftlang/swift-testing",
+      "html_url": "https://github.com/swiftlang/swift-testing",
+      "description": "A modern, expressive testing package for Swift",
+      "topics": [
+        "software-quality",
+        "swift",
+        "swift-macros",
+        "testing",
+        "unit-testing"
+      ],
+      "language": "Swift",
+      "stargazers_count": 2107,
+      "forks_count": 137,
+      "open_issues_count": 116,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:11:20Z",
+      "created_at": "2022-12-19T23:51:30Z"
+    },
+    {
+      "full_name": "agent-sh/agnix",
+      "html_url": "https://github.com/agent-sh/agnix",
+      "description": "The missing linter and lsp for AI coding assistants. Validate CLAUDE.md, AGENTS.md, SKILL.md, hooks, MCP. Plugin for all major IDEs included, with autofixes.",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agents",
+        "ai-coding-assistant",
+        "claude",
+        "cli",
+        "code-quality",
+        "codex",
+        "copilot",
+        "cursor",
+        "devtools",
+        "linter",
+        "llm",
+        "lsp",
+        "mcp",
+        "opencode",
+        "rust",
+        "skills",
+        "vscode",
+        "vscode-extension"
+      ],
+      "language": "Rust",
+      "stargazers_count": 50,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:10:48Z",
+      "created_at": "2026-01-30T23:54:10Z"
+    },
+    {
+      "full_name": "jhlee0409/claude-code-history-viewer",
+      "html_url": "https://github.com/jhlee0409/claude-code-history-viewer",
+      "description": "desktop app to browse and analyze your Claude Code conversation history",
+      "topics": [
+        "claude",
+        "claude-code",
+        "conversation-history",
+        "desktop-app",
+        "developer-tools",
+        "react",
+        "rust",
+        "tauri"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 473,
+      "forks_count": 57,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:10:26Z",
+      "created_at": "2025-06-28T10:29:54Z"
+    },
+    {
+      "full_name": "projectdiscovery/httpx",
+      "html_url": "https://github.com/projectdiscovery/httpx",
+      "description": "httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.",
+      "topics": [
+        "bugbounty",
+        "cli",
+        "cybersecurity",
+        "hacktoberfest",
+        "http",
+        "lib",
+        "osint",
+        "pentest-tool",
+        "pipeline",
+        "ssl-certificate"
+      ],
+      "language": "Go",
+      "stargazers_count": 9582,
+      "forks_count": 1026,
+      "open_issues_count": 30,
+      "license_spdx_id": "MIT",
+      "default_branch": "dev",
+      "pushed_at": "2026-02-21T14:10:02Z",
+      "created_at": "2020-05-28T22:51:24Z"
+    },
+    {
+      "full_name": "moinulmoin/voicetypr",
+      "html_url": "https://github.com/moinulmoin/voicetypr",
+      "description": "VoiceTypr - AI powered offline voice to text dictation tool for busy founders, vibe coders, AI power users on macos, windows. Alternative to wispr flow and superwhisper.",
+      "topics": [
+        "reactjs",
+        "shadcn-ui",
+        "tailwindcss",
+        "tauri",
+        "whisper-ai"
+      ],
+      "language": "Rust",
+      "stargazers_count": 302,
+      "forks_count": 52,
+      "open_issues_count": 7,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:09:56Z",
+      "created_at": "2025-07-06T18:32:58Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "swiftlang/swift-testing",
+      "html_url": "https://github.com/swiftlang/swift-testing",
+      "description": "A modern, expressive testing package for Swift",
+      "topics": [
+        "software-quality",
+        "swift",
+        "swift-macros",
+        "testing",
+        "unit-testing"
+      ],
+      "language": "Swift",
+      "stargazers_count": 2107,
+      "forks_count": 137,
+      "open_issues_count": 116,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:11:20Z",
+      "created_at": "2022-12-19T23:51:30Z"
+    },
+    {
+      "full_name": "agent-sh/agnix",
+      "html_url": "https://github.com/agent-sh/agnix",
+      "description": "The missing linter and lsp for AI coding assistants. Validate CLAUDE.md, AGENTS.md, SKILL.md, hooks, MCP. Plugin for all major IDEs included, with autofixes.",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agents",
+        "ai-coding-assistant",
+        "claude",
+        "cli",
+        "code-quality",
+        "codex",
+        "copilot",
+        "cursor",
+        "devtools",
+        "linter",
+        "llm",
+        "lsp",
+        "mcp",
+        "opencode",
+        "rust",
+        "skills",
+        "vscode",
+        "vscode-extension"
+      ],
+      "language": "Rust",
+      "stargazers_count": 50,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:10:48Z",
+      "created_at": "2026-01-30T23:54:10Z"
+    },
+    {
+      "full_name": "jhlee0409/claude-code-history-viewer",
+      "html_url": "https://github.com/jhlee0409/claude-code-history-viewer",
+      "description": "desktop app to browse and analyze your Claude Code conversation history",
+      "topics": [
+        "claude",
+        "claude-code",
+        "conversation-history",
+        "desktop-app",
+        "developer-tools",
+        "react",
+        "rust",
+        "tauri"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 473,
+      "forks_count": 57,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:10:26Z",
+      "created_at": "2025-06-28T10:29:54Z"
+    },
+    {
+      "full_name": "projectdiscovery/httpx",
+      "html_url": "https://github.com/projectdiscovery/httpx",
+      "description": "httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.",
+      "topics": [
+        "bugbounty",
+        "cli",
+        "cybersecurity",
+        "hacktoberfest",
+        "http",
+        "lib",
+        "osint",
+        "pentest-tool",
+        "pipeline",
+        "ssl-certificate"
+      ],
+      "language": "Go",
+      "stargazers_count": 9582,
+      "forks_count": 1026,
+      "open_issues_count": 30,
+      "license_spdx_id": "MIT",
+      "default_branch": "dev",
+      "pushed_at": "2026-02-21T14:10:02Z",
+      "created_at": "2020-05-28T22:51:24Z"
+    },
+    {
+      "full_name": "moinulmoin/voicetypr",
+      "html_url": "https://github.com/moinulmoin/voicetypr",
+      "description": "VoiceTypr - AI powered offline voice to text dictation tool for busy founders, vibe coders, AI power users on macos, windows. Alternative to wispr flow and superwhisper.",
+      "topics": [
+        "reactjs",
+        "shadcn-ui",
+        "tailwindcss",
+        "tauri",
+        "whisper-ai"
+      ],
+      "language": "Rust",
+      "stargazers_count": 302,
+      "forks_count": 52,
+      "open_issues_count": 7,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:09:56Z",
+      "created_at": "2025-07-06T18:32:58Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "swiftlang/swift-testing",
+      "html_url": "https://github.com/swiftlang/swift-testing",
+      "description": "A modern, expressive testing package for Swift",
+      "topics": [
+        "software-quality",
+        "swift",
+        "swift-macros",
+        "testing",
+        "unit-testing"
+      ],
+      "language": "Swift",
+      "stargazers_count": 2107,
+      "forks_count": 137,
+      "open_issues_count": 116,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:11:20Z",
+      "created_at": "2022-12-19T23:51:30Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Swift Testing\n\n<!--\nThis source file is part of the Swift.org open source project\n\nCopyright (c) 2024 Apple Inc. and the Swift project authors\nLicensed under Apache License v2.0 with Runtime Library Exception\n\nSee https://swift.org/LICENSE.txt for license information\nSee https://swift.org/CONTRIBUTORS.txt for Swift project authors\n-->\n\nSwift Testing is a package with expressive and intuitive APIs that make testing\nyour Swift code a breeze.\n\n[![CI status badge for main branch using main toolchain](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_main.yml/badge.svg?branch=main&event=push)](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_main.yml)\n[![CI status badge for main branch using 6.3 toolchain](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_release.yml/badge.svg?branch=main&event=push)](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_release.yml)\n\n## Feature overview\n\n### Clear, expressive API\n\nSwift Testing has a clear and expressive API built using macros, so you can\ndeclare complex behaviors with a small amount of code. The `#expect` API uses\nSwift expressions and operators, and captures the evaluated values so you can\nquickly understand what went wrong when a test fails.\n\n```swift\nimport Testing\n\n@Test func helloWorld() {\n  let greeting = \"Hello, world!\"\n  #expect(greeting == \"Hello\") // Expectation failed: (greeting → \"Hello, world!\") == \"Hello\"\n}\n```\n\n### Custom test behaviors\n\nYou can customize the behavior of tests or test suites using traits specified in\nyour code. Traits can describe the runtime conditions for a test, like which\ndevice a test should run on, or limit a test to certain operating system\nversions. Traits can also help you use continuous integration effectively by\nspecifying execution time limits for your tests.\n\n```swift\n@Test(.enabled(if: AppFeatures.isCommentingEnabled))\nfunc videoCommenting() async throws {\n    let video = try #require(await videoLibrary.video(named: \"A Beach\"))\n    #expect(video.comments.contains(\"So picturesque!\"))\n}\n```\n\n### Easy and flexible organization\n\nSwift Testing provides many ways to keep your tests organized. Structure\nrelated tests using a hierarchy of groups and subgroups. Apply tags to flexibly\nmanage, edit, and run tests with common characteristics across your test suite,\nlike tests that target a specific device or use a specific module. You can also\ngive tests a descriptive name so you know what they’re doing at a glance.\n\n```swift\n@Test(\"Check video metadata\",\n      .tags(.metadata))\nfunc videoMetadata() {\n    let video = Video(fileName: \"By the Lake.mov\")\n    let expectedMetadata = Metadata(duration: .seconds(90))\n    #expect(video.metadata == expectedMetadata)\n}\n```\n\n### Scalable coverage and execution\n\nParameterized tests help you run the same test over a sequence of values so you\ncan write less code. And all tests integrate seamlessly with Swift Concurrency\nand run in parallel by default.\n\n```swift\n@Test(\"Continents mentioned in videos\", arguments: [\n    \"A Beach\",\n    \"By the Lake\",\n    \"Camping in the Woods\"\n])\nfunc mentionedContinents(videoName: String) async throws {\n    let videoLibrary = try await VideoLibrary()\n    let video = try #require(await videoLibrary.video(named: videoName))\n    #expect(video.mentionedContinents.count <= 3)\n}\n```\n\n### Cross-platform support\n\nSwift Testing is included in officially-supported Swift toolchains, including\nthose for Apple platforms, Linux, and Windows. To use the library, import the\n`Testing` module:\n\n```swift\nimport Testing\n```\n\nYou don't need to declare a package dependency to use Swift Testing. It's\ndeveloped as open source and discussed on the\n[Swift Forums](https://forums.swift.org/c/development/swift-testing/103)\nso the very best ideas, from anywhere, can help shape the future of testing in\nSwift.\n\nThe table below describes the current level of support that Swift Testing has\nfor various platforms:\n\n| **Platform**     | **Support Status** | **Qualification[^1]**  |\n| ---------------- | ------------------ | ---------------------- |\n| Apple platforms  | Supported          | Automated              |\n| Linux            | Supported          | Automated              |\n| Windows          | Supported          | Automated              |\n| Wasm             | Experimental       | Automated (Build Only) |\n| Android          | Experimental       | Automated (Build Only) |\n| FreeBSD, OpenBSD | Experimental       | Manual                 |\n\n[^1]:\n    Most platforms have \"Automated\" qualification, where continuous integration\n    automatically verifies that the project builds and passes all tests. This\n    ensures that any changes meet our highest quality standards, so it is our\n    goal for all supported platforms.\n\n    Presently, some platforms rely on manual test (\"Automated (Build Only)\"\n    qualification) or manual build and test (\"Manual\" qualification).\n\n### Works with XCTest\n\nIf you already have tests written using XCTest, you can run them side-by-side\nwith newer tests written using Swift Testing. This helps you migrate tests\nincrementally, at your own pace.\n\n## Documentation\n\nDetailed documentation for Swift Testing can be found on the\n[Swift Package Index](https://swiftpackageindex.com/swiftlang/swift-testing/main/documentation/testing).\nThere, you can delve into comprehensive guides, tutorials, and API references to\nmake the most out of this package. Swift Testing is included with the Swift 6\ntoolchain and Xcode 16. You do not need to add it as a package dependency to\nyour Swift package or Xcode project.\n\n> [!IMPORTANT]\n> Swift Testing depends on upcoming language and compiler features. If you are\n> building Swift Testing from source, be aware that the main branch of this\n> repository requires a recent **main-branch development snapshot** toolchain.\n\nOther documentation resources for this project can be found in the\n[README](https://github.com/swiftlang/swift-testing/blob/main/Documentation/README.md)\nof the `Documentation/` subdirectory.\n",
+        "truncated": false,
+        "bytes": 6065,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Swift 6.2.3 Release",
+            "tag_name": "swift-6.2.3-RELEASE",
+            "published_at": "2025-12-15T00:41:46Z",
+            "body_excerpt": "## What's Changed\r\n* [6.2] Ensure `NonisolatedNonsendingByDefault` doesn't break exit tests by @stmontgomery in https://github.com/swiftlang/swift-testing/pull/1421\r\n* Update the Swift version to 6.2.3 by @shahmishal in https://github.com/swiftlang/swift-testing/pull/1433\r\n\r\n\r\n**Full Changelog**: https://github.com/swiftlang/swift-testing/compare/swift-6.2.2-RELEASE...swift-6.2.3-RELEASE"
+          },
+          {
+            "name": "Swift 6.2.2 Release",
+            "tag_name": "swift-6.2.2-RELEASE",
+            "published_at": "2025-12-15T00:41:04Z",
+            "body_excerpt": "## What's Changed\r\n* [6.2.2] Update branch version by @grynspan in https://github.com/swiftlang/swift-testing/pull/1411\r\n* [6.2.2] Ensure `NonisolatedNonsendingByDefault` doesn't break exit tests. by @grynspan in https://github.com/swiftlang/swift-testing/pull/1407\r\n\r\n\r\n**Full Changelog**: https://github.com/swiftlang/swift-testing/compare/swift-6.2.1-RELEASE...swift-6.2.2-RELEASE"
+          },
+          {
+            "name": "Swift 6.1.3 Release",
+            "tag_name": "swift-6.1.3-RELEASE",
+            "published_at": "2025-09-08T21:45:31Z",
+            "body_excerpt": "## What's Changed\r\n* Bump the Swift version to 6.1.3 by @shahmishal in https://github.com/swiftlang/swift-testing/pull/1288\r\n\r\n\r\n**Full Changelog**: https://github.com/swiftlang/swift-testing/compare/swift-6.1.2-RELEASE...swift-6.1.3-RELEASE"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".editorconfig",
+        ".github",
+        ".gitignore",
+        ".license_header_template",
+        ".licenseignore",
+        ".spi.yml",
+        ".swiftpm",
+        "CMakeLists.txt",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "Documentation",
+        "LICENSE.txt",
+        "NOTICE.txt",
+        "Package.swift",
+        "README.md",
+        "Sources",
+        "Tests",
+        "VERSION.txt",
+        "cmake"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Copyright (c) 2024 Apple Inc. and the Swift project authors Licensed under Apache License v2.0 with Runtime Library Exception",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 1,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 2)",
+          "excerpt": "See https://swift.org/LICENSE.txt for license information See https://swift.org/CONTRIBUTORS.txt for Swift project authors -->",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 2,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Swift Testing is a package with expressive and intuitive APIs that make testing your Swift code a breeze.",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 3,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[![CI status badge for main branch using main toolchain](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_main.yml/badge.svg?branch=main&event=push)](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_main.yml) [![CI status badge for main branch using 6.3 toolchain](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_release.yml/badge.svg?branch=main&event=push)](https://github.com/swiftlang/swift-testing/actions/workflows/main_using_release.yml)",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 4,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Swift Testing has a clear and expressive API built using macros, so you can declare complex behaviors with a small amount of code. The `#expect` API uses Swift expressions and operators, and captures the evaluated values so you can quickly understand what went wrong when a test fails.",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 5,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 6)",
+          "excerpt": "@Test func helloWorld() { let greeting = \"Hello, world!\" #expect(greeting == \"Hello\") // Expectation failed: (greeting → \"Hello, world!\") == \"Hello\" } ```",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 6,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 7)",
+          "excerpt": "You can customize the behavior of tests or test suites using traits specified in your code. Traits can describe the runtime conditions for a test, like which device a test should run on, or limit a test to certain operating system versions. Traits can also help you use continuous integration effectively by specifying execution time limits for your tests.",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 7,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/swiftlang/swift-testing#readme",
+          "title": "README (segment 8)",
+          "excerpt": "```swift @Test(.enabled(if: AppFeatures.isCommentingEnabled)) func videoCommenting() async throws { let video = try #require(await videoLibrary.video(named: \"A Beach\")) #expect(video.comments.contains(\"So picturesque!\")) } ```",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "segment": 8,
+            "language": "Swift"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/swiftlang/swift-testing/releases",
+          "title": "swift-6.2.3-RELEASE",
+          "excerpt": "## What's Changed * [6.2] Ensure `NonisolatedNonsendingByDefault` doesn't break exit tests by @stmontgomery in https://github.com/swiftlang/swift-testing/pull/1421 * Update the Swift version to 6.2.3 by @shahmishal in https://github.com/swiftlang/swift-testing/pull/1433 **Full Changelog**: https://github.com/swiftlang/swift-testing/compare/swift-6.2.2-RELEASE...swift-6.2.3-RELEASE",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "tag_name": "swift-6.2.3-RELEASE",
+            "published_at": "2025-12-15T00:41:46Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/swiftlang/swift-testing/releases",
+          "title": "swift-6.2.2-RELEASE",
+          "excerpt": "## What's Changed * [6.2.2] Update branch version by @grynspan in https://github.com/swiftlang/swift-testing/pull/1411 * [6.2.2] Ensure `NonisolatedNonsendingByDefault` doesn't break exit tests. by @grynspan in https://github.com/swiftlang/swift-testing/pull/1407 **Full Changelog**: https://github.com/swiftlang/swift-testing/compare/swift-6.2.1-RELEASE...swift-6.2.2-RELEASE",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "tag_name": "swift-6.2.2-RELEASE",
+            "published_at": "2025-12-15T00:41:04Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/swiftlang/swift-testing/releases",
+          "title": "swift-6.1.3-RELEASE",
+          "excerpt": "## What's Changed * Bump the Swift version to 6.1.3 by @shahmishal in https://github.com/swiftlang/swift-testing/pull/1288 **Full Changelog**: https://github.com/swiftlang/swift-testing/compare/swift-6.1.2-RELEASE...swift-6.1.3-RELEASE",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "tag_name": "swift-6.1.3-RELEASE",
+            "published_at": "2025-09-08T21:45:31Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/swiftlang/swift-testing",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .github, .gitignore, .license_header_template, .licenseignore, .spi.yml, .swiftpm, CMakeLists.txt, CONTRIBUTING.md, Dockerfile, Documentation, LICENSE.txt, NOTICE.txt, Package.swift, README.md, Sources, Tests, VERSION.txt, cmake",
+          "fetched_at": "2026-02-21T14:12:53.305Z",
+          "meta": {
+            "repo_full_name": "swiftlang/swift-testing",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "agent-sh/agnix",
+      "html_url": "https://github.com/agent-sh/agnix",
+      "description": "The missing linter and lsp for AI coding assistants. Validate CLAUDE.md, AGENTS.md, SKILL.md, hooks, MCP. Plugin for all major IDEs included, with autofixes.",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agents",
+        "ai-coding-assistant",
+        "claude",
+        "cli",
+        "code-quality",
+        "codex",
+        "copilot",
+        "cursor",
+        "devtools",
+        "linter",
+        "llm",
+        "lsp",
+        "mcp",
+        "opencode",
+        "rust",
+        "skills",
+        "vscode",
+        "vscode-extension"
+      ],
+      "language": "Rust",
+      "stargazers_count": 50,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:10:48Z",
+      "created_at": "2026-01-30T23:54:10Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <img src=\"editors/vscode/icon.png\" alt=\"agnix\" width=\"128\">\n  <h1>agnix</h1>\n  <p><strong>Lint agent configurations before they break your workflow</strong></p>\n  <p>\n    <a href=\"https://www.npmjs.com/package/agnix\"><img src=\"https://img.shields.io/npm/v/agnix.svg?color=3C873A\" alt=\"npm\"></a>\n    <a href=\"https://crates.io/crates/agnix-cli\"><img src=\"https://img.shields.io/crates/v/agnix-cli.svg?color=E57324\" alt=\"Crates.io\"></a>\n    <a href=\"https://github.com/agent-sh/agnix/releases\"><img src=\"https://img.shields.io/github/v/release/agent-sh/agnix?color=0A7E8C\" alt=\"Release\"></a>\n    <a href=\"https://github.com/agent-sh/agnix/actions/workflows/ci.yml\"><img src=\"https://github.com/agent-sh/agnix/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n    <a href=\"LICENSE-MIT\"><img src=\"https://img.shields.io/badge/license-MIT%2FApache--2.0-64748B.svg\" alt=\"License\"></a>\n  </p>\n</div>\n\n<p align=\"center\">Catch broken agent configs before your AI tools silently ignore them.<br>230 rules across Claude Code, Codex CLI, OpenCode, Cursor, Copilot, and more -<br>validating CLAUDE.md, SKILL.md, hooks, MCP configs, and other agent files.</p>\n\n<p align=\"center\"><strong>Auto-fix</strong> | <strong><a href=\"https://github.com/marketplace/actions/agnix-ci\">GitHub Action</a></strong> | <strong><a href=\"https://marketplace.visualstudio.com/items?itemName=avifenesh.agnix\">VS Code</a> + <a href=\"https://plugins.jetbrains.com/plugin/30087-agnix\">JetBrains</a> + <a href=\"https://github.com/agent-sh/agnix.nvim\">Neovim</a> + <a href=\"https://github.com/agent-sh/agnix/tree/main/editors/zed\">Zed</a></strong></p>\n\n<p align=\"center\">\n  <a href=\"https://agent-sh.github.io/agnix/\"><img src=\"https://img.shields.io/badge/Docs-Website-2563EB?style=for-the-badge\" alt=\"Website\"></a>\n  <a href=\"https://agent-sh.github.io/agnix/playground\"><img src=\"https://img.shields.io/badge/Try_it-Playground-E91E63?style=for-the-badge\" alt=\"Playground\"></a>\n  <a href=\"https://dev.to/avifenesh/your-ai-agent-configs-are-probably-broken-and-you-dont-know-it-16n1\"><img src=\"https://img.shields.io/badge/Blog-Post-0A0A0A?style=for-the-badge&logo=dev.to\" alt=\"Blog Post\"></a>\n</p>\n\n<p align=\"center\"><em>New rules and tool support ship constantly. Follow for real-time updates:</em></p>\n<p align=\"center\">\n  <a href=\"https://x.com/avi_fenesh\"><img src=\"https://img.shields.io/badge/Follow-@avi__fenesh-1DA1F2?style=for-the-badge&logo=x&logoColor=white\" alt=\"Follow on X\"></a>\n</p>\n\n## Why agnix?\n\n**Your skills don't trigger.** Vercel's research found skills [invoke at 0%](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals) without correct syntax. One wrong field and your skill is invisible.\n\n**\"Almost right\" is the worst outcome.** [66% of developers](https://survey.stackoverflow.co/2025/ai) cite it as their biggest AI frustration. Misconfigured agents produce exactly this.\n\n**Multi-tool stacks fail silently.** Cursor + Claude Code + Copilot each want different formats. A config that works in one tool [breaks in another](https://arnav.tech/beyond-copilot-cursor-and-claude-code-the-unbundled-coding-ai-tools-stack).\n\n**Bad patterns get amplified.** AI assistants don't ignore wrong configs - they [learn from them](https://www.augmentcode.com/guides/enterprise-coding-standards-12-rules-for-ai-ready-teams).\n\nagnix validates all of it - 230 rules sourced from official specs, academic research, and real-world breakage patterns. Auto-fix included.\n\n> **Want to try it first?** [Open the playground](https://agent-sh.github.io/agnix/playground) - paste any agent config, see diagnostics instantly. No install, runs in your browser.\n\n## Quick Start\n\n```console\n$ npx agnix .\nValidating: .\n\nCLAUDE.md:15:1 warning: Generic instruction 'Be helpful and accurate' [fixable]\n  help: Remove generic instructions. Claude already knows this.\n\n.claude/skills/review/SKILL.md:3:1 error: Invalid name 'Review-Code' [fixable]\n  help: Use lowercase letters and hyphens only (e.g., 'code-review')\n\nFound 1 error, 1 warning\n  2 issues are automatically fixable\n\nhint: Run with --fix, --fix-safe, or --fix-unsafe to apply fixes\n```\n\nhttps://github.com/user-attachments/assets/72d5fe7c-476f-46ea-be64-5785cf6d5600\n\n## Install\n\n```bash\n# npm (recommended, all platforms)\nnpm install -g agnix\n\n# Homebrew (macOS/Linux)\nbrew tap agent-sh/agnix && brew install agnix\n\n# Cargo\ncargo install agnix-cli\n```\n\n[Pre-built binaries](https://github.com/agent-sh/agnix/releases) | [All install options](https://agent-sh.github.io/agnix/docs/installation)\n\n### Editor Extensions\n\n| Editor | Install |\n|--------|---------|\n| **VS Code** | [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=avifenesh.agnix) |\n| **JetBrains** | [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/30087-agnix) |\n| **Neovim** | `{ \"agent-sh/agnix.nvim\" }` |\n| **Zed** | Search \"agnix\" in Extensions |\n\n[Editor setup guide](https://agent-sh.github.io/agnix/docs/editor-integration)\n\n### GitHub Action\n\n```yaml\n- name: Validate agent configs\n  uses: agent-sh/agnix@v0\n  with:\n    target: 'claude-code'\n```\n\n## Usage\n\n```bash\nagnix .              # Validate current directory\nagnix --fix .        # Apply HIGH and MEDIUM confidence fixes\nagnix --fix-safe .   # Apply only HIGH confidence fixes\nagnix --fix-unsafe . # Apply all fixes, including LOW confidence\nagnix --dry-run --show-fixes .  # Preview fixes with inline diff output\nagnix --strict .     # Strict mode (warnings = errors)\nagnix --target claude-code .  # Target specific tool\n```\n\n[Full CLI reference](https://agent-sh.github.io/agnix/docs/configuration) | [All 230 rules](https://agent-sh.github.io/agnix/docs/rules)\n\n## Supported Tools\n\n| Tool | Rules | Count | Config Files |\n|------|-------|-------|--------------|\n| [Agent Skills](https://agentskills.io) | AS-\\*, CC-SK-\\* | 31 | SKILL.md |\n| [Claude Code](https://docs.anthropic.com/en/docs/build-with-claude/claude-code) | CC-\\* | 53 | CLAUDE.md, hooks, agents, plugins |\n| [GitHub Copilot](https://docs.github.com/en/copilot) | COP-\\* | 6 | .github/copilot-instructions.md, .github/instructions/\\*.instructions.md |\n| [Cursor](https://cursor.com) | CUR-\\* | 10 | .cursor/rules/\\*.mdc, .cursorrules |\n| [MCP](https://modelcontextprotocol.io) | MCP-\\* | 12 | \\*.mcp.json |\n| [AGENTS.md](https://agentsmd.org) | AGM-\\*, XP-\\* | 13 | AGENTS.md, AGENTS.local.md, AGENTS.override.md |\n| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | GM-\\* | 9 | GEMINI.md, GEMINI.local.md, .gemini/settings.json (hooks), gemini-extension.json (extensions), .geminiignore |\n\n## Architecture\n\nRust workspace crates:\n- `agnix-rules` - rule metadata generated from `knowledge-base/rules.json`\n- `agnix-core` - shared validation engine library\n- `agnix-cli` - command-line interface binary\n- `agnix-lsp` - language server binary\n- `agnix-mcp` - MCP server binary\n- `agnix-wasm` - WebAssembly bindings for browser/runtime integrations\n\n## Contributing\n\nContributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development guide.\n\n[Report a bug](https://github.com/agent-sh/agnix/issues/new) | [Request a rule](https://github.com/agent-sh/agnix/issues/new) | [Good first issues](https://github.com/agent-sh/agnix/labels/good%20first%20issue)\n\n## License\n\nMIT OR Apache-2.0\n\n---\n\n<p align=\"center\">\n  <a href=\"https://github.com/agent-sh/agnix/stargazers\">Star this repo</a> to help other developers find agnix.\n</p>\n\n\n\n",
+        "truncated": false,
+        "bytes": 7447,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.12.4",
+            "tag_name": "v0.12.4",
+            "published_at": "2026-02-21T12:35:16Z",
+            "body_excerpt": "\n### Security\n- **Fix minimatch ReDoS vulnerability**: Added npm `overrides` in `website/package.json` to force `minimatch@^10.2.1`, resolving Dependabot alert #75 (ReDoS via repeated wildcards in `serve-handler`'s transitive `minimatch@3.1.2` dependency)\n- **Update wasm-bindgen**: Bumped `wasm-bindgen` from 0.2.109 (yanked) to 0.2.110 along with related crates (`js-sys`, `web-sys`, `wasm-bindgen-test`, etc.)\n\n### Performance\n- **WASM conversion optimization**: Refactored `WasmDiagnostic::from_diagnostic` to take ownership of `Diagnostic` and its fields, eliminating unnecessary string cloning when converting diagnostics to the WASM-compatible representation in `agnix-wasm`\n\n### Added\n- **LSP `pub(crate)` testability refactor**: Made internal modules (`backend`, `code_actions`, `completion_provider`, `diagnostic_mapper`, `hover_provider`, `position`, `vscode_config`) and `Backend` struct fields/methods `pub(crate)` to enable crate-internal test access. Added `Backend::new_test()` constructor (gated behind `#[cfg(test)]`) and 18 new tests in `testability_tests.rs` verifying that all promoted `pub(crate)` items are accessible from the crate root. No public API changes.\n- **Improved frontmatter parsing test coverage**: Added exhaustive unit tests for `frontmatter_value_byte_range`, `frontmatter_key_offset`, and `frontmatter_key_line_byte_range` in `agnix-core`. Covers unquoted/quoted values, comments, CRLF endings, indented keys, and malformed input.\n- **`build_lenient()` on `LintConfigBuilder`**: New builder terminal that runs security-critical glob pattern validation (syntax, path traversal, absolute paths) while skipping semantic warnings such as unknown tool names and deprecated field warnings. Intended for embedders that accept future or unknown tool names without rebuilding. `ConfigError::AbsolutePathPattern` variant added for absolute-path glob patterns (#475)\n- **Expanded autofix coverage**: Added `with_fix()` autofix support to 38 additional validation rules ac"
+          },
+          {
+            "name": "v0.12.3",
+            "tag_name": "v0.12.3",
+            "published_at": "2026-02-21T05:58:52Z",
+            "body_excerpt": "Release v0.12.3\n"
+          },
+          {
+            "name": "v0.12.2",
+            "tag_name": "v0.12.2",
+            "published_at": "2026-02-15T22:37:32Z",
+            "body_excerpt": "Release v0.12.2\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 554,
+            "title": "feat: Add Cursor support for CLAUDE.md files",
+            "state": "closed",
+            "url": "https://github.com/agent-sh/agnix/issues/554"
+          },
+          {
+            "number": 485,
+            "title": "Document that agnix-core requires std even without filesystem feature",
+            "state": "closed",
+            "url": "https://github.com/agent-sh/agnix/issues/485"
+          },
+          {
+            "number": 484,
+            "title": "Audit schemas module: replace blanket dead_code allow with targeted allows",
+            "state": "closed",
+            "url": "https://github.com/agent-sh/agnix/issues/484"
+          }
+        ]
+      },
+      "root_files": [
+        ".agnix.toml",
+        ".agnix",
+        ".claude",
+        ".github",
+        ".gitignore",
+        ".pre-commit-hooks.yaml",
+        ".task",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "Formula",
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "README.md",
+        "SECURITY.md",
+        "SPEC.md",
+        "action.yml",
+        "assets",
+        "audit.toml",
+        "codecov.yml",
+        "crates",
+        "deny.toml",
+        "docs",
+        "editors",
+        "knowledge-base",
+        "locales",
+        "lua",
+        "npm",
+        "plugin",
+        "schemas",
+        "scripts",
+        "skills",
+        "src",
+        "tests",
+        "website"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <img src=\"editors/vscode/icon.png\" alt=\"agnix\" width=\"128\"> <h1>agnix</h1> <p><strong>Lint agent configurations before they break your workflow</strong></p> <p> <a href=\"https://www.npmjs.com/package/agnix\"><img src=\"https://img.shields.io/npm/v/agnix.svg?color=3C873A\" alt=\"npm\"></a> <a href=\"https://crates.io/crates/agnix-cli\"><img src=\"https://img.shields.io/crates/v/agnix-cli.svg?color=E57324\" alt=\"Crates.io\"></a> <a href=\"https://github.com/agent-sh/agnix/releases\"><img src=\"https://img.shields.io/github/v/release/agent-sh/agnix?color=0A7E8C\" alt=\"Release\"></a> <a href=\"https://github.com/agent-sh/agnix/actions/workflows/ci.yml\"><img src=\"https://github.com/agent-sh/agnix/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a> <a href=\"LICENSE-MIT\"><img src=\"https://img.shields.io/badge/license-MIT%2FApache--2.0-64748B.svg\" alt=\"License\"></a> </p> </div>",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\">Catch broken agent configs before your AI tools silently ignore them.<br>230 rules across Claude Code, Codex CLI, OpenCode, Cursor, Copilot, and more -<br>validating CLAUDE.md, SKILL.md, hooks, MCP configs, and other agent files.</p>",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"><strong>Auto-fix</strong> | <strong><a href=\"https://github.com/marketplace/actions/agnix-ci\">GitHub Action</a></strong> | <strong><a href=\"https://marketplace.visualstudio.com/items?itemName=avifenesh.agnix\">VS Code</a> + <a href=\"https://plugins.jetbrains.com/plugin/30087-agnix\">JetBrains</a> + <a href=\"https://github.com/agent-sh/agnix.nvim\">Neovim</a> + <a href=\"https://github.com/agent-sh/agnix/tree/main/editors/zed\">Zed</a></strong></p>",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://agent-sh.github.io/agnix/\"><img src=\"https://img.shields.io/badge/Docs-Website-2563EB?style=for-the-badge\" alt=\"Website\"></a> <a href=\"https://agent-sh.github.io/agnix/playground\"><img src=\"https://img.shields.io/badge/Try_it-Playground-E91E63?style=for-the-badge\" alt=\"Playground\"></a> <a href=\"https://dev.to/avifenesh/your-ai-agent-configs-are-probably-broken-and-you-dont-know-it-16n1\"><img src=\"https://img.shields.io/badge/Blog-Post-0A0A0A?style=for-the-badge&logo=dev.to\" alt=\"Blog Post\"></a> </p>",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"><em>New rules and tool support ship constantly. Follow for real-time updates:</em></p> <p align=\"center\"> <a href=\"https://x.com/avi_fenesh\"><img src=\"https://img.shields.io/badge/Follow-@avi__fenesh-1DA1F2?style=for-the-badge&logo=x&logoColor=white\" alt=\"Follow on X\"></a> </p>",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**Your skills don't trigger.** Vercel's research found skills [invoke at 0%](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals) without correct syntax. One wrong field and your skill is invisible.",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 7)",
+          "excerpt": "**\"Almost right\" is the worst outcome.** [66% of developers](https://survey.stackoverflow.co/2025/ai) cite it as their biggest AI frustration. Misconfigured agents produce exactly this.",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/agent-sh/agnix#readme",
+          "title": "README (segment 8)",
+          "excerpt": "**Multi-tool stacks fail silently.** Cursor + Claude Code + Copilot each want different formats. A config that works in one tool [breaks in another](https://arnav.tech/beyond-copilot-cursor-and-claude-code-the-unbundled-coding-ai-tools-stack).",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/agent-sh/agnix/issues/554",
+          "title": "feat: Add Cursor support for CLAUDE.md files",
+          "excerpt": "feat: Add Cursor support for CLAUDE.md files (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "number": 554
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/agent-sh/agnix/issues/485",
+          "title": "Document that agnix-core requires std even without filesystem feature",
+          "excerpt": "Document that agnix-core requires std even without filesystem feature (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "number": 485
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/agent-sh/agnix/issues/484",
+          "title": "Audit schemas module: replace blanket dead_code allow with targeted allows",
+          "excerpt": "Audit schemas module: replace blanket dead_code allow with targeted allows (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "number": 484
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/agent-sh/agnix/releases",
+          "title": "v0.12.4",
+          "excerpt": "### Security - **Fix minimatch ReDoS vulnerability**: Added npm `overrides` in `website/package.json` to force `minimatch@^10.2.1`, resolving Dependabot alert #75 (ReDoS via repeated wildcards in `serve-handler`'s transitive `minimatch@3.1.2` dependency) - **Update wasm-bindgen**: Bumped `wasm-bindgen` from 0.2.109 (yanked) to 0.2.110 along with related crates (`js-sys`, `web-sys`, `wasm-bindgen-test`, etc.) ### Performance - **WASM conversion optimization**: Refactored `WasmDiagnostic::from_diagnostic` to take ownership of `Diagnostic` and its fields, eliminating unnecessary string cloning when converting diagnostics to the WASM-compatible representation in `agnix-wasm` ### Added - **LSP `pub(crate)` testability refactor**: Made internal modules (`backend`, `code_actions`, `completion_provider`, `diagnostic_mapper`, `hover_provider`, `position`, `vscode_config`) and `Backend` struct fields/methods `pub(crate)` to enable crate-internal test access. Added `Backend::new_test()` constructor (gated behind `#[cfg(test)]`) and 18 new tests in `testability_tests.rs` verifying that all promoted `pub(crate)` items are accessible from the crate root. No public API changes. - **Improved fron…",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "tag_name": "v0.12.4",
+            "published_at": "2026-02-21T12:35:16Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/agent-sh/agnix/releases",
+          "title": "v0.12.3",
+          "excerpt": "Release v0.12.3",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "tag_name": "v0.12.3",
+            "published_at": "2026-02-21T05:58:52Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/agent-sh/agnix/releases",
+          "title": "v0.12.2",
+          "excerpt": "Release v0.12.2",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "tag_name": "v0.12.2",
+            "published_at": "2026-02-15T22:37:32Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/agent-sh/agnix",
+          "title": "ROOT_FILES",
+          "excerpt": ".agnix.toml, .agnix, .claude, .github, .gitignore, .pre-commit-hooks.yaml, .task, AGENTS.md, CHANGELOG.md, CLAUDE.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Cargo.lock, Cargo.toml, Formula, LICENSE-APACHE, LICENSE-MIT, README.md, SECURITY.md, SPEC.md, action.yml, assets, audit.toml, codecov.yml, crates, deny.toml, docs, editors, knowledge-base, locales, lua, npm, plugin, schemas, scripts, skills, src, tests, website",
+          "fetched_at": "2026-02-21T14:12:53.453Z",
+          "meta": {
+            "repo_full_name": "agent-sh/agnix",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "jhlee0409/claude-code-history-viewer",
+      "html_url": "https://github.com/jhlee0409/claude-code-history-viewer",
+      "description": "desktop app to browse and analyze your Claude Code conversation history",
+      "topics": [
+        "claude",
+        "claude-code",
+        "conversation-history",
+        "desktop-app",
+        "developer-tools",
+        "react",
+        "rust",
+        "tauri"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 473,
+      "forks_count": 57,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:10:26Z",
+      "created_at": "2025-06-28T10:29:54Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n# Claude Code History Viewer\n\n**Browse, search, and analyze your Claude Code conversations — all offline.**\n\nDesktop app that reads conversation history from Claude Code, Codex CLI, and OpenCode with analytics, session boards, and real-time monitoring.\n\n[![Version](https://img.shields.io/github/v/release/jhlee0409/claude-code-history-viewer?label=Version&color=blue)](https://github.com/jhlee0409/claude-code-history-viewer/releases)\n[![Downloads](https://img.shields.io/github/downloads/jhlee0409/claude-code-history-viewer/total?color=green)](https://github.com/jhlee0409/claude-code-history-viewer/releases)\n[![Stars](https://img.shields.io/github/stars/jhlee0409/claude-code-history-viewer?style=flat&color=yellow)](https://github.com/jhlee0409/claude-code-history-viewer/stargazers)\n[![License](https://img.shields.io/github/license/jhlee0409/claude-code-history-viewer)](LICENSE)\n[![Rust Tests](https://img.shields.io/github/actions/workflow/status/jhlee0409/claude-code-history-viewer/rust-tests.yml?label=Rust%20Tests)](https://github.com/jhlee0409/claude-code-history-viewer/actions/workflows/rust-tests.yml)\n[![Last Commit](https://img.shields.io/github/last-commit/jhlee0409/claude-code-history-viewer)](https://github.com/jhlee0409/claude-code-history-viewer/commits/main)\n![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey)\n\n[Website](https://jhlee0409.github.io/claude-code-history-viewer/) · [Download](https://github.com/jhlee0409/claude-code-history-viewer/releases) · [Report Bug](https://github.com/jhlee0409/claude-code-history-viewer/issues)\n\n**Languages**: [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文 (简体)](README.zh-CN.md) | [中文 (繁體)](README.zh-TW.md)\n\n</div>\n\n---\n\n<p align=\"center\">\n  <img width=\"49%\" alt=\"Conversation History\" src=\"https://github.com/user-attachments/assets/9a18304d-3f08-4563-a0e6-dd6e6dfd227e\" />\n  <img width=\"49%\" alt=\"Analytics Dashboard\" src=\"https://github.com/user-attachments/assets/0f869344-4a7c-4f1f-9de3-701af10fc255\" />\n</p>\n<p align=\"center\">\n  <img width=\"49%\" alt=\"Token Statistics\" src=\"https://github.com/user-attachments/assets/d30f3709-1afb-4f76-8f06-1033a3cb7f4a\" />\n  <img width=\"49%\" alt=\"Recent Edits\" src=\"https://github.com/user-attachments/assets/8c9fbff3-55dd-4cfc-a135-ddeb719f3057\" />\n</p>\n\n## Table of Contents\n\n- [Features](#features)\n- [Installation](#installation)\n- [Build from Source](#build-from-source)\n- [Usage](#usage)\n- [Tech Stack](#tech-stack)\n- [Data Privacy](#data-privacy)\n- [Troubleshooting](#troubleshooting)\n- [Contributing](#contributing)\n- [License](#license)\n\n## Features\n\n| Feature | Description |\n|---------|-------------|\n| **Multi-Provider** | Unified viewer for Claude Code, Codex CLI, and OpenCode conversations |\n| **Conversation Browser** | Navigate conversations by project/session with worktree grouping |\n| **Global Search** | Search across all conversations instantly |\n| **Analytics Dashboard** | Token usage stats and API cost calculation per provider |\n| **Session Board** | Multi-session visual analysis with pixel view, attribute brushing, and activity timeline |\n| **Settings Manager** | Scope-aware Claude Code settings editor with MCP server management |\n| **Message Navigator** | Right-side collapsible TOC for quick conversation navigation |\n| **Real-time Monitoring** | Live session file watching for instant updates |\n| **Session Context Menu** | Copy session ID, resume command, file path; native rename with search integration |\n| **ANSI Color Rendering** | Terminal output displayed with original ANSI colors |\n| **Multi-language** | English, Korean, Japanese, Chinese (Simplified & Traditional) |\n| **Recent Edits** | View file modification history and restore |\n| **Auto-update** | Built-in updater with skip/postpone options |\n\n## Installation\n\nDownload the latest release for your platform:\n\n| Platform | Download |\n|----------|----------|\n| macOS (Universal) | [`.dmg`](https://github.com/jhlee0409/claude-code-history-viewer/releases/latest) |\n| Windows (x64) | [`.exe`](https://github.com/jhlee0409/claude-code-history-viewer/releases/latest) |\n| Linux (x64) | [`.AppImage`](https://github.com/jhlee0409/claude-code-history-viewer/releases/latest) |\n\n### Homebrew (macOS)\n\n```bash\nbrew tap jhlee0409/tap\nbrew install --cask claude-code-history-viewer\n```\n\nTo upgrade:\n\n```bash\nbrew upgrade --cask claude-code-history-viewer\n```\n\nTo uninstall:\n\n```bash\nbrew uninstall --cask claude-code-history-viewer\n```\n\n> **Migrating from manual (.dmg) installation?**\n> Remove the existing app before installing via Homebrew to avoid conflicts.\n> Choose **one** installation method — do not mix manual and Homebrew installs.\n> ```bash\n> # Remove the manually installed app first\n> rm -rf \"/Applications/Claude Code History Viewer.app\"\n> # Then install via Homebrew\n> brew tap jhlee0409/tap\n> brew install --cask claude-code-history-viewer\n> ```\n\n## Build from Source\n\n```bash\ngit clone https://github.com/jhlee0409/claude-code-history-viewer.git\ncd claude-code-history-viewer\n\n# Option 1: Using just (recommended)\nbrew install just    # or: cargo install just\njust setup\njust dev             # Development\njust tauri-build     # Production build\n\n# Option 2: Using pnpm directly\npnpm install\npnpm tauri:dev       # Development\npnpm tauri:build     # Production build\n```\n\n**Requirements**: Node.js 18+, pnpm, Rust toolchain\n\n## Usage\n\n1. Launch the app\n2. It automatically scans for conversation data from all supported providers (Claude Code, Codex CLI, OpenCode)\n3. Browse projects in the left sidebar — filter by provider using the tab bar\n4. Click a session to view messages\n5. Use tabs to switch between Messages, Analytics, Token Stats, Recent Edits, and Session Board\n\n## Tech Stack\n\n| Layer | Technology |\n|-------|------------|\n| **Backend** | ![Rust](https://img.shields.io/badge/Rust-000?logo=rust&logoColor=white) ![Tauri](https://img.shields.io/badge/Tauri_v2-24C8D8?logo=tauri&logoColor=white) |\n| **Frontend** | ![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white) |\n| **State** | ![Zustand](https://img.shields.io/badge/Zustand-433E38?logo=react&logoColor=white) |\n| **Build** | ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white) |\n| **i18n** | ![i18next](https://img.shields.io/badge/i18next-26A69A?logo=i18next&logoColor=white) 5 languages |\n\n## Data Privacy\n\n**100% offline.** No conversation data is sent to any server. No analytics, no tracking, no telemetry.\n\nYour data stays on your machine.\n\n## Troubleshooting\n\n| Problem | Solution |\n|---------|----------|\n| \"No Claude data found\" | Make sure `~/.claude` exists with conversation history |\n| Performance issues | Large histories may be slow initially — the app uses virtual scrolling |\n| Update problems | If auto-updater fails, download manually from [Releases](https://github.com/jhlee0409/claude-code-history-viewer/releases) |\n\n## Contributing\n\nContributions are welcome! Here's how to get started:\n\n1. Fork the repository\n2. Create a feature branch (`git checkout -b feat/my-feature`)\n3. Run checks before committing:\n   ```bash\n   pnpm tsc --build .        # TypeScript\n   pnpm vitest run            # Tests\n   pnpm lint                  # Lint\n   ```\n4. Commit your changes (`git commit -m 'feat: add my feature'`)\n5. Push to the branch (`git push origin feat/my-feature`)\n6. Open a Pull Request\n\nSee [Development Commands](CLAUDE.md#development-commands) for the full list of available commands.\n\n## License\n\n[MIT](LICENSE) — free for personal and commercial use.\n\n---\n\n<div align=\"center\">\n\nIf this project helps you, consider giving it a star!\n\n[![Star History Chart](https://api.star-history.com/svg?repos=jhlee0409/claude-code-history-viewer&type=Date)](https://star-history.com/#jhlee0409/claude-code-history-viewer&Date)\n\n</div>\n",
+        "truncated": false,
+        "bytes": 8115,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.3.0",
+            "tag_name": "v1.3.0",
+            "published_at": "2026-02-06T05:53:51Z",
+            "body_excerpt": "# v1.3.0 Changelog\n\nA major release containing 127 commits since v1.2.5.\n\n## Major New Features\n\n### Session Board - Multi-Session Analysis Tool\n- New board view for comparing and analyzing multiple sessions at a glance\n- Interactive brushing system with filtering by tools, commands, and MCP servers\n- Pixel view: Visualize sessions as compact cards to identify patterns\n- Zoom in/out to switch between detailed and overview modes\n- Badges for work types such as git commits, document edits, etc.\n- Date range filtering and in-depth analysis metrics\n- Draggable tooltips for viewing detailed information\n\n### Settings Manager\n- Integrated settings manager for editing Claude Code settings directly within the app\n- Project-level and global scope settings support\n- MCP server preset library (official and community servers)\n- Real-time JSON validation and diagnostics\n\n### Real-Time Session File Monitoring\n- Automatic project tree updates when new sessions are created\n- Real-time sync via file system watcher\n- View the latest conversations without manual refresh\n\n### Enhanced Search and Navigation\n- Improved global search (performance and UI updates)\n- Enhanced session list sorting and search\n- Bidirectional navigation between board and sidebar\n- Deep linking from token statistics to session board\n\n### Internationalization (i18n) Improvements\n- Complete refactoring to namespace-based structure (better maintainability)\n- Synced missing translation keys across all languages\n- Full localization of session board and interaction cards\n\n### UI/UX Improvements\n- Unified rendering of slash command output as a single card\n- Improved project tree expand/collapse state sync\n- Linked markdown edits to the recent edits view\n- Auto-fill feedback data into GitHub issue forms\n\n## Bug Fixes\n\n### Rendering and UI\n- Fixed duplicate tool use rendering\n- Improved brush match count accuracy in session headers\n- Improved readability by adjusting opacity of non-brushed items\n- Fixed pixel view layout "
+          },
+          {
+            "name": "v1.2.5",
+            "tag_name": "v1.2.5",
+            "published_at": "2026-01-25T16:56:39Z",
+            "body_excerpt": "**Full Changelog**: https://github.com/jhlee0409/claude-code-history-viewer/compare/v1.2.4...v1.2.5"
+          },
+          {
+            "name": "v1.2.4",
+            "tag_name": "v1.2.4",
+            "published_at": "2026-01-25T14:19:14Z",
+            "body_excerpt": "**Full Changelog**: https://github.com/jhlee0409/claude-code-history-viewer/compare/v1.2.3...v1.2.4"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 77,
+            "title": "can you add support for codex / opencode as well?",
+            "state": "closed",
+            "url": "https://github.com/jhlee0409/claude-code-history-viewer/issues/77"
+          },
+          {
+            "number": 134,
+            "title": "feat: add copy session ID / resume command to session context menu",
+            "state": "closed",
+            "url": "https://github.com/jhlee0409/claude-code-history-viewer/issues/134"
+          },
+          {
+            "number": 122,
+            "title": "Terminal tool calls are horizontally cut off, no way to view the entire command",
+            "state": "closed",
+            "url": "https://github.com/jhlee0409/claude-code-history-viewer/issues/122"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".playwright-mcp",
+        ".prettierrc",
+        ".serena",
+        ".spec-placeholder",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "LICENSE",
+        "LINUX_BUILD.md",
+        "PROMPT_ENHANCER.md",
+        "README.ja.md",
+        "README.ko.md",
+        "README.md",
+        "README.zh-CN.md",
+        "README.zh-TW.md",
+        "components.json",
+        "docs",
+        "eslint.config.js",
+        "index.html",
+        "justfile",
+        "mise.toml",
+        "package.json",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "postcss.config.js",
+        "public",
+        "scripts",
+        "src-tauri",
+        "src",
+        "tailwind.config.js",
+        "tsconfig.app.json",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Desktop app that reads conversation history from Claude Code, Codex CLI, and OpenCode with analytics, session boards, and real-time monitoring.",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![Version](https://img.shields.io/github/v/release/jhlee0409/claude-code-history-viewer?label=Version&color=blue)](https://github.com/jhlee0409/claude-code-history-viewer/releases) [![Downloads](https://img.shields.io/github/downloads/jhlee0409/claude-code-history-viewer/total?color=green)](https://github.com/jhlee0409/claude-code-history-viewer/releases) [![Stars](https://img.shields.io/github/stars/jhlee0409/claude-code-history-viewer?style=flat&color=yellow)](https://github.com/jhlee0409/claude-code-history-viewer/stargazers) [![License](https://img.shields.io/github/license/jhlee0409/claude-code-history-viewer)](LICENSE) [![Rust Tests](https://img.shields.io/github/actions/workflow/status/jhlee0409/claude-code-history-viewer/rust-tests.yml?label=Rust%20Tests)](https://github.com/jhlee0409/claude-code-history-viewer/actions/workflows/rust-tests.yml) [![Last Commit](https://img.shields.io/github/last-commit/jhlee0409/claude-code-history-viewer)](https://github.com/jhlee0409/claude-code-history-viewer/commits/main) ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[Website](https://jhlee0409.github.io/claude-code-history-viewer/) · [Download](https://github.com/jhlee0409/claude-code-history-viewer/releases) · [Report Bug](https://github.com/jhlee0409/claude-code-history-viewer/issues)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 4)",
+          "excerpt": "**Languages**: [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文 (简体)](README.zh-CN.md) | [中文 (繁體)](README.zh-TW.md)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <img width=\"49%\" alt=\"Conversation History\" src=\"https://github.com/user-attachments/assets/9a18304d-3f08-4563-a0e6-dd6e6dfd227e\" /> <img width=\"49%\" alt=\"Analytics Dashboard\" src=\"https://github.com/user-attachments/assets/0f869344-4a7c-4f1f-9de3-701af10fc255\" /> </p> <p align=\"center\"> <img width=\"49%\" alt=\"Token Statistics\" src=\"https://github.com/user-attachments/assets/d30f3709-1afb-4f76-8f06-1033a3cb7f4a\" /> <img width=\"49%\" alt=\"Recent Edits\" src=\"https://github.com/user-attachments/assets/8c9fbff3-55dd-4cfc-a135-ddeb719f3057\" /> </p>",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- [Features](#features) - [Installation](#installation) - [Build from Source](#build-from-source) - [Usage](#usage) - [Tech Stack](#tech-stack) - [Data Privacy](#data-privacy) - [Troubleshooting](#troubleshooting) - [Contributing](#contributing) - [License](#license)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| Feature | Description | |---------|-------------| | **Multi-Provider** | Unified viewer for Claude Code, Codex CLI, and OpenCode conversations | | **Conversation Browser** | Navigate conversations by project/session with worktree grouping | | **Global Search** | Search across all conversations instantly | | **Analytics Dashboard** | Token usage stats and API cost calculation per provider | | **Session Board** | Multi-session visual analysis with pixel view, attribute brushing, and activity timeline | | **Settings Manager** | Scope-aware Claude Code settings editor with MCP server management | | **Message Navigator** | Right-side collapsible TOC for quick conversation navigation | | **Real-time Monitoring** | Live session file watching for instant updates | | **Session Context Menu** | Copy session ID, resume command, file path; native rename with search integration | | **ANSI Color Rendering** | Terminal output displayed with original ANSI colors | | **Multi-language** | English, Korean, Japanese, Chinese (Simplified & Traditional) | | **Recent Edits** | View file modification history and restore | | **Auto-update** | Built-in updater with skip/postpone options |",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Platform | Download | |----------|----------| | macOS (Universal) | [`.dmg`](https://github.com/jhlee0409/claude-code-history-viewer/releases/latest) | | Windows (x64) | [`.exe`](https://github.com/jhlee0409/claude-code-history-viewer/releases/latest) | | Linux (x64) | [`.AppImage`](https://github.com/jhlee0409/claude-code-history-viewer/releases/latest) |",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer/issues/77",
+          "title": "can you add support for codex / opencode as well?",
+          "excerpt": "can you add support for codex / opencode as well? (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "number": 77
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer/issues/134",
+          "title": "feat: add copy session ID / resume command to session context menu",
+          "excerpt": "feat: add copy session ID / resume command to session context menu (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "number": 134
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer/issues/122",
+          "title": "Terminal tool calls are horizontally cut off, no way to view the entire command",
+          "excerpt": "Terminal tool calls are horizontally cut off, no way to view the entire command (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "number": 122
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer/releases",
+          "title": "v1.3.0",
+          "excerpt": "# v1.3.0 Changelog A major release containing 127 commits since v1.2.5. ## Major New Features ### Session Board - Multi-Session Analysis Tool - New board view for comparing and analyzing multiple sessions at a glance - Interactive brushing system with filtering by tools, commands, and MCP servers - Pixel view: Visualize sessions as compact cards to identify patterns - Zoom in/out to switch between detailed and overview modes - Badges for work types such as git commits, document edits, etc. - Date range filtering and in-depth analysis metrics - Draggable tooltips for viewing detailed information ### Settings Manager - Integrated settings manager for editing Claude Code settings directly within the app - Project-level and global scope settings support - MCP server preset library (official and community servers) - Real-time JSON validation and diagnostics ### Real-Time Session File Monitoring - Automatic project tree updates when new sessions are created - Real-time sync via file system watcher - View the latest conversations without manual refresh ### Enhanced Search and Navigation - Improved global search (performance and UI updates) - Enhanced session list sorting and search - Bid…",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "tag_name": "v1.3.0",
+            "published_at": "2026-02-06T05:53:51Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer/releases",
+          "title": "v1.2.5",
+          "excerpt": "**Full Changelog**: https://github.com/jhlee0409/claude-code-history-viewer/compare/v1.2.4...v1.2.5",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "tag_name": "v1.2.5",
+            "published_at": "2026-01-25T16:56:39Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer/releases",
+          "title": "v1.2.4",
+          "excerpt": "**Full Changelog**: https://github.com/jhlee0409/claude-code-history-viewer/compare/v1.2.3...v1.2.4",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "tag_name": "v1.2.4",
+            "published_at": "2026-01-25T14:19:14Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/jhlee0409/claude-code-history-viewer",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .husky, .playwright-mcp, .prettierrc, .serena, .spec-placeholder, CHANGELOG.md, CLAUDE.md, LICENSE, LINUX_BUILD.md, PROMPT_ENHANCER.md, README.ja.md, README.ko.md, README.md, README.zh-CN.md, README.zh-TW.md, components.json, docs, eslint.config.js, index.html, justfile, mise.toml, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, postcss.config.js, public, scripts, src-tauri, src, tailwind.config.js, tsconfig.app.json, tsconfig.json, tsconfig.node.json, vite.config.ts",
+          "fetched_at": "2026-02-21T14:12:53.474Z",
+          "meta": {
+            "repo_full_name": "jhlee0409/claude-code-history-viewer",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "projectdiscovery/httpx",
+      "html_url": "https://github.com/projectdiscovery/httpx",
+      "description": "httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.",
+      "topics": [
+        "bugbounty",
+        "cli",
+        "cybersecurity",
+        "hacktoberfest",
+        "http",
+        "lib",
+        "osint",
+        "pentest-tool",
+        "pipeline",
+        "ssl-certificate"
+      ],
+      "language": "Go",
+      "stargazers_count": 9582,
+      "forks_count": 1026,
+      "open_issues_count": 30,
+      "license_spdx_id": "MIT",
+      "default_branch": "dev",
+      "pushed_at": "2026-02-21T14:10:02Z",
+      "created_at": "2020-05-28T22:51:24Z",
+      "readme": {
+        "fetched": true,
+        "text": "<h1 align=\"center\">\n  <img src=\"static/httpx-logo.png\" alt=\"httpx\" width=\"200px\">\n  <br>\n</h1>\n\n\n\n<p align=\"center\">\n<a href=\"https://opensource.org/licenses/MIT\"><img src=\"https://img.shields.io/badge/license-MIT-_red.svg\"></a>\n<a href=\"https://goreportcard.com/badge/github.com/projectdiscovery/httpx\"><img src=\"https://goreportcard.com/badge/github.com/projectdiscovery/httpx\"></a>\n<a href=\"https://github.com/projectdiscovery/httpx/releases\"><img src=\"https://img.shields.io/github/release/projectdiscovery/httpx\"></a>\n<a href=\"https://hub.docker.com/r/projectdiscovery/httpx\"><img src=\"https://img.shields.io/docker/pulls/projectdiscovery/httpx.svg\"></a>\n<a href=\"https://twitter.com/pdiscoveryio\"><img src=\"https://img.shields.io/twitter/follow/pdiscoveryio.svg?logo=twitter\"></a>\n<a href=\"https://discord.gg/projectdiscovery\"><img src=\"https://img.shields.io/discord/695645237418131507.svg?logo=discord\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"#features\">Features</a> •\n  <a href=\"#installation-instructions\">Installation</a> •\n  <a href=\"#usage\">Usage</a> •\n  <a href=\"https://docs.projectdiscovery.io/tools/httpx/\">Documentation</a> •\n  <a href=\"#notes\">Notes</a> •\n  <a href=\"https://discord.gg/projectdiscovery\">Join Discord</a>\n</p>\n\n\n`httpx` is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the [retryablehttp](https://github.com/projectdiscovery/retryablehttp-go) library. It is designed to maintain result reliability with an increased number of threads.\n\n# Features\n\n<h1 align=\"center\">\n  <img src=\"https://user-images.githubusercontent.com/8293321/135731750-4c1d38b1-bd2a-40f9-88e9-3c4b9f6da378.png\" alt=\"httpx\" width=\"700px\">\n  <br>\n</h1>\n\n - Simple and modular code base making it easy to contribute.\n - Fast And fully configurable flags to probe multiple elements.\n - Supports multiple HTTP based probings.\n - Smart auto fallback from https to http as default. \n - Supports hosts, URLs and CIDR as input.\n - Handles edge cases doing retries, backoffs etc for handling WAFs.\n\n### Supported probes\n\n| Probes          | Default check | Probes         | Default check |\n|-----------------|---------------|----------------|---------------|\n| URL             | true          | IP             | true          |\n| Title           | true          | CNAME          | true          |\n| Status Code     | true          | Raw HTTP       | false         |\n| Content Length  | true          | HTTP2          | false         |\n| TLS Certificate | true          | HTTP Pipeline  | false         |\n| CSP Header      | true          | Virtual host   | false         |\n| Line Count      | true          | Word Count     | true          |\n| Location Header | true          | CDN            | false         |\n| Web Server      | true          | Paths          | false         |\n| Web Socket      | true          | Ports          | false         |\n| Response Time   | true          | Request Method | true          |\n| Favicon Hash    | false         | Probe  Status  | false         |\n| Body Hash       | true          | Header  Hash   | true          |\n| Redirect chain  | false         | URL Scheme     | true          |\n| JARM Hash       | false         | ASN            | false         |\n\n# Installation Instructions\n\n`httpx` requires **go >=1.24.0** to install successfully. Run the following command to get the repo:\n\n```sh\ngo install -v github.com/projectdiscovery/httpx/cmd/httpx@latest\n```\n\nTo learn more about installing httpx, see https://docs.projectdiscovery.io/tools/httpx/install.\n\n| :exclamation:  **Disclaimer**  |\n|---------------------------------|\n| **This project is in active development**. Expect breaking changes with releases. Review the changelog before updating. |\n| This project was primarily built to be used as a standalone CLI tool. **Running it as a service may pose security risks.** It's recommended to use with caution and additional security measures. |\n\n# Usage\n\n```sh\nhttpx -h\n```\n\nThis will display help for the tool. Here are all the switches it supports.\n\n\n```console\nhttpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.\n\nUsage:\n  ./httpx [flags]\n\nFlags:\nINPUT:\n   -l, -list string              input file containing list of hosts to process\n   -rr, -request string          file containing raw request\n   -u, -target string[]          input target host(s) to probe\n   -im, -input-mode string       mode of input file (burp)\n\nPROBES:\n   -sc, -status-code      display response status-code\n   -cl, -content-length   display response content-length\n   -ct, -content-type     display response content-type\n   -location              display response redirect location\n   -favicon               display mmh3 hash for '/favicon.ico' file\n   -hash string           display response body hash (supported: md5,mmh3,simhash,sha1,sha256,sha512)\n   -jarm                  display jarm fingerprint hash\n   -rt, -response-time    display response time\n   -lc, -line-count       display response body line count\n   -wc, -word-count       display response body word count\n   -title                 display page title\n   -bp, -body-preview     display first N characters of response body (default 100)\n   -server, -web-server   display server name\n   -td, -tech-detect                      display technology in use based on wappalyzer dataset\n   -cff, -custom-fingerprint-file string  path to a custom fingerprint file for technology detection\n   -cpe                                   display CPE (Common Platform Enumeration) based on awesome-search-queries\n   -wp, -wordpress                        display WordPress plugins and themes\n   -method                                display http request method\n   -ws, -websocket        display server using websocket\n   -ip                    display host ip\n   -cname                 display host cname\n   -extract-fqdn, -efqdn  get domain and subdomains from response body and header in jsonl/csv output\n   -asn                   display host asn information\n   -cdn                   display cdn/waf in use (default true)\n   -probe                 display probe status\n\nHEADLESS:\n   -ss, -screenshot                 enable saving screenshot of the page using headless browser\n   -system-chrome                   enable using local installed chrome for screenshot\n   -ho, -headless-options string[]  start headless chrome with additional options\n   -esb, -exclude-screenshot-bytes  enable excluding screenshot bytes from json output\n   -no-screenshot-full-page         disable saving full page screenshot\n   -ehb, -exclude-headless-body     enable excluding headless header from json output\n   -st, -screenshot-timeout value   set timeout for screenshot in seconds (default 10s)\n   -sid, -screenshot-idle value     set idle time before taking screenshot in seconds (default 1s)\n   -jsc, -javascript-code string[]   execute JavaScript code after navigation\n\nMATCHERS:\n   -mc, -match-code string            match response with specified status code (-mc 200,302)\n   -ml, -match-length string          match response with specified content length (-ml 100,102)\n   -mlc, -match-line-count string     match response body with specified line count (-mlc 423,532)\n   -mwc, -match-word-count string     match response body with specified word count (-mwc 43,55)\n   -mfc, -match-favicon string[]      match response with specified favicon hash (-mfc 1494302000)\n   -ms, -match-string string[]        match response with specified string (-ms admin)\n   -mr, -match-regex string[]         match response with specified regex (-mr admin)\n   -mcdn, -match-cdn string[]         match host with specified cdn provider (cloudfront, fastly, google)\n   -mrt, -match-response-time string  match response with specified response time in seconds (-mrt '< 1')\n   -mdc, -match-condition string      match response with dsl expression condition\n\nEXTRACTOR:\n   -er, -extract-regex string[]   display response content with matched regex\n   -ep, -extract-preset string[]  display response content matched by a pre-defined regex (url,ipv4,mail)\n\nFILTERS:\n   -fc, -filter-code string            filter response with specified status code (-fc 403,401)\n   -fep, -filter-error-page            filter response with ML based error page detection\n   -fd, -filter-duplicates             filter out near-duplicate responses (only first response is retained)\n   -fl, -filter-length string          filter response with specified content length (-fl 23,33)\n   -flc, -filter-line-count string     filter response body with specified line count (-flc 423,532)\n   -fwc, -filter-word-count string     filter response body with specified word count (-fwc 423,532)\n   -ffc, -filter-favicon string[]      filter response with specified favicon hash (-ffc 1494302000)\n   -fs, -filter-string string[]        filter response with specified string (-fs admin)\n   -fe, -filter-regex string[]         filter response with specified regex (-fe admin)\n   -fcdn, -filter-cdn string[]         filter host with specified cdn provider (cloudfront, fastly, google)\n   -frt, -filter-response-time string  filter response with specified response time in seconds (-frt '> 1')\n   -fdc, -filter-condition string      filter response with dsl expression condition\n   -strip                              strips all tags in response. supported formats: html,xml (default html)\n\nRATE-LIMIT:\n   -t, -threads int              number of threads to use (default 50)\n   -rl, -rate-limit int          maximum requests to send per second (default 150)\n   -rlm, -rate-limit-minute int  maximum number of requests to send per minute\n\nMISCELLANEOUS:\n   -pa, -probe-all-ips        probe all the ips associated with same host\n   -p, -ports string[]        ports to probe (nmap syntax: eg http:1,2-10,11,https:80)\n   -path string               path or list of paths to probe (comma-separated, file)\n   -tls-probe                 send http probes on the extracted TLS domains (dns_name)\n   -csp-probe                 send http probes on the extracted CSP domains\n   -tls-grab                  perform TLS(SSL) data grabbing\n   -pipeline                  probe and display server supporting HTTP1.1 pipeline\n   -http2                     probe and display server supporting HTTP2\n   -vhost                     probe and display server supporting VHOST\n   -ldv, -list-dsl-variables  list json output field keys name that support dsl matcher/filter\n\nUPDATE:\n   -up, -update                 update httpx to latest version\n   -duc, -disable-update-check  disable automatic httpx update check\n\nOUTPUT:\n   -o, -output string                     file to write output results\n   -oa, -output-all                       filename to write output results in all formats\n   -sr, -store-response                   store http response to output directory\n   -srd, -store-response-dir string       store http response to custom directory\n   -ob, -omit-body                        omit response body in output\n   -csv                                   store output in csv format\n   -csvo, -csv-output-encoding string     define output encoding\n   -j, -json                              store output in JSONL(ines) format\n   -irh, -include-response-header         include http response (headers) in JSON output (-json only)\n   -irr, -include-response                include http request/response (headers + body) in JSON output (-json only)\n   -irrb, -include-response-base64        include base64 encoded http request/response in JSON output (-json only)\n   -include-chain                         include redirect http chain in JSON output (-json only)\n   -store-chain                           include http redirect chain in responses (-sr only)\n   -svrc, -store-vision-recon-cluster     include visual recon clusters (-ss and -sr only)\n   -pr, -protocol string                  protocol to use (unknown, http11)\n   -fepp, -filter-error-page-path string  path to store filtered error pages (default \"filtered_error_page.json\")",
+        "truncated": true,
+        "bytes": 18966,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.8.1",
+            "tag_name": "v1.8.1",
+            "published_at": "2026-01-22T08:45:48Z",
+            "body_excerpt": "## What's Changed\r\n* Version Bump by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2381\r\n\r\n\r\n**Full Changelog**: https://github.com/projectdiscovery/httpx/compare/v1.8.0...v1.8.1"
+          },
+          {
+            "name": "v1.8.0",
+            "tag_name": "v1.8.0",
+            "published_at": "2026-01-21T12:42:49Z",
+            "body_excerpt": "## What's Changed\r\n\r\n### 🎉 New Features\r\n* Added Burp XML input mode support (-im flag) by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2372\r\n* Added secret file authentication support (-sf flag) by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2371\r\n* Added passive CPE and WordPress detection support by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2366\r\n\r\n### 🐞 Bug Fixes\r\n* Fixed endless stream oom by @smallseacreature in https://github.com/projectdiscovery/httpx/pull/2343\r\n* Fixed response file overwrite when `-sd` flag is used by @jjhwan-h in https://github.com/projectdiscovery/httpx/pull/2226\r\n* Fixed favicon extraction failure when `FollowRedirects` is enabled by @wlayzz in https://github.com/projectdiscovery/httpx/pull/2369\r\n* Fixed GitHub Actions condition by @arunstar in https://github.com/projectdiscovery/httpx/pull/2338\r\n* Fixed inconsistent results with `probe-all-ips` if the port number is set in the URL by @majiayu000 in https://github.com/projectdiscovery/httpx/pull/2348\r\n\r\n\r\n\r\n## New Contributors\r\n* @arunstar made their first contribution in https://github.com/projectdiscovery/httpx/pull/2338\r\n* @smallseacreature made their first contribution in https://github.com/projectdiscovery/httpx/pull/2343\r\n* @majiayu000 made their first contribution in https://github.com/projectdiscovery/httpx/pull/2348\r\n* @jjhwan-h made their first contribution in https://github.com/projectdiscovery/httpx/pull/2226\r\n* @wlayzz made their first contribution in https://github.com/projectdiscovery/httpx/pull/2369\r\n\r\n**Full Changelog**: https://github.com/projectdiscovery/httpx/compare/v1.7.4...v1.8.0"
+          },
+          {
+            "name": "v1.7.4",
+            "tag_name": "v1.7.4",
+            "published_at": "2025-12-08T19:23:13Z",
+            "body_excerpt": "<!-- Release notes generated using configuration in .github/release.yml at main -->\r\n\r\n## What's Changed\r\n* chore(deps): bump the modules group with 9 updates by @dependabot[bot] in https://github.com/projectdiscovery/httpx/pull/2337\r\n\r\n\r\n**Full Changelog**: https://github.com/projectdiscovery/httpx/compare/v1.7.3...v1.7.4"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 2240,
+            "title": "-pr http11 flag is ignored on retryablehttp-go due to HTTP/2 fallback",
+            "state": "open",
+            "url": "https://github.com/projectdiscovery/httpx/issues/2240"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".goreleaser.yml",
+        "Dockerfile",
+        "LICENSE.md",
+        "Makefile",
+        "README.md",
+        "cmd",
+        "common",
+        "examples",
+        "go.mod",
+        "go.sum",
+        "integration_tests",
+        "internal",
+        "runner",
+        "scripts",
+        "snapcraft.yaml",
+        "static"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<h1 align=\"center\"> <img src=\"static/httpx-logo.png\" alt=\"httpx\" width=\"200px\"> <br> </h1>",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://opensource.org/licenses/MIT\"><img src=\"https://img.shields.io/badge/license-MIT-_red.svg\"></a> <a href=\"https://goreportcard.com/badge/github.com/projectdiscovery/httpx\"><img src=\"https://goreportcard.com/badge/github.com/projectdiscovery/httpx\"></a> <a href=\"https://github.com/projectdiscovery/httpx/releases\"><img src=\"https://img.shields.io/github/release/projectdiscovery/httpx\"></a> <a href=\"https://hub.docker.com/r/projectdiscovery/httpx\"><img src=\"https://img.shields.io/docker/pulls/projectdiscovery/httpx.svg\"></a> <a href=\"https://twitter.com/pdiscoveryio\"><img src=\"https://img.shields.io/twitter/follow/pdiscoveryio.svg?logo=twitter\"></a> <a href=\"https://discord.gg/projectdiscovery\"><img src=\"https://img.shields.io/discord/695645237418131507.svg?logo=discord\"></a> </p>",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"#features\">Features</a> • <a href=\"#installation-instructions\">Installation</a> • <a href=\"#usage\">Usage</a> • <a href=\"https://docs.projectdiscovery.io/tools/httpx/\">Documentation</a> • <a href=\"#notes\">Notes</a> • <a href=\"https://discord.gg/projectdiscovery\">Join Discord</a> </p>",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 4)",
+          "excerpt": "`httpx` is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the [retryablehttp](https://github.com/projectdiscovery/retryablehttp-go) library. It is designed to maintain result reliability with an increased number of threads.",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<h1 align=\"center\"> <img src=\"https://user-images.githubusercontent.com/8293321/135731750-4c1d38b1-bd2a-40f9-88e9-3c4b9f6da378.png\" alt=\"httpx\" width=\"700px\"> <br> </h1>",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- Simple and modular code base making it easy to contribute. - Fast And fully configurable flags to probe multiple elements. - Supports multiple HTTP based probings. - Smart auto fallback from https to http as default. - Supports hosts, URLs and CIDR as input. - Handles edge cases doing retries, backoffs etc for handling WAFs.",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| Probes | Default check | Probes | Default check | |-----------------|---------------|----------------|---------------| | URL | true | IP | true | | Title | true | CNAME | true | | Status Code | true | Raw HTTP | false | | Content Length | true | HTTP2 | false | | TLS Certificate | true | HTTP Pipeline | false | | CSP Header | true | Virtual host | false | | Line Count | true | Word Count | true | | Location Header | true | CDN | false | | Web Server | true | Paths | false | | Web Socket | true | Ports | false | | Response Time | true | Request Method | true | | Favicon Hash | false | Probe Status | false | | Body Hash | true | Header Hash | true | | Redirect chain | false | URL Scheme | true | | JARM Hash | false | ASN | false |",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/projectdiscovery/httpx#readme",
+          "title": "README (segment 8)",
+          "excerpt": "`httpx` requires **go >=1.24.0** to install successfully. Run the following command to get the repo:",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/projectdiscovery/httpx/issues/2240",
+          "title": "-pr http11 flag is ignored on retryablehttp-go due to HTTP/2 fallback",
+          "excerpt": "-pr http11 flag is ignored on retryablehttp-go due to HTTP/2 fallback (state:open)",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "number": 2240
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/projectdiscovery/httpx/releases",
+          "title": "v1.8.1",
+          "excerpt": "## What's Changed * Version Bump by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2381 **Full Changelog**: https://github.com/projectdiscovery/httpx/compare/v1.8.0...v1.8.1",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "tag_name": "v1.8.1",
+            "published_at": "2026-01-22T08:45:48Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/projectdiscovery/httpx/releases",
+          "title": "v1.8.0",
+          "excerpt": "## What's Changed ### 🎉 New Features * Added Burp XML input mode support (-im flag) by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2372 * Added secret file authentication support (-sf flag) by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2371 * Added passive CPE and WordPress detection support by @dogancanbakir in https://github.com/projectdiscovery/httpx/pull/2366 ### 🐞 Bug Fixes * Fixed endless stream oom by @smallseacreature in https://github.com/projectdiscovery/httpx/pull/2343 * Fixed response file overwrite when `-sd` flag is used by @jjhwan-h in https://github.com/projectdiscovery/httpx/pull/2226 * Fixed favicon extraction failure when `FollowRedirects` is enabled by @wlayzz in https://github.com/projectdiscovery/httpx/pull/2369 * Fixed GitHub Actions condition by @arunstar in https://github.com/projectdiscovery/httpx/pull/2338 * Fixed inconsistent results with `probe-all-ips` if the port number is set in the URL by @majiayu000 in https://github.com/projectdiscovery/httpx/pull/2348 ## New Contributors * @arunstar made their first contribution in https://github.com/projectdiscovery/httpx/pull/2338 * @smallseacreature made their firs…",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "tag_name": "v1.8.0",
+            "published_at": "2026-01-21T12:42:49Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/projectdiscovery/httpx/releases",
+          "title": "v1.7.4",
+          "excerpt": "<!-- Release notes generated using configuration in .github/release.yml at main --> ## What's Changed * chore(deps): bump the modules group with 9 updates by @dependabot[bot] in https://github.com/projectdiscovery/httpx/pull/2337 **Full Changelog**: https://github.com/projectdiscovery/httpx/compare/v1.7.3...v1.7.4",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "tag_name": "v1.7.4",
+            "published_at": "2025-12-08T19:23:13Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/projectdiscovery/httpx",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .goreleaser.yml, Dockerfile, LICENSE.md, Makefile, README.md, cmd, common, examples, go.mod, go.sum, integration_tests, internal, runner, scripts, snapcraft.yaml, static",
+          "fetched_at": "2026-02-21T14:12:53.567Z",
+          "meta": {
+            "repo_full_name": "projectdiscovery/httpx",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "moinulmoin/voicetypr",
+      "html_url": "https://github.com/moinulmoin/voicetypr",
+      "description": "VoiceTypr - AI powered offline voice to text dictation tool for busy founders, vibe coders, AI power users on macos, windows. Alternative to wispr flow and superwhisper.",
+      "topics": [
+        "reactjs",
+        "shadcn-ui",
+        "tailwindcss",
+        "tauri",
+        "whisper-ai"
+      ],
+      "language": "Rust",
+      "stargazers_count": 302,
+      "forks_count": 52,
+      "open_issues_count": 7,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T14:09:56Z",
+      "created_at": "2025-07-06T18:32:58Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <img src=\"src-tauri/icons/icon.png\" alt=\"VoiceTypr Logo\" width=\"128\" height=\"128\">\n\n  # VoiceTypr\n\n  **Open Source AI Powered voice to text dictation tool, alternative to superwhisper, whispr flow**\n\n  [![GitHub release](https://img.shields.io/github/v/release/moinulmoin/voicetypr)](https://github.com/moinulmoin/voicetypr/releases)\n  [![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE.md)\n  [![macOS](https://img.shields.io/badge/macOS-13.0+-black)](https://www.apple.com/macos)\n  [![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6)](https://www.microsoft.com/windows)\n  [![Downloads](https://img.shields.io/github/downloads/moinulmoin/voicetypr/total)](https://github.com/moinulmoin/voicetypr/releases)\n\n  [Download](https://github.com/moinulmoin/voicetypr/releases/latest) • [Features](#features) • [Installation](#installation) • [Usage](#usage)\n</div>\n\n## 🎯 What is VoiceTypr?\n\nVoiceTypr is an open source AI voice-to-text dictation tool, alternative to Wispr Flow and SuperWhisper. Available for macOS and Windows. Pay once, use forever.\n\n## ✨ Features\n\n### 🎙️ **Instant Voice-to-Text**\n- System-wide hotkey for quick recording\n- Automatic text insertion at cursor position\n- Works in any app - cursor, claude code, chatgpt, slack, etc\n\n### 🤖 **Powered by local AI**\n- 100% offline transcription - your voice never leaves your device\n- Multiple model sizes for accuracy vs speed tradeoffs\n- Support for 99+ languages out of the box\n- Hardware acceleration (Metal on macOS)\n\n### 🚀 **Native Performance**\n- Built with Rust and Tauri for blazing-fast performance\n- Optimized for each platform with hardware acceleration\n- Minimal resource usage with maximum efficiency\n\n### 🔒 **Privacy First**\n- Complete offline operation - no cloud, no tracking (only trial check)\n- Your recordings stay on your device\n- Open source for full transparency\n\n### 🤖 **AI Enhancement** (NEW)\n- Transform your transcriptions with AI (Groq/Gemini)\n- Smart presets: Prompts, Email, Commits, Notes\n- Secure API key storage\n- Requires internet connection for enhancement only\n\n### 🎨 **Clean Design**\n- Clean, user interface\n- Menubar integration for quick access\n- Visual feedback during recording\n- Auto-updates to keep you on the latest version\n\n## 📦 Installation\n\n### Requirements\n\n#### macOS\n- macOS 13.0 (Ventura) or later\n- 3-4 GB free disk space (for AI models)\n- Microphone access permission\n- Accessibility access permission\n\n#### Windows\n- Windows 10/11 (64-bit)\n- 3-4 GB free disk space (for AI models)\n- GPU acceleration available (5-10x faster with NVIDIA, AMD, Intel GPUs)\n\n### Quick Install\n\n#### macOS\n1. Download the latest [VoiceTypr.dmg](https://github.com/moinulmoin/voicetypr/releases/latest)\n2. Open the DMG and drag VoiceTypr to Applications\n3. Launch VoiceTypr from Applications\n4. Follow the onboarding to download your preferred AI model\n\n> **Note**: VoiceTypr is fully signed and notarized by Apple, so you can run it without security warnings.\n\n#### Windows\n1. Download the latest [VoiceTypr installer](https://github.com/moinulmoin/voicetypr/releases/latest)\n2. Run the installer\n3. Launch VoiceTypr from Start Menu\n4. Follow the onboarding to download your preferred AI model\n\n> **GPU Acceleration (5-10x faster)**\n> - VoiceTypr automatically uses your GPU if available\n> - For best performance, ensure your graphics drivers are up to date:\n>   - [NVIDIA Drivers](https://www.nvidia.com/drivers)\n>   - [AMD Drivers](https://www.amd.com/support)\n>   - [Intel Drivers](https://www.intel.com/content/www/us/en/support/products/80939/graphics.html)\n> - Falls back to CPU automatically if GPU unavailable\n\n## 🎮 Usage\n\n### Getting Started\n\n1. **Launch VoiceTypr** - Find it in your Applications folder (macOS) or Start Menu (Windows)\n2. **Grant Permissions** - Allow microphone access (and accessibility on macOS)\n3. **Download a Model** - Choose from tiny to large models based on your needs\n4. **Start Transcribing** - Press your hotkey anywhere to record\n\n### Tips & Tricks\n\n- 🎯 **Quick Cancel**: Double Press `Esc` while recording to cancel\n- 📝 **Long Recordings**: VoiceTypr handles extended recordings seamlessly but shorter recordings are recommended to do.\n- 🌍 **Multiple Languages**: Just speak - Whisper auto-detects the language\n- ⚡ **Instant Insert**: Text appears right where your cursor is\n\n### Project Structure\n\n```\nvoicetypr/\n├── src/                    # React frontend\n│   ├── components/         # UI components\n│   ├── hooks/             # Custom React hooks\n│   └── types/             # TypeScript types\n├── src-tauri/             # Rust backend\n│   ├── src/\n│   │   ├── audio/         # Audio recording\n│   │   ├── whisper/       # Whisper integration\n│   │   └── commands/      # Tauri commands\n│   └── capabilities/      # Security capabilities\n├── scripts/               # Build and utility scripts\n└── tests/                 # Test suites\n```\n\n## 🔧 Troubleshooting\n\n### Windows GPU Acceleration\n\nVoiceTypr automatically detects and uses your GPU for faster transcription. If you're experiencing slower performance:\n\n**Update your graphics drivers** - This is the most common fix:\n   - [NVIDIA Drivers](https://www.nvidia.com/drivers)\n   - [AMD Drivers](https://www.amd.com/support)\n   - [Intel Drivers](https://www.intel.com/content/www/us/en/support/products/80939/graphics.html)\n\n> **Note**: VoiceTypr always works - it automatically falls back to CPU if GPU acceleration is unavailable\n\n## 📄 License\n\nVoiceTypr is licensed under the [GNU Affero General Public License v3.0](LICENSE.md).\n</div>\n",
+        "truncated": false,
+        "bytes": 5738,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "VoiceTypr v1.11.2",
+            "tag_name": "v1.11.2",
+            "published_at": "2025-12-17T06:49:55Z",
+            "body_excerpt": "## What's Changed\r\n* fix: auto-install updates in background and use updateService in AboutSection by @moinulmoin in https://github.com/moinulmoin/voicetypr/pull/46\r\n\r\n\r\n**Full Changelog**: https://github.com/moinulmoin/voicetypr/compare/v1.11.1...v1.11.2"
+          },
+          {
+            "name": "VoiceTypr v1.11.1",
+            "tag_name": "v1.11.1",
+            "published_at": "2025-12-14T20:27:19Z",
+            "body_excerpt": "## What's Changed\r\n* New Fixes and Improvements by @moinulmoin in https://github.com/moinulmoin/voicetypr/pull/43\r\n\r\n\r\n**Full Changelog**: https://github.com/moinulmoin/voicetypr/compare/v1.10.0...v1.11.1"
+          },
+          {
+            "name": "VoiceTypr v1.10.0",
+            "tag_name": "v1.10.0",
+            "published_at": "2025-10-24T01:04:44Z",
+            "body_excerpt": "\r\n### Bug Fixes\r\n\r\n* **audio:** prevent empty or ultra-short recordings from causing errors; add mode-specific min durations (PTT≥1s, Toggle≥3s); auto-recover from Error→Idle and gate start transitions ([97e9fad](https://github.com/moinulmoin/voicetypr/commit/97e9fad0de58714cecf5f9a55f20cd17500bca78))\r\n* avoid panic when requesting parakeet sidecar ([855a2ed](https://github.com/moinulmoin/voicetypr/commit/855a2ed9d2190eb1673a3cc166132fdacf612ff7))\r\n* **macOS): bundle ffmpeg/ffprobe via platform config and resolve lookup in Contents/MacOS to prevent normalization failures in packaged app; chore(stt/soniox:** update async model to stt-async-v3 ([17108f6](https://github.com/moinulmoin/voicetypr/commit/17108f6dda9755ce52a8ac24ca28ddb3e9923e87))\r\n* persist Parakeet model selection across restarts ([fffba52](https://github.com/moinulmoin/voicetypr/commit/fffba520d2ada9a9b489cc7c12d7cbdf570477f8))\r\n* resolve Parakeet sidecar MLX module loading and build issues ([33c3913](https://github.com/moinulmoin/voicetypr/commit/33c39134e829363bb066e71a2dd006ff94928592))\r\n* **tauri:** scope Parakeet sidecar to macOS builds and improve UX ([2f54a53](https://github.com/moinulmoin/voicetypr/commit/2f54a5307d5c0c93662d51fa00f06f448702246a))\r\n* **tray:** gate selection until onboarding completes; add tests for tray label and selection logic; ui: simplify Upload section copy ([0ac219a](https://github.com/moinulmoin/voicetypr/commit/0ac219a0fcbe8e6f46c940a53dcc1cde2f103be7))\r\n\r\n\r\n### Features\r\n\r\n* :sparkles: update windows ffmpeg ([734fddb](https://github.com/moinulmoin/voicetypr/commit/734fddb335b627e7e66426c0ac50d7b4b705c2c4))\r\n* add Parakeet MLX sidecar integration ([ead96e3](https://github.com/moinulmoin/voicetypr/commit/ead96e3f804bcba277f32767269d54aa42a9804e))\r\n* **parakeet:** add version-aware v2/v3 download/load/delete with FluidAudio 0.6.1; fix false-success download for v2 by verifying loaded model and cache; autoload selected Parakeet model on startup ([bec2e3e](https://github.co"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 47,
+            "title": "GPT 5 Nano Support as Formatting Model",
+            "state": "open",
+            "url": "https://github.com/moinulmoin/voicetypr/issues/47"
+          },
+          {
+            "number": 63,
+            "title": "Intermittent Recording Failure on Windows During Peripheral Switching",
+            "state": "open",
+            "url": "https://github.com/moinulmoin/voicetypr/issues/63"
+          },
+          {
+            "number": 48,
+            "title": "Flash of powershell window at the start of the recording",
+            "state": "open",
+            "url": "https://github.com/moinulmoin/voicetypr/issues/48"
+          },
+          {
+            "number": 59,
+            "title": "Linux Version",
+            "state": "closed",
+            "url": "https://github.com/moinulmoin/voicetypr/issues/59"
+          },
+          {
+            "number": 60,
+            "title": "Purely Educational - Changing logic to overcome license requirements",
+            "state": "closed",
+            "url": "https://github.com/moinulmoin/voicetypr/issues/60"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".env.example",
+        ".github",
+        ".gitignore",
+        ".prettierignore",
+        ".stores.json",
+        ".vscode",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "IMPLEMENTATION_PLAN.md",
+        "LICENSE.md",
+        "ORACLE_REVIEW.md",
+        "PARAKEET_SWIFT_INTEGRATION.md",
+        "README.md",
+        "TOAST_POSITIONING_EXPLAINED.md",
+        "components.json",
+        "eslint.config.cjs",
+        "index.html",
+        "package.json",
+        "pill.html",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "public",
+        "scripts",
+        "sidecar",
+        "src-tauri",
+        "src",
+        "toast.html",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <img src=\"src-tauri/icons/icon.png\" alt=\"VoiceTypr Logo\" width=\"128\" height=\"128\">",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 2)",
+          "excerpt": "**Open Source AI Powered voice to text dictation tool, alternative to superwhisper, whispr flow**",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![GitHub release](https://img.shields.io/github/v/release/moinulmoin/voicetypr)](https://github.com/moinulmoin/voicetypr/releases) [![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE.md) [![macOS](https://img.shields.io/badge/macOS-13.0+-black)](https://www.apple.com/macos) [![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6)](https://www.microsoft.com/windows) [![Downloads](https://img.shields.io/github/downloads/moinulmoin/voicetypr/total)](https://github.com/moinulmoin/voicetypr/releases)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[Download](https://github.com/moinulmoin/voicetypr/releases/latest) • [Features](#features) • [Installation](#installation) • [Usage](#usage) </div>",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 5)",
+          "excerpt": "VoiceTypr is an open source AI voice-to-text dictation tool, alternative to Wispr Flow and SuperWhisper. Available for macOS and Windows. Pay once, use forever.",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 6)",
+          "excerpt": "### 🎙️ **Instant Voice-to-Text** - System-wide hotkey for quick recording - Automatic text insertion at cursor position - Works in any app - cursor, claude code, chatgpt, slack, etc",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 7)",
+          "excerpt": "### 🤖 **Powered by local AI** - 100% offline transcription - your voice never leaves your device - Multiple model sizes for accuracy vs speed tradeoffs - Support for 99+ languages out of the box - Hardware acceleration (Metal on macOS)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/moinulmoin/voicetypr#readme",
+          "title": "README (segment 8)",
+          "excerpt": "### 🚀 **Native Performance** - Built with Rust and Tauri for blazing-fast performance - Optimized for each platform with hardware acceleration - Minimal resource usage with maximum efficiency",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/moinulmoin/voicetypr/issues/47",
+          "title": "GPT 5 Nano Support as Formatting Model",
+          "excerpt": "GPT 5 Nano Support as Formatting Model (state:open)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "number": 47
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/moinulmoin/voicetypr/issues/63",
+          "title": "Intermittent Recording Failure on Windows During Peripheral Switching",
+          "excerpt": "Intermittent Recording Failure on Windows During Peripheral Switching (state:open)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "number": 63
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/moinulmoin/voicetypr/issues/48",
+          "title": "Flash of powershell window at the start of the recording",
+          "excerpt": "Flash of powershell window at the start of the recording (state:open)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "number": 48
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/moinulmoin/voicetypr/issues/59",
+          "title": "Linux Version",
+          "excerpt": "Linux Version (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "number": 59
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/moinulmoin/voicetypr/issues/60",
+          "title": "Purely Educational - Changing logic to overcome license requirements",
+          "excerpt": "Purely Educational - Changing logic to overcome license requirements (state:closed)",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "number": 60
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/moinulmoin/voicetypr/releases",
+          "title": "v1.11.2",
+          "excerpt": "## What's Changed * fix: auto-install updates in background and use updateService in AboutSection by @moinulmoin in https://github.com/moinulmoin/voicetypr/pull/46 **Full Changelog**: https://github.com/moinulmoin/voicetypr/compare/v1.11.1...v1.11.2",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "tag_name": "v1.11.2",
+            "published_at": "2025-12-17T06:49:55Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/moinulmoin/voicetypr/releases",
+          "title": "v1.11.1",
+          "excerpt": "## What's Changed * New Fixes and Improvements by @moinulmoin in https://github.com/moinulmoin/voicetypr/pull/43 **Full Changelog**: https://github.com/moinulmoin/voicetypr/compare/v1.10.0...v1.11.1",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "tag_name": "v1.11.1",
+            "published_at": "2025-12-14T20:27:19Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/moinulmoin/voicetypr/releases",
+          "title": "v1.10.0",
+          "excerpt": "### Bug Fixes * **audio:** prevent empty or ultra-short recordings from causing errors; add mode-specific min durations (PTT≥1s, Toggle≥3s); auto-recover from Error→Idle and gate start transitions ([97e9fad](https://github.com/moinulmoin/voicetypr/commit/97e9fad0de58714cecf5f9a55f20cd17500bca78)) * avoid panic when requesting parakeet sidecar ([855a2ed](https://github.com/moinulmoin/voicetypr/commit/855a2ed9d2190eb1673a3cc166132fdacf612ff7)) * **macOS): bundle ffmpeg/ffprobe via platform config and resolve lookup in Contents/MacOS to prevent normalization failures in packaged app; chore(stt/soniox:** update async model to stt-async-v3 ([17108f6](https://github.com/moinulmoin/voicetypr/commit/17108f6dda9755ce52a8ac24ca28ddb3e9923e87)) * persist Parakeet model selection across restarts ([fffba52](https://github.com/moinulmoin/voicetypr/commit/fffba520d2ada9a9b489cc7c12d7cbdf570477f8)) * resolve Parakeet sidecar MLX module loading and build issues ([33c3913](https://github.com/moinulmoin/voicetypr/commit/33c39134e829363bb066e71a2dd006ff94928592)) * **tauri:** scope Parakeet sidecar to macOS builds and improve UX ([2f54a53](https://github.com/moinulmoin/voicetypr/commit/2f54a5307d5c0c…",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "tag_name": "v1.10.0",
+            "published_at": "2025-10-24T01:04:44Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/moinulmoin/voicetypr",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .env.example, .github, .gitignore, .prettierignore, .stores.json, .vscode, AGENTS.md, CHANGELOG.md, CLAUDE.md, IMPLEMENTATION_PLAN.md, LICENSE.md, ORACLE_REVIEW.md, PARAKEET_SWIFT_INTEGRATION.md, README.md, TOAST_POSITIONING_EXPLAINED.md, components.json, eslint.config.cjs, index.html, package.json, pill.html, pnpm-lock.yaml, pnpm-workspace.yaml, public, scripts, sidecar, src-tauri, src, toast.html, tsconfig.json, tsconfig.node.json, vite.config.ts, vitest.config.ts",
+          "fetched_at": "2026-02-21T14:12:53.858Z",
+          "meta": {
+            "repo_full_name": "moinulmoin/voicetypr",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "swiftlang/swift-testing",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "agent-sh/agnix",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 3
+    },
+    {
+      "full_name": "jhlee0409/claude-code-history-viewer",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 3
+    },
+    {
+      "full_name": "projectdiscovery/httpx",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "moinulmoin/voicetypr",
+      "evidence_count": 17,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 5,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 5,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "swiftlang/swift-testing",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/swiftlang__swift-testing.json"
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/agent-sh__agnix.json"
+    },
+    {
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/jhlee0409__claude-code-history-viewer.json"
+    },
+    {
+      "repo": "projectdiscovery/httpx",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/projectdiscovery__httpx.json"
+    },
+    {
+      "repo": "moinulmoin/voicetypr",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/moinulmoin__voicetypr.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "swiftlang/swift-testing",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/swiftlang__swift-testing.json"
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/agent-sh__agnix.json"
+    },
+    {
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/jhlee0409__claude-code-history-viewer.json"
+    },
+    {
+      "repo": "projectdiscovery/httpx",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/projectdiscovery__httpx.json"
+    },
+    {
+      "repo": "moinulmoin/voicetypr",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/moinulmoin__voicetypr.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "swiftlang/swift-testing",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/swiftlang__swift-testing.json"
+      ]
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/agent-sh__agnix.json"
+      ]
+    },
+    {
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 3,
+          "cited": 3
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/jhlee0409__claude-code-history-viewer.json"
+      ]
+    },
+    {
+      "repo": "projectdiscovery/httpx",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/projectdiscovery__httpx.json"
+      ]
+    },
+    {
+      "repo": "moinulmoin/voicetypr",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/moinulmoin__voicetypr.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-02-21T14:13:13.534Z",
+      "run_id": "20260221T141249Z",
+      "repo": "swiftlang/swift-testing",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fbce09670f2a16978a5f964dd524fbf7d257e5755dabb9d94f41ee720648a63e",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9119
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19671,
+      "prompt_chars": 9119,
+      "completion_chars": 2874
+    },
+    {
+      "ts": "2026-02-21T14:13:42.384Z",
+      "run_id": "20260221T141249Z",
+      "repo": "agent-sh/agnix",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b827238c01eb07947220ca4f40ddcf0abcf9ceb5db3de730c2eec4333799b14c",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 11515
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 28836,
+      "prompt_chars": 11515,
+      "completion_chars": 3388
+    },
+    {
+      "ts": "2026-02-21T14:14:18.301Z",
+      "run_id": "20260221T141249Z",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "64fd69349ae1e5a86bdbc929a640c27ac7f06743bb6256f03b8ba2fbf253b33b",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 12236
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 35914,
+      "prompt_chars": 12236,
+      "completion_chars": 6477
+    },
+    {
+      "ts": "2026-02-21T14:14:39.700Z",
+      "run_id": "20260221T141249Z",
+      "repo": "projectdiscovery/httpx",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a42a870e62ea710cbbeb8988a386081ce41d3591ac38ddf821967d8b31ad866e",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10841
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21396,
+      "prompt_chars": 10841,
+      "completion_chars": 3234
+    },
+    {
+      "ts": "2026-02-21T14:15:07.053Z",
+      "run_id": "20260221T141249Z",
+      "repo": "moinulmoin/voicetypr",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "26de45f9cc700b2b243db293bf072b2b90f48a5f1d1eb41d7e0cc75e915f9ade",
+      "input_stats": {
+        "evidence_count": 17,
+        "approx_chars": 10805
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 27350,
+      "prompt_chars": 10805,
+      "completion_chars": 4868
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "swiftlang/swift-testing",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "projectdiscovery/httpx",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "moinulmoin/voicetypr",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "swiftlang/swift-testing",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "projectdiscovery/httpx",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "moinulmoin/voicetypr",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 17,
+      "evidence_total_final": 17,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 5,
+    "attempts_used_hist": {
+      "0": 5,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 5,
+    "success": 5
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1771683169461,
+    "llmCallsTotal": 5,
+    "llmCallsPerRepo": {
+      "swiftlang/swift-testing": 1,
+      "agent-sh/agnix": 1,
+      "jhlee0409/claude-code-history-viewer": 1,
+      "projectdiscovery/httpx": 1,
+      "moinulmoin/voicetypr": 1
+    },
+    "tokensApproxTotal": 18842,
+    "tokensApproxPerRepo": {
+      "swiftlang/swift-testing": 2999,
+      "agent-sh/agnix": 3726,
+      "jhlee0409/claude-code-history-viewer": 4679,
+      "projectdiscovery/httpx": 3519,
+      "moinulmoin/voicetypr": 3919
+    },
+    "reposProcessed": 5,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "swiftlang/swift-testing": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Swift Testing\",\n    \"one_sentence\": \"A modern, expressive testing package for Swift that provides intuitive APIs using macros to simplify test authoring and failure diagnosis.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers write tests using expressive Swift macros like @Test and #expect, run them via SwiftPM or CI, and receive detailed diagnostics when expectations fail.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Test Authoring View\",\n      \"purpose\": \"Allows developers to define test cases with traits, expectations, and custom conditions using Swift's macro system.\",\n      \"primary_actions\": [\n        \"Declare a test function with @Test\",\n        \"Add expectation checks with #expect\",\n        \"Apply traits for runtime conditions or CI constraints\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"run_tests\",\n      \"purpose\": \"Execute the test suite using Swift Package Manager or integrated tooling.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"test_cases\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"String\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"String\"\n          },\n          {\n            \"name\": \"traits\",\n            \"type\": \"Array<String>\"\n          },\n          {\n            \"name\": \"enabled_condition\",\n            \"type\": \"String?\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up basic test declaration with @Test macro\",\n          \"Implement #expect assertion with value capture\",\n          \"Support trait-based test configuration\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"A test declared with @Test runs successfully when its expectations pass.\",\n    \"When an expectation fails, the diagnostic shows the actual and expected values.\",\n    \"Tests"
+      }
+    },
+    "agent-sh/agnix": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"agnix\",\n    \"one_sentence\": \"Lint agent configurations before they break your workflow.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Validate and auto-fix AI agent configuration files (like CLAUDE.md, SKILL.md, AGENTS.md, hooks, and MCP configs) across multiple tools including Claude Code, Codex CLI, OpenCode, Cursor, and Copilot to prevent silent failures.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Linter Interface\",\n      \"purpose\": \"Display linting results and auto-fix suggestions for agent configuration files.\",\n      \"primary_actions\": [\n        \"Run lint check on selected config file\",\n        \"Apply auto-fixes\",\n        \"View rule documentation\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"lint_config\",\n      \"purpose\": \"Analyze an agent configuration file against known rules and return diagnostics.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"apply_fixes\",\n      \"purpose\": \"Apply auto-fixes to a given agent configuration file based on lint diagnostics.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"agent_configs\",\n        \"fields\": [\n          {\n            \"name\": \"file_path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"tool_type\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"valid\",\n            \"type\": \"boolean\"\n          }\n        ]\n      },\n      {\n        \"name\": \"lint_rules\",\n        \"fields\": [\n          {\n            \"name\": \"rule_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"tool_scope\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"description\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core linter engine for "
+      }
+    },
+    "jhlee0409/claude-code-history-viewer": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Claude Code History Viewer\",\n    \"one_sentence\": \"Desktop app that reads conversation history from Claude Code, Codex CLI, and OpenCode with analytics, session boards, and real-time monitoring.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User opens the desktop app to browse, search, and analyze conversation histories across multiple AI coding assistants (Claude Code, Codex CLI, OpenCode), using features like the Session Board for multi-session comparison, real-time file monitoring, and a Settings Manager for MCP server configuration.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Conversation Browser\",\n      \"purpose\": \"Navigate conversations by project/session with worktree grouping and access analytics dashboard, token stats, and recent edits.\",\n      \"primary_actions\": [\n        \"Browse sessions by project\",\n        \"Search across all conversations\",\n        \"View token usage and API cost\",\n        \"Access Session Board for multi-session analysis\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings Manager\",\n      \"purpose\": \"Edit Claude Code settings directly within the app with support for project-level and global scopes, including MCP server presets.\",\n      \"primary_actions\": [\n        \"Edit JSON settings with real-time validation\",\n        \"Manage MCP server presets\",\n        \"Switch between global and project-level settings\"\n      ]\n    },\n    {\n      \"id\": \"session_board\",\n      \"name\": \"Session Board\",\n      \"purpose\": \"Multi-session visual analysis tool with pixel view, attribute brushing, and activity timeline for pattern identification.\",\n      \"primary_actions\": [\n        \"Compare multiple sessions visually\",\n        \"Filter by tools, commands, and MCP servers\",\n        \"Zoom between detailed and overview modes\",\n        \"View draggable tooltips with session details\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"copy_session_id\",\n      \"purpose\": \"Copy the current session ID to cl"
+      }
+    },
+    "projectdiscovery/httpx": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"httpx\",\n    \"one_sentence\": \"httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"The tool takes input targets (hosts, URLs, CIDRs), applies configurable HTTP probes, handles retries and fallbacks (e.g., HTTPS to HTTP), and outputs structured results including status codes, headers, TLS info, and more.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Probe Interface\",\n      \"purpose\": \"Display probe configuration options and real-time results from HTTP requests across multiple targets.\",\n      \"primary_actions\": [\n        \"Configure probe types (e.g., status code, title, TLS)\",\n        \"Input target list (URLs, hosts, CIDRs)\",\n        \"Execute probing with concurrency control\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"run_http_probes\",\n      \"purpose\": \"Execute configured HTTP probes against a list of targets using retryablehttp with smart fallbacks and WAF handling.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"probe_results\",\n        \"fields\": [\n          {\n            \"name\": \"url\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"status_code\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"title\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content_length\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"tls_certificate\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"web_server\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"response_time_ms\",\n            \"type\": \"integer\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core HTTP probing engine with re"
+      }
+    },
+    "moinulmoin/voicetypr": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 17,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"VoiceTypr\",\n    \"one_sentence\": \"An open source AI-powered offline voice-to-text dictation tool for macOS and Windows, serving as an alternative to Wispr Flow and SuperWhisper.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User triggers system-wide hotkey to start recording, speaks into microphone, VoiceTypr transcribes speech locally using on-device AI models, and inserts resulting text at cursor position in any active application.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Dictation Interface\",\n      \"purpose\": \"Provide instant access to voice recording and transcription with minimal UI interference.\",\n      \"primary_actions\": [\n        \"Start/stop recording via hotkey\",\n        \"View transcription status\",\n        \"Insert transcribed text at cursor\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings Panel\",\n      \"purpose\": \"Configure transcription models, hotkeys, and platform-specific behavior.\",\n      \"primary_actions\": [\n        \"Select AI model size\",\n        \"Adjust language preferences\",\n        \"Set recording mode (PTT or Toggle)\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"start_recording\",\n      \"purpose\": \"Initiate audio capture based on selected mode (PTT or Toggle) with minimum duration enforcement.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"transcribe_audio\",\n      \"purpose\": \"Process captured audio using local Whisper-based models with hardware acceleration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"insert_text_at_cursor\",\n      \"purpose\": \"Inject transcribed text into the currently focused application at cursor location.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"transcriptions\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "swiftlang/swift-testing",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "projectdiscovery/httpx",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "moinulmoin/voicetypr",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=0",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=90 kept=5 limit=5",
+    "[deduper] existing_index_repos=45",
+    "[deduper] candidates_total=5 new=5 skipped=0",
+    "[repo_card_builder] swiftlang/swift-testing evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] agent-sh/agnix evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] jhlee0409/claude-code-history-viewer evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] projectdiscovery/httpx evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] moinulmoin/voicetypr evidence total=17 readme=8 issue=5 release=3 root_files=1",
+    "[repo_card_builder] built=5 readme_ok=5/5 evidence_total=72 gaps=0",
+    "[llm_spec_generator] swiftlang/swift-testing canonical spec ok (iter=1) -> specs/2026-02-21/swiftlang__swift-testing.json",
+    "[llm_spec_generator] agent-sh/agnix canonical spec ok (iter=1) -> specs/2026-02-21/agent-sh__agnix.json",
+    "[llm_spec_generator] jhlee0409/claude-code-history-viewer canonical spec ok (iter=1) -> specs/2026-02-21/jhlee0409__claude-code-history-viewer.json",
+    "[llm_spec_generator] projectdiscovery/httpx canonical spec ok (iter=1) -> specs/2026-02-21/projectdiscovery__httpx.json",
+    "[llm_spec_generator] moinulmoin/voicetypr canonical spec ok (iter=1) -> specs/2026-02-21/moinulmoin__voicetypr.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-02-21T14:12:49.461Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:49.482Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260221T141249Z"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:49.482Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:49.486Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:50.037Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:50.037Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:50.364Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:50.364Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:50.708Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:50.708Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:51.079Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:51.079Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:51.425Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:51.425Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:51.716Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:51.716Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.082Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.082Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.251Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.251Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.661Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.661Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.991Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.994Z",
+      "run_id": "20260221T141249Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 45
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.995Z",
+      "run_id": "20260221T141249Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 5,
+        "skipped": 0,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.997Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T14:12:52.998Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "swiftlang__swift-testing/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:52.998Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "swiftlang__swift-testing/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.000Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "swiftlang__swift-testing/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.002Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "swiftlang__swift-testing/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.003Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T14:12:53.003Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "agent-sh__agnix/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.004Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "agent-sh__agnix/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.006Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "agent-sh__agnix/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.007Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "agent-sh__agnix/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.009Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T14:12:53.009Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jhlee0409__claude-code-history-viewer/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.010Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jhlee0409__claude-code-history-viewer/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.011Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jhlee0409__claude-code-history-viewer/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.013Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jhlee0409__claude-code-history-viewer/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 6065,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 308
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T14:12:53.305Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "projectdiscovery__httpx/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.306Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "projectdiscovery__httpx/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.306Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "projectdiscovery__httpx/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.307Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "projectdiscovery__httpx/root_files_dev.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7447,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 450
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T14:12:53.453Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moinulmoin__voicetypr/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.454Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moinulmoin__voicetypr/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.454Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moinulmoin__voicetypr/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.454Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moinulmoin__voicetypr/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.474Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 8115,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.474Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.474Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.474Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 465
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.475Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.567Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 18966,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.567Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.567Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.567Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 262
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.567Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.858Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 5738,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.858Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.858Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 5
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.858Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 405
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.859Z",
+      "run_id": "20260221T141249Z",
+      "node": "repo_card_builder",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 17,
+        "readme": 8,
+        "issues": 5,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.862Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T14:12:53.862Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:13.534Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2874,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:13.546Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:13.547Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/swiftlang__swift-testing.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:13.547Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "swiftlang/swift-testing",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/swiftlang__swift-testing.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:13.547Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:13.547Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:42.384Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3388,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:42.386Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:42.386Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/agent-sh__agnix.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:42.386Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "agent-sh/agnix",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/agent-sh__agnix.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:42.387Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T14:13:42.387Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:18.301Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 6477,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:18.302Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:18.303Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/jhlee0409__claude-code-history-viewer.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:18.303Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "jhlee0409/claude-code-history-viewer",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/jhlee0409__claude-code-history-viewer.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:18.303Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:18.303Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:39.700Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3234,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:39.701Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:39.702Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/projectdiscovery__httpx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:39.702Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "projectdiscovery/httpx",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/projectdiscovery__httpx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:39.702Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 17,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 5,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T14:14:39.702Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 17,
+        "evidence_selected": 17,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.053Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4868,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.054Z",
+      "run_id": "20260221T141249Z",
+      "node": "llm_spec_generator",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.055Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/moinulmoin__voicetypr.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.055Z",
+      "run_id": "20260221T141249Z",
+      "node": "artifacts",
+      "repo": "moinulmoin/voicetypr",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/moinulmoin__voicetypr.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.059Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 5,
+        "attempts_used_hist": {
+          "0": 5,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.059Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1771683169461,
+        "llmCallsTotal": 5,
+        "llmCallsPerRepo": {
+          "swiftlang/swift-testing": 1,
+          "agent-sh/agnix": 1,
+          "jhlee0409/claude-code-history-viewer": 1,
+          "projectdiscovery/httpx": 1,
+          "moinulmoin/voicetypr": 1
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 5,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.059Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T14:15:07.059Z",
+      "run_id": "20260221T141249Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 5,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-02-21",
+    "evidence_dir": "evidence/2026-02-21"
+  }
+}

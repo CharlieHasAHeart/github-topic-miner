@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Swift Testing",
+    "one_liner": "A modern, expressive testing package for Swift that provides intuitive APIs using macros to simplify test authoring and failure diagnosis."
+  },
+  "screens": [
+    {
+      "name": "Test Authoring View",
+      "purpose": "Allows developers to define test cases with traits, expectations, and custom conditions using Swift's macro system.",
+      "primary_actions": [
+        "Add expectation checks with #expect",
+        "Apply traits for runtime conditions or CI constraints",
+        "Declare a test function with @Test"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_tests",
+      "purpose": "Execute the test suite using Swift Package Manager or integrated tooling.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "test_cases",
+        "columns": [
+          {
+            "name": "enabled_condition",
+            "type": "STRING?"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "traits",
+            "type": "ARRAY<STRING>"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement #expect assertion with value capture",
+    "week 1: Set up basic test declaration with @Test macro",
+    "week 1: Support trait-based test configuration"
+  ],
+  "acceptance_tests": [
+    "A test declared with @Test runs successfully when its expectations pass.",
+    "Tests can be conditionally enabled using feature flags like AppFeatures.isCommentingEnabled.",
+    "When an expectation fails, the diagnostic shows the actual and expected values."
+  ]
+}

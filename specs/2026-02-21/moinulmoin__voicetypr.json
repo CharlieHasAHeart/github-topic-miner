@@ -1,0 +1,123 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "VoiceTypr",
+    "one_liner": "An open source AI-powered offline voice-to-text dictation tool for macOS and Windows, serving as an alternative to Wispr Flow and SuperWhisper."
+  },
+  "screens": [
+    {
+      "name": "Main Dictation Interface",
+      "purpose": "Provide instant access to voice recording and transcription with minimal UI interference.",
+      "primary_actions": [
+        "Insert transcribed text at cursor",
+        "Start/stop recording via hotkey",
+        "View transcription status"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure transcription models, hotkeys, and platform-specific behavior.",
+      "primary_actions": [
+        "Adjust language preferences",
+        "Select AI model size",
+        "Set recording mode (PTT or Toggle)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "insert_text_at_cursor",
+      "purpose": "Inject transcribed text into the currently focused application at cursor location.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    },
+    {
+      "name": "start_recording",
+      "purpose": "Initiate audio capture based on selected mode (PTT or Toggle) with minimum duration enforcement.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    },
+    {
+      "name": "transcribe_audio",
+      "purpose": "Process captured audio using local Whisper-based models with hardware acceleration.",
+      "async": true,
+      "input": {
+        "placeholder": true
+      },
+      "output": {
+        "placeholder": true
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "settings",
+        "columns": [
+          {
+            "name": "hotkey",
+            "type": "TEXT"
+          },
+          {
+            "name": "language_preference",
+            "type": "TEXT"
+          },
+          {
+            "name": "model_size",
+            "type": "TEXT"
+          },
+          {
+            "name": "recording_mode",
+            "type": "ENUM"
+          }
+        ]
+      },
+      {
+        "name": "transcriptions",
+        "columns": [
+          {
+            "name": "audio_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "text",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build minimal UI for status feedback and settings",
+    "week 1: Implement core recording and transcription pipeline using Tauri and Rust",
+    "week 1: Integrate system-wide hotkey registration"
+  ],
+  "acceptance_tests": [
+    "Application successfully records audio when hotkey is pressed and stops appropriately based on mode (PTT release or Toggle second press).",
+    "Empty or ultra-short recordings are rejected per minimum duration rules (PTT ≥1s, Toggle ≥3s).",
+    "Selected Parakeet model persists across application restarts.",
+    "Transcribed text appears at cursor position in external applications like Slack, VS Code, or ChatGPT without requiring app focus."
+  ]
+}
