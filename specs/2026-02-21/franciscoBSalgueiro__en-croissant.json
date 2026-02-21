@@ -59,16 +59,12 @@
       "purpose": "Check remote server for new application releases.",
       "async": true,
       "input": {
-        "id": "",
-        "changes": {
-          "name": "",
-          "path": "",
-          "uci_options": {}
-        }
+        "changes": "json",
+        "id": "string"
       },
       "output": {
-        "update_available": "boolean",
-        "latest_version": "string?"
+        "latest_version": "string?",
+        "update_available": "boolean"
       }
     },
     {
@@ -79,8 +75,8 @@
         "db_path": "string"
       },
       "output": {
-        "indexed": "boolean",
-        "game_count": "number"
+        "game_count": "float",
+        "indexed": "boolean"
       }
     },
     {
@@ -88,8 +84,8 @@
       "purpose": "Start multi-engine UCI analysis on a given position.",
       "async": true,
       "input": {
-        "fen": "string",
-        "engine_configs": "array<object>"
+        "engine_configs": "string",
+        "fen": "string"
       },
       "output": {
         "analysis_started": "boolean"
@@ -100,13 +96,13 @@
       "purpose": "Persist a chess game in PGN format to disk.",
       "async": true,
       "input": {
+        "file_path": "string",
         "game_id": "string",
-        "pgn_content": "string",
-        "file_path": "string"
+        "pgn_content": "string"
       },
       "output": {
-        "success": "boolean",
-        "error_message": "string?"
+        "error_message": "string?",
+        "success": "boolean"
       }
     }
   ],

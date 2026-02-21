@@ -13,95 +13,212 @@ function asString(value: unknown, fallback: string): string {
   return typeof value === "string" && value.trim() ? value : fallback;
 }
 
+const IO_TYPE_REGEX = /^(string|boolean|int|float|timestamp|json)\??$/;
+const PLACEHOLDER_KEYS = new Set(["placeholder", "todo", "tbd", "example", "dummy", "mock"]);
+
 function isPlaceholderKey(key: string): boolean {
-  return ["placeholder", "todo", "tbd", "example", "dummy", "mock"].includes(key.toLowerCase());
+  return PLACEHOLDER_KEYS.has(key.toLowerCase());
 }
 
-function isInvalidIO(value: unknown): boolean {
-  if (value === null || value === undefined) return true;
-  if (typeof value !== "object" || Array.isArray(value)) return true;
-  const obj = value as Record<string, unknown>;
-  const keys = Object.keys(obj);
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return !!value && typeof value === "object" && !Array.isArray(value);
+}
+
+function maybeIoTypeString(value: string): string | null {
+  const normalized = value.trim().toLowerCase();
+  if (!normalized) return null;
+  if (IO_TYPE_REGEX.test(normalized)) return normalized;
+  switch (normalized) {
+    case "integer":
+      return "int";
+    case "real":
+    case "number":
+      return "float";
+    case "bool":
+      return "boolean";
+    case "datetime":
+    case "date":
+    case "time":
+      return "timestamp";
+    case "object":
+    case "array":
+    case "map":
+    case "dict":
+      return "json";
+    default:
+      return null;
+  }
+}
+
+function scalarToIoType(value: unknown): string | null {
+  if (typeof value === "string") {
+    const normalized = maybeIoTypeString(value);
+    return normalized ?? "string";
+  }
+  if (typeof value === "boolean") return "boolean";
+  if (typeof value === "number") return Number.isInteger(value) ? "int" : "float";
+  if (value === null || value === undefined) return null;
+  if (Array.isArray(value)) return "json";
+  if (isPlainObject(value)) return "json";
+  return null;
+}
+
+function unwrapRequest(input: unknown): unknown {
+  if (!isPlainObject(input)) return input;
+  const hasRequest = Object.prototype.hasOwnProperty.call(input, "request");
+  const requestValue = input.request;
+  if (!hasRequest || !isPlainObject(requestValue)) return input;
+  const withoutRequest = Object.fromEntries(Object.entries(input).filter(([k]) => k !== "request"));
+  return { ...(requestValue as Record<string, unknown>), ...withoutRequest };
+}
+
+function toIoFieldDict(input: unknown): Record<string, string> {
+  const unwrapped = unwrapRequest(input);
+  if (!isPlainObject(unwrapped)) return {};
+  const out: Record<string, string> = {};
+  for (const [key, value] of Object.entries(unwrapped)) {
+    if (!key.trim()) continue;
+    if (isPlaceholderKey(key)) continue;
+    const inferred = scalarToIoType(value);
+    if (!inferred) continue;
+    out[key] = inferred;
+  }
+  return out;
+}
+
+function isInvalidIoFieldDict(dict: Record<string, string>): boolean {
+  const keys = Object.keys(dict);
   if (keys.length === 0) return true;
-  if (keys.every((k) => isPlaceholderKey(k))) return true;
+  if (keys.some((k) => isPlaceholderKey(k))) return true;
+  if (Object.values(dict).some((v) => !IO_TYPE_REGEX.test(v))) return true;
   return false;
 }
 
-function sampleValueForType(type: string): unknown {
+function ioTypeFromColumnType(type: string): string {
   switch (normalizeColumnType(type)) {
     case "INTEGER":
-      return 0;
+      return "int";
     case "REAL":
-      return 0.0;
+      return "float";
     case "BOOLEAN":
-      return false;
+      return "boolean";
     case "JSON":
-      return {};
-    case "DATETIME":
-      return "1970-01-01T00:00:00.000Z";
     case "BLOB":
-      return "base64";
+      return "json";
+    case "DATETIME":
+      return "timestamp";
     default:
-      return "";
+      return "string";
   }
 }
 
 function buildPayloadFromTable(
   table: { name: string; columns: Array<{ name: string; type: string }> } | undefined,
-): Record<string, unknown> {
+): Record<string, string> {
   if (!table || table.columns.length === 0) {
-    return { value: "" };
+    return {};
   }
   const entries = table.columns
     .filter((c) => c.name.toLowerCase() !== "id")
     .slice(0, 6)
-    .map((c) => [c.name, sampleValueForType(c.type)] as const);
-  if (entries.length === 0) return { value: "" };
+    .map((c) => [c.name, ioTypeFromColumnType(c.type)] as const);
   return Object.fromEntries(entries);
 }
 
-function enrichCommandIO(
+function buildCommandTemplate(
+  commandName: string,
+): { input: Record<string, string>; output: Record<string, string> } {
+  const lower = commandName.toLowerCase();
+  if (lower.startsWith("lint_")) {
+    return {
+      input: { file_path: "string", tool_type: "string?" },
+      output: { ok: "boolean", message: "string?", diagnostics: "json?" },
+    };
+  }
+  if (lower.startsWith("apply_") || lower.startsWith("fix_")) {
+    return {
+      input: { file_path: "string", fix_ids: "json?" },
+      output: { ok: "boolean", message: "string?", changed: "boolean?", diff: "string?" },
+    };
+  }
+  if (lower.startsWith("connect_")) {
+    return {
+      input: { endpoint: "string", timeout_ms: "int?" },
+      output: { connected: "boolean", endpoint: "string", connected_at: "timestamp" },
+    };
+  }
+  if (lower.startsWith("list_")) {
+    return {
+      input: { query: "string?", limit: "int?", offset: "int?" },
+      output: { items: "json", total: "int?" },
+    };
+  }
+  return {
+    input: { payload: "json" },
+    output: { ok: "boolean", result: "json?" },
+  };
+}
+
+function mergeMissing(base: Record<string, string>, patch: Record<string, string>): Record<string, string> {
+  return { ...patch, ...base };
+}
+
+function validateCommandIO(
   command: { name: string; purpose: string; input: unknown; output: unknown },
   tables: Array<{ name: string; columns: Array<{ name: string; type: string }> }>,
-): { input: Record<string, unknown>; output: Record<string, unknown> } {
-  const name = command.name.toLowerCase();
-  const purpose = command.purpose.toLowerCase();
+  fixes: string[],
+): { input: Record<string, string>; output: Record<string, string> } {
+  const name = command.name;
+  const purpose = command.purpose;
   const text = `${name} ${purpose}`;
   const primaryTable = tables[0];
-  const payload = buildPayloadFromTable(primaryTable);
-  const entity = primaryTable?.name ?? "record";
+  const inferredFromDataModel = buildPayloadFromTable(primaryTable);
+  const template = buildCommandTemplate(name);
 
-  const fallbackInput = { request: payload };
-  const fallbackOutput = { ok: true, message: "done" };
+  let normalizedInput = toIoFieldDict(command.input);
+  let normalizedOutput = toIoFieldDict(command.output);
 
-  let inferredInput: Record<string, unknown> = fallbackInput;
-  let inferredOutput: Record<string, unknown> = fallbackOutput;
-
-  if (/(create|insert|add|save)/.test(text)) {
-    inferredInput = { [entity]: payload };
-    inferredOutput = { ok: true, id: "", created: 1 };
-  } else if (/(update|edit|modify|patch)/.test(text)) {
-    inferredInput = { id: "", changes: payload };
-    inferredOutput = { ok: true, updated: 1 };
-  } else if (/(delete|remove)/.test(text)) {
-    inferredInput = { id: "" };
-    inferredOutput = { ok: true, deleted: 1 };
-  } else if (/(list|query|search|find|fetch|get|load)/.test(text)) {
-    inferredInput = { filters: {}, limit: 50, offset: 0 };
-    inferredOutput = { items: [payload], total: 0 };
-  } else if (/(run|execute|sync|process)/.test(text)) {
-    inferredInput = { payload };
-    inferredOutput = { ok: true, result: {} };
+  if (isInvalidIoFieldDict(normalizedInput)) {
+    normalizedInput = mergeMissing(normalizedInput, template.input);
+    if (Object.keys(inferredFromDataModel).length > 0) {
+      normalizedInput = mergeMissing(normalizedInput, inferredFromDataModel);
+    }
+    fixes.push(`rule:command_io_enriched:input:${name}`);
+  }
+  if (isInvalidIoFieldDict(normalizedOutput)) {
+    normalizedOutput = mergeMissing(normalizedOutput, template.output);
+    if (/(create|insert|add|save|apply|fix|update|delete|remove)/.test(text.toLowerCase())) {
+      normalizedOutput = mergeMissing(normalizedOutput, { ok: "boolean" });
+    }
+    fixes.push(`rule:command_io_enriched:output:${name}`);
+  }
+  if (isInvalidIoFieldDict(normalizedInput)) {
+    normalizedInput = { payload: "json" };
+    fixes.push(`rule:command_io_fallback:input:${name}`);
+  }
+  if (isInvalidIoFieldDict(normalizedOutput)) {
+    normalizedOutput = { ok: "boolean", result: "json?" };
+    fixes.push(`rule:command_io_fallback:output:${name}`);
   }
 
-  const input =
-    isInvalidIO(command.input) ? inferredInput : (command.input as Record<string, unknown>);
-  const output =
-    isInvalidIO(command.output) ? inferredOutput : (command.output as Record<string, unknown>);
+  for (const side of [normalizedInput, normalizedOutput]) {
+    if ("request" in side) {
+      delete side.request;
+      fixes.push(`rule:command_io_strip_request:${name}`);
+    }
+    for (const key of Object.keys(side)) {
+      if (isPlaceholderKey(key)) {
+        delete side[key];
+        fixes.push(`rule:command_io_drop_placeholder_key:${name}.${key}`);
+      }
+    }
+  }
+  if (Object.keys(normalizedInput).length === 0) normalizedInput = { payload: "json" };
+  if (Object.keys(normalizedOutput).length === 0) normalizedOutput = { ok: "boolean", result: "json?" };
 
   return {
-    input: Object.keys(input).length > 0 ? input : fallbackInput,
-    output: Object.keys(output).length > 0 ? output : fallbackOutput,
+    input: Object.fromEntries(Object.entries(normalizedInput).sort(([a], [b]) => a.localeCompare(b))),
+    output: Object.fromEntries(Object.entries(normalizedOutput).sort(([a], [b]) => a.localeCompare(b))),
   };
 }
 
@@ -208,7 +325,13 @@ export function normalizeWireToCanonical(
     screens.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  const rust_commands = (wire.rust_commands ?? [])
+  const rust_commands: Array<{
+    name: string;
+    purpose: string;
+    async: boolean;
+    input: unknown;
+    output: unknown;
+  }> = (wire.rust_commands ?? [])
     .map((item, idx) => {
       if (typeof item === "string") {
         return {
@@ -295,11 +418,9 @@ export function normalizeWireToCanonical(
     for (const c of rust_commands) {
       const prev = c.name;
       c.name = uniqueName(c.name, used);
-      const enriched = enrichCommandIO(c, tables);
-      if (isInvalidIO(c.input)) fixes.push(`rule:command_io_enriched:input:${c.name}`);
-      if (isInvalidIO(c.output)) fixes.push(`rule:command_io_enriched:output:${c.name}`);
-      c.input = enriched.input;
-      c.output = enriched.output;
+      const validated = validateCommandIO(c, tables, fixes);
+      c.input = validated.input;
+      c.output = validated.output;
       if (prev !== c.name) fixes.push(`rule:name_unique:rust_commands:${prev}->${c.name}`);
     }
     rust_commands.sort((a, b) => a.name.localeCompare(b.name));
@@ -348,11 +469,17 @@ export function normalizeWireToCanonical(
   }
   acceptance_tests.sort((a, b) => a.localeCompare(b));
 
+  const canonicalCommands = rust_commands.map((c) => ({
+    ...c,
+    input: c.input as Record<string, string>,
+    output: c.output as Record<string, string>,
+  }));
+
   const canonical: CanonicalSpec = {
     schema_version: 3,
     app,
     screens,
-    rust_commands,
+    rust_commands: canonicalCommands,
     data_model: {
       tables: tables.map((t) => ({
         name: t.name,

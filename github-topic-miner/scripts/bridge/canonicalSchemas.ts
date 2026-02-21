@@ -1,5 +1,10 @@
 import { z } from "zod";
 
+const CommandIOTypeSchema = z.string().regex(/^(string|boolean|int|float|timestamp|json)\??$/);
+const CommandIOSchema = z
+  .record(CommandIOTypeSchema)
+  .refine((obj) => Object.keys(obj).length > 0, "command io must be non-empty object");
+
 export const CanonicalSpecSchema = z.object({
   schema_version: z.literal(3),
   app: z.object({
@@ -18,8 +23,8 @@ export const CanonicalSpecSchema = z.object({
       name: z.string().min(1),
       purpose: z.string().min(1),
       async: z.boolean(),
-      input: z.unknown(),
-      output: z.unknown(),
+      input: CommandIOSchema,
+      output: CommandIOSchema,
     }),
   ),
   data_model: z.object({

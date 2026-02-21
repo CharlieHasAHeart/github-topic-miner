@@ -14,6 +14,7 @@ const ALLOWED_TOP_LEVEL = new Set([
 
 const NORMALIZED_TYPES = new Set(["INTEGER", "REAL", "BOOLEAN", "BLOB", "JSON", "DATETIME", "TEXT"]);
 const PLACEHOLDER_KEYS = new Set(["placeholder", "todo", "tbd", "example", "dummy", "mock"]);
+const IO_TYPE_REGEX = /^(string|boolean|int|float|timestamp|json)\??$/;
 
 type Violation = { file: string; rule: string; detail: string };
 
@@ -91,6 +92,28 @@ function collectViolations(file: string, raw: unknown, spec: CanonicalSpec): Vio
     }
     if (hasPlaceholderKeyDeep(c.output)) {
       violations.push({ file, rule: "command_io_non_empty", detail: `${c.name}.output contains placeholder key` });
+    }
+    if (isNonEmptyObject(c.input)) {
+      for (const [k, v] of Object.entries(c.input)) {
+        if (typeof v !== "string" || !IO_TYPE_REGEX.test(v)) {
+          violations.push({
+            file,
+            rule: "command_io_type_dictionary",
+            detail: `${c.name}.input.${k} must be io type string, got ${JSON.stringify(v)}`,
+          });
+        }
+      }
+    }
+    if (isNonEmptyObject(c.output)) {
+      for (const [k, v] of Object.entries(c.output)) {
+        if (typeof v !== "string" || !IO_TYPE_REGEX.test(v)) {
+          violations.push({
+            file,
+            rule: "command_io_type_dictionary",
+            detail: `${c.name}.output.${k} must be io type string, got ${JSON.stringify(v)}`,
+          });
+        }
+      }
     }
   }
 
