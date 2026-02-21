@@ -1,0 +1,92 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Lexicon",
+    "one_liner": "A localization system for GameMaker that simplifies adding translations with support for CSV/JSON parsing, language fallbacks, and dynamic string replacement."
+  },
+  "screens": [
+    {
+      "name": "Localization Dashboard",
+      "purpose": "Display and manage localized strings with live preview and fallback resolution.",
+      "primary_actions": [
+        "Load localization file",
+        "Preview localized string",
+        "Switch active locale"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "hot_reload_localization",
+      "purpose": "Trigger a hot reload of localization data during development.",
+      "async": true,
+      "input": {
+        "fallback_locale": "string",
+        "payload": "json",
+        "source_locale": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "load_localization_file",
+      "purpose": "Load a CSV or JSON localization file into memory for use by the system.",
+      "async": true,
+      "input": {
+        "fallback_locale": "string",
+        "payload": "json",
+        "source_locale": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "language_fallbacks",
+        "columns": [
+          {
+            "name": "fallback_locale",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_locale",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "localization_entries",
+        "columns": [
+          {
+            "name": "key",
+            "type": "TEXT"
+          },
+          {
+            "name": "locale",
+            "type": "TEXT"
+          },
+          {
+            "name": "text",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add locale fallback resolution logic",
+    "week 1: Implement CSV/JSON parser for localization entries",
+    "week 1: Integrate basic hot reload capability"
+  ],
+  "acceptance_tests": [
+    "Hot reload command updates displayed text without restarting the application.",
+    "System loads a CSV localization file and resolves a key to its correct localized string.",
+    "When a key is missing in the active locale, the system falls back to a default locale and returns the correct string."
+  ]
+}

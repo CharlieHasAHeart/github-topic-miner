@@ -1,0 +1,267 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "WailBrew",
+    "one_liner": "A modern and intuitive graphical interface for managing Homebrew on macOS."
+  },
+  "screens": [
+    {
+      "name": "Main Package Manager",
+      "purpose": "Display and manage installed formulas and casks with search and filtering capabilities.",
+      "primary_actions": [
+        "Install package",
+        "Search packages",
+        "Uninstall package",
+        "Upgrade package",
+        "View package details"
+      ]
+    },
+    {
+      "name": "Outdated Packages",
+      "purpose": "List outdated packages and allow individual or bulk updates.",
+      "primary_actions": [
+        "Update all packages",
+        "Update single package"
+      ]
+    },
+    {
+      "name": "Package Info",
+      "purpose": "Show detailed information about a selected package including dependencies, used-by info, and Homebrew page link.",
+      "primary_actions": [
+        "Open Homebrew page",
+        "View dependencies",
+        "View used-by info"
+      ]
+    },
+    {
+      "name": "Repositories",
+      "purpose": "Manage Homebrew taps (add/remove repositories).",
+      "primary_actions": [
+        "Tap repository",
+        "Untap repository"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "check_outdated",
+      "purpose": "Check for outdated packages and return list with types.",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_package_info",
+      "purpose": "Retrieve detailed information about a package including dependencies and uses.",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "install_package",
+      "purpose": "Install a Homebrew formula or cask.",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "tap_repository",
+      "purpose": "Add a new Homebrew tap (repository).",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "uninstall_package",
+      "purpose": "Uninstall a Homebrew formula or cask.",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "untap_repository",
+      "purpose": "Remove an existing Homebrew tap (repository).",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "upgrade_all_packages",
+      "purpose": "Upgrade all outdated packages at once.",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "upgrade_package",
+      "purpose": "Upgrade a specific outdated package.",
+      "async": true,
+      "input": {
+        "dependencies": "json",
+        "installed": "boolean",
+        "name": "string",
+        "outdated": "boolean",
+        "payload": "json",
+        "type": "string",
+        "used_by": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "packages",
+        "columns": [
+          {
+            "name": "dependencies",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "installed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "outdated",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          },
+          {
+            "name": "used_by",
+            "type": "JSON"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "repositories",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "tapped",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create main screen UI with search and filtering",
+    "week 1: Implement basic package listing from Homebrew",
+    "week 1: Set up Wails + React + Go project structure",
+    "week 2: Add outdated package detection",
+    "week 2: Build package info screen with dependency chain",
+    "week 2: Implement install/uninstall/upgrade commands",
+    "week 3: Add internationalization support (Spanish)",
+    "week 3: Implement tap/untap repository management",
+    "week 3: Integrate toast notifications with icons"
+  ],
+  "acceptance_tests": [
+    "Running spinner does not hang during long-running operations.",
+    "Terminal output characters are displayed correctly without showing as '?'",
+    "User can install a formula from the main screen and see it appear in the installed list immediately after closing the log dialog.",
+    "User can update a single outdated package or all outdated packages from the outdated view.",
+    "User can view dependency chain and 'used by' information in the package info screen."
+  ]
+}
