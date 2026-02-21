@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "meta": {
+    "run_id": "20260221T133037Z",
+    "generated_at": "2026-02-21T13:30:37.979Z",
+    "source_repo": {
+      "full_name": "helixml/helix",
+      "url": "https://github.com/helixml/helix"
+    },
+    "topics": [
+      "agents",
+      "api",
+      "genai",
+      "glm",
+      "golang",
+      "helm",
+      "k8s",
+      "kimi",
+      "llm",
+      "llm-agent",
+      "llm-serving",
+      "openai",
+      "openapi",
+      "qwen",
+      "rag",
+      "self-hosted",
+      "swagger",
+      "swarm"
+    ]
+  },
+  "app": {
+    "name": "HelixML",
+    "one_liner": "Private Agent Swarm with Spec Coding. Each agent gets their own desktop. Run Claude, Codex, Gemini and open models on a full private GenAI Stack.",
+    "inspired_by": null
+  },
+  "core_loop": "Users define AI agents via helix.yaml, deploy them in private environments (on-prem/VPC), interact through a web UI with session-based pause/resume, multi-step reasoning, and memory management, while the platform dynamically schedules GPU resources and supports multiple LLM providers and custom tools.",
+  "screens": [
+    {
+      "id": "main",
+      "name": "AI Agents Interface",
+      "purpose": "Provide an easy-to-use web UI for agent interaction, management, and monitoring of multi-step reasoning sessions with tool orchestration.",
+      "primary_actions": [
+        "Create new agent session",
+        "Pause/resume agent execution",
+        "View agent memory and context",
+        "Manage connected tools and providers"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist agent configuration or session state to storage.",
+      "async": true,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "config",
+            "type": "json"
+          },
+          {
+            "name": "session_state",
+            "type": "json"
+          }
+        ]
+      }
+    ]
+  },
+  "tauri_capabilities": [],
+  "mvp_plan": [
+    "week 1: Define helix.yaml schema for agent specification",
+    "week 1: Implement basic web UI for agent creation and interaction",
+    "week 1: Integrate support for at least one LLM provider (e.g., OpenAI)",
+    "week 1: Set up session-based architecture with pause/resume"
+  ],
+  "acceptance_tests": [
+    "User can create an agent via helix.yaml and interact with it through the web UI.",
+    "Agent sessions persist across browser refreshes and can be paused/resumed.",
+    "Platform correctly loads/unloads models based on demand using GPU scheduler."
+  ],
+  "open_questions": [
+    "How are OAuth tokens securely managed for third-party API integrations?",
+    "What is the exact format and validation rules for helix.yaml?",
+    "How does the system handle concurrent agent executions on limited GPU resources?"
+  ],
+  "scores": {
+    "closure": 3,
+    "feasibility": 3,
+    "stack_fit": 3,
+    "complexity_control": 3,
+    "debuggability": 3,
+    "demo_value": 3
+  },
+  "overall_recommendation": "go",
+  "citations": {
+    "app": [
+      "E-RD-001",
+      "E-RD-002",
+      "E-RD-003"
+    ],
+    "core_loop": [
+      "E-RD-004",
+      "E-RD-005",
+      "E-RD-006"
+    ],
+    "screens": {
+      "main": [
+        "E-RD-006",
+        "E-RD-007"
+      ]
+    },
+    "commands": {
+      "save_item": [
+        "E-RD-001",
+        "E-RF-001"
+      ]
+    },
+    "tables": {
+      "agents": [
+        "E-RD-001",
+        "E-RD-002",
+        "E-RF-001"
+      ]
+    },
+    "acceptance_tests": {
+      "0": [
+        "E-RD-001",
+        "E-RL-001"
+      ],
+      "1": [
+        "E-RD-006",
+        "E-RL-002"
+      ],
+      "2": [
+        "E-RD-005",
+        "E-RL-001"
+      ]
+    }
+  }
+}

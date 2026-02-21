@@ -1,0 +1,3163 @@
+{
+  "run_id": "20260221T133037Z",
+  "generated_at": "2026-02-21T13:30:37.979Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 90,
+    "candidates_kept": 5,
+    "candidates_deduped": 1,
+    "new_candidates": 4,
+    "repo_cards_built": 4,
+    "gaps_count": 0,
+    "specs_attempted": 4,
+    "specs_succeeded": 4,
+    "specs_failed": 0,
+    "evidence_validated": 4,
+    "evidence_valid_ok": 4,
+    "evidence_valid_failed": 0,
+    "evidence_written": 4,
+    "evidence_write_failed": 0,
+    "evidence_total": 45,
+    "evidence_by_type": {
+      "readme": 31,
+      "issue": 4,
+      "release": 6,
+      "root_files": 4
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-02-21T13:32:00.811Z",
+    "repo_count": 37
+  },
+  "candidates": [
+    {
+      "full_name": "charmbracelet/ultraviolet",
+      "html_url": "https://github.com/charmbracelet/ultraviolet",
+      "description": "Mystical terminal user interface primitives 🌈",
+      "topics": [
+        "cli",
+        "framework",
+        "golang",
+        "hacktoberfest",
+        "terminal",
+        "tui"
+      ],
+      "language": "Go",
+      "stargazers_count": 293,
+      "forks_count": 17,
+      "open_issues_count": 11,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:30:25Z",
+      "created_at": "2025-05-06T21:49:57Z"
+    },
+    {
+      "full_name": "helixml/helix",
+      "html_url": "https://github.com/helixml/helix",
+      "description": "♾️ Private Agent Swarm with Spec Coding. Each agent gets their own desktop. Run Claude, Codex, Gemini and open models on a full private GenAI Stack ♾️",
+      "topics": [
+        "agents",
+        "api",
+        "genai",
+        "glm",
+        "golang",
+        "helm",
+        "k8s",
+        "kimi",
+        "llm",
+        "llm-agent",
+        "llm-serving",
+        "openai",
+        "openapi",
+        "qwen",
+        "rag",
+        "self-hosted",
+        "swagger",
+        "swarm"
+      ],
+      "language": "Go",
+      "stargazers_count": 717,
+      "forks_count": 70,
+      "open_issues_count": 109,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:30:20Z",
+      "created_at": "2023-10-17T07:11:12Z"
+    },
+    {
+      "full_name": "canbax/namaz-vakti-api",
+      "html_url": "https://github.com/canbax/namaz-vakti-api",
+      "description": "Namaz vakit verilerini hesaplar, API ile ücretsiz sınırsız sunar.",
+      "topics": [
+        "api",
+        "api-rest",
+        "free",
+        "free-api",
+        "muslim-api",
+        "muslim-app",
+        "muslim-prayer-time",
+        "muslim-prayer-times",
+        "namaz",
+        "namaz-vakitleri",
+        "vercel-deployment"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 78,
+      "forks_count": 25,
+      "open_issues_count": 11,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:27Z",
+      "created_at": "2020-05-24T20:54:17Z"
+    },
+    {
+      "full_name": "can1357/oh-my-pi",
+      "html_url": "https://github.com/can1357/oh-my-pi",
+      "description": "⌥  AI Coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more",
+      "topics": [
+        "ai-agent",
+        "ai-coding-agent",
+        "anthropic",
+        "bun",
+        "claude",
+        "cli",
+        "coding-assistant",
+        "llm",
+        "mcp",
+        "multi-provider",
+        "openai",
+        "rust",
+        "terminal",
+        "tui",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 977,
+      "forks_count": 73,
+      "open_issues_count": 17,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:18Z",
+      "created_at": "2025-12-31T14:01:28Z"
+    },
+    {
+      "full_name": "AlexProgrammerDE/SoulFireClient",
+      "html_url": "https://github.com/AlexProgrammerDE/SoulFireClient",
+      "description": "🧙 Frontend client for SoulFire.",
+      "topics": [
+        "rsbuild",
+        "tailwindcss",
+        "tanstack",
+        "tauri",
+        "tauri-app"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 130,
+      "forks_count": 3,
+      "open_issues_count": 3,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:11Z",
+      "created_at": "2024-03-16T14:55:21Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "charmbracelet/ultraviolet",
+      "html_url": "https://github.com/charmbracelet/ultraviolet",
+      "description": "Mystical terminal user interface primitives 🌈",
+      "topics": [
+        "cli",
+        "framework",
+        "golang",
+        "hacktoberfest",
+        "terminal",
+        "tui"
+      ],
+      "language": "Go",
+      "stargazers_count": 293,
+      "forks_count": 17,
+      "open_issues_count": 11,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:30:25Z",
+      "created_at": "2025-05-06T21:49:57Z"
+    },
+    {
+      "full_name": "helixml/helix",
+      "html_url": "https://github.com/helixml/helix",
+      "description": "♾️ Private Agent Swarm with Spec Coding. Each agent gets their own desktop. Run Claude, Codex, Gemini and open models on a full private GenAI Stack ♾️",
+      "topics": [
+        "agents",
+        "api",
+        "genai",
+        "glm",
+        "golang",
+        "helm",
+        "k8s",
+        "kimi",
+        "llm",
+        "llm-agent",
+        "llm-serving",
+        "openai",
+        "openapi",
+        "qwen",
+        "rag",
+        "self-hosted",
+        "swagger",
+        "swarm"
+      ],
+      "language": "Go",
+      "stargazers_count": 717,
+      "forks_count": 70,
+      "open_issues_count": 109,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:30:20Z",
+      "created_at": "2023-10-17T07:11:12Z"
+    },
+    {
+      "full_name": "canbax/namaz-vakti-api",
+      "html_url": "https://github.com/canbax/namaz-vakti-api",
+      "description": "Namaz vakit verilerini hesaplar, API ile ücretsiz sınırsız sunar.",
+      "topics": [
+        "api",
+        "api-rest",
+        "free",
+        "free-api",
+        "muslim-api",
+        "muslim-app",
+        "muslim-prayer-time",
+        "muslim-prayer-times",
+        "namaz",
+        "namaz-vakitleri",
+        "vercel-deployment"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 78,
+      "forks_count": 25,
+      "open_issues_count": 11,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:27Z",
+      "created_at": "2020-05-24T20:54:17Z"
+    },
+    {
+      "full_name": "AlexProgrammerDE/SoulFireClient",
+      "html_url": "https://github.com/AlexProgrammerDE/SoulFireClient",
+      "description": "🧙 Frontend client for SoulFire.",
+      "topics": [
+        "rsbuild",
+        "tailwindcss",
+        "tanstack",
+        "tauri",
+        "tauri-app"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 130,
+      "forks_count": 3,
+      "open_issues_count": 3,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:11Z",
+      "created_at": "2024-03-16T14:55:21Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "charmbracelet/ultraviolet",
+      "html_url": "https://github.com/charmbracelet/ultraviolet",
+      "description": "Mystical terminal user interface primitives 🌈",
+      "topics": [
+        "cli",
+        "framework",
+        "golang",
+        "hacktoberfest",
+        "terminal",
+        "tui"
+      ],
+      "language": "Go",
+      "stargazers_count": 293,
+      "forks_count": 17,
+      "open_issues_count": 11,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:30:25Z",
+      "created_at": "2025-05-06T21:49:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Ultraviolet\n\n<img width=\"400\" alt=\"Charm Ultraviolet\" src=\"https://github.com/user-attachments/assets/3484e4b0-3741-4e8c-bebf-9ea51f5bb49c\" />\n\n<p>\n    <a href=\"https://pkg.go.dev/github.com/charmbracelet/ultraviolet?tab=doc\"><img src=\"https://godoc.org/github.com/charmbracelet/ultraviolet?status.svg\" alt=\"GoDoc\"></a>\n    <a href=\"https://github.com/charmbracelet/ultraviolet/actions\"><img src=\"https://github.com/charmbracelet/ultraviolet/actions/workflows/build.yml/badge.svg\" alt=\"Build Status\"></a>\n</p>\n\nUltraviolet is a set of primitives for manipulating terminal emulators, with a focus on terminal user interfaces (TUIs). It provides a set of tools and abstractions for interaction that can handle user input and display dynamic, cell-based content. It’s the product of many years of research, development, collaboration and ingenuity.\n\nUltraviolet is not a framework by design, however it can be used standalone to create powerful terminal applications. It’s in use in production and powers critical portions of [Bubble Tea v2][bbt] and [Lip Gloss v2][lg], and was instrumental in the development of [Crush][crush].\n\n[crush]: https://github.com/charmbracelet/crush\n[bbt]: https://github.com/charmbracelet/bubbletea\n[lg]: https://github.com/charmbracelet/lipgloss\n\n> [!CAUTION]\n> This project currently exists to serve internal use cases. API stability is a goal, but expect no stability guarantees as of now.\n\n## Features\n\nUltraviolet is built with several core features in mind to make terminal\napplication development easy and performant:\n\n### 👺 The Cursed Renderer\n\nThe cell-based rendering model—called _The Cursed Render_—was inspired by the infamous\n[ncurses](https://invisible-island.net/ncurses/) library, which has been an\nessential part of terminal applications for decades. Ultraviolet takes this\nconcept and modernizes it for the Go programming language, providing a more\nergonomic and efficient way to work with terminal cells without the need for\narchaic technologies like `terminfo` or `termcap` databases.\n\nUnlike ncurses, it supports both full-window and inline use-cases as we see inline TUIs as important in maintaining user context and flow.\n\n### 🏎️ High Speeds and Low Bandwidth\n\nThe built-in terminal renderer efficiently handles content updates by utilizing\na powerful cell-based diffing algorithm that minimizes the amount of data\nwritten to the terminal using various ANSI escape sequences to accomplish this.\nThis allows applications to update only the parts of the terminal that have\nchanged, significantly improving performance and responsiveness.\n\nIn practical terms, Ultraviolet optimizes for fast redraws that use minimal data transfer. This is very important locally and critically important over the network (for example, via SSH).\n\n### 💬 Universal Input\n\nInput handling in terminals can be complex, especially when dealing with\nmultiple input sources, different platforms, and ancient terminal baggage.\nUltraviolet simplifies this by providing a unified interface for handling user\ninput, allowing developers to focus on building their applications without\ngetting bogged down in the intricacies of terminal input handling.\n\n### 🎮 Cross-Platform Compatibility\n\nUltraviolet is designed to work seamlessly across different platforms and\nterminal emulators. It abstracts away the differences in terminal capabilities\nand provides a consistent API for developers to work with, ensuring that\napplications built with Ultraviolet will run smoothly on various systems.\n\nOn Windows, it uses the [Windows Console API](https://learn.microsoft.com/en-us/windows/console/console-functions) to\nprovide a consistent experience, while on Unix-like systems, it relies on the\nstandard Termios API along with ANSI escape sequences to manipulate the\nterminal.\n\nIn short: Ultraviolet provides first-class support for both Unix and Windows-based systems.\n\n### 🧩 Extensible Architecture\n\nUltraviolet is built with extensibility in mind, providing a solid API that can\nbe embedded into other applications or used as a foundation for building custom\nterminal user interfaces. It allows developers to create their own components,\nstyles, and behaviors, making it a versatile tool for building terminal\napplications.\n\n## FAQ\n\n### 🐈 What about other Charm libraries?\n\nUltraviolet is not a replacement for existing libraries like [Bubble Tea](https://github.com/charmbracelet/bubbletea) or [Lip\nGloss](https://github.com/charmbracelet/lipgloss). Instead, it serves as a\nfoundation for the latest versions of both of these libraries and others like them, providing the\nunderlying primitives and abstractions needed to build terminal user interfaces\napplications and frameworks.\n\n### 🛁 How is it different from Bubble Tea?\n\nUltraviolet is a lower-level library that focuses on the core primitives of\nterminal manipulation, rendering, and input handling. It provides the building\nblocks for creating terminal applications, while Bubble Tea is a higher-level\nframework that builds on top of Ultraviolet to provide a more structured and\nopinionated way to build terminal user interfaces.\n\n### 💋 Is it a replacement for Lip Gloss?\n\nSimply put, no. Ultraviolet is not a replacement for Lip Gloss. Instead, it\nprovides the underlying rendering capabilities that Lip Gloss can use to create\nstyled terminal content. Lip Gloss is a higher-level library that builds on top\nof Ultraviolet by utilizing the cell-based rendering model to provide a\nsimplified and ergonomic way to create styled terminal content and composition\nof terminal user interfaces.\n\n## ✏️ Tutorial\n\nYou can find a simple tutorial on how to create a UV application that displays\n\"Hello, World!\" on the screen in the [TUTORIAL.md](./TUTORIAL.md) file.\n\n## Whatcha think?\n\nWe’d love to hear your thoughts on this project. Feel free to drop us a note!\n\n- [Twitter](https://twitter.com/charmcli)\n- [Discord](https://charm.land/discord)\n- [Slack](https://charm.land/slack)\n- [The Fediverse](https://mastodon.social/@charmcli)\n\n## License\n\n[MIT](./LICENSE)\n\n---\n\nPart of [Charm](https://charm.land).\n\n<a href=\"https://charm.sh/\"><img alt=\"The Charm logo\" width=\"400\" src=\"https://stuff.charm.sh/charm-banner-next.jpg\" /></a>\n\nCharm热爱开源 • Charm loves open source • نحنُ نحب المصادر المفتوحة\n",
+        "truncated": false,
+        "bytes": 6335,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 83,
+            "title": "Terminal.Bounds() no longer returns terminal's available width and height",
+            "state": "closed",
+            "url": "https://github.com/charmbracelet/ultraviolet/issues/83"
+          }
+        ]
+      },
+      "root_files": [
+        ".gitattributes",
+        ".github",
+        ".golangci.yml",
+        ".goreleaser.yml",
+        "LICENSE",
+        "README.md",
+        "TUTORIAL.md",
+        "border.go",
+        "border_test.go",
+        "buffer.go",
+        "buffer_test.go",
+        "cancelreader_other.go",
+        "cancelreader_test.go",
+        "cancelreader_windows.go",
+        "cell.go",
+        "cell_test.go",
+        "console.go",
+        "console_unix.go",
+        "console_windows.go",
+        "cursor.go",
+        "cursor_test.go",
+        "decoder.go",
+        "decoder_test.go",
+        "doc.go",
+        "environ.go",
+        "event.go",
+        "event_test.go",
+        "examples",
+        "go.mod",
+        "go.sum",
+        "internal",
+        "key.go",
+        "key_table.go",
+        "key_test.go",
+        "layout",
+        "logger.go",
+        "mouse.go",
+        "poll.go",
+        "poll_bsd.go",
+        "poll_default.go",
+        "poll_default_test.go",
+        "poll_fallback.go",
+        "poll_fallback_test.go",
+        "poll_linux.go",
+        "poll_select.go",
+        "poll_solaris.go",
+        "poll_test.go",
+        "poll_windows.go",
+        "screen",
+        "styled.go"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<img width=\"400\" alt=\"Charm Ultraviolet\" src=\"https://github.com/user-attachments/assets/3484e4b0-3741-4e8c-bebf-9ea51f5bb49c\" />",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p> <a href=\"https://pkg.go.dev/github.com/charmbracelet/ultraviolet?tab=doc\"><img src=\"https://godoc.org/github.com/charmbracelet/ultraviolet?status.svg\" alt=\"GoDoc\"></a> <a href=\"https://github.com/charmbracelet/ultraviolet/actions\"><img src=\"https://github.com/charmbracelet/ultraviolet/actions/workflows/build.yml/badge.svg\" alt=\"Build Status\"></a> </p>",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Ultraviolet is a set of primitives for manipulating terminal emulators, with a focus on terminal user interfaces (TUIs). It provides a set of tools and abstractions for interaction that can handle user input and display dynamic, cell-based content. It’s the product of many years of research, development, collaboration and ingenuity.",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Ultraviolet is not a framework by design, however it can be used standalone to create powerful terminal applications. It’s in use in production and powers critical portions of [Bubble Tea v2][bbt] and [Lip Gloss v2][lg], and was instrumental in the development of [Crush][crush].",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[crush]: https://github.com/charmbracelet/crush [bbt]: https://github.com/charmbracelet/bubbletea [lg]: https://github.com/charmbracelet/lipgloss",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 6)",
+          "excerpt": "> [!CAUTION] > This project currently exists to serve internal use cases. API stability is a goal, but expect no stability guarantees as of now.",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Ultraviolet is built with several core features in mind to make terminal application development easy and performant:",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/charmbracelet/ultraviolet#readme",
+          "title": "README (segment 8)",
+          "excerpt": "The cell-based rendering model—called _The Cursed Render_—was inspired by the infamous [ncurses](https://invisible-island.net/ncurses/) library, which has been an essential part of terminal applications for decades. Ultraviolet takes this concept and modernizes it for the Go programming language, providing a more ergonomic and efficient way to work with terminal cells without the need for archaic technologies like `terminfo` or `termcap` databases.",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/charmbracelet/ultraviolet/issues/83",
+          "title": "Terminal.Bounds() no longer returns terminal's available width and height",
+          "excerpt": "Terminal.Bounds() no longer returns terminal's available width and height (state:closed)",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "number": 83
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/charmbracelet/ultraviolet",
+          "title": "ROOT_FILES",
+          "excerpt": ".gitattributes, .github, .golangci.yml, .goreleaser.yml, LICENSE, README.md, TUTORIAL.md, border.go, border_test.go, buffer.go, buffer_test.go, cancelreader_other.go, cancelreader_test.go, cancelreader_windows.go, cell.go, cell_test.go, console.go, console_unix.go, console_windows.go, cursor.go, cursor_test.go, decoder.go, decoder_test.go, doc.go, environ.go, event.go, event_test.go, examples, go.mod, go.sum, internal, key.go, key_table.go, key_test.go, layout, logger.go, mouse.go, poll.go, poll_bsd.go, poll_default.go, poll_default_test.go, poll_fallback.go, poll_fallback_test.go, poll_linux.go, poll_select.go, poll_solaris.go, poll_test.go, poll_windows.go, screen, styled.go",
+          "fetched_at": "2026-02-21T13:30:42.140Z",
+          "meta": {
+            "repo_full_name": "charmbracelet/ultraviolet",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "helixml/helix",
+      "html_url": "https://github.com/helixml/helix",
+      "description": "♾️ Private Agent Swarm with Spec Coding. Each agent gets their own desktop. Run Claude, Codex, Gemini and open models on a full private GenAI Stack ♾️",
+      "topics": [
+        "agents",
+        "api",
+        "genai",
+        "glm",
+        "golang",
+        "helm",
+        "k8s",
+        "kimi",
+        "llm",
+        "llm-agent",
+        "llm-serving",
+        "openai",
+        "openapi",
+        "qwen",
+        "rag",
+        "self-hosted",
+        "swagger",
+        "swarm"
+      ],
+      "language": "Go",
+      "stargazers_count": 717,
+      "forks_count": 70,
+      "open_issues_count": 109,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:30:20Z",
+      "created_at": "2023-10-17T07:11:12Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n<img alt=\"logo\" src=\"https://helix.ml/assets/helix-logo.png\" width=\"250px\">\n\n<br/>\n<br/>\n\n</div>\n\n<p align=\"center\">\n  <a href=\"https://app.helix.ml/\">SaaS</a> •\n  <a href=\"https://docs.helixml.tech/docs/controlplane\">Private Deployment</a> •\n  <a href=\"https://docs.helixml.tech/docs/overview\">Docs</a> •\n  <a href=\"https://discord.gg/VJftd844GE\">Discord</a>\n</p>\n\n# HelixML - AI Agents on a Private GenAI Stack\n\n[👥 Discord](https://discord.gg/VJftd844GE)\n\n**Deploy AI agents in your own data center or VPC and retain complete data security & control.**\n\nHelixML is an enterprise-grade platform for building and deploying AI agents with support for RAG (Retrieval-Augmented Generation), API calling, vision, and multi-provider LLM support. Build and deploy LLM applications by writing a simple [`helix.yaml`](https://docs.helixml.tech/helix/develop/getting-started/) configuration file.\n\nOur intelligent GPU scheduler packs models efficiently into available GPU memory and dynamically loads and unloads models based on demand, optimizing resource utilization.\n\n## ✨ Key Features\n\n### 🤖 AI Agents\n- **Easy-to-use Web UI** for agent interaction and management\n- **Session-based architecture** with pause/resume capabilities\n- **Multi-step reasoning** with tool orchestration\n- **Memory management** for context-aware interactions\n- **Support for multiple LLM providers** (OpenAI, Anthropic, and local models)\n\n<img width=\"1768\" height=\"1053\" alt=\"AI Agents Interface\" src=\"https://github.com/user-attachments/assets/0e945ace-4f54-46a2-8d20-49485169486f\" />\n\n### 🛠️ Skills and Tools\n- **REST API integration** with OpenAPI schema support\n- **MCP (Model Context Protocol) server** compatibility\n- **GPTScript integration** for advanced scripting\n- **OAuth token management** for secure third-party access\n- **Custom tool development** with flexible SDK\n\n<img width=\"1767\" height=\"1057\" alt=\"Skills and Tools\" src=\"https://github.com/user-attachments/assets/575330f7-cfda-4e68-acd2-31617690ae69\" />\n\n### 📚 Knowledge Management\n- **Built-in document ingestion** (PDFs, Word, text files)\n- **Web scraper** for automatic content extraction\n- **Multiple RAG backends**: Typesense, Haystack, PGVector, LlamaIndex\n- **Vector embeddings** with PGVector for semantic search\n- **Vision RAG support** for multimodal content\n\n<img width=\"1772\" height=\"1055\" alt=\"Knowledge Base\" src=\"https://github.com/user-attachments/assets/c9112362-5f0e-4318-a648-4c478cd8d3fa\" />\n\n**Main use cases:**\n- Upload and analyze corporate documents\n- Add website documentation URLs to create instant customer support agents\n- Build knowledge bases from multiple sources\n\n### 🔍 Tracing and Observability\nContext is everything. Agents can process tens of thousands of tokens per step—Helix provides complete visibility under the hood:\n\n<img width=\"1767\" height=\"1053\" alt=\"Tracing Interface\" src=\"https://github.com/user-attachments/assets/81539015-18ae-4818-b396-3d872e55907f\" />\n\n**Tracing features:**\n- View all agent execution steps\n- Inspect requests and responses to LLM providers, third-party APIs, and MCP servers\n- Real-time token usage tracking\n- Pricing and cost analysis\n- Performance metrics and debugging\n\n### 🚀 Additional Features\n- **Multi-tenancy** with organization, team, and role-based access control\n- **Scheduled tasks** and cron jobs\n- **Webhook triggers** for event-driven workflows\n- **Evaluation framework** for testing and quality assurance\n- **Payment integration** with Stripe support\n- **Notifications** via Slack, Discord, and email\n- **Keycloak authentication** with OAuth and OIDC support\n\n## 🏗️ Architecture\n\nHelixML uses a microservices architecture with the following components:\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                      Frontend (React)                    │\n│                     vite + TypeScript                    │\n└────────────────────┬────────────────────────────────────┘\n                     │\n┌────────────────────▼────────────────────────────────────┐\n│                  API / Control Plane (Go)                │\n│  ┌──────────────┬──────────────┬──────────────────────┐ │\n│  │   Agents     │  Knowledge   │   Auth & Sessions    │ │\n│  │   Skills     │  RAG Pipeline│   Organizations      │ │\n│  │   Tools      │  Vector DB   │   Usage Tracking     │ │\n│  └──────────────┴──────────────┴──────────────────────┘ │\n└─────────┬──────────────────────────────────┬───────────┘\n          │                                  │\n┌─────────▼──────────┐            ┌─────────▼──────────┐\n│   PostgreSQL       │            │   GPU Runners      │\n│   + PGVector       │            │   Model Scheduler  │\n└────────────────────┘            └────────────────────┘\n          │\n┌─────────▼──────────────────────────────────────────────┐\n│  Supporting Services: Keycloak, Typesense, Haystack,   │\n│  GPTScript Runner, Chrome/Rod, Tika, SearXNG           │\n└────────────────────────────────────────────────────────┘\n```\n\n**Three-layer agent hierarchy:**\n1. **Session**: Manages agent lifecycle and state\n2. **Agent**: Coordinates skills and handles LLM interactions\n3. **Skills**: Group related tools for specific capabilities\n4. **Tools**: Individual actions (API calls, functions, scripts)\n\n## 💻 Tech Stack\n\n### Backend\n- **Go 1.24.0** - Main backend language\n- **PostgreSQL + PGVector** - Data storage and vector embeddings\n- **GORM** - ORM for database operations\n- **Gorilla Mux** - HTTP routing\n- **Keycloak** - Identity and access management\n- **NATS** - Message queue\n- **Zerolog** - Structured logging\n\n### Frontend\n- **React 18.3.1** - UI framework\n- **TypeScript** - Type-safe JavaScript\n- **Material-UI (MUI)** - Component library\n- **MobX** - State management\n- **Vite** - Build tool\n- **Monaco Editor** - Code editing\n\n### AI/ML\n- **OpenAI SDK** - GPT models integration\n- **Anthropic SDK** - Claude models integration\n- **LangChain Go** - LLM orchestration\n- **GPTScript** - Scripting capabilities\n- **Typesense / Haystack / LlamaIndex** - RAG backends\n\n### Infrastructure\n- **Docker & Docker Compose** - Containerization\n- **Kubernetes + Helm** - Orchestration\n- **Flux** - GitOps operator\n\n## 🚀 Quick Start\n\n### Install on Docker\n\nUse our quickstart installer:\n\n```bash\ncurl -sL -O https://get.helixml.tech/install.sh\nchmod +x install.sh\nsudo ./install.sh\n```\n\nThe installer will prompt you before making changes to your system. By default, the dashboard will be available on `http://localhost:8080`.\n\nFor setting up a deployment with a DNS name, see `./install.sh --help` or read [the detailed docs](https://docs.helixml.tech/helix/private-deployment/controlplane/). We've documented easy TLS termination for you.\n\n**Next steps:**\n- Attach your own GPU runners per [runners docs](https://docs.helixml.tech/helix/private-deployment/controlplane/#attach-a-runner-to-an-existing-control-plane)\n- Use any [external OpenAI-compatible LLM](https://docs.helixml.tech/helix/private-deployment/controlplane/#install-control-plane-pointing-at-any-openai-compatible-api)\n\n### Install on Kubernetes\n\nUse our Helm charts for production deployments:\n- [Control Plane Helm Chart](https://docs.helixml.tech/helix/private-deployment/helix-controlplane-helm-chart/)\n- [Runner Helm Chart](https://docs.helixml.tech/helix/private-deployment/helix-runner-helm-chart/)\n\n## 🔧 Configuration\n\nAll server configuration is done via environment variables. You can find the complete list of configuration options in [`api/pkg/config/config.go`](https://github.com/helixml/helix/blob/main/api/pkg/config/config.go).\n\n**Key environment variables:**\n- `OPENAI_API_KEY` - OpenAI API credentials\n- `ANTHROPIC_API_KEY` - Anthropic API credentials\n- `POSTGRES_*` - Database connection settings\n- `KEYCLOAK_*` - Authentication settings\n- `SERVER_URL` - Public URL for the deployment\n- `RUNNER_*` - GPU runner configuration\n\nSee the [configuration documentation](https://docs.helixml.tech/docs/controlplane) for detailed setup instructions.\n\n## 👨‍💻 Development\n\nFor local development, refer to the [Helix local development guide](./local-development.md).\n\n**Prerequisites:**\n- Docker Desktop (or Docker + Docker Compose)\n- Go 1.24.0+\n- Node.js 18+\n- Make\n\n**Quick development setup:**\n\n```bash\n# Clone the repository\ngit clone https://github.com/helixml/helix.git\ncd helix\n\n# Start supporting services\ndocker-compose up -d postgres keycloak\n\n# Run the backend\ncd api\ngo run . serve\n\n# Run the frontend (in a new terminal)\ncd frontend\nnpm install\nnpm run dev\n```\n\nSee [`local-development.md`](./local-development.md) for comprehensive setup instructions.\n\n## 📖 Documentation\n\n- **[Overview](https://docs.helixml.tech/docs/overview)** - Platform introduction\n- **[Getting Started](https://docs.helixml.tech/helix/develop/getting-started/)** - Build your first agent\n- **[Control Plane Deployment](https://docs.helixml.tech/docs/controlplane)** - Production deployment guide\n- **[Runner Deployment](https://docs.helixml.tech/helix/private-deployment/controlplane/#attach-a-runner-to-an-existing-control-plane)** - GPU runner setup\n- **[Agent Architecture](./api/pkg/agent/SPEC.md)** - Technical specification\n- **[API Reference](https://docs.helixml.tech/)** - REST API documentation\n- **[Contributing Guide](./CONTRIBUTING.md)** - How to contribute\n- **[Upgrading Guide](./UPGRADING.md)** - Migration instructions\n\n## 🤝 Contributing\n\nWe welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.\n\nBy contributing, you confirm that:\n- Your changes will fall under the same license\n- Your changes will be owned by HelixML, Inc.\n\n## 📄 License\n\nHelix is [licensed](https://github.com/helixml/helix/blob/main/LICENSE.md) under a similar license to Docker Desktop. You can run the source code (in this repo) for free for:\n\n- **Personal Use:** Individuals or people personally experimenting\n- **Educational Use:** Schools and universities\n- **Small Business Use:** Companies with under $10M annual revenue and less than 250 employees\n\nIf you fall outside of these terms, please use the [Launchpad](https://deploy.helix.ml) to purchase a license for large commercial use. Trial licenses are available for experimentation.\n\nYou are not allowed to use our code to build a product that competes with us.\n\n### Why these license clauses?\n\n- We generate revenue to support the development of Helix. We are an independent software company.\n- We don't want cloud providers to take our open source code and build a rebranded service on top of it.\n\nIf you would like to use some part of this code under a more permissive license, please [get in touch](mailto:info@helix.ml).\n\n## 🆘 Support\n\n- **[Discord Community](https://discord.gg/VJftd844GE)** - Join our community for help and discussions\n- **[GitHub Issues](https://github.com/helixml/helix/issues)** - Report bugs or request features\n- **[Documentation](https://docs.helixml.tech/)** - Comprehensive guides and references\n- **[Email](mailto:info@helix.ml)** - Contact us for commercial inquiries\n\n## 🌟 Star History\n\nIf you find Helix useful, please consider giving us a star on GitHub!\n\n---\n\nBuilt with ❤️ by [HelixML, Inc.](https://helix.ml)\n",
+        "truncated": false,
+        "bytes": 12402,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "2.6.3 - Helix for Mac improvements",
+            "tag_name": "2.6.3",
+            "published_at": "2026-02-21T07:34:37Z",
+            "body_excerpt": "## What's Changed\r\n* why is the startup script failing? by @lukemarsden in https://github.com/helixml/helix/pull/1669\r\n* fix: use clean EFI vars template instead of downloading from R2 by @chocobar in https://github.com/helixml/helix/pull/1671\r\n* fix: show provider icons on onboarding by @chocobar in https://github.com/helixml/helix/pull/1673\r\n* Feature/enforce limits by @nessie993 in https://github.com/helixml/helix/pull/1675\r\n* fix: convert version upgrade banner to floating snackbar by @chocobar in https://github.com/helixml/helix/pull/1677\r\n* feat(kodit): bump to 1.0.0 by @philwinder in https://github.com/helixml/helix/pull/1678\r\n* fix: navigate into project after onboarding by @chocobar in https://github.com/helixml/helix/pull/1676\r\n* fix: apply Finder styling live during DMG build by @chocobar in https://github.com/helixml/helix/pull/1670\r\n* fix: VM update detection and user-consented download flow by @chocobar in https://github.com/helixml/helix/pull/1679\r\n* fix: remove read-only mount on sandbox-images volume by @chocobar in https://github.com/helixml/helix/pull/1618\r\n* Fix GPU encoder error messages, admin session info, pin Zed build image by @lukemarsden in https://github.com/helixml/helix/pull/1691\r\n* Add org/project to admin sandboxes, fix card layout by @lukemarsden in https://github.com/helixml/helix/pull/1692\r\n* Fix spec task link in admin sandboxes by @lukemarsden in https://github.com/helixml/helix/pull/1694\r\n* fix: mac app Feb 19 - credential type + cursor bridge by @lukemarsden in https://github.com/helixml/helix/pull/1674\r\n* Add Slack notifications for beta waitlist signups by @chocobar in https://github.com/helixml/helix/pull/1695\r\n* fix: prevent Finder windows during CI DMG builds by @chocobar in https://github.com/helixml/helix/pull/1693\r\n* fix: stop bundling/copying efi_vars.fd from build machine by @chocobar in https://github.com/helixml/helix/pull/1698\r\n* fix: delete stale efi_vars.fd during VM disk upgrade by @lukemarsden in https://github"
+          },
+          {
+            "name": "2.6.3-rc5",
+            "tag_name": "2.6.3-rc5",
+            "published_at": "2026-02-20T18:22:32Z",
+            "body_excerpt": "2.6.3-rc5\r\n\r\n## What's Changed\r\n* feat: combined app+VM update flow by @chocobar in https://github.com/helixml/helix/pull/1699\r\n* fix: use ephemeral EFI vars instead of persistent file by @lukemarsden in https://github.com/helixml/helix/pull/1700\r\n\r\n\r\n**Full Changelog**: https://github.com/helixml/helix/compare/2.6.3-rc4...2.6.3-rc5"
+          },
+          {
+            "name": "2.6.3-rc4",
+            "tag_name": "2.6.3-rc4",
+            "published_at": "2026-02-20T15:37:49Z",
+            "body_excerpt": "## What's Changed\r\n* Add Slack notifications for beta waitlist signups by @chocobar in https://github.com/helixml/helix/pull/1695\r\n* fix: prevent Finder windows during CI DMG builds by @chocobar in https://github.com/helixml/helix/pull/1693\r\n* fix: stop bundling/copying efi_vars.fd from build machine by @chocobar in https://github.com/helixml/helix/pull/1698\r\n* fix: delete stale efi_vars.fd during VM disk upgrade by @lukemarsden in https://github.com/helixml/helix/pull/1696\r\n\r\n\r\n**Full Changelog**: https://github.com/helixml/helix/compare/2.6.3-rc3...2.6.3-rc4"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".cursor",
+        ".cursorignore",
+        ".dockerignore",
+        ".drone.yml",
+        ".env.example-prod",
+        ".github",
+        ".gitignore",
+        ".gitleaksignore",
+        ".golangci.yml",
+        ".vscode",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "Dockerfile.demos",
+        "Dockerfile.lint",
+        "Dockerfile.qwen-code-build",
+        "Dockerfile.runner",
+        "Dockerfile.runner.dockerignore",
+        "Dockerfile.sandbox",
+        "Dockerfile.sway-helix",
+        "Dockerfile.sway-helix.dockerignore",
+        "Dockerfile.typesense",
+        "Dockerfile.ubuntu-helix",
+        "Dockerfile.ubuntu-helix.dockerignore",
+        "Dockerfile.zed-build",
+        "INTEGRATION_GUIDE.md",
+        "LICENSE.md",
+        "README.md",
+        "WORKDIR_README.md",
+        "api",
+        "build-and-push.sh",
+        "charts",
+        "cloudbuild.yaml",
+        "demos",
+        "design",
+        "desktop",
+        "docker-compose.demos.yaml",
+        "docker-compose.dev.yaml",
+        "docker-compose.oidc.yaml",
+        "docker-compose.runner.yaml",
+        "docker-compose.yaml",
+        "examples",
+        "for-mac",
+        "frontend",
+        "go.mod",
+        "go.sum",
+        "haystack_service",
+        "install.sh",
+        "integration-test"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <img alt=\"logo\" src=\"https://helix.ml/assets/helix-logo.png\" width=\"250px\">",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://app.helix.ml/\">SaaS</a> • <a href=\"https://docs.helixml.tech/docs/controlplane\">Private Deployment</a> • <a href=\"https://docs.helixml.tech/docs/overview\">Docs</a> • <a href=\"https://discord.gg/VJftd844GE\">Discord</a> </p>",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 3)",
+          "excerpt": "**Deploy AI agents in your own data center or VPC and retain complete data security & control.**",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 4)",
+          "excerpt": "HelixML is an enterprise-grade platform for building and deploying AI agents with support for RAG (Retrieval-Augmented Generation), API calling, vision, and multi-provider LLM support. Build and deploy LLM applications by writing a simple [`helix.yaml`](https://docs.helixml.tech/helix/develop/getting-started/) configuration file.",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Our intelligent GPU scheduler packs models efficiently into available GPU memory and dynamically loads and unloads models based on demand, optimizing resource utilization.",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 6)",
+          "excerpt": "### 🤖 AI Agents - **Easy-to-use Web UI** for agent interaction and management - **Session-based architecture** with pause/resume capabilities - **Multi-step reasoning** with tool orchestration - **Memory management** for context-aware interactions - **Support for multiple LLM providers** (OpenAI, Anthropic, and local models)",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<img width=\"1768\" height=\"1053\" alt=\"AI Agents Interface\" src=\"https://github.com/user-attachments/assets/0e945ace-4f54-46a2-8d20-49485169486f\" />",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/helixml/helix#readme",
+          "title": "README (segment 8)",
+          "excerpt": "### 🛠️ Skills and Tools - **REST API integration** with OpenAPI schema support - **MCP (Model Context Protocol) server** compatibility - **GPTScript integration** for advanced scripting - **OAuth token management** for secure third-party access - **Custom tool development** with flexible SDK",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/helixml/helix/releases",
+          "title": "2.6.3",
+          "excerpt": "## What's Changed * why is the startup script failing? by @lukemarsden in https://github.com/helixml/helix/pull/1669 * fix: use clean EFI vars template instead of downloading from R2 by @chocobar in https://github.com/helixml/helix/pull/1671 * fix: show provider icons on onboarding by @chocobar in https://github.com/helixml/helix/pull/1673 * Feature/enforce limits by @nessie993 in https://github.com/helixml/helix/pull/1675 * fix: convert version upgrade banner to floating snackbar by @chocobar in https://github.com/helixml/helix/pull/1677 * feat(kodit): bump to 1.0.0 by @philwinder in https://github.com/helixml/helix/pull/1678 * fix: navigate into project after onboarding by @chocobar in https://github.com/helixml/helix/pull/1676 * fix: apply Finder styling live during DMG build by @chocobar in https://github.com/helixml/helix/pull/1670 * fix: VM update detection and user-consented download flow by @chocobar in https://github.com/helixml/helix/pull/1679 * fix: remove read-only mount on sandbox-images volume by @chocobar in https://github.com/helixml/helix/pull/1618 * Fix GPU encoder error messages, admin session info, pin Zed build image by @lukemarsden in https://github.com/helix…",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "tag_name": "2.6.3",
+            "published_at": "2026-02-21T07:34:37Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/helixml/helix/releases",
+          "title": "2.6.3-rc5",
+          "excerpt": "2.6.3-rc5 ## What's Changed * feat: combined app+VM update flow by @chocobar in https://github.com/helixml/helix/pull/1699 * fix: use ephemeral EFI vars instead of persistent file by @lukemarsden in https://github.com/helixml/helix/pull/1700 **Full Changelog**: https://github.com/helixml/helix/compare/2.6.3-rc4...2.6.3-rc5",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "tag_name": "2.6.3-rc5",
+            "published_at": "2026-02-20T18:22:32Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/helixml/helix/releases",
+          "title": "2.6.3-rc4",
+          "excerpt": "## What's Changed * Add Slack notifications for beta waitlist signups by @chocobar in https://github.com/helixml/helix/pull/1695 * fix: prevent Finder windows during CI DMG builds by @chocobar in https://github.com/helixml/helix/pull/1693 * fix: stop bundling/copying efi_vars.fd from build machine by @chocobar in https://github.com/helixml/helix/pull/1698 * fix: delete stale efi_vars.fd during VM disk upgrade by @lukemarsden in https://github.com/helixml/helix/pull/1696 **Full Changelog**: https://github.com/helixml/helix/compare/2.6.3-rc3...2.6.3-rc4",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "tag_name": "2.6.3-rc4",
+            "published_at": "2026-02-20T15:37:49Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/helixml/helix",
+          "title": "ROOT_FILES",
+          "excerpt": ".cursor, .cursorignore, .dockerignore, .drone.yml, .env.example-prod, .github, .gitignore, .gitleaksignore, .golangci.yml, .vscode, AGENTS.md, CLAUDE.md, CONTRIBUTING.md, Dockerfile, Dockerfile.demos, Dockerfile.lint, Dockerfile.qwen-code-build, Dockerfile.runner, Dockerfile.runner.dockerignore, Dockerfile.sandbox, Dockerfile.sway-helix, Dockerfile.sway-helix.dockerignore, Dockerfile.typesense, Dockerfile.ubuntu-helix, Dockerfile.ubuntu-helix.dockerignore, Dockerfile.zed-build, INTEGRATION_GUIDE.md, LICENSE.md, README.md, WORKDIR_README.md, api, build-and-push.sh, charts, cloudbuild.yaml, demos, design, desktop, docker-compose.demos.yaml, docker-compose.dev.yaml, docker-compose.oidc.yaml, docker-compose.runner.yaml, docker-compose.yaml, examples, for-mac, frontend, go.mod, go.sum, haystack_service, install.sh, integration-test",
+          "fetched_at": "2026-02-21T13:30:42.155Z",
+          "meta": {
+            "repo_full_name": "helixml/helix",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "canbax/namaz-vakti-api",
+      "html_url": "https://github.com/canbax/namaz-vakti-api",
+      "description": "Namaz vakit verilerini hesaplar, API ile ücretsiz sınırsız sunar.",
+      "topics": [
+        "api",
+        "api-rest",
+        "free",
+        "free-api",
+        "muslim-api",
+        "muslim-app",
+        "muslim-prayer-time",
+        "muslim-prayer-times",
+        "namaz",
+        "namaz-vakitleri",
+        "vercel-deployment"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 78,
+      "forks_count": 25,
+      "open_issues_count": 11,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:27Z",
+      "created_at": "2020-05-24T20:54:17Z",
+      "readme": {
+        "fetched": true,
+        "text": "# namaz-vakti-api\n\n![Build](https://github.com/canbax/namaz-vakti-api/actions/workflows/build-and-test.yml/badge.svg) ![Statements](https://img.shields.io/badge/statements-93.54%25-brightgreen.svg?style=flat) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/canbax/namaz-vakti-api/blob/main/LICENSE)\n\nVakit ve konum verileri sunar. Calculates the Islamic prayer times. Uses [irem](https://github.com/canbax/irem)\n\n<p align=\"center\">\n    <img src=\"public/assets/logo.png\" alt=\"Logo\" width=\"300\"/>\n</p>\n\n# API usage\n\nhttps://vakit.vercel.app/api/nearByPlaces?lat=39.9306&lng=32.7439&lang=tr\nhttps://vakit.vercel.app/api/timesForPlace?id=311046&timezoneOffset=180&lang=tr\nhttps://vakit.vercel.app/api/timesForGPS?lat=39.9306&lng=32.7439&timezoneOffset=180&lang=tr\nhttps://vakit.vercel.app/api/searchPlaces?q=Anka&lat=39.9306&lng=32.7439&lang=tr\n\n[Postman definition](https://www.postman.com/canbax/workspace/namaz-vakti-api/api/bf039fea-6768-490b-b11d-11bb031bdd8a)\n\nBuilt for [Vakti App](https://vaktiapp.com)\n\n<a href=\"https://apps.apple.com/tr/app/vakti-app/id6743095525\" target=\"_blank\">\n    <img src=\"https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg\" height=\"50\">\n</a>\n<a href=\"https://play.google.com/store/apps/details?id=com.vakti.app\" target=\"_blank\">\n    <img src=\"https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg\" height=\"50\">\n</a>\n\nUses [GPS-miner](https://github.com/canbax/GPS-miner) for geographic data\n\nUse `update-readme-test-cov` command to update test coverage occasionally\n\nthanks a lot to [adhan-js](https://github.com/batoulapps/adhan-js) and [ip2location](https://lite.ip2location.com/)\n\nThanks a lot to supporters: Ali T., Burak H. K.,Eren A., ...\n",
+        "truncated": false,
+        "bytes": 1776,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 46,
+            "title": "Has the API been discontinued?",
+            "state": "closed",
+            "url": "https://github.com/canbax/namaz-vakti-api/issues/46"
+          },
+          {
+            "number": 38,
+            "title": "Date should be updated when open.",
+            "state": "open",
+            "url": "https://github.com/canbax/namaz-vakti-api/issues/38"
+          }
+        ]
+      },
+      "root_files": [
+        ".DS_Store",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".prettierignore",
+        ".prettierrc.json",
+        "LICENSE",
+        "README.md",
+        "api",
+        "api_src",
+        "data",
+        "eslint.config.mjs",
+        "nodemon.json",
+        "package-lock.json",
+        "package.json",
+        "public",
+        "test",
+        "tsconfig.json",
+        "vercel.json",
+        "vitest.config.ts",
+        "wrangler.jsonc"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![Build](https://github.com/canbax/namaz-vakti-api/actions/workflows/build-and-test.yml/badge.svg) ![Statements](https://img.shields.io/badge/statements-93.54%25-brightgreen.svg?style=flat) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/canbax/namaz-vakti-api/blob/main/LICENSE)",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Vakit ve konum verileri sunar. Calculates the Islamic prayer times. Uses [irem](https://github.com/canbax/irem)",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <img src=\"public/assets/logo.png\" alt=\"Logo\" width=\"300\"/> </p>",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 4)",
+          "excerpt": "https://vakit.vercel.app/api/nearByPlaces?lat=39.9306&lng=32.7439&lang=tr https://vakit.vercel.app/api/timesForPlace?id=311046&timezoneOffset=180&lang=tr https://vakit.vercel.app/api/timesForGPS?lat=39.9306&lng=32.7439&timezoneOffset=180&lang=tr https://vakit.vercel.app/api/searchPlaces?q=Anka&lat=39.9306&lng=32.7439&lang=tr",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[Postman definition](https://www.postman.com/canbax/workspace/namaz-vakti-api/api/bf039fea-6768-490b-b11d-11bb031bdd8a)",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<a href=\"https://apps.apple.com/tr/app/vakti-app/id6743095525\" target=\"_blank\"> <img src=\"https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg\" height=\"50\"> </a> <a href=\"https://play.google.com/store/apps/details?id=com.vakti.app\" target=\"_blank\"> <img src=\"https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg\" height=\"50\"> </a>",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/canbax/namaz-vakti-api#readme",
+          "title": "README (segment 7)",
+          "excerpt": "thanks a lot to [adhan-js](https://github.com/batoulapps/adhan-js) and [ip2location](https://lite.ip2location.com/)",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/canbax/namaz-vakti-api/issues/46",
+          "title": "Has the API been discontinued?",
+          "excerpt": "Has the API been discontinued? (state:closed)",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "number": 46
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/canbax/namaz-vakti-api/issues/38",
+          "title": "Date should be updated when open.",
+          "excerpt": "Date should be updated when open. (state:open)",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "number": 38
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/canbax/namaz-vakti-api",
+          "title": "ROOT_FILES",
+          "excerpt": ".DS_Store, .github, .gitignore, .husky, .prettierignore, .prettierrc.json, LICENSE, README.md, api, api_src, data, eslint.config.mjs, nodemon.json, package-lock.json, package.json, public, test, tsconfig.json, vercel.json, vitest.config.ts, wrangler.jsonc",
+          "fetched_at": "2026-02-21T13:30:42.201Z",
+          "meta": {
+            "repo_full_name": "canbax/namaz-vakti-api",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "AlexProgrammerDE/SoulFireClient",
+      "html_url": "https://github.com/AlexProgrammerDE/SoulFireClient",
+      "description": "🧙 Frontend client for SoulFire.",
+      "topics": [
+        "rsbuild",
+        "tailwindcss",
+        "tanstack",
+        "tauri",
+        "tauri-app"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 130,
+      "forks_count": 3,
+      "open_issues_count": 3,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-21T13:29:11Z",
+      "created_at": "2024-03-16T14:55:21Z",
+      "readme": {
+        "fetched": true,
+        "text": "<img align=\"right\" src=\"https://github.com/AlexProgrammerDE/SoulFire/blob/main/mod/src/main/resources/icons/icon.png?raw=true\" height=\"150\" width=\"150\">\n\n[![discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-singular_vector.svg)](https://discord.gg/vHgRd6YZmH) [![kofi](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/kofi-singular_vector.svg)](https://ko-fi.com/alexprogrammerde)\n\n# SoulFireClient\n\nThis is a frontend for the [SoulFire server](https://github.com/AlexProgrammerDE/SoulFire).\nIt mainly targets the web, but uses native APIs using Tauri.\n\n> [!NOTE]\n> For more info about SoulFire, take a look at the main [SoulFire repository](https://github.com/AlexProgrammerDE/SoulFire).\n\n## About the client\n\nBuilt using latest web tech to consistently work on both web, desktop and mobile.\nThe client is the GUI for the SoulFire server, but it uses the official SoulFire gRPC API.\nAnything that can be done using the SF client can also be done using gRPC HTTP API calls directly.\n\n## Installation\n\n> [!TIP]\n> Want to check out how SoulFire looks before installing it? Take a look at the official [demo page](https://demo.soulfiremc.com).\n\nFor installing SoulFire, please refer to the [installation guide](https://soulfiremc.com/docs/installation).\n\n<a href='https://flathub.org/apps/com.soulfiremc.soulfire'>\n<img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?locale=en'/>\n</a>\n\n## Deployments\n\nSee which branches are at which URLs:\n\n- [`release`](https://app.soulfiremc.com) -> app.soulfiremc.com\n- [`main`](https://preview.soulfiremc.com) -> preview.soulfiremc.com\n- [`demo`](https://demo.soulfiremc.com) -> demo.soulfiremc.com\n\n## Building\n\nThe client has a lot of dependencies. You'll need pnpm, latest node and a nightly rust toolchain installed.\nTake a look at the scripts in `package.json` to see how to run a dev env locally.\nYou can also refer to the GitHub actions workflows to see how production builds are made.\n\n## Sponsors\n\n<table>\n <tbody>\n  <tr>\n   <td align=\"center\"><img alt=\"[SignPath]\" src=\"https://avatars.githubusercontent.com/u/34448643\" height=\"30\"/></td>\n   <td>Free code signing on Windows provided by <a href=\"https://signpath.io/?utm_source=foundation&utm_medium=github&utm_campaign=soulfire\">SignPath.io</a>, certificate by <a href=\"https://signpath.org/?utm_source=foundation&utm_medium=github&utm_campaign=soulfire\">SignPath Foundation</a></td>\n  </tr>\n </tbody>\n</table>\n",
+        "truncated": false,
+        "bytes": 2499,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "SoulFireClient 2.5.1",
+            "tag_name": "2.5.1",
+            "published_at": "2026-02-21T12:07:33Z",
+            "body_excerpt": "## Download Links\n\n| Platform              | Download Link |\n|-----------------------|---------------|\n| Windows (x86_64)      | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_x64-setup.exe) |\n| Windows (AArch64)     | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_arm64-setup.exe) |\n| macOS (Intel)         | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_x64.dmg) |\n| macOS (Apple Silicon) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_aarch64.dmg) |\n| Linux (x86_64)        | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) |\n| Linux (AArch64)       | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) |\n\n> [!TIP]\n> x86_64 means Intel and AMD CPUs; AArch64 means ARM CPUs like Qualcomm Snapdragon, which are used in some laptops.\n\n## 🐛 Fixes\n\n- [`1c90f6b`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/1c90f6be64228689a42c863b7a65d8ed5c23b1a7) fix: use stable empty array in getDebugHistory to prevent infinite re-renders\n- [`d69a5cc`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/d69a5cc40626b0a7ac27584f34428a78f6638051) fix: wire up double-click handler to enter group nodes\n- [`52cc5bb`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/52cc5bbb093d50d09377671283e22a627a20feae) fix: add missing proxy check timeout setting to check dialogs\n\n## 🔨 Build\n\n- [`ad09aa0`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/ad09aa03e81956290dadcd53c7cce527ed1c65ab) chore(i18n): updated translations from crowdin\n- [`de3f03b`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/de3f03b4c0af37c9e2b05e4aba6ca1019e216ac0) chore: bump server version to 2.5.1\n- [`b37d084`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/b37d08413fcada4c2e0b93f9febddf367384ba53) chore(release): bump version to 2"
+          },
+          {
+            "name": "SoulFireClient 2.5.0",
+            "tag_name": "2.5.0",
+            "published_at": "2026-02-20T18:09:27Z",
+            "body_excerpt": "## Download Links\n\n| Platform              | Download Link |\n|-----------------------|---------------|\n| Windows (x86_64)      | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_x64-setup.exe) |\n| Windows (AArch64)     | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_arm64-setup.exe) |\n| macOS (Intel)         | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_x64.dmg) |\n| macOS (Apple Silicon) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_aarch64.dmg) |\n| Linux (x86_64)        | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) |\n| Linux (AArch64)       | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) |\n\n> [!TIP]\n> x86_64 means Intel and AMD CPUs; AArch64 means ARM CPUs like Qualcomm Snapdragon, which are used in some laptops.\n\n## 🚀 Features\n\n- [`bbdcf0d`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/bbdcf0dc637eff4d0c6b669677c032943bf02c1c) feat: add export proxies button to proxies page toolbar\n- [`73bea02`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/73bea025ea20ce5dca0b7e74cac48c3852bbcd8e) feat: add live metrics dashboard to instance overview page\n- [`8814b1b`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/8814b1b2598c576eda82ab66e40e883b384031f5) feat: add post-import proxy check dialog\n- [`d8e253c`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/d8e253c93eb287b640f37230adaa089ad16c7948) feat: migrate integrated server logs to diceui Scroller component\n- [`e8769fc`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/e8769fc9c7ac30deeda4e800af71c31cd71cdb89) feat: add proxy check timeout setting to UI\n- [`1d4e50e`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/1d4e50e65f13aa56c0f702aebadb6ecde5aa0c97) feat: add device code auth dialog with QR code\n- [`96ea4"
+          },
+          {
+            "name": "SoulFireClient 2.4.4",
+            "tag_name": "2.4.4",
+            "published_at": "2026-02-15T09:47:53Z",
+            "body_excerpt": "## Download Links\n\n| Platform              | Download Link |\n|-----------------------|---------------|\n| Windows (x86_64)      | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_x64-setup.exe) |\n| Windows (AArch64)     | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_arm64-setup.exe) |\n| macOS (Intel)         | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_x64.dmg) |\n| macOS (Apple Silicon) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_aarch64.dmg) |\n| Linux (x86_64)        | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) |\n| Linux (AArch64)       | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) |\n\n> [!TIP]\n> x86_64 means Intel and AMD CPUs; AArch64 means ARM CPUs like Qualcomm Snapdragon, which are used in some laptops.\n\n## 🚀 Features\n\n- [`5b5a004`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/5b5a004eec20c75a41ee68a00d1d4dbcb7c36f31) feat: add Discord-style custom context menu with copy, mclo.gs upload, and Google search\n- [`9b83b56`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/9b83b56e88a157564764ea1a9bfe871a2a2b9c4f) feat: add entity-specific right-click context menus on cards and table rows\n- [`9fb9179`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/9fb91790be8fade6f51960af3c7ad88bfaf9609d) feat: add copy context menu options across all entity views\n- [`1aa8e5e`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/1aa8e5ec994e250d7c4d5198b1f53271d95ff022) feat: change plugin website to open action, make login version selectable\n- [`8f501c2`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/8f501c2d7d80cb3cf02ba19b114618e7edea8a43) feat: add select-text class for text selection across UI\n\n## 🐛 Fixes\n\n- [`aa27f3e`](https://github.com/AlexProgrammerDE/SoulFireClient/c"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 5,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/AlexProgrammerDE/SoulFireClient/issues/5"
+          }
+        ]
+      },
+      "root_files": [
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".idea",
+        ".npmrc",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "biome.json",
+        "com.soulfiremc.soulfire.metainfo.xml",
+        "components.json",
+        "crowdin.yml",
+        "generate-proto.ts",
+        "images",
+        "index.html",
+        "locales",
+        "package.json",
+        "pnpm-lock.yaml",
+        "postcss.config.mjs",
+        "protos",
+        "public",
+        "renovate.json",
+        "scripts",
+        "src-tauri",
+        "src",
+        "tsconfig.json",
+        "tsr.config.json",
+        "vercel.json",
+        "vite.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<img align=\"right\" src=\"https://github.com/AlexProgrammerDE/SoulFire/blob/main/mod/src/main/resources/icons/icon.png?raw=true\" height=\"150\" width=\"150\">",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-singular_vector.svg)](https://discord.gg/vHgRd6YZmH) [![kofi](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/kofi-singular_vector.svg)](https://ko-fi.com/alexprogrammerde)",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 3)",
+          "excerpt": "This is a frontend for the [SoulFire server](https://github.com/AlexProgrammerDE/SoulFire). It mainly targets the web, but uses native APIs using Tauri.",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 4)",
+          "excerpt": "> [!NOTE] > For more info about SoulFire, take a look at the main [SoulFire repository](https://github.com/AlexProgrammerDE/SoulFire).",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Built using latest web tech to consistently work on both web, desktop and mobile. The client is the GUI for the SoulFire server, but it uses the official SoulFire gRPC API. Anything that can be done using the SF client can also be done using gRPC HTTP API calls directly.",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 6)",
+          "excerpt": "> [!TIP] > Want to check out how SoulFire looks before installing it? Take a look at the official [demo page](https://demo.soulfiremc.com).",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 7)",
+          "excerpt": "For installing SoulFire, please refer to the [installation guide](https://soulfiremc.com/docs/installation).",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<a href='https://flathub.org/apps/com.soulfiremc.soulfire'> <img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?locale=en'/> </a>",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient/issues/5",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "number": 5
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient/releases",
+          "title": "2.5.1",
+          "excerpt": "## Download Links | Platform | Download Link | |-----------------------|---------------| | Windows (x86_64) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_x64-setup.exe) | | Windows (AArch64) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_arm64-setup.exe) | | macOS (Intel) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_x64.dmg) | | macOS (Apple Silicon) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.1/SoulFire_2.5.1_aarch64.dmg) | | Linux (x86_64) | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) | | Linux (AArch64) | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) | > [!TIP] > x86_64 means Intel and AMD CPUs; AArch64 means ARM CPUs like Qualcomm Snapdragon, which are used in some laptops. ## 🐛 Fixes - [`1c90f6b`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/1c90f6be64228689a42c863b7a65d8ed5c23b1a7) fix: use stable empty array in getDebugHistory to prevent infinite re-renders - [`d69a5cc`](https://github.com/AlexProgrammerDE/SoulFireClien…",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "tag_name": "2.5.1",
+            "published_at": "2026-02-21T12:07:33Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient/releases",
+          "title": "2.5.0",
+          "excerpt": "## Download Links | Platform | Download Link | |-----------------------|---------------| | Windows (x86_64) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_x64-setup.exe) | | Windows (AArch64) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_arm64-setup.exe) | | macOS (Intel) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_x64.dmg) | | macOS (Apple Silicon) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.5.0/SoulFire_2.5.0_aarch64.dmg) | | Linux (x86_64) | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) | | Linux (AArch64) | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) | > [!TIP] > x86_64 means Intel and AMD CPUs; AArch64 means ARM CPUs like Qualcomm Snapdragon, which are used in some laptops. ## 🚀 Features - [`bbdcf0d`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/bbdcf0dc637eff4d0c6b669677c032943bf02c1c) feat: add export proxies button to proxies page toolbar - [`73bea02`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/73bea025ea…",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "tag_name": "2.5.0",
+            "published_at": "2026-02-20T18:09:27Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient/releases",
+          "title": "2.4.4",
+          "excerpt": "## Download Links | Platform | Download Link | |-----------------------|---------------| | Windows (x86_64) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_x64-setup.exe) | | Windows (AArch64) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_arm64-setup.exe) | | macOS (Intel) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_x64.dmg) | | macOS (Apple Silicon) | [Download](https://github.com/AlexProgrammerDE/SoulFireClient/releases/download/2.4.4/SoulFire_2.4.4_aarch64.dmg) | | Linux (x86_64) | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) | | Linux (AArch64) | [Download](https://flathub.org/apps/com.soulfiremc.soulfire) | > [!TIP] > x86_64 means Intel and AMD CPUs; AArch64 means ARM CPUs like Qualcomm Snapdragon, which are used in some laptops. ## 🚀 Features - [`5b5a004`](https://github.com/AlexProgrammerDE/SoulFireClient/commit/5b5a004eec20c75a41ee68a00d1d4dbcb7c36f31) feat: add Discord-style custom context menu with copy, mclo.gs upload, and Google search - [`9b83b56`](https://github.com/AlexProgrammerDE…",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "tag_name": "2.4.4",
+            "published_at": "2026-02-15T09:47:53Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/AlexProgrammerDE/SoulFireClient",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .gitattributes, .github, .gitignore, .husky, .idea, .npmrc, CLAUDE.md, LICENSE, README.md, SECURITY.md, biome.json, com.soulfiremc.soulfire.metainfo.xml, components.json, crowdin.yml, generate-proto.ts, images, index.html, locales, package.json, pnpm-lock.yaml, postcss.config.mjs, protos, public, renovate.json, scripts, src-tauri, src, tsconfig.json, tsr.config.json, vercel.json, vite.config.ts",
+          "fetched_at": "2026-02-21T13:30:42.441Z",
+          "meta": {
+            "repo_full_name": "AlexProgrammerDE/SoulFireClient",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "charmbracelet/ultraviolet",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 0
+    },
+    {
+      "full_name": "helixml/helix",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "canbax/namaz-vakti-api",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 7,
+        "issue": 2,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 0
+    },
+    {
+      "full_name": "AlexProgrammerDE/SoulFireClient",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "charmbracelet/ultraviolet",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/charmbracelet__ultraviolet.json"
+    },
+    {
+      "repo": "helixml/helix",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/helixml__helix.json"
+    },
+    {
+      "repo": "canbax/namaz-vakti-api",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/canbax__namaz-vakti-api.json"
+    },
+    {
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "ok": true,
+      "spec_path": "specs/2026-02-21/AlexProgrammerDE__SoulFireClient.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "charmbracelet/ultraviolet",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/charmbracelet__ultraviolet.json"
+    },
+    {
+      "repo": "helixml/helix",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/helixml__helix.json"
+    },
+    {
+      "repo": "canbax/namaz-vakti-api",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/canbax__namaz-vakti-api.json"
+    },
+    {
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-21/AlexProgrammerDE__SoulFireClient.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "charmbracelet/ultraviolet",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/charmbracelet__ultraviolet.json"
+      ]
+    },
+    {
+      "repo": "helixml/helix",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/helixml__helix.json"
+      ]
+    },
+    {
+      "repo": "canbax/namaz-vakti-api",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/canbax__namaz-vakti-api.json"
+      ]
+    },
+    {
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-21/AlexProgrammerDE__SoulFireClient.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-02-21T13:31:06.501Z",
+      "run_id": "20260221T133037Z",
+      "repo": "charmbracelet/ultraviolet",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fb33206667f7a5d4c50a5043f7e42b97da7b80d41b22a7f54b968c3b5d394a5d",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 8434
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 24055,
+      "prompt_chars": 8434,
+      "completion_chars": 2665
+    },
+    {
+      "ts": "2026-02-21T13:31:22.843Z",
+      "run_id": "20260221T133037Z",
+      "repo": "helixml/helix",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8856853c46f220a403b4f8c01d9b2fa452086c6d27b164ddc8f58e89718f357c",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10456
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16333,
+      "prompt_chars": 10456,
+      "completion_chars": 3359
+    },
+    {
+      "ts": "2026-02-21T13:31:45.486Z",
+      "run_id": "20260221T133037Z",
+      "repo": "canbax/namaz-vakti-api",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "26d33bfc478cd38f9524647c70d577a5346c066886937fa9d1d258cdd6c409f8",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 7607
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 22633,
+      "prompt_chars": 7607,
+      "completion_chars": 2691
+    },
+    {
+      "ts": "2026-02-21T13:32:00.809Z",
+      "run_id": "20260221T133037Z",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "acca42e44951cc414309bfda1d882f8751891d4508df7fd5ee18c72ae24665e4",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10753
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15321,
+      "prompt_chars": 10753,
+      "completion_chars": 2564
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "charmbracelet/ultraviolet",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "helixml/helix",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "canbax/namaz-vakti-api",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "ok": true,
+      "coverage_ratio": 1,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "charmbracelet/ultraviolet",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "helixml/helix",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "canbax/namaz-vakti-api",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 4,
+    "attempts_used_hist": {
+      "0": 4,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 4,
+    "success": 4
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1771680637987,
+    "llmCallsTotal": 4,
+    "llmCallsPerRepo": {
+      "charmbracelet/ultraviolet": 1,
+      "helixml/helix": 1,
+      "canbax/namaz-vakti-api": 1,
+      "AlexProgrammerDE/SoulFireClient": 1
+    },
+    "tokensApproxTotal": 12134,
+    "tokensApproxPerRepo": {
+      "charmbracelet/ultraviolet": 2775,
+      "helixml/helix": 3454,
+      "canbax/namaz-vakti-api": 2575,
+      "AlexProgrammerDE/SoulFireClient": 3330
+    },
+    "reposProcessed": 4,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "charmbracelet/ultraviolet": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Ultraviolet\",\n    \"one_sentence\": \"A set of primitives for manipulating terminal emulators with a focus on terminal user interfaces (TUIs).\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Ultraviolet provides tools and abstractions for handling user input and displaying dynamic, cell-based content in terminal applications using a modernized ncurses-inspired rendering model.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Terminal Interface\",\n      \"purpose\": \"Display and interact with cell-based terminal content using the Cursed Render model.\",\n      \"primary_actions\": [\n        \"Handle user input events\",\n        \"Render dynamic terminal cells\",\n        \"Query terminal dimensions\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"query_terminal_bounds\",\n      \"purpose\": \"Retrieve the available width and height of the terminal emulator.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"terminal_cells\",\n        \"fields\": [\n          {\n            \"name\": \"x\",\n            \"type\": \"int\"\n          },\n          {\n            \"name\": \"y\",\n            \"type\": \"int\"\n          },\n          {\n            \"name\": \"char\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"style\",\n            \"type\": \"object\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Initialize terminal screen buffer\",\n          \"Implement basic cell rendering\",\n          \"Capture keyboard and mouse events\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Application correctly renders styled text in a grid-aligned terminal layout.\",\n    \"Terminal.Bounds() returns accurate available width and height after resize.\"\n  ],\n  \"open_questions\": [\n    \"How will API instability impact integration with Bubble Tea v2?\",\n    \"What fallback mechanisms exist for terminals w"
+      }
+    },
+    "helixml/helix": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"HelixML\",\n    \"one_sentence\": \"Private Agent Swarm with Spec Coding. Each agent gets their own desktop. Run Claude, Codex, Gemini and open models on a full private GenAI Stack.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users define AI agents via helix.yaml, deploy them in private environments (on-prem/VPC), interact through a web UI with session-based pause/resume, multi-step reasoning, and memory management, while the platform dynamically schedules GPU resources and supports multiple LLM providers and custom tools.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"AI Agents Interface\",\n      \"purpose\": \"Provide an easy-to-use web UI for agent interaction, management, and monitoring of multi-step reasoning sessions with tool orchestration.\",\n      \"primary_actions\": [\n        \"Create new agent session\",\n        \"Pause/resume agent execution\",\n        \"View agent memory and context\",\n        \"Manage connected tools and providers\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist agent configuration or session state to storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"agents\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"config\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"session_state\",\n            \"type\": \"json\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Define helix.yaml schema for agent specification\",\n          \"Implement basic web UI for agent creation and interaction\",\n          \"Integrate support for at least one LLM provider (e.g., OpenAI)\",\n          \"Set up session-based architecture with pause/resume\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can create an"
+      }
+    },
+    "canbax/namaz-vakti-api": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Namaz Vakti API\",\n    \"one_sentence\": \"Provides free, unlimited Islamic prayer times via a RESTful API based on geographic location or place ID.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User requests prayer times by GPS coordinates, nearby places, or place search; the system calculates and returns accurate namaz vakitleri using the irem library and adhan-js algorithm.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Prayer Times Dashboard\",\n      \"purpose\": \"Display current and upcoming prayer times for a selected location.\",\n      \"primary_actions\": [\n        \"Fetch prayer times by GPS\",\n        \"Search for locations\",\n        \"View nearby places\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"fetch_prayer_times_gps\",\n      \"purpose\": \"Retrieve prayer times based on latitude, longitude, timezone offset, and language.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"places\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"latitude\",\n            \"type\": \"number\"\n          },\n          {\n            \"name\": \"longitude\",\n            \"type\": \"number\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core prayer time calculation using irem/adhan-js\",\n          \"Expose /api/timesForGPS endpoint\",\n          \"Add basic location search capability\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"API returns valid prayer times for given GPS coordinates with correct timezone offset.\",\n    \"Date updates automatically when the app is opened to reflect current day’s prayer schedule.\"\n  ],\n  \"open_questions\": [\n    \"How frequently should cached location data be refreshed?\",\n    \"Sh"
+      }
+    },
+    "AlexProgrammerDE/SoulFireClient": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"SoulFire Client\",\n    \"one_sentence\": \"A cross-platform frontend client for the SoulFire server, built with Tauri and modern web technologies.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with the SoulFire server through a graphical interface that communicates via the official SoulFire gRPC API, enabling all server functionality to be accessible through both the GUI and direct API calls.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Dashboard\",\n      \"purpose\": \"Provide access to core SoulFire server features and real-time interaction.\",\n      \"primary_actions\": [\n        \"Connect to SoulFire server\",\n        \"View server status\",\n        \"Execute commands\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"connect_to_server\",\n      \"purpose\": \"Establish a connection to the SoulFire gRPC server endpoint.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"server_connections\",\n        \"fields\": [\n          {\n            \"name\": \"endpoint\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"last_connected\",\n            \"type\": \"timestamp\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up Tauri project structure\",\n          \"Implement basic gRPC client communication\",\n          \"Create main dashboard UI\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can download and install the SoulFire Client on Windows x86_64 using the provided installer link.\",\n    \"User can launch the application and connect to a local SoulFire server instance.\"\n  ],\n  \"open_questions\": [\n    \"How are authentication credentials managed across platforms?\",\n    \"What is the fallback behavior when gRPC connection fails?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 3,\n    \"complexity_control\": 3"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "charmbracelet/ultraviolet",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "helixml/helix",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "canbax/namaz-vakti-api",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=0",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=90 kept=5 limit=5",
+    "[deduper] existing_index_repos=33",
+    "[deduper] candidates_total=5 new=4 skipped=1",
+    "[repo_card_builder] charmbracelet/ultraviolet evidence total=10 readme=8 issue=1 release=0 root_files=1",
+    "[repo_card_builder] helixml/helix evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] canbax/namaz-vakti-api evidence total=10 readme=7 issue=2 release=0 root_files=1",
+    "[repo_card_builder] AlexProgrammerDE/SoulFireClient evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=4 readme_ok=4/4 evidence_total=45 gaps=0",
+    "[llm_spec_generator] charmbracelet/ultraviolet canonical spec ok (iter=1) -> specs/2026-02-21/charmbracelet__ultraviolet.json",
+    "[llm_spec_generator] helixml/helix canonical spec ok (iter=1) -> specs/2026-02-21/helixml__helix.json",
+    "[llm_spec_generator] canbax/namaz-vakti-api canonical spec ok (iter=1) -> specs/2026-02-21/canbax__namaz-vakti-api.json",
+    "[llm_spec_generator] AlexProgrammerDE/SoulFireClient canonical spec ok (iter=1) -> specs/2026-02-21/AlexProgrammerDE__SoulFireClient.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-02-21T13:30:37.987Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:38.007Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260221T133037Z"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:38.008Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:38.011Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:38.653Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:38.653Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:39.104Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:39.104Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:39.467Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:39.467Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:39.776Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:39.776Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:40.117Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:40.117Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:40.493Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:40.493Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:40.847Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:40.847Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.018Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.018Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.431Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.431Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.830Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.833Z",
+      "run_id": "20260221T133037Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 33
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.833Z",
+      "run_id": "20260221T133037Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 4,
+        "skipped": 1,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.836Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T13:30:41.836Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "charmbracelet__ultraviolet/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.837Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "charmbracelet__ultraviolet/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.839Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "charmbracelet__ultraviolet/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.840Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "charmbracelet__ultraviolet/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.841Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T13:30:41.842Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "helixml__helix/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.843Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "helixml__helix/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.844Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "helixml__helix/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.846Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "helixml__helix/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.847Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T13:30:41.847Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "canbax__namaz-vakti-api/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.848Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "canbax__namaz-vakti-api/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.849Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "canbax__namaz-vakti-api/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:41.851Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "canbax__namaz-vakti-api/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.140Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 6335,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.140Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.140Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.140Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 304
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.141Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 8,
+        "issues": 1,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.141Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-21T13:30:42.141Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AlexProgrammerDE__SoulFireClient/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.141Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AlexProgrammerDE__SoulFireClient/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.142Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AlexProgrammerDE__SoulFireClient/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.142Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AlexProgrammerDE__SoulFireClient/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.155Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12402,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.155Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.155Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.155Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 314
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.155Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.201Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 1776,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.201Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.201Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.201Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 354
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.201Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 7,
+        "issues": 2,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.441Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2499,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.441Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.441Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.441Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 300
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.441Z",
+      "run_id": "20260221T133037Z",
+      "node": "repo_card_builder",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.445Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T13:30:42.445Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.501Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2665,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.506Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "charmbracelet/ultraviolet",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.507Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.509Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/charmbracelet__ultraviolet.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.509Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "charmbracelet/ultraviolet",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/charmbracelet__ultraviolet.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.509Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:06.509Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.843Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3359,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.851Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "helixml/helix",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.852Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.852Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/helixml__helix.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.852Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "helixml/helix",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/helixml__helix.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.853Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 7,
+          "issue": 2,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:22.853Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.486Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2691,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.487Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "canbax/namaz-vakti-api",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.487Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.488Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/canbax__namaz-vakti-api.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.488Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "canbax/namaz-vakti-api",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/canbax__namaz-vakti-api.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.488Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-21T13:31:45.488Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.809Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2564,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.810Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "BRIDGE_COVER_ADDED_KEYS",
+      "data": {
+        "repo": "AlexProgrammerDE/SoulFireClient",
+        "iter": 1,
+        "added_keys_count": 0,
+        "sample": []
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.810Z",
+      "run_id": "20260221T133037Z",
+      "node": "llm_spec_generator",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.811Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-21/AlexProgrammerDE__SoulFireClient.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.811Z",
+      "run_id": "20260221T133037Z",
+      "node": "artifacts",
+      "repo": "AlexProgrammerDE/SoulFireClient",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-21/AlexProgrammerDE__SoulFireClient.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.814Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 4,
+        "attempts_used_hist": {
+          "0": 4,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.814Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1771680637987,
+        "llmCallsTotal": 4,
+        "llmCallsPerRepo": {
+          "charmbracelet/ultraviolet": 1,
+          "helixml/helix": 1,
+          "canbax/namaz-vakti-api": 1,
+          "AlexProgrammerDE/SoulFireClient": 1
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 4,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.814Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-02-21T13:32:00.814Z",
+      "run_id": "20260221T133037Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 4,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-02-21",
+    "evidence_dir": "evidence/2026-02-21"
+  }
+}
