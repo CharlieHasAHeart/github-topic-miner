@@ -36,17 +36,39 @@ function normalize(wire: unknown) {
     rust_commands: [
       { name: "c1", purpose: "p", async: true, input: null, output: {} },
       { name: "c2", purpose: "p", async: true, input: "", output: [] },
+      {
+        name: "c3",
+        purpose: "save item",
+        async: true,
+        input: { placeholder: true },
+        output: { placeholder: "todo" },
+      },
     ],
-    data_model: { tables: [{ name: "t", columns: [{ name: "id", type: "text" }] }] },
+    data_model: { tables: [{ name: "t", columns: [{ name: "id", type: "text" }, { name: "title", type: "text" }] }] },
     mvp_plan: ["task"],
     acceptance_tests: ["ok"],
   });
   for (const cmd of canonical.rust_commands) {
-    const isEmptyObject = typeof cmd.input === "object" && cmd.input !== null && Object.keys(cmd.input as any).length === 0;
-    assert.equal(isEmptyObject, false, "RULE:command_io_non_empty input must not be empty object");
-    const isEmptyOutputObject =
-      typeof cmd.output === "object" && cmd.output !== null && Object.keys(cmd.output as any).length === 0;
-    assert.equal(isEmptyOutputObject, false, "RULE:command_io_non_empty output must not be empty object");
+    assert.equal(typeof cmd.input, "object", "RULE:command_io_non_empty input must be object");
+    assert.equal(Array.isArray(cmd.input), false, "RULE:command_io_non_empty input must not be array");
+    assert.ok(Object.keys(cmd.input as Record<string, unknown>).length > 0, "RULE:command_io_non_empty input non-empty");
+    assert.equal(
+      Object.keys(cmd.input as Record<string, unknown>).includes("placeholder"),
+      false,
+      "RULE:command_io_non_empty input placeholder removed",
+    );
+
+    assert.equal(typeof cmd.output, "object", "RULE:command_io_non_empty output must be object");
+    assert.equal(Array.isArray(cmd.output), false, "RULE:command_io_non_empty output must not be array");
+    assert.ok(
+      Object.keys(cmd.output as Record<string, unknown>).length > 0,
+      "RULE:command_io_non_empty output non-empty",
+    );
+    assert.equal(
+      Object.keys(cmd.output as Record<string, unknown>).includes("placeholder"),
+      false,
+      "RULE:command_io_non_empty output placeholder removed",
+    );
   }
 }
 

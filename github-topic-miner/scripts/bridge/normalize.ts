@@ -13,14 +13,96 @@ function asString(value: unknown, fallback: string): string {
   return typeof value === "string" && value.trim() ? value : fallback;
 }
 
-function ensureNonEmptyPayload(value: unknown): unknown {
-  if (value === null || value === undefined) return { placeholder: true };
-  if (typeof value === "string") return value.trim().length > 0 ? value : "placeholder";
-  if (Array.isArray(value)) return value.length > 0 ? value : ["placeholder"];
-  if (typeof value === "object") {
-    return Object.keys(value as Record<string, unknown>).length > 0 ? value : { placeholder: true };
+function isPlaceholderKey(key: string): boolean {
+  return ["placeholder", "todo", "tbd", "example", "dummy", "mock"].includes(key.toLowerCase());
+}
+
+function isInvalidIO(value: unknown): boolean {
+  if (value === null || value === undefined) return true;
+  if (typeof value !== "object" || Array.isArray(value)) return true;
+  const obj = value as Record<string, unknown>;
+  const keys = Object.keys(obj);
+  if (keys.length === 0) return true;
+  if (keys.every((k) => isPlaceholderKey(k))) return true;
+  return false;
+}
+
+function sampleValueForType(type: string): unknown {
+  switch (normalizeColumnType(type)) {
+    case "INTEGER":
+      return 0;
+    case "REAL":
+      return 0.0;
+    case "BOOLEAN":
+      return false;
+    case "JSON":
+      return {};
+    case "DATETIME":
+      return "1970-01-01T00:00:00.000Z";
+    case "BLOB":
+      return "base64";
+    default:
+      return "";
   }
-  return value;
+}
+
+function buildPayloadFromTable(
+  table: { name: string; columns: Array<{ name: string; type: string }> } | undefined,
+): Record<string, unknown> {
+  if (!table || table.columns.length === 0) {
+    return { value: "" };
+  }
+  const entries = table.columns
+    .filter((c) => c.name.toLowerCase() !== "id")
+    .slice(0, 6)
+    .map((c) => [c.name, sampleValueForType(c.type)] as const);
+  if (entries.length === 0) return { value: "" };
+  return Object.fromEntries(entries);
+}
+
+function enrichCommandIO(
+  command: { name: string; purpose: string; input: unknown; output: unknown },
+  tables: Array<{ name: string; columns: Array<{ name: string; type: string }> }>,
+): { input: Record<string, unknown>; output: Record<string, unknown> } {
+  const name = command.name.toLowerCase();
+  const purpose = command.purpose.toLowerCase();
+  const text = `${name} ${purpose}`;
+  const primaryTable = tables[0];
+  const payload = buildPayloadFromTable(primaryTable);
+  const entity = primaryTable?.name ?? "record";
+
+  const fallbackInput = { request: payload };
+  const fallbackOutput = { ok: true, message: "done" };
+
+  let inferredInput: Record<string, unknown> = fallbackInput;
+  let inferredOutput: Record<string, unknown> = fallbackOutput;
+
+  if (/(create|insert|add|save)/.test(text)) {
+    inferredInput = { [entity]: payload };
+    inferredOutput = { ok: true, id: "", created: 1 };
+  } else if (/(update|edit|modify|patch)/.test(text)) {
+    inferredInput = { id: "", changes: payload };
+    inferredOutput = { ok: true, updated: 1 };
+  } else if (/(delete|remove)/.test(text)) {
+    inferredInput = { id: "" };
+    inferredOutput = { ok: true, deleted: 1 };
+  } else if (/(list|query|search|find|fetch|get|load)/.test(text)) {
+    inferredInput = { filters: {}, limit: 50, offset: 0 };
+    inferredOutput = { items: [payload], total: 0 };
+  } else if (/(run|execute|sync|process)/.test(text)) {
+    inferredInput = { payload };
+    inferredOutput = { ok: true, result: {} };
+  }
+
+  const input =
+    isInvalidIO(command.input) ? inferredInput : (command.input as Record<string, unknown>);
+  const output =
+    isInvalidIO(command.output) ? inferredOutput : (command.output as Record<string, unknown>);
+
+  return {
+    input: Object.keys(input).length > 0 ? input : fallbackInput,
+    output: Object.keys(output).length > 0 ? output : fallbackOutput,
+  };
 }
 
 function normalizeColumnType(raw: unknown): string {
@@ -117,8 +199,8 @@ export function normalizeWireToCanonical(
         name: asString(item.name, `cmd_${idx + 1}`),
         purpose: asString(item.purpose, "Execute core operation"),
         async: typeof item.async === "boolean" ? item.async : true,
-        input: ensureNonEmptyPayload(item.input),
-        output: ensureNonEmptyPayload(item.output),
+        input: item.input,
+        output: item.output,
       };
     })
     .filter((item) => item.name);
@@ -128,21 +210,10 @@ export function normalizeWireToCanonical(
       name: "run_main_flow",
       purpose: "Execute core flow",
       async: true,
-      input: { placeholder: true },
-      output: { placeholder: true },
+      input: {},
+      output: {},
     });
     fixes.push("rust_commands defaulted to run_main_flow");
-  }
-  {
-    const used = new Set<string>();
-    for (const c of rust_commands) {
-      const prev = c.name;
-      c.name = uniqueName(c.name, used);
-      c.input = ensureNonEmptyPayload(c.input);
-      c.output = ensureNonEmptyPayload(c.output);
-      if (prev !== c.name) fixes.push(`rule:name_unique:rust_commands:${prev}->${c.name}`);
-    }
-    rust_commands.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   const tables = (wire.data_model?.tables ?? [])
@@ -194,6 +265,20 @@ export function normalizeWireToCanonical(
       t.columns.sort((a, b) => a.name.localeCompare(b.name));
     }
     tables.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  {
+    const used = new Set<string>();
+    for (const c of rust_commands) {
+      const prev = c.name;
+      c.name = uniqueName(c.name, used);
+      const enriched = enrichCommandIO(c, tables);
+      if (isInvalidIO(c.input)) fixes.push(`rule:command_io_enriched:input:${c.name}`);
+      if (isInvalidIO(c.output)) fixes.push(`rule:command_io_enriched:output:${c.name}`);
+      c.input = enriched.input;
+      c.output = enriched.output;
+      if (prev !== c.name) fixes.push(`rule:name_unique:rust_commands:${prev}->${c.name}`);
+    }
+    rust_commands.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   const milestoneSource =
