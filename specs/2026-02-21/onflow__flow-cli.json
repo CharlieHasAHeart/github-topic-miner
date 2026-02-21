@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "meta": {
+    "run_id": "20260221T133747Z",
+    "generated_at": "2026-02-21T13:37:47.096Z",
+    "source_repo": {
+      "full_name": "onflow/flow-cli",
+      "url": "https://github.com/onflow/flow-cli"
+    },
+    "topics": [
+      "blockchain",
+      "cli",
+      "command-line",
+      "flow"
+    ]
+  },
+  "app": {
+    "name": "Flow CLI",
+    "one_liner": "A command-line interface for interacting with the Flow blockchain and building decentralized applications.",
+    "inspired_by": null
+  },
+  "core_loop": "Developers use the Flow CLI to initialize projects, generate Cadence code templates, manage accounts, deploy contracts, and interact with Flow network entities like blocks, collections, and events.",
+  "screens": [
+    {
+      "id": "main",
+      "name": "Main CLI Interface",
+      "purpose": "Provide entry point for all Flow CLI commands and super commands.",
+      "primary_actions": [
+        "Initialize new Flow project",
+        "Generate Cadence templates",
+        "Interact with accounts and contracts",
+        "Query blockchain data (blocks, events, collections)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "init",
+      "purpose": "Start a new Flow project with default configuration and directory structure.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "generate",
+      "purpose": "Generate template files for common Cadence code structures.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "accounts",
+      "purpose": "Create and retrieve accounts and deploy contracts.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "blocks",
+      "purpose": "Retrieve block information from the Flow network.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "collections",
+      "purpose": "Retrieve transaction collections from the Flow network.",
+      "async": false,
+      "input": {},
+      "output": {}
+    },
+    {
+      "name": "events",
+      "purpose": "Retrieve event logs emitted by transactions on the Flow network.",
+      "async": false,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "flow_entities",
+        "columns": [
+          {
+            "name": "entity_type",
+            "type": "string"
+          },
+          {
+            "name": "identifier",
+            "type": "string"
+          },
+          {
+            "name": "data",
+            "type": "json"
+          }
+        ]
+      }
+    ]
+  },
+  "tauri_capabilities": [],
+  "mvp_plan": [
+    "week 1: Implement core command parsing and routing",
+    "week 1: Set up project initialization scaffold",
+    "week 1: Integrate basic account and contract management"
+  ],
+  "acceptance_tests": [
+    "User can run 'flow init' to create a new project with correct structure.",
+    "User can generate Cadence templates using 'flow generate'.",
+    "CLI retrieves live block data when running 'flow blocks'.",
+    "Fork test caching is supported as per latest release notes."
+  ],
+  "open_questions": [
+    "How to handle EVM manipulation POC integration in stable builds?",
+    "What is the long-term strategy for linter suggested fixes?"
+  ],
+  "scores": {
+    "closure": 3,
+    "feasibility": 3,
+    "stack_fit": 3,
+    "complexity_control": 3,
+    "debuggability": 3,
+    "demo_value": 3
+  },
+  "overall_recommendation": "go",
+  "citations": {
+    "app": [
+      "E-RD-001",
+      "E-RD-002",
+      "E-RD-003"
+    ],
+    "core_loop": [
+      "E-RD-001",
+      "E-RD-002",
+      "E-RD-005",
+      "E-RD-006",
+      "E-RD-007",
+      "E-RD-008"
+    ],
+    "screens": {
+      "main": [
+        "E-RD-001",
+        "E-RD-006",
+        "E-RD-007"
+      ]
+    },
+    "commands": {
+      "init": [
+        "E-RD-006",
+        "E-RD-007"
+      ],
+      "generate": [
+        "E-RD-007"
+      ],
+      "accounts": [
+        "E-RD-008"
+      ],
+      "blocks": [
+        "E-RD-008"
+      ],
+      "collections": [
+        "E-RD-008"
+      ],
+      "events": [
+        "E-RD-008"
+      ]
+    },
+    "tables": {
+      "flow_entities": [
+        "E-RD-001",
+        "E-RD-002"
+      ]
+    },
+    "acceptance_tests": {
+      "0": [
+        "E-RD-006"
+      ],
+      "1": [
+        "E-RD-007"
+      ],
+      "2": [
+        "E-RD-008"
+      ],
+      "3": [
+        "E-RL-001"
+      ]
+    }
+  }
+}

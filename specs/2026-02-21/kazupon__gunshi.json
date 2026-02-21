@@ -1,0 +1,133 @@
+{
+  "schema_version": 2,
+  "meta": {
+    "run_id": "20260221T133747Z",
+    "generated_at": "2026-02-21T13:37:47.096Z",
+    "source_repo": {
+      "full_name": "kazupon/gunshi",
+      "url": "https://github.com/kazupon/gunshi"
+    },
+    "topics": [
+      "args",
+      "argument",
+      "argv",
+      "cli",
+      "option"
+    ]
+  },
+  "app": {
+    "name": "Gunshi",
+    "one_liner": "Gunshi is a modern JavaScript command-line library for building declarative, type-safe, and composable CLI applications.",
+    "inspired_by": null
+  },
+  "core_loop": "Define commands declaratively with type-safe argument parsing, then execute them via a universal runtime API that supports Node.js, Deno, and Bun.",
+  "screens": [
+    {
+      "id": "main",
+      "name": "Command Runner",
+      "purpose": "Execute configured CLI commands with parsed arguments and context.",
+      "primary_actions": [
+        "Parse command-line arguments",
+        "Validate inputs",
+        "Run command logic",
+        "Render output or errors"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_command",
+      "purpose": "Execute a declaratively defined CLI command with provided arguments and context.",
+      "async": true,
+      "input": {},
+      "output": {}
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "commands",
+        "columns": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "args",
+            "type": "object"
+          },
+          {
+            "name": "run",
+            "type": "function"
+          }
+        ]
+      }
+    ]
+  },
+  "tauri_capabilities": [],
+  "mvp_plan": [
+    "week 1: Define core command structure",
+    "week 1: Implement argument parsing with args-tokens",
+    "week 1: Build CLI runner interface",
+    "week 1: Add support for sub-commands"
+  ],
+  "acceptance_tests": [
+    "CLI runs a simple greeting command with name, greeting, and repeat count arguments.",
+    "Nested sub-commands are correctly parsed and executed."
+  ],
+  "open_questions": [
+    "How to best integrate internationalization into command definitions?",
+    "What plugin lifecycle hooks are essential for extensibility?"
+  ],
+  "scores": {
+    "closure": 3,
+    "feasibility": 3,
+    "stack_fit": 3,
+    "complexity_control": 3,
+    "debuggability": 3,
+    "demo_value": 3
+  },
+  "overall_recommendation": "go",
+  "citations": {
+    "app": [
+      "E-RD-001",
+      "E-RD-003",
+      "E-RD-004"
+    ],
+    "core_loop": [
+      "E-RD-004",
+      "E-RD-005",
+      "E-RD-006"
+    ],
+    "screens": {
+      "main": [
+        "E-RD-005",
+        "E-RD-006"
+      ]
+    },
+    "commands": {
+      "run_command": [
+        "E-RD-005",
+        "E-RF-001"
+      ]
+    },
+    "tables": {
+      "commands": [
+        "E-RD-005"
+      ]
+    },
+    "acceptance_tests": {
+      "0": [
+        "E-RD-005",
+        "E-RD-006"
+      ],
+      "1": [
+        "E-RL-003"
+      ]
+    }
+  }
+}
