@@ -9,90 +9,119 @@
       "name": "Main Terminal Interface",
       "purpose": "Primary interaction surface for conversing with the AI agent, issuing commands, viewing streaming output, and managing sessions.",
       "primary_actions": [
+        "Branch conversation",
         "Send message",
         "Use slash commands",
-        "View session history",
-        "Branch conversation"
+        "View session history"
       ]
     },
     {
       "name": "Settings Configuration",
       "purpose": "Configure API keys, models, providers, themes, custom system prompts, and agent modules.",
       "primary_actions": [
-        "Set API keys",
-        "Select model/provider",
+        "Edit system prompt",
         "Load custom modules",
-        "Edit system prompt"
+        "Select model/provider",
+        "Set API keys"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "save_item",
-      "purpose": "Persistently store an item such as a session, configuration, or generated artifact.",
+      "name": "execute_tool_call",
+      "purpose": "Invoke a registered tool (e.g., git-overview, file I/O, shell) based on agent request.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "payload": {
+          "key": "",
+          "value": {}
+        }
+      },
+      "output": {
+        "ok": true,
+        "result": {}
+      }
     },
     {
       "name": "list_items",
       "purpose": "Retrieve a list of stored items like sessions or configurations.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "key": "",
+            "value": {}
+          }
+        ],
+        "total": 0
+      }
     },
     {
-      "name": "execute_tool_call",
-      "purpose": "Invoke a registered tool (e.g., git-overview, file I/O, shell) based on agent request.",
+      "name": "save_item",
+      "purpose": "Persistently store an item such as a session, configuration, or generated artifact.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "configurations": {
+          "key": "",
+          "value": {}
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "sessions",
-        "columns": [
-          {
-            "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "context",
-            "type": "json"
-          },
-          {
-            "name": "created_at",
-            "type": "timestamp"
-          }
-        ]
-      },
-      {
         "name": "configurations",
         "columns": [
           {
             "name": "key",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "value",
-            "type": "json"
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "context",
+            "type": "JSON"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core TUI loop with message input/output",
-    "week 1: Integrate basic slash command parser",
     "week 1: Add session persistence",
-    "week 1: Connect to default LLM provider"
+    "week 1: Connect to default LLM provider",
+    "week 1: Implement core TUI loop with message input/output",
+    "week 1: Integrate basic slash command parser"
   ],
   "acceptance_tests": [
-    "User can send a message and receive streaming output including text and rendered Mermaid diagrams without crash.",
     "Ctrl+C properly terminates long-running agent responses without hanging.",
     "Custom slash commands are parsed and executed via registered Rust handlers.",
-    "Session state is preserved across restarts and supports branching."
+    "Session state is preserved across restarts and supports branching.",
+    "User can send a message and receive streaming output including text and rendered Mermaid diagrams without crash."
   ]
 }

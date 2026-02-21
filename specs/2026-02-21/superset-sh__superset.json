@@ -9,91 +9,124 @@
       "name": "Agent Dashboard",
       "purpose": "Monitor and manage multiple coding agents running in parallel across isolated workspaces.",
       "primary_actions": [
-        "Start new agent task",
-        "Switch between active workspaces",
+        "Open workspace in external IDE",
         "Review and edit agent-generated changes",
-        "Open workspace in external IDE"
+        "Start new agent task",
+        "Switch between active workspaces"
       ]
     }
   ],
   "rust_commands": [
     {
+      "name": "create_workspace",
+      "purpose": "Initialize a new isolated workspace (git worktree) for an agent task.",
+      "async": true,
+      "input": {
+        "agents": {
+          "status": "",
+          "type": "",
+          "workspace_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
+    },
+    {
       "name": "list_projects",
       "purpose": "Retrieve list of available projects for agent execution.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "status": "",
+            "type": "",
+            "workspace_id": ""
+          }
+        ],
+        "total": 0
+      }
     },
     {
       "name": "list_workspaces",
       "purpose": "Fetch all active or saved workspaces associated with the user’s projects.",
       "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
-      "name": "create_workspace",
-      "purpose": "Initialize a new isolated workspace (git worktree) for an agent task.",
-      "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "agents": {
+          "status": "",
+          "type": "",
+          "workspace_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "workspaces",
-        "columns": [
-          {
-            "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "project_id",
-            "type": "string"
-          },
-          {
-            "name": "branch_name",
-            "type": "string"
-          },
-          {
-            "name": "status",
-            "type": "string"
-          }
-        ]
-      },
-      {
         "name": "agents",
         "columns": [
           {
             "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "type",
-            "type": "string"
-          },
-          {
-            "name": "workspace_id",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "status",
-            "type": "string"
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          },
+          {
+            "name": "workspace_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workspaces",
+        "columns": [
+          {
+            "name": "branch_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up Bun-based runtime environment",
+    "week 1: Build basic agent monitoring dashboard",
     "week 1: Implement git worktree isolation for agent tasks",
-    "week 1: Build basic agent monitoring dashboard"
+    "week 1: Set up Bun-based runtime environment"
   ],
   "acceptance_tests": [
-    "User can launch multiple agents simultaneously without interference between tasks.",
-    "Each agent task runs in its own git worktree with independent branch and working directory.",
     "Changes made by agents are visible in a built-in diff viewer for quick review and editing.",
+    "Each agent task runs in its own git worktree with independent branch and working directory.",
+    "User can launch multiple agents simultaneously without interference between tasks.",
     "Workspaces created in version 0.0.82 function correctly without regression."
   ]
 }

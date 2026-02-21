@@ -9,9 +9,9 @@
       "name": "Main Dashboard",
       "purpose": "Display current automation status, recent activity, and quick actions for managing job applications.",
       "primary_actions": [
+        "Edit Cover Letter Templates",
         "Start/Stop Automation",
-        "View Application History",
-        "Edit Cover Letter Templates"
+        "View Application History"
       ]
     }
   ],
@@ -20,40 +20,61 @@
       "name": "apply_to_vacancies",
       "purpose": "Automatically apply to suitable vacancies using configured resume and generated cover letter.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "content": "",
+          "template_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "send_employer_messages",
       "purpose": "Send pre-configured messages to employer chats after applying to increase visibility.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "content": "",
+          "template_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "update_all_resumes",
       "purpose": "Refresh all user resumes on HH.RU to maintain visibility in search results.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "id": "",
+        "changes": {
+          "content": "",
+          "template_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "updated": 1
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "vacancies",
+        "name": "cover_letters",
         "columns": [
           {
-            "name": "id",
-            "type": "string"
+            "name": "content",
+            "type": "TEXT"
           },
           {
-            "name": "title",
-            "type": "string"
-          },
-          {
-            "name": "applied_at",
-            "type": "datetime"
+            "name": "template_id",
+            "type": "TEXT"
           }
         ]
       },
@@ -62,44 +83,48 @@
         "columns": [
           {
             "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "title",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "last_updated",
-            "type": "datetime"
+            "type": "DATETIME"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
           }
         ]
       },
       {
-        "name": "cover_letters",
+        "name": "vacancies",
         "columns": [
           {
-            "name": "template_id",
-            "type": "string"
+            "name": "applied_at",
+            "type": "DATETIME"
           },
           {
-            "name": "content",
-            "type": "text"
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
+    "week 1: Add resume update functionality",
     "week 1: Implement core vacancy scanning and application logic",
     "week 1: Integrate ChatGPT for cover letter generation",
-    "week 1: Add resume update functionality",
-    "week 2: Implement employer messaging feature",
     "week 2: Add configuration management",
-    "week 2: Build basic CLI interface"
+    "week 2: Build basic CLI interface",
+    "week 2: Implement employer messaging feature"
   ],
   "acceptance_tests": [
-    "Tool successfully applies to a test vacancy with a generated cover letter.",
     "All user resumes are updated within the configured time window.",
-    "Messages are sent to employer chats after application without errors."
+    "Messages are sent to employer chats after application without errors.",
+    "Tool successfully applies to a test vacancy with a generated cover letter."
   ]
 }

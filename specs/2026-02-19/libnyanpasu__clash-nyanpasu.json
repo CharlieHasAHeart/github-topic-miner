@@ -9,9 +9,9 @@
       "name": "Dashboard",
       "purpose": "Display overview of proxy status, quick actions, and current configuration.",
       "primary_actions": [
-        "Toggle proxy state",
+        "Access settings",
         "Switch profiles",
-        "Access settings"
+        "Toggle proxy state"
       ]
     }
   ],
@@ -20,8 +20,17 @@
       "name": "save_item",
       "purpose": "Persist user configuration or profile data to disk.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "profiles": {
+          "content": "",
+          "name": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
@@ -30,28 +39,28 @@
         "name": "profiles",
         "columns": [
           {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
             "name": "id",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "name",
-            "type": "string"
-          },
-          {
-            "name": "content",
-            "type": "string"
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up Tauri v2 project structure",
+    "week 1: Create dashboard UI with Material You styling",
     "week 1: Implement basic profile loading and saving",
-    "week 1: Create dashboard UI with Material You styling"
+    "week 1: Set up Tauri v2 project structure"
   ],
   "acceptance_tests": [
-    "User can toggle proxy state from the dashboard.",
-    "Application supports importing local configuration files."
+    "Application supports importing local configuration files.",
+    "User can toggle proxy state from the dashboard."
   ]
 }

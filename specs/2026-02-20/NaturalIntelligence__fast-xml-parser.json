@@ -9,33 +9,60 @@
       "name": "XML Processing Interface",
       "purpose": "Allow users to input XML or JS objects and select parsing or serialization actions.",
       "primary_actions": [
-        "Parse XML to JS Object",
         "Build XML from JS Object",
+        "Parse XML to JS Object",
         "Validate XML syntax"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "parse_xml",
-      "purpose": "Convert XML string into a JavaScript object with configurable options.",
-      "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
       "name": "build_xml",
       "purpose": "Serialize a JavaScript object into an XML string.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "allowed_tags": "",
+          "max_entity_size": 0,
+          "preserve_order": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "parse_xml",
+      "purpose": "Convert XML string into a JavaScript object with configurable options.",
+      "async": true,
+      "input": {
+        "request": {
+          "allowed_tags": "",
+          "max_entity_size": 0,
+          "preserve_order": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "validate_xml",
       "purpose": "Check XML for syntactic validity using built-in validator.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "allowed_tags": "",
+          "max_entity_size": 0,
+          "preserve_order": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     }
   ],
   "data_model": {
@@ -44,30 +71,30 @@
         "name": "xml_options",
         "columns": [
           {
-            "name": "preserve_order",
-            "type": "boolean"
+            "name": "allowed_tags",
+            "type": "JSON"
           },
           {
             "name": "max_entity_size",
-            "type": "integer"
+            "type": "INTEGER"
           },
           {
-            "name": "allowed_tags",
-            "type": "array"
+            "name": "preserve_order",
+            "type": "BOOLEAN"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core XML parsing logic",
     "week 1: Add basic validation functionality",
-    "week 1: Expose configuration options for parser behavior"
+    "week 1: Expose configuration options for parser behavior",
+    "week 1: Implement core XML parsing logic"
   ],
   "acceptance_tests": [
-    "Parser correctly handles unpaired tags like <br> without crashing",
-    "TS build succeeds without duplicate exports of X2jOptions",
     "Entity processing respects maxEntitySize and other security limits",
-    "Parsing large files (up to 100MB) completes within acceptable time"
+    "Parser correctly handles unpaired tags like <br> without crashing",
+    "Parsing large files (up to 100MB) completes within acceptable time",
+    "TS build succeeds without duplicate exports of X2jOptions"
   ]
 }

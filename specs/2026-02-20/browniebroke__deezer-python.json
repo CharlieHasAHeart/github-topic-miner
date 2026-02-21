@@ -9,9 +9,9 @@
       "name": "Main Interaction Screen",
       "purpose": "Demonstrate core API interaction via code examples or notebook interface.",
       "primary_actions": [
-        "Initialize client",
+        "Access resource attributes",
         "Fetch album by ID",
-        "Access resource attributes"
+        "Initialize client"
       ]
     }
   ],
@@ -20,8 +20,17 @@
       "name": "save_item",
       "purpose": "Persist a fetched Deezer resource (e.g., album, artist) locally.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "deezer_resources": {
+          "title": "",
+          "type": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
@@ -31,24 +40,24 @@
         "columns": [
           {
             "name": "id",
-            "type": "integer"
+            "type": "INTEGER"
           },
           {
             "name": "title",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "type",
-            "type": "string"
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up basic client structure",
     "week 1: Implement album fetching",
-    "week 1: Map API response to Python object"
+    "week 1: Map API response to Python object",
+    "week 1: Set up basic client structure"
   ],
   "acceptance_tests": [
     "Client initializes without error using default settings.",

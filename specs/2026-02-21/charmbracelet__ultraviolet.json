@@ -10,8 +10,8 @@
       "purpose": "Display and interact with cell-based terminal content using the Cursed Render model.",
       "primary_actions": [
         "Handle user input events",
-        "Render dynamic terminal cells",
-        "Query terminal dimensions"
+        "Query terminal dimensions",
+        "Render dynamic terminal cells"
       ]
     }
   ],
@@ -20,8 +20,22 @@
       "name": "query_terminal_bounds",
       "purpose": "Retrieve the available width and height of the terminal emulator.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "char": "",
+            "style": {},
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "total": 0
+      }
     }
   ],
   "data_model": {
@@ -30,29 +44,29 @@
         "name": "terminal_cells",
         "columns": [
           {
-            "name": "x",
-            "type": "int"
-          },
-          {
-            "name": "y",
-            "type": "int"
-          },
-          {
             "name": "char",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "style",
-            "type": "object"
+            "type": "JSON"
+          },
+          {
+            "name": "x",
+            "type": "INTEGER"
+          },
+          {
+            "name": "y",
+            "type": "INTEGER"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Initialize terminal screen buffer",
+    "week 1: Capture keyboard and mouse events",
     "week 1: Implement basic cell rendering",
-    "week 1: Capture keyboard and mouse events"
+    "week 1: Initialize terminal screen buffer"
   ],
   "acceptance_tests": [
     "Application correctly renders styled text in a grid-aligned terminal layout.",

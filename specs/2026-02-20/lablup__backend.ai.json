@@ -20,45 +20,52 @@
       "name": "create_session",
       "purpose": "Initiate a new compute session with specified image, resources, and environment.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "images": {
+          "name": "",
+          "registry": "",
+          "supported_accelerators": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     },
     {
       "name": "terminate_session",
       "purpose": "Gracefully shut down an active compute session and release its resources.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "name": "",
+          "registry": "",
+          "supported_accelerators": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "sessions",
+        "name": "images",
         "columns": [
           {
-            "name": "id",
-            "type": "string"
+            "name": "name",
+            "type": "TEXT"
           },
           {
-            "name": "user_id",
-            "type": "string"
+            "name": "registry",
+            "type": "TEXT"
           },
           {
-            "name": "project_id",
-            "type": "string"
-          },
-          {
-            "name": "image_ref",
-            "type": "string"
-          },
-          {
-            "name": "status",
-            "type": "string"
-          },
-          {
-            "name": "created_at",
-            "type": "timestamp"
+            "name": "supported_accelerators",
+            "type": "JSON"
           }
         ]
       },
@@ -66,37 +73,49 @@
         "name": "kernels",
         "columns": [
           {
-            "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "session_id",
-            "type": "string"
-          },
-          {
             "name": "agent_id",
-            "type": "string"
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
           },
           {
             "name": "resource_spec",
-            "type": "json"
+            "type": "JSON"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
           }
         ]
       },
       {
-        "name": "images",
+        "name": "sessions",
         "columns": [
           {
-            "name": "name",
-            "type": "string"
+            "name": "created_at",
+            "type": "DATETIME"
           },
           {
-            "name": "registry",
-            "type": "string"
+            "name": "id",
+            "type": "TEXT"
           },
           {
-            "name": "supported_accelerators",
-            "type": "array"
+            "name": "image_ref",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
           }
         ]
       }
@@ -108,8 +127,8 @@
     "week 1: Set up PostgreSQL tables for sessions, kernels, and images"
   ],
   "acceptance_tests": [
-    "User can create a SessionV2 via GraphQL mutation and see it appear in the session list",
+    "KernelV2 resolver correctly returns associated agent and resource details via DataLoader",
     "System enforces fair-share scheduling based on domain/project usage history when allocating resources",
-    "KernelV2 resolver correctly returns associated agent and resource details via DataLoader"
+    "User can create a SessionV2 via GraphQL mutation and see it appear in the session list"
   ]
 }

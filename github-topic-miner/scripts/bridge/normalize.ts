@@ -109,13 +109,37 @@ function normalizeColumnType(raw: unknown): string {
   const text = typeof raw === "string" ? raw.trim().toLowerCase() : "";
   if (!text) return "TEXT";
   if (["int", "integer", "i32", "i64", "u32", "u64", "number_int"].includes(text)) return "INTEGER";
-  if (["float", "double", "real", "decimal", "number_float"].includes(text)) return "REAL";
+  if (["float", "double", "real", "decimal", "number_float", "number", "f32", "f64"].includes(text)) return "REAL";
   if (["bool", "boolean"].includes(text)) return "BOOLEAN";
   if (["blob", "binary", "bytes"].includes(text)) return "BLOB";
-  if (["json", "jsonb", "object", "map", "dict"].includes(text)) return "JSON";
+  if (
+    [
+      "json",
+      "jsonb",
+      "object",
+      "map",
+      "dict",
+      "array",
+      "list",
+      "set",
+      "any",
+      "function",
+      "vector",
+      "typescript type",
+      "optional string",
+      "array<string>",
+      "string?",
+      "enum",
+      "foreign_key",
+    ].includes(text)
+  ) {
+    return "JSON";
+  }
   if (["datetime", "timestamp", "date", "time"].includes(text)) return "DATETIME";
   if (["string", "str", "text", "varchar", "char"].includes(text)) return "TEXT";
-  return text.toUpperCase();
+  if (text.startsWith("array<")) return "JSON";
+  if (text.endsWith("?")) return "TEXT";
+  return "TEXT";
 }
 
 function uniqueName(baseRaw: string, used: Set<string>): string {

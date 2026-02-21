@@ -10,26 +10,49 @@
       "purpose": "Primary interface for creating, editing, and running API requests with support for environments, collections, and scripting.",
       "primary_actions": [
         "Create new request",
-        "Run request",
         "Import from cURL or Postman",
+        "Run request",
         "Switch workspace"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "save_item",
-      "purpose": "Persist an API request or collection to local disk within the current workspace.",
-      "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
       "name": "run_request",
       "purpose": "Execute an API request with pre-request and post-response script support.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "payload": {
+          "body": "",
+          "headers": {},
+          "method": "",
+          "url": "",
+          "workspace_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "result": {}
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist an API request or collection to local disk within the current workspace.",
+      "async": true,
+      "input": {
+        "requests": {
+          "body": "",
+          "headers": {},
+          "method": "",
+          "url": "",
+          "workspace_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
@@ -38,28 +61,28 @@
         "name": "requests",
         "columns": [
           {
-            "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "url",
-            "type": "string"
-          },
-          {
-            "name": "method",
-            "type": "string"
+            "name": "body",
+            "type": "TEXT"
           },
           {
             "name": "headers",
-            "type": "object"
+            "type": "JSON"
           },
           {
-            "name": "body",
-            "type": "string"
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "method",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
           },
           {
             "name": "workspace_id",
-            "type": "string"
+            "type": "TEXT"
           }
         ]
       },
@@ -68,34 +91,34 @@
         "columns": [
           {
             "name": "id",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "name",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "path",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "sync_method",
-            "type": "string"
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement local workspace creation and file-based storage",
-    "week 1: Build basic request editor with method, URL, headers, body",
     "week 1: Add run button with simple fetch execution",
+    "week 1: Build basic request editor with method, URL, headers, body",
+    "week 1: Implement local workspace creation and file-based storage",
     "week 1: Support importing cURL commands into request fields"
   ],
   "acceptance_tests": [
+    "rq.iterationData.get() correctly retrieves JSON data during Runner execution.",
     "User can paste a cURL command into the URL bar and have all request fields auto-populated.",
     "User can save a request to a local workspace directory and reopen it later.",
-    "User can switch between multiple local workspaces without losing state.",
-    "rq.iterationData.get() correctly retrieves JSON data during Runner execution."
+    "User can switch between multiple local workspaces without losing state."
   ]
 }

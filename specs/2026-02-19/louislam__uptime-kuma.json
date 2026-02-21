@@ -10,18 +10,9 @@
       "purpose": "Display real-time status of all configured monitors with visual indicators, tags, and groupings.",
       "primary_actions": [
         "Add new monitor",
-        "View monitor details",
         "Edit monitor settings",
-        "Toggle monitor groups"
-      ]
-    },
-    {
-      "name": "Status Pages",
-      "purpose": "Provide public or private status pages that can be mapped to specific domains and sorted by name, tags, or uptime.",
-      "primary_actions": [
-        "Create status page",
-        "Sort monitors by name/tags/uptime",
-        "Map to custom domain"
+        "Toggle monitor groups",
+        "View monitor details"
       ]
     },
     {
@@ -29,32 +20,79 @@
       "purpose": "Configure and manage notification integrations across 90+ services including Discord, Telegram, Email, and PagerDuty.",
       "primary_actions": [
         "Add notification provider",
-        "Test notification",
-        "Customize message templates"
+        "Customize message templates",
+        "Test notification"
+      ]
+    },
+    {
+      "name": "Status Pages",
+      "purpose": "Provide public or private status pages that can be mapped to specific domains and sorted by name, tags, or uptime.",
+      "primary_actions": [
+        "Create status page",
+        "Map to custom domain",
+        "Sort monitors by name/tags/uptime"
       ]
     }
   ],
   "rust_commands": [
     {
+      "name": "check_domain_expiry",
+      "purpose": "Verify domain certificate expiry and trigger notifications only if TLD supports RDAP.",
+      "async": true,
+      "input": {
+        "request": {
+          "group_id": 0,
+          "interval": 0,
+          "name": "",
+          "tags": "",
+          "type": "",
+          "url": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
       "name": "save_monitor_config",
       "purpose": "Persist monitor configuration including type, interval, and notification settings.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "monitors": {
+          "group_id": 0,
+          "interval": 0,
+          "name": "",
+          "tags": "",
+          "type": "",
+          "url": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     },
     {
       "name": "send_notification_alert",
       "purpose": "Dispatch alert to configured notification providers when monitor status changes.",
       "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
-      "name": "check_domain_expiry",
-      "purpose": "Verify domain certificate expiry and trigger notifications only if TLD supports RDAP.",
-      "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "id": "",
+        "changes": {
+          "group_id": 0,
+          "interval": 0,
+          "name": "",
+          "tags": "",
+          "type": "",
+          "url": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "updated": 1
+      }
     }
   ],
   "data_model": {
@@ -63,32 +101,32 @@
         "name": "monitors",
         "columns": [
           {
+            "name": "group_id",
+            "type": "INTEGER"
+          },
+          {
             "name": "id",
-            "type": "integer"
-          },
-          {
-            "name": "name",
-            "type": "string"
-          },
-          {
-            "name": "type",
-            "type": "string"
-          },
-          {
-            "name": "url",
-            "type": "string"
+            "type": "INTEGER"
           },
           {
             "name": "interval",
-            "type": "integer"
+            "type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
           },
           {
             "name": "tags",
-            "type": "array"
+            "type": "JSON"
           },
           {
-            "name": "group_id",
-            "type": "integer"
+            "name": "type",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
           }
         ]
       },
@@ -96,20 +134,20 @@
         "name": "notifications",
         "columns": [
           {
-            "name": "id",
-            "type": "integer"
-          },
-          {
-            "name": "provider",
-            "type": "string"
-          },
-          {
             "name": "config",
-            "type": "json"
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "INTEGER"
           },
           {
             "name": "monitor_id",
-            "type": "integer"
+            "type": "INTEGER"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
           }
         ]
       },
@@ -117,39 +155,39 @@
         "name": "status_pages",
         "columns": [
           {
-            "name": "id",
-            "type": "integer"
-          },
-          {
-            "name": "title",
-            "type": "string"
-          },
-          {
             "name": "domain",
-            "type": "string"
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "INTEGER"
           },
           {
             "name": "sort_order",
-            "type": "string"
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core monitor types: HTTP, Ping, DNS",
-    "week 1: Build reactive dashboard UI",
     "week 1: Add basic notification support (Discord, Email)",
+    "week 1: Build reactive dashboard UI",
+    "week 1: Implement core monitor types: HTTP, Ping, DNS",
     "week 1: Persist data to local SQLite database",
-    "week 2: Support monitor grouping and tagging",
-    "week 2: Implement status pages with sorting",
     "week 2: Add domain expiry monitoring with RDAP check",
-    "week 2: Enable 2FA and user authentication"
+    "week 2: Enable 2FA and user authentication",
+    "week 2: Implement status pages with sorting",
+    "week 2: Support monitor grouping and tagging"
   ],
   "acceptance_tests": [
-    "Given a monitor is down, when the system detects failure, then a notification is sent via configured provider with correct title and metadata.",
-    "Given a status page exists, when user selects sort by 'uptime', then monitors are reordered by descending uptime percentage.",
+    "Given a Browser Engine monitor, when screenshot delay option is set, then the system waits specified time before capturing screenshot.",
     "Given a domain with unsupported TLD, when domain expiry check runs, then no expiry notification is triggered.",
-    "Given a Browser Engine monitor, when screenshot delay option is set, then the system waits specified time before capturing screenshot."
+    "Given a monitor is down, when the system detects failure, then a notification is sent via configured provider with correct title and metadata.",
+    "Given a status page exists, when user selects sort by 'uptime', then monitors are reordered by descending uptime percentage."
   ]
 }

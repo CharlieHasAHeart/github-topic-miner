@@ -9,9 +9,9 @@
       "name": "Main Notepad",
       "purpose": "Allows users to take notes during meetings while Char captures audio in the background.",
       "primary_actions": [
+        "Generate post-meeting summary",
         "Jot down memo",
-        "View real-time transcription",
-        "Generate post-meeting summary"
+        "View real-time transcription"
       ]
     }
   ],
@@ -20,8 +20,17 @@
       "name": "save_item",
       "purpose": "Persist a memo or note item to local storage.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "memos": {
+          "content": "",
+          "timestamp": "1970-01-01T00:00:00.000Z"
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
@@ -30,28 +39,28 @@
         "name": "memos",
         "columns": [
           {
-            "name": "id",
-            "type": "string"
+            "name": "content",
+            "type": "TEXT"
           },
           {
-            "name": "content",
-            "type": "string"
+            "name": "id",
+            "type": "TEXT"
           },
           {
             "name": "timestamp",
-            "type": "datetime"
+            "type": "DATETIME"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up Tauri + Rust backend",
+    "week 1: Create main notepad UI",
     "week 1: Implement basic audio capture",
-    "week 1: Create main notepad UI"
+    "week 1: Set up Tauri + Rust backend"
   ],
   "acceptance_tests": [
-    "User can open the app and start taking notes during a simulated meeting.",
-    "After ending a session, a summary is generated using local LLM (e.g., Ollama)."
+    "After ending a session, a summary is generated using local LLM (e.g., Ollama).",
+    "User can open the app and start taking notes during a simulated meeting."
   ]
 }

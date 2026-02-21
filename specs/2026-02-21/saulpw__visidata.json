@@ -9,88 +9,118 @@
       "name": "Main Sheet View",
       "purpose": "Display and interact with loaded tabular data, allowing sorting, filtering, column operations, and navigation.",
       "primary_actions": [
+        "Invoke commands via palette or keystrokes",
         "Navigate cells and columns",
         "Sort and filter data",
-        "Invoke commands via palette or keystrokes",
         "View column statistics and aggregations"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "save_item",
-      "purpose": "Persist current sheet or selection to a file in a supported format (e.g., CSV, JSON, SQLite).",
-      "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
       "name": "addcol_aggregate",
       "purpose": "Add a new column showing aggregated values (e.g., sum, average) of a selected numeric column.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "options": {
+          "disp_expert": false,
+          "disp_help_flags": "",
+          "max_rows": 0
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     },
     {
       "name": "move_to_cell_below",
       "purpose": "Move cursor to the cell directly below during editing without using Shift+Down.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "id": "",
+        "changes": {
+          "disp_expert": false,
+          "disp_help_flags": "",
+          "max_rows": 0
+        }
+      },
+      "output": {
+        "ok": true,
+        "updated": 1
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist current sheet or selection to a file in a supported format (e.g., CSV, JSON, SQLite).",
+      "async": true,
+      "input": {
+        "options": {
+          "disp_expert": false,
+          "disp_help_flags": "",
+          "max_rows": 0
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "sheets",
+        "name": "options",
         "columns": [
           {
-            "name": "source_path",
-            "type": "string"
+            "name": "disp_expert",
+            "type": "BOOLEAN"
           },
           {
-            "name": "format",
-            "type": "string"
+            "name": "disp_help_flags",
+            "type": "TEXT"
           },
           {
-            "name": "columns",
-            "type": "array"
-          },
-          {
-            "name": "rows",
-            "type": "array"
+            "name": "max_rows",
+            "type": "INTEGER"
           }
         ]
       },
       {
-        "name": "options",
+        "name": "sheets",
         "columns": [
           {
-            "name": "disp_help_flags",
-            "type": "string"
+            "name": "columns",
+            "type": "JSON"
           },
           {
-            "name": "max_rows",
-            "type": "integer"
+            "name": "format",
+            "type": "TEXT"
           },
           {
-            "name": "disp_expert",
-            "type": "boolean"
+            "name": "rows",
+            "type": "JSON"
+          },
+          {
+            "name": "source_path",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core sheet loading for CSV/TSV",
-    "week 1: Build basic navigation and editing commands",
     "week 1: Add command palette with fuzzy search",
+    "week 1: Build basic navigation and editing commands",
+    "week 1: Implement core sheet loading for CSV/TSV",
     "week 1: Support saving sheets to disk"
   ],
   "acceptance_tests": [
+    "Saving a modified sheet preserves data types and structure in the target format.",
     "User can load a CSV file and immediately view its contents in a scrollable grid.",
     "User can open the command palette, type 'aggregate', and add a sum column for a numeric field.",
-    "When viewing a sheet, numerical column summaries (sum, avg) appear in the sidebar if enabled.",
-    "Saving a modified sheet preserves data types and structure in the target format."
+    "When viewing a sheet, numerical column summaries (sum, avg) appear in the sidebar if enabled."
   ]
 }

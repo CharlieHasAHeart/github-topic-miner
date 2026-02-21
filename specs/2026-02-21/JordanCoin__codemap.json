@@ -9,40 +9,84 @@
       "name": "CLI Output View",
       "purpose": "Display structured project context including file trees, dependency flows, or diffs based on user flags.",
       "primary_actions": [
-        "Run codemap with path/URL",
         "Apply filtering flags (--only, --exclude)",
+        "Run codemap with path/URL",
         "Toggle visualization modes (--skyline, --deps)"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "codemap_run",
-      "purpose": "Execute the main codemap command to generate project context output in various modes.",
+      "name": "codemap_deps",
+      "purpose": "Analyze and display dependency flow within the project.",
       "async": false,
-      "input": {},
-      "output": {}
-    },
-    {
-      "name": "codemap_handoff",
-      "purpose": "Generate a cross-agent handoff summary for AI collaboration.",
-      "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "depth": 0,
+          "extension": "",
+          "file_path": "",
+          "importers": "",
+          "is_changed": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "codemap_diff",
       "purpose": "Show files changed versus main branch or specified reference.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "depth": 0,
+          "extension": "",
+          "file_path": "",
+          "importers": "",
+          "is_changed": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
-      "name": "codemap_deps",
-      "purpose": "Analyze and display dependency flow within the project.",
+      "name": "codemap_handoff",
+      "purpose": "Generate a cross-agent handoff summary for AI collaboration.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "depth": 0,
+          "extension": "",
+          "file_path": "",
+          "importers": "",
+          "is_changed": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "codemap_run",
+      "purpose": "Execute the main codemap command to generate project context output in various modes.",
+      "async": false,
+      "input": {
+        "payload": {
+          "depth": 0,
+          "extension": "",
+          "file_path": "",
+          "importers": "",
+          "is_changed": false
+        }
+      },
+      "output": {
+        "ok": true,
+        "result": {}
+      }
     }
   ],
   "data_model": {
@@ -51,40 +95,40 @@
         "name": "project_context",
         "columns": [
           {
-            "name": "file_path",
-            "type": "string"
+            "name": "depth",
+            "type": "INTEGER"
           },
           {
             "name": "extension",
-            "type": "string"
+            "type": "TEXT"
           },
           {
-            "name": "depth",
-            "type": "integer"
-          },
-          {
-            "name": "is_changed",
-            "type": "boolean"
+            "name": "file_path",
+            "type": "TEXT"
           },
           {
             "name": "importers",
-            "type": "array"
+            "type": "JSON"
+          },
+          {
+            "name": "is_changed",
+            "type": "BOOLEAN"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core CLI parsing and file scanning",
     "week 1: Add support for --depth, --only, --exclude flags",
+    "week 1: Implement core CLI parsing and file scanning",
     "week 1: Integrate basic dependency analysis"
   ],
   "acceptance_tests": [
     "CLI successfully outputs project tree with default settings",
-    "Filtering by extension (--only) correctly limits output",
-    "Exclusion patterns (--exclude) omit matching files",
+    "Dependency mode (--deps) displays correct import relationships",
     "Diff mode (--diff) shows only changed files vs main",
-    "Handoff command generates valid cross-agent summary",
-    "Dependency mode (--deps) displays correct import relationships"
+    "Exclusion patterns (--exclude) omit matching files",
+    "Filtering by extension (--only) correctly limits output",
+    "Handoff command generates valid cross-agent summary"
   ]
 }

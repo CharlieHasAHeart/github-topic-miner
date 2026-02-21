@@ -10,9 +10,9 @@
       "purpose": "Visual interface to create, edit, and execute agentic workflows with AI assistance and real-time observability.",
       "primary_actions": [
         "Describe workflow in natural language",
+        "Export workflow as TypeScript",
         "Generate workflow with Pearl AI",
-        "View execution trace and logs",
-        "Export workflow as TypeScript"
+        "View execution trace and logs"
       ]
     }
   ],
@@ -21,8 +21,17 @@
       "name": "save_item",
       "purpose": "Persist a workflow item to storage",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "workflows": {
+          "name": "",
+          "typescript_code": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
@@ -32,30 +41,30 @@
         "columns": [
           {
             "name": "id",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "name",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "typescript_code",
-            "type": "text"
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up TypeScript project with core packages",
-    "week 1: Implement basic workflow generation from natural language",
     "week 1: Add observability logging for execution steps",
-    "week 1: Enable TypeScript export functionality"
+    "week 1: Enable TypeScript export functionality",
+    "week 1: Implement basic workflow generation from natural language",
+    "week 1: Set up TypeScript project with core packages"
   ],
   "acceptance_tests": [
-    "User can input natural language description and receive a working TypeScript workflow",
-    "Generated workflow includes proper integrations and branching logic",
     "Execution trace shows detailed logs and token usage",
-    "Exported TypeScript code is production-ready and runnable"
+    "Exported TypeScript code is production-ready and runnable",
+    "Generated workflow includes proper integrations and branching logic",
+    "User can input natural language description and receive a working TypeScript workflow"
   ]
 }

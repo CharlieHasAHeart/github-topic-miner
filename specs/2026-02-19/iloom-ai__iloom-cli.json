@@ -9,87 +9,106 @@
       "name": "Main Workflow Screen",
       "purpose": "Orchestrate AI-assisted development tasks including planning, implementation, and review within isolated workflows.",
       "primary_actions": [
-        "Start a new task with `il start`",
         "List project issues and PRs with `il issues`",
-        "Review and manage active looms via VS Code extension"
+        "Review and manage active looms via VS Code extension",
+        "Start a new task with `il start`"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "il_start",
-      "purpose": "Initiate a new AI-assisted development task, optionally creating a draft PR with linked issue context.",
+      "name": "il_cleanup",
+      "purpose": "Clean up local branches associated with completed or obsolete looms without failing on draft PR branches.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "completeness_score": "",
+          "gaps_detected": "",
+          "loom_id": "",
+          "reviewer_agent": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "il_issues",
       "purpose": "List open issues and non-draft pull requests from configured issue trackers (GitHub or Linear), with caching for performance.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "completeness_score": "",
+            "gaps_detected": "",
+            "loom_id": "",
+            "reviewer_agent": ""
+          }
+        ],
+        "total": 0
+      }
     },
     {
-      "name": "il_cleanup",
-      "purpose": "Clean up local branches associated with completed or obsolete looms without failing on draft PR branches.",
+      "name": "il_start",
+      "purpose": "Initiate a new AI-assisted development task, optionally creating a draft PR with linked issue context.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "completeness_score": "",
+          "gaps_detected": "",
+          "loom_id": "",
+          "reviewer_agent": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "il_vscode",
       "purpose": "Install and manage the iloom VS Code extension to enable real-time AI insight panels and loom exploration.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "completeness_score": "",
+          "gaps_detected": "",
+          "loom_id": "",
+          "reviewer_agent": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "loom_tasks",
-        "columns": [
-          {
-            "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "issue_context",
-            "type": "json"
-          },
-          {
-            "name": "branch_name",
-            "type": "string"
-          },
-          {
-            "name": "parent_loom_id",
-            "type": "string"
-          },
-          {
-            "name": "draft_pr_url",
-            "type": "string"
-          }
-        ]
-      },
-      {
         "name": "artifact_reviews",
         "columns": [
           {
-            "name": "loom_id",
-            "type": "string"
-          },
-          {
-            "name": "reviewer_agent",
-            "type": "string"
-          },
-          {
             "name": "completeness_score",
-            "type": "number"
+            "type": "REAL"
           },
           {
             "name": "gaps_detected",
-            "type": "array"
+            "type": "JSON"
+          },
+          {
+            "name": "loom_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "reviewer_agent",
+            "type": "TEXT"
           }
         ]
       },
@@ -97,32 +116,57 @@
         "name": "issue_tracker_cache",
         "columns": [
           {
-            "name": "project_key",
-            "type": "string"
-          },
-          {
             "name": "items",
-            "type": "array"
+            "type": "JSON"
           },
           {
             "name": "last_fetched",
-            "type": "timestamp"
+            "type": "DATETIME"
+          },
+          {
+            "name": "project_key",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "loom_tasks",
+        "columns": [
+          {
+            "name": "branch_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "draft_pr_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "issue_context",
+            "type": "JSON"
+          },
+          {
+            "name": "parent_loom_id",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core CLI commands: `il start`, `il issues`, `il cleanup`",
-    "week 1: Integrate draft PR creation with issue context embedding",
     "week 1: Build local caching layer for issue/PR metadata",
-    "week 1: Enable VS Code extension installation via `il vscode`"
+    "week 1: Enable VS Code extension installation via `il vscode`",
+    "week 1: Implement core CLI commands: `il start`, `il issues`, `il cleanup`",
+    "week 1: Integrate draft PR creation with issue context embedding"
   ],
   "acceptance_tests": [
-    "User can run `il start` on an unconfigured project and accept sensible defaults with one keypress.",
-    "Running `il issues` lists open GitHub/Linear issues and non-draft PRs, caches results for 2 minutes, and prefixes PRs with [PR].",
-    "Draft PRs created during `il start` include full issue title, body, and 'Fixes #XXX' keyword for auto-closure on merge.",
     "Child loom draft PRs correctly target the parent loom's branch instead of main to support stacked PR workflows.",
-    "The `il cleanup` command successfully deletes local branches even when associated with draft PRs."
+    "Draft PRs created during `il start` include full issue title, body, and 'Fixes #XXX' keyword for auto-closure on merge.",
+    "Running `il issues` lists open GitHub/Linear issues and non-draft PRs, caches results for 2 minutes, and prefixes PRs with [PR].",
+    "The `il cleanup` command successfully deletes local branches even when associated with draft PRs.",
+    "User can run `il start` on an unconfigured project and accept sensible defaults with one keypress."
   ]
 }

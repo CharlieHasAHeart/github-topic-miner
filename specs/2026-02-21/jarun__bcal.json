@@ -9,86 +9,118 @@
       "name": "REPL Prompt",
       "purpose": "Primary interface for entering and evaluating storage and arithmetic expressions.",
       "primary_actions": [
-        "Enter expression with storage units",
-        "Switch to general-purpose calculation mode",
         "Convert between SI/IEC units",
+        "Enter expression with storage units",
+        "Perform base conversion",
         "Show bit positions of a number",
-        "Perform base conversion"
+        "Switch to general-purpose calculation mode"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "quit",
-      "purpose": "Exit the REPL session cleanly.",
-      "async": false,
-      "input": {},
-      "output": {}
-    },
-    {
       "name": "exit",
       "purpose": "Exit the REPL session cleanly (alias for quit).",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "expression": "",
+          "result": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
-      "name": "toggle_calc_mode",
-      "purpose": "Switch between storage unit evaluation and general-purpose calculation mode.",
+      "name": "quit",
+      "purpose": "Exit the REPL session cleanly.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "expression": "",
+          "result": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "show_bit_positions",
       "purpose": "Display bit positions with their values for a given number.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "expression": "",
+          "result": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
+      "name": "toggle_calc_mode",
+      "purpose": "Switch between storage unit evaluation and general-purpose calculation mode.",
+      "async": false,
+      "input": {
+        "request": {
+          "expression": "",
+          "result": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "last_result",
-        "columns": [
-          {
-            "name": "value",
-            "type": "f64"
-          },
-          {
-            "name": "unit",
-            "type": "string"
-          }
-        ]
-      },
-      {
         "name": "history",
         "columns": [
           {
             "name": "expression",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "result",
-            "type": "string"
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "last_result",
+        "columns": [
+          {
+            "name": "unit",
+            "type": "TEXT"
+          },
+          {
+            "name": "value",
+            "type": "REAL"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement REPL loop with expression parsing",
     "week 1: Add support for SI/IEC storage unit conversion",
+    "week 1: Implement REPL loop with expression parsing",
     "week 1: Integrate basic arithmetic and bitwise operations",
     "week 1: Store and reuse last valid result",
     "week 1: Support base conversion (binary, decimal, hex)"
   ],
   "acceptance_tests": [
-    "User can enter 'quit' or 'exit' to terminate the program without error.",
-    "General-purpose calculations work without dependency on external tools like bc or calc.",
     "Bitwise operations (AND, OR, XOR, shifts) produce correct results.",
+    "General-purpose calculations work without dependency on external tools like bc or calc.",
+    "Program handles undefined input without breaking the terminal.",
     "Storage expressions like '(2GiB * 2) / (2KiB >> 2)' evaluate correctly.",
-    "Program handles undefined input without breaking the terminal."
+    "User can enter 'quit' or 'exit' to terminate the program without error."
   ]
 }

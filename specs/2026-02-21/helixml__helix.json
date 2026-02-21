@@ -10,9 +10,9 @@
       "purpose": "Provide an easy-to-use web UI for agent interaction, management, and monitoring of multi-step reasoning sessions with tool orchestration.",
       "primary_actions": [
         "Create new agent session",
+        "Manage connected tools and providers",
         "Pause/resume agent execution",
-        "View agent memory and context",
-        "Manage connected tools and providers"
+        "View agent memory and context"
       ]
     }
   ],
@@ -21,8 +21,17 @@
       "name": "save_item",
       "purpose": "Persist agent configuration or session state to storage.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "agents": {
+          "config": {},
+          "session_state": {}
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     }
   ],
   "data_model": {
@@ -31,16 +40,16 @@
         "name": "agents",
         "columns": [
           {
-            "name": "id",
-            "type": "string"
+            "name": "config",
+            "type": "JSON"
           },
           {
-            "name": "config",
-            "type": "json"
+            "name": "id",
+            "type": "TEXT"
           },
           {
             "name": "session_state",
-            "type": "json"
+            "type": "JSON"
           }
         ]
       }
@@ -53,8 +62,8 @@
     "week 1: Set up session-based architecture with pause/resume"
   ],
   "acceptance_tests": [
-    "User can create an agent via helix.yaml and interact with it through the web UI.",
     "Agent sessions persist across browser refreshes and can be paused/resumed.",
-    "Platform correctly loads/unloads models based on demand using GPU scheduler."
+    "Platform correctly loads/unloads models based on demand using GPU scheduler.",
+    "User can create an agent via helix.yaml and interact with it through the web UI."
   ]
 }

@@ -10,8 +10,8 @@
       "purpose": "Provide access to core SoulFire server features and real-time interaction.",
       "primary_actions": [
         "Connect to SoulFire server",
-        "View server status",
-        "Execute commands"
+        "Execute commands",
+        "View server status"
       ]
     }
   ],
@@ -20,8 +20,16 @@
       "name": "connect_to_server",
       "purpose": "Establish a connection to the SoulFire gRPC server endpoint.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "endpoint": "",
+          "last_connected": "1970-01-01T00:00:00.000Z"
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     }
   ],
   "data_model": {
@@ -31,20 +39,20 @@
         "columns": [
           {
             "name": "endpoint",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "last_connected",
-            "type": "timestamp"
+            "type": "DATETIME"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up Tauri project structure",
+    "week 1: Create main dashboard UI",
     "week 1: Implement basic gRPC client communication",
-    "week 1: Create main dashboard UI"
+    "week 1: Set up Tauri project structure"
   ],
   "acceptance_tests": [
     "User can download and install the SoulFire Client on Windows x86_64 using the provided installer link.",

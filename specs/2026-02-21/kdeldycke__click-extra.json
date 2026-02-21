@@ -1,47 +1,17 @@
 {
-  "schema_version": 2,
-  "meta": {
-    "run_id": "20260221T133747Z",
-    "generated_at": "2026-02-21T13:37:47.096Z",
-    "source_repo": {
-      "full_name": "kdeldycke/click-extra",
-      "url": "https://github.com/kdeldycke/click-extra"
-    },
-    "topics": [
-      "ansi-colors",
-      "cli",
-      "click",
-      "cloup",
-      "colorization",
-      "console",
-      "json",
-      "logging",
-      "multiplatform",
-      "pygments",
-      "pytest",
-      "python",
-      "python-tabulate",
-      "sphinx",
-      "terminal",
-      "toml",
-      "yaml"
-    ]
-  },
+  "schema_version": 3,
   "app": {
     "name": "Click Extra",
-    "one_liner": "A drop-in replacement for Click to make user-friendly and colorful CLI applications with minimal boilerplate.",
-    "inspired_by": null
+    "one_liner": "A drop-in replacement for Click to make user-friendly and colorful CLI applications with minimal boilerplate."
   },
-  "core_loop": "Users define CLI commands using Click Extra decorators, which automatically apply consistent styling, configuration loading, help formatting, and cross-platform compatibility, reducing the need for repetitive setup code.",
   "screens": [
     {
-      "id": "main",
       "name": "CLI Help Screen",
       "purpose": "Display formatted, colorful help output for the CLI application with aligned tables and proper ANSI rendering.",
       "primary_actions": [
-        "Show command usage",
+        "Display subcommands if any",
         "Render options with descriptions",
-        "Display subcommands if any"
+        "Show command usage"
       ]
     }
   ],
@@ -50,8 +20,21 @@
       "name": "disable_config_auto_load",
       "purpose": "Allow users to opt out of automatic configuration file loading at runtime.",
       "async": false,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "alignment": "",
+            "borders": false,
+            "format": ""
+          }
+        ],
+        "total": 0
+      }
     }
   ],
   "data_model": {
@@ -60,95 +43,30 @@
         "name": "cli_output_table",
         "columns": [
           {
-            "name": "format",
-            "type": "string"
-          },
-          {
             "name": "alignment",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "borders",
-            "type": "boolean"
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "format",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
-  "tauri_capabilities": [],
   "mvp_plan": [
-    "week 1: Implement core Click wrapper with default colorization and help formatting",
     "week 1: Add support for aligned table output without borders",
+    "week 1: Implement core Click wrapper with default colorization and help formatting",
     "week 1: Integrate configuration auto-loading with disable option"
   ],
   "acceptance_tests": [
     "CLI renders help screen with proper ANSI colors and alignment in terminal",
     "Configuration files are not loaded when auto-load is disabled via command flag",
-    "Table output uses single-space column separators and no borders in 'aligned' format",
-    "GitHub-style table format correctly renders alignment hints (:---, :---:, ---:)"
-  ],
-  "open_questions": [
-    "How to handle backward compatibility with older Click versions?",
-    "Should TOML/JSON/YAML config support be extended beyond current scope?"
-  ],
-  "scores": {
-    "closure": 3,
-    "feasibility": 3,
-    "stack_fit": 3,
-    "complexity_control": 3,
-    "debuggability": 3,
-    "demo_value": 3
-  },
-  "overall_recommendation": "go",
-  "citations": {
-    "app": [
-      "E-RD-001",
-      "E-RD-002",
-      "E-RD-004"
-    ],
-    "core_loop": [
-      "E-RD-003",
-      "E-RD-004",
-      "E-RD-005"
-    ],
-    "screens": {
-      "main": [
-        "E-RD-006",
-        "E-RD-007",
-        "E-RD-008"
-      ]
-    },
-    "commands": {
-      "disable_config_auto_load": [
-        "E-IS-001",
-        "E-RD-001",
-        "E-RF-001"
-      ]
-    },
-    "tables": {
-      "cli_output_table": [
-        "E-RD-002",
-        "E-RL-002",
-        "E-RL-003"
-      ]
-    },
-    "acceptance_tests": {
-      "0": [
-        "E-RD-007",
-        "E-RD-008"
-      ],
-      "1": [
-        "E-IS-001",
-        "E-RL-001"
-      ],
-      "2": [
-        "E-RD-004",
-        "E-RL-002"
-      ],
-      "3": [
-        "E-RD-005",
-        "E-RL-003"
-      ]
-    }
-  }
+    "GitHub-style table format correctly renders alignment hints (:---, :---:, ---:)",
+    "Table output uses single-space column separators and no borders in 'aligned' format"
+  ]
 }

@@ -9,90 +9,138 @@
       "name": "EVA Pentest Shell",
       "purpose": "Primary interface for interacting with the AI pentesting agent, executing commands, and navigating sessions.",
       "primary_actions": [
-        "Select existing session",
-        "Create new session",
         "Choose AI backend",
+        "Create new session",
         "Define target",
         "Execute AI-suggested commands",
+        "Select existing session",
         "View analysis and next steps"
       ]
     }
   ],
   "rust_commands": [
     {
+      "name": "configure_eva",
+      "purpose": "Open configuration interface to set EVA variables via --config flag.",
+      "async": true,
+      "input": {
+        "request": {
+          "command_id": "",
+          "command_text": "",
+          "executed_at": "1970-01-01T00:00:00.000Z",
+          "output": "",
+          "session_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
+    },
+    {
       "name": "execute_command",
       "purpose": "Execute system or enumeration commands suggested by the AI during pentest workflow and capture output for analysis.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "payload": {
+          "command_id": "",
+          "command_text": "",
+          "executed_at": "1970-01-01T00:00:00.000Z",
+          "output": "",
+          "session_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "result": {}
+      }
     },
     {
       "name": "generate_report",
       "purpose": "Generate HTML/PDF vulnerability assessment reports and attack surface maps from session data.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "command_id": "",
+          "command_text": "",
+          "executed_at": "1970-01-01T00:00:00.000Z",
+          "output": "",
+          "session_id": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     },
     {
       "name": "search_vulnerabilities",
       "purpose": "Perform AI-assisted vulnerability or exploit searches using the --search CLI flag.",
       "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
-      "name": "configure_eva",
-      "purpose": "Open configuration interface to set EVA variables via --config flag.",
-      "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "command_id": "",
+            "command_text": "",
+            "executed_at": "1970-01-01T00:00:00.000Z",
+            "output": "",
+            "session_id": ""
+          }
+        ],
+        "total": 0
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "sessions",
-        "columns": [
-          {
-            "name": "session_id",
-            "type": "string"
-          },
-          {
-            "name": "target",
-            "type": "string"
-          },
-          {
-            "name": "ai_backend",
-            "type": "string"
-          },
-          {
-            "name": "created_at",
-            "type": "timestamp"
-          }
-        ]
-      },
-      {
         "name": "commands",
         "columns": [
           {
             "name": "command_id",
-            "type": "string"
-          },
-          {
-            "name": "session_id",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "command_text",
-            "type": "string"
-          },
-          {
-            "name": "output",
-            "type": "text"
+            "type": "TEXT"
           },
           {
             "name": "executed_at",
-            "type": "timestamp"
+            "type": "DATETIME"
+          },
+          {
+            "name": "output",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "ai_backend",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "target",
+            "type": "TEXT"
           }
         ]
       },
@@ -100,36 +148,36 @@
         "name": "vulnerabilities",
         "columns": [
           {
-            "name": "vuln_id",
-            "type": "string"
+            "name": "description",
+            "type": "TEXT"
           },
           {
             "name": "session_id",
-            "type": "string"
-          },
-          {
-            "name": "description",
-            "type": "text"
+            "type": "TEXT"
           },
           {
             "name": "severity",
-            "type": "string"
+            "type": "TEXT"
+          },
+          {
+            "name": "vuln_id",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement session management and AI backend selection",
+    "week 1: Add report generation for HTML/PDF",
     "week 1: Build core command execution and output parsing",
-    "week 1: Integrate basic vulnerability detection logic",
-    "week 1: Add report generation for HTML/PDF"
+    "week 1: Implement session management and AI backend selection",
+    "week 1: Integrate basic vulnerability detection logic"
   ],
   "acceptance_tests": [
-    "User can launch EVA and select a new session.",
-    "User can choose Anthropic Claude as AI backend and define a target.",
+    "CLI flags like --search and --config function as described in v3.1 release.",
     "EVA suggests and executes reconnaissance commands, parses output correctly.",
-    "Vulnerability is identified and added to session; report is generated in HTML.",
-    "CLI flags like --search and --config function as described in v3.1 release."
+    "User can choose Anthropic Claude as AI backend and define a target.",
+    "User can launch EVA and select a new session.",
+    "Vulnerability is identified and added to session; report is generated in HTML."
   ]
 }

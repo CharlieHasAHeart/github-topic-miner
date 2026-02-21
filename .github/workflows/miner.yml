@@ -72,6 +72,9 @@ jobs:
           MIN_SPECS_SUCCEEDED: "1"
         run: npm run miner:ci
 
+      - name: Validate Canonical Specs v3
+        run: npm run specs:validate:v3
+
       - name: Commit and Push Artifacts
         if: success() && (github.event.inputs.dryRun != 'true')
         run: |

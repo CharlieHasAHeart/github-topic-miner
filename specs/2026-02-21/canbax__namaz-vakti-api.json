@@ -20,8 +20,21 @@
       "name": "fetch_prayer_times_gps",
       "purpose": "Retrieve prayer times based on latitude, longitude, timezone offset, and language.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "latitude": "",
+            "longitude": "",
+            "name": ""
+          }
+        ],
+        "total": 0
+      }
     }
   ],
   "data_model": {
@@ -31,28 +44,28 @@
         "columns": [
           {
             "name": "id",
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "latitude",
-            "type": "number"
+            "type": "REAL"
           },
           {
             "name": "longitude",
-            "type": "number"
+            "type": "REAL"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core prayer time calculation using irem/adhan-js",
+    "week 1: Add basic location search capability",
     "week 1: Expose /api/timesForGPS endpoint",
-    "week 1: Add basic location search capability"
+    "week 1: Implement core prayer time calculation using irem/adhan-js"
   ],
   "acceptance_tests": [
     "API returns valid prayer times for given GPS coordinates with correct timezone offset.",

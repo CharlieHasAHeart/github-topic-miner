@@ -9,105 +9,119 @@
       "name": "API Selection Dashboard",
       "purpose": "Allow users to browse and select available data APIs by platform and category.",
       "primary_actions": [
-        "Select platform (Xiaohongshu, Taobao, Douyin, etc.)",
         "Choose data type (e.g., Note Details, Product Reviews)",
         "Configure query parameters",
-        "Execute API request"
+        "Execute API request",
+        "Select platform (Xiaohongshu, Taobao, Douyin, etc.)"
       ]
     }
   ],
   "rust_commands": [
     {
-      "name": "fetch_xiaohongshu_note",
-      "purpose": "Retrieve detailed data for a specific Xiaohongshu note using its ID.",
-      "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
-      "name": "fetch_taobao_product",
-      "purpose": "Fetch comprehensive product details from Taobao including sales and reviews.",
-      "async": true,
-      "input": {},
-      "output": {}
-    },
-    {
       "name": "fetch_douyin_video",
       "purpose": "Get metadata and engagement stats for a Douyin video.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "author_id": "",
+            "description": "",
+            "play_count": 0,
+            "video_id": ""
+          }
+        ],
+        "total": 0
+      }
     },
     {
       "name": "fetch_kuaishou_user_videos",
       "purpose": "List all videos published by a Kuaishou user.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "author_id": "",
+            "description": "",
+            "play_count": 0,
+            "video_id": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "fetch_taobao_product",
+      "purpose": "Fetch comprehensive product details from Taobao including sales and reviews.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "author_id": "",
+            "description": "",
+            "play_count": 0,
+            "video_id": ""
+          }
+        ],
+        "total": 0
+      }
+    },
+    {
+      "name": "fetch_xiaohongshu_note",
+      "purpose": "Retrieve detailed data for a specific Xiaohongshu note using its ID.",
+      "async": true,
+      "input": {
+        "filters": {},
+        "limit": 50,
+        "offset": 0
+      },
+      "output": {
+        "items": [
+          {
+            "author_id": "",
+            "description": "",
+            "play_count": 0,
+            "video_id": ""
+          }
+        ],
+        "total": 0
+      }
     }
   ],
   "data_model": {
     "tables": [
       {
-        "name": "xiaohongshu_notes",
-        "columns": [
-          {
-            "name": "note_id",
-            "type": "string"
-          },
-          {
-            "name": "user_id",
-            "type": "string"
-          },
-          {
-            "name": "content",
-            "type": "text"
-          },
-          {
-            "name": "likes",
-            "type": "integer"
-          }
-        ]
-      },
-      {
-        "name": "taobao_products",
-        "columns": [
-          {
-            "name": "product_id",
-            "type": "string"
-          },
-          {
-            "name": "title",
-            "type": "string"
-          },
-          {
-            "name": "price",
-            "type": "decimal"
-          },
-          {
-            "name": "sales_30d",
-            "type": "integer"
-          }
-        ]
-      },
-      {
         "name": "douyin_videos",
         "columns": [
           {
-            "name": "video_id",
-            "type": "string"
-          },
-          {
             "name": "author_id",
-            "type": "string"
-          },
-          {
-            "name": "play_count",
-            "type": "integer"
+            "type": "TEXT"
           },
           {
             "name": "description",
-            "type": "text"
+            "type": "TEXT"
+          },
+          {
+            "name": "play_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "video_id",
+            "type": "TEXT"
           }
         ]
       },
@@ -115,35 +129,77 @@
         "name": "kuaishou_users",
         "columns": [
           {
+            "name": "follower_count",
+            "type": "INTEGER"
+          },
+          {
             "name": "user_id",
-            "type": "string"
+            "type": "TEXT"
           },
           {
             "name": "username",
-            "type": "string"
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "taobao_products",
+        "columns": [
+          {
+            "name": "price",
+            "type": "REAL"
           },
           {
-            "name": "follower_count",
-            "type": "integer"
+            "name": "product_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sales_30d",
+            "type": "INTEGER"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "xiaohongshu_notes",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "likes",
+            "type": "INTEGER"
+          },
+          {
+            "name": "note_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Implement core API client infrastructure",
     "week 1: Add support for Xiaohongshu Note Details endpoint",
     "week 1: Build main dashboard screen UI",
     "week 1: Define data models for Xiaohongshu notes",
-    "week 2: Integrate Taobao Product Details API",
-    "week 2: Extend data model with Taobao product schema",
+    "week 1: Implement core API client infrastructure",
     "week 2: Add parameter configuration panel",
-    "week 2: Implement async command execution"
+    "week 2: Extend data model with Taobao product schema",
+    "week 2: Implement async command execution",
+    "week 2: Integrate Taobao Product Details API"
   ],
   "acceptance_tests": [
-    "User can select Xiaohongshu Note Details from the main dashboard and successfully retrieve a note by ID.",
-    "User can switch to Taobao Product Details and fetch a valid product with 30-day sales data.",
+    "Kuaishou User Video List loads correctly when given a valid user ID.",
     "The application displays structured data from Douyin Video Details without errors.",
-    "Kuaishou User Video List loads correctly when given a valid user ID."
+    "User can select Xiaohongshu Note Details from the main dashboard and successfully retrieve a note by ID.",
+    "User can switch to Taobao Product Details and fetch a valid product with 30-day sales data."
   ]
 }

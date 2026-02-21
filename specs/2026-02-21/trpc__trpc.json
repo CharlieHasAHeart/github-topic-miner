@@ -9,9 +9,9 @@
       "name": "API Definition & Consumption",
       "purpose": "Enable developers to define and call typesafe remote procedures seamlessly between client and server.",
       "primary_actions": [
-        "Define server-side procedures",
+        "Batch multiple requests automatically",
         "Call procedures from client with type safety",
-        "Batch multiple requests automatically"
+        "Define server-side procedures"
       ]
     }
   ],
@@ -20,15 +20,34 @@
       "name": "create_procedure",
       "purpose": "Define a new typesafe remote procedure endpoint on the server.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "procedures": {
+          "input_schema": "",
+          "name": "",
+          "output_type": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "id": "",
+        "created": 1
+      }
     },
     {
       "name": "invoke_procedure",
       "purpose": "Call a remote procedure from the client with validated input and typed response.",
       "async": true,
-      "input": {},
-      "output": {}
+      "input": {
+        "request": {
+          "input_schema": "",
+          "name": "",
+          "output_type": ""
+        }
+      },
+      "output": {
+        "ok": true,
+        "message": "done"
+      }
     }
   ],
   "data_model": {
@@ -37,16 +56,16 @@
         "name": "procedures",
         "columns": [
           {
-            "name": "name",
-            "type": "string"
+            "name": "input_schema",
+            "type": "JSON"
           },
           {
-            "name": "input_schema",
-            "type": "TypeScript type"
+            "name": "name",
+            "type": "TEXT"
           },
           {
             "name": "output_type",
-            "type": "TypeScript type"
+            "type": "JSON"
           }
         ]
       },
@@ -54,30 +73,30 @@
         "name": "requests",
         "columns": [
           {
-            "name": "procedure_name",
-            "type": "string"
+            "name": "batch_id",
+            "type": "JSON"
           },
           {
             "name": "input_data",
-            "type": "any"
+            "type": "JSON"
           },
           {
-            "name": "batch_id",
-            "type": "optional string"
+            "name": "procedure_name",
+            "type": "TEXT"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Set up tRPC server with basic procedure definition",
+    "week 1: Enable automatic request batching",
     "week 1: Implement client-side procedure invocation with type inference",
-    "week 1: Enable automatic request batching"
+    "week 1: Set up tRPC server with basic procedure definition"
   ],
   "acceptance_tests": [
     "Client can call a server procedure and receive a strongly typed response without runtime schema validation.",
+    "FormData inputs are correctly serialized when used directly in procedure inputs.",
     "Multiple client requests made simultaneously are automatically batched into a single HTTP request.",
-    "WebSocket-based subscriptions work with custom encoders as specified in connection parameters.",
-    "FormData inputs are correctly serialized when used directly in procedure inputs."
+    "WebSocket-based subscriptions work with custom encoders as specified in connection parameters."
   ]
 }
