@@ -1,0 +1,119 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "SPlayer",
+    "one_liner": "A cross-platform music player supporting Jellyfin, Navidrome, Emby, word-by-word lyrics, desktop/taskbar lyrics, and local/cloud music management."
+  },
+  "screens": [
+    {
+      "name": "Main Player Screen",
+      "purpose": "Primary interface for browsing music, controlling playback, and viewing lyrics.",
+      "primary_actions": [
+        "Access song menu (share, copy info, etc.)",
+        "Play/pause track",
+        "Switch between local and streaming sources",
+        "View and interact with word-by-word lyrics"
+      ]
+    },
+    {
+      "name": "Settings Screen",
+      "purpose": "Configure player behavior, appearance, media sources, and advanced features like taskbar lyrics or FFmpeg engine.",
+      "primary_actions": [
+        "Adjust lyric display preferences",
+        "Manage media server connections",
+        "Set custom background/theme",
+        "Toggle native module usage"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve cached or indexed media items from SQLite-backed storage for display in UI.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "name": "string",
+        "offset": "int?",
+        "query": "string?",
+        "song_ids": "json"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user data such as playback state, settings, or cached metadata using native Rust modules.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "song_ids": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "playlists",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "song_ids",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "songs",
+        "columns": [
+          {
+            "name": "artist",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "lyrics_data",
+            "type": "BLOB"
+          },
+          {
+            "name": "source_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build main screen with Naïve UI components for track listing and controls",
+    "week 1: Implement basic media playback with MPV/FFmpeg engine",
+    "week 1: Integrate SQLite for caching song metadata and lyrics",
+    "week 1: Set up Electron + Vue 3 + TypeScript base with native Rust module scaffolding"
+  ],
+  "acceptance_tests": [
+    "AB loop and audio quality switching features are accessible and functional per v3.0.0 release notes (E-RL-002).",
+    "Application builds successfully with SKIP_NATIVE_BUILD=true and functions in web mode (validated against E-RD-007 and E-RD-005).",
+    "Taskbar lyrics appear and update correctly during playback on supported platforms (validated against E-IS-002 and E-RL-002).",
+    "User can play a track from a Navidrome server and see scrollable word-by-word lyrics without UI overflow (validated against issue E-IS-001)."
+  ]
+}

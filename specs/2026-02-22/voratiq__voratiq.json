@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Voratiq",
+    "one_liner": "Run coding agents against each other. Merge the winner."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Orchestrate agent runs and spec generation from the command line.",
+      "primary_actions": [
+        "Generate a new spec using `voratiq spec`",
+        "Run agent ensemble using `voratiq run --spec <file>`"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "voratiq_run",
+      "purpose": "Executes an ensemble of AI coding agents against a given spec file and selects the best implementation.",
+      "async": true,
+      "input": {
+        "agent_ids": "json",
+        "payload": "json",
+        "spec_file": "string",
+        "winner": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "voratiq_spec",
+      "purpose": "Generates a structured specification file from a natural language description using a designated AI agent.",
+      "async": true,
+      "input": {
+        "agent_ids": "json",
+        "payload": "json",
+        "spec_file": "string",
+        "winner": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agent_runs",
+        "columns": [
+          {
+            "name": "agent_ids",
+            "type": "JSON"
+          },
+          {
+            "name": "spec_file",
+            "type": "TEXT"
+          },
+          {
+            "name": "winner",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "specs",
+        "columns": [
+          {
+            "name": "agent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement spec generation command",
+    "week 1: Integrate with at least one AI coding agent (e.g., Claude)",
+    "week 1: Set up sandboxed execution environment"
+  ],
+  "acceptance_tests": [
+    "User can execute `voratiq run --spec .voratiq/specs/add-dark-mode-toggle.md` and receive a merged implementation",
+    "User can generate a spec file using `voratiq spec --description \"add dark mode toggle\" --agent claude`"
+  ]
+}

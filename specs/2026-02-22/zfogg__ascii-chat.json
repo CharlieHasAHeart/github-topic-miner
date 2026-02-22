@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ascii-chat",
+    "one_liner": "Video chat in your terminal using ASCII/UTF-8 art, audio, and networking over TCP/IP."
+  },
+  "screens": [
+    {
+      "name": "Main Chat View",
+      "purpose": "Display live video feeds from all connected participants as a grid of ASCII/UTF-8 art with synchronized audio playback.",
+      "primary_actions": [
+        "Join a server session",
+        "Transmit local webcam/audio",
+        "View remote participants in grid layout"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "handle_websocket_fps",
+      "purpose": "Manage frame rate synchronization for WebSocket-based server connections to avoid rendering bugs.",
+      "async": true,
+      "input": {
+        "client_id": "string",
+        "payload": "json",
+        "pixel_format": "string",
+        "video_grid_position": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "render_file",
+      "purpose": "Render video frames to a file using embedded fonts and optional ffmpeg integration.",
+      "async": true,
+      "input": {
+        "client_id": "string",
+        "payload": "json",
+        "pixel_format": "string",
+        "video_grid_position": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "participants",
+        "columns": [
+          {
+            "name": "client_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "pixel_format",
+            "type": "TEXT"
+          },
+          {
+            "name": "video_grid_position",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add multi-participant grid layout rendering",
+    "week 1: Implement core terminal rendering loop with UTF-8 support",
+    "week 1: Integrate TCP/IP client-server handshake with crypto"
+  ],
+  "acceptance_tests": [
+    "Confirm server renders frames but client displays missing art bug is resolved.",
+    "Validate that runtime package installs and runs on Linux/macOS/Windows terminals without GUI.",
+    "Verify that --render-file outputs correct frames using embedded font (from closed issue)."
+  ]
+}
