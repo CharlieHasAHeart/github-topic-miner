@@ -1,0 +1,136 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Continue",
+    "one_liner": "Source-controlled AI checks, enforceable in CI, powered by the open-source Continue CLI."
+  },
+  "screens": [
+    {
+      "name": "Agent Checks Dashboard",
+      "purpose": "Display results of AI agent checks on pull requests, showing pass/fail status and suggested diffs.",
+      "primary_actions": [
+        "Apply suggested diffs",
+        "Configure agent rules",
+        "View check results"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_continue_cli",
+      "purpose": "Install the Continue CLI via curl or PowerShell scripts for local or CI usage.",
+      "async": false,
+      "input": {
+        "description": "string",
+        "name": "string",
+        "payload": "json",
+        "pr_url": "string",
+        "status": "json",
+        "suggested_diff": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_agent_check",
+      "purpose": "Execute an AI agent check against a pull request using a specified model (e.g., Claude Opus 4.6).",
+      "async": true,
+      "input": {
+        "description": "string",
+        "name": "string",
+        "payload": "json",
+        "pr_url": "string",
+        "status": "json",
+        "suggested_diff": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "validate_model_config",
+      "purpose": "Validate API keys and headers for LLM models to prevent errors like 402/404 during agent execution.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "name": "string",
+        "payload": "json",
+        "pr_url": "string",
+        "status": "json",
+        "suggested_diff": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agent_checks",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "pr_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "JSON"
+          },
+          {
+            "name": "suggested_diff",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "models",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "model_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for Claude Opus 4.6 as default model",
+    "week 1: Implement basic agent check execution from `.continue/checks/` markdown files",
+    "week 1: Integrate with GitHub PR status checks"
+  ],
+  "acceptance_tests": [
+    "Agent check fails with 402 error when using invalid Claude Sonnet 4.5 configuration",
+    "Agent check fails with 404 error when referencing non-existent GPT-5 model",
+    "File upload functionality works correctly during agent execution",
+    "Unicode validation prevents garbled Chinese comment prompts during completion"
+  ]
+}

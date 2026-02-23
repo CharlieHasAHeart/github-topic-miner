@@ -1,0 +1,123 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Responsive Image",
+    "one_liner": "A multi-framework JavaScript library for responsive images with support for modern formats, local processing, CDNs, and performance optimizations."
+  },
+  "screens": [
+    {
+      "name": "Image Configuration",
+      "purpose": "Configure source images, output formats, layout modes, and placeholder strategies for responsive rendering.",
+      "primary_actions": [
+        "Choose output formats (WebP, AVIF, JPEG, PNG)",
+        "Enable LQIP strategy",
+        "Select image source (local or CDN)",
+        "Set layout mode (fixed or responsive)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_cdn_url",
+      "purpose": "Construct image URLs for remote CDNs like Cloudinary or imgix using provider abstraction.",
+      "async": true,
+      "input": {
+        "base_url": "string",
+        "name": "string",
+        "params": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "generate_srcset",
+      "purpose": "Generate srcset and sizes attributes for responsive image markup based on device breakpoints.",
+      "async": true,
+      "input": {
+        "base_url": "string",
+        "name": "string",
+        "params": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "process_image",
+      "purpose": "Process a local image using sharp to generate optimized variants in multiple formats and sizes.",
+      "async": true,
+      "input": {
+        "base_url": "string",
+        "name": "string",
+        "params": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cdn_providers",
+        "columns": [
+          {
+            "name": "base_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "params",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "images",
+        "columns": [
+          {
+            "name": "formats",
+            "type": "JSON"
+          },
+          {
+            "name": "layout_mode",
+            "type": "TEXT"
+          },
+          {
+            "name": "lqip_strategy",
+            "type": "TEXT"
+          },
+          {
+            "name": "sizes",
+            "type": "JSON"
+          },
+          {
+            "name": "source_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for WebP and AVIF output formats",
+    "week 1: Create responsive layout mode with srcset generation",
+    "week 1: Implement core image processing pipeline with sharp"
+  ],
+  "acceptance_tests": [
+    "LQIP background is removed after image load, even in SSR scenarios.",
+    "When a local image is provided, the system generates WebP and AVIF variants at multiple resolutions.",
+    "When layout mode is set to responsive, the output includes a valid srcset with appropriate sizes.",
+    "When using an image CDN, the system constructs correct URLs using the provider abstraction."
+  ]
+}

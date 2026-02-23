@@ -1,0 +1,89 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "One",
+    "one_liner": "One is a React framework that enables targeting web and native with a single Vite plugin and fully shared code."
+  },
+  "screens": [
+    {
+      "name": "Main Development View",
+      "purpose": "Primary interface for writing and testing cross-platform React components.",
+      "primary_actions": [
+        "Build for native",
+        "Build for web",
+        "Run dev server"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_native",
+      "purpose": "Build the application for native (Expo/React Native) deployment.",
+      "async": true,
+      "input": {
+        "entry_point": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "build_web",
+      "purpose": "Build the application for web deployment using Vite and One's compiler.",
+      "async": true,
+      "input": {
+        "entry_point": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "dev_server",
+      "purpose": "Start the development server with HMR support for both web and native.",
+      "async": true,
+      "input": {
+        "entry_point": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "build_configs",
+        "columns": [
+          {
+            "name": "entry_point",
+            "type": "TEXT"
+          },
+          {
+            "name": "platform",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure Vite plugin for web",
+    "week 1: Integrate Expo for native builds",
+    "week 1: Set up shared component library"
+  ],
+  "acceptance_tests": [
+    "Confirm that HMR works during development on both platforms.",
+    "Ensure production builds succeed for both web (Vercel) and native (EAS).",
+    "Verify that a single React component renders correctly on both web and native platforms."
+  ]
+}

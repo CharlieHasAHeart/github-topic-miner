@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "JSDoc Baseline",
+    "one_liner": "An experimental, extensible template for JSDoc that enables customizable and modern documentation generation."
+  },
+  "screens": [
+    {
+      "name": "Documentation Output",
+      "purpose": "Displays generated API documentation with expandable table of contents and page summaries.",
+      "primary_actions": [
+        "Navigate documentation sections",
+        "View doclet summaries"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_docs",
+      "purpose": "Runs JSDoc with the Baseline template to produce documentation output.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "doclets",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure baseline-config.json",
+    "week 1: Generate initial docs",
+    "week 1: Integrate with JSDoc conf.json",
+    "week 1: Set up Baseline template as dev dependency"
+  ],
+  "acceptance_tests": [
+    "User can customize headings and appearance via configuration without modifying the template itself.",
+    "User can install Baseline as a dev dependency and generate docs using default settings."
+  ]
+}
