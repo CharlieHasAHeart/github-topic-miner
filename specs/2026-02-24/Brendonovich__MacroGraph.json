@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "MacroGraph",
+    "one_liner": "Visual programming for streamers"
+  },
+  "screens": [
+    {
+      "name": "Graph Editor",
+      "purpose": "Allows users to build and edit visual automation graphs by connecting nodes representing inputs, logic, and outputs.",
+      "primary_actions": [
+        "Add node",
+        "Connect nodes",
+        "Run graph",
+        "Save graph"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a graph or configuration item to local storage.",
+      "async": true,
+      "input": {
+        "connections": "json",
+        "nodes": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "graphs",
+        "columns": [
+          {
+            "name": "connections",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "nodes",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create stub Rust command for saving graph data",
+    "week 1: Implement basic node dragging and rendering",
+    "week 1: Set up Tauri + SolidJS project structure"
+  ],
+  "acceptance_tests": [
+    "Graph correctly saves and reloads user-created automation workflows.",
+    "User can drag and connect nodes representing Twitch events and chat messages."
+  ]
+}

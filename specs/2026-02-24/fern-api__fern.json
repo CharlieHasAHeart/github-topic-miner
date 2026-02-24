@@ -1,0 +1,87 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Fern",
+    "one_liner": "Fern is a platform that transforms your API definitions into production-ready SDKs and beautiful documentation in minutes."
+  },
+  "screens": [
+    {
+      "name": "API Overview",
+      "purpose": "Display the main interface for managing API definitions and generated artifacts like SDKs and docs.",
+      "primary_actions": [
+        "Generate SDKs",
+        "Import API specification",
+        "Preview documentation"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_docs",
+      "purpose": "Builds interactive developer documentation from an API definition.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "source_path": "string",
+        "spec_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "generate_sdk",
+      "purpose": "Generates a type-safe SDK from an API definition.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "source_path": "string",
+        "spec_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "api_definitions",
+        "columns": [
+          {
+            "name": "source_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "spec_type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "generated_sdks",
+        "columns": [
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Generate TypeScript SDK stub",
+    "week 1: Implement basic OpenAPI parsing",
+    "week 1: Set up CLI scaffolding"
+  ],
+  "acceptance_tests": [
+    "Generated documentation includes interactive API reference.",
+    "User can import an OpenAPI spec and generate a TypeScript SDK."
+  ]
+}

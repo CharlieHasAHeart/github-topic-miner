@@ -1,0 +1,148 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Lap",
+    "one_liner": "Family-friendly, offline photo manager for 10k+ photos."
+  },
+  "screens": [
+    {
+      "name": "AI Search",
+      "purpose": "Enable natural-language queries and similar-image discovery powered by on-device AI.",
+      "primary_actions": [
+        "Enter text query",
+        "Filter by metadata",
+        "View similar images"
+      ]
+    },
+    {
+      "name": "Library View",
+      "purpose": "Display and navigate large-scale photo collections in multiple layout styles including Justified, Tile, FilmStrip, and Standard Grid.",
+      "primary_actions": [
+        "Access AI-powered search",
+        "Navigate photos via scrolling or jumping",
+        "Switch between library views"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure application behavior such as filmstrip preview position and library paths.",
+      "primary_actions": [
+        "Adjust filmstrip position",
+        "Manage library folders",
+        "Toggle view preferences"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "get_thumbnail",
+      "purpose": "Retrieve or generate a thumbnail for a given photo path efficiently.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "root_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "search_photos",
+      "purpose": "Perform local AI-powered search across photo metadata and visual features.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "root_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_folder_changes",
+      "purpose": "Reflect file system changes (moves, renames) from Finder into the app while maintaining database consistency.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "root_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "libraries",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "root_path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "photos",
+        "columns": [
+          {
+            "name": "camera_model",
+            "type": "TEXT"
+          },
+          {
+            "name": "date_taken",
+            "type": "DATETIME"
+          },
+          {
+            "name": "faces",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "location",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create initial grid view with thumbnail loading",
+    "week 1: Implement basic photo scanning from local folders",
+    "week 1: Set up Tauri + Vue 3 base project",
+    "week 2: Add EXIF parsing with safe string handling",
+    "week 2: Implement justified and tile layout modes",
+    "week 2: Integrate basic offline search by date/location",
+    "week 3: Add filmstrip preview toggle in settings",
+    "week 3: Ensure child webviews close with main window",
+    "week 3: Fix thumbnail rendering when jumping to random positions"
+  ],
+  "acceptance_tests": [
+    "Application closes all child webviews when main window is closed.",
+    "EXIF parsing does not panic on short exif_data strings.",
+    "File moves in Lap are reflected on disk and vice versa.",
+    "Thumbnail performance meets acceptable load times for 10k+ photos.",
+    "Thumbnails render correctly in justified view when jumping to a random position."
+  ]
+}

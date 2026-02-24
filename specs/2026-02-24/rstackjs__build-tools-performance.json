@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Build Tools Performance Benchmark",
+    "one_liner": "A benchmarking tool that compares JavaScript bundlers and build tools across key performance metrics like startup time, build speed, memory usage, and bundle size."
+  },
+  "screens": [
+    {
+      "name": "Benchmark Dashboard",
+      "purpose": "Display side-by-side performance metrics for multiple build tools under consistent test conditions.",
+      "primary_actions": [
+        "Analyze memory usage and bundle sizes",
+        "Compare HMR latency",
+        "Inspect build performance (with/without cache)",
+        "View startup times (with/without cache)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_benchmark",
+      "purpose": "Execute a standardized benchmark suite against configured build tools and collect performance metrics.",
+      "async": true,
+      "input": {
+        "build_no_cache_ms": "float",
+        "build_with_cache_ms": "float",
+        "gzipped_size_kb": "float",
+        "hmr_ms": "float",
+        "memory_rss_mb": "float",
+        "output_size_kb": "float",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "benchmark_metrics",
+        "columns": [
+          {
+            "name": "build_no_cache_ms",
+            "type": "REAL"
+          },
+          {
+            "name": "build_with_cache_ms",
+            "type": "REAL"
+          },
+          {
+            "name": "gzipped_size_kb",
+            "type": "REAL"
+          },
+          {
+            "name": "hmr_ms",
+            "type": "REAL"
+          },
+          {
+            "name": "memory_rss_mb",
+            "type": "REAL"
+          },
+          {
+            "name": "output_size_kb",
+            "type": "REAL"
+          },
+          {
+            "name": "startup_no_cache_ms",
+            "type": "REAL"
+          },
+          {
+            "name": "startup_with_cache_ms",
+            "type": "REAL"
+          },
+          {
+            "name": "tool_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define standardized benchmark scenarios",
+    "week 1: Implement metric collection for startup, HMR, build, memory, and bundle size",
+    "week 1: Integrate support for Rspack, Rsbuild, Vite, webpack, Farm, and Parcel"
+  ],
+  "acceptance_tests": [
+    "The system must display startup time (no cache) for all supported build tools using a consistent React app with 1,000 components.",
+    "The system must report HMR latency after a module change under identical test conditions for each tool."
+  ]
+}
