@@ -1,0 +1,218 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Tabularis",
+    "one_liner": "A lightweight, developer-focused database management tool, built with Tauri and React."
+  },
+  "screens": [
+    {
+      "name": "Data Grid Viewer",
+      "purpose": "Display query results or table contents in a scrollable, editable grid.",
+      "primary_actions": [
+        "Edit cell values",
+        "Export data",
+        "View rows and columns"
+      ]
+    },
+    {
+      "name": "Main Dashboard",
+      "purpose": "Provide access to connection management, database explorer, SQL editor, and visual query builder.",
+      "primary_actions": [
+        "Create or select a database connection",
+        "Launch visual query builder",
+        "Navigate database objects",
+        "Open SQL editor"
+      ]
+    },
+    {
+      "name": "New Connection Modal",
+      "purpose": "Allow users to configure and save new database connections.",
+      "primary_actions": [
+        "Enter connection details",
+        "Select database type",
+        "Test and save connection"
+      ]
+    },
+    {
+      "name": "Plugin Manager",
+      "purpose": "Enable installation, configuration, and management of plugins.",
+      "primary_actions": [
+        "Browse available plugins",
+        "Configure plugin settings",
+        "Enable/disable plugins"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_query",
+      "purpose": "Run a SQL query against a selected database and return results.",
+      "async": true,
+      "input": {
+        "database_type": "string",
+        "host": "string",
+        "name": "string",
+        "password": "string",
+        "payload": "json",
+        "port": "float",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fix_dropdown_selection",
+      "purpose": "Handle database type selection in the New Connection modal reliably.",
+      "async": true,
+      "input": {
+        "database_type": "string",
+        "file_path": "string",
+        "fix_ids": "json?",
+        "host": "string",
+        "name": "string",
+        "password": "string",
+        "port": "float",
+        "username": "string"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "load_plugins",
+      "purpose": "Discover and load available plugins at startup.",
+      "async": true,
+      "input": {
+        "database_type": "string",
+        "host": "string",
+        "name": "string",
+        "password": "string",
+        "payload": "json",
+        "port": "float",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_connection",
+      "purpose": "Persist a new or updated database connection configuration.",
+      "async": true,
+      "input": {
+        "database_type": "string",
+        "host": "string",
+        "name": "string",
+        "password": "string",
+        "payload": "json",
+        "port": "float",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "connections",
+        "columns": [
+          {
+            "name": "database_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "host",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "password",
+            "type": "TEXT"
+          },
+          {
+            "name": "port",
+            "type": "REAL"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "plugins",
+        "columns": [
+          {
+            "name": "enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "query_history",
+        "columns": [
+          {
+            "name": "connection_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sql",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for MySQL, PostgreSQL, and SQLite",
+    "week 1: Build basic SQL editor with syntax highlighting",
+    "week 1: Implement core connection management UI and Rust backend",
+    "week 1: Integrate data grid for displaying query results",
+    "week 2: Add plugin system scaffolding",
+    "week 2: Fix known UI bugs (e.g., dropdown selection)",
+    "week 2: Implement visual query builder",
+    "week 2: Optimize blob/geometry column rendering"
+  ],
+  "acceptance_tests": [
+    "Database dropdown selection fix from v0.9.0 works across all supported platforms.",
+    "Large MySQL BLOB content is truncated or handled gracefully without freezing the app.",
+    "MySQL geometry columns are displayed correctly instead of as NULL.",
+    "User can successfully select a database type from the dropdown in the New Connection modal without failure."
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GVM",
+    "one_liner": "A programming language version manager that supports multiple languages with both CLI and TUI interfaces."
+  },
+  "screens": [
+    {
+      "name": "Terminal UI",
+      "purpose": "Provide an interactive interface to manage installed and remote language versions, set defaults, and switch contexts.",
+      "primary_actions": [
+        "Install a version",
+        "List installed versions",
+        "List remote versions",
+        "Set default version",
+        "Uninstall a version"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install",
+      "purpose": "Install a specific version of a supported programming language.",
+      "async": true,
+      "input": {
+        "is_default": "boolean",
+        "language": "string",
+        "path": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ls",
+      "purpose": "List installed versions of a language.",
+      "async": false,
+      "input": {
+        "is_default": "boolean",
+        "language": "string",
+        "path": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ls-remote",
+      "purpose": "List remotely available versions of a language.",
+      "async": true,
+      "input": {
+        "is_default": "boolean",
+        "language": "string",
+        "path": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ui",
+      "purpose": "Launch the terminal user interface for interactive management.",
+      "async": false,
+      "input": {
+        "is_default": "boolean",
+        "language": "string",
+        "path": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "uninstall",
+      "purpose": "Uninstall a specific version of a supported programming language.",
+      "async": true,
+      "input": {
+        "is_default": "boolean",
+        "language": "string",
+        "path": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "use",
+      "purpose": "Set the default version of a language for the current environment.",
+      "async": false,
+      "input": {
+        "is_default": "boolean",
+        "language": "string",
+        "path": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "installed_versions",
+        "columns": [
+          {
+            "name": "is_default",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "remote_versions",
+        "columns": [
+          {
+            "name": "is_lts",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "supported_languages",
+        "columns": [
+          {
+            "name": "alias",
+            "type": "TEXT"
+          },
+          {
+            "name": "enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic TUI screen for language version management",
+    "week 1: Implement core CLI commands: install, uninstall, ls, ls-remote, use",
+    "week 1: Integrate with remote version sources for Go, Node, Java, Python",
+    "week 1: Persist installed versions and default selections to local state"
+  ],
+  "acceptance_tests": [
+    "Shell autocompletion works for all top-level GVM commands",
+    "User can install and uninstall Go version 1.25.0 via CLI",
+    "User can launch TUI and switch default Java version interactively",
+    "User can list installed and remote versions for Node.js"
+  ]
+}

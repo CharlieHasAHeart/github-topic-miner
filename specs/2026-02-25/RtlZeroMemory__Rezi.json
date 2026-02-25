@@ -1,0 +1,67 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Rezi",
+    "one_liner": "TypeScript TUI framework with near-native performance powered by a deterministic C rendering engine."
+  },
+  "screens": [
+    {
+      "name": "Main Console",
+      "purpose": "Primary interface for interacting with Rezi-based terminal applications, displaying widgets, charts, and inline images.",
+      "primary_actions": [
+        "Display sub-character resolution graphics",
+        "Handle terminal input and navigation",
+        "Render declarative UI trees"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "render_frame",
+      "purpose": "Renders a new frame by diffing the current and previous ZRDL drawlists and writing minimal updates to the terminal.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "props": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "widgets",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "props",
+            "type": "JSON"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic widget tree parsing",
+    "week 1: Initialize Rezi project with core rendering loop",
+    "week 1: Integrate Zireael C engine for terminal output"
+  ],
+  "acceptance_tests": [
+    "Application starts under 200ms on supported terminals",
+    "Declarative widget tree renders correctly with layout and styling",
+    "Inline images display via Kitty/Sixel/iTerm2 protocols with fallback",
+    "Sub-character blitters (braille, sextant) produce expected visual output",
+    "Terminal auto-detection correctly identifies capabilities"
+  ]
+}

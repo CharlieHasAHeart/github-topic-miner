@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Vueless UI",
+    "one_liner": "A UI library with Open Architecture for Vue.js 3 and Nuxt.js 3/4, powered by Storybook v10 and Tailwind CSS v4."
+  },
+  "screens": [
+    {
+      "name": "Component Playground",
+      "purpose": "Preview and interact with 65+ UI components in Storybook, customize themes, and test component behavior.",
+      "primary_actions": [
+        "Customize component props",
+        "Export custom theme",
+        "Switch between light/dark mode",
+        "View component documentation"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a customized UI component or theme configuration to the project.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "props": "json",
+        "theme": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "components",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "props",
+            "type": "JSON"
+          },
+          {
+            "name": "theme",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Enable theme export functionality",
+    "week 1: Implement basic component customization interface",
+    "week 1: Set up Storybook integration with Vueless preset"
+  ],
+  "acceptance_tests": [
+    "UDrawer defaults to right position and prevents accidental close on overlay drag",
+    "UInputNumber supports debounce functionality as configured",
+    "ULink component works without router dependency errors in non-router contexts"
+  ]
+}
