@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Mininet Editor",
+    "one_liner": "SDN topology editor in your web browser with Mininet, image and addressing plan export."
+  },
+  "screens": [
+    {
+      "name": "Topology Canvas",
+      "purpose": "Primary workspace for building and editing SDN topologies with drag-and-drop nodes, connection lines, and dynamic labels.",
+      "primary_actions": [
+        "Add host/switch/controller node",
+        "Configure node properties and scripts",
+        "Connect nodes with links",
+        "Export project",
+        "Undo/redo actions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist the current project state to local storage or file export (JSON or Python script).",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "topology_data": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "topology_data",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic export to JSON",
+    "week 1: Enable persistent storage using browser APIs",
+    "week 1: Implement core topology canvas with node placement and linking"
+  ],
+  "acceptance_tests": [
+    "After closing and reopening the browser, the previously created topology is restored.",
+    "User can create a topology with at least one host and one switch, connect them, and export as JSON that includes all elements."
+  ]
+}

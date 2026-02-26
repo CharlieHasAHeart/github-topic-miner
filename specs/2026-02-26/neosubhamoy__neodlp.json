@@ -1,0 +1,202 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "NeoDLP",
+    "one_liner": "Cross-platform Video/Audio Downloader Desktop App based on YT-DLP with Modern UI and Browser Integration"
+  },
+  "screens": [
+    {
+      "name": "Main Download Interface",
+      "purpose": "Allows users to input URLs, view search results, select streams, and manage active or completed downloads.",
+      "primary_actions": [
+        "Add new download URL",
+        "Search media metadata",
+        "Select video/audio/subtitle streams",
+        "Start/Pause/Resume downloads",
+        "View download progress and logs"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure app behavior including network settings, appearance, logging, and yt-dlp options.",
+      "primary_actions": [
+        "Adjust proxy/rate limit",
+        "Configure subtitle embedding",
+        "Manage PO Token and JS runtime settings",
+        "Set download directory and format defaults",
+        "Toggle dark/light mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "resolve_url",
+      "purpose": "Fetch media metadata from yt-dlp for a given URL, handling cookies, PO tokens, and private links.",
+      "async": true,
+      "input": {
+        "audio_stream_ids": "string",
+        "created_at": "timestamp",
+        "format": "string",
+        "payload": "json",
+        "status": "string",
+        "subtitle_languages": "string",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "retry_errored",
+      "purpose": "Re-attempt downloads that previously failed due to network or parsing errors.",
+      "async": true,
+      "input": {
+        "audio_stream_ids": "string",
+        "created_at": "timestamp",
+        "format": "string",
+        "payload": "json",
+        "status": "string",
+        "subtitle_languages": "string",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist a new download item with its metadata, selected streams, and status to the database.",
+      "async": true,
+      "input": {
+        "audio_stream_ids": "string",
+        "created_at": "timestamp",
+        "format": "string",
+        "payload": "json",
+        "status": "string",
+        "subtitle_languages": "string",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_download",
+      "purpose": "Initiate a download task using aria2 or yt-dlp backend with user-selected stream combinations.",
+      "async": true,
+      "input": {
+        "audio_stream_ids": "string",
+        "created_at": "timestamp",
+        "format": "string",
+        "payload": "json",
+        "status": "string",
+        "subtitle_languages": "string",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "downloads",
+        "columns": [
+          {
+            "name": "audio_stream_ids",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "format",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "subtitle_languages",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "updated_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          },
+          {
+            "name": "video_stream_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "streams",
+        "columns": [
+          {
+            "name": "download_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "format_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_auto_generated",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add settings panel with appearance and network toggles",
+    "week 1: Build basic download list UI with status indicators",
+    "week 1: Create SQLite schema for downloads and streams",
+    "week 1: Implement core Tauri + React scaffold with main window",
+    "week 1: Integrate yt-dlp resolver command with PO token support",
+    "week 2: Add aria2 integration for parallel downloads",
+    "week 2: Add log viewer with copy/clear buttons",
+    "week 2: Enable retry for errored downloads",
+    "week 2: Implement stream selection logic (video + multi-audio + subtitles)",
+    "week 2: Support embedding thumbnails and metadata"
+  ],
+  "acceptance_tests": [
+    "App resolves Persian/Farsi video titles correctly without corruption (regression test for E-IS-001).",
+    "App starts reliably on all supported platforms including macOS with deno conflicts resolved (validation for E-IS-005).",
+    "Audio track languages are displayed for all available streams (enhancement from E-IS-004).",
+    "Batch download of playlists works with selective item picking (feature confirmation per E-IS-007).",
+    "Private shared links (e.g., YouTube unlisted) are successfully parsed and downloadable (fix verification for E-IS-003)."
+  ]
+}

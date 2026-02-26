@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "tauri-vue-template",
+    "one_liner": "A production-ready template to build fast, secure desktop apps with Tauri and Vue."
+  },
+  "screens": [
+    {
+      "name": "Main Development View",
+      "purpose": "Primary interface for running and debugging the Tauri + Vue application during development.",
+      "primary_actions": [
+        "Debug Rust code via VS Code",
+        "Open devtools",
+        "Start development server"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "dev",
+      "purpose": "Starts both the backend and frontend development servers with Rust backtraces enabled by default.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "dependencies",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Confirm VS Code debugging configuration works",
+    "week 1: Set up Tauri + Vue project using template",
+    "week 1: Verify development server starts both processes"
+  ],
+  "acceptance_tests": [
+    "After moving the unsigned macOS app to Applications folder, running `xattr -c /Applications/tauri-app.app` allows it to launch without security warnings.",
+    "The app builds successfully on macOS, Windows, and Linux using GitHub Actions CI/CD pipeline."
+  ]
+}
