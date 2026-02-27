@@ -1,0 +1,105 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "gptme",
+    "one_liner": "A personal AI agent in your terminal that can use tools to write code, run commands, edit files, browse the web, and assist with general knowledge work."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal Interface",
+      "purpose": "Primary interaction surface where users converse with the AI agent and observe tool usage and outputs.",
+      "primary_actions": [
+        "Invoke slash commands for MCP tools",
+        "Send message to agent",
+        "View agent responses and tool executions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve list of saved items or sessions with associated metadata such as cost and duration.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "source_plugin": "string"
+      },
+      "output": {
+        "items": "json",
+        "ok": "boolean",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist an item to content-addressable storage with metadata including cost and token usage.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "payload": "json",
+        "source_plugin": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "lessons",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_plugin",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "cost",
+            "type": "REAL"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "token_count",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add cost and token tracking hooks",
+    "week 1: Implement core agent loop with tool execution",
+    "week 1: Integrate basic slash commands for MCP tools",
+    "week 1: Set up content-addressable storage for session persistence"
+  ],
+  "acceptance_tests": [
+    "Agent successfully tracks and reports cumulative cost and token usage across a session.",
+    "Background jobs can be initiated and monitored without blocking the main loop.",
+    "Lessons are auto-discovered from plugins and injected into agent context.",
+    "Slash commands dynamically expose MCP tools discovered at runtime."
+  ]
+}

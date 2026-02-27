@@ -1,0 +1,320 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ClawSuite",
+    "one_liner": "An all-in-one command center for orchestrating OpenClaw AI agents with full mission control, cost analytics, and mobile-first PWA support."
+  },
+  "screens": [
+    {
+      "name": "Agent Hub — Mission Control",
+      "purpose": "Orchestrate multi-agent missions with isometric office view, live status, and lifecycle controls (spawn, pause, resume, abort).",
+      "primary_actions": [
+        "Abort mission",
+        "Pause mission",
+        "Spawn agent",
+        "Steer agent"
+      ]
+    },
+    {
+      "name": "Agents Configuration",
+      "purpose": "Configure individual agent settings, models, and behaviors.",
+      "primary_actions": [
+        "Change model",
+        "Edit agent config",
+        "Toggle permissions"
+      ]
+    },
+    {
+      "name": "Chat Interface",
+      "purpose": "Real-time conversation with agents featuring iMessage-style composer, model switching, and context bar.",
+      "primary_actions": [
+        "Attach file",
+        "Send message",
+        "Switch model",
+        "View context alert"
+      ]
+    },
+    {
+      "name": "Cost Analytics",
+      "purpose": "Track per-agent spend, daily trends, MTD totals, and projected EOM costs using real gateway data.",
+      "primary_actions": [
+        "Export cost report",
+        "See 30-day trend",
+        "View per-agent breakdown"
+      ]
+    },
+    {
+      "name": "Cron Manager",
+      "purpose": "Schedule recurring agent missions or tasks using cron expressions.",
+      "primary_actions": [
+        "Create schedule",
+        "Disable job",
+        "Edit cron"
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "purpose": "Central hub showing gateway connection status, agent activity logs, cost KPIs, and quick access to all modules.",
+      "primary_actions": [
+        "Access cost analytics",
+        "Launch new mission",
+        "View agent status"
+      ]
+    },
+    {
+      "name": "Memory Browser",
+      "purpose": "Browse, search, and edit agent memory files (MEMORY.md and memory/*.md) directly in-app.",
+      "primary_actions": [
+        "Edit memory file",
+        "Save changes",
+        "Search memory"
+      ]
+    },
+    {
+      "name": "Mission Wizard",
+      "purpose": "Step-by-step interface to configure and launch complex multi-agent missions.",
+      "primary_actions": [
+        "Assign agents",
+        "Define mission scope",
+        "Launch",
+        "Set constraints"
+      ]
+    },
+    {
+      "name": "Skills Marketplace",
+      "purpose": "Browse and install agent skills from a curated library.",
+      "primary_actions": [
+        "Install skill",
+        "Uninstall skill",
+        "View details"
+      ]
+    },
+    {
+      "name": "Tasks Board",
+      "purpose": "Visual Kanban-style board for tracking mission subtasks and agent assignments.",
+      "primary_actions": [
+        "Assign agent",
+        "Mark complete",
+        "Move task"
+      ]
+    },
+    {
+      "name": "Workspace File Browser",
+      "purpose": "Split-panel file explorer with syntax highlighting for editing and saving workspace files.",
+      "primary_actions": [
+        "Edit code",
+        "Navigate files",
+        "Save file"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "dispatch_agent",
+      "purpose": "Send mission payload to OpenClaw Gateway via /api/agent-dispatch RPC.",
+      "async": true,
+      "input": {
+        "model": "string",
+        "name": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_costs",
+      "purpose": "Query SQLite-backed cost analytics data for dashboard rendering.",
+      "async": true,
+      "input": {
+        "model": "string",
+        "name": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list_items",
+      "purpose": "Retrieve directory contents for the Workspace File Browser.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "model": "string",
+        "name": "string",
+        "offset": "int?",
+        "query": "string?",
+        "status": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user-edited files or configurations to disk via Tauri backend.",
+      "async": true,
+      "input": {
+        "model": "string",
+        "name": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "steer_agent",
+      "purpose": "Send real-time steering signal to active agent via chat.send fallback.",
+      "async": true,
+      "input": {
+        "model": "string",
+        "name": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "context_alerts",
+        "columns": [
+          {
+            "name": "dismissed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "threshold_percent",
+            "type": "INTEGER"
+          },
+          {
+            "name": "triggered_at",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "costs",
+        "columns": [
+          {
+            "name": "agent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "cost_usd",
+            "type": "REAL"
+          },
+          {
+            "name": "date",
+            "type": "DATETIME"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          },
+          {
+            "name": "tokens_in",
+            "type": "INTEGER"
+          },
+          {
+            "name": "tokens_out",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "memory_files",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_modified",
+            "type": "DATETIME"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "missions",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic Agent Hub screen with static mock data",
+    "week 1: Implement core auth middleware and secure API routes",
+    "week 1: Set up Tauri + React + TypeScript base",
+    "week 2: Connect to OpenClaw Gateway via /api/agent-dispatch",
+    "week 2: Implement exec approval modal with countdown",
+    "week 2: Integrate SSE streaming for live agent output",
+    "week 3: Add mobile-responsive chat with iMessage-style composer",
+    "week 3: Develop Cost Analytics page with SQLite backend",
+    "week 3: Implement context alert modal at 50%/75%/90% thresholds",
+    "week 4: Add Workspace File Browser with Monaco editor",
+    "week 4: Build Memory Browser with file editing",
+    "week 4: Implement dark mode theming across all screens"
+  ],
+  "acceptance_tests": [
+    "Cost Analytics page loads real data from SQLite, showing per-agent spend, 30-day trend chart, and per-model usage table.",
+    "Memory Browser allows searching and editing MEMORY.md files with immediate save persistence.",
+    "Mission Control displays live agent status badges and allows pausing/resuming via real steer signals sent through chat.send fallback.",
+    "On mobile, the chat composer remains docked edge-to-edge when keyboard appears, and the action sheet does not collapse during file selection.",
+    "When agent usage reaches 75%, a context alert modal appears and persists until dismissed; the state is stored in sessionStorage per day."
+  ]
+}

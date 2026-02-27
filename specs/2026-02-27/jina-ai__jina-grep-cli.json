@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jina-grep",
+    "one_liner": "Semantic grep powered by Jina embeddings, running locally on Apple Silicon via MLX."
+  },
+  "screens": [
+    {
+      "name": "Main Interface",
+      "purpose": "Provide entry point for semantic grep operations including piped input, direct file search, classification, and code search.",
+      "primary_actions": [
+        "Execute code search",
+        "Perform zero-shot classification",
+        "Run semantic grep on piped input",
+        "Search files with natural language"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_semantic_grep",
+      "purpose": "Execute semantic grep using specified Jina embedding model in serverless or persistent mode.",
+      "async": true,
+      "input": {
+        "dimensions": "int",
+        "matryoshka_dimensions": "string",
+        "max_sequence_length": "int",
+        "model_name": "string",
+        "parameters": "string",
+        "payload": "json",
+        "supported_tasks": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "embedding_models",
+        "columns": [
+          {
+            "name": "dimensions",
+            "type": "INTEGER"
+          },
+          {
+            "name": "matryoshka_dimensions",
+            "type": "TEXT"
+          },
+          {
+            "name": "max_sequence_length",
+            "type": "INTEGER"
+          },
+          {
+            "name": "model_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "parameters",
+            "type": "TEXT"
+          },
+          {
+            "name": "supported_tasks",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement serverless semantic grep with Jina v5 small model",
+    "week 1: Integrate MLX-based embedding inference on Apple Silicon",
+    "week 1: Support piped input and direct file search modes"
+  ],
+  "acceptance_tests": [
+    "User can pipe standard grep output into jina-grep and receive semantically reranked results.",
+    "User can run natural language queries against a directory of files and get relevant matches."
+  ]
+}

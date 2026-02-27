@@ -1,0 +1,186 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Readest",
+    "one_liner": "Readest is an open-source ebook reader designed for immersive and deep reading experiences across multiple platforms."
+  },
+  "screens": [
+    {
+      "name": "Library View",
+      "purpose": "Browse and manage the user's ebook collection with sorting, grouping, and search capabilities.",
+      "primary_actions": [
+        "Mark book as finished",
+        "Open book",
+        "Search books",
+        "Sort by author/series/publish date"
+      ]
+    },
+    {
+      "name": "Reading View",
+      "purpose": "Display the current ebook content with support for page/scroll modes, annotations, and reading aids.",
+      "primary_actions": [
+        "Access dictionary lookup",
+        "Activate text-to-speech",
+        "Navigate to next/previous page",
+        "Toggle annotation mode"
+      ]
+    },
+    {
+      "name": "Settings View",
+      "purpose": "Configure reading preferences, appearance, accessibility options, and sync settings.",
+      "primary_actions": [
+        "Adjust font size and column width",
+        "Enable/disable reading ruler",
+        "Set TTS voice and speed",
+        "Toggle E-ink mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "navigate_to_page",
+      "purpose": "Jump to a specific page number within the current book.",
+      "async": false,
+      "input": {
+        "page_number": "int"
+      },
+      "output": {
+        "current_page": "int"
+      }
+    },
+    {
+      "name": "open_book",
+      "purpose": "Load and render an ebook from the local library or OPDS source.",
+      "async": true,
+      "input": {
+        "book_path": "string"
+      },
+      "output": {
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "save_annotation",
+      "purpose": "Persist a highlight, note, or bookmark to the database.",
+      "async": true,
+      "input": {
+        "annotation": "json",
+        "book_id": "string"
+      },
+      "output": {
+        "annotation_id": "string"
+      }
+    },
+    {
+      "name": "sync_with_koreader",
+      "purpose": "Synchronize reading progress and annotations with a Koreader device.",
+      "async": true,
+      "input": {
+        "device_endpoint": "string"
+      },
+      "output": {
+        "sync_status": "string"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "annotations",
+        "columns": [
+          {
+            "name": "book_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "highlight_color",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "books",
+        "columns": [
+          {
+            "name": "author",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_finished",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "progress",
+            "type": "REAL"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "settings",
+        "columns": [
+          {
+            "name": "column_width",
+            "type": "INTEGER"
+          },
+          {
+            "name": "font_size",
+            "type": "INTEGER"
+          },
+          {
+            "name": "reading_mode",
+            "type": "TEXT"
+          },
+          {
+            "name": "tts_voice",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic navigation (next/prev page)",
+    "week 1: Implement core ebook rendering for EPUB format",
+    "week 1: Persist reading progress",
+    "week 1: Support font size adjustment",
+    "week 2: Add annotation system (highlights and notes)",
+    "week 2: Add TTS with chapter auto-advance",
+    "week 2: Implement library view with file import",
+    "week 2: Integrate dictionary lookup",
+    "week 3: Add reading ruler and RSVP mode",
+    "week 3: Enable sync with Koreader",
+    "week 3: Implement fuzzy search in library",
+    "week 3: Support export of annotations and notes"
+  ],
+  "acceptance_tests": [
+    "Annotations with custom highlight colors appear correctly in both reading view and sidebar.",
+    "Library groups books by author and series, and allows marking books as finished.",
+    "Progress bar displays 100% when user reaches the last page of a book.",
+    "Text-to-speech automatically continues to the next chapter when current chapter ends.",
+    "User can open an EPUB book and navigate to a specific page number using input field."
+  ]
+}
