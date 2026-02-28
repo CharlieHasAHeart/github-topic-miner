@@ -1,0 +1,3757 @@
+{
+  "run_id": "20260228T041723Z",
+  "generated_at": "2026-02-28T04:17:23.496Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 93,
+    "candidates_kept": 5,
+    "candidates_deduped": 0,
+    "new_candidates": 5,
+    "repo_cards_built": 5,
+    "gaps_count": 0,
+    "specs_attempted": 5,
+    "specs_succeeded": 5,
+    "specs_failed": 0,
+    "evidence_validated": 5,
+    "evidence_valid_ok": 5,
+    "evidence_valid_failed": 0,
+    "evidence_written": 5,
+    "evidence_write_failed": 0,
+    "evidence_total": 62,
+    "evidence_by_type": {
+      "readme": 34,
+      "issue": 13,
+      "release": 10,
+      "root_files": 5
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-02-28T04:19:28.203Z",
+    "repo_count": 86
+  },
+  "candidates": [
+    {
+      "full_name": "vercel/vercel",
+      "html_url": "https://github.com/vercel/vercel",
+      "description": "Develop. Preview. Ship.",
+      "topics": [
+        "cli",
+        "cloud",
+        "command",
+        "hosting",
+        "jamstack",
+        "ship",
+        "vercel"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 14903,
+      "forks_count": 3414,
+      "open_issues_count": 540,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:17:12Z",
+      "created_at": "2016-09-09T01:12:08Z"
+    },
+    {
+      "full_name": "peter279k/github-follower-bot",
+      "html_url": "https://github.com/peter279k/github-follower-bot",
+      "description": "My GitHub Follower Bot",
+      "topics": [
+        "github-api",
+        "github-followers"
+      ],
+      "language": "Python",
+      "stargazers_count": 55,
+      "forks_count": 19,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-02-28T04:17:08Z",
+      "created_at": "2021-09-04T04:47:23Z"
+    },
+    {
+      "full_name": "ultracontext/ultracontext",
+      "html_url": "https://github.com/ultracontext/ultracontext",
+      "description": "The Context Hub for AI agents",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "api",
+        "context-api",
+        "context-engine",
+        "context-engineering",
+        "context-hub",
+        "context-management",
+        "context-window",
+        "contextapi",
+        "llm",
+        "llm-ops",
+        "ultracontext",
+        "versioning"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 144,
+      "forks_count": 16,
+      "open_issues_count": 3,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:16:14Z",
+      "created_at": "2026-01-07T06:06:31Z"
+    },
+    {
+      "full_name": "tamagui/tamagui",
+      "html_url": "https://github.com/tamagui/tamagui",
+      "description": "Style React fast with 100% parity on React Native, an optional UI kit, and optimizing compiler.",
+      "topics": [
+        "atomic-css",
+        "css-in-js",
+        "optimizing-compiler",
+        "react",
+        "react-native",
+        "react-native-web",
+        "tailwind",
+        "typescript",
+        "ui",
+        "ui-components",
+        "vite",
+        "webpack"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13763,
+      "forks_count": 585,
+      "open_issues_count": 87,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:14:03Z",
+      "created_at": "2020-10-16T21:19:51Z"
+    },
+    {
+      "full_name": "junegunn/fzf",
+      "html_url": "https://github.com/junegunn/fzf",
+      "description": ":cherry_blossom: A command-line fuzzy finder",
+      "topics": [
+        "bash",
+        "cli",
+        "fish",
+        "fzf",
+        "go",
+        "neovim",
+        "tmux",
+        "unix",
+        "vim",
+        "zsh"
+      ],
+      "language": "Go",
+      "stargazers_count": 78204,
+      "forks_count": 2698,
+      "open_issues_count": 321,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-02-28T04:12:55Z",
+      "created_at": "2013-10-23T16:04:23Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "vercel/vercel",
+      "html_url": "https://github.com/vercel/vercel",
+      "description": "Develop. Preview. Ship.",
+      "topics": [
+        "cli",
+        "cloud",
+        "command",
+        "hosting",
+        "jamstack",
+        "ship",
+        "vercel"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 14903,
+      "forks_count": 3414,
+      "open_issues_count": 540,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:17:12Z",
+      "created_at": "2016-09-09T01:12:08Z"
+    },
+    {
+      "full_name": "peter279k/github-follower-bot",
+      "html_url": "https://github.com/peter279k/github-follower-bot",
+      "description": "My GitHub Follower Bot",
+      "topics": [
+        "github-api",
+        "github-followers"
+      ],
+      "language": "Python",
+      "stargazers_count": 55,
+      "forks_count": 19,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-02-28T04:17:08Z",
+      "created_at": "2021-09-04T04:47:23Z"
+    },
+    {
+      "full_name": "ultracontext/ultracontext",
+      "html_url": "https://github.com/ultracontext/ultracontext",
+      "description": "The Context Hub for AI agents",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "api",
+        "context-api",
+        "context-engine",
+        "context-engineering",
+        "context-hub",
+        "context-management",
+        "context-window",
+        "contextapi",
+        "llm",
+        "llm-ops",
+        "ultracontext",
+        "versioning"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 144,
+      "forks_count": 16,
+      "open_issues_count": 3,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:16:14Z",
+      "created_at": "2026-01-07T06:06:31Z"
+    },
+    {
+      "full_name": "tamagui/tamagui",
+      "html_url": "https://github.com/tamagui/tamagui",
+      "description": "Style React fast with 100% parity on React Native, an optional UI kit, and optimizing compiler.",
+      "topics": [
+        "atomic-css",
+        "css-in-js",
+        "optimizing-compiler",
+        "react",
+        "react-native",
+        "react-native-web",
+        "tailwind",
+        "typescript",
+        "ui",
+        "ui-components",
+        "vite",
+        "webpack"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13763,
+      "forks_count": 585,
+      "open_issues_count": 87,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:14:03Z",
+      "created_at": "2020-10-16T21:19:51Z"
+    },
+    {
+      "full_name": "junegunn/fzf",
+      "html_url": "https://github.com/junegunn/fzf",
+      "description": ":cherry_blossom: A command-line fuzzy finder",
+      "topics": [
+        "bash",
+        "cli",
+        "fish",
+        "fzf",
+        "go",
+        "neovim",
+        "tmux",
+        "unix",
+        "vim",
+        "zsh"
+      ],
+      "language": "Go",
+      "stargazers_count": 78204,
+      "forks_count": 2698,
+      "open_issues_count": 321,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-02-28T04:12:55Z",
+      "created_at": "2013-10-23T16:04:23Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "vercel/vercel",
+      "html_url": "https://github.com/vercel/vercel",
+      "description": "Develop. Preview. Ship.",
+      "topics": [
+        "cli",
+        "cloud",
+        "command",
+        "hosting",
+        "jamstack",
+        "ship",
+        "vercel"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 14903,
+      "forks_count": 3414,
+      "open_issues_count": 540,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:17:12Z",
+      "created_at": "2016-09-09T01:12:08Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://vercel.com\">\n    <img src=\"https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png\" height=\"96\">\n    <h3 align=\"center\">Vercel</h3>\n  </a>\n</p>\n\n<p align=\"center\">\n  Develop. Preview. Ship.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://vercel.com/docs\"><strong>Documentation</strong></a> ·\n  <a href=\"https://vercel.com/changelog\"><strong>Changelog</strong></a> ·\n  <a href=\"https://vercel.com/templates\"><strong>Templates</strong></a> ·\n  <a href=\"https://vercel.com/docs/cli\"><strong>CLI</strong></a>\n</p>\n<br/>\n\n## Vercel\n\nVercel’s AI Cloud is a unified platform for building modern applications, giving teams the tools to be flexible, move fast, and stay secure while focusing on their products instead of infrastructure.\n\n## Deploy\n\nGet started by [importing a project](https://vercel.com/new), [choosing a template](https://vercel.com/templates), or using the [Vercel CLI](https://vercel.com/docs/cli). Then, `git push` to deploy.\n\n## Documentation\n\nFor details on how to use Vercel, check out our [documentation](https://vercel.com/docs).\n\n## Contributing\n\nThis project uses [pnpm](https://pnpm.io/) to install dependencies and run scripts.\n\nYou can use the `vercel` script to run local changes as if you were invoking Vercel CLI. For example, `vercel deploy --cwd=/path/to/project` could be run with local changes with `pnpm vercel deploy --cwd=/path/to/project`.\n\nWhen contributing to this repository, please first discuss the change you wish to make via [Vercel Community](https://community.vercel.com/tags/c/community/4/cli) with the owners of this repository before submitting a Pull Request.\n\nPlease read our [Code of Conduct](./.github/CODE_OF_CONDUCT.md) and follow it in all your interactions with the project.\n\n### Local development\n\nThis project is configured in a monorepo, where one repository contains multiple npm packages. Dependencies are installed and managed with `pnpm`, not `npm` CLI.\n\nTo get started, execute the following:\n\n```bash\ngit clone https://github.com/vercel/vercel\ncd vercel\ncorepack enable\npnpm install\npnpm build\npnpm lint\npnpm test-unit\n```\n\nMake sure all the tests pass before making changes.\n\n#### Running Vercel CLI Changes\n\nYou can use `pnpm vercel` from the `cli` package to invoke Vercel CLI with local changes:\n\n```bash\ncd ./packages/cli\npnpm vercel <cli-commands...>\n```\n\nSee [CLI Local Development](../packages/cli#local-development) for more details.\n\n### Verifying your change\n\nOnce you are done with your changes (we even suggest doing it along the way), make sure all the tests still pass by running:\n\n```bash\npnpm test-unit\n```\n\nfrom the root of the project.\n\nIf any test fails, make sure to fix it along with your changes. See [Interpreting test errors](#Interpreting-test-errors) for more information about how the tests are executed, especially the integration tests.\n\n### Pull Request Process\n\nOnce you are confident that your changes work properly, open a pull request on the main repository.\n\nThe pull request will be reviewed by the maintainers and the tests will be checked by our continuous integration platform.\n\n### Interpreting test errors\n\nThere are 2 kinds of tests in this repository – Unit tests and Integration tests.\n\nUnit tests are run locally with `jest` and execute quickly because they are testing the smallest units of code.\n\n#### Integration tests\n\nIntegration tests create deployments to your Vercel account using the `test` project name. After each test is deployed, the `probes` key is used to check if the response is the expected value. If the value doesn't match, you'll see a message explaining the difference. If the deployment failed to build, you'll see a more generic message like the following:\n\n```log\n[Error: Fetched page https://test-8ashcdlew.vercel.app/root.js does not contain hello Root!. Instead it contains An error occurred with this application.\n\n    NO_STATUS_CODE_FRO Response headers:\n       cache-control=s-maxage=0\n      connection=close\n      content-type=text/plain; charset=utf-8\n      date=Wed, 19 Jun 2019 18:01:37 GMT\n      server=now\n      strict-transport-security=max-age=63072000\n      transfer-encoding=chunked\n      x-now-id=iad1:hgtzj-1560967297876-44ae12559f95\n      x-now-trace=iad1]\n```\n\nIn such cases, you can visit the URL of the failed deployment and append `/_logs` to see the build error. In the case above, that would be https://test-8ashcdlew.vercel.app/_logs\n\nThe logs of this deployment will contain the actual error which may help you to understand what went wrong.\n\n##### Running integration tests locally\n\nWhile running the full integration suite locally is not recommended, it's sometimes useful to isolate a failing test by running it on your machine. To do so, you'll need to ensure you have the appropriate credentials sourced in your shell:\n\n1. Create an access token. Follow the instructions here https://vercel.com/docs/rest-api#creating-an-access-token. Ensure the token scope is for your personal\n   account.\n2. Grab the team ID from the Vercel dashboard at `https://vercel.com/<MY-TEAM>/~/settings`.\n3. Source these into your shell rc file: `echo 'export VERCEL_TOKEN=<MY-TOKEN> VERCEL_TEAM_ID=<MY-TEAM-ID>' >> ~/.zshrc`\n\nFrom there, you should be able to trigger an integration test. Choose one\nthat's already isolated to check that things work:\n\n```bash\ncd packages/next\n```\n\nRun the test:\n\n```bash\npnpm test test/fixtures/00-server-build/index.test.js\n```\n\n> [!NOTE]\n> If you receive a `401` status code while fetching the deployment, you need to disable [Deployment Protection](https://vercel.com/docs/security/deployment-protection) on the project.\n\n#### @vercel/nft\n\nSome of the Builders use `@vercel/nft` to tree-shake files before deployment. If you suspect an error with this tree-shaking mechanism, you can create the following script in your project:\n\n```js\nconst { nodeFileTrace } = require('@vercel/nft');\nnodeFileTrace(['path/to/entrypoint.js'], {\n  ts: true,\n  mixedModules: true,\n})\n  .then(o => console.log(o.fileList))\n  .then(e => console.error(e));\n```\n\nWhen you run this script, you'll see all the imported files. If files are missing, the bug is in [@vercel/nft](https://github.com/vercel/nft) and not the Builder.\n\n### Deploy a Builder with existing project\n\nSometimes you want to test changes to a Builder against an existing project, maybe with `vercel dev` or actual deployment. You can avoid publishing every Builder change to npm by uploading the Builder as a tarball.\n\n1. Change directory to the desired Builder `cd ./packages/node`\n2. Run `pnpm build` to compile typescript and other build steps\n3. Run `npm pack` to create a tarball file. It is imporant to not use `pnpm pack` because it will not preserve the file permissions\n4. Move the resulting tarball to a directory\n5. Run `vercel <directory>` to upload the tarball file and get a URL. Remember to append `/<tarball name>` to then end of your URL\n6. Edit any existing `vercel.json` project and replace `use` with the URL\n7. Run `vercel` or `vercel dev` to deploy with the experimental Builder\n\n**Note:** You will need to turn off vercel authentication in settings -> deployment protection so the builder can be downloaded\n\n## Reference\n\n- [Code of Conduct](./.github/CODE_OF_CONDUCT.md)\n- [Contributing Guidelines](./.github/CONTRIBUTING.md)\n- [Apache 2.0 License](./LICENSE)\n",
+        "truncated": false,
+        "bytes": 7377,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "vercel@50.25.4",
+            "tag_name": "vercel@50.25.4",
+            "published_at": "2026-02-28T03:13:13Z",
+            "body_excerpt": "### Patch Changes\n\n-   feat(cli): add optional search query to `vercel integration discover` ([#15320](https://github.com/vercel/vercel/pull/15320))\n\n-   [python] setup logging in `vc_init_dev` to route records with level &lt;= `WARNING` to `stdout` and with level >= `ERROR` to `stderr`. ([#15328](https://github.com/vercel/vercel/pull/15328))\n\n-   Enable service route-prefix auto stripping for explicitly configured ([#15327](https://github.com/vercel/vercel/pull/15327))\n    multi-service `vercel.json` setups across runtimes, matching generated-prefix\n    behavior during build and dev orchestration.\n\n-   [services] fix multiple route-owning builders writing to build output API ([#15323](https://github.com/vercel/vercel/pull/15323))\n\n    Fix `vc build` services route merging when multiple builders return `buildOutputPath`.\n    Instead of reusing a single merged `.vercel/output/config.json` for the first matching build, `vc build` now reads each builder's own `config.json`,\n    scopes those routes to service ownership, and merges routes/overrides per builder. This prevents sibling service routes from being dropped and restores expected app-level 404 behavior.\n\n-   Updated dependencies \\[[`b5483654e4c8a6c1128d2afd0eca2e081ff70403`](https://github.com/vercel/vercel/commit/b5483654e4c8a6c1128d2afd0eca2e081ff70403)]:\n    -   @vercel/python@6.19.0\n"
+          },
+          {
+            "name": "@vercel/python@6.19.0",
+            "tag_name": "@vercel/python@6.19.0",
+            "published_at": "2026-02-28T03:13:16Z",
+            "body_excerpt": "### Minor Changes\n\n-   [python] setup logging in `vc_init_dev` to route records with level &lt;= `WARNING` to `stdout` and with level >= `ERROR` to `stderr`. ([#15328](https://github.com/vercel/vercel/pull/15328))\n"
+          },
+          {
+            "name": "vercel@50.25.3",
+            "tag_name": "vercel@50.25.3",
+            "published_at": "2026-02-27T23:28:59Z",
+            "body_excerpt": "### Patch Changes\n\n-   feat(cli): skip inline terms for integrations requiring browser install ([#15308](https://github.com/vercel/vercel/pull/15308))\n\n-   evals outputs ([#15312](https://github.com/vercel/vercel/pull/15312))\n\n-   Updated dependencies \\[[`61104b4d6f28ac8b84a237a2dfd4c16b9cc1fcac`](https://github.com/vercel/vercel/commit/61104b4d6f28ac8b84a237a2dfd4c16b9cc1fcac)]:\n    -   @vercel/python@6.18.1\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".changeset",
+        ".claude",
+        ".editorconfig",
+        ".eslintignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".node_version",
+        ".npmrc",
+        ".nvmrc",
+        ".prettierignore",
+        ".syncpackrc.json",
+        ".vercel.approvers",
+        ".vercelignore",
+        "AGENTS.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "DEVELOPING_A_RUNTIME.md",
+        "LICENSE",
+        "README.md",
+        "api",
+        "biome.jsonc",
+        "crates",
+        "errors",
+        "examples",
+        "internals",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "pyproject.toml",
+        "python",
+        "scripts",
+        "skills",
+        "test-cursor-detection.js",
+        "test",
+        "tsconfig.base.json",
+        "turbo.json",
+        "utils",
+        "uv.lock",
+        "vercel.json",
+        "vitest.config.mts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://vercel.com\"> <img src=\"https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png\" height=\"96\"> <h3 align=\"center\">Vercel</h3> </a> </p>",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://vercel.com/docs\"><strong>Documentation</strong></a> · <a href=\"https://vercel.com/changelog\"><strong>Changelog</strong></a> · <a href=\"https://vercel.com/templates\"><strong>Templates</strong></a> · <a href=\"https://vercel.com/docs/cli\"><strong>CLI</strong></a> </p> <br/>",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Vercel’s AI Cloud is a unified platform for building modern applications, giving teams the tools to be flexible, move fast, and stay secure while focusing on their products instead of infrastructure.",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Get started by [importing a project](https://vercel.com/new), [choosing a template](https://vercel.com/templates), or using the [Vercel CLI](https://vercel.com/docs/cli). Then, `git push` to deploy.",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 5)",
+          "excerpt": "For details on how to use Vercel, check out our [documentation](https://vercel.com/docs).",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 6)",
+          "excerpt": "This project uses [pnpm](https://pnpm.io/) to install dependencies and run scripts.",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 7)",
+          "excerpt": "You can use the `vercel` script to run local changes as if you were invoking Vercel CLI. For example, `vercel deploy --cwd=/path/to/project` could be run with local changes with `pnpm vercel deploy --cwd=/path/to/project`.",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/vercel/vercel#readme",
+          "title": "README (segment 8)",
+          "excerpt": "When contributing to this repository, please first discuss the change you wish to make via [Vercel Community](https://community.vercel.com/tags/c/community/4/cli) with the owners of this repository before submitting a Pull Request.",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/vercel/vercel/releases",
+          "title": "vercel@50.25.4",
+          "excerpt": "### Patch Changes - feat(cli): add optional search query to `vercel integration discover` ([#15320](https://github.com/vercel/vercel/pull/15320)) - [python] setup logging in `vc_init_dev` to route records with level &lt;= `WARNING` to `stdout` and with level >= `ERROR` to `stderr`. ([#15328](https://github.com/vercel/vercel/pull/15328)) - Enable service route-prefix auto stripping for explicitly configured ([#15327](https://github.com/vercel/vercel/pull/15327)) multi-service `vercel.json` setups across runtimes, matching generated-prefix behavior during build and dev orchestration. - [services] fix multiple route-owning builders writing to build output API ([#15323](https://github.com/vercel/vercel/pull/15323)) Fix `vc build` services route merging when multiple builders return `buildOutputPath`. Instead of reusing a single merged `.vercel/output/config.json` for the first matching build, `vc build` now reads each builder's own `config.json`, scopes those routes to service ownership, and merges routes/overrides per builder. This prevents sibling service routes from being dropped and restores expected app-level 404 behavior. - Updated dependencies \\[[`b5483654e4c8a6c1128d2afd0eca2e…",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "tag_name": "vercel@50.25.4",
+            "published_at": "2026-02-28T03:13:13Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/vercel/vercel/releases",
+          "title": "@vercel/python@6.19.0",
+          "excerpt": "### Minor Changes - [python] setup logging in `vc_init_dev` to route records with level &lt;= `WARNING` to `stdout` and with level >= `ERROR` to `stderr`. ([#15328](https://github.com/vercel/vercel/pull/15328))",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "tag_name": "@vercel/python@6.19.0",
+            "published_at": "2026-02-28T03:13:16Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/vercel/vercel/releases",
+          "title": "vercel@50.25.3",
+          "excerpt": "### Patch Changes - feat(cli): skip inline terms for integrations requiring browser install ([#15308](https://github.com/vercel/vercel/pull/15308)) - evals outputs ([#15312](https://github.com/vercel/vercel/pull/15312)) - Updated dependencies \\[[`61104b4d6f28ac8b84a237a2dfd4c16b9cc1fcac`](https://github.com/vercel/vercel/commit/61104b4d6f28ac8b84a237a2dfd4c16b9cc1fcac)]: - @vercel/python@6.18.1",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "tag_name": "vercel@50.25.3",
+            "published_at": "2026-02-27T23:28:59Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/vercel/vercel",
+          "title": "ROOT_FILES",
+          "excerpt": ".changeset, .claude, .editorconfig, .eslintignore, .gitattributes, .github, .gitignore, .husky, .node_version, .npmrc, .nvmrc, .prettierignore, .syncpackrc.json, .vercel.approvers, .vercelignore, AGENTS.md, Cargo.lock, Cargo.toml, DEVELOPING_A_RUNTIME.md, LICENSE, README.md, api, biome.jsonc, crates, errors, examples, internals, package.json, packages, pnpm-lock.yaml, pnpm-workspace.yaml, pyproject.toml, python, scripts, skills, test-cursor-detection.js, test, tsconfig.base.json, turbo.json, utils, uv.lock, vercel.json, vitest.config.mts",
+          "fetched_at": "2026-02-28T04:17:27.506Z",
+          "meta": {
+            "repo_full_name": "vercel/vercel",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "peter279k/github-follower-bot",
+      "html_url": "https://github.com/peter279k/github-follower-bot",
+      "description": "My GitHub Follower Bot",
+      "topics": [
+        "github-api",
+        "github-followers"
+      ],
+      "language": "Python",
+      "stargazers_count": 55,
+      "forks_count": 19,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-02-28T04:17:08Z",
+      "created_at": "2021-09-04T04:47:23Z",
+      "readme": {
+        "fetched": true,
+        "text": "# GitHub Follower Bot\n\n# Introduction\n\n- This is my GitHub Follower Bot.\n- When following me, my bot will follow you automatically :).\n\n# Usage\n\n- Prepare the Python 3.6+.\n- Please visit the [Developer settings](https://github.com/settings/tokens) page to create a personal access token with the all of user permissions.\n- Running the `pip3 install pipenv --user` to install the pipenv.\n- Add the executable Python path via `export PATH=$PATH:/home/peter/.local/bin`.\n- Running the `pipenv install` to install required dependencies.\n- Running the `export github_user=your-github-user-name` to set the `github_user` environment variable.\n- Running the `export personal_github_token=your-personal-github-token` to set the `personal_github_token` environment variable.\n- Running the `pipenv run python follower_bot.py` command to run the bot!\n\n# References\n\n- https://gist.github.com/peter279k/daf1cc84ecfecf4d5c962b5637426406\n",
+        "truncated": false,
+        "bytes": 924,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1,
+            "title": "TypeError",
+            "state": "closed",
+            "url": "https://github.com/peter279k/github-follower-bot/issues/1"
+          },
+          {
+            "number": 2,
+            "title": "how to get token",
+            "state": "closed",
+            "url": "https://github.com/peter279k/github-follower-bot/issues/2"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        "LICENSE",
+        "Pipfile",
+        "Pipfile.lock",
+        "README.md",
+        "follower_bot.py",
+        "follower_counter.txt",
+        "followers.txt"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/peter279k/github-follower-bot#readme",
+          "title": "README (segment 1)",
+          "excerpt": "- This is my GitHub Follower Bot. - When following me, my bot will follow you automatically :).",
+          "fetched_at": "2026-02-28T04:17:27.556Z",
+          "meta": {
+            "repo_full_name": "peter279k/github-follower-bot",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/peter279k/github-follower-bot#readme",
+          "title": "README (segment 2)",
+          "excerpt": "- Prepare the Python 3.6+. - Please visit the [Developer settings](https://github.com/settings/tokens) page to create a personal access token with the all of user permissions. - Running the `pip3 install pipenv --user` to install the pipenv. - Add the executable Python path via `export PATH=$PATH:/home/peter/.local/bin`. - Running the `pipenv install` to install required dependencies. - Running the `export github_user=your-github-user-name` to set the `github_user` environment variable. - Running the `export personal_github_token=your-personal-github-token` to set the `personal_github_token` environment variable. - Running the `pipenv run python follower_bot.py` command to run the bot!",
+          "fetched_at": "2026-02-28T04:17:27.556Z",
+          "meta": {
+            "repo_full_name": "peter279k/github-follower-bot",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/peter279k/github-follower-bot/issues/1",
+          "title": "TypeError",
+          "excerpt": "TypeError (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.556Z",
+          "meta": {
+            "repo_full_name": "peter279k/github-follower-bot",
+            "number": 1
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/peter279k/github-follower-bot/issues/2",
+          "title": "how to get token",
+          "excerpt": "how to get token (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.556Z",
+          "meta": {
+            "repo_full_name": "peter279k/github-follower-bot",
+            "number": 2
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/peter279k/github-follower-bot",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, LICENSE, Pipfile, Pipfile.lock, README.md, follower_bot.py, follower_counter.txt, followers.txt",
+          "fetched_at": "2026-02-28T04:17:27.556Z",
+          "meta": {
+            "repo_full_name": "peter279k/github-follower-bot",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "ultracontext/ultracontext",
+      "html_url": "https://github.com/ultracontext/ultracontext",
+      "description": "The Context Hub for AI agents",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "api",
+        "context-api",
+        "context-engine",
+        "context-engineering",
+        "context-hub",
+        "context-management",
+        "context-window",
+        "contextapi",
+        "llm",
+        "llm-ops",
+        "ultracontext",
+        "versioning"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 144,
+      "forks_count": 16,
+      "open_issues_count": 3,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:16:14Z",
+      "created_at": "2026-01-07T06:06:31Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://ultracontext.ai\">\n    <img src=\"https://ultracontext.ai/gh-cover.png\" alt=\"UltraContext\" />\n  </a>\n</p>\n\n<h3 align=\"center\">The Context Hub for AI agents.</h3>\n\n<p align=\"center\">\n  <a href=\"https://ultracontext.ai/docs\">Documentation</a>\n  ·\n  <a href=\"https://ultracontext.ai/docs/api-reference/introduction\">API Reference</a>\n  ·\n  <a href=\"https://ultracontext.ai/docs/changelog\">Changelog</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://www.npmjs.com/package/ultracontext\">\n    <img src=\"https://img.shields.io/npm/v/ultracontext\" alt=\"npm version\" />\n  </a>\n  <a href=\"https://pypi.org/project/ultracontext/\">\n    <img src=\"https://img.shields.io/pypi/v/ultracontext\" alt=\"PyPI version\" />\n  </a>\n  <a href=\"https://github.com/ultracontext/ultracontext/blob/main/LICENSE\">\n    <img src=\"https://img.shields.io/github/license/ultracontext/ultracontext\" alt=\"license\" />\n  </a>\n  <a href=\"https://ultracontext.ai\">\n    <img src=\"https://img.shields.io/badge/Visit-ultracontext.ai-4B6EF5\" alt=\"Visit ultracontext.ai\" />\n  </a>\n</p>\n\n<div align=\"center\">\n  <a href=\"https://twitter.com/ultracontext\">\n    <img src=\"https://img.shields.io/badge/Follow%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white\" alt=\"Follow on X\" />\n  </a>\n  <a href=\"https://discord.com/invite/4HjcS6KwhW\">\n    <img src=\"https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white\" alt=\"Join our Discord\" />\n  </a>\n</div>\n\n<div align=\"center\">\n\n## All agents. All context.\n\n</div>\n\n![ultracontext-gif](https://github.com/user-attachments/assets/be73afe5-161d-4fa3-8f4d-c4987fe63cb4)\n\n\n## Introduction\n\nAgents now do our work. Today, most of our knowledge and key decisions live inside context windows. But they are spread across many agents, computers, and teams.\n\nNot anymore.\n\n## UltraContext Features\n\n- **Auto-ingest** — Captures contexts from your agents in realtime.\n- **Realtime access** — Immediately see contexts created on any machine, by any agent, whenever you want.\n- **Collaborate** — Share contexts across your team. See what everyone sees, instantly and without any friction.\n- **Switch between agents** — Pick up where one agent left off with another.\n- **Open source** — Own your data. Self-host when you need to.\n- **Plug and play** — Install and run with a single line of code.\n- **Fork & clone** — Continue contexts while preserving the full history.\n- **Customizable** — Add your own agents and extend behavior with the context API ([Docs here](https://ultracontext.ai/docs/api-reference/introduction)).\n\n## Install\n\nRequires **Node >= 22**.\n\n```bash\nnpm install -g ultracontext\n```\n\nThat's it. The setup wizard runs automatically — walks you through API key, sync preferences, and launches the dashboard.\n\nAlready installed? Run `ultracontext config` to reconfigure.\n\n## Quick Start\n\n```bash\nultracontext              # start daemon + open dashboard\nultracontext config       # run setup wizard\nultracontext start        # start daemon only\nultracontext stop         # stop daemon\nultracontext status       # check if daemon is running\nultracontext tui          # open dashboard only\n```\n\nThe default ultracontext command does everything: checks the daemon, starts it if needed, and opens the TUI dashboard.\n\n## How it works\n\n1. A daemon runs in the background, watching your agents.\n2. Contexts are ingested in realtime with the Context API.\n3. Your Context Hub gets updated.\n\nWe use a git-like context engineering API under the hood to interact with the agent's contexts. You can use it to add your own custom agents, tweak behavior and more. ([Docs here](https://ultracontext.ai/docs/))\n\nWhen you open an existing session from the hub, it forks the context, so the original context is always preserved by default and automatically versioned so you can keep track of it later using metadata.\n\nThere is a local caching layer that prevents duplicate context creations and appends.\n\n## Star History\n\n[![Star History Chart](https://api.star-history.com/svg?repos=ultracontext/ultracontext&type=date&legend=top-left)](https://www.star-history.com/#ultracontext/ultracontext&type=date&legend=top-left)\n\n\n## Everything we built so far\n\n- Daemon - Runs in the background, watching your agents.\n- TUI - Terminal UI for the daemon.\n- [Context API](https://ultracontext.ai/docs/) - Git-like context engineering API.\n- [Context API SDKs](https://ultracontext.ai/docs/quickstart/nodejs) - Node and Python SDKs.\n\n<div align=\"center\">\n\n# The Context API\n\n</div>\n\nThe Context API is the simplest way to control what your agents see. Replace messages, compact/offload long context, replay decisions and roll back mistakes with a single API call. Versioned context out of the box. Full history. Zero complexity. You can use the API standalone to build your own agents or to tweak behavior of existing ones in ultracontext. ([Docs here](https://ultracontext.ai/docs/api-reference/introduction))\n\n## Context API SDKs\n\n| SDK | Install | Source |\n|-----|---------|--------|\n| JavaScript/TypeScript | `npm install ultracontext` | [apps/js-sdk](./apps/js-sdk) |\n| Python | `pip install ultracontext` | [apps/python-sdk](./apps/python-sdk) |\n\n\n### JavaScript/TypeScript\n\n```bash\nnpm install ultracontext\n```\n\n```js\nimport { UltraContext } from 'ultracontext';\n\nconst uc = new UltraContext({ apiKey: 'uc_live_...' });\n\nconst ctx = await uc.create();\nawait uc.append(ctx.id, { role: 'user', content: 'Hello!' });\n\n// use with any LLM framework\nconst response = await generateText({ model, messages: ctx.data });\n```\n\n### Python\n\n```bash\npip install ultracontext\n```\n\n```python\nfrom ultracontext import UltraContext\n\nuc = UltraContext(api_key=\"uc_live_...\")\n\nctx = uc.create()\nuc.append(ctx[\"id\"], {\"role\": \"user\", \"content\": \"Hello!\"})\n\n# use with any LLM framework\nresponse = generate_text(model=model, messages=uc.get(ctx[\"id\"])[\"data\"])\n```\n\nGet an API key from the [UltraContext Dashboard](https://ultracontext.ai/dashboard).\n\n## Documentation\n\n- [Quickstart](https://ultracontext.ai/docs/quickstart/nodejs) — Get running in 2 minutes\n- [Guides](https://ultracontext.ai/docs/guides/store-retrieve-contexts) — Practical patterns for common use cases\n- [API Reference](https://ultracontext.ai/docs/api-reference/introduction) — Full endpoint documentation\n\n---\n",
+        "truncated": false,
+        "bytes": 6356,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.0 — The Beginning of Infinity",
+            "tag_name": "v1.0",
+            "published_at": "2026-02-16T11:48:22Z",
+            "body_excerpt": "Introducing UltraContext, the context engineering API.\n\nA simple API to control what your agents see. Automatic versioning, time-travel, schema-free, framework-agnostic. Just plug & play.\n\n### SDKs\n\n- JavaScript/TypeScript — `npm install ultracontext` (v1.0.1)\n- Python — `pip install ultracontext` (v1.0.2)\n\n[Documentation](https://ultracontext.ai/docs) · [API Reference](https://ultracontext.ai/docs/api-reference/introduction)"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 18,
+            "title": "OpenClaw integration should append to existing context instead of creating a new one per message",
+            "state": "open",
+            "url": "https://github.com/ultracontext/ultracontext/issues/18"
+          },
+          {
+            "number": 12,
+            "title": "feat: wire compression engine into the runtime",
+            "state": "closed",
+            "url": "https://github.com/ultracontext/ultracontext/issues/12"
+          },
+          {
+            "number": 10,
+            "title": "Add pnpm-workspace.yaml for monorepo workspace config",
+            "state": "open",
+            "url": "https://github.com/ultracontext/ultracontext/issues/10"
+          }
+        ]
+      },
+      "root_files": [
+        ".env.example",
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "apps",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://ultracontext.ai\"> <img src=\"https://ultracontext.ai/gh-cover.png\" alt=\"UltraContext\" /> </a> </p>",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 1,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://ultracontext.ai/docs\">Documentation</a> · <a href=\"https://ultracontext.ai/docs/api-reference/introduction\">API Reference</a> · <a href=\"https://ultracontext.ai/docs/changelog\">Changelog</a> </p>",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 2,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://www.npmjs.com/package/ultracontext\"> <img src=\"https://img.shields.io/npm/v/ultracontext\" alt=\"npm version\" /> </a> <a href=\"https://pypi.org/project/ultracontext/\"> <img src=\"https://img.shields.io/pypi/v/ultracontext\" alt=\"PyPI version\" /> </a> <a href=\"https://github.com/ultracontext/ultracontext/blob/main/LICENSE\"> <img src=\"https://img.shields.io/github/license/ultracontext/ultracontext\" alt=\"license\" /> </a> <a href=\"https://ultracontext.ai\"> <img src=\"https://img.shields.io/badge/Visit-ultracontext.ai-4B6EF5\" alt=\"Visit ultracontext.ai\" /> </a> </p>",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 3,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<div align=\"center\"> <a href=\"https://twitter.com/ultracontext\"> <img src=\"https://img.shields.io/badge/Follow%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white\" alt=\"Follow on X\" /> </a> <a href=\"https://discord.com/invite/4HjcS6KwhW\"> <img src=\"https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white\" alt=\"Join our Discord\" /> </a> </div>",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 4,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 5)",
+          "excerpt": "![ultracontext-gif](https://github.com/user-attachments/assets/be73afe5-161d-4fa3-8f4d-c4987fe63cb4)",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 5,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Agents now do our work. Today, most of our knowledge and key decisions live inside context windows. But they are spread across many agents, computers, and teams.",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 6,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **Auto-ingest** — Captures contexts from your agents in realtime. - **Realtime access** — Immediately see contexts created on any machine, by any agent, whenever you want. - **Collaborate** — Share contexts across your team. See what everyone sees, instantly and without any friction. - **Switch between agents** — Pick up where one agent left off with another. - **Open source** — Own your data. Self-host when you need to. - **Plug and play** — Install and run with a single line of code. - **Fork & clone** — Continue contexts while preserving the full history. - **Customizable** — Add your own agents and extend behavior with the context API ([Docs here](https://ultracontext.ai/docs/api-reference/introduction)).",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 7,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/ultracontext/ultracontext#readme",
+          "title": "README (segment 8)",
+          "excerpt": "That's it. The setup wizard runs automatically — walks you through API key, sync preferences, and launches the dashboard.",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "segment": 8,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/ultracontext/ultracontext/issues/18",
+          "title": "OpenClaw integration should append to existing context instead of creating a new one per message",
+          "excerpt": "OpenClaw integration should append to existing context instead of creating a new one per message (state:open)",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "number": 18
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/ultracontext/ultracontext/issues/12",
+          "title": "feat: wire compression engine into the runtime",
+          "excerpt": "feat: wire compression engine into the runtime (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "number": 12
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/ultracontext/ultracontext/issues/10",
+          "title": "Add pnpm-workspace.yaml for monorepo workspace config",
+          "excerpt": "Add pnpm-workspace.yaml for monorepo workspace config (state:open)",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "number": 10
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/ultracontext/ultracontext/releases",
+          "title": "v1.0",
+          "excerpt": "Introducing UltraContext, the context engineering API. A simple API to control what your agents see. Automatic versioning, time-travel, schema-free, framework-agnostic. Just plug & play. ### SDKs - JavaScript/TypeScript — `npm install ultracontext` (v1.0.1) - Python — `pip install ultracontext` (v1.0.2) [Documentation](https://ultracontext.ai/docs) · [API Reference](https://ultracontext.ai/docs/api-reference/introduction)",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "tag_name": "v1.0",
+            "published_at": "2026-02-16T11:48:22Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/ultracontext/ultracontext",
+          "title": "ROOT_FILES",
+          "excerpt": ".env.example, .gitignore, AGENTS.md, LICENSE, README.md, apps, package.json, packages, pnpm-lock.yaml, pnpm-workspace.yaml",
+          "fetched_at": "2026-02-28T04:17:27.573Z",
+          "meta": {
+            "repo_full_name": "ultracontext/ultracontext",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "tamagui/tamagui",
+      "html_url": "https://github.com/tamagui/tamagui",
+      "description": "Style React fast with 100% parity on React Native, an optional UI kit, and optimizing compiler.",
+      "topics": [
+        "atomic-css",
+        "css-in-js",
+        "optimizing-compiler",
+        "react",
+        "react-native",
+        "react-native-web",
+        "tailwind",
+        "typescript",
+        "ui",
+        "ui-components",
+        "vite",
+        "webpack"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13763,
+      "forks_count": 585,
+      "open_issues_count": 87,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-02-28T04:14:03Z",
+      "created_at": "2020-10-16T21:19:51Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <picture width=\"572px\">\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/tamagui/tamagui/raw/main/code/tamagui.dev/public/logo-black.png\">\n    <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/tamagui/tamagui/raw/main/code/tamagui.dev/public/logo-white.png\">\n    <img alt=\"Shows a black logo in light color mode and a white one in dark color mode.\" src=\"https://github.com/tamagui/tamagui/raw/main/code/tamagui.dev/public/social.png\">\n  </picture>\n</div>\n\n<h3 align=\"center\">\n  Style library, design system, composable components, and more.\n</h3>\n\n<h4 align=\"center\">\n  Tamagui is a bunch of libraries for building UIs that share code across React and React Native.\n</h4>\n\n<br />\n\n<div align=\"center\">\n  <img alt=\"NPM downloads\" src=\"https://img.shields.io/npm/dw/@tamagui/core?logo=npm&label=NPM%20downloads&cacheSeconds=3600\"/>\n  <img alt=\"Commits per month\" src=\"https://img.shields.io/github/commit-activity/m/tamagui/tamagui?label=Commits&logo=git\" />\n  <img alt=\"Discord users online\" src=\"https://img.shields.io/discord/909986013848412191?logo=discord&label=Discord&cacheSeconds=3600\" />\n  <a href=\"https://gurubase.io/g/tamagui\">\n    <img alt=\"Gurubase\" src=\"https://img.shields.io/badge/Gurubase-Ask%20Tamagui%20Guru-006BFF\" />\n  </a>\n</div>\n\n<br />\n<br />\n\n- `@tamagui/core` - Universal style library for React.\n- `@tamagui/static` - Optimizing compiler that works with `core` and `tamagui`.\n- `tamagui` - UI kit that adapts to every platform.\n\n<br />\n\n**See [tamagui.dev](https://tamagui.dev) for documentation.**\n\nTamagui lets you share more code between web and native apps without sacrificing the two things that typically suffer when you do: performance and code quality.\n\nIt does this with an optimizing compiler that outputs platform-specific optimizations - it turns styled components, even with complex logic or cross-module imports, into a simple `div` alongside atomic CSS on the web, or a View with its style objects hoisted on native.\n\nThe entirety of Tamagui works at compile time and runtime, and can be set up gradually, with initial usage as simple as importing it and using the base views and styled function.\n\nWe recommend checking out the starters with `npm create tamagui@latest`, they range from a simple learning example to a production-ready monorepo.\n\nThe compiler optimizes most and ultimately flattens a majority of styled components. In the [~500px² responsive browser section](https://tamagui.dev) of the Tamagui website, 49 of the 55 or so [inline styled components](https://github.com/tamagui/tamagui/blob/main/code/tamagui.dev/components/HeroResponsive.tsx) are flattened to a `div`. The homepage gains nearly 15% on Lighthouse with the compiler on.\n\n[Learn more on the website](https://tamagui.dev/docs/intro/introduction).\n\n---\n\n## Contributing\n\nTo contribute to Tamagui reference the [contributing guide](https://github.com/tamagui/tamagui/blob/main/CONTRIBUTING.md).\n\nTo contribute to documentation reference the [writing guide](https://github.com/tamagui/tamagui/blob/main/code/tamagui.dev/WRITING-GUIDE.md).\n",
+        "truncated": false,
+        "bytes": 3130,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.0.0-rc.20",
+            "tag_name": "v2.0.0-rc.20",
+            "published_at": "2026-02-27T22:51:42Z",
+            "body_excerpt": "## Features\n- **static**: auto-optimize user-defined styled components behind enableDynamicEvaluation flag ([natew](https://github.com/tamagui/tamagui/commit/8d876968d448629feb37261789ce0e9e4691a2dc))\n\n## Bug Fixes\n- prevent animatedBy, unstyled, and marginLeft props from leaking to dom ([natew](https://github.com/tamagui/tamagui/commit/5fe753e2c467e30425c93eb057bcd24e81d8976d))\n- **motion**: fix position flash and ghost elements during rapid tab hover switching ([natew](https://github.com/tamagui/tamagui/commit/d2cc63b18912ccc3683762f22bbbbb28306a9180))\n- **popper**: prevent position jumps during hoverable close/open cycles ([natew](https://github.com/tamagui/tamagui/commit/aaec352516349024d0aad7db6093caa37208640f))\n- **animation-css**: restore transition on interrupted exit ([natew](https://github.com/tamagui/tamagui/commit/e91fcc3e866f26702432b38a16c35f41f1de2d9f))\n- **animations-motion**: add env flags for hacks, fix exit race conditions ([natew](https://github.com/tamagui/tamagui/commit/802e08d091a9e6f2dcf544babcba921152662c45))\n- **popover**: fix hoverable multi-trigger not opening on hover ([natew](https://github.com/tamagui/tamagui/commit/43873e2c9d723635a25a042b1b99695a1adb1de1))\n- **popover**: support hoverable delay with multi-trigger popovers ([natew](https://github.com/tamagui/tamagui/commit/1504b06f840c2da8fff1c22e5b7fccf1fa1bdcff))\n- **animate-presence**: freeze custom prop for exiting children ([natew](https://github.com/tamagui/tamagui/commit/9dfdf6cf4862d05102fd93f7f92e3110055dce2d))\n- use Array.from for NodeListOf iteration in test ([natew](https://github.com/tamagui/tamagui/commit/647738c68c1411a0273de8d1ccd038433a6f8502))\n- **popover**: clean up timers on unmount and reset stale position refs on close ([natew](https://github.com/tamagui/tamagui/commit/5608b65ed86a1a3595bc81b9c83d000cf5d131cd))\n- **popover**: support restMs with multi-trigger hopovers and fix switching race ([natew](https://github.com/tamagui/tamagui/commit/05acf3f13bd3f0dac0310a"
+          },
+          {
+            "name": "v2.0.0-rc.19",
+            "tag_name": "v2.0.0-rc.19",
+            "published_at": "2026-02-26T18:25:02Z",
+            "body_excerpt": "## Bug Fixes\n- **menu**: avoid double-attaching press props ([natew](https://github.com/tamagui/tamagui/commit/e29cc1d74b841c4aecb7d2ab6881eac49c892bdc))\n- **core**: fix backgroundImage + hsla with spaces ([natew](https://github.com/tamagui/tamagui/commit/afe33bcf27d435b7ab172d0de76af241779fe96e))\n- **core**: fix ScrollView scrollbar hiding with rnw-lite ([natew](https://github.com/tamagui/tamagui/commit/137746b96dd04cb9001a6e7e09dbea2083cc0fc6))\n- **sheet**: use useEvent for layout handler to fix fit mode reopen on native Fixes #3833 ([natew](https://github.com/tamagui/tamagui/commit/dfa1d24bb8c3eba48331c8f4d527b65547718251))\n- **web**: fix react-native-web-lite deep imports for reanimated compatibility ([natew](https://github.com/tamagui/tamagui/commit/d78233efedce49c7376bab5da9c465e0284b5a5e))\n- **animation-css**: fix hydration issue with animateOnly, fix animation hydration tests to be more accurate ([natew](https://github.com/tamagui/tamagui/commit/aff78aa7389346fb278b842c5630006b6812196d))\n\n## Tests\n- add ScrollView scrollbar hiding integration test with rnw-lite support ([natew](https://github.com/tamagui/tamagui/commit/44012683abd73c9c5b642c7264f21c8a2561d665))\n\n## Commits\n- 8cbc2f2: canary2.0.0-rc.18-1772099573011 (natew)\n- 188061d: update theme generation (natew)\n- 572b083: v2.0.0-rc.19 (natew)"
+          },
+          {
+            "name": "v1.144.4",
+            "tag_name": "v1.144.4",
+            "published_at": "2026-02-26T16:12:57Z",
+            "body_excerpt": "## Bug Fixes\n- **popper**: forward direction prop to floating wrapper for RTL detection [#3932](https://github.com/tamagui/tamagui/pull/3932) ([natew](https://github.com/tamagui/tamagui/commit/a3da682bf9513c96553650f592867724b4f83085))\n\n## Commits\n- ca572da: allow v1 releases on v1 branch (natew)\n- 4151d80: v1.144.4 (natew)"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 3833,
+            "title": "Sheet with fit doesn't open to full height (on even opens)",
+            "state": "closed",
+            "url": "https://github.com/tamagui/tamagui/issues/3833"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".mcp.json",
+        ".node-version",
+        ".oxfmtignore",
+        ".oxfmtrc.jsonc",
+        ".oxlintrc.json",
+        ".prettierignore",
+        ".prettierrc",
+        ".vscode",
+        ".watchmanconfig",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "Dockerfile.local",
+        "FUNDING.yml",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "bun",
+        "bun.lock",
+        "bunfig.toml",
+        "claude.md",
+        "code",
+        "docs",
+        "knip.json",
+        "library",
+        "next.md",
+        "package.json",
+        "plans",
+        "scripts",
+        "test",
+        "tsconfig.build.json",
+        "tsconfig.json",
+        "turbo.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <picture width=\"572px\"> <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/tamagui/tamagui/raw/main/code/tamagui.dev/public/logo-black.png\"> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/tamagui/tamagui/raw/main/code/tamagui.dev/public/logo-white.png\"> <img alt=\"Shows a black logo in light color mode and a white one in dark color mode.\" src=\"https://github.com/tamagui/tamagui/raw/main/code/tamagui.dev/public/social.png\"> </picture> </div>",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<h3 align=\"center\"> Style library, design system, composable components, and more. </h3>",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<h4 align=\"center\"> Tamagui is a bunch of libraries for building UIs that share code across React and React Native. </h4>",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<div align=\"center\"> <img alt=\"NPM downloads\" src=\"https://img.shields.io/npm/dw/@tamagui/core?logo=npm&label=NPM%20downloads&cacheSeconds=3600\"/> <img alt=\"Commits per month\" src=\"https://img.shields.io/github/commit-activity/m/tamagui/tamagui?label=Commits&logo=git\" /> <img alt=\"Discord users online\" src=\"https://img.shields.io/discord/909986013848412191?logo=discord&label=Discord&cacheSeconds=3600\" /> <a href=\"https://gurubase.io/g/tamagui\"> <img alt=\"Gurubase\" src=\"https://img.shields.io/badge/Gurubase-Ask%20Tamagui%20Guru-006BFF\" /> </a> </div>",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- `@tamagui/core` - Universal style library for React. - `@tamagui/static` - Optimizing compiler that works with `core` and `tamagui`. - `tamagui` - UI kit that adapts to every platform.",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Tamagui lets you share more code between web and native apps without sacrificing the two things that typically suffer when you do: performance and code quality.",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 7)",
+          "excerpt": "It does this with an optimizing compiler that outputs platform-specific optimizations - it turns styled components, even with complex logic or cross-module imports, into a simple `div` alongside atomic CSS on the web, or a View with its style objects hoisted on native.",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/tamagui/tamagui#readme",
+          "title": "README (segment 8)",
+          "excerpt": "The entirety of Tamagui works at compile time and runtime, and can be set up gradually, with initial usage as simple as importing it and using the base views and styled function.",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/tamagui/tamagui/issues/3833",
+          "title": "Sheet with fit doesn't open to full height (on even opens)",
+          "excerpt": "Sheet with fit doesn't open to full height (on even opens) (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "number": 3833
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/tamagui/tamagui/releases",
+          "title": "v2.0.0-rc.20",
+          "excerpt": "## Features - **static**: auto-optimize user-defined styled components behind enableDynamicEvaluation flag ([natew](https://github.com/tamagui/tamagui/commit/8d876968d448629feb37261789ce0e9e4691a2dc)) ## Bug Fixes - prevent animatedBy, unstyled, and marginLeft props from leaking to dom ([natew](https://github.com/tamagui/tamagui/commit/5fe753e2c467e30425c93eb057bcd24e81d8976d)) - **motion**: fix position flash and ghost elements during rapid tab hover switching ([natew](https://github.com/tamagui/tamagui/commit/d2cc63b18912ccc3683762f22bbbbb28306a9180)) - **popper**: prevent position jumps during hoverable close/open cycles ([natew](https://github.com/tamagui/tamagui/commit/aaec352516349024d0aad7db6093caa37208640f)) - **animation-css**: restore transition on interrupted exit ([natew](https://github.com/tamagui/tamagui/commit/e91fcc3e866f26702432b38a16c35f41f1de2d9f)) - **animations-motion**: add env flags for hacks, fix exit race conditions ([natew](https://github.com/tamagui/tamagui/commit/802e08d091a9e6f2dcf544babcba921152662c45)) - **popover**: fix hoverable multi-trigger not opening on hover ([natew](https://github.com/tamagui/tamagui/commit/43873e2c9d723635a25a042b1b99695a1ad…",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "tag_name": "v2.0.0-rc.20",
+            "published_at": "2026-02-27T22:51:42Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/tamagui/tamagui/releases",
+          "title": "v2.0.0-rc.19",
+          "excerpt": "## Bug Fixes - **menu**: avoid double-attaching press props ([natew](https://github.com/tamagui/tamagui/commit/e29cc1d74b841c4aecb7d2ab6881eac49c892bdc)) - **core**: fix backgroundImage + hsla with spaces ([natew](https://github.com/tamagui/tamagui/commit/afe33bcf27d435b7ab172d0de76af241779fe96e)) - **core**: fix ScrollView scrollbar hiding with rnw-lite ([natew](https://github.com/tamagui/tamagui/commit/137746b96dd04cb9001a6e7e09dbea2083cc0fc6)) - **sheet**: use useEvent for layout handler to fix fit mode reopen on native Fixes #3833 ([natew](https://github.com/tamagui/tamagui/commit/dfa1d24bb8c3eba48331c8f4d527b65547718251)) - **web**: fix react-native-web-lite deep imports for reanimated compatibility ([natew](https://github.com/tamagui/tamagui/commit/d78233efedce49c7376bab5da9c465e0284b5a5e)) - **animation-css**: fix hydration issue with animateOnly, fix animation hydration tests to be more accurate ([natew](https://github.com/tamagui/tamagui/commit/aff78aa7389346fb278b842c5630006b6812196d)) ## Tests - add ScrollView scrollbar hiding integration test with rnw-lite support ([natew](https://github.com/tamagui/tamagui/commit/44012683abd73c9c5b642c7264f21c8a2561d665)) ## Commits -…",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "tag_name": "v2.0.0-rc.19",
+            "published_at": "2026-02-26T18:25:02Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/tamagui/tamagui/releases",
+          "title": "v1.144.4",
+          "excerpt": "## Bug Fixes - **popper**: forward direction prop to floating wrapper for RTL detection [#3932](https://github.com/tamagui/tamagui/pull/3932) ([natew](https://github.com/tamagui/tamagui/commit/a3da682bf9513c96553650f592867724b4f83085)) ## Commits - ca572da: allow v1 releases on v1 branch (natew) - 4151d80: v1.144.4 (natew)",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "tag_name": "v1.144.4",
+            "published_at": "2026-02-26T16:12:57Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/tamagui/tamagui",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .dockerignore, .gitattributes, .github, .gitignore, .mcp.json, .node-version, .oxfmtignore, .oxfmtrc.jsonc, .oxlintrc.json, .prettierignore, .prettierrc, .vscode, .watchmanconfig, CONTRIBUTING.md, Dockerfile, Dockerfile.local, FUNDING.yml, LICENSE, README.md, assets, bun, bun.lock, bunfig.toml, claude.md, code, docs, knip.json, library, next.md, package.json, plans, scripts, test, tsconfig.build.json, tsconfig.json, turbo.json",
+          "fetched_at": "2026-02-28T04:17:27.804Z",
+          "meta": {
+            "repo_full_name": "tamagui/tamagui",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "junegunn/fzf",
+      "html_url": "https://github.com/junegunn/fzf",
+      "description": ":cherry_blossom: A command-line fuzzy finder",
+      "topics": [
+        "bash",
+        "cli",
+        "fish",
+        "fzf",
+        "go",
+        "neovim",
+        "tmux",
+        "unix",
+        "vim",
+        "zsh"
+      ],
+      "language": "Go",
+      "stargazers_count": 78204,
+      "forks_count": 2698,
+      "open_issues_count": 321,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-02-28T04:12:55Z",
+      "created_at": "2013-10-23T16:04:23Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-color.png\" alt=\"fzf - a command-line fuzzy finder\">\n  <a href=\"https://github.com/junegunn/fzf/actions\"><img src=\"https://github.com/junegunn/fzf/actions/workflows/linux.yml/badge.svg?branch=master\" alt=\"Build Status\"></a>\n  <a href=\"http://github.com/junegunn/fzf/releases\"><img src=\"https://img.shields.io/github/v/tag/junegunn/fzf\" alt=\"Version\"></a>\n  <a href=\"https://github.com/junegunn/fzf?tab=MIT-1-ov-file#readme\"><img src=\"https://img.shields.io/github/license/junegunn/fzf\" alt=\"License\"></a>\n  <a href=\"https://github.com/junegunn/fzf/graphs/contributors\"><img src=\"https://img.shields.io/github/contributors/junegunn/fzf\" alt=\"Contributors\"></a>\n  <a href=\"https://github.com/sponsors/junegunn\"><img src=\"https://img.shields.io/github/sponsors/junegunn\" alt=\"Sponsors\"></a>\n  <a href=\"https://github.com/junegunn/fzf/stargazers\"><img src=\"https://img.shields.io/github/stars/junegunn/fzf?style=flat\" alt=\"Stars\"></a>\n</div>\n\n---\n\nfzf is a general-purpose command-line fuzzy finder.\n\n<img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-preview.png\" width=640>\n\nIt's an interactive filter program for any kind of list; files, command\nhistory, processes, hostnames, bookmarks, git commits, etc. It implements\na \"fuzzy\" matching algorithm, so you can quickly type in patterns with omitted\ncharacters and still get the results you want.\n\nHighlights\n----------\n\n- **Portable** — Distributed as a single binary for easy installation\n- **Fast** — Optimized to process millions of items instantly\n- **Versatile** — Fully customizable through an event-action binding mechanism\n- **All-inclusive** — Comes with integrations for Bash, Zsh, Fish, Vim, and Neovim\n\nTable of Contents\n-----------------\n\n<!-- vim-markdown-toc GFM -->\n\n* [Installation](#installation)\n    * [Using Homebrew](#using-homebrew)\n    * [Using Mise](#using-mise)\n    * [Linux packages](#linux-packages)\n    * [Windows packages](#windows-packages)\n    * [Using git](#using-git)\n    * [Binary releases](#binary-releases)\n    * [Setting up shell integration](#setting-up-shell-integration)\n    * [Vim/Neovim plugin](#vimneovim-plugin)\n* [Upgrading fzf](#upgrading-fzf)\n* [Building fzf](#building-fzf)\n* [Usage](#usage)\n    * [Using the finder](#using-the-finder)\n    * [Display modes](#display-modes)\n        * [`--height` mode](#--height-mode)\n        * [`--tmux` mode](#--tmux-mode)\n    * [Search syntax](#search-syntax)\n    * [Environment variables](#environment-variables)\n    * [Customizing the look](#customizing-the-look)\n    * [Options](#options)\n    * [Demo](#demo)\n* [Examples](#examples)\n* [Key bindings for command-line](#key-bindings-for-command-line)\n* [Fuzzy completion](#fuzzy-completion)\n    * [Files and directories](#files-and-directories)\n    * [Process IDs](#process-ids)\n    * [Host names](#host-names)\n    * [Environment variables / Aliases](#environment-variables--aliases)\n    * [Customizing fuzzy completion for bash and zsh](#customizing-fuzzy-completion-for-bash-and-zsh)\n        * [Customizing fzf options for completion](#customizing-fzf-options-for-completion)\n        * [Customizing completion source for paths and directories](#customizing-completion-source-for-paths-and-directories)\n        * [Supported commands (bash)](#supported-commands-bash)\n        * [Custom fuzzy completion](#custom-fuzzy-completion)\n    * [Fuzzy completion for fish](#fuzzy-completion-for-fish)\n* [Vim plugin](#vim-plugin)\n* [Advanced topics](#advanced-topics)\n    * [Customizing for different types of input](#customizing-for-different-types-of-input)\n    * [Performance](#performance)\n    * [Executing external programs](#executing-external-programs)\n    * [Turning into a different process](#turning-into-a-different-process)\n    * [Reloading the candidate list](#reloading-the-candidate-list)\n        * [1. Update the list of processes by pressing CTRL-R](#1-update-the-list-of-processes-by-pressing-ctrl-r)\n        * [2. Switch between sources by pressing CTRL-D or CTRL-F](#2-switch-between-sources-by-pressing-ctrl-d-or-ctrl-f)\n        * [3. Interactive ripgrep integration](#3-interactive-ripgrep-integration)\n    * [Preview window](#preview-window)\n    * [Previewing an image](#previewing-an-image)\n* [Tips](#tips)\n    * [Respecting `.gitignore`](#respecting-gitignore)\n    * [Fish shell](#fish-shell)\n    * [fzf Theme Playground](#fzf-theme-playground)\n* [Related projects](#related-projects)\n* [License](#license)\n* [Goods](#goods)\n* [Sponsors :heart:](#sponsors-heart)\n\n<!-- vim-markdown-toc -->\n\nInstallation\n------------\n\n### Using Homebrew\n\nYou can use [Homebrew](https://brew.sh/) (on macOS or Linux) to install fzf.\n\n```sh\nbrew install fzf\n```\n\n> [!IMPORTANT]\n> To set up shell integration (key bindings and fuzzy completion),\n> see [the instructions below](#setting-up-shell-integration).\n\nfzf is also available [via MacPorts][portfile]: `sudo port install fzf`\n\n[portfile]: https://github.com/macports/macports-ports/blob/master/sysutils/fzf/Portfile\n\n### Using Mise\n\nYou can use [mise](https://github.com/jdx/mise) to install fzf.\n\n```sh\nmise use -g fzf@latest\n```\n\n### Linux packages\n\n| Package Manager | Linux Distribution      | Command                            |\n| --------------- | ----------------------- | ---------------------------------- |\n| APK             | Alpine Linux            | `sudo apk add fzf`                 |\n| APT             | Debian 9+/Ubuntu 19.10+ | `sudo apt install fzf`             |\n| Conda           |                         | `conda install -c conda-forge fzf` |\n| DNF             | Fedora                  | `sudo dnf install fzf`             |\n| Nix             | NixOS, etc.             | `nix-env -iA nixpkgs.fzf`          |\n| Pacman          | Arch Linux              | `sudo pacman -S fzf`               |\n| pkg             | FreeBSD                 | `pkg install fzf`                  |\n| pkgin           | NetBSD                  | `pkgin install fzf`                |\n| pkg_add         | OpenBSD                 | `pkg_add fzf`                      |\n| Portage         | Gentoo                  | `emerge --ask app-shells/fzf`      |\n| Spack           |                         | `spack install fzf`                |\n| XBPS            | Void Linux              | `sudo xbps-install -S fzf`         |\n| Zypper          | openSUSE                | `sudo zypper install fzf`          |\n\n> [!IMPORTANT]\n> To set up shell integration (key bindings and fuzzy completion),\n> see [the instructions below](#setting-up-shell-integration).\n\n[![Packaging status](https://repology.org/badge/vertical-allrepos/fzf.svg?columns=3)](https://repology.org/project/fzf/versions)\n\n### Windows packages\n\nOn Windows, fzf is available via [Chocolatey][choco], [Scoop][scoop],\n[Winget][winget], and [MSYS2][msys2]:\n\n| Package manager | Command                               |\n| --------------- | ------------------------------------- |\n| Chocolatey      | `choco install fzf`                   |\n| Scoop           | `scoop install fzf`                   |\n| Winget          | `winget install fzf`                  |\n| MSYS2 (pacman)  | `pacman -S $MINGW_PACKAGE_PREFIX-fzf` |\n\n[choco]: https://chocolatey.org/packages/fzf\n[scoop]: https://github.com/ScoopInstaller/Main/blob/master/bucket/fzf.json\n[winget]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/j/junegunn/fzf\n[msys2]: https://packages.msys2.org/base/mingw-w64-fzf\n\n### Using git\n\nAlternatively, you can \"git clone\" this repository to any directory and run\n[install](https://github.com/junegunn/fzf/blob/master/install) script.\n\n```sh\ngit clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf\n~/.fzf/install\n```\n\nThe install script will add lines to your shell configuration file to modify\n`$PATH` and set up shell integration.\n\n### Binary releases\n\nYou can download the official fzf binaries from the releases page.\n\n* https://github.com/junegunn/fzf/releases\n\n### Setting up shell integration\n\nAdd the following line to your shell configuration file.\n\n* bash\n  ```sh\n  # Set up fzf key bindings and fuzzy completion\n  eval \"$(fzf --bash)\"\n  ```\n* zsh\n  ```sh\n  # Set up fzf key bindings and fuzzy completion\n  source <(fzf --zsh)\n  ```\n* fish\n  ```fish\n  # Set up fzf key bindings\n  fzf --fish | source\n  ```\n\n> [!NOTE]\n> `--bash`, `--zsh`, and `--fish` options are only available in fzf 0.48.0 or\n> later. If you have an older version of fzf, or want finer control, you can\n> source individual script files in the [/shell](/shell) directory. The\n> location of the files may vary depending on the package manager you use.\n> Please refer to the package documentation for more information.\n> (e.g. `apt show fzf`)\n\n> [!TIP]\n> You can disable CTRL-T, CTRL-R, or ALT-C bindings by setting the\n> corresponding `*_COMMAND` variable to an empty string when sourcing the\n> script. For example, to disable CTRL-R and ALT-C:\n>\n> * bash: `FZF_CTRL_R_COMMAND= FZF_ALT_C_COMMAND= eval \"$(fzf --bash)\"`\n> * zsh: `FZF_CTRL_R_COMMAND= FZF_ALT_C_COMMAND= source <(fzf --zsh)`\n> * fish: `fzf --fish | FZF_CTRL_R_COMMAND= FZF_ALT_C_COMMAND= source`\n>\n> Setting the variables after sourcing the script will have no effect.\n\n### Vim/Neovim plugin\n\nIf you use [vim-plug](https://github.com/junegunn/vim-plug), add this to\nyour Vim configuration file:\n\n```vim\nPlug 'junegunn/fzf', { 'do': { -> fzf#install() } }\nPlug 'junegunn/fzf.vim'\n```\n\n* `junegunn/fzf` provides the basic library functions\n    * `fzf#install()` makes sure that you have the latest binary\n* `junegunn/fzf.vim` is [a separate project](https://github.com/junegunn/fzf.vim)\n  that provides a variety of useful commands\n\nTo learn more about the Vim integration, see [README-VIM.md](README-VIM.md).\n\n> [!TIP]\n> If you use Neovim and prefer Lua-based plugins, check out\n> [fzf-lua](https://github.com/ibhagwan/fzf-lua).\n\nUpgrading fzf\n-------------\n\nfzf is being actively developed, and you might want to upgrade it once in a\nwhile. Please follow the instruction below depending on the installation\nmethod used.\n\n- git: `cd ~/.fzf && git pull && ./install`\n- brew: `brew update; brew upgrade fzf`\n- macports: `sudo port upgrade fzf`\n- chocolatey: `choco upgrade fzf`\n- vim-plug: `:PlugUpdate fzf`\n\nBuilding fzf\n------------\n\nSee [BUILD.md](BUILD.md).\n\nUsage\n-----\n\nfzf will launch interactive finder, read the list from STDIN, and write the\nselected item to STDOUT.\n\n```sh\nfind * -type f | fzf > selected\n```\n\nWithout STDIN pipe, fzf will traverse the file system under the current\ndirectory to get the list of files.\n\n```sh\nvim $(fzf)\n```\n\n> [!NOTE]\n> You can override the default behavior\n> * Either by setting `$FZF_DEFAULT_COMMAND` to a command that generates the desired list\n> * Or by setting `--walker`, `--walker-root`, and `--walker-skip` options in `$FZF_DEFAULT_OPTS`\n\n> [!WARNING]\n> A more robust solution would be to use `xargs` but we've presented\n> the above as it's easier to grasp\n> ```sh\n> fzf --print0 | xargs -0 -o vim\n> ```\n\n> [!TIP]\n> fzf also has the ability to turn itself into a different process.\n>\n> ```sh\n> fzf --bind 'enter:become(vim {})'\n> ```\n>\n> *See [Turning into a different process](#turning-into-a-different-process)\n> for more information.*\n\n### Using the finder\n\n- `CTRL-K` / `CTRL-J` (or `CTRL-P` / `CTRL-N`) to move cursor up and down\n- `Enter` key to select the item, `CTRL-C` / `CTRL-G` / `ESC` to exit\n- On multi-select mode (`-m`), `TAB` and `Shift-TAB` to mark multiple items\n- Emacs style key bindings\n- Mouse: scroll, click, double-click; shift-click and shift-scroll on\n  multi-select mode\n\n### Display modes\n\nfzf by default runs in fullscreen mode, but there are other display modes.\n\n#### `--height` mode\n\nWith `--height HEIGHT[%]`, fzf will start below the cursor with the given height.\n\n```sh\nfzf --height 40%\n```\n\n`reverse` layout and `--border` goes well with this option.\n\n```sh\nfzf --height 40% --layout reverse --border\n```\n\nBy prepending `~` to the height, you're setting the maximum heigh",
+        "truncated": true,
+        "bytes": 47785,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "0.68.0",
+            "tag_name": "v0.68.0",
+            "published_at": "2026-02-20T02:06:47Z",
+            "body_excerpt": "https://github.com/user-attachments/assets/8d9e6e29-1bde-49d3-b580-c560da394a5d\r\n\r\n- Implemented word wrapping in the list section\r\n    - Added `--wrap=word` (or `--wrap-word`) option and `toggle-wrap-word` action for word-level line wrapping in the list section\r\n    - Changed default binding of `ctrl-/` and `alt-/` from `toggle-wrap` to `toggle-wrap-word`\r\n  ```sh\r\n  fzf --wrap=word\r\n  ```\r\n- Implemented word wrapping in the preview window\r\n    - Added `wrap-word` flag for `--preview-window` to enable word-level wrapping\r\n    - Added `toggle-preview-wrap-word` action\r\n  ```sh\r\n  fzf --preview 'bat --style=plain --color=always {}' \\\r\n      --preview-window wrap-word \\\r\n      --bind space:toggle-preview-wrap-word\r\n  ```\r\n- Added support for underline style variants in `--color`: `underline-double`, `underline-curly`, `underline-dotted`, `underline-dashed`\r\n  ```sh\r\n  fzf --color 'fg:underline-curly,current-fg:underline-dashed'\r\n  ```\r\n- Added support for underline styles (`4:N`) and underline colors (SGR 58/59)\r\n  ```sh\r\n  # In the list section\r\n  printf '\\e[4:3;58;2;255;0;0mRed curly underline\\e[0m\\n' | fzf --ansi\r\n\r\n  # In the preview window\r\n  fzf --preview \"printf '\\e[4:3;58;2;255;0;0mRed curly underline\\e[0m\\n'\"\r\n  ```\r\n- Added `--preview-wrap-sign` to set a different wrap indicator for the preview window\r\n- Added `alt-gutter` color option (#4602) (@hedgieinsocks)\r\n- Added `$FZF_WRAP` environment variable to child processes (`char` or `word` when wrapping is enabled) (#4672) (@bitraid)\r\n- fish: Improved command history (CTRL-R) (#4672) (@bitraid)\r\n    - Enabled syntax highlighting in the list on fish 4.3.3+\r\n    - Added syntax-highlighted preview window that auto-shows for long or multi-line commands\r\n    - Added `ALT-ENTER` to reformat and insert selected commands\r\n    - Improved handling of bulk deletion of selected history entries (`SHIFT-DELETE`)\r\n- Added fish completion support (#4605) (@lalvarezt)\r\n- zsh: Handle multi-line history selection (#4595) (@LangL"
+          },
+          {
+            "name": "0.67.0",
+            "tag_name": "v0.67.0",
+            "published_at": "2025-11-16T11:04:23Z",
+            "body_excerpt": "<img width=\"852\" height=\"761\" alt=\"image\" src=\"https://github.com/user-attachments/assets/7e13d33e-085d-4fb2-b2ce-ce1497dd79d9\" />\r\n\r\n- Added `--freeze-left=N` option to keep the leftmost N columns always visible.\r\n  ```sh\r\n  # Keep the file name column fixed and always visible\r\n  git grep --line-number --color=always -- '' |\r\n      fzf --ansi --delimiter : --freeze-left 1\r\n\r\n  # Can be used with --keep-right\r\n  git grep --line-number --color=always -- '' |\r\n      fzf --ansi --delimiter : --freeze-left 1 --keep-right\r\n  ```\r\n- Also added `--freeze-right=N` option to keep the rightmost N columns always visible.\r\n  ```sh\r\n  # Stronger version of --keep-right that always keeps the right-end visible\r\n  fd | fzf --freeze-right 1\r\n\r\n  # Keep the base name always visible\r\n  fd | fzf --freeze-right 1 --delimiter /\r\n\r\n  # Keep both leftmost and rightmost components visible\r\n  fd | fzf --freeze-left 1 --freeze-right 1 --delimiter /\r\n  ```\r\n- Updated `--info=inline` to print the spinner (load indicator).\r\n- Bug fixes\r\n\r\n"
+          },
+          {
+            "name": "0.66.1",
+            "tag_name": "v0.66.1",
+            "published_at": "2025-10-26T06:13:42Z",
+            "body_excerpt": "- Bug fixes\n    - Fixed a bug preventing 'ctrl-h' from being bound to an action (#4556)\n    - Fixed `--no-color` / `NO_COLOR` theme (#4561)\n\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 3522,
+            "title": "I need help to remove entries from history",
+            "state": "open",
+            "url": "https://github.com/junegunn/fzf/issues/3522"
+          },
+          {
+            "number": 3572,
+            "title": "\"Advanced\" fzf + rg integration - Can the preview grow/shrink dynamically based on the number of results?",
+            "state": "closed",
+            "url": "https://github.com/junegunn/fzf/issues/3572"
+          },
+          {
+            "number": 4257,
+            "title": "[feature request] make --nth independent of --with-nth",
+            "state": "open",
+            "url": "https://github.com/junegunn/fzf/issues/4257"
+          },
+          {
+            "number": 4692,
+            "title": "FZF_TOTAL_COUNT is off-by-N when --header-lines N is used",
+            "state": "closed",
+            "url": "https://github.com/junegunn/fzf/issues/4692"
+          },
+          {
+            "number": 4659,
+            "title": "[Feature request] add `change-header-lines` action",
+            "state": "closed",
+            "url": "https://github.com/junegunn/fzf/issues/4659"
+          },
+          {
+            "number": 4687,
+            "title": "`--color nth:` won't respects `current-fg (fg+)` when `FZF_DEFAULT_OPTS` has `--color nth:attr`",
+            "state": "open",
+            "url": "https://github.com/junegunn/fzf/issues/4687"
+          },
+          {
+            "number": 4688,
+            "title": "After upgrading to 0.68 I see ids infront of my history entries",
+            "state": "closed",
+            "url": "https://github.com/junegunn/fzf/issues/4688"
+          }
+        ]
+      },
+      "root_files": [
+        ".editorconfig",
+        ".github",
+        ".gitignore",
+        ".goreleaser.yml",
+        ".rubocop.yml",
+        ".tool-versions",
+        "ADVANCED.md",
+        "BUILD.md",
+        "CHANGELOG.md",
+        "Dockerfile",
+        "Gemfile",
+        "Gemfile.lock",
+        "LICENSE",
+        "Makefile",
+        "README-VIM.md",
+        "README.md",
+        "SECURITY.md",
+        "bin",
+        "doc",
+        "go.mod",
+        "go.sum",
+        "install",
+        "install.ps1",
+        "main.go",
+        "man",
+        "plugin",
+        "shell",
+        "src",
+        "test",
+        "typos.toml",
+        "uninstall"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-color.png\" alt=\"fzf - a command-line fuzzy finder\"> <a href=\"https://github.com/junegunn/fzf/actions\"><img src=\"https://github.com/junegunn/fzf/actions/workflows/linux.yml/badge.svg?branch=master\" alt=\"Build Status\"></a> <a href=\"http://github.com/junegunn/fzf/releases\"><img src=\"https://img.shields.io/github/v/tag/junegunn/fzf\" alt=\"Version\"></a> <a href=\"https://github.com/junegunn/fzf?tab=MIT-1-ov-file#readme\"><img src=\"https://img.shields.io/github/license/junegunn/fzf\" alt=\"License\"></a> <a href=\"https://github.com/junegunn/fzf/graphs/contributors\"><img src=\"https://img.shields.io/github/contributors/junegunn/fzf\" alt=\"Contributors\"></a> <a href=\"https://github.com/sponsors/junegunn\"><img src=\"https://img.shields.io/github/sponsors/junegunn\" alt=\"Sponsors\"></a> <a href=\"https://github.com/junegunn/fzf/stargazers\"><img src=\"https://img.shields.io/github/stars/junegunn/fzf?style=flat\" alt=\"Stars\"></a> </div>",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-preview.png\" width=640>",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 3)",
+          "excerpt": "It's an interactive filter program for any kind of list; files, command history, processes, hostnames, bookmarks, git commits, etc. It implements a \"fuzzy\" matching algorithm, so you can quickly type in patterns with omitted characters and still get the results you want.",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- **Portable** — Distributed as a single binary for easy installation - **Fast** — Optimized to process millions of items instantly - **Versatile** — Fully customizable through an event-action binding mechanism - **All-inclusive** — Comes with integrations for Bash, Zsh, Fish, Vim, and Neovim",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 5)",
+          "excerpt": "* [Installation](#installation) * [Using Homebrew](#using-homebrew) * [Using Mise](#using-mise) * [Linux packages](#linux-packages) * [Windows packages](#windows-packages) * [Using git](#using-git) * [Binary releases](#binary-releases) * [Setting up shell integration](#setting-up-shell-integration) * [Vim/Neovim plugin](#vimneovim-plugin) * [Upgrading fzf](#upgrading-fzf) * [Building fzf](#building-fzf) * [Usage](#usage) * [Using the finder](#using-the-finder) * [Display modes](#display-modes) * [`--height` mode](#--height-mode) * [`--tmux` mode](#--tmux-mode) * [Search syntax](#search-syntax) * [Environment variables](#environment-variables) * [Customizing the look](#customizing-the-look) * [Options](#options) * [Demo](#demo) * [Examples](#examples) * [Key bindings for command-line](#key-bindings-for-command-line) * [Fuzzy completion](#fuzzy-completion) * [Files and directories](#files-and-directories) * [Process IDs](#process-ids) * [Host names](#host-names) * [Environment variables / Aliases](#environment-variables--aliases) * [Customizing fuzzy completion for bash and zsh](#customizing-fuzzy-completion-for-bash-and-zsh) * [Customizing fzf options for completion](#customizing-f…",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 6)",
+          "excerpt": "> [!IMPORTANT] > To set up shell integration (key bindings and fuzzy completion), > see [the instructions below](#setting-up-shell-integration).",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 7)",
+          "excerpt": "[portfile]: https://github.com/macports/macports-ports/blob/master/sysutils/fzf/Portfile",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/junegunn/fzf#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Package Manager | Linux Distribution | Command | | --------------- | ----------------------- | ---------------------------------- | | APK | Alpine Linux | `sudo apk add fzf` | | APT | Debian 9+/Ubuntu 19.10+ | `sudo apt install fzf` | | Conda | | `conda install -c conda-forge fzf` | | DNF | Fedora | `sudo dnf install fzf` | | Nix | NixOS, etc. | `nix-env -iA nixpkgs.fzf` | | Pacman | Arch Linux | `sudo pacman -S fzf` | | pkg | FreeBSD | `pkg install fzf` | | pkgin | NetBSD | `pkgin install fzf` | | pkg_add | OpenBSD | `pkg_add fzf` | | Portage | Gentoo | `emerge --ask app-shells/fzf` | | Spack | | `spack install fzf` | | XBPS | Void Linux | `sudo xbps-install -S fzf` | | Zypper | openSUSE | `sudo zypper install fzf` |",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/3522",
+          "title": "I need help to remove entries from history",
+          "excerpt": "I need help to remove entries from history (state:open)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 3522
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/3572",
+          "title": "\"Advanced\" fzf + rg integration - Can the preview grow/shrink dynamically based on the number of results?",
+          "excerpt": "\"Advanced\" fzf + rg integration - Can the preview grow/shrink dynamically based on the number of results? (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 3572
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/4257",
+          "title": "[feature request] make --nth independent of --with-nth",
+          "excerpt": "[feature request] make --nth independent of --with-nth (state:open)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 4257
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/4692",
+          "title": "FZF_TOTAL_COUNT is off-by-N when --header-lines N is used",
+          "excerpt": "FZF_TOTAL_COUNT is off-by-N when --header-lines N is used (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 4692
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/4659",
+          "title": "[Feature request] add `change-header-lines` action",
+          "excerpt": "[Feature request] add `change-header-lines` action (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 4659
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/4687",
+          "title": "`--color nth:` won't respects `current-fg (fg+)` when `FZF_DEFAULT_OPTS` has `--color nth:attr`",
+          "excerpt": "`--color nth:` won't respects `current-fg (fg+)` when `FZF_DEFAULT_OPTS` has `--color nth:attr` (state:open)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 4687
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/junegunn/fzf/issues/4688",
+          "title": "After upgrading to 0.68 I see ids infront of my history entries",
+          "excerpt": "After upgrading to 0.68 I see ids infront of my history entries (state:closed)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "number": 4688
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/junegunn/fzf/releases",
+          "title": "v0.68.0",
+          "excerpt": "https://github.com/user-attachments/assets/8d9e6e29-1bde-49d3-b580-c560da394a5d - Implemented word wrapping in the list section - Added `--wrap=word` (or `--wrap-word`) option and `toggle-wrap-word` action for word-level line wrapping in the list section - Changed default binding of `ctrl-/` and `alt-/` from `toggle-wrap` to `toggle-wrap-word` ```sh fzf --wrap=word ``` - Implemented word wrapping in the preview window - Added `wrap-word` flag for `--preview-window` to enable word-level wrapping - Added `toggle-preview-wrap-word` action ```sh fzf --preview 'bat --style=plain --color=always {}' \\ --preview-window wrap-word \\ --bind space:toggle-preview-wrap-word ``` - Added support for underline style variants in `--color`: `underline-double`, `underline-curly`, `underline-dotted`, `underline-dashed` ```sh fzf --color 'fg:underline-curly,current-fg:underline-dashed' ``` - Added support for underline styles (`4:N`) and underline colors (SGR 58/59) ```sh # In the list section printf '\\e[4:3;58;2;255;0;0mRed curly underline\\e[0m\\n' | fzf --ansi # In the preview window fzf --preview \"printf '\\e[4:3;58;2;255;0;0mRed curly underline\\e[0m\\n'\" ``` - Added `--preview-wrap-sign` to set a diff…",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "tag_name": "v0.68.0",
+            "published_at": "2026-02-20T02:06:47Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/junegunn/fzf/releases",
+          "title": "v0.67.0",
+          "excerpt": "<img width=\"852\" height=\"761\" alt=\"image\" src=\"https://github.com/user-attachments/assets/7e13d33e-085d-4fb2-b2ce-ce1497dd79d9\" /> - Added `--freeze-left=N` option to keep the leftmost N columns always visible. ```sh # Keep the file name column fixed and always visible git grep --line-number --color=always -- '' | fzf --ansi --delimiter : --freeze-left 1 # Can be used with --keep-right git grep --line-number --color=always -- '' | fzf --ansi --delimiter : --freeze-left 1 --keep-right ``` - Also added `--freeze-right=N` option to keep the rightmost N columns always visible. ```sh # Stronger version of --keep-right that always keeps the right-end visible fd | fzf --freeze-right 1 # Keep the base name always visible fd | fzf --freeze-right 1 --delimiter / # Keep both leftmost and rightmost components visible fd | fzf --freeze-left 1 --freeze-right 1 --delimiter / ``` - Updated `--info=inline` to print the spinner (load indicator). - Bug fixes",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "tag_name": "v0.67.0",
+            "published_at": "2025-11-16T11:04:23Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/junegunn/fzf/releases",
+          "title": "v0.66.1",
+          "excerpt": "- Bug fixes - Fixed a bug preventing 'ctrl-h' from being bound to an action (#4556) - Fixed `--no-color` / `NO_COLOR` theme (#4561)",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "tag_name": "v0.66.1",
+            "published_at": "2025-10-26T06:13:42Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/junegunn/fzf",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .github, .gitignore, .goreleaser.yml, .rubocop.yml, .tool-versions, ADVANCED.md, BUILD.md, CHANGELOG.md, Dockerfile, Gemfile, Gemfile.lock, LICENSE, Makefile, README-VIM.md, README.md, SECURITY.md, bin, doc, go.mod, go.sum, install, install.ps1, main.go, man, plugin, shell, src, test, typos.toml, uninstall",
+          "fetched_at": "2026-02-28T04:17:27.801Z",
+          "meta": {
+            "repo_full_name": "junegunn/fzf",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "vercel/vercel",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "peter279k/github-follower-bot",
+      "evidence_count": 5,
+      "evidence_by_type": {
+        "readme": 2,
+        "issue": 2,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 0
+    },
+    {
+      "full_name": "ultracontext/ultracontext",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 1,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 1
+    },
+    {
+      "full_name": "tamagui/tamagui",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "junegunn/fzf",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 7,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "vercel/vercel",
+      "ok": true,
+      "spec_path": "specs/2026-02-28/vercel__vercel.json"
+    },
+    {
+      "repo": "peter279k/github-follower-bot",
+      "ok": true,
+      "spec_path": "specs/2026-02-28/peter279k__github-follower-bot.json"
+    },
+    {
+      "repo": "ultracontext/ultracontext",
+      "ok": true,
+      "spec_path": "specs/2026-02-28/ultracontext__ultracontext.json"
+    },
+    {
+      "repo": "tamagui/tamagui",
+      "ok": true,
+      "spec_path": "specs/2026-02-28/tamagui__tamagui.json"
+    },
+    {
+      "repo": "junegunn/fzf",
+      "ok": true,
+      "spec_path": "specs/2026-02-28/junegunn__fzf.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "vercel/vercel",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-28/vercel__vercel.json"
+    },
+    {
+      "repo": "peter279k/github-follower-bot",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-28/peter279k__github-follower-bot.json"
+    },
+    {
+      "repo": "ultracontext/ultracontext",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-28/ultracontext__ultracontext.json"
+    },
+    {
+      "repo": "tamagui/tamagui",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-28/tamagui__tamagui.json"
+    },
+    {
+      "repo": "junegunn/fzf",
+      "ok": true,
+      "evidence_path": "evidence/2026-02-28/junegunn__fzf.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "vercel/vercel",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-28/vercel__vercel.json"
+      ]
+    },
+    {
+      "repo": "peter279k/github-follower-bot",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-28/peter279k__github-follower-bot.json"
+      ]
+    },
+    {
+      "repo": "ultracontext/ultracontext",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-28/ultracontext__ultracontext.json"
+      ]
+    },
+    {
+      "repo": "tamagui/tamagui",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-28/tamagui__tamagui.json"
+      ]
+    },
+    {
+      "repo": "junegunn/fzf",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-02-28/junegunn__fzf.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-02-28T04:17:55.993Z",
+      "run_id": "20260228T041723Z",
+      "repo": "vercel/vercel",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bdb9f5ea90045e21b198c724f6a0b56d30b4e2ee5899f59906bcaabc8e3f9fb9",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9416
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 28184,
+      "prompt_chars": 9416,
+      "completion_chars": 3416
+    },
+    {
+      "ts": "2026-02-28T04:18:17.099Z",
+      "run_id": "20260228T041723Z",
+      "repo": "peter279k/github-follower-bot",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "56955e37e505f40305c75ac0cf196315c7148945b74bedab4bc7034b85732f3c",
+      "input_stats": {
+        "evidence_count": 5,
+        "approx_chars": 5713
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21091,
+      "prompt_chars": 5713,
+      "completion_chars": 2253
+    },
+    {
+      "ts": "2026-02-28T04:18:41.940Z",
+      "run_id": "20260228T041723Z",
+      "repo": "ultracontext/ultracontext",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "60d0f2fb302f8fc8dd7ebc105a364429b5bd9e3fa6f646c3adaa79f852339365",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9770
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 24838,
+      "prompt_chars": 9770,
+      "completion_chars": 2912
+    },
+    {
+      "ts": "2026-02-28T04:19:02.828Z",
+      "run_id": "20260228T041723Z",
+      "repo": "tamagui/tamagui",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e89c3e0f64fb7dcbbdd131b775c48dc0c8ca545df14dd247de10dc168ace5af8",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10972
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 20885,
+      "prompt_chars": 10972,
+      "completion_chars": 2502
+    },
+    {
+      "ts": "2026-02-28T04:19:28.200Z",
+      "run_id": "20260228T041723Z",
+      "repo": "junegunn/fzf",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "cea8a20dcdf236464ea6fdab2ae170e19f7341e3cc121c523605c7f90b84ff6d",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 13541
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 25369,
+      "prompt_chars": 13541,
+      "completion_chars": 2872
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "vercel/vercel",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "peter279k/github-follower-bot",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "ultracontext/ultracontext",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "tamagui/tamagui",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "junegunn/fzf",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "vercel/vercel",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "peter279k/github-follower-bot",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 5,
+      "evidence_total_final": 5,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "ultracontext/ultracontext",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "tamagui/tamagui",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "junegunn/fzf",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 5,
+    "attempts_used_hist": {
+      "0": 5,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 5,
+    "success": 5
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1772252243501,
+    "llmCallsTotal": 5,
+    "llmCallsPerRepo": {
+      "vercel/vercel": 1,
+      "peter279k/github-follower-bot": 1,
+      "ultracontext/ultracontext": 1,
+      "tamagui/tamagui": 1,
+      "junegunn/fzf": 1
+    },
+    "tokensApproxTotal": 15844,
+    "tokensApproxPerRepo": {
+      "vercel/vercel": 3208,
+      "peter279k/github-follower-bot": 1992,
+      "ultracontext/ultracontext": 3171,
+      "tamagui/tamagui": 3369,
+      "junegunn/fzf": 4104
+    },
+    "reposProcessed": 5,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "vercel/vercel": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Vercel CLI\",\n    \"one_sentence\": \"A command-line interface for deploying and managing applications on Vercel's cloud platform.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Develop locally, deploy via git push or CLI, preview deployments, and ship to production with integrated infrastructure management.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Deployment Dashboard\",\n      \"purpose\": \"View and manage active deployments, projects, and environments.\",\n      \"primary_actions\": [\n        \"Deploy project\",\n        \"View deployment logs\",\n        \"Access project settings\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"deploy_project\",\n      \"purpose\": \"Initiate a new deployment for a given project path using local or remote configuration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"discover_integrations\",\n      \"purpose\": \"List available integrations with optional search query support.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"projects\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"deployment_url\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"integrations\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"requires_browser_install\",\n            \"type\": \"boolean\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up local development environment using pnpm\",\n          \"Implement basic deploy command with cwd support\",\n          \"Int"
+      }
+    },
+    "peter279k/github-follower-bot": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 5,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"GitHub Follower Bot\",\n    \"one_sentence\": \"A bot that automatically follows users back on GitHub when they follow the authenticated user.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"The bot periodically checks for new followers using the GitHub API and automatically follows them back if not already followed.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Bot Interface\",\n      \"purpose\": \"Display bot status and follower activity logs.\",\n      \"primary_actions\": [\n        \"Start bot\",\n        \"Stop bot\",\n        \"View follower count\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a new follower record to local storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"followers\",\n        \"fields\": [\n          {\n            \"name\": \"username\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"followed_at\",\n            \"type\": \"timestamp\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up GitHub API authentication\",\n          \"Implement follower detection logic\",\n          \"Add auto-follow response mechanism\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Bot successfully follows back a new follower within 5 minutes.\",\n    \"Bot does not re-follow users already in the followers list.\"\n  ],\n  \"open_questions\": [\n    \"How to handle rate limits from GitHub API?\",\n    \"Should the bot unfollow users who unfollow first?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 3,\n    \"complexity_control\": 3,\n    \"debuggability\": 3,\n    \"demo_value\": 3\n  },\n  \"overall_recommendation\": \"go\",\n  \"citations\": {\n    \"app\": [\n      \"E-RD-001\"\n    ],\n    \"core_loop\": [\n      \"E-RD-001\"\n    ],\n    \"screens\": {\n      \"main\": [\n        \"E-RD-001\"\n      ]\n    },\n    \"comm"
+      }
+    },
+    "ultracontext/ultracontext": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"UltraContext\",\n    \"one_sentence\": \"A context engineering API that enables automatic versioning, time-travel, and real-time collaboration across AI agents.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Agents automatically ingest and share contextual data in real time; users can view, fork, clone, and switch between agent contexts via a central dashboard.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Dashboard\",\n      \"purpose\": \"Display real-time agent contexts, enable switching between agents, and support collaboration across teams.\",\n      \"primary_actions\": [\n        \"View active agent contexts\",\n        \"Switch or continue from another agent's context\",\n        \"Share context with team members\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a new context item or append to an existing one from an agent integration like OpenClaw.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"contexts\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"agent_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"timestamp\",\n            \"type\": \"datetime\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core context ingestion from agents\",\n          \"Build basic dashboard UI for viewing contexts\",\n          \"Enable context sharing and switching\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can install UltraContext SDK and see contexts appear in dashboard within one line of code.\",\n    \"Contexts captured from any agent are immediately visible across all team members.\"\n  ],\n  \"open_questions\": [\n    \"How should s"
+      }
+    },
+    "tamagui/tamagui": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Tamagui\",\n    \"one_sentence\": \"Style React fast with 100% parity on React Native, an optional UI kit, and optimizing compiler.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers write cross-platform UI components using Tamagui's styled system; the optimizing compiler transforms them into platform-specific efficient output at build time while preserving runtime flexibility.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Development View\",\n      \"purpose\": \"Enable developers to author and preview universal React/React Native components with live feedback.\",\n      \"primary_actions\": [\n        \"Write styled components\",\n        \"Preview on web and native\",\n        \"Apply design tokens\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a styled component or design token configuration to the project.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"components\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"styled_definition\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up Tamagui core with basic styled components\",\n          \"Configure compiler for web and native output\",\n          \"Implement main development view\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Sheet with fit opens to full height consistently across reopens\",\n    \"Styled components compile to atomic CSS on web and hoisted styles on native\"\n  ],\n  \"open_questions\": [\n    \"How to handle dynamic theme switching in compiled output?\",\n    \"What is the migration path for existing React Native projects?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 3,\n    \"complexity_control\": 3,\n    \"deb"
+      }
+    },
+    "junegunn/fzf": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"fzf\",\n    \"one_sentence\": \"A command-line fuzzy finder for interactively filtering lists like files, history, and git commits.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User inputs a fuzzy query to filter a dynamic list of items; fzf matches and ranks results in real time, allowing selection or preview.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Finder Interface\",\n      \"purpose\": \"Display and filter a list of items using fuzzy matching with optional preview pane.\",\n      \"primary_actions\": [\n        \"type query\",\n        \"select item\",\n        \"toggle preview\",\n        \"execute bound action\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist selected item to history or external storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"list_items\",\n      \"purpose\": \"Fetch and stream items (e.g., files, history entries) into the finder interface.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"source\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core fuzzy matching engine\",\n          \"Build terminal-based list rendering with ANSI support\",\n          \"Add basic key bindings and action system\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can launch fzf and see a scrollable list of input items with real-time filtering as they type.\",\n    \"Preview window updates dynamically based on selected item when --preview is configured.\"\n  ],\n  \"open_questions\": [\n    \"How should history deduplicat"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "vercel/vercel",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "peter279k/github-follower-bot",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "ultracontext/ultracontext",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "tamagui/tamagui",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "junegunn/fzf",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=3",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=93 kept=5 limit=5",
+    "[deduper] existing_index_repos=81",
+    "[deduper] candidates_total=5 new=5 skipped=0",
+    "[repo_card_builder] vercel/vercel evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] peter279k/github-follower-bot evidence total=5 readme=2 issue=2 release=0 root_files=1",
+    "[repo_card_builder] ultracontext/ultracontext evidence total=13 readme=8 issue=3 release=1 root_files=1",
+    "[repo_card_builder] junegunn/fzf evidence total=19 readme=8 issue=7 release=3 root_files=1",
+    "[repo_card_builder] tamagui/tamagui evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=5 readme_ok=5/5 evidence_total=62 gaps=0",
+    "[llm_spec_generator] vercel/vercel canonical spec ok (iter=1) -> specs/2026-02-28/vercel__vercel.json",
+    "[llm_spec_generator] peter279k/github-follower-bot canonical spec ok (iter=1) -> specs/2026-02-28/peter279k__github-follower-bot.json",
+    "[llm_spec_generator] ultracontext/ultracontext canonical spec ok (iter=1) -> specs/2026-02-28/ultracontext__ultracontext.json",
+    "[llm_spec_generator] tamagui/tamagui canonical spec ok (iter=1) -> specs/2026-02-28/tamagui__tamagui.json",
+    "[llm_spec_generator] junegunn/fzf canonical spec ok (iter=1) -> specs/2026-02-28/junegunn__fzf.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-02-28T04:17:23.501Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:23.523Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260228T041723Z"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:23.523Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:23.527Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:24.016Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:24.016Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:24.444Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:24.444Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:24.802Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:24.802Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:25.203Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:25.203Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:25.526Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:25.526Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:25.844Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:25.844Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:26.181Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:26.181Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:26.408Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:26.408Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:26.932Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:26.932Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.228Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.231Z",
+      "run_id": "20260228T041723Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 81
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.231Z",
+      "run_id": "20260228T041723Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 5,
+        "skipped": 0,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.234Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-28T04:17:27.235Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vercel__vercel/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.235Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vercel__vercel/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.237Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vercel__vercel/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.239Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vercel__vercel/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.240Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-28T04:17:27.240Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "peter279k__github-follower-bot/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.241Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "peter279k__github-follower-bot/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.242Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "peter279k__github-follower-bot/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.244Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "peter279k__github-follower-bot/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.245Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-28T04:17:27.245Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ultracontext__ultracontext/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.246Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ultracontext__ultracontext/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.248Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ultracontext__ultracontext/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.249Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ultracontext__ultracontext/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.506Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7377,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.506Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.506Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.506Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 272
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.507Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.507Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-28T04:17:27.507Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "tamagui__tamagui/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.508Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "tamagui__tamagui/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.508Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "tamagui__tamagui/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.508Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "tamagui__tamagui/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 924,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 316
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 5,
+        "readme": 2,
+        "issues": 2,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-02-28T04:17:27.556Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "junegunn__fzf/readme.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.557Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "junegunn__fzf/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.557Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "junegunn__fzf/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.557Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "junegunn__fzf/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.573Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 6356,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.573Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.573Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.573Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 328
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.573Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 3,
+        "releases": 1,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.801Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 47785,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.801Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.801Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.801Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 245
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.801Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.804Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3130,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.804Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.804Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.804Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 297
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.804Z",
+      "run_id": "20260228T041723Z",
+      "node": "repo_card_builder",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.808Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:27.808Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:55.993Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3416,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:56.006Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:56.007Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-28/vercel__vercel.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:56.007Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "vercel/vercel",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-28/vercel__vercel.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:56.007Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 5,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 2,
+          "issue": 2,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-28T04:17:56.007Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 5,
+        "evidence_selected": 5,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:17.099Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2253,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:17.100Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:17.101Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-28/peter279k__github-follower-bot.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:17.101Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "peter279k/github-follower-bot",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-28/peter279k__github-follower-bot.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:17.101Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 1,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:17.101Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:41.940Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2912,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:41.941Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:41.941Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-28/ultracontext__ultracontext.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:41.942Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "ultracontext/ultracontext",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-28/ultracontext__ultracontext.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:41.942Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-28T04:18:41.942Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:02.828Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2502,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:02.829Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:02.829Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-28/tamagui__tamagui.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:02.829Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "tamagui/tamagui",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-28/tamagui__tamagui.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:02.830Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:02.830Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.200Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2872,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.201Z",
+      "run_id": "20260228T041723Z",
+      "node": "llm_spec_generator",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.202Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-02-28/junegunn__fzf.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.203Z",
+      "run_id": "20260228T041723Z",
+      "node": "artifacts",
+      "repo": "junegunn/fzf",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-02-28/junegunn__fzf.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.206Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 5,
+        "attempts_used_hist": {
+          "0": 5,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.206Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1772252243501,
+        "llmCallsTotal": 5,
+        "llmCallsPerRepo": {
+          "vercel/vercel": 1,
+          "peter279k/github-follower-bot": 1,
+          "ultracontext/ultracontext": 1,
+          "tamagui/tamagui": 1,
+          "junegunn/fzf": 1
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 5,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.206Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-02-28T04:19:28.206Z",
+      "run_id": "20260228T041723Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 5,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-02-28",
+    "evidence_dir": "evidence/2026-02-28"
+  }
+}

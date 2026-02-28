@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GitHub Follower Bot",
+    "one_liner": "A bot that automatically follows users back on GitHub when they follow the authenticated user."
+  },
+  "screens": [
+    {
+      "name": "Main Bot Interface",
+      "purpose": "Display bot status and follower activity logs.",
+      "primary_actions": [
+        "Start bot",
+        "Stop bot",
+        "View follower count"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a new follower record to local storage.",
+      "async": true,
+      "input": {
+        "followed_at": "timestamp",
+        "payload": "json",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "followers",
+        "columns": [
+          {
+            "name": "followed_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add auto-follow response mechanism",
+    "week 1: Implement follower detection logic",
+    "week 1: Set up GitHub API authentication"
+  ],
+  "acceptance_tests": [
+    "Bot does not re-follow users already in the followers list.",
+    "Bot successfully follows back a new follower within 5 minutes."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "fzf",
+    "one_liner": "A command-line fuzzy finder for interactively filtering lists like files, history, and git commits."
+  },
+  "screens": [
+    {
+      "name": "Main Finder Interface",
+      "purpose": "Display and filter a list of items using fuzzy matching with optional preview pane.",
+      "primary_actions": [
+        "execute bound action",
+        "select item",
+        "toggle preview",
+        "type query"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Fetch and stream items (e.g., files, history entries) into the finder interface.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "source": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist selected item to history or external storage.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "payload": "json",
+        "source": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic key bindings and action system",
+    "week 1: Build terminal-based list rendering with ANSI support",
+    "week 1: Implement core fuzzy matching engine"
+  ],
+  "acceptance_tests": [
+    "Preview window updates dynamically based on selected item when --preview is configured.",
+    "User can launch fzf and see a scrollable list of input items with real-time filtering as they type."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Vercel CLI",
+    "one_liner": "A command-line interface for deploying and managing applications on Vercel's cloud platform."
+  },
+  "screens": [
+    {
+      "name": "Deployment Dashboard",
+      "purpose": "View and manage active deployments, projects, and environments.",
+      "primary_actions": [
+        "Access project settings",
+        "Deploy project",
+        "View deployment logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "deploy_project",
+      "purpose": "Initiate a new deployment for a given project path using local or remote configuration.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "requires_browser_install": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "discover_integrations",
+      "purpose": "List available integrations with optional search query support.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "requires_browser_install": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "integrations",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "requires_browser_install",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "deployment_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic deploy command with cwd support",
+    "week 1: Integrate logging for dev server (stdout/stderr routing)",
+    "week 1: Set up local development environment using pnpm"
+  ],
+  "acceptance_tests": [
+    "CLI successfully deploys a project using `vercel deploy --cwd=/path/to/project` with local changes.",
+    "Integration discovery command supports optional search queries and skips inline terms for browser-only installs.",
+    "Python runtime correctly routes log levels <= WARNING to stdout and >= ERROR to stderr during dev initialization."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "UltraContext",
+    "one_liner": "A context engineering API that enables automatic versioning, time-travel, and real-time collaboration across AI agents."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Display real-time agent contexts, enable switching between agents, and support collaboration across teams.",
+      "primary_actions": [
+        "Share context with team members",
+        "Switch or continue from another agent's context",
+        "View active agent contexts"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a new context item or append to an existing one from an agent integration like OpenClaw.",
+      "async": true,
+      "input": {
+        "agent_id": "string",
+        "content": "json",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "contexts",
+        "columns": [
+          {
+            "name": "agent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "content",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic dashboard UI for viewing contexts",
+    "week 1: Enable context sharing and switching",
+    "week 1: Implement core context ingestion from agents"
+  ],
+  "acceptance_tests": [
+    "Contexts captured from any agent are immediately visible across all team members.",
+    "User can install UltraContext SDK and see contexts appear in dashboard within one line of code."
+  ]
+}

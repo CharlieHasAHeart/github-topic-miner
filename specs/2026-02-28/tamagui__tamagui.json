@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Tamagui",
+    "one_liner": "Style React fast with 100% parity on React Native, an optional UI kit, and optimizing compiler."
+  },
+  "screens": [
+    {
+      "name": "Main Development View",
+      "purpose": "Enable developers to author and preview universal React/React Native components with live feedback.",
+      "primary_actions": [
+        "Apply design tokens",
+        "Preview on web and native",
+        "Write styled components"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a styled component or design token configuration to the project.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "styled_definition": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "components",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "styled_definition",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure compiler for web and native output",
+    "week 1: Implement main development view",
+    "week 1: Set up Tamagui core with basic styled components"
+  ],
+  "acceptance_tests": [
+    "Sheet with fit opens to full height consistently across reopens",
+    "Styled components compile to atomic CSS on web and hoisted styles on native"
+  ]
+}
