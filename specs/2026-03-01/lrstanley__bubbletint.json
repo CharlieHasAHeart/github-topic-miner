@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "BubbleTint",
+    "one_liner": "Terminal tints for everyone"
+  },
+  "screens": [
+    {
+      "name": "Main Tint Selector",
+      "purpose": "Display available tints and allow user to apply or preview them in terminal UI.",
+      "primary_actions": [
+        "Load custom tint file",
+        "Preview tint",
+        "Select tint"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "load_custom_tint",
+      "purpose": "Load a custom tint definition from a file.",
+      "async": true,
+      "input": {
+        "colors": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "tints",
+        "columns": [
+          {
+            "name": "colors",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for custom tint files",
+    "week 1: Implement core registry loading",
+    "week 1: Integrate with Bubble Tea UI"
+  ],
+  "acceptance_tests": [
+    "Default tints are available at startup without external configuration.",
+    "User can load a custom tint from a file and apply it to the terminal UI."
+  ]
+}

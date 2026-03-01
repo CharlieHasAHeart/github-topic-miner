@@ -1,0 +1,77 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "kittysay",
+    "one_liner": "cowsay, but with a cute kitty :3"
+  },
+  "screens": [
+    {
+      "name": "Main Output Screen",
+      "purpose": "Display the formatted message in a speech or thought bubble above the kitty ASCII art.",
+      "primary_actions": [
+        "Apply color settings to message and kitty",
+        "Render message with specified width",
+        "Switch between speech and thought bubbles"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "render_kitty_message",
+      "purpose": "Render a message with customizable width, colors, and bubble type (speech/think).",
+      "async": false,
+      "input": {
+        "cat_color": "string",
+        "message": "string",
+        "message_color": "string",
+        "payload": "json",
+        "think_mode": "boolean",
+        "width": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "message_config",
+        "columns": [
+          {
+            "name": "cat_color",
+            "type": "TEXT"
+          },
+          {
+            "name": "message",
+            "type": "TEXT"
+          },
+          {
+            "name": "message_color",
+            "type": "TEXT"
+          },
+          {
+            "name": "think_mode",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "width",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for color customization",
+    "week 1: Implement core rendering logic with width control",
+    "week 1: Integrate think mode toggle"
+  ],
+  "acceptance_tests": [
+    "Default colors are bright white instead of dim (per v1.1.1 fix)",
+    "Tabs in input are replaced with spaces to preserve width accuracy",
+    "Think mode replaces speech bubbles with thought bubbles",
+    "Width parameter correctly adjusts speech bubble size up to terminal width"
+  ]
+}

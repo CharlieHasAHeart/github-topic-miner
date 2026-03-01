@@ -1,0 +1,149 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Blorp",
+    "one_liner": "A Threadiverse client for Lemmy and PieFed, available on Web, iOS, macOS, and Android."
+  },
+  "screens": [
+    {
+      "name": "Main Feed",
+      "purpose": "Display a scrollable feed of posts from subscribed Lemmy and PieFed communities with support for infinite scroll or accessible pagination.",
+      "primary_actions": [
+        "Open post",
+        "Save post",
+        "Scroll feed",
+        "Toggle NSFW visibility",
+        "Upvote/downvote"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Allow users to configure app preferences such as theme (dark/light/auto), haptics, NSFW visibility, and accessibility options.",
+      "primary_actions": [
+        "Configure feed pagination",
+        "Enable/disable haptics",
+        "Show/hide NSFW content",
+        "Toggle dark/light mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_piefed_feed",
+      "purpose": "Retrieve posts from PieFed instances with support for emoji reactions and read-status filtering.",
+      "async": true,
+      "input": {
+        "community": "string",
+        "instance_url": "string",
+        "nsfw": "boolean",
+        "payload": "json",
+        "saved": "boolean",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist a user's saved post locally or sync with backend.",
+      "async": true,
+      "input": {
+        "community": "string",
+        "instance_url": "string",
+        "nsfw": "boolean",
+        "payload": "json",
+        "saved": "boolean",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "toggle_nsfw_visibility",
+      "purpose": "Control whether NSFW content is blurred or visible based on user preference.",
+      "async": true,
+      "input": {
+        "community": "string",
+        "instance_url": "string",
+        "nsfw": "boolean",
+        "payload": "json",
+        "saved": "boolean",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "posts",
+        "columns": [
+          {
+            "name": "community",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "instance_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "nsfw",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "saved",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "user_preferences",
+        "columns": [
+          {
+            "name": "infinite_scroll_disabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "reduce_haptics",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "show_nsfw",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "theme_mode",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic theming (light/dark mode)",
+    "week 1: Implement core post feed UI with mock data",
+    "week 1: Integrate NSFW blur toggle",
+    "week 1: Set up Tauri + Ionic/Capacitor base project"
+  ],
+  "acceptance_tests": [
+    "App supports manual dark/light mode override independent of system preference.",
+    "Infinite scroll can be disabled in favor of accessible pagination.",
+    "NSFW content remains blurred by default and only unblurs when user explicitly enables it in settings.",
+    "PieFed posts load correctly with emoji reactions and read-status filtering."
+  ]
+}
