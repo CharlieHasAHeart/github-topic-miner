@@ -1,0 +1,140 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Alfanous",
+    "one_liner": "A Quranic search engine API that provides simple and advanced search capabilities for the Holy Qur'an with support for Arabic text, Buckwalter transliteration, and rich metadata."
+  },
+  "screens": [
+    {
+      "name": "Search Interface",
+      "purpose": "Enable users to perform simple or advanced Boolean searches on Quranic text and view results with metadata and translations.",
+      "primary_actions": [
+        "Filter results by facets (Sura, Juz, topic)",
+        "Submit search query",
+        "View verse metadata and translations"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_translations",
+      "purpose": "Retrieve available translations for Quranic verses, ensuring up-to-date and complete listing with human-readable names.",
+      "async": true,
+      "input": {
+        "bitrate": "int",
+        "payload": "json",
+        "reciter": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "get_recitations",
+      "purpose": "Fetch highest-quality recitation metadata per author without duplicates.",
+      "async": true,
+      "input": {
+        "bitrate": "int",
+        "payload": "json",
+        "reciter": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "search_verses",
+      "purpose": "Execute a Quranic search query using either Arabic or Buckwalter transliteration and return paginated results with metadata.",
+      "async": true,
+      "input": {
+        "bitrate": "int",
+        "payload": "json",
+        "reciter": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "recitations",
+        "columns": [
+          {
+            "name": "bitrate",
+            "type": "INTEGER"
+          },
+          {
+            "name": "reciter",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "translations",
+        "columns": [
+          {
+            "name": "author",
+            "type": "TEXT"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "text",
+            "type": "TEXT"
+          },
+          {
+            "name": "translation_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "verses",
+        "columns": [
+          {
+            "name": "juz",
+            "type": "INTEGER"
+          },
+          {
+            "name": "sura",
+            "type": "INTEGER"
+          },
+          {
+            "name": "text_arabic",
+            "type": "TEXT"
+          },
+          {
+            "name": "verse_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Expose RESTful endpoints for search and metadata retrieval",
+    "week 1: Implement core search functionality with Arabic and Buckwalter support",
+    "week 1: Integrate faceted filtering by Sura and Juz"
+  ],
+  "acceptance_tests": [
+    "Faceted search aggregates results correctly by Sura and Juz.",
+    "Recitations list contains only the highest bitrate entry per reciter with no duplicates.",
+    "The /show/translations endpoint returns all indexed translations with human-readable names.",
+    "The system returns correct verse matches for Arabic queries like 'الله'.",
+    "The system returns correct verse matches for Buckwalter queries like 'Allh'."
+  ]
+}

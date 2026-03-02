@@ -1,0 +1,91 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jcode",
+    "one_liner": "A blazing-fast, fully autonomous AI coding agent with a gorgeous TUI, multi-model support, swarm coordination, persistent memory, and 30+ built-in tools - all running natively in your terminal."
+  },
+  "screens": [
+    {
+      "name": "Main TUI Dashboard",
+      "purpose": "Primary interface for user interaction with the AI coding agent, displaying real-time progress, agent status, memory context, and tool outputs.",
+      "primary_actions": [
+        "Spawn sub-agent",
+        "Submit coding task",
+        "Switch AI model provider",
+        "Toggle swarm mode",
+        "View memory context"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_binary",
+      "purpose": "Fetch and install the jcode binary using the install.sh script, handling platform detection and OAuth setup.",
+      "async": true,
+      "input": {
+        "is_swarm": "boolean",
+        "memory_context": "string",
+        "model_provider": "string",
+        "payload": "json",
+        "session_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "upload_demo_video",
+      "purpose": "Upload demonstration videos (e.g., jcode_replay_jaguar_*.mp4) to releases or documentation as part of CI/CD or user onboarding.",
+      "async": true,
+      "input": {
+        "is_swarm": "boolean",
+        "memory_context": "string",
+        "model_provider": "string",
+        "payload": "json",
+        "session_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agent_sessions",
+        "columns": [
+          {
+            "name": "is_swarm",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "memory_context",
+            "type": "TEXT"
+          },
+          {
+            "name": "model_provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic file and shell tooling",
+    "week 1: Build persistent memory store per session",
+    "week 1: Implement core TUI rendering engine targeting 1,400+ FPS",
+    "week 1: Integrate OAuth flow for Claude/ChatGPT/GitHub Copilot"
+  ],
+  "acceptance_tests": [
+    "Application starts instantly (<100ms) and uses <65MB memory during active session",
+    "Binary installs successfully via install.sh without 404 errors",
+    "Demo video uploads and displays correctly in README and release assets",
+    "TUI renders at >1,000 FPS with no flicker or lag under load"
+  ]
+}

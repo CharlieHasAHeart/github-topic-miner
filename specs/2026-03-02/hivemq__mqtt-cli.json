@@ -1,0 +1,143 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "MQTT CLI",
+    "one_liner": "A command-line interface for connecting to MQTT brokers supporting MQTT 5.0 and 3.1.1."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal Interface",
+      "purpose": "Provide access to all MQTT CLI commands via the terminal.",
+      "primary_actions": [
+        "Enter shell mode",
+        "Publish messages",
+        "Run broker tests",
+        "Subscribe to topics"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "enter_shell",
+      "purpose": "Launch an interactive MQTT shell for advanced operations.",
+      "async": true,
+      "input": {
+        "broker_host": "string",
+        "payload": "json",
+        "port": "int",
+        "protocol_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "publish_message",
+      "purpose": "Publish a message to a specified MQTT topic on a given broker.",
+      "async": true,
+      "input": {
+        "broker_host": "string",
+        "payload": "json",
+        "port": "int",
+        "protocol_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_test",
+      "purpose": "Execute tests against an MQTT broker to assess its capabilities and limitations.",
+      "async": true,
+      "input": {
+        "broker_host": "string",
+        "payload": "json",
+        "port": "int",
+        "protocol_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "subscribe_topic",
+      "purpose": "Subscribe to one or more MQTT topics and receive messages in real time.",
+      "async": true,
+      "input": {
+        "broker_host": "string",
+        "payload": "json",
+        "port": "int",
+        "protocol_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "mqtt_connections",
+        "columns": [
+          {
+            "name": "broker_host",
+            "type": "TEXT"
+          },
+          {
+            "name": "port",
+            "type": "INTEGER"
+          },
+          {
+            "name": "protocol_version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "published_messages",
+        "columns": [
+          {
+            "name": "payload",
+            "type": "TEXT"
+          },
+          {
+            "name": "qos",
+            "type": "INTEGER"
+          },
+          {
+            "name": "topic",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "subscriptions",
+        "columns": [
+          {
+            "name": "active",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "topic_filter",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for MQTT 3.1.1 and 5.0 protocols",
+    "week 1: Implement core publish and subscribe commands",
+    "week 1: Set up basic connection management"
+  ],
+  "acceptance_tests": [
+    "Confirm that `mqtt sub -t test -h localhost` receives published messages in real time.",
+    "Ensure `mqtt sh` launches an interactive shell with command history.",
+    "Validate that `mqtt test -h localhost` executes a suite of broker compatibility checks.",
+    "Verify that `mqtt pub -t test -m 'hello' -h localhost` sends a message to the correct topic."
+  ]
+}
