@@ -1,0 +1,1431 @@
+{
+  "run_id": "20260303T044858Z",
+  "generated_at": "2026-03-03T04:48:58.766Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 93,
+    "candidates_kept": 5,
+    "candidates_deduped": 4,
+    "new_candidates": 1,
+    "repo_cards_built": 1,
+    "gaps_count": 0,
+    "specs_attempted": 1,
+    "specs_succeeded": 1,
+    "specs_failed": 0,
+    "evidence_validated": 1,
+    "evidence_valid_ok": 1,
+    "evidence_valid_failed": 0,
+    "evidence_written": 1,
+    "evidence_write_failed": 0,
+    "evidence_total": 19,
+    "evidence_by_type": {
+      "readme": 8,
+      "issue": 7,
+      "release": 3,
+      "root_files": 1
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-03T04:49:30.178Z",
+    "repo_count": 93
+  },
+  "candidates": [
+    {
+      "full_name": "1jehuang/jcode",
+      "html_url": "https://github.com/1jehuang/jcode",
+      "description": "A resource-efficient, open source AI coding agent with a native TUI, built in Rust.",
+      "topics": [
+        "ai",
+        "claude",
+        "cli",
+        "coding-agent",
+        "llm",
+        "mcp",
+        "openai",
+        "rust",
+        "terminal",
+        "tui"
+      ],
+      "language": "Rust",
+      "stargazers_count": 63,
+      "forks_count": 7,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-03-03T04:48:57Z",
+      "created_at": "2026-01-05T09:43:36Z"
+    },
+    {
+      "full_name": "fern-api/fern",
+      "html_url": "https://github.com/fern-api/fern",
+      "description": "Input OpenAPI. Output SDKs and Docs.",
+      "topics": [
+        "api",
+        "docs-as-code",
+        "docs-generator",
+        "openapi",
+        "sdk-generator"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 3531,
+      "forks_count": 285,
+      "open_issues_count": 393,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-03T04:48:09Z",
+      "created_at": "2022-04-01T17:56:54Z"
+    },
+    {
+      "full_name": "google-gemini/gemini-cli",
+      "html_url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "cli",
+        "gemini",
+        "gemini-api",
+        "mcp-client",
+        "mcp-server"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 96263,
+      "forks_count": 11829,
+      "open_issues_count": 2484,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-03T04:47:45Z",
+      "created_at": "2025-04-17T17:04:31Z"
+    },
+    {
+      "full_name": "retypeapp/retype",
+      "html_url": "https://github.com/retypeapp/retype",
+      "description": "Retype is an ultra-high-performance static site generator that builds a website based on simple text files. Made in Canada 🇨🇦.",
+      "topics": [
+        "cli",
+        "docs",
+        "documentation",
+        "documentation-generator",
+        "documentation-tool",
+        "documentation-website",
+        "notebooks",
+        "notes",
+        "retype",
+        "static-site-generation"
+      ],
+      "language": "CSS",
+      "stargazers_count": 1320,
+      "forks_count": 217,
+      "open_issues_count": 154,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-03T04:47:16Z",
+      "created_at": "2020-12-19T22:12:10Z"
+    },
+    {
+      "full_name": "can1357/oh-my-pi",
+      "html_url": "https://github.com/can1357/oh-my-pi",
+      "description": "⌥  AI Coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more",
+      "topics": [
+        "ai-agent",
+        "ai-coding-agent",
+        "anthropic",
+        "bun",
+        "claude",
+        "cli",
+        "coding-assistant",
+        "llm",
+        "mcp",
+        "multi-provider",
+        "openai",
+        "rust",
+        "terminal",
+        "tui",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1608,
+      "forks_count": 123,
+      "open_issues_count": 9,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-03T04:47:11Z",
+      "created_at": "2025-12-31T14:01:28Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "retypeapp/retype",
+      "html_url": "https://github.com/retypeapp/retype",
+      "description": "Retype is an ultra-high-performance static site generator that builds a website based on simple text files. Made in Canada 🇨🇦.",
+      "topics": [
+        "cli",
+        "docs",
+        "documentation",
+        "documentation-generator",
+        "documentation-tool",
+        "documentation-website",
+        "notebooks",
+        "notes",
+        "retype",
+        "static-site-generation"
+      ],
+      "language": "CSS",
+      "stargazers_count": 1320,
+      "forks_count": 217,
+      "open_issues_count": 154,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-03T04:47:16Z",
+      "created_at": "2020-12-19T22:12:10Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "retypeapp/retype",
+      "html_url": "https://github.com/retypeapp/retype",
+      "description": "Retype is an ultra-high-performance static site generator that builds a website based on simple text files. Made in Canada 🇨🇦.",
+      "topics": [
+        "cli",
+        "docs",
+        "documentation",
+        "documentation-generator",
+        "documentation-tool",
+        "documentation-website",
+        "notebooks",
+        "notes",
+        "retype",
+        "static-site-generation"
+      ],
+      "language": "CSS",
+      "stargazers_count": 1320,
+      "forks_count": 217,
+      "open_issues_count": 154,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-03T04:47:16Z",
+      "created_at": "2020-12-19T22:12:10Z",
+      "readme": {
+        "fetched": true,
+        "text": "---\nlabel: \"Home\"\nicon: home\nbacklinks:\n  enabled: false\n---\n# Markdown Website Generator\n\n![](/static/retype-hero.png)\n\n[Retype](https://retype.com/) is a static website generator that transforms simple Markdown `.md` files into a complete website you fully own and can self-host anywhere.\n\n{.callout}\n> “I don't want to write code to write docs, I just want to write docs.”\n\nNo coding is required and just one Markdown file, such as a [README.md](https://www.makeareadme.com/), will get you started.\n\n!!!\nThe [retype.com](https://retype.com/) website was generated using Retype. View the [source](https://github.com/retypeapp/retype/blob/main/README.md) files used to generate this very page.\n!!!\n\n{.callout}\n> “Retype is the perfect fit for my user persona - tech savvy non-devs who want to write using the best web standards out there.”\n\nA new Retype powered website can be up and running within seconds once Retype is installed, which itself takes only a few seconds. :+1:\n\n---\n\n## Quick start\n\nYou can install Retype using `npm`, `yarn`, or the `dotnet` CLI.\n\nFrom your command line, navigate to a folder location where you have one or more Markdown `.md` files, such as a GitHub project.\n\nNext, choose one of the following tools to first install the `retypeapp` and then start Retype by using the `retype start` [command](/guides/cli.md#retype-start):\n\n+++ NPM\n```\nnpm install retypeapp --global\nretype start\n```\n+++ Yarn\n```\nyarn global add retypeapp\nretype start\n```\n+++ dotnet\n```\ndotnet tool install retypeapp --global\nretype start\n```\n+++\n\nThat's it! Your new Retype website should be up and running.\n\n!!!\nYou will require either [npm](https://www.npmjs.com/get-npm), [Yarn](https://classic.yarnpkg.com/en/docs/install/), or the [dotnet](https://dotnet.microsoft.com/download/dotnet-core) CLI to be installed before installing Retype. Only one of those three is required, although all three could be installed on your machine too. It's up to you. :raised_hands:\n\nAll operating systems are supported: including Mac, Windows, and Linux.\n!!!\n\n---\n\n## Features\n\n#### :icon-shield-check: It just works\n\nRetype has been built to be easy to use and should **_just work_** out-of-the-box without any special configuration or troublesome setup.\n\n#### :icon-zap: Lightning fast\n\nDon't blink. Retype was built for speed.\n\n#### :icon-gear: Easy install\n\n[Installation](/guides/getting-started.md) takes only a few seconds. Then all you need is one Markdown `.md` file which Retype will start building a new website from.\n\n#### :icon-plug: Powerful\n\nProject level [configuration](/configuration/project.md) using **retype.yml** unlocks many more features and customization.\n\n#### :icon-pencil: Simple formatting\n\nPages are formatted using [[Markdown]] syntax and Retype [components](/components/components.md). Page level [configuration](/configuration/page.md) is available, such as setting a custom navigation [`label`](/configuration/page.md#label) or [`icon`](/configuration/page.md#icon).\n\n#### :icon-sync: Live reload\n\nIf a change is detected, such as editing and saving an `.md` file, your Retype website will be updated almost instantly within the browser.\n\n#### :icon-server: Host anywhere\n\nRetype generates an HTML website that you can self-host on any web hosting service, or for free using [GitHub Pages](/hosting/github-pages.md), [Netlify](/hosting/netlify.md), or [Cloudflare](/hosting/cloudflare.md). No special server-side software or external dependencies are required. You can host your Retype site as a public website or as a private website within your organization's network.\n\n---\n\n{{ include \"snippets/support\" }}\n",
+        "truncated": false,
+        "bytes": 3644,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Retype 4.1.0",
+            "tag_name": "v4.1.0",
+            "published_at": "2026-03-02T00:06:21Z",
+            "body_excerpt": "# Version 4.1.0\r\n\r\nThere were 8 changes in Retype 4.1.0.\r\n\r\n## New\r\n\r\n1. New search experience with improved ranking, UI, and navigation, see #680\r\n1. New `blog.layout` project setting to configure default blog post layout, see #729\r\n1. New support for setting a unicode character on icon properties, see #785\r\n\r\n## Improved\r\n\r\n1. Index code blocks in search results, see #680\r\n1. Allow pager links to wrap to next line when container width is full\r\n\r\n## Fixed\r\n\r\n1. NextPrev project configuration not able to `hide` or `exclude` Next and Previous nav elements, see #781\r\n1. Fix platform detection: Linux arm64 falls through to osx-x64, see #802\r\n1. Fill empty table cells with a space - `&nbsp;`"
+          },
+          {
+            "name": "Retype 4.0.1",
+            "tag_name": "v4.0.1",
+            "published_at": "2026-02-25T03:35:44Z",
+            "body_excerpt": "# Version 4.0.1\n\nThere were 2 changes in Retype 4.0.1.\n\n## Improved\n\n1. Print stylesheet improvements\n1. Improve scroll position logic and reloading"
+          },
+          {
+            "name": "Retype 4.0.0",
+            "tag_name": "v4.0.0",
+            "published_at": "2026-02-24T02:33:54Z",
+            "body_excerpt": "# Version 4.0.0\n\nThere were 16 changes in Retype 4.0.0.\n\n## New\n\n1. New Question variant for Button and Badge components\n1. New `title` property on `links` and `footer.links`, see #672\n1. New `meta.siteName` project setting\n1. New project and page variables available to templating, see #619\n1. New blog configuration and paging, see #747\n1. New `[!card]` inline component: render a Page Card anywhere in content\n1. New `content` template variables and data\n1. New Steps component\n\n## Improved\n\n1. Upgrade Octicons icons library from v19.21.2 to v19.22.0\n1. Upgrade to latest TailwindCSS v4 release\n1. Generate modern Open Graph meta tags\n1. Added `color-scheme` meta tag to improve light/dark mode integration\n1. Add text selection theme variables (selection-bg, selection-text)\n1. Set custom id and css class attributes on Panel, Tab, Callout, Code Block, and Container components, see #797\n\n## Fixed\n\n1. Automatic detection of `-dark` images failing if hosting from base folder\n1. Browser back button does not restore scroll position with Turbo"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 804,
+            "title": "Disable Enhanced Page Descriptions",
+            "state": "closed",
+            "url": "https://github.com/retypeapp/retype/issues/804"
+          },
+          {
+            "number": 729,
+            "title": "Can /blog page include left sidebar?",
+            "state": "closed",
+            "url": "https://github.com/retypeapp/retype/issues/729"
+          },
+          {
+            "number": 645,
+            "title": "Glossary feature from within Retype",
+            "state": "open",
+            "url": "https://github.com/retypeapp/retype/issues/645"
+          },
+          {
+            "number": 791,
+            "title": "Show tags in the menu",
+            "state": "open",
+            "url": "https://github.com/retypeapp/retype/issues/791"
+          },
+          {
+            "number": 781,
+            "title": "nextprev not working",
+            "state": "closed",
+            "url": "https://github.com/retypeapp/retype/issues/781"
+          },
+          {
+            "number": 785,
+            "title": "Add support for using a unicode character to specify the icon to use for a page",
+            "state": "closed",
+            "url": "https://github.com/retypeapp/retype/issues/785"
+          },
+          {
+            "number": 680,
+            "title": "Search not working for code snippets",
+            "state": "closed",
+            "url": "https://github.com/retypeapp/retype/issues/680"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        "LICENSE.md",
+        "README.md",
+        "_includes",
+        "about.md",
+        "blog",
+        "changelog.md",
+        "community.md",
+        "components",
+        "configuration",
+        "faq.md",
+        "favicon-dark.ico",
+        "favicon.ico",
+        "feature-log.md",
+        "features.md",
+        "guides",
+        "hosting",
+        "pro",
+        "retype.yml",
+        "samples",
+        "static",
+        "templating"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 1)",
+          "excerpt": "--- label: \"Home\" icon: home backlinks: enabled: false --- # Markdown Website Generator",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 1,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[Retype](https://retype.com/) is a static website generator that transforms simple Markdown `.md` files into a complete website you fully own and can self-host anywhere.",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 2,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 3)",
+          "excerpt": "{.callout} > “I don't want to write code to write docs, I just want to write docs.”",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 3,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 4)",
+          "excerpt": "No coding is required and just one Markdown file, such as a [README.md](https://www.makeareadme.com/), will get you started.",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 4,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 5)",
+          "excerpt": "!!! The [retype.com](https://retype.com/) website was generated using Retype. View the [source](https://github.com/retypeapp/retype/blob/main/README.md) files used to generate this very page. !!!",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 5,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 6)",
+          "excerpt": "{.callout} > “Retype is the perfect fit for my user persona - tech savvy non-devs who want to write using the best web standards out there.”",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 6,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 7)",
+          "excerpt": "A new Retype powered website can be up and running within seconds once Retype is installed, which itself takes only a few seconds. :+1:",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 7,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/retypeapp/retype#readme",
+          "title": "README (segment 8)",
+          "excerpt": "From your command line, navigate to a folder location where you have one or more Markdown `.md` files, such as a GitHub project.",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "segment": 8,
+            "language": "CSS"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/804",
+          "title": "Disable Enhanced Page Descriptions",
+          "excerpt": "Disable Enhanced Page Descriptions (state:closed)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 804
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/729",
+          "title": "Can /blog page include left sidebar?",
+          "excerpt": "Can /blog page include left sidebar? (state:closed)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 729
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/645",
+          "title": "Glossary feature from within Retype",
+          "excerpt": "Glossary feature from within Retype (state:open)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 645
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/791",
+          "title": "Show tags in the menu",
+          "excerpt": "Show tags in the menu (state:open)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 791
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/781",
+          "title": "nextprev not working",
+          "excerpt": "nextprev not working (state:closed)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 781
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/785",
+          "title": "Add support for using a unicode character to specify the icon to use for a page",
+          "excerpt": "Add support for using a unicode character to specify the icon to use for a page (state:closed)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 785
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/retypeapp/retype/issues/680",
+          "title": "Search not working for code snippets",
+          "excerpt": "Search not working for code snippets (state:closed)",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "number": 680
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/retypeapp/retype/releases",
+          "title": "v4.1.0",
+          "excerpt": "# Version 4.1.0 There were 8 changes in Retype 4.1.0. ## New 1. New search experience with improved ranking, UI, and navigation, see #680 1. New `blog.layout` project setting to configure default blog post layout, see #729 1. New support for setting a unicode character on icon properties, see #785 ## Improved 1. Index code blocks in search results, see #680 1. Allow pager links to wrap to next line when container width is full ## Fixed 1. NextPrev project configuration not able to `hide` or `exclude` Next and Previous nav elements, see #781 1. Fix platform detection: Linux arm64 falls through to osx-x64, see #802 1. Fill empty table cells with a space - `&nbsp;`",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "tag_name": "v4.1.0",
+            "published_at": "2026-03-02T00:06:21Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/retypeapp/retype/releases",
+          "title": "v4.0.1",
+          "excerpt": "# Version 4.0.1 There were 2 changes in Retype 4.0.1. ## Improved 1. Print stylesheet improvements 1. Improve scroll position logic and reloading",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "tag_name": "v4.0.1",
+            "published_at": "2026-02-25T03:35:44Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/retypeapp/retype/releases",
+          "title": "v4.0.0",
+          "excerpt": "# Version 4.0.0 There were 16 changes in Retype 4.0.0. ## New 1. New Question variant for Button and Badge components 1. New `title` property on `links` and `footer.links`, see #672 1. New `meta.siteName` project setting 1. New project and page variables available to templating, see #619 1. New blog configuration and paging, see #747 1. New `[!card]` inline component: render a Page Card anywhere in content 1. New `content` template variables and data 1. New Steps component ## Improved 1. Upgrade Octicons icons library from v19.21.2 to v19.22.0 1. Upgrade to latest TailwindCSS v4 release 1. Generate modern Open Graph meta tags 1. Added `color-scheme` meta tag to improve light/dark mode integration 1. Add text selection theme variables (selection-bg, selection-text) 1. Set custom id and css class attributes on Panel, Tab, Callout, Code Block, and Container components, see #797 ## Fixed 1. Automatic detection of `-dark` images failing if hosting from base folder 1. Browser back button does not restore scroll position with Turbo",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "tag_name": "v4.0.0",
+            "published_at": "2026-02-24T02:33:54Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/retypeapp/retype",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, LICENSE.md, README.md, _includes, about.md, blog, changelog.md, community.md, components, configuration, faq.md, favicon-dark.ico, favicon.ico, feature-log.md, features.md, guides, hosting, pro, retype.yml, samples, static, templating",
+          "fetched_at": "2026-03-03T04:49:04.025Z",
+          "meta": {
+            "repo_full_name": "retypeapp/retype",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "retypeapp/retype",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "retypeapp/retype",
+      "ok": true,
+      "spec_path": "specs/2026-03-03/retypeapp__retype.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "retypeapp/retype",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-03/retypeapp__retype.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "retypeapp/retype",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-03/retypeapp__retype.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-03T04:49:30.164Z",
+      "run_id": "20260303T044858Z",
+      "repo": "retypeapp/retype",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "317a398fd34633319988ae49632698cd191c4e7d545bdafb117c7bb5069b37b5",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 10687
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 26134,
+      "prompt_chars": 10687,
+      "completion_chars": 2791
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "retypeapp/retype",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "retypeapp/retype",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 1,
+    "attempts_used_hist": {
+      "0": 1,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 1,
+    "success": 1
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1772513338777,
+    "llmCallsTotal": 1,
+    "llmCallsPerRepo": {
+      "retypeapp/retype": 1
+    },
+    "tokensApproxTotal": 3370,
+    "tokensApproxPerRepo": {
+      "retypeapp/retype": 3370
+    },
+    "reposProcessed": 1,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "retypeapp/retype": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Retype\",\n    \"one_sentence\": \"Retype is a static website generator that transforms simple Markdown files into a complete, self-hosted website without requiring coding.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users write Markdown files, run Retype to generate a static site, and deploy it anywhere; the tool handles layout, navigation, search, and theming automatically.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Home\",\n      \"purpose\": \"Display the main landing page of the generated website with navigation, content from README.md, and core components like search and sidebar.\",\n      \"primary_actions\": [\n        \"Navigate to other pages\",\n        \"Search content\",\n        \"View blog posts\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"build_site\",\n      \"purpose\": \"Generate a static website from Markdown source files using Retype configuration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"pages\",\n        \"fields\": [\n          {\n            \"name\": \"title\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"text\"\n          },\n          {\n            \"name\": \"icon\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Parse Markdown files\",\n          \"Generate basic HTML structure\",\n          \"Implement default theme\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Generated site includes a functional search that indexes code blocks.\",\n    \"Blog pages support configurable layout and display a left sidebar.\",\n    \"Next/Previous navigation can be hidden via configuration.\"\n  ],\n  \"open_questions\": [\n    \"How to integrate glossary feature natively?\",\n    \"Can tags be dynamically rendered in the menu?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "retypeapp/retype",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=3",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=93 kept=5 limit=5",
+    "[deduper] existing_index_repos=92",
+    "[deduper] candidates_total=5 new=1 skipped=4",
+    "[repo_card_builder] retypeapp/retype evidence total=19 readme=8 issue=7 release=3 root_files=1",
+    "[repo_card_builder] built=1 readme_ok=1/1 evidence_total=19 gaps=0",
+    "[llm_spec_generator] retypeapp/retype canonical spec ok (iter=1) -> specs/2026-03-03/retypeapp__retype.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-03T04:48:58.776Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:58.797Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260303T044858Z"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:58.797Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:58.800Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:59.347Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:59.347Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:59.765Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:48:59.765Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:00.146Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:00.146Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:00.581Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:00.581Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:01.004Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:01.004Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:01.664Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:01.664Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:02.142Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:02.142Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:02.513Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:02.513Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:02.991Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:02.992Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.545Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.548Z",
+      "run_id": "20260303T044858Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 92
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.549Z",
+      "run_id": "20260303T044858Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 1,
+        "skipped": 4,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.551Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-03T04:49:03.552Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "retypeapp__retype/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.552Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "retypeapp__retype/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.554Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "retypeapp__retype/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:03.555Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "retypeapp__retype/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.025Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3644,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.025Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.025Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.025Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 474
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.026Z",
+      "run_id": "20260303T044858Z",
+      "node": "repo_card_builder",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.029Z",
+      "run_id": "20260303T044858Z",
+      "node": "llm_spec_generator",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:04.029Z",
+      "run_id": "20260303T044858Z",
+      "node": "llm_spec_generator",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.164Z",
+      "run_id": "20260303T044858Z",
+      "node": "llm_spec_generator",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2791,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.177Z",
+      "run_id": "20260303T044858Z",
+      "node": "llm_spec_generator",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.178Z",
+      "run_id": "20260303T044858Z",
+      "node": "artifacts",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-03/retypeapp__retype.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.178Z",
+      "run_id": "20260303T044858Z",
+      "node": "artifacts",
+      "repo": "retypeapp/retype",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-03/retypeapp__retype.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.181Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 1,
+        "attempts_used_hist": {
+          "0": 1,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.181Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1772513338777,
+        "llmCallsTotal": 1,
+        "llmCallsPerRepo": {
+          "retypeapp/retype": 1
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 1,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.181Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-03T04:49:30.182Z",
+      "run_id": "20260303T044858Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 1,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-03",
+    "evidence_dir": "evidence/2026-03-03"
+  }
+}

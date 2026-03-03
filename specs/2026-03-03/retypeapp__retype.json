@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Retype",
+    "one_liner": "Retype is a static website generator that transforms simple Markdown files into a complete, self-hosted website without requiring coding."
+  },
+  "screens": [
+    {
+      "name": "Home",
+      "purpose": "Display the main landing page of the generated website with navigation, content from README.md, and core components like search and sidebar.",
+      "primary_actions": [
+        "Navigate to other pages",
+        "Search content",
+        "View blog posts"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_site",
+      "purpose": "Generate a static website from Markdown source files using Retype configuration.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "icon": "string",
+        "payload": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "pages",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "icon",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Generate basic HTML structure",
+    "week 1: Implement default theme",
+    "week 1: Parse Markdown files"
+  ],
+  "acceptance_tests": [
+    "Blog pages support configurable layout and display a left sidebar.",
+    "Generated site includes a functional search that indexes code blocks.",
+    "Next/Previous navigation can be hidden via configuration."
+  ]
+}
