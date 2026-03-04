@@ -1,0 +1,146 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "vue-pure-admin",
+    "one_liner": "An open-source, ready-to-use mid-to-back-end management system template built with Vue3, Vite, Element-Plus, TypeScript, Pinia, and Tailwind CSS using ESM."
+  },
+  "screens": [
+    {
+      "name": "Error Pages",
+      "purpose": "Display full-screen error states (403, 404, 500) with clear messaging and recovery options.",
+      "primary_actions": [
+        "Retry navigation",
+        "Return to home"
+      ]
+    },
+    {
+      "name": "Main Dashboard",
+      "purpose": "Provides the primary navigation and workspace for managing system resources and viewing key metrics.",
+      "primary_actions": [
+        "Access system settings",
+        "Navigate menus",
+        "View dashboard widgets"
+      ]
+    },
+    {
+      "name": "System Settings",
+      "purpose": "Configure global application behavior including theme mode and menu layout.",
+      "primary_actions": [
+        "Adjust system preferences",
+        "Change menu layout",
+        "Switch theme mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Fetch paginated or filtered lists of system items from backend API.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "status_code": "int",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "load_menu_icons",
+      "purpose": "Load SVG icons for navigation menu items from backend response.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "status_code": "int",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist configuration or data changes to backend storage.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "status_code": "int",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "error_logs",
+        "columns": [
+          {
+            "name": "status_code",
+            "type": "INTEGER"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "menu_items",
+        "columns": [
+          {
+            "name": "icon_svg",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "route_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "system_config",
+        "columns": [
+          {
+            "name": "menu_layout",
+            "type": "TEXT"
+          },
+          {
+            "name": "theme_mode",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core layout with dynamic menu loading",
+    "week 1: Initialize project with ESM-based Vue3 + Vite scaffold",
+    "week 1: Integrate Element-Plus and Tailwind CSS",
+    "week 2: Add system settings screen with theme and layout controls",
+    "week 2: Create full-screen error pages (403/404/500)",
+    "week 2: Implement SVG icon support for menu items"
+  ],
+  "acceptance_tests": [
+    "After enabling 'keepAlive: true' on a route, revisiting the tab restores state without reloading.",
+    "Given a user navigates to an invalid route, then they see a full-screen 404 page with a return button.",
+    "Given the backend returns an SVG string for a menu item icon, then the navigation menu renders it correctly without style issues.",
+    "When the user switches 'theme mode' in system settings, the entire UI updates consistently without flickering."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "KSail",
+    "one_liner": "KSail is a tool that bundles common Kubernetes tooling into a single binary, offering CLI, VSCode Extension, AI-Enabled Chat TUI, and MCP interfaces to create, deploy, and operate cloud-native stacks across distributions and providers."
+  },
+  "screens": [
+    {
+      "name": "Cluster Dashboard",
+      "purpose": "Display available clusters, their status, and quick actions for deployment and operations.",
+      "primary_actions": [
+        "Create Cluster",
+        "Deploy Workload",
+        "Open TUI",
+        "View Logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "create_cluster",
+      "purpose": "Provision a Kubernetes cluster using native configs for Kind, K3d, Talos, or VCluster on supported providers.",
+      "async": true,
+      "input": {
+        "config_path": "string",
+        "distribution": "string",
+        "payload": "json",
+        "provider": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "deploy_workload",
+      "purpose": "Apply GitOps manifests (Flux/ArgoCD) or Helm/Kustomize specs to a target cluster.",
+      "async": true,
+      "input": {
+        "config_path": "string",
+        "distribution": "string",
+        "payload": "json",
+        "provider": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "manage_secrets",
+      "purpose": "Encrypt, decrypt, and edit secrets using built-in SOPS integration.",
+      "async": true,
+      "input": {
+        "config_path": "string",
+        "distribution": "string",
+        "payload": "json",
+        "provider": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "clusters",
+        "columns": [
+          {
+            "name": "config_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "distribution",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workloads",
+        "columns": [
+          {
+            "name": "cluster_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "gitops_engine",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "manifest_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic TUI interface for cluster creation and status viewing",
+    "week 1: Implement core cluster provisioning logic for Docker-based Kind and K3d",
+    "week 1: Integrate SOPS for secret management"
+  ],
+  "acceptance_tests": [
+    "User can create a Kind cluster on Docker using a kind.yaml file and verify it appears in the dashboard.",
+    "User can deploy a Helm chart to a K3d cluster via the CLI and confirm successful reconciliation.",
+    "User can encrypt a secret using SOPS through the manage_secrets command and decrypt it back correctly."
+  ]
+}
