@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Wire Web App",
+    "one_liner": "A secure, end-to-end encrypted web-based messenger with real-time collaboration features."
+  },
+  "screens": [
+    {
+      "name": "Main Conversation View",
+      "purpose": "Display active conversations, shared files, and enable real-time messaging and collaboration.",
+      "primary_actions": [
+        "Collaborate on documents",
+        "Send message",
+        "Share multiple files",
+        "Toggle favorite status"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a shared file or message item to the user's Drive with metadata.",
+      "async": true,
+      "input": {
+        "conversation_id": "string",
+        "file_data": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "conversation_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_data",
+            "type": "BLOB"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add file sharing capability",
+    "week 1: Implement core messaging interface",
+    "week 1: Integrate WebSocket connection for real-time sync"
+  ],
+  "acceptance_tests": [
+    "Favorite conversations persist across devices after toggling.",
+    "Multiple files can be shared in a single message with contextual text."
+  ]
+}

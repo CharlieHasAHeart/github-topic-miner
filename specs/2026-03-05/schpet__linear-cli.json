@@ -1,0 +1,204 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "linear-cli",
+    "one_liner": "A CLI to list, start, and create issues in Linear without leaving the command line, with git/jj awareness and AI agent support."
+  },
+  "screens": [
+    {
+      "name": "Issue List & Start",
+      "purpose": "Display and select issues to start working on, with context-aware filtering based on git/jj state.",
+      "primary_actions": [
+        "list unstarted issues",
+        "start selected issue",
+        "view current issue"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "api_raw",
+      "purpose": "Provide raw GraphQL API access for advanced scripting and automation.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "auth_login",
+      "purpose": "Add workspace credentials by storing API key in ~/.config/linear/credentials.toml.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "issue_create",
+      "purpose": "Create a new Linear issue interactively with title, description, team, and other metadata.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "issue_list",
+      "purpose": "List unstarted issues assigned to the user or anyone, optionally filtered by cycle or other criteria.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "issue_pr",
+      "purpose": "Create a pull request with title and body preset using gh CLI, linked to the current Linear issue.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "issue_start",
+      "purpose": "Start working on an issue by creating a local branch and linking it to the Linear issue.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "issue_view",
+      "purpose": "Render the current branch's associated Linear issue as markdown in the terminal.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sourceType": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "attachments",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sourceType",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "issues",
+        "columns": [
+          {
+            "name": "assignee",
+            "type": "TEXT"
+          },
+          {
+            "name": "cycle",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "state",
+            "type": "TEXT"
+          },
+          {
+            "name": "team",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workspaces",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core issue listing and starting commands",
+    "week 1: Integrate git/jj branch detection",
+    "week 1: Set up credential storage"
+  ],
+  "acceptance_tests": [
+    "Attachment view shows sourceType (e.g., Slack, GitHub)",
+    "Auth login correctly stores credentials in ~/.config/linear/credentials.toml",
+    "Flag conflict between --parent and --priority is resolved",
+    "Issue relation command manages dependencies between issues",
+    "Issue start command no longer creates extra commit after describing",
+    "Raw GraphQL API access works via 'linear api' subcommand",
+    "Sub-issues display limit increased from 50 to 250 in issue view",
+    "User can list all issues from the current cycle with 'linear issue list'"
+  ]
+}

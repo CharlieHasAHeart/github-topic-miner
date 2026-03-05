@@ -1,0 +1,2517 @@
+{
+  "run_id": "20260305T044746Z",
+  "generated_at": "2026-03-05T04:47:46.783Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 93,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 38,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 2,
+      "release": 9,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-05T04:49:31.394Z",
+    "repo_count": 98
+  },
+  "candidates": [
+    {
+      "full_name": "peter279k/github-follower-bot",
+      "html_url": "https://github.com/peter279k/github-follower-bot",
+      "description": "My GitHub Follower Bot",
+      "topics": [
+        "github-api",
+        "github-followers"
+      ],
+      "language": "Python",
+      "stargazers_count": 55,
+      "forks_count": 19,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-03-05T04:47:19Z",
+      "created_at": "2021-09-04T04:47:23Z"
+    },
+    {
+      "full_name": "fern-api/fern",
+      "html_url": "https://github.com/fern-api/fern",
+      "description": "Input OpenAPI. Output SDKs and Docs.",
+      "topics": [
+        "api",
+        "docs-as-code",
+        "docs-generator",
+        "openapi",
+        "sdk-generator"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 3532,
+      "forks_count": 286,
+      "open_issues_count": 412,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:46:52Z",
+      "created_at": "2022-04-01T17:56:54Z"
+    },
+    {
+      "full_name": "schpet/linear-cli",
+      "html_url": "https://github.com/schpet/linear-cli",
+      "description": "linear without leaving the command line: list, start, and create PRs for linear issues. agent friendly. ",
+      "topics": [
+        "cli",
+        "linear",
+        "linearapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 393,
+      "forks_count": 41,
+      "open_issues_count": 22,
+      "license_spdx_id": "ISC",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:44:33Z",
+      "created_at": "2024-11-23T15:10:09Z"
+    },
+    {
+      "full_name": "wireapp/wire-webapp",
+      "html_url": "https://github.com/wireapp/wire-webapp",
+      "description": "👽 Wire for web",
+      "topics": [
+        "end-to-end-encryption",
+        "hacktober",
+        "hacktoberfest",
+        "javascript",
+        "knockout",
+        "libsodium",
+        "messenger",
+        "reactjs",
+        "typescript",
+        "webapp",
+        "wire"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1185,
+      "forks_count": 298,
+      "open_issues_count": 39,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "dev",
+      "pushed_at": "2026-03-05T04:44:01Z",
+      "created_at": "2016-07-21T15:34:05Z"
+    },
+    {
+      "full_name": "cargo-public-api/cargo-public-api",
+      "html_url": "https://github.com/cargo-public-api/cargo-public-api",
+      "description": "List and diff the public API of Rust library crates between releases and commits. Detect breaking API changes and semver violations via CI or a CLI.",
+      "topics": [
+        "api",
+        "cargo",
+        "cargo-plugin",
+        "cargo-subcommand",
+        "diff",
+        "rust",
+        "rustdoc-json",
+        "semver"
+      ],
+      "language": "Rust",
+      "stargazers_count": 533,
+      "forks_count": 41,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:43:34Z",
+      "created_at": "2022-01-09T09:20:48Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "schpet/linear-cli",
+      "html_url": "https://github.com/schpet/linear-cli",
+      "description": "linear without leaving the command line: list, start, and create PRs for linear issues. agent friendly. ",
+      "topics": [
+        "cli",
+        "linear",
+        "linearapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 393,
+      "forks_count": 41,
+      "open_issues_count": 22,
+      "license_spdx_id": "ISC",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:44:33Z",
+      "created_at": "2024-11-23T15:10:09Z"
+    },
+    {
+      "full_name": "wireapp/wire-webapp",
+      "html_url": "https://github.com/wireapp/wire-webapp",
+      "description": "👽 Wire for web",
+      "topics": [
+        "end-to-end-encryption",
+        "hacktober",
+        "hacktoberfest",
+        "javascript",
+        "knockout",
+        "libsodium",
+        "messenger",
+        "reactjs",
+        "typescript",
+        "webapp",
+        "wire"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1185,
+      "forks_count": 298,
+      "open_issues_count": 39,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "dev",
+      "pushed_at": "2026-03-05T04:44:01Z",
+      "created_at": "2016-07-21T15:34:05Z"
+    },
+    {
+      "full_name": "cargo-public-api/cargo-public-api",
+      "html_url": "https://github.com/cargo-public-api/cargo-public-api",
+      "description": "List and diff the public API of Rust library crates between releases and commits. Detect breaking API changes and semver violations via CI or a CLI.",
+      "topics": [
+        "api",
+        "cargo",
+        "cargo-plugin",
+        "cargo-subcommand",
+        "diff",
+        "rust",
+        "rustdoc-json",
+        "semver"
+      ],
+      "language": "Rust",
+      "stargazers_count": 533,
+      "forks_count": 41,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:43:34Z",
+      "created_at": "2022-01-09T09:20:48Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "schpet/linear-cli",
+      "html_url": "https://github.com/schpet/linear-cli",
+      "description": "linear without leaving the command line: list, start, and create PRs for linear issues. agent friendly. ",
+      "topics": [
+        "cli",
+        "linear",
+        "linearapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 393,
+      "forks_count": 41,
+      "open_issues_count": 22,
+      "license_spdx_id": "ISC",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:44:33Z",
+      "created_at": "2024-11-23T15:10:09Z",
+      "readme": {
+        "fetched": true,
+        "text": "# linear cli\n\na cli to list, start and create issues in the [linear](https://linear.app/) issue tracker. git and [jj](https://www.jj-vcs.dev/) aware to keep you in the right views in linear. allows jumping to the web or the linear desktop app similar to `gh`.\n\n**works great with AI agents** — the CLI includes a [skill](#skills) that lets agents create issues, update status, and manage your Linear workflow alongside your code.\n\nhere's how it works:\n\n```bash\nlinear config               # setup your repo, it writes a config file\n\nlinear issue list           # list unstarted issues assigned to you\nlinear issue list -A        # list unstarted issues assigned to anyone\nlinear issue start          # choose an issue to start, creates a branch\nlinear issue start ABC-123  # start a specific issue\nlinear issue view           # see current branch's issue as markdown\nlinear issue pr             # makes a PR with title/body preset, using gh cli\nlinear issue create         # create a new issue\n```\n\nit aims to be a complement to the web and desktop apps that lets you stay on the command line in an interactive or scripted way.\n\n## screencast demos\n\n<details>\n<summary><code>linear issue create</code></summary>\n\n<img width=\"600\" src=\"docs/cast-issue-create.svg?1\" alt=\"screencast showing the linear issue create command, interactively adding issue details\">\n\n</details>\n\n<details>\n<summary><code>linear issue start</code></summary>\n\n<img width=\"600\" src=\"docs/cast-issue-start.svg?1\" alt=\"screencast showing the linear issue start command, interactively choosing an issue to start\">\n\n</details>\n\n## install\n\n### homebrew\n\n```\nbrew install schpet/tap/linear\n```\n\n### deno via jsr\n\n```bash\ndeno install -A --reload -f -g -n linear jsr:@schpet/linear-cli\n```\n\n### binaries\n\nhttps://github.com/schpet/linear-cli/releases/latest\n\n### local dev\n\n```bash\ngit clone https://github.com/schpet/linear-cli\ncd linear-cli\ndeno task install\n```\n\n## setup\n\n1. create an API key at [linear.app/settings/account/security](https://linear.app/settings/account/security)[^1]\n\n2. authenticate with the CLI:\n\n   ```sh\n   linear auth login\n   ```\n\n3. configure your project:\n\n   ```sh\n   cd my-project-repo\n   linear config\n   ```\n\nsee [docs/authentication.md](docs/authentication.md) for multi-workspace support and other authentication options.\n\nthe CLI works with both git and jj version control systems:\n\n- **git**: works best when your branches include Linear issue IDs (e.g. `eng-123-my-feature`). use `linear issue start` or linear UI's 'copy git branch name' button and [related automations](https://linear.app/docs/account-preferences#git-related-automations).\n- **jj**: detects issues from `Linear-issue` trailers in your commit descriptions. use `linear issue start` to automatically add the trailer, or add it manually with `jj describe`, e.g. `jj describe \"$(linear issue describe ABC-123)\"`\n\n## commands\n\n### issue commands\n\nthe current issue is determined by:\n\n- **git**: the issue id in the current branch name (e.g. `eng-123-my-feature`)\n- **jj**: the `Linear-issue` trailer in the current or ancestor commits\n\nnote that [Linear's GitHub integration](https://linear.app/docs/github#branch-format) will suggest git branch names.\n\n```bash\nlinear issue view      # view current issue details in terminal\nlinear issue view ABC-123\nlinear issue view 123\nlinear issue view -w   # open issue in web browser\nlinear issue view -a   # open issue in Linear.app\nlinear issue id        # prints the issue id from current branch (e.g., \"ENG-123\")\nlinear issue title     # prints just the issue title\nlinear issue url       # prints the Linear.app URL for the issue\nlinear issue pr        # creates a GitHub PR with issue details via `gh pr create`\nlinear issue list      # list your issues in a table view (supports -s/--state and --sort)\nlinear issue list -w   # open issue list in web browser\nlinear issue list -a   # open issue list in Linear.app\nlinear issue start     # create/switch to issue branch and mark as started\nlinear issue create    # create a new issue (interactive prompts)\nlinear issue create -t \"title\" -d \"description\"  # create with flags\nlinear issue create --project \"My Project\" --milestone \"Phase 1\"  # create with milestone\nlinear issue update    # update an issue (interactive prompts)\nlinear issue update ENG-123 --milestone \"Phase 2\"  # set milestone on existing issue\nlinear issue delete    # delete an issue\nlinear issue comment list          # list comments on current issue\nlinear issue comment add           # add a comment to current issue\nlinear issue comment add -p <id>   # reply to a specific comment\nlinear issue comment update <id>   # update a comment\nlinear issue commits               # show all commits for an issue (jj only)\n```\n\n### team commands\n\n```bash\nlinear team list       # list teams\nlinear team id         # print out the team id (e.g. for scripts)\nlinear team members    # list team members\nlinear team create     # create a new team\nlinear team autolinks  # configure GitHub repository autolinks for Linear issues\n```\n\n### project commands\n\n```bash\nlinear project list    # list projects\nlinear project view    # view project details\n```\n\n### milestone commands\n\n```bash\nlinear milestone list --project <projectId>     # list milestones for a project\nlinear m list --project <projectId>             # list milestones (alias)\nlinear milestone view <milestoneId>             # view milestone details\nlinear m view <milestoneId>                     # view milestone (alias)\nlinear milestone create --project <projectId> --name \"Q1 Goals\" --target-date \"2026-03-31\"  # create a milestone\nlinear m create --project <projectId>           # create a milestone (interactive)\nlinear milestone update <milestoneId> --name \"New Name\"  # update milestone name\nlinear m update <milestoneId> --target-date \"2026-04-15\"  # update target date\nlinear milestone delete <milestoneId>           # delete a milestone\nlinear m delete <milestoneId> --force           # delete without confirmation\n```\n\n### document commands\n\nmanage Linear documents from the command line. documents can be attached to projects or issues, or exist at the workspace level.\n\n```bash\n# list documents\nlinear document list                            # list all accessible documents\nlinear docs list                                # alias for document\nlinear document list --project <projectId>      # filter by project\nlinear document list --issue TC-123             # filter by issue\nlinear document list --json                     # output as JSON\n\n# view a document\nlinear document view <slug>                     # view document rendered in terminal\nlinear document view <slug> --raw               # output raw markdown (for piping)\nlinear document view <slug> --web               # open in browser\nlinear document view <slug> --json              # output as JSON\n\n# create a document\nlinear document create --title \"My Doc\" --content \"# Hello\"           # inline content\nlinear document create --title \"Spec\" --content-file ./spec.md        # from file\nlinear document create --title \"Doc\" --project <projectId>            # attach to project\nlinear document create --title \"Notes\" --issue TC-123                 # attach to issue\ncat spec.md | linear document create --title \"Spec\"                   # from stdin\n\n# update a document\nlinear document update <slug> --title \"New Title\"                     # update title\nlinear document update <slug> --content-file ./updated.md             # update content\nlinear document update <slug> --edit                                  # open in $EDITOR\n\n# delete a document\nlinear document delete <slug>                   # soft delete (move to trash)\nlinear document delete <slug> --permanent       # permanent delete\nlinear document delete --bulk <slug1> <slug2>   # bulk delete\n```\n\n### other commands\n\n```bash\nlinear --help          # show all commands\nlinear --version       # show version\nlinear config          # setup the project\nlinear completions     # generate shell completions\n```\n\n## configuration options\n\nthe CLI supports configuration via environment variables or a `.linear.toml` config file. environment variables take precedence over config file values.\n\n| option          | env var                  | toml key          | example                    | description                           |\n| --------------- | ------------------------ | ----------------- | -------------------------- | ------------------------------------- |\n| Team ID         | `LINEAR_TEAM_ID`         | `team_id`         | `\"ENG\"`                    | default team for operations           |\n| Workspace       | `LINEAR_WORKSPACE`       | `workspace`       | `\"mycompany\"`              | workspace slug for web/app URLs       |\n| Issue sort      | `LINEAR_ISSUE_SORT`      | `issue_sort`      | `\"priority\"` or `\"manual\"` | how to sort issue lists               |\n| VCS             | `LINEAR_VCS`             | `vcs`             | `\"git\"` or `\"jj\"`          | version control system (default: git) |\n| Download images | `LINEAR_DOWNLOAD_IMAGES` | `download_images` | `true` or `false`          | download images when viewing issues   |\n\nthe config file can be placed at (checked in order, first found is used):\n\n- `./linear.toml` or `./.linear.toml` (current directory)\n- `<repo-root>/linear.toml` or `<repo-root>/.linear.toml` (repository root)\n- `<repo-root>/.config/linear.toml`\n- `$XDG_CONFIG_HOME/linear/linear.toml` or `~/.config/linear/linear.toml` (Unix)\n- `%APPDATA%\\linear\\linear.toml` (Windows)\n\n## skills\n\nlinear-cli includes a skill that helps AI agents use the CLI effectively. for use cases outside the CLI, it includes instructions to interact directly with the graphql api, including authentication.\n\n### claude code\n\ninstall the skill using [claude code's plugin system](https://code.claude.com/docs/en/skills):\n\n```bash\n# from claude code\n/plugin marketplace add schpet/linear-cli\n/plugin install linear-cli@linear-cli\n\n# from bash\nclaude plugin marketplace add schpet/linear-cli\nclaude plugin install linear-cli@linear-cli\n\n# to update\nclaude plugin marketplace update linear-cli\nclaude plugin update linear-cli@linear-cli\n```\n\n### skills.sh for other agents\n\ninstall the skill using [skills.sh](https://skills.sh):\n\n```bash\nnpx skills add schpet/linear-cli\n```\n\nview the skill at [skills.sh/schpet/linear-cli/linear-cli](https://skills.sh/schpet/linear-cli/linear-cli)\n\n## development\n\n### updating skill documentation\n\nthe skill documentation in `skills/linear-cli/` is automatically generated from the CLI help text. after making changes to commands or help text, regenerate the docs:\n\n```bash\ndeno task generate-skill-docs\n```\n\nthis will:\n\n- discover all commands and subcommands from `linear --help`\n- generate reference documentation for each command\n- update the `SKILL.md` file from `SKILL.template.md`\n\n**important:** the CI checks will fail if the generated docs are out of date, so make sure to run this before committing changes that affect command structure or help text.\n\n### code formatting\n\nensure code is formatted consistently:\n\n```bash\ndeno fmt\n```\n\nthe project uses deno's built-in formatter with configuration in `deno.json`. formatting is checked in CI.\n\n## why\n\nlinear's UI is incredibly good but it slows me down. i find the following pretty grating to experience frequently:\n\n- switching context from my repo to linear\n- not being on the right view when i open linear\n- linear suggests a git branch, but i have to do the work of creating or switching to that branch\n- linear's suggested git branch doesn't account for it already existing or having a merged pull request\n\nthis cli solves this. it knows what you're working on (via git branches or jj commit trailers), does the work of managing your version control state, and will write your pull request details for you.\n\n[^1]: creating an API key requires member access, it is not available for guest accounts.\n",
+        "truncated": false,
+        "bytes": 11941,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "1.10.0 - 2026-02-17",
+            "tag_name": "v1.10.0",
+            "published_at": "2026-02-17T04:59:34Z",
+            "body_excerpt": "## Release Notes\n\n### Fixed\n\n- issue start command no longer creates extra commit after describing\n- spinners now properly disabled in non-TTY environments\n- correct API key creation URL in auth login ([#146](https://github.com/schpet/linear-cli/pull/146); thanks @srgfrancisco)\n\n### Changed\n\n- increased sub-issues display limit from 50 to 250 in issue view ([#124](https://github.com/schpet/linear-cli/pull/124); thanks @paymog)\n- attachment view now shows sourceType (e.g., Slack, GitHub) ([#111](https://github.com/schpet/linear-cli/pull/111); thanks @paymog)\n\n### Added\n\n- raw GraphQL API access via new `api` subcommand ([#121](https://github.com/schpet/linear-cli/pull/121); thanks @bendrucker)\n- issue relation command for managing dependencies between issues ([#115](https://github.com/schpet/linear-cli/pull/115); thanks @ztrayner)\n- `--sort-order` flag to milestone update command ([#120](https://github.com/schpet/linear-cli/pull/120); thanks @bendrucker)\n- user-friendly error handling with LINEAR_DEBUG environment variable for troubleshooting\n\n## Install linear 1.10.0\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/schpet/linear-cli/releases/download/v1.10.0/linear-installer.sh | sh\n```\n\n### Install prebuilt binaries via Homebrew\n\n```sh\nbrew install schpet/tap/linear\n```\n\n## Download linear 1.10.0\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [linear-aarch64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.10.0/linear-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.10.0/linear-aarch64-apple-darwin.tar.xz.sha256) |\n| [linear-x86_64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.10.0/linear-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.10.0/linear-x86_64-apple-darwin.tar.xz.sha256) |\n"
+          },
+          {
+            "name": "1.9.1 - 2026-01-29",
+            "tag_name": "v1.9.1",
+            "published_at": "2026-01-29T17:12:03Z",
+            "body_excerpt": "## Release Notes\n\n### Fixed\n\n- switched to --allow-all for Deno permissions since --allow-run was already unrestricted (making granular permissions ineffective) and the permission flags frequently caused issues when downloading images from arbitrary domains in Linear comments\n\n## Install linear 1.9.1\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-installer.sh | sh\n```\n\n### Install prebuilt binaries via Homebrew\n\n```sh\nbrew install schpet/tap/linear\n```\n\n## Download linear 1.9.1\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [linear-aarch64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-aarch64-apple-darwin.tar.xz.sha256) |\n| [linear-x86_64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-apple-darwin.tar.xz.sha256) |\n| [linear-x86_64-pc-windows-msvc.zip](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-pc-windows-msvc.zip) | x64 Windows | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-pc-windows-msvc.zip.sha256) |\n| [linear-aarch64-unknown-linux-gnu.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-aarch64-unknown-linux-gnu.tar.xz) | ARM64 Linux | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-aarch64-unknown-linux-gnu.tar.xz.sha256) |\n| [linear-x86_64-unknown-linux-gnu.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-unknown-linux-gnu.tar.xz) | x64 Linux | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/li"
+          },
+          {
+            "name": "1.9.0 - 2026-01-29",
+            "tag_name": "v1.9.0",
+            "published_at": "2026-01-29T05:58:39Z",
+            "body_excerpt": "## Release Notes\n\n### Fixed\n\n- Fix `--assignee self` to correctly resolve to current user ([#104](https://github.com/schpet/linear-cli/pull/104); thanks @JustTrott)\n- add pagination to `project list` command ([#109](https://github.com/schpet/linear-cli/pull/109); thanks @andrew-kline)\n- add pagination to `team list` command ([#107](https://github.com/schpet/linear-cli/pull/107); thanks @andrew-kline)\n- error when `--workspace` flag specifies unknown workspace\n- `--sort` flag now works correctly after interactive prompts ([#96](https://github.com/schpet/linear-cli/pull/96); thanks @paymog)\n\n### Added\n\n- built-in credential storage at `~/.config/linear/credentials.toml` for managing multiple Linear workspaces\n- `linear auth login` to add workspace credentials (auto-detects workspace from API key)\n- `linear auth logout` to remove workspace credentials\n- `linear auth list` to show configured workspaces with org/user info\n- `linear auth default` to set the default workspace\n- global `-w, --workspace` flag to target a specific workspace by slug\n- `--project` filter for `issue list` command ([#94](https://github.com/schpet/linear-cli/pull/94); thanks @paymog)\n\n## Install linear 1.9.0\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/schpet/linear-cli/releases/download/v1.9.0/linear-installer.sh | sh\n```\n\n### Install prebuilt binaries via Homebrew\n\n```sh\nbrew install schpet/tap/linear\n```\n\n## Download linear 1.9.0\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [linear-aarch64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.0/linear-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.0/linear-aarch64-apple-darwin.tar.xz.sha256) |\n| [linear-x86_64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.0/linear-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum]("
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 64,
+            "title": "List all issues from the current cycle",
+            "state": "open",
+            "url": "https://github.com/schpet/linear-cli/issues/64"
+          },
+          {
+            "number": 159,
+            "title": "Flag conflict: -p is ambiguous between --parent and --priority",
+            "state": "closed",
+            "url": "https://github.com/schpet/linear-cli/issues/159"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude-plugin",
+        ".claude",
+        ".editorconfig",
+        ".git-blame-ignore-revs",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".graphqlrc.yaml",
+        ".linear.toml",
+        ".zed",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CONVENTIONS.md",
+        "LICENSE",
+        "README.md",
+        "codegen.ts",
+        "deno.json",
+        "deno.lock",
+        "dist-workspace.toml",
+        "docs",
+        "graphql",
+        "justfile",
+        "lefthook.yaml",
+        "skills",
+        "src",
+        "test"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 1)",
+          "excerpt": "a cli to list, start and create issues in the [linear](https://linear.app/) issue tracker. git and [jj](https://www.jj-vcs.dev/) aware to keep you in the right views in linear. allows jumping to the web or the linear desktop app similar to `gh`.",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 2)",
+          "excerpt": "**works great with AI agents** — the CLI includes a [skill](#skills) that lets agents create issues, update status, and manage your Linear workflow alongside your code.",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 3)",
+          "excerpt": "linear issue list # list unstarted issues assigned to you linear issue list -A # list unstarted issues assigned to anyone linear issue start # choose an issue to start, creates a branch linear issue start ABC-123 # start a specific issue linear issue view # see current branch's issue as markdown linear issue pr # makes a PR with title/body preset, using gh cli linear issue create # create a new issue ```",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 4)",
+          "excerpt": "it aims to be a complement to the web and desktop apps that lets you stay on the command line in an interactive or scripted way.",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<img width=\"600\" src=\"docs/cast-issue-create.svg?1\" alt=\"screencast showing the linear issue create command, interactively adding issue details\">",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<img width=\"600\" src=\"docs/cast-issue-start.svg?1\" alt=\"screencast showing the linear issue start command, interactively choosing an issue to start\">",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```bash git clone https://github.com/schpet/linear-cli cd linear-cli deno task install ```",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/schpet/linear-cli#readme",
+          "title": "README (segment 8)",
+          "excerpt": "1. create an API key at [linear.app/settings/account/security](https://linear.app/settings/account/security)[^1]",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/schpet/linear-cli/issues/64",
+          "title": "List all issues from the current cycle",
+          "excerpt": "List all issues from the current cycle (state:open)",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "number": 64
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/schpet/linear-cli/issues/159",
+          "title": "Flag conflict: -p is ambiguous between --parent and --priority",
+          "excerpt": "Flag conflict: -p is ambiguous between --parent and --priority (state:closed)",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "number": 159
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/schpet/linear-cli/releases",
+          "title": "v1.10.0",
+          "excerpt": "## Release Notes ### Fixed - issue start command no longer creates extra commit after describing - spinners now properly disabled in non-TTY environments - correct API key creation URL in auth login ([#146](https://github.com/schpet/linear-cli/pull/146); thanks @srgfrancisco) ### Changed - increased sub-issues display limit from 50 to 250 in issue view ([#124](https://github.com/schpet/linear-cli/pull/124); thanks @paymog) - attachment view now shows sourceType (e.g., Slack, GitHub) ([#111](https://github.com/schpet/linear-cli/pull/111); thanks @paymog) ### Added - raw GraphQL API access via new `api` subcommand ([#121](https://github.com/schpet/linear-cli/pull/121); thanks @bendrucker) - issue relation command for managing dependencies between issues ([#115](https://github.com/schpet/linear-cli/pull/115); thanks @ztrayner) - `--sort-order` flag to milestone update command ([#120](https://github.com/schpet/linear-cli/pull/120); thanks @bendrucker) - user-friendly error handling with LINEAR_DEBUG environment variable for troubleshooting ## Install linear 1.10.0 ### Install prebuilt binaries via shell script ```sh curl --proto '=https' --tlsv1.2 -LsSf https://github.com/schpet/linea…",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "tag_name": "v1.10.0",
+            "published_at": "2026-02-17T04:59:34Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/schpet/linear-cli/releases",
+          "title": "v1.9.1",
+          "excerpt": "## Release Notes ### Fixed - switched to --allow-all for Deno permissions since --allow-run was already unrestricted (making granular permissions ineffective) and the permission flags frequently caused issues when downloading images from arbitrary domains in Linear comments ## Install linear 1.9.1 ### Install prebuilt binaries via shell script ```sh curl --proto '=https' --tlsv1.2 -LsSf https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-installer.sh | sh ``` ### Install prebuilt binaries via Homebrew ```sh brew install schpet/tap/linear ``` ## Download linear 1.9.1 | File | Platform | Checksum | |--------|----------|----------| | [linear-aarch64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-aarch64-apple-darwin.tar.xz.sha256) | | [linear-x86_64-apple-darwin.tar.xz](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/schpet/linear-cli/releases/download/v1.9.1/linear-x86_64-apple-darwin.tar.xz.sha256) …",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "tag_name": "v1.9.1",
+            "published_at": "2026-01-29T17:12:03Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/schpet/linear-cli/releases",
+          "title": "v1.9.0",
+          "excerpt": "## Release Notes ### Fixed - Fix `--assignee self` to correctly resolve to current user ([#104](https://github.com/schpet/linear-cli/pull/104); thanks @JustTrott) - add pagination to `project list` command ([#109](https://github.com/schpet/linear-cli/pull/109); thanks @andrew-kline) - add pagination to `team list` command ([#107](https://github.com/schpet/linear-cli/pull/107); thanks @andrew-kline) - error when `--workspace` flag specifies unknown workspace - `--sort` flag now works correctly after interactive prompts ([#96](https://github.com/schpet/linear-cli/pull/96); thanks @paymog) ### Added - built-in credential storage at `~/.config/linear/credentials.toml` for managing multiple Linear workspaces - `linear auth login` to add workspace credentials (auto-detects workspace from API key) - `linear auth logout` to remove workspace credentials - `linear auth list` to show configured workspaces with org/user info - `linear auth default` to set the default workspace - global `-w, --workspace` flag to target a specific workspace by slug - `--project` filter for `issue list` command ([#94](https://github.com/schpet/linear-cli/pull/94); thanks @paymog) ## Install linear 1.9.0 ### Inst…",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "tag_name": "v1.9.0",
+            "published_at": "2026-01-29T05:58:39Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/schpet/linear-cli",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude-plugin, .claude, .editorconfig, .git-blame-ignore-revs, .gitattributes, .github, .gitignore, .graphqlrc.yaml, .linear.toml, .zed, AGENTS.md, CHANGELOG.md, CLAUDE.md, CONVENTIONS.md, LICENSE, README.md, codegen.ts, deno.json, deno.lock, dist-workspace.toml, docs, graphql, justfile, lefthook.yaml, skills, src, test",
+          "fetched_at": "2026-03-05T04:47:51.748Z",
+          "meta": {
+            "repo_full_name": "schpet/linear-cli",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "wireapp/wire-webapp",
+      "html_url": "https://github.com/wireapp/wire-webapp",
+      "description": "👽 Wire for web",
+      "topics": [
+        "end-to-end-encryption",
+        "hacktober",
+        "hacktoberfest",
+        "javascript",
+        "knockout",
+        "libsodium",
+        "messenger",
+        "reactjs",
+        "typescript",
+        "webapp",
+        "wire"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1185,
+      "forks_count": 298,
+      "open_issues_count": 39,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "dev",
+      "pushed_at": "2026-03-05T04:44:01Z",
+      "created_at": "2016-07-21T15:34:05Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Wire™\n\n[![We are hiring](https://github.com/wireapp/wire/blob/master/assets/header-small.png?raw=true)](https://www.linkedin.com/company/wire-secure-communication/jobs/)\n\nThis repository is part of the source code of Wire. You can find more information at [wire.com](https://wire.com) or by contacting opensource@wire.com.\n\nYou can find the published source code at [github.com/wireapp/wire](https://github.com/wireapp/wire).\n\nFor licensing information, see the attached LICENSE file and the list of third-party licenses at [wire.com/legal/licenses/](https://wire.com/legal/licenses/).\n\nIf you compile the open source software that we make available from time to time to develop your own mobile, desktop, or web application, and cause that application to connect to our servers for any purposes, we refer to that resulting application as an \"Open Source App\". All Open Source Apps are subject to, and may only be used and/or commercialized in accordance with, the Terms of Use applicable to Wire Application, which can be found at https://wire.com/legal/#terms. Additionally, if you choose to build an Open Source App, certain restrictions apply, as follows:\n\na. You agree not to change the way the Open Source App connects and interacts with our servers;\nb. You agree not to weaken any of the security features of the Open Source App;\nc. You agree not to use our servers to store data for purposes other than the intended and original functionality of the Open Source App;\nd. You acknowledge that you are solely responsible for any and all updates to your Open Source App.\n\nFor clarity, if you compile the open source software that we make available from time to time to develop your own mobile, desktop, or web application, and do not cause that application to connect to our servers for any purposes, then that application will not be deemed an Open Source App and the foregoing will not apply to that application.\n\nNo license is granted to the Wire trademark and its associated logos, all of which will continue to be owned exclusively by Wire Swiss GmbH. Any use of the Wire trademark and/or its associated logos is expressly prohibited without the express prior written consent of Wire Swiss GmbH.\n\n# Monorepo Layout\n\n- `apps/webapp/`: client (Webpack/React) plus E2E tests and i18n files\n- `apps/server/`: node/express wrapper that serves the built webapp and handles proxying\n- `libraries/config/`: `@wireapp/config` package - centralized environment configuration management with type-safe configuration loading and validation\n- `libraries/core/`: `@wireapp/core` package - Wire's communication core library handling authentication, WebSocket connections, and protocol messaging\n- Root-level tooling (`package.json`, Nx, bin scripts) orchestrates both apps and libraries\n\nThe root `yarn` and `nx` scripts are the entry points; package-level scripts delegate to them.\n\n# How to Build the Open Source Client\n\nPrerequisites:\n\n1. Install [Node.js](https://nodejs.org/)\n1. Install [Yarn](https://yarnpkg.com)\n\n## 1. Install Dependencies & Fetch Configuration\n\n1. Run `yarn` (uses Yarn 4 workspaces)\n   - This will install all dependencies and fetch a [configuration](https://github.com/wireapp/wire-web-config-wire/) for the application into `apps/webapp/resource/`\n\n## 2. Build & Run\n\n### Development\n\n1. Copy `.env.localhost` to `.env` to override/extend defaults\n1. Add the following entries to your hosts file (macOS / Linux: `/etc/hosts`, Windows 10: `%WINDIR%\\system32\\drivers\\etc\\hosts`):\n   - `127.0.0.1 local.zinfra.io` (to connect with the staging backend)\n   - `127.0.0.1 local.imai.wire.link` (to connect with the imai backend)\n1. Run `yarn nx build webapp --configuration=development` to build static assets\n1. Run `yarn start` (runs `nx serve server`); the app will be available at https://local.zinfra.io:8081/auth/\n\n#### Install Self-Signed Certificate\n\nIf you would like your browser to trust the certificate from \"local.wire.com\"/\"local.zinfra.io\"/\"local.imai.wire.link\":\n\n1. Download [mkcert](https://github.com/FiloSottile/mkcert/releases/latest) - Installation on Mac: `brew install mkcert` (refer to the latest [README.md](https://github.com/FiloSottile/mkcert))\n2. Set the `CAROOT` environment variable to `<WebApp Dir>/apps/server/certificate`\n3. Run `mkcert -install`\n\n#### Environment Configuration\n\nThe application can be configured to connect to different environments by modifying the following environment variables in your `.env` file:\n\n**Staging:**\n\n```\nAPP_BASE=\"https://local.zinfra.io:8081\"\nBACKEND_REST=\"https://staging-nginz-https.zinfra.io\"\nBACKEND_WS=\"wss://staging-nginz-ssl.zinfra.io\"\n```\n\n**Imai:**\n\n```\nAPP_BASE=\"https://local.imai.wire.link:8081\"\nBACKEND_REST=\"https://nginz-https.imai.wire.link\"\nBACKEND_WS=\"https://nginz-ssl.imai.wire.link\"\n```\n\n**Local:**\n\n```\nAPP_BASE=\"http://localhost:8081\"\nBACKEND_REST=\"http://localhost:8080\"\nBACKEND_WS=\"ws://localhost:8080\"\n```\n\nAfter updating the environment variables, the app will be available at the corresponding `APP_BASE` URL.\n\n### Production\n\n1. Build and package for production: `yarn nx run server:package` (or `yarn build:prod`)\n   - This builds both the server and webapp (in production mode) and creates the deployment package at `apps/server/dist/s3/ebs.zip`\n1. Start the server output from `apps/server/dist` (or build a Docker image with `yarn docker <tag>`)\n\n**Note:** The `yarn zip` command has been deprecated. Packaging is now integrated into the build process via `yarn build:prod` or `yarn nx run server:package`.\n\n## Testing\n\n[![codecov](https://codecov.io/gh/wireapp/wire-webapp/branch/dev/graph/badge.svg?token=9ELBEPM793)](https://codecov.io/gh/wireapp/wire-webapp)\n\nTo launch the full test suite:\n\n```bash\nyarn nx run-many -t test --all\n```\n\nOther useful tasks:\n\n- Lint: `yarn nx run-many -t lint --all`\n- Type-check: `yarn nx run-many -t type-check --all`\n- E2E (Playwright): `yarn nx e2e webapp`\n\n## CI Status\n\n[![CI](https://github.com/wireapp/wire-webapp/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/wireapp/wire-webapp/actions/workflows/ci.yml) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)\n\n## Translations\n\nAll Wire translations are crowdsourced via [Crowdin](https://crowdin.com/projects/wire).\n\n### Add New Strings\n\n**Info:**\n\n- To download translations we use Crowdin API v1, and you need to set up your [username](https://crowdin.com/settings#account) and [api_key](https://crowdin.com/settings#api-key) (Account API key)\n- To upload translations we use Crowdin CLI v3, and you will need to set up [project_identifier](https://crowdin.com/project/wire-webapp/settings#api) and [api_token](https://crowdin.com/settings#api-key) (Personal Access Token)\n\n**Setup:**\n\nCreate a `keys/crowdin.yaml` in this repository and add the following entries:\n\n```yaml\napi_key: your-account-api-key\napi_token: your-personal-access-token\nproject_identifier: wire-webapp\nusername: your-username\n```\n\n**Usage:**\n\n1. Add a string variable to \"i18n/en-US.json\"\n2. Create a PR and merge it after approval. When the PR gets merged, our CI will take care of uploading the English texts to Crowdin\n\nIf our CI pipeline is broken, you still have the option to upload new strings manually. For this case, do the following:\n\n1. Install [Crowdin CLI v3](https://support.crowdin.com/cli-tool/)\n1. Verify you have a `keys/crowdin.yaml` in place\n1. Run `yarn translate:upload`\n\nOnce translations are uploaded on Crowdin, our (and external) translators can translate the new strings on Crowdin. There is a script that will run to create PRs with translation updates. As an alternative, translations can be downloaded in the following way:\n\n1. Verify your string shows up on the [Crowdin project: wire-webapp](https://crowdin.com/translate/wire-webapp/1224/en-en)\n1. Add a translation on Crowdin\n1. Approve the translation on Crowdin\n1. Run `yarn translate:download`\n\n## Contributing\n\nContributions are welcome! Feel free to check our [issues page](https://github.com/wireapp/wire-webapp/issues).\n\nThe following commits will help you get started quickly with our code base:\n\n- [Show a modal / pop-up](https://github.com/wireapp/wire-webapp/commit/00d3d120aacb3f36da80edd1ca829afc045331e9)\n- [Sync setting between via backend](https://github.com/wireapp/wire-webapp/commit/3e4595a208189b7b6b51935fd2c41a74bbd16994)\n",
+        "truncated": false,
+        "bytes": 8413,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "2026-01-28-production.1",
+            "tag_name": "2026-01-28-production.1",
+            "published_at": "2026-02-02T14:37:42Z",
+            "body_excerpt": "#### 0.27.0 (2026-01-28)\r\n\r\n##### Bug Fixes\r\n\r\n*  Use new websocket address ([#20245](https://github.com/wireapp/wire-webapp/pull/20245)) ([10de90b0](https://github.com/wireapp/wire-webapp/commit/10de90b0e61a50df167a34928413d67a23426e52))"
+          },
+          {
+            "name": "2026-01-28-production.0",
+            "tag_name": "2026-01-28-production.0",
+            "published_at": "2026-02-02T14:39:29Z",
+            "body_excerpt": "#### 0.27.0 (2026-01-28)\r\n\r\n- Reverts https://github.com/wireapp/wire-webapp/pull/19937"
+          },
+          {
+            "name": "2026-01-27-production.0",
+            "tag_name": "2026-01-27-production.0",
+            "published_at": "2026-02-02T14:41:34Z",
+            "body_excerpt": "#### 0.27.0 (2026-01-27)\r\n\r\n##### Build System / Dependencies\r\n\r\n### New\r\nWire Drive feature:\r\n- Share multiple files (like pictures, documents, or videos) at once with a message to add context\r\n- Let your team collaborate and edit documents, spreadsheets, and presentations together in real time\r\n- Keep everything organized with folders, tags, and a recycle bin in the Shared Drive in your conversations\r\n- Find any of these shared files in your Drive section\r\n\r\n📞 Ringtone for incoming calls\r\n\r\n### Improvements\r\n- Accessibility for calling\r\n- Accessibility in the login flow\r\n- Clearer message for creating and restoring backups across platforms\r\n- Connectivity robustness for sending and receiving messages\r\n- System messages for actions during a call like, raising a hand and muting\r\n### Fix\r\n- Favorite conversations sometimes didn't persist across devices"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".browserslistrc",
+        ".dockerignore",
+        ".editorconfig",
+        ".elasticbeanstalk",
+        ".env.localhost",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".mcp.json",
+        ".npmrc",
+        ".nvmrc",
+        ".prettierignore",
+        ".stylelintrc.json",
+        ".yarn",
+        ".yarnrc.yml",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "Jenkinsfile",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "apps",
+        "bin",
+        "charts",
+        "codecov.yml",
+        "crowdin.yaml",
+        "docs",
+        "eslint.config.ts",
+        "i18next-scanner.config.js",
+        "jest.preset.js",
+        "libraries",
+        "nx.json",
+        "package.json",
+        "project.json",
+        "run.sh",
+        "tsconfig.base.json",
+        "tsconfig.eslint.json",
+        "tsconfig.json",
+        "yarn.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![We are hiring](https://github.com/wireapp/wire/blob/master/assets/header-small.png?raw=true)](https://www.linkedin.com/company/wire-secure-communication/jobs/)",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 2)",
+          "excerpt": "This repository is part of the source code of Wire. You can find more information at [wire.com](https://wire.com) or by contacting opensource@wire.com.",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 3)",
+          "excerpt": "You can find the published source code at [github.com/wireapp/wire](https://github.com/wireapp/wire).",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 4)",
+          "excerpt": "For licensing information, see the attached LICENSE file and the list of third-party licenses at [wire.com/legal/licenses/](https://wire.com/legal/licenses/).",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 5)",
+          "excerpt": "If you compile the open source software that we make available from time to time to develop your own mobile, desktop, or web application, and cause that application to connect to our servers for any purposes, we refer to that resulting application as an \"Open Source App\". All Open Source Apps are subject to, and may only be used and/or commercialized in accordance with, the Terms of Use applicable to Wire Application, which can be found at https://wire.com/legal/#terms. Additionally, if you choose to build an Open Source App, certain restrictions apply, as follows:",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 6)",
+          "excerpt": "a. You agree not to change the way the Open Source App connects and interacts with our servers; b. You agree not to weaken any of the security features of the Open Source App; c. You agree not to use our servers to store data for purposes other than the intended and original functionality of the Open Source App; d. You acknowledge that you are solely responsible for any and all updates to your Open Source App.",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 7)",
+          "excerpt": "For clarity, if you compile the open source software that we make available from time to time to develop your own mobile, desktop, or web application, and do not cause that application to connect to our servers for any purposes, then that application will not be deemed an Open Source App and the foregoing will not apply to that application.",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/wireapp/wire-webapp#readme",
+          "title": "README (segment 8)",
+          "excerpt": "No license is granted to the Wire trademark and its associated logos, all of which will continue to be owned exclusively by Wire Swiss GmbH. Any use of the Wire trademark and/or its associated logos is expressly prohibited without the express prior written consent of Wire Swiss GmbH.",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/wireapp/wire-webapp/releases",
+          "title": "2026-01-28-production.1",
+          "excerpt": "#### 0.27.0 (2026-01-28) ##### Bug Fixes * Use new websocket address ([#20245](https://github.com/wireapp/wire-webapp/pull/20245)) ([10de90b0](https://github.com/wireapp/wire-webapp/commit/10de90b0e61a50df167a34928413d67a23426e52))",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "tag_name": "2026-01-28-production.1",
+            "published_at": "2026-02-02T14:37:42Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/wireapp/wire-webapp/releases",
+          "title": "2026-01-28-production.0",
+          "excerpt": "#### 0.27.0 (2026-01-28) - Reverts https://github.com/wireapp/wire-webapp/pull/19937",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "tag_name": "2026-01-28-production.0",
+            "published_at": "2026-02-02T14:39:29Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/wireapp/wire-webapp/releases",
+          "title": "2026-01-27-production.0",
+          "excerpt": "#### 0.27.0 (2026-01-27) ##### Build System / Dependencies ### New Wire Drive feature: - Share multiple files (like pictures, documents, or videos) at once with a message to add context - Let your team collaborate and edit documents, spreadsheets, and presentations together in real time - Keep everything organized with folders, tags, and a recycle bin in the Shared Drive in your conversations - Find any of these shared files in your Drive section 📞 Ringtone for incoming calls ### Improvements - Accessibility for calling - Accessibility in the login flow - Clearer message for creating and restoring backups across platforms - Connectivity robustness for sending and receiving messages - System messages for actions during a call like, raising a hand and muting ### Fix - Favorite conversations sometimes didn't persist across devices",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "tag_name": "2026-01-27-production.0",
+            "published_at": "2026-02-02T14:41:34Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/wireapp/wire-webapp",
+          "title": "ROOT_FILES",
+          "excerpt": ".browserslistrc, .dockerignore, .editorconfig, .elasticbeanstalk, .env.localhost, .gitattributes, .github, .gitignore, .mcp.json, .npmrc, .nvmrc, .prettierignore, .stylelintrc.json, .yarn, .yarnrc.yml, AGENTS.md, CLAUDE.md, Jenkinsfile, LICENSE, README.md, SECURITY.md, apps, bin, charts, codecov.yml, crowdin.yaml, docs, eslint.config.ts, i18next-scanner.config.js, jest.preset.js, libraries, nx.json, package.json, project.json, run.sh, tsconfig.base.json, tsconfig.eslint.json, tsconfig.json, yarn.lock",
+          "fetched_at": "2026-03-05T04:47:51.793Z",
+          "meta": {
+            "repo_full_name": "wireapp/wire-webapp",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "cargo-public-api/cargo-public-api",
+      "html_url": "https://github.com/cargo-public-api/cargo-public-api",
+      "description": "List and diff the public API of Rust library crates between releases and commits. Detect breaking API changes and semver violations via CI or a CLI.",
+      "topics": [
+        "api",
+        "cargo",
+        "cargo-plugin",
+        "cargo-subcommand",
+        "diff",
+        "rust",
+        "rustdoc-json",
+        "semver"
+      ],
+      "language": "Rust",
+      "stargazers_count": 533,
+      "forks_count": 41,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T04:43:34Z",
+      "created_at": "2022-01-09T09:20:48Z",
+      "readme": {
+        "fetched": true,
+        "text": "# cargo-public-api\n\nList and diff the public API of Rust library crates between releases and commits. Detect breaking API changes and semver violations via CI or a CLI. Relies on and automatically builds [rustdoc JSON](https://github.com/rust-lang/rust/issues/76578), for which a recent version of the Rust nightly toolchain must be installed.\n\n# Installation\n\nInstall the `cargo public-api` subcommand with a recent regular **stable** Rust toolchain:\n\n```sh\ncargo +stable install cargo-public-api\n```\n\nEnsure **nightly-2025-08-02** or later is installed (does not need to be the active toolchain) so `cargo public-api` can build rustdoc JSON for you:\n\n```sh\nrustup install nightly --profile minimal\n```\n\n# Usage\n\n## List the Public API\n\nThis example lists the public API of the `regex` crate. First we clone the repo:\n\n```sh\ngit clone https://github.com/rust-lang/regex ; cd regex\n```\n\nNow we can list the public API of `regex` by running\n\n```sh\ncargo public-api\n```\n\nwhich will print the public API of `regex` with one line per public item in the API:\n\n<img src=\"https://github.com/cargo-public-api/cargo-public-api/raw/main/docs/img/list-truncated.webp\" alt=\"colored output of listing a public api\">\n\n## Diff the Public API\n\n### … Against a Specific Published Version\n\nTo diff the public API of the `regex` crate in the **current directory** against  **published version 1.6.0** on [crates.io](https://crates.io/crates/regex/1.6.0):\n\n```sh\ncargo public-api diff 1.6.0\n```\n\n<img src=\"https://github.com/cargo-public-api/cargo-public-api/raw/main/docs/img/diff-specific-published-version.webp\" alt=\"colored output of diffing a public api\">\n\n\n### … Against the Latest Published Version\n\n```sh\ncargo public-api diff latest\n```\n\n### … Between Git Commits\n\n```sh\ncargo public-api diff ref1..ref2\n```\n\n### … as a CI Check\n\n<!-- Keep this section in sync with ./public-api/README.md#public-api-surface-test-in-ci -->\n\nWith a regular `cargo test` that you run in CI you will be able to\n* prevent accidental changes to your public API\n* review the public API diff of deliberate changes\n\nFirst add the latest versions of the recommended libraries to your `[dev-dependencies]`:\n\n```sh\ncargo add --dev \\\n    rustup-toolchain \\\n    rustdoc-json \\\n    public-api\n```\n\nThen add the following test to your project. As the author of the below test code, I hereby associate it with [CC0](https://creativecommons.org/publicdomain/zero/1.0/) and to the extent possible under law waive all copyright and related or neighboring rights to it:\n\n```rust\n#[test]\nfn public_api() {\n    // Install a compatible nightly toolchain if it is missing.\n    rustup_toolchain::install(public_api::MINIMUM_NIGHTLY_RUST_VERSION).unwrap();\n\n    // Build rustdoc JSON.\n    let rustdoc_json = rustdoc_json::Builder::default()\n        .toolchain(public_api::MINIMUM_NIGHTLY_RUST_VERSION)\n        .build()\n        .unwrap();\n\n    // Derive the public API from rustdoc JSON.\n    let public_api = public_api::Builder::from_rustdoc_json(rustdoc_json)\n        .build()\n        .unwrap();\n\n    // Assert that the public API matches the latest snapshot.\n    // Run with env var `UPDATE_SNAPSHOTS=yes` to update the snapshot.\n    public_api.assert_eq_or_update(\"./tests/snapshots/public-api.txt\");\n}\n```\n\nBefore you run the test the first time you need create a snapshot of the current public API:\n\n```sh\nUPDATE_SNAPSHOTS=yes cargo test\n```\n\nThis creates a `tests/public-api.txt` file in your project that you `git add` together with your other project files. Then a regular\n\n```sh\ncargo test\n```\n\nwill fail if your public API is accidentally or deliberately changed. Run\n\n```sh\nUPDATE_SNAPSHOTS=yes cargo test\n```\n\nagain to update the public API snapshot and review the git diff.\n\n## Less Noisy Output\n\nFor completeness, items belonging to _Blanket Implementations_, _Auto Trait Implementations_, and _Auto Derived Implementations_, such as\n\n * `impl<T, U> Into<U> for T where U: From<T>`\n * `impl Sync for ...`\n * `impl Debug for ...` / `#[derive(Debug)]`\n\nare included in the list of public items by default. Use\n\n * `--omit blanket-impls`\n * `--omit auto-trait-impls`\n * `--omit auto-derived-impls`\n\nrespectively to omit such items from the output to make it much less noisy:\n\n```sh\ncargo public-api --omit blanket-impls,auto-trait-impls,auto-derived-impls\n```\n\nFor convenience you can also use `-s` (`--simplified`) to achieve the same thing. This is a shorter form of the above command:\n\n```sh\ncargo public-api -sss\n```\n\n# Compatibility Matrix\n\n| Version          | Understands the rustdoc JSON output of  |\n| ---------------- | --------------------------------------- |\n| 0.50.x — 0.51.x  | nightly-2025-08-02 —                    |\n| 0.49.x           | nightly-2025-07-17 — nightly-2025-08-01 |\n| 0.48.x           | nightly-2025-06-22 — nightly-2025-07-16 |\n| 0.47.x           | nightly-2025-03-24 — nightly-2025-06-21 |\n| 0.46.x           | nightly-2025-03-16 — nightly-2025-03-23 |\n| 0.45.x           | nightly-2025-03-14 — nightly-2025-03-15 |\n| earlier versions | see [here](https://github.com/cargo-public-api/cargo-public-api/blob/main/scripts/release-helper/src/version_info.rs) |\n\n# Contributing\n\nSee [CONTRIBUTING.md](./docs/CONTRIBUTING.md).\n\n## Maintainers\n\n- [Enselic](https://github.com/Enselic)\n- [douweschulte](https://github.com/douweschulte)\n- [Emilgardis](https://github.com/Emilgardis)\n\n# Trademark Notice\n\n\"Rust\" and \"Cargo\" are trademarks of the Rust Foundation. This project is not affiliated with, endorsed by, or otherwise associated with the Rust Project or Rust Foundation.\n",
+        "truncated": false,
+        "bytes": 5582,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.51.0",
+            "tag_name": "v0.51.0",
+            "published_at": "2026-02-26T18:20:11Z",
+            "body_excerpt": "* Also include default trait methods in impls, even if not overridden, just like in rustdoc HTML.\n* Sort rendered attributes so rendering is determinstic and does not change with rustdoc JSON changes."
+          },
+          {
+            "name": "v0.50.2",
+            "tag_name": "v0.50.2",
+            "published_at": "2025-12-19T06:05:49Z",
+            "body_excerpt": "* Bump deps (to stop using deprecated `assert_cmd::Command::cargo_bin()` in tests)."
+          },
+          {
+            "name": "v0.50.1",
+            "tag_name": "v0.50.1",
+            "published_at": "2025-08-02T17:32:24Z",
+            "body_excerpt": "* Support `nightly-2025-08-02` and later."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".cargo",
+        ".github",
+        ".gitignore",
+        ".vscode",
+        "CHANGELOG.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "README.md",
+        "cargo-public-api.code-workspace",
+        "cargo-public-api",
+        "deny.toml",
+        "docs",
+        "public-api",
+        "repo-tests",
+        "rustdoc-json",
+        "rustfmt.toml",
+        "rustup-toolchain",
+        "scripts",
+        "test-apis",
+        "zizmor.yml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 1)",
+          "excerpt": "List and diff the public API of Rust library crates between releases and commits. Detect breaking API changes and semver violations via CI or a CLI. Relies on and automatically builds [rustdoc JSON](https://github.com/rust-lang/rust/issues/76578), for which a recent version of the Rust nightly toolchain must be installed.",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Install the `cargo public-api` subcommand with a recent regular **stable** Rust toolchain:",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Ensure **nightly-2025-08-02** or later is installed (does not need to be the active toolchain) so `cargo public-api` can build rustdoc JSON for you:",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 4)",
+          "excerpt": "This example lists the public API of the `regex` crate. First we clone the repo:",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 5)",
+          "excerpt": "which will print the public API of `regex` with one line per public item in the API:",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<img src=\"https://github.com/cargo-public-api/cargo-public-api/raw/main/docs/img/list-truncated.webp\" alt=\"colored output of listing a public api\">",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 7)",
+          "excerpt": "To diff the public API of the `regex` crate in the **current directory** against **published version 1.6.0** on [crates.io](https://crates.io/crates/regex/1.6.0):",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<img src=\"https://github.com/cargo-public-api/cargo-public-api/raw/main/docs/img/diff-specific-published-version.webp\" alt=\"colored output of diffing a public api\">",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api/releases",
+          "title": "v0.51.0",
+          "excerpt": "* Also include default trait methods in impls, even if not overridden, just like in rustdoc HTML. * Sort rendered attributes so rendering is determinstic and does not change with rustdoc JSON changes.",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "tag_name": "v0.51.0",
+            "published_at": "2026-02-26T18:20:11Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api/releases",
+          "title": "v0.50.2",
+          "excerpt": "* Bump deps (to stop using deprecated `assert_cmd::Command::cargo_bin()` in tests).",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "tag_name": "v0.50.2",
+            "published_at": "2025-12-19T06:05:49Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api/releases",
+          "title": "v0.50.1",
+          "excerpt": "* Support `nightly-2025-08-02` and later.",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "tag_name": "v0.50.1",
+            "published_at": "2025-08-02T17:32:24Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/cargo-public-api/cargo-public-api",
+          "title": "ROOT_FILES",
+          "excerpt": ".cargo, .github, .gitignore, .vscode, CHANGELOG.md, Cargo.lock, Cargo.toml, LICENSE, README.md, cargo-public-api.code-workspace, cargo-public-api, deny.toml, docs, public-api, repo-tests, rustdoc-json, rustfmt.toml, rustup-toolchain, scripts, test-apis, zizmor.yml",
+          "fetched_at": "2026-03-05T04:47:51.811Z",
+          "meta": {
+            "repo_full_name": "cargo-public-api/cargo-public-api",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "schpet/linear-cli",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "wireapp/wire-webapp",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "cargo-public-api/cargo-public-api",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "schpet/linear-cli",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/schpet__linear-cli.json"
+    },
+    {
+      "repo": "wireapp/wire-webapp",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/wireapp__wire-webapp.json"
+    },
+    {
+      "repo": "cargo-public-api/cargo-public-api",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/cargo-public-api__cargo-public-api.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "schpet/linear-cli",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/schpet__linear-cli.json"
+    },
+    {
+      "repo": "wireapp/wire-webapp",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/wireapp__wire-webapp.json"
+    },
+    {
+      "repo": "cargo-public-api/cargo-public-api",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/cargo-public-api__cargo-public-api.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "schpet/linear-cli",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 7,
+          "cited": 7
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 8,
+          "cited": 8
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/schpet__linear-cli.json"
+      ]
+    },
+    {
+      "repo": "wireapp/wire-webapp",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/wireapp__wire-webapp.json"
+      ]
+    },
+    {
+      "repo": "cargo-public-api/cargo-public-api",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/cargo-public-api__cargo-public-api.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-05T04:48:42.534Z",
+      "run_id": "20260305T044746Z",
+      "repo": "schpet/linear-cli",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "0fc359a7e2091948edbabb2cb2737274490595c8573376cc0744f040739920ff",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 10853
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 50718,
+      "prompt_chars": 10853,
+      "completion_chars": 6018
+    },
+    {
+      "ts": "2026-03-05T04:49:05.789Z",
+      "run_id": "20260305T044746Z",
+      "repo": "wireapp/wire-webapp",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a879b4570b7affe051b15a2268d5d8547f38de1681faf36d8162d2418542062b",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9865
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 23238,
+      "prompt_chars": 9865,
+      "completion_chars": 2540
+    },
+    {
+      "ts": "2026-03-05T04:49:31.393Z",
+      "run_id": "20260305T044746Z",
+      "repo": "cargo-public-api/cargo-public-api",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2512013430054a666401cee617bf44b60deee42b39e9a84e08fecdecbe7d1ff1",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8014
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 25601,
+      "prompt_chars": 8014,
+      "completion_chars": 2953
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "schpet/linear-cli",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "wireapp/wire-webapp",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "cargo-public-api/cargo-public-api",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "schpet/linear-cli",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "wireapp/wire-webapp",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "cargo-public-api/cargo-public-api",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1772686066791,
+    "llmCallsTotal": 3,
+    "llmCallsPerRepo": {
+      "schpet/linear-cli": 1,
+      "wireapp/wire-webapp": 1,
+      "cargo-public-api/cargo-public-api": 1
+    },
+    "tokensApproxTotal": 10062,
+    "tokensApproxPerRepo": {
+      "schpet/linear-cli": 4218,
+      "wireapp/wire-webapp": 3102,
+      "cargo-public-api/cargo-public-api": 2742
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "schpet/linear-cli": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"linear-cli\",\n    \"one_sentence\": \"A CLI to list, start, and create issues in Linear without leaving the command line, with git/jj awareness and AI agent support.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User lists unstarted issues assigned to them, starts an issue (creating a branch), works on it, creates a PR, and updates status—all from the CLI.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Issue List & Start\",\n      \"purpose\": \"Display and select issues to start working on, with context-aware filtering based on git/jj state.\",\n      \"primary_actions\": [\n        \"list unstarted issues\",\n        \"start selected issue\",\n        \"view current issue\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"issue_list\",\n      \"purpose\": \"List unstarted issues assigned to the user or anyone, optionally filtered by cycle or other criteria.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"issue_start\",\n      \"purpose\": \"Start working on an issue by creating a local branch and linking it to the Linear issue.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"issue_create\",\n      \"purpose\": \"Create a new Linear issue interactively with title, description, team, and other metadata.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"issue_view\",\n      \"purpose\": \"Render the current branch's associated Linear issue as markdown in the terminal.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"issue_pr\",\n      \"purpose\": \"Create a pull request with title and body preset using gh CLI, linked to the current Linear issue.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"auth_login\",\n      \"purpose\": \"Add workspace credentials by storing API key in ~/.config/linear/credentials.toml.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n"
+      }
+    },
+    "wireapp/wire-webapp": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Wire Web App\",\n    \"one_sentence\": \"A secure, end-to-end encrypted web-based messenger with real-time collaboration features.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users securely message, share files, and collaborate in real time within encrypted conversations, with persistent favorites and cross-device sync.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Conversation View\",\n      \"purpose\": \"Display active conversations, shared files, and enable real-time messaging and collaboration.\",\n      \"primary_actions\": [\n        \"Send message\",\n        \"Share multiple files\",\n        \"Collaborate on documents\",\n        \"Toggle favorite status\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a shared file or message item to the user's Drive with metadata.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"conversation_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"file_data\",\n            \"type\": \"binary\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core messaging interface\",\n          \"Integrate WebSocket connection for real-time sync\",\n          \"Add file sharing capability\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Favorite conversations persist across devices after toggling.\",\n    \"Multiple files can be shared in a single message with contextual text.\"\n  ],\n  \"open_questions\": [\n    \"How are third-party document editors integrated for real-time collaboration?\",\n    \"What is the exact schema for folder and tag organization in Shared Drive?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_f"
+      }
+    },
+    "cargo-public-api/cargo-public-api": {
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"cargo-public-api\",\n    \"one_sentence\": \"List and diff the public API of Rust library crates between releases and commits to detect breaking API changes and semver violations.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users install the tool, then list or diff the public API of Rust crates using CLI commands that rely on rustdoc JSON built from a compatible nightly Rust toolchain.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Output Display\",\n      \"purpose\": \"Show colored, line-by-line listing or diff of a crate's public API in the terminal.\",\n      \"primary_actions\": [\n        \"List public API items\",\n        \"Diff against another version\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"list_public_api\",\n      \"purpose\": \"Generate and display the public API of a Rust crate as one item per line.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"diff_public_api\",\n      \"purpose\": \"Compare the public API of a local crate against a published version or another commit.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"public_api_items\",\n        \"fields\": [\n          {\n            \"name\": \"item_signature\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"source_version\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up CLI parsing for list and diff commands\",\n          \"Integrate rustdoc JSON generation with nightly toolchain detection\",\n          \"Render deterministic public API output matching rustdoc HTML\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"The tool includes default trait methods in impls even when not overridden, matching rustdoc HTML behavior.\",\n    \"Rendering of public API items is deterministic and unaffected by rustdoc"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "schpet/linear-cli",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "wireapp/wire-webapp",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "cargo-public-api/cargo-public-api",
+      "role_status": {
+        "scout": false,
+        "inventor": false,
+        "engineer": false,
+        "skeptic": false,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 0,
+        "inventor": 0,
+        "engineer": 0,
+        "skeptic": 0,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=3",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=93 kept=5 limit=5",
+    "[deduper] existing_index_repos=95",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] schpet/linear-cli evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] wireapp/wire-webapp evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] cargo-public-api/cargo-public-api evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=38 gaps=0",
+    "[llm_spec_generator] schpet/linear-cli canonical spec ok (iter=1) -> specs/2026-03-05/schpet__linear-cli.json",
+    "[llm_spec_generator] wireapp/wire-webapp canonical spec ok (iter=1) -> specs/2026-03-05/wireapp__wire-webapp.json",
+    "[llm_spec_generator] cargo-public-api/cargo-public-api canonical spec ok (iter=1) -> specs/2026-03-05/cargo-public-api__cargo-public-api.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-05T04:47:46.791Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:46.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260305T044746Z"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:46.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:46.815Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:47.542Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:47.542Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:47.966Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:47.966Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:48.344Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:48.344Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:48.790Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:48.790Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:49.224Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:49.224Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:49.671Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:49.671Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:50.162Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:50.162Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:50.418Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:50.418Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:50.863Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:50.863Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.259Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.263Z",
+      "run_id": "20260305T044746Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 95
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.264Z",
+      "run_id": "20260305T044746Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.267Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T04:47:51.267Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "schpet__linear-cli/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.268Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "schpet__linear-cli/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.269Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "schpet__linear-cli/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.271Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "schpet__linear-cli/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.272Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T04:47:51.272Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wireapp__wire-webapp/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.273Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wireapp__wire-webapp/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.275Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wireapp__wire-webapp/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.276Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wireapp__wire-webapp/root_files_dev.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.277Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T04:47:51.277Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cargo-public-api__cargo-public-api/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.279Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cargo-public-api__cargo-public-api/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.280Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cargo-public-api__cargo-public-api/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.282Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "cargo-public-api__cargo-public-api/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.748Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 11941,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.748Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.748Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.748Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 481
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.749Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.793Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 8413,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.793Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.793Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.793Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 521
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.794Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 5582,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 534
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.811Z",
+      "run_id": "20260305T044746Z",
+      "node": "repo_card_builder",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.815Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T04:47:51.815Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:48:42.534Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 6018,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:48:42.548Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:48:42.550Z",
+      "run_id": "20260305T044746Z",
+      "node": "artifacts",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/schpet__linear-cli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:48:42.550Z",
+      "run_id": "20260305T044746Z",
+      "node": "artifacts",
+      "repo": "schpet/linear-cli",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/schpet__linear-cli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:48:42.550Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T04:48:42.550Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:05.789Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2540,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:05.791Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:05.791Z",
+      "run_id": "20260305T044746Z",
+      "node": "artifacts",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/wireapp__wire-webapp.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:05.791Z",
+      "run_id": "20260305T044746Z",
+      "node": "artifacts",
+      "repo": "wireapp/wire-webapp",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/wireapp__wire-webapp.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:05.792Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:05.792Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.393Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2953,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.394Z",
+      "run_id": "20260305T044746Z",
+      "node": "llm_spec_generator",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.394Z",
+      "run_id": "20260305T044746Z",
+      "node": "artifacts",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/cargo-public-api__cargo-public-api.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.394Z",
+      "run_id": "20260305T044746Z",
+      "node": "artifacts",
+      "repo": "cargo-public-api/cargo-public-api",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/cargo-public-api__cargo-public-api.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.397Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.397Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1772686066791,
+        "llmCallsTotal": 3,
+        "llmCallsPerRepo": {
+          "schpet/linear-cli": 1,
+          "wireapp/wire-webapp": 1,
+          "cargo-public-api/cargo-public-api": 1
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.397Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T04:49:31.397Z",
+      "run_id": "20260305T044746Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-05",
+    "evidence_dir": "evidence/2026-03-05"
+  }
+}

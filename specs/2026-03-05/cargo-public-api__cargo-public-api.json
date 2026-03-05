@@ -1,0 +1,76 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "cargo-public-api",
+    "one_liner": "List and diff the public API of Rust library crates between releases and commits to detect breaking API changes and semver violations."
+  },
+  "screens": [
+    {
+      "name": "CLI Output Display",
+      "purpose": "Show colored, line-by-line listing or diff of a crate's public API in the terminal.",
+      "primary_actions": [
+        "Diff against another version",
+        "List public API items"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "diff_public_api",
+      "purpose": "Compare the public API of a local crate against a published version or another commit.",
+      "async": false,
+      "input": {
+        "item_signature": "string",
+        "payload": "json",
+        "source_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list_public_api",
+      "purpose": "Generate and display the public API of a Rust crate as one item per line.",
+      "async": false,
+      "input": {
+        "item_signature": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "source_version": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "public_api_items",
+        "columns": [
+          {
+            "name": "item_signature",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Integrate rustdoc JSON generation with nightly toolchain detection",
+    "week 1: Render deterministic public API output matching rustdoc HTML",
+    "week 1: Set up CLI parsing for list and diff commands"
+  ],
+  "acceptance_tests": [
+    "Rendering of public API items is deterministic and unaffected by rustdoc JSON ordering changes.",
+    "The tool includes default trait methods in impls even when not overridden, matching rustdoc HTML behavior.",
+    "The tool successfully detects breaking API changes between crate versions via CLI diff."
+  ]
+}
