@@ -32,6 +32,7 @@ import {
 } from "./index";
 import { chatJSONRaw } from "./llm";
 import {
+  buildRolePrompts,
   buildWireSynthPrompts,
   evidenceLinesForPrompt,
 } from "./prompts";
@@ -70,6 +71,70 @@ function focusHintSummary(hint: EvidenceFocusHint): Record<string, unknown> {
     need_screens: Boolean(hint.need_screens),
     need_core: Boolean(hint.need_core),
     keywords_count: hint.keywords?.length ?? 0,
+  };
+}
+
+type RoleName = "scout" | "inventor" | "engineer" | "skeptic";
+
+const ROLE_CHAIN: readonly RoleName[] = ["scout", "inventor", "engineer", "skeptic"];
+
+function parseLooseJSON(content: string): unknown {
+  const trimmed = content.trim();
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    const fenceMatch = trimmed.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+    if (!fenceMatch?.[1]) throw new Error("invalid JSON output");
+    return JSON.parse(fenceMatch[1].trim());
+  }
+}
+
+function collectEvidenceIds(value: unknown): string[] {
+  const found = new Set<string>();
+  const walk = (node: unknown): void => {
+    if (Array.isArray(node)) {
+      for (const item of node) walk(item);
+      return;
+    }
+    if (node && typeof node === "object") {
+      for (const [key, child] of Object.entries(node as Record<string, unknown>)) {
+        if (key === "evidence_ids" && Array.isArray(child)) {
+          for (const id of child) if (typeof id === "string") found.add(id);
+        } else {
+          walk(child);
+        }
+      }
+    }
+  };
+  walk(value);
+  return [...found];
+}
+
+function normalizeRoleOutput(role: RoleName, raw: unknown, allowedEvidenceIds: string[]) {
+  if (!raw || typeof raw !== "object") throw new Error(`${role} output must be object`);
+  const source = raw as Record<string, unknown>;
+  const allowed = new Set(allowedEvidenceIds);
+  const summary = typeof source.summary === "string" ? source.summary.trim() : "";
+  const highlights = Array.isArray(source.highlights)
+    ? source.highlights.filter((v): v is string => typeof v === "string").slice(0, 8)
+    : [];
+  const risks = Array.isArray(source.risks)
+    ? source.risks.filter((v): v is string => typeof v === "string").slice(0, 8)
+    : [];
+  const evidenceIds = Array.isArray(source.evidence_ids)
+    ? source.evidence_ids.filter((v): v is string => typeof v === "string").slice(0, 12)
+    : [];
+  const knownEvidenceIds = evidenceIds.filter((id) => allowed.has(id));
+  const unknownEvidenceIds = evidenceIds.filter((id) => !allowed.has(id));
+  if (!summary) throw new Error(`${role} output missing summary`);
+  if (knownEvidenceIds.length === 0) throw new Error(`${role} output missing valid evidence_ids`);
+  return {
+    role,
+    summary,
+    highlights,
+    risks,
+    evidence_ids: knownEvidenceIds,
+    unknown_evidence_ids: unknownEvidenceIds,
   };
 }
 
@@ -687,6 +752,7 @@ export function createMinerGraph(logger?: MinerLogger, budget?: BudgetManager) {
         let addedEvidenceTotal = 0;
         let lastError: string | null = null;
         let lastWireRaw: string | null = null;
+        let latestRoleContext: Partial<Record<RoleName, unknown>> = {};
         let lastBridgeReport: Awaited<ReturnType<typeof runBridge>>["report"] | null = null;
         let didRerunSynthWithoutEnrich = false;
         const maxIters = gapLoop.enabled
@@ -746,6 +812,8 @@ export function createMinerGraph(logger?: MinerLogger, budget?: BudgetManager) {
               rerun_strategy: iter >= 2 && pruning.enabled ? pruning.iter2PlusStrategy : gapLoop.rerunStrategy,
             },
           });
+          const iterStrategy =
+            iter >= 2 && pruning.enabled ? pruning.iter2PlusStrategy : gapLoop.rerunStrategy;
           if (iter >= 2 && pruning.enabled) {
             emit({
               node: "llm_spec_generator",
@@ -754,44 +822,69 @@ export function createMinerGraph(logger?: MinerLogger, budget?: BudgetManager) {
               event: "PRUNE_ITER_STRATEGY",
               data: { iter, strategy: pruning.iter2PlusStrategy },
             });
-            if (pruning.skipScoutInventorWhenIterGt1) {
-              emit({
-                node: "llm_spec_generator",
-                repo: repoCard.full_name,
-                level: "info",
-                event: "PRUNE_SKIP_ROLE",
-                data: { iter, role: "scout", reason: "iter>1 pruning" },
-              });
-              emit({
-                node: "llm_spec_generator",
-                repo: repoCard.full_name,
-                level: "info",
-                event: "PRUNE_SKIP_ROLE",
-                data: { iter, role: "inventor", reason: "iter>1 pruning" },
-              });
-            }
-            if (pruning.skipEngineerWhenIterGt1) {
-              emit({
-                node: "llm_spec_generator",
-                repo: repoCard.full_name,
-                level: "info",
-                event: "PRUNE_SKIP_ROLE",
-                data: { iter, role: "engineer", reason: "iter>1 pruning" },
-              });
-              emit({
-                node: "llm_spec_generator",
-                repo: repoCard.full_name,
-                level: "info",
-                event: "PRUNE_SKIP_ROLE",
-                data: { iter, role: "skeptic", reason: "iter>1 pruning" },
-              });
-            }
           }
 
           let wireRawContent = "";
           try {
-            const iterStrategy =
-              iter >= 2 && pruning.enabled ? pruning.iter2PlusStrategy : gapLoop.rerunStrategy;
+            const roleContextForSynth: Partial<Record<RoleName, unknown>> = {};
+            for (const role of ROLE_CHAIN) {
+              const skipByIterStrategy = iter >= 2 && iterStrategy !== "full";
+              const skipByPruning =
+                iter >= 2 &&
+                pruning.enabled &&
+                ((pruning.skipScoutInventorWhenIterGt1 && (role === "scout" || role === "inventor")) ||
+                  (pruning.skipEngineerWhenIterGt1 && (role === "engineer" || role === "skeptic")));
+              const shouldRunRole = !skipByIterStrategy && !skipByPruning;
+              if (!shouldRunRole) {
+                emit({
+                  node: "llm_spec_generator",
+                  repo: repoCard.full_name,
+                  level: "info",
+                  event: "PRUNE_SKIP_ROLE",
+                  data: { iter, role, reason: skipByIterStrategy ? "iter strategy" : "iter>1 pruning" },
+                });
+                const previous = roleOutputs[repoCard.full_name][role];
+                if (previous) {
+                  roleContextForSynth[role] = previous;
+                }
+                continue;
+              }
+
+              const { systemPrompt, userPrompt } = buildRolePrompts({
+                repoCard,
+                role,
+                selectedEvidence,
+                priorRoleContext: roleContextForSynth,
+              });
+              const roleRaw = await chatJSONRaw({
+                systemPrompt,
+                userPrompt,
+                provider: state.config.llm.provider,
+                model: state.config.llm.model,
+                temperature: state.config.llm.temperature,
+                audit: {
+                  run_id: state.run_id,
+                  repo: repoCard.full_name,
+                  iter,
+                  role,
+                  input_stats: {
+                    evidence_count: selectedEvidence.length,
+                    approx_chars: systemPrompt.length + userPrompt.length,
+                  },
+                  onAudit: handleAudit,
+                },
+              });
+              const parsed = parseLooseJSON(roleRaw.content);
+              const normalized = normalizeRoleOutput(role, parsed, allowedEvidenceIds);
+              roleOutputs[repoCard.full_name][role] = {
+                iter,
+                selected_evidence: selectedEvidence.length,
+                ...normalized,
+              };
+              roleContextForSynth[role] = roleOutputs[repoCard.full_name][role];
+            }
+            latestRoleContext = roleContextForSynth;
+
             const shouldRunSynth =
               iter === 1 ||
               iterStrategy === "synth_only" ||
@@ -800,8 +893,9 @@ export function createMinerGraph(logger?: MinerLogger, budget?: BudgetManager) {
 
             if (shouldRunSynth) {
               const { systemPrompt, userPrompt } = buildWireSynthPrompts({
-                ...repoCard,
-                evidence: selectedEvidence,
+                repoCard,
+                selectedEvidence,
+                roleContext: roleContextForSynth,
               });
               const wireRaw = await chatJSONRaw({
                 systemPrompt,
@@ -829,6 +923,7 @@ export function createMinerGraph(logger?: MinerLogger, budget?: BudgetManager) {
               roleOutputs[repoCard.full_name].synth = {
                 iter,
                 selected_evidence: selectedEvidence.length,
+                role_context_keys: Object.keys(roleContextForSynth),
                 wire_raw: wireRaw.content.slice(0, 2000),
               };
             } else {
@@ -836,6 +931,13 @@ export function createMinerGraph(logger?: MinerLogger, budget?: BudgetManager) {
                 throw new Error("bridge_only rerun requested without previous wire output");
               }
               wireRawContent = lastWireRaw;
+              roleOutputs[repoCard.full_name].synth = {
+                iter,
+                selected_evidence: selectedEvidence.length,
+                role_context_keys: Object.keys(latestRoleContext),
+                reused_previous_wire: true,
+                wire_raw: lastWireRaw.slice(0, 2000),
+              };
             }
           } catch (error) {
             lastError = error instanceof Error ? error.message : String(error);

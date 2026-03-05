@@ -2,6 +2,16 @@ import type { EvidenceItem, RepoCard } from "./types";
 import { buildCitationHints } from "./bridge/hints";
 import { safeExcerpt, selectEvidenceForLLM } from "./evidence";
 
+type RoleName = "scout" | "inventor" | "engineer" | "skeptic";
+
+export interface RoleOutputDraft {
+  role: RoleName;
+  summary: string;
+  highlights: string[];
+  risks: string[];
+  evidence_ids: string[];
+}
+
 function compactRepoCard(repoCard: RepoCard): object {
   return {
     full_name: repoCard.full_name,
@@ -40,15 +50,66 @@ function evidenceIdPool(evidence: EvidenceItem[]): string[] {
   return selectEvidenceForPrompt(evidence).map((item) => item.id);
 }
 
-export function buildWireSynthPrompts(repoCard: RepoCard): {
+export function buildRolePrompts(params: {
+  repoCard: RepoCard;
+  role: RoleName;
+  selectedEvidence: EvidenceItem[];
+  priorRoleContext?: Partial<Record<RoleName, unknown>>;
+}): {
+  systemPrompt: string;
+  userPrompt: string;
+  selectedEvidenceIds: string[];
+} {
+  const allowedEvidenceIds = evidenceIdPool(params.selectedEvidence);
+  const roleLabels: Record<RoleName, string> = {
+    scout: "Scout",
+    inventor: "Inventor",
+    engineer: "Engineer",
+    skeptic: "Skeptic",
+  };
+  return {
+    systemPrompt: [
+      `You are ${roleLabels[params.role]} in a multi-role repository analysis pipeline.`,
+      "Output must be valid JSON only. No markdown, no explanations.",
+      "You must return role/summary/highlights/risks/evidence_ids.",
+      "evidence_ids must contain only ids from allowedEvidenceIds. Never invent IDs.",
+      "Prefer concise, concrete findings grounded in evidence excerpts.",
+    ].join(" "),
+    userPrompt: JSON.stringify(
+      {
+        task: `Analyze the repository as role=${params.role}.`,
+        allowedEvidenceIds,
+        allowedEvidenceIds_display: allowedEvidenceIds.map((id) => `[ID:${id}]`),
+        evidence_lines: evidenceLinesForPrompt(params.selectedEvidence),
+        repo_profile: compactRepoCard(params.repoCard),
+        prior_role_context: params.priorRoleContext ?? {},
+        output_template: {
+          role: params.role,
+          summary: "string",
+          highlights: ["string"],
+          risks: ["string"],
+          evidence_ids: ["EV::RD::0001"],
+        },
+      },
+      null,
+      2,
+    ),
+    selectedEvidenceIds: allowedEvidenceIds,
+  };
+}
+
+export function buildWireSynthPrompts(params: {
+  repoCard: RepoCard;
+  selectedEvidence: EvidenceItem[];
+  roleContext?: Partial<Record<RoleName, unknown>>;
+}): {
   systemPrompt: string;
   userPrompt: string;
 } & {
   selectedEvidenceIds: string[];
 } {
-  const selectedEvidence = selectEvidenceForPrompt(repoCard.evidence);
-  const allowedEvidenceIds = evidenceIdPool(selectedEvidence);
-  const citationHints = buildCitationHints(repoCard, selectedEvidence);
+  const allowedEvidenceIds = evidenceIdPool(params.selectedEvidence);
+  const citationHints = buildCitationHints(params.repoCard, params.selectedEvidence);
 
   return {
     systemPrompt: [
@@ -67,14 +128,15 @@ export function buildWireSynthPrompts(repoCard: RepoCard): {
         task: "Produce a WireSpec JSON from repository evidence with canonical-like citations map.",
         allowedEvidenceIds,
         allowedEvidenceIds_display: allowedEvidenceIds.map((id) => `[ID:${id}]`),
-        evidence_lines: evidenceLinesForPrompt(selectedEvidence),
+        evidence_lines: evidenceLinesForPrompt(params.selectedEvidence),
+        role_context: params.roleContext ?? {},
         citation_hints: citationHints,
         evidence_strategy: [
           "Prefer readme evidence for app/core_loop/screens/tables.",
           "Use issues/releases as supporting evidence for commands and acceptance_tests.",
           "If unsure, pick closest allowed evidence id; never leave citation arrays empty.",
         ],
-        repo_profile: compactRepoCard(repoCard),
+        repo_profile: compactRepoCard(params.repoCard),
         output_template: {
           app: { name: "string", one_sentence: "string", inspired_by: null },
           core_loop: "string",
