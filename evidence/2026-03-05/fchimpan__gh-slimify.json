@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "evidence_version": 1,
+    "run_id": "20260305T132124Z",
+    "generated_at": "2026-03-05T13:21:24.388Z",
+    "source_repo": {
+      "full_name": "fchimpan/gh-slimify",
+      "url": "https://github.com/fchimpan/gh-slimify"
+    },
+    "spec_path": "specs/2026-03-05/fchimpan__gh-slimify.json"
+  },
+  "evidence": [
+    {
+      "id": "E-RD-001",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 1)",
+      "excerpt": "[![Go Version](https://img.shields.io/badge/go-1.25.3-blue.svg)](https://golang.org) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![GitHub CLI](https://img.shields.io/badge/gh-cli-blue.svg)](https://cli.github.com)",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 1,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-002",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 2)",
+      "excerpt": ">[!WARNING] >Migrating to `ubuntu-slim` may cause workflow instability or increased execution time.",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 2,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-003",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 3)",
+      "excerpt": "> [!TIP] > 💡 Wait, couldn't you just copy-paste the following prompt into AI agent and skip using this tool altogether? 🤔 > ```md > Goal: For every workflow file under `.github/workflows`, migrate jobs that currently run on `ubuntu-latest` to the container-based runner `ubuntu-slim`. Use the following decision rules in order when judging whether to migrate a job: > > 1. Only consider jobs (including matrix entries) whose `runs-on` is `ubuntu-latest` or `ubuntu-24.04`. > 2. Skip any job that uses service containers (`jobs.<job_id>.services`). > 3. Skip any job already running inside a container (`jobs.<job_id>.container`). > 4. Skip any job whose setup steps provision an environment that assumes a non-container host. > 5. Skip any job whose run scripts rely on host-only commands or elevated system privileges that containers cannot provide (e.g., `mount`, `iptables`, `modprobe`, `sysctl`, `nsenter`, `systemctl`, `systemd`, etc.). > 6. Skip any job whose execution time exceeds 15 minutes. Use the GitHub CLI to check the duration of the most recent successful run. Example commands: > > ```bash > # Get the database ID of the latest successful run > id=$(gh run list \\ > --repo ${owner…",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 3,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-004",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 4)",
+      "excerpt": "GitHub Actions recently [introduced the lightweight `ubuntu-slim` runner](https://github.blog/changelog/2025-10-28-1-vcpu-linux-runner-now-available-in-github-actions-in-public-preview/) (1 vCPU / 5 GB RAM, max 15 min runtime) as a cost-efficient alternative to `ubuntu-latest`. However, manually identifying which workflows can safely migrate is tedious and error-prone:",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 4,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-005",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 5)",
+      "excerpt": "- ❌ Jobs using Docker commands or containers cannot migrate - ❌ Jobs using `services:` containers are incompatible - ❌ Jobs exceeding 15 minutes will fail - ❌ Container-based GitHub Actions are not supported - ❌ Jobs using privileged operations (e.g., `mount`, `iptables`, `modprobe`) are incompatible",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 5,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-006",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 6)",
+      "excerpt": "**`gh-slimify` automates this entire process**, analyzing your workflows and safely migrating eligible jobs with a single command.",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 6,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-007",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 7)",
+      "excerpt": "> [!NOTE] > At the time of writing, GitHub has not officially published a list of tools pre-installed on `ubuntu-slim` runners. Therefore, the tool detection for missing commands is **uncertain** and based on assumptions. The tool may incorrectly flag commands as missing (false positives) or miss commands that are actually missing (false negatives). Always verify manually before migrating critical workflows.",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 7,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-008",
+      "type": "readme",
+      "source_url": "https://github.com/fchimpan/gh-slimify#readme",
+      "title": "README (segment 8)",
+      "excerpt": "> [!IMPORTANT] > All commands must be executed from the **repository root directory** (where `.github/workflows/` is located).",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "segment": 8,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-IS-001",
+      "type": "issue",
+      "source_url": "https://github.com/fchimpan/gh-slimify/issues/4",
+      "title": "Dependency Dashboard",
+      "excerpt": "Dependency Dashboard (state:open)",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "number": 4
+      }
+    },
+    {
+      "id": "E-IS-002",
+      "type": "issue",
+      "source_url": "https://github.com/fchimpan/gh-slimify/issues/25",
+      "title": "Update ubuntu-slim preinstalled list and check logic",
+      "excerpt": "Update ubuntu-slim preinstalled list and check logic (state:closed)",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "number": 25
+      }
+    },
+    {
+      "id": "E-RL-001",
+      "type": "release",
+      "source_url": "https://github.com/fchimpan/gh-slimify/releases",
+      "title": "v0.3.1",
+      "excerpt": "## What's Changed * docs: add privileged operations detection to README by @fchimpan in https://github.com/fchimpan/gh-slimify/pull/36 * feat: add --json flag for machine-readable output by @fchimpan in https://github.com/fchimpan/gh-slimify/pull/37 **Full Changelog**: https://github.com/fchimpan/gh-slimify/compare/v0.3.0...v0.3.1",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "tag_name": "v0.3.1",
+        "published_at": "2026-03-04T13:38:47Z"
+      }
+    },
+    {
+      "id": "E-RL-002",
+      "type": "release",
+      "source_url": "https://github.com/fchimpan/gh-slimify/releases",
+      "title": "v0.3.0",
+      "excerpt": "## What's Changed * chore(deps): update docker/login-action action to v4 by @renovate[bot] in https://github.com/fchimpan/gh-slimify/pull/35 * feat: detect privileged operations unsupported on ubuntu-slim by @fchimpan in https://github.com/fchimpan/gh-slimify/pull/34 **Full Changelog**: https://github.com/fchimpan/gh-slimify/compare/v0.2.8...v0.3.0",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "tag_name": "v0.3.0",
+        "published_at": "2026-03-04T12:46:27Z"
+      }
+    },
+    {
+      "id": "E-RL-003",
+      "type": "release",
+      "source_url": "https://github.com/fchimpan/gh-slimify/releases",
+      "title": "v0.2.8",
+      "excerpt": "## What's Changed * chore(deps): update mysql docker tag to v9.6 by @renovate[bot] in https://github.com/fchimpan/gh-slimify/pull/29 * chore(deps): update dependency go to 1.26 by @renovate[bot] in https://github.com/fchimpan/gh-slimify/pull/30 * chore(deps): update github artifact actions (major) by @renovate[bot] in https://github.com/fchimpan/gh-slimify/pull/31 * fix: use semver versioning for go directive in Renovate config by @fchimpan in https://github.com/fchimpan/gh-slimify/pull/32 * chore(deps): update dependency go to v1.26.0 by @renovate[bot] in https://github.com/fchimpan/gh-slimify/pull/33 **Full Changelog**: https://github.com/fchimpan/gh-slimify/compare/v0.2.7...v0.2.8",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "tag_name": "v0.2.8",
+        "published_at": "2026-03-04T00:25:34Z"
+      }
+    },
+    {
+      "id": "E-RF-001",
+      "type": "root_files",
+      "source_url": "https://github.com/fchimpan/gh-slimify",
+      "title": "ROOT_FILES",
+      "excerpt": ".cursor, .github, .gitignore, README.md, cmd, go.mod, go.sum, images, internal, renovate.json",
+      "fetched_at": "2026-03-05T13:21:29.510Z",
+      "meta": {
+        "repo_full_name": "fchimpan/gh-slimify",
+        "path": "/"
+      }
+    }
+  ]
+}

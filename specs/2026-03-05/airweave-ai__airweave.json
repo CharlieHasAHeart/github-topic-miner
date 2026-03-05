@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Airweave",
+    "one_liner": "Open-source context retrieval layer for AI agents and RAG systems."
+  },
+  "screens": [
+    {
+      "name": "Airweave Dashboard",
+      "purpose": "Display connected data sources, sync status, and enable querying of unified retrieval layer.",
+      "primary_actions": [
+        "Connect new data source",
+        "Run test query",
+        "View indexed entities"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "start_airweave",
+      "purpose": "Initialize and start the Airweave local instance using the provided startup script.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "schema": "json",
+        "source_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "entity_definition",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "schema",
+            "type": "JSON"
+          },
+          {
+            "name": "source_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Clone repository and run ./start.sh to launch local Airweave instance",
+    "week 1: Connect a sample data source (e.g., local document or database)",
+    "week 1: Perform initial retrieval query via REST API or SDK",
+    "week 1: Verify Docker containers (including Vespa and text2vec) are running"
+  ],
+  "acceptance_tests": [
+    "AI agent retrieves grounded, up-to-date context from multiple sources in a single query",
+    "New data connector (e.g., Intercom or PowerPoint) can be added and syncs data without errors",
+    "System starts successfully via ./start.sh with all services (Vespa, backend, frontend) operational"
+  ]
+}

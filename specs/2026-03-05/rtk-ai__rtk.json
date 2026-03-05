@@ -1,0 +1,111 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Rust Token Killer (rtk)",
+    "one_liner": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands."
+  },
+  "screens": [
+    {
+      "name": "Token Optimization Dashboard",
+      "purpose": "Display real-time token savings and command optimization status.",
+      "primary_actions": [
+        "Access configuration wizard",
+        "Run optimized command",
+        "View token savings stats"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "rtk_gain",
+      "purpose": "Display token savings statistics for current or specified project.",
+      "async": false,
+      "input": {
+        "command": "string",
+        "optimized_tokens": "int",
+        "original_tokens": "int",
+        "payload": "json",
+        "project_id": "string",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "rtk_git_commit",
+      "purpose": "Optimize git commit output for LLM context.",
+      "async": false,
+      "input": {
+        "command": "string",
+        "optimized_tokens": "int",
+        "original_tokens": "int",
+        "payload": "json",
+        "project_id": "string",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "rtk_init",
+      "purpose": "Launch interactive config wizard to set up rtk for a project.",
+      "async": false,
+      "input": {
+        "command": "string",
+        "optimized_tokens": "int",
+        "original_tokens": "int",
+        "payload": "json",
+        "project_id": "string",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "token_savings",
+        "columns": [
+          {
+            "name": "command",
+            "type": "TEXT"
+          },
+          {
+            "name": "optimized_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "original_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for git, grep, and docker commands",
+    "week 1: Implement core command proxying with output filtering",
+    "week 1: Integrate token savings tracking per project"
+  ],
+  "acceptance_tests": [
+    "AWS CLI and psql commands produce token-optimized output as of v0.24.0.",
+    "Executing `rtk git commit -am message` succeeds without error and optimizes output.",
+    "Interactive config wizard launches via `rtk init` and saves settings correctly.",
+    "Running `rtk gain` displays token savings stats and confirms correct installation."
+  ]
+}

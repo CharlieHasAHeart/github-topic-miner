@@ -1,0 +1,89 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Kilo Code",
+    "one_liner": "Kilo is the all-in-one agentic engineering platform that enables developers to build, ship, and iterate faster using an open-source coding agent powered by 500+ AI models."
+  },
+  "screens": [
+    {
+      "name": "Main Workspace",
+      "purpose": "Primary interface for interacting with the Kilo agent through natural language prompts, viewing generated code, and managing tasks.",
+      "primary_actions": [
+        "Generate code from natural language",
+        "Run automated refactoring",
+        "Switch between agent modes (Architect, Coder, Debugger)",
+        "Trigger inline autocomplete"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_cli",
+      "purpose": "Install the Kilo CLI globally via npm.",
+      "async": false,
+      "input": {
+        "mode": "string",
+        "model": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "kilo_web",
+      "purpose": "Launch the web-based UI for Kilo (currently disabled due to lack of support).",
+      "async": true,
+      "input": {
+        "mode": "string",
+        "model": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "mode",
+            "type": "TEXT"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "mcp_servers",
+        "columns": [
+          {
+            "name": "capabilities",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement mode switching (Architect/Coder/Debugger)",
+    "week 1: Integrate inline autocomplete in VS Code extension",
+    "week 1: Set up core agent loop with natural language input and code generation"
+  ],
+  "acceptance_tests": [
+    "Agent must respect user permission configuration when using edit tools in Ask mode.",
+    "CLI installation must clarify behavior of hidden .kilo launcher file on certain systems.",
+    "The 'kilo web' command must be disabled by default as the OpenCode web UI is unsupported."
+  ]
+}

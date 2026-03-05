@@ -1,0 +1,117 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Gemini Web to API",
+    "one_liner": "Reverse-engineered REST API that exposes Google Gemini's web interface functionality without requiring official API keys, using browser cookies for authentication."
+  },
+  "screens": [
+    {
+      "name": "API Gateway",
+      "purpose": "Serve as the primary interface for sending prompts and receiving responses from the reverse-engineered Gemini API.",
+      "primary_actions": [
+        "Authenticate using cookie-based session",
+        "Select available Gemini model",
+        "Submit prompt via POST /v1/chat/completions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "handle_deep_research",
+      "purpose": "Initiate two-phase deep research mode for complex queries (currently in development).",
+      "async": true,
+      "input": {
+        "content": "string",
+        "model": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "select_model",
+      "purpose": "Allow user to choose from available Gemini models detected on the web interface.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "model": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "send_prompt",
+      "purpose": "Forward user prompt to Gemini web interface using authenticated session and return structured response.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "model": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "prompts",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "responses",
+        "columns": [
+          {
+            "name": "latency_ms",
+            "type": "INTEGER"
+          },
+          {
+            "name": "response_text",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "cookie_token",
+            "type": "TEXT"
+          },
+          {
+            "name": "model_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add model selection from detected Gemini web models",
+    "week 1: Expose /v1/chat/completions endpoint compatible with OpenAI spec",
+    "week 1: Implement cookie-based authentication proxy",
+    "week 1: Optimize response latency based on performance feedback"
+  ],
+  "acceptance_tests": [
+    "API returns a 200 response with generated text when a valid model is selected.",
+    "Deep research mode initiates two-phase processing when enabled (pending implementation).",
+    "Performance optimization reduces response time below previous baseline.",
+    "System accepts valid browser cookies and successfully proxies a prompt to Gemini web interface."
+  ]
+}

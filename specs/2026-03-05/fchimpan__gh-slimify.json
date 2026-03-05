@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "gh-slimify",
+    "one_liner": "Automatically detect and migrate GitHub Actions workflows to `ubuntu-slim` for cost-efficient CI."
+  },
+  "screens": [
+    {
+      "name": "Workflow Migration Dashboard",
+      "purpose": "Display analysis results of GitHub Actions workflows and allow user to review and confirm migration to ubuntu-slim.",
+      "primary_actions": [
+        "Apply migration to selected jobs",
+        "Preview migration changes",
+        "Scan workflows for ubuntu-slim compatibility"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "migrate_job",
+      "purpose": "Apply ubuntu-slim migration to a specific job in a workflow file.",
+      "async": true,
+      "input": {
+        "ineligibility_reason": "string",
+        "is_eligible": "boolean",
+        "job_id": "string",
+        "payload": "json",
+        "runs_on": "string",
+        "workflow_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "scan_workflows",
+      "purpose": "Parse and analyze GitHub Actions workflow files to determine eligibility for ubuntu-slim migration.",
+      "async": true,
+      "input": {
+        "ineligibility_reason": "string",
+        "is_eligible": "boolean",
+        "job_id": "string",
+        "payload": "json",
+        "runs_on": "string",
+        "workflow_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "workflow_jobs",
+        "columns": [
+          {
+            "name": "ineligibility_reason",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_eligible",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "job_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "runs_on",
+            "type": "TEXT"
+          },
+          {
+            "name": "workflow_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for applying safe migrations to workflow files",
+    "week 1: Build CLI command to scan and report migration candidates",
+    "week 1: Implement workflow parsing and ubuntu-slim eligibility logic"
+  ],
+  "acceptance_tests": [
+    "Running the tool from repository root successfully scans all .github/workflows/*.yml files and outputs JSON when --json flag is used.",
+    "Tool correctly identifies jobs using service containers and marks them ineligible for ubuntu-slim migration.",
+    "Tool detects privileged operations like 'mount' or 'iptables' in run steps and flags job as incompatible."
+  ]
+}
