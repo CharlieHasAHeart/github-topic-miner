@@ -1,0 +1,89 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "weapp-tailwindcss",
+    "one_liner": "A comprehensive solution to bring Tailwind CSS (v2–v4) into WeChat Mini Programs and cross-platform frameworks like uni-app x."
+  },
+  "screens": [
+    {
+      "name": "Integration Dashboard",
+      "purpose": "Showcase supported frameworks, bundlers, and Tailwind versions with quick-start templates.",
+      "primary_actions": [
+        "Choose bundler (webpack, Vite, rspack, etc.)",
+        "Select framework (Taro, Mpx, uni-app, etc.)",
+        "View documentation links"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "transpile_tailwind_classes",
+      "purpose": "Process Tailwind CSS classes—including dynamic and arbitrary values—into static equivalents compatible with mini-program runtimes.",
+      "async": true,
+      "input": {
+        "bundler_compatibility": "string",
+        "framework_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "validate_bundler_config",
+      "purpose": "Verify compatibility of the current bundler setup (webpack/Vite/etc.) with the selected Tailwind version.",
+      "async": true,
+      "input": {
+        "bundler_compatibility": "string",
+        "framework_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "supported_frameworks",
+        "columns": [
+          {
+            "name": "bundler_compatibility",
+            "type": "TEXT"
+          },
+          {
+            "name": "framework_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tailwind_versions",
+        "columns": [
+          {
+            "name": "node_requirement",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for webpack and Vite integration",
+    "week 1: Create basic template for Taro and uni-app",
+    "week 1: Implement core PostCSS plugin for Tailwind v3/v4 class extraction"
+  ],
+  "acceptance_tests": [
+    "Arbitrary values such as `bg-[#000]` must persist through HMR and incremental builds without being dropped.",
+    "Cross-platform output (Web, Mini Program, iOS, Android, HarmonyOS) must be achievable via uni-app x configuration.",
+    "Dynamic class names like `gap-[20px]` must be correctly transpiled in JS contexts under Tailwind v4.",
+    "Space-x/y utilities must not trigger syntax errors when used with Tailwind v4."
+  ]
+}

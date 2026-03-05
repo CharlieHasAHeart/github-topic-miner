@@ -2,12 +2,12 @@
   "schema_version": 3,
   "app": {
     "name": "n8n",
-    "one_liner": "A fair-code, self-hostable workflow automation platform that blends visual no-code design with code-level flexibility (JavaScript/Python) and native AI capabilities via LangChain."
+    "one_liner": "A fair-code, self-hostable workflow automation platform that blends visual no-code design with custom JavaScript/Python execution and native AI capabilities via LangChain."
   },
   "screens": [
     {
       "name": "Workflow Editor",
-      "purpose": "Visual canvas for designing and configuring automation workflows using drag-and-drop nodes and connections.",
+      "purpose": "Visual canvas for designing and orchestrating multi-step automations using drag-and-drop nodes and configuration panels.",
       "primary_actions": [
         "Add node",
         "Configure credentials",
@@ -18,13 +18,27 @@
   ],
   "rust_commands": [
     {
-      "name": "save_item",
-      "purpose": "Persist a workflow configuration to storage.",
+      "name": "execute_workflow",
+      "purpose": "Trigger execution of a saved workflow with provided input data and return execution results.",
       "async": true,
       "input": {
-        "connections": "json",
-        "nodes": "json",
-        "payload": "json"
+        "data": "string",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_workflow",
+      "purpose": "Persist the current workflow definition to storage, including node configurations, connections, and credentials reference.",
+      "async": true,
+      "input": {
+        "data": "string",
+        "payload": "json",
+        "type": "string"
       },
       "output": {
         "ok": "boolean",
@@ -34,6 +48,23 @@
   ],
   "data_model": {
     "tables": [
+      {
+        "name": "credentials",
+        "columns": [
+          {
+            "name": "data",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
       {
         "name": "workflows",
         "columns": [
@@ -48,18 +79,23 @@
           {
             "name": "nodes",
             "type": "JSON"
+          },
+          {
+            "name": "settings",
+            "type": "JSON"
           }
         ]
       }
     ]
   },
   "mvp_plan": [
-    "week 1: Add support for saving/loading workflows",
-    "week 1: Implement basic workflow editor UI",
-    "week 1: Set up monorepo structure with pnpm workspace"
+    "week 1: Build minimal UI for node placement and connection",
+    "week 1: Create credential management system",
+    "week 1: Implement basic node registry",
+    "week 1: Set up core workflow execution engine"
   ],
   "acceptance_tests": [
-    "Data table columns in the editor UI refresh correctly after node configuration changes.",
-    "User can create a new workflow with at least two connected nodes and save it successfully."
+    "Saved workflow can be reloaded and executed with expected output based on mock integrations.",
+    "User can create a new workflow, add at least two connected nodes, configure credentials, and save it successfully."
   ]
 }
