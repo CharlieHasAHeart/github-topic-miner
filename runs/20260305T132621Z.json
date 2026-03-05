@@ -1,0 +1,4203 @@
+{
+  "run_id": "20260305T132621Z",
+  "generated_at": "2026-03-05T13:26:21.827Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 93,
+    "candidates_kept": 5,
+    "candidates_deduped": 1,
+    "new_candidates": 4,
+    "repo_cards_built": 4,
+    "gaps_count": 0,
+    "specs_attempted": 4,
+    "specs_succeeded": 4,
+    "specs_failed": 0,
+    "evidence_validated": 4,
+    "evidence_valid_ok": 4,
+    "evidence_valid_failed": 0,
+    "evidence_written": 4,
+    "evidence_write_failed": 0,
+    "evidence_total": 46,
+    "evidence_by_type": {
+      "readme": 30,
+      "issue": 3,
+      "release": 9,
+      "root_files": 4
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-05T13:32:15.202Z",
+    "repo_count": 107
+  },
+  "candidates": [
+    {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development",
+        "integration-framework",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-platform",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "n8n",
+        "no-code",
+        "self-hosted",
+        "typescript",
+        "workflow",
+        "workflow-automation"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 177679,
+      "forks_count": 55438,
+      "open_issues_count": 1422,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-03-05T13:26:24Z",
+      "created_at": "2019-06-22T09:24:21Z"
+    },
+    {
+      "full_name": "devantler-tech/ksail",
+      "html_url": "https://github.com/devantler-tech/ksail",
+      "description": "Tool for creating, maintaining and operating Kubernetes clusters with ease.",
+      "topics": [
+        "ai",
+        "app",
+        "argocd",
+        "cli",
+        "declarative",
+        "fluxcd",
+        "github-copilot",
+        "helm",
+        "hetzner",
+        "k3d",
+        "k3s",
+        "kind",
+        "kubeconform",
+        "kubectl",
+        "kubernetes",
+        "kustomize",
+        "mcp-server",
+        "talos-linux",
+        "tui",
+        "yaml"
+      ],
+      "language": "Go",
+      "stargazers_count": 139,
+      "forks_count": 6,
+      "open_issues_count": 10,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:26:24Z",
+      "created_at": "2023-12-31T16:17:15Z"
+    },
+    {
+      "full_name": "dailydotdev/apps",
+      "html_url": "https://github.com/dailydotdev/apps",
+      "description": "daily.dev application suite",
+      "topics": [
+        "daily",
+        "extension",
+        "nextjs",
+        "react",
+        "tailwindcss",
+        "vercel",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 976,
+      "forks_count": 290,
+      "open_issues_count": 25,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:26:04Z",
+      "created_at": "2020-07-30T09:31:11Z"
+    },
+    {
+      "full_name": "kyma-project/cli",
+      "html_url": "https://github.com/kyma-project/cli",
+      "description": "Simple set of commands to manage a Kyma cluster",
+      "topics": [
+        "cli",
+        "kyma"
+      ],
+      "language": "Go",
+      "stargazers_count": 121,
+      "forks_count": 122,
+      "open_issues_count": 32,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:25:21Z",
+      "created_at": "2018-11-12T09:28:32Z"
+    },
+    {
+      "full_name": "LogicStamp/logicstamp-context",
+      "html_url": "https://github.com/LogicStamp/logicstamp-context",
+      "description": "A Context Compiler for TypeScript. Deterministic, diffable architectural contracts and dependency graphs for AI coding workflows.",
+      "topics": [
+        "ai-agents",
+        "ai-assistants",
+        "ai-tooling",
+        "architecture-analysis",
+        "ast",
+        "cli",
+        "code-analysis",
+        "context-engineering",
+        "dependency-analysis",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "nextjs",
+        "react",
+        "refactoring",
+        "software-architecture",
+        "static-analysis",
+        "typescript",
+        "typescript-ast"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 58,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:24:56Z",
+      "created_at": "2025-11-07T15:47:32Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development",
+        "integration-framework",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-platform",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "n8n",
+        "no-code",
+        "self-hosted",
+        "typescript",
+        "workflow",
+        "workflow-automation"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 177679,
+      "forks_count": 55438,
+      "open_issues_count": 1422,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-03-05T13:26:24Z",
+      "created_at": "2019-06-22T09:24:21Z"
+    },
+    {
+      "full_name": "dailydotdev/apps",
+      "html_url": "https://github.com/dailydotdev/apps",
+      "description": "daily.dev application suite",
+      "topics": [
+        "daily",
+        "extension",
+        "nextjs",
+        "react",
+        "tailwindcss",
+        "vercel",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 976,
+      "forks_count": 290,
+      "open_issues_count": 25,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:26:04Z",
+      "created_at": "2020-07-30T09:31:11Z"
+    },
+    {
+      "full_name": "kyma-project/cli",
+      "html_url": "https://github.com/kyma-project/cli",
+      "description": "Simple set of commands to manage a Kyma cluster",
+      "topics": [
+        "cli",
+        "kyma"
+      ],
+      "language": "Go",
+      "stargazers_count": 121,
+      "forks_count": 122,
+      "open_issues_count": 32,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:25:21Z",
+      "created_at": "2018-11-12T09:28:32Z"
+    },
+    {
+      "full_name": "LogicStamp/logicstamp-context",
+      "html_url": "https://github.com/LogicStamp/logicstamp-context",
+      "description": "A Context Compiler for TypeScript. Deterministic, diffable architectural contracts and dependency graphs for AI coding workflows.",
+      "topics": [
+        "ai-agents",
+        "ai-assistants",
+        "ai-tooling",
+        "architecture-analysis",
+        "ast",
+        "cli",
+        "code-analysis",
+        "context-engineering",
+        "dependency-analysis",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "nextjs",
+        "react",
+        "refactoring",
+        "software-architecture",
+        "static-analysis",
+        "typescript",
+        "typescript-ast"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 58,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:24:56Z",
+      "created_at": "2025-11-07T15:47:32Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development",
+        "integration-framework",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-platform",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "n8n",
+        "no-code",
+        "self-hosted",
+        "typescript",
+        "workflow",
+        "workflow-automation"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 177679,
+      "forks_count": 55438,
+      "open_issues_count": 1422,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-03-05T13:26:24Z",
+      "created_at": "2019-06-22T09:24:21Z",
+      "readme": {
+        "fetched": true,
+        "text": "![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)\n\n# n8n - Secure Workflow Automation for Technical Teams\n\nn8n is a workflow automation platform that gives technical teams the flexibility of code with the speed of no-code. With 400+ integrations, native AI capabilities, and a fair-code license, n8n lets you build powerful automations while maintaining full control over your data and deployments.\n\n![n8n.io - Screenshot](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-screenshot-readme.png)\n\n## Key Capabilities\n\n- **Code When You Need It**: Write JavaScript/Python, add npm packages, or use the visual interface\n- **AI-Native Platform**: Build AI agent workflows based on LangChain with your own data and models\n- **Full Control**: Self-host with our fair-code license or use our [cloud offering](https://app.n8n.cloud/login)\n- **Enterprise-Ready**: Advanced permissions, SSO, and air-gapped deployments\n- **Active Community**: 400+ integrations and 900+ ready-to-use [templates](https://n8n.io/workflows)\n\n## Quick Start\n\nTry n8n instantly with [npx](https://docs.n8n.io/hosting/installation/npm/) (requires [Node.js](https://nodejs.org/en/)):\n\n```\nnpx n8n\n```\n\nOr deploy with [Docker](https://docs.n8n.io/hosting/installation/docker/):\n\n```\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n```\n\nAccess the editor at http://localhost:5678\n\n## Resources\n\n- 📚 [Documentation](https://docs.n8n.io)\n- 🔧 [400+ Integrations](https://n8n.io/integrations)\n- 💡 [Example Workflows](https://n8n.io/workflows)\n- 🤖 [AI & LangChain Guide](https://docs.n8n.io/advanced-ai/)\n- 👥 [Community Forum](https://community.n8n.io)\n- 📖 [Community Tutorials](https://community.n8n.io/c/tutorials/28)\n\n## Support\n\nNeed help? Our community forum is the place to get support and connect with other users:\n[community.n8n.io](https://community.n8n.io)\n\n## License\n\nn8n is [fair-code](https://faircode.io) distributed under the [Sustainable Use License](https://github.com/n8n-io/n8n/blob/master/LICENSE.md) and [n8n Enterprise License](https://github.com/n8n-io/n8n/blob/master/LICENSE_EE.md).\n\n- **Source Available**: Always visible source code\n- **Self-Hostable**: Deploy anywhere\n- **Extensible**: Add your own nodes and functionality\n\n[Enterprise licenses](mailto:license@n8n.io) available for additional features and support.\n\nAdditional information about the license model can be found in the [docs](https://docs.n8n.io/sustainable-use-license/).\n\n## Contributing\n\nFound a bug 🐛 or have a feature idea ✨? Check our [Contributing Guide](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md) for a setup guide & best practices.\n\n## Join the Team\n\nWant to shape the future of automation? Check out our [job posts](https://n8n.io/careers) and join our team!\n\n## What does n8n mean?\n\n**Short answer:** It means \"nodemation\" and is pronounced as n-eight-n.\n\n**Long answer:** \"I get that question quite often (more often than I expected) so I decided it is probably best to answer it here. While looking for a good name for the project with a free domain I realized very quickly that all the good ones I could think of were already taken. So, in the end, I chose nodemation. 'node-' in the sense that it uses a Node-View and that it uses Node.js and '-mation' for 'automation' which is what the project is supposed to help with. However, I did not like how long the name was and I could not imagine writing something that long every time in the CLI. That is when I then ended up on 'n8n'.\" - **Jan Oberhauser, Founder and CEO, n8n.io**\n",
+        "truncated": false,
+        "bytes": 3698,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "n8n@2.10.3",
+            "tag_name": "n8n@2.10.3",
+            "published_at": "2026-03-04T08:59:49Z",
+            "body_excerpt": "## [2.10.3](https://github.com/n8n-io/n8n/compare/n8n@2.10.2...n8n@2.10.3) (2026-03-04)\r\n\r\n\r\n### Bug Fixes\r\n\r\n* **editor:** Always show auth mode dropdown in credential modal ([#26280](https://github.com/n8n-io/n8n/issues/26280)) ([4501b0f](https://github.com/n8n-io/n8n/commit/4501b0fa939f3c4296bd44b2520d96be4e9c2137))\r\n* **editor:** Replace jsonpath with jsonpath-plus to resolve CVE ([#26399](https://github.com/n8n-io/n8n/issues/26399)) ([7ec6115](https://github.com/n8n-io/n8n/commit/7ec6115b48a5d0e9cfd39217166a1bb89d0fa84b))\r\n* Handle collaboration push old format ([#26467](https://github.com/n8n-io/n8n/issues/26467)) ([4e2b9c6](https://github.com/n8n-io/n8n/commit/4e2b9c69b94b0c0d2506dbb01bf47a1267f55fc2))"
+          },
+          {
+            "name": "n8n@1.123.23",
+            "tag_name": "n8n@1.123.23",
+            "published_at": "2026-03-04T09:03:22Z",
+            "body_excerpt": "## [1.123.23](https://github.com/n8n-io/n8n/compare/n8n@1.123.22...n8n@1.123.23) (2026-03-04)\r\n\r\n\r\n### Bug Fixes\r\n\r\n* Backport transitive dependency bumps to 1.x ([#26260](https://github.com/n8n-io/n8n/issues/26260)) ([aef8c80](https://github.com/n8n-io/n8n/commit/aef8c80491dc74ac8cef13b6bfdab375ba0a69dd))\r\n* **editor:** Replace jsonpath with jsonpath-plus to resolve CVE ([#26408](https://github.com/n8n-io/n8n/issues/26408)) ([10aa98f](https://github.com/n8n-io/n8n/commit/10aa98fceb8937bcd7a64a9c1ba3ca625f6ee6e6))\r\n* Fix 14 security issues in jsonpath, mailparser, mysql2 and 9 more ([#26363](https://github.com/n8n-io/n8n/issues/26363)) ([9b1d456](https://github.com/n8n-io/n8n/commit/9b1d4564e7cfb2f7c07fce3d7ca61ffa525aba43))"
+          },
+          {
+            "name": "n8n@2.11.1",
+            "tag_name": "n8n@2.11.1",
+            "published_at": "2026-03-04T07:40:40Z",
+            "body_excerpt": "## [2.11.1](https://github.com/n8n-io/n8n/compare/n8n@2.11.0...n8n@2.11.1) (2026-03-04)\n\n\n### Bug Fixes\n\n* **editor:** Always show auth mode dropdown in credential modal ([#26280](https://github.com/n8n-io/n8n/issues/26280)) ([01ddc46](https://github.com/n8n-io/n8n/commit/01ddc46b5bf61848dbeee59cbb3434a3532771f3))\n* Handle collaboration push old format ([#26467](https://github.com/n8n-io/n8n/issues/26467)) ([2f3c4d7](https://github.com/n8n-io/n8n/commit/2f3c4d76bed0413fb69417d8c4052f4fc2f18c55))\n* Merge by sql update ([#26364](https://github.com/n8n-io/n8n/issues/26364)) ([ccb961e](https://github.com/n8n-io/n8n/commit/ccb961efc0765cde7ca5d5337ca17ee4ab378a08))"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 26615,
+            "title": "Data table refreshing columns bug",
+            "state": "open",
+            "url": "https://github.com/n8n-io/n8n/issues/26615"
+          }
+        ]
+      },
+      "root_files": [
+        ".actrc",
+        ".claude",
+        ".devcontainer",
+        ".dockerignore",
+        ".editorconfig",
+        ".git-blame-ignore-revs",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".npmignore",
+        ".npmrc",
+        ".poutine.yml",
+        ".prettierignore",
+        ".prettierrc.js",
+        ".vscode",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "CONTRIBUTOR_LICENSE_AGREEMENT.md",
+        "LICENSE.md",
+        "LICENSE_EE.md",
+        "README.md",
+        "SECURITY.md",
+        "assets",
+        "biome.jsonc",
+        "codecov.yml",
+        "cubic.yaml",
+        "docker",
+        "jest.config.js",
+        "lefthook.yml",
+        "package.json",
+        "packages",
+        "patches",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "renovate.json",
+        "scripts",
+        "security",
+        "tsconfig.json",
+        "turbo.json",
+        "vitest.workspace.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 2)",
+          "excerpt": "n8n is a workflow automation platform that gives technical teams the flexibility of code with the speed of no-code. With 400+ integrations, native AI capabilities, and a fair-code license, n8n lets you build powerful automations while maintaining full control over your data and deployments.",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 3)",
+          "excerpt": "![n8n.io - Screenshot](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-screenshot-readme.png)",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- **Code When You Need It**: Write JavaScript/Python, add npm packages, or use the visual interface - **AI-Native Platform**: Build AI agent workflows based on LangChain with your own data and models - **Full Control**: Self-host with our fair-code license or use our [cloud offering](https://app.n8n.cloud/login) - **Enterprise-Ready**: Advanced permissions, SSO, and air-gapped deployments - **Active Community**: 400+ integrations and 900+ ready-to-use [templates](https://n8n.io/workflows)",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Try n8n instantly with [npx](https://docs.n8n.io/hosting/installation/npm/) (requires [Node.js](https://nodejs.org/en/)):",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 6)",
+          "excerpt": "``` docker volume create n8n_data docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n ```",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- 📚 [Documentation](https://docs.n8n.io) - 🔧 [400+ Integrations](https://n8n.io/integrations) - 💡 [Example Workflows](https://n8n.io/workflows) - 🤖 [AI & LangChain Guide](https://docs.n8n.io/advanced-ai/) - 👥 [Community Forum](https://community.n8n.io) - 📖 [Community Tutorials](https://community.n8n.io/c/tutorials/28)",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/n8n-io/n8n#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Need help? Our community forum is the place to get support and connect with other users: [community.n8n.io](https://community.n8n.io)",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/n8n-io/n8n/issues/26615",
+          "title": "Data table refreshing columns bug",
+          "excerpt": "Data table refreshing columns bug (state:open)",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "number": 26615
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/n8n-io/n8n/releases",
+          "title": "n8n@2.10.3",
+          "excerpt": "## [2.10.3](https://github.com/n8n-io/n8n/compare/n8n@2.10.2...n8n@2.10.3) (2026-03-04) ### Bug Fixes * **editor:** Always show auth mode dropdown in credential modal ([#26280](https://github.com/n8n-io/n8n/issues/26280)) ([4501b0f](https://github.com/n8n-io/n8n/commit/4501b0fa939f3c4296bd44b2520d96be4e9c2137)) * **editor:** Replace jsonpath with jsonpath-plus to resolve CVE ([#26399](https://github.com/n8n-io/n8n/issues/26399)) ([7ec6115](https://github.com/n8n-io/n8n/commit/7ec6115b48a5d0e9cfd39217166a1bb89d0fa84b)) * Handle collaboration push old format ([#26467](https://github.com/n8n-io/n8n/issues/26467)) ([4e2b9c6](https://github.com/n8n-io/n8n/commit/4e2b9c69b94b0c0d2506dbb01bf47a1267f55fc2))",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "tag_name": "n8n@2.10.3",
+            "published_at": "2026-03-04T08:59:49Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/n8n-io/n8n/releases",
+          "title": "n8n@1.123.23",
+          "excerpt": "## [1.123.23](https://github.com/n8n-io/n8n/compare/n8n@1.123.22...n8n@1.123.23) (2026-03-04) ### Bug Fixes * Backport transitive dependency bumps to 1.x ([#26260](https://github.com/n8n-io/n8n/issues/26260)) ([aef8c80](https://github.com/n8n-io/n8n/commit/aef8c80491dc74ac8cef13b6bfdab375ba0a69dd)) * **editor:** Replace jsonpath with jsonpath-plus to resolve CVE ([#26408](https://github.com/n8n-io/n8n/issues/26408)) ([10aa98f](https://github.com/n8n-io/n8n/commit/10aa98fceb8937bcd7a64a9c1ba3ca625f6ee6e6)) * Fix 14 security issues in jsonpath, mailparser, mysql2 and 9 more ([#26363](https://github.com/n8n-io/n8n/issues/26363)) ([9b1d456](https://github.com/n8n-io/n8n/commit/9b1d4564e7cfb2f7c07fce3d7ca61ffa525aba43))",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "tag_name": "n8n@1.123.23",
+            "published_at": "2026-03-04T09:03:22Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/n8n-io/n8n/releases",
+          "title": "n8n@2.11.1",
+          "excerpt": "## [2.11.1](https://github.com/n8n-io/n8n/compare/n8n@2.11.0...n8n@2.11.1) (2026-03-04) ### Bug Fixes * **editor:** Always show auth mode dropdown in credential modal ([#26280](https://github.com/n8n-io/n8n/issues/26280)) ([01ddc46](https://github.com/n8n-io/n8n/commit/01ddc46b5bf61848dbeee59cbb3434a3532771f3)) * Handle collaboration push old format ([#26467](https://github.com/n8n-io/n8n/issues/26467)) ([2f3c4d7](https://github.com/n8n-io/n8n/commit/2f3c4d76bed0413fb69417d8c4052f4fc2f18c55)) * Merge by sql update ([#26364](https://github.com/n8n-io/n8n/issues/26364)) ([ccb961e](https://github.com/n8n-io/n8n/commit/ccb961efc0765cde7ca5d5337ca17ee4ab378a08))",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "tag_name": "n8n@2.11.1",
+            "published_at": "2026-03-04T07:40:40Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/n8n-io/n8n",
+          "title": "ROOT_FILES",
+          "excerpt": ".actrc, .claude, .devcontainer, .dockerignore, .editorconfig, .git-blame-ignore-revs, .gitattributes, .github, .gitignore, .npmignore, .npmrc, .poutine.yml, .prettierignore, .prettierrc.js, .vscode, AGENTS.md, CHANGELOG.md, CLAUDE.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, CONTRIBUTOR_LICENSE_AGREEMENT.md, LICENSE.md, LICENSE_EE.md, README.md, SECURITY.md, assets, biome.jsonc, codecov.yml, cubic.yaml, docker, jest.config.js, lefthook.yml, package.json, packages, patches, pnpm-lock.yaml, pnpm-workspace.yaml, renovate.json, scripts, security, tsconfig.json, turbo.json, vitest.workspace.ts",
+          "fetched_at": "2026-03-05T13:26:27.744Z",
+          "meta": {
+            "repo_full_name": "n8n-io/n8n",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "dailydotdev/apps",
+      "html_url": "https://github.com/dailydotdev/apps",
+      "description": "daily.dev application suite",
+      "topics": [
+        "daily",
+        "extension",
+        "nextjs",
+        "react",
+        "tailwindcss",
+        "vercel",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 976,
+      "forks_count": 290,
+      "open_issues_count": 25,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:26:04Z",
+      "created_at": "2020-07-30T09:31:11Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <h1>daily.dev App Suite</h1>\n  <strong>Everything you see on daily.dev 👀</strong>\n</div>\n<br>\n\n<p align=\"center\">\n  <a href=\"https://circleci.com/gh/dailydotdev/apps\">\n    <img src=\"https://img.shields.io/circleci/build/github/dailydotdev/apps/**master**.svg\" alt=\"Build Status\">\n  </a>\n  <a href=\"https://github.com/dailydotdev/apps/blob/master/LICENSE\">\n    <img src=\"https://img.shields.io/github/license/dailydotdev/apps.svg\" alt=\"License\">\n  </a>\n  <a href=\"https://stackshare.io/daily/daily\">\n    <img src=\"http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat\" alt=\"StackShare\">\n  </a>\n  <a href=\"https://github.com/dailydotdev/apps/actions/workflows/e2e-tests.yml\">\n    <img src=\"https://github.com/dailydotdev/apps/actions/workflows/e2e-tests.yml/badge.svg?branch=main\" alt=\"E2E Tests\">\n  </a>\n</p>\n\nThis monorepo contains daily.dev's application suite. The repo includes the web app and the extension, along with shared components for the two.\nBy using a monorepo approach, we can easily share code and maintain consistency across the different parts of the application suite.\nThe decision was made to allow faster iterations and to keep features parity in both platforms.\n\n## Technologies\n\n- Node v22.11 (a `.nvmrc` is presented for [nvm](https://github.com/nvm-sh/nvm) users).\n- [pnpm](https://pnpm.io/workspaces) for managing the monorepo and dependencies.\n\n## Projects\n\n### [packages](https://github.com/dailydotdev/apps/tree/main/packages)\n\ncontains a collection of smaller projects or libraries that are used across the daily.dev application suite. Here's a brief overview of each package mentioned:\n\n- ### [eslint-config](https://github.com/dailydotdev/apps/tree/main/packages/eslint-config)\n\n  Shared ESLint settings for maintaining consistent code quality across the project.\n\n- ### [eslint-rules](https://github.com/dailydotdev/apps/tree/main/packages/eslint-rules)\n\n  A custom ESLint plugin that defines a set of rules for the project, including a rule to enforce consistent color usage.\n\n- ### [extension](https://github.com/dailydotdev/apps/tree/main/packages/extension)\n\n  The browser extension project. Includes webpack configuration for browser extensions and the dedicated components just for the extension.\n\n- ### [prettier-config](https://github.com/dailydotdev/apps/tree/main/packages/prettier-config)\n\n  Shared Prettier settings for all the projects in this repo.\n\n- ### [shared](https://github.com/dailydotdev/apps/tree/main/packages/shared)\n\n  The main project contains most of the components used in the applications. Every component that needs to be used on both platforms should be placed in this project. This includes the design system components, custom hooks, and many more.\n\n- ### [storybook](https://github.com/dailydotdev/apps/tree/main/packages/storybook)\n\n  The Storybook configuration for the project, used to develop and showcase UI components in isolation.\n\n- ### [webapp](https://github.com/dailydotdev/apps/tree/master/packages/webapp)\n\n  The web app project. This is a Next.js project and has more pages than the extension, such as a registration page, post page, profile page, etc. For more information [click here](https://github.com/dailydotdev/apps/tree/master/packages/webapp).\n\n## Local Environment\n\nTo spin up a local environment, you will need Docker. Do the steps below and you should be able to start trying to center a div:\n\n- Fork this repo\n- Pull it locally\n- Run `docker compose up`\n- Once done, seed your local data by running `docker compose exec daily-api node ./bin/import`\n- Then lastly, run npm run dev:oss\n- The app should run at `http://localhost:5002/`\n\n## Want to Help?\n\nSo you want to contribute to daily.dev app suite and make an impact, we are glad to hear it. :heart_eyes:\n\nBefore you proceed we have a few guidelines for contribution that will make everything much easier.\n\nWe would appreciate if you dedicate the time and read them carefully:\n[CONTRIBUTING.md](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md)\n\n## Bootstrap Project\n\nAfter cloning the project, please make sure to run the following commands to bootstrap the project:\n\n```bash\nnpm i -g pnpm@9.14.4\npnpm install\n```\n\n### Run Extension Locally\n\nExample for Chrome:\n\n- Run `pnpm --filter extension dev` in the root directory\n- Open Chrome and go to `chrome://extensions/`\n- Enable `Developer mode` in the top right corner\n- Click on `Load unpacked` and select the `packages/extension/dist/chrome` folder\n- The extension should be loaded and you should be able to see it in the extensions list\n- Enable the extension, don't forget to disable it when you are done\n- Disable the production extension if you have it installed as it might cause conflicts\n",
+        "truncated": false,
+        "bytes": 4745,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".cert",
+        ".circleci",
+        ".claude",
+        ".cursor",
+        ".dockerignore",
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".gitpod.yml",
+        ".idea",
+        ".nvmrc",
+        ".vscode",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "Dockerfile",
+        "LICENSE",
+        "README.md",
+        "Tiltfile",
+        "docker-compose.yml",
+        "package.json",
+        "packages",
+        "patches",
+        "plans",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "vercel.json",
+        "wait-for.sh"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <h1>daily.dev App Suite</h1> <strong>Everything you see on daily.dev 👀</strong> </div> <br>",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://circleci.com/gh/dailydotdev/apps\"> <img src=\"https://img.shields.io/circleci/build/github/dailydotdev/apps/**master**.svg\" alt=\"Build Status\"> </a> <a href=\"https://github.com/dailydotdev/apps/blob/master/LICENSE\"> <img src=\"https://img.shields.io/github/license/dailydotdev/apps.svg\" alt=\"License\"> </a> <a href=\"https://stackshare.io/daily/daily\"> <img src=\"http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat\" alt=\"StackShare\"> </a> <a href=\"https://github.com/dailydotdev/apps/actions/workflows/e2e-tests.yml\"> <img src=\"https://github.com/dailydotdev/apps/actions/workflows/e2e-tests.yml/badge.svg?branch=main\" alt=\"E2E Tests\"> </a> </p>",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 3)",
+          "excerpt": "This monorepo contains daily.dev's application suite. The repo includes the web app and the extension, along with shared components for the two. By using a monorepo approach, we can easily share code and maintain consistency across the different parts of the application suite. The decision was made to allow faster iterations and to keep features parity in both platforms.",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- Node v22.11 (a `.nvmrc` is presented for [nvm](https://github.com/nvm-sh/nvm) users). - [pnpm](https://pnpm.io/workspaces) for managing the monorepo and dependencies.",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 5)",
+          "excerpt": "contains a collection of smaller projects or libraries that are used across the daily.dev application suite. Here's a brief overview of each package mentioned:",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- ### [eslint-config](https://github.com/dailydotdev/apps/tree/main/packages/eslint-config)",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Shared ESLint settings for maintaining consistent code quality across the project.",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/dailydotdev/apps#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- ### [eslint-rules](https://github.com/dailydotdev/apps/tree/main/packages/eslint-rules)",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/dailydotdev/apps",
+          "title": "ROOT_FILES",
+          "excerpt": ".cert, .circleci, .claude, .cursor, .dockerignore, .editorconfig, .gitattributes, .github, .gitignore, .gitpod.yml, .idea, .nvmrc, .vscode, AGENTS.md, CLAUDE.md, Dockerfile, LICENSE, README.md, Tiltfile, docker-compose.yml, package.json, packages, patches, plans, pnpm-lock.yaml, pnpm-workspace.yaml, vercel.json, wait-for.sh",
+          "fetched_at": "2026-03-05T13:26:27.685Z",
+          "meta": {
+            "repo_full_name": "dailydotdev/apps",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "kyma-project/cli",
+      "html_url": "https://github.com/kyma-project/cli",
+      "description": "Simple set of commands to manage a Kyma cluster",
+      "topics": [
+        "cli",
+        "kyma"
+      ],
+      "language": "Go",
+      "stargazers_count": 121,
+      "forks_count": 122,
+      "open_issues_count": 32,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:25:21Z",
+      "created_at": "2018-11-12T09:28:32Z",
+      "readme": {
+        "fetched": true,
+        "text": "<!-- markdown-link-check-disable-next-line -->\n\n[![REUSE status](https://api.reuse.software/badge/github.com/kyma-project/cli)](https://api.reuse.software/info/github.com/kyma-project/cli)\n\n# Kyma CLI\n\n> [!WARNING]\n> The Kyma CLI version `v2`, with all commands available within this version, is deprecated. Use the commands available as part of `v3` and contribute with use case ideas and general feedback.\n\nKyma CLI is a command-line interface tool designed to simplify the use of [Kyma](https://github.com/kyma-project/kyma) for application developers. It helps to manage Kyma modules and deploy simple applications, automating complex tasks with simple commands and accelerating development cycles.\n\n## Install\n\nFor the installation instructions, see [How to Install](./docs/user/README.md#install-kyma-cli).\n\n## Usage\n\nInspect the new available commands by calling the `--help` option:\n\n```sh\nkyma --help\n```\n\nRun a simple app from the image on Kyma by calling:\n\n```sh\nkyma app push --name my-first-kyma-app --image kennethreitz/httpbin --expose --container-port 80\n\n\nCreating deployment default/my-first-kyma-app\n\nCreating service default/my-first-kyma-app\n\nCreating API Rule default/my-first-kyma-app\n\nThe `my-first-kyma-app` application is available under the https://my-first-kyma-app.{CLUSTER_DOMAIN}/ address\n```\n\nFor more usage scenarios, see [user documentation](./docs/user/README.md).\n\n## Development\n\nTo build a Kyma CLI binary, run:\n\n```sh\ngo build -o kyma main.go\n```\n\nYou can run the command directly from the go code. For example:\n\n```sh\ngo run main.go module list\n```\n\n## Contributing\n<!--- mandatory section - do not change this! --->\n\nSee the [Contributing Rules](CONTRIBUTING.md).\n\n## Code of Conduct\n<!--- mandatory section - do not change this! --->\n\nSee the [Code of Conduct](CODE_OF_CONDUCT.md) document.\n\n## Licensing\n<!--- mandatory section - do not change this! --->\n\nSee the [license](LICENSE) file.\n",
+        "truncated": false,
+        "bytes": 1932,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "0.0.0-dev",
+            "tag_name": "0.0.0-dev",
+            "published_at": "2025-03-04T06:33:33Z",
+            "body_excerpt": "\n"
+          },
+          {
+            "name": "3.3.1",
+            "tag_name": "3.3.1",
+            "published_at": "2026-01-19T15:49:46Z",
+            "body_excerpt": "## What's Changed\r\n* 🍒 Fixed channels display for module catalog command (#2814) by @musztardem in https://github.com/kyma-project/cli/pull/2825\r\n\r\n\r\n**Full Changelog**: https://github.com/kyma-project/cli/compare/3.3.0...3.3.1"
+          },
+          {
+            "name": "3.3.0",
+            "tag_name": "3.3.0",
+            "published_at": "2025-12-08T15:37:16Z",
+            "body_excerpt": "## What's Changed\r\n\r\n### Highlights\r\n\r\nHere are the highlights of the 3.3.0 release:\r\n\r\n#### Community module management improvements\r\n  - Pull the latest community module templates (e.g., docker-registry) into the default namespace:\r\n    ```bash\r\n    kyma module pull docker-registry\r\n    ```\r\n  - Install a community module from a pulled template (with a default CR):\r\n    ```bash\r\n    kyma module add default/docker-registry-0.10.0 --default-cr\r\n    ```\r\n  - Remove an installed community module:\r\n    ```bash\r\n    kyma module delete default/docker-registry-0.10.0\r\n    ```\r\n  - Note: Behavior changes for community modules — see **Breaking Changes**.\r\n\r\n #### New “authorize” command group (alpha)\r\n  - Grant access for users, groups, subaccounts, and GitHub repositories to your Kyma cluster in one step.\r\n  - Discover options:\r\n    ```bash\r\n    kyma alpha authorize --help\r\n    ```\r\n\r\n#### Day 2 diagnostics (alpha)\r\n  - Module/component error logs:\r\n    ```bash\r\n    kyma alpha diagnose logs --help\r\n    ```\r\n  - Istio mesh configuration analysis (programmatic equivalent of istioctl analyze):\r\n    ```bash\r\n    kyma alpha diagnose istio --help\r\n    ```\r\n   \r\n### New Features 🚀 \r\n* Added kyma alpha authorize command by @musztardem in https://github.com/kyma-project/cli/pull/2655\r\n* Revamp app push --mount flags by @Cortey in https://github.com/kyma-project/cli/pull/2649\r\n* Improved listing and removal of community modules by @musztardem in https://github.com/kyma-project/cli/pull/2663\r\n* Support the `--context` flag by @pPrecel in https://github.com/kyma-project/cli/pull/2666\r\n* Configure securityContext for the app push deployment by @pPrecel in https://github.com/kyma-project/cli/pull/2662\r\n* Return latest community module when flag --version is not specified by @MichalKalke in https://github.com/kyma-project/cli/pull/2677\r\n* Added diagnose logs command by @musztardem in https://github.com/kyma-project/cli/pull/2667\r\n* Diagnose istio by @anoipm in https://github.com/kyma-pr"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 2866,
+            "title": "Guide user about the `authorize` command",
+            "state": "open",
+            "url": "https://github.com/kyma-project/cli/issues/2866"
+          },
+          {
+            "number": 2788,
+            "title": "add --remote to alpha module pull command",
+            "state": "open",
+            "url": "https://github.com/kyma-project/cli/issues/2788"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".golangci.yaml",
+        ".goreleaser.yml",
+        ".mlc.config.json",
+        ".reuse",
+        "CODEOWNERS",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "LICENSES",
+        "Makefile",
+        "NOTICE.md",
+        "README.md",
+        "SECURITY.md",
+        "docs",
+        "gen-docs",
+        "go.mod",
+        "go.sum",
+        "hack",
+        "internal",
+        "main.go",
+        "sec-scanners-config.yaml",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/kyma-project/cli#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![REUSE status](https://api.reuse.software/badge/github.com/kyma-project/cli)](https://api.reuse.software/info/github.com/kyma-project/cli)",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/kyma-project/cli#readme",
+          "title": "README (segment 2)",
+          "excerpt": "> [!WARNING] > The Kyma CLI version `v2`, with all commands available within this version, is deprecated. Use the commands available as part of `v3` and contribute with use case ideas and general feedback.",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/kyma-project/cli#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Kyma CLI is a command-line interface tool designed to simplify the use of [Kyma](https://github.com/kyma-project/kyma) for application developers. It helps to manage Kyma modules and deploy simple applications, automating complex tasks with simple commands and accelerating development cycles.",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/kyma-project/cli#readme",
+          "title": "README (segment 4)",
+          "excerpt": "For the installation instructions, see [How to Install](./docs/user/README.md#install-kyma-cli).",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/kyma-project/cli#readme",
+          "title": "README (segment 5)",
+          "excerpt": "```sh kyma app push --name my-first-kyma-app --image kennethreitz/httpbin --expose --container-port 80",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/kyma-project/cli#readme",
+          "title": "README (segment 6)",
+          "excerpt": "The `my-first-kyma-app` application is available under the https://my-first-kyma-app.{CLUSTER_DOMAIN}/ address ```",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/kyma-project/cli/issues/2866",
+          "title": "Guide user about the `authorize` command",
+          "excerpt": "Guide user about the `authorize` command (state:open)",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "number": 2866
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/kyma-project/cli/issues/2788",
+          "title": "add --remote to alpha module pull command",
+          "excerpt": "add --remote to alpha module pull command (state:open)",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "number": 2788
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/kyma-project/cli/releases",
+          "title": "0.0.0-dev",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "tag_name": "0.0.0-dev",
+            "published_at": "2025-03-04T06:33:33Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/kyma-project/cli/releases",
+          "title": "3.3.1",
+          "excerpt": "## What's Changed * 🍒 Fixed channels display for module catalog command (#2814) by @musztardem in https://github.com/kyma-project/cli/pull/2825 **Full Changelog**: https://github.com/kyma-project/cli/compare/3.3.0...3.3.1",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "tag_name": "3.3.1",
+            "published_at": "2026-01-19T15:49:46Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/kyma-project/cli/releases",
+          "title": "3.3.0",
+          "excerpt": "## What's Changed ### Highlights Here are the highlights of the 3.3.0 release: #### Community module management improvements - Pull the latest community module templates (e.g., docker-registry) into the default namespace: ```bash kyma module pull docker-registry ``` - Install a community module from a pulled template (with a default CR): ```bash kyma module add default/docker-registry-0.10.0 --default-cr ``` - Remove an installed community module: ```bash kyma module delete default/docker-registry-0.10.0 ``` - Note: Behavior changes for community modules — see **Breaking Changes**. #### New “authorize” command group (alpha) - Grant access for users, groups, subaccounts, and GitHub repositories to your Kyma cluster in one step. - Discover options: ```bash kyma alpha authorize --help ``` #### Day 2 diagnostics (alpha) - Module/component error logs: ```bash kyma alpha diagnose logs --help ``` - Istio mesh configuration analysis (programmatic equivalent of istioctl analyze): ```bash kyma alpha diagnose istio --help ``` ### New Features 🚀 * Added kyma alpha authorize command by @musztardem in https://github.com/kyma-project/cli/pull/2655 * Revamp app push --mount flags by @Cortey in h…",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "tag_name": "3.3.0",
+            "published_at": "2025-12-08T15:37:16Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/kyma-project/cli",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .golangci.yaml, .goreleaser.yml, .mlc.config.json, .reuse, CODEOWNERS, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, LICENSES, Makefile, NOTICE.md, README.md, SECURITY.md, docs, gen-docs, go.mod, go.sum, hack, internal, main.go, sec-scanners-config.yaml, tests",
+          "fetched_at": "2026-03-05T13:26:27.719Z",
+          "meta": {
+            "repo_full_name": "kyma-project/cli",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "LogicStamp/logicstamp-context",
+      "html_url": "https://github.com/LogicStamp/logicstamp-context",
+      "description": "A Context Compiler for TypeScript. Deterministic, diffable architectural contracts and dependency graphs for AI coding workflows.",
+      "topics": [
+        "ai-agents",
+        "ai-assistants",
+        "ai-tooling",
+        "architecture-analysis",
+        "ast",
+        "cli",
+        "code-analysis",
+        "context-engineering",
+        "dependency-analysis",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "nextjs",
+        "react",
+        "refactoring",
+        "software-architecture",
+        "static-analysis",
+        "typescript",
+        "typescript-ast"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 58,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-05T13:24:56Z",
+      "created_at": "2025-11-07T15:47:32Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <a href=\"https://logicstamp.dev\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/logicstamp-woodmark-dark.png\">\n      <source media=\"(prefers-color-scheme: light)\" srcset=\"assets/logicstamp-woodmark-light.png\">\n      <img src=\"assets/logicstamp-woodmark-light.png\" alt=\"LogicStamp\" width=\"400\" height=\"auto\">\n    </picture>\n  </a>\n\n## The Context Compiler for TypeScript.\n\n<em>Supports: React · Next.js · Vue (TS/TSX) · Express · NestJS</em>\n\n<br/>\n</div>\n\nLogicStamp Context is a CLI that compiles TypeScript codebases into deterministic, diffable architectural contracts and dependency graphs - a compact, structured source of truth for AI coding workflows.\n\nWatch mode. Strict, auditable diffs. Real-time breaking change detection. AST-based contract extraction.\n\n**Includes an MCP server. Works with Claude, Cursor, Copilot Chat, and any MCP-compatible agent.**\n\n<div align=\"center\">\n\n  <br/>\n  <a href=\"https://github.com/LogicStamp\">\n    <img src=\"./assets/logicstamp-fox.svg\" alt=\"LogicStamp Fox Mascot\" width=\"100\" style=\"min-width: 80px;\">\n  </a>\n\n  [![Version](https://img.shields.io/npm/v/logicstamp-context?color=8b5cf6&label=version)](https://www.npmjs.com/package/logicstamp-context)\n  ![Beta](https://img.shields.io/badge/status-beta-orange.svg)\n  [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)\n  ![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)\n  [![CI](https://github.com/LogicStamp/logicstamp-context/workflows/CI/badge.svg)](https://github.com/LogicStamp/logicstamp-context/actions)\n\n</div>\n<br/>\n\n<details>\n<summary><strong>📑 Table of Contents</strong></summary>\n\n- [The Problem](#the-problem)\n- [Quick Start](#quick-start)\n- [Why Structured Context?](#why-structured-context)\n- [Features](#-features)\n- [Watch Mode](#watch-mode)\n- [How it Works](#how-it-works)\n- [MCP Server](#mcp-server)\n- [Example Output](#example-output)\n- [Installation](#installation)\n- [Security](#security)\n- [Usage](#usage)\n- [Framework Support](#framework-support)\n- [Documentation](#documentation)\n- [Known Limitations](#known-limitations)\n- [Requirements](#requirements)\n- [Need Help?](#need-help)\n- [License](#license)\n</details>\n\n## The Problem\n\nAI coding assistants read your source code - but they don’t understand its structure.  \nThey hallucinate props, miss dependencies, and can’t detect when a breaking change impacts consumers.\n\nExample: your `Button` accepts `variant` and `disabled`, but the AI suggests `isLoading` because it saw that pattern elsewhere. Without a structured contract, there is no reliable source of truth.\n\n**LogicStamp Context** compiles TypeScript into deterministic architectural contracts and dependency graphs - a machine-readable representation of your system that AI tools can consume instead of parsing raw implementation code.\n\nThese contracts:\n\n- Stay in sync with your code (watch mode auto-regenerates)\n- Expose interfaces (props, hooks, APIs) without implementation noise\n- Are deterministic, diffable, and auditable\n- Enable early detection of architectural drift and breaking changes\n\n![LogicStamp MCP Workflow](./assets/logicstamp-workflow.gif)\n*Context bundles generated and consumed across MCP-powered AI workflows.*\n\n**Same code ⇒ same context output.** Contracts are diffable, so you can detect drift and breaking changes.\n\n```\nTypeScript Code  →  Compilation  →  Deterministic Contracts  →  AI Assistant\n   (.ts/.tsx)        (ts-morph)       (context.json bundles)     (Claude, Cursor)\n```\n\n---\n\n## Quick Start\n\n**Try it in 30 seconds (no install required):**\n```bash\nnpx logicstamp-context context\n```\n\nScans your repo and writes `context.json` files + `context_main.json` for AI tools.\n\n**What you get:**\n- 📁 `context.json` files - one per folder with components, preserving your directory structure\n- 📋 `context_main.json` - index file with project overview and folder metadata\n\n**For a complete setup (recommended):**\n```bash\nnpm install -g logicstamp-context\nstamp init        # sets up .gitignore, scans for secrets\nstamp context\n```\n\n> **ℹ️ Note:** With `npx`, run `npx logicstamp-context context`. After global install, use `stamp context`.\n\n📋 **For detailed setup instructions, see the [Getting Started Guide](https://logicstamp.dev/docs/getting-started).**\n\n## Why Structured Context?\n\n| Without LogicStamp Context | With LogicStamp Context |\n|-------------------|-----------------|\n| AI parses 200 lines of implementation to infer a component's interface | AI reads a 20-line interface contract |\n| Props/hooks inferred (often wrong) | Props/hooks explicit and verified |\n| No way to know if context is stale | Watch mode catches changes in real-time |\n| Different prompts = different understanding | Deterministic: same code = same contract |\n| Manual context gathering: \"Here's my Button component...\" | Structured contracts: AI understands architecture automatically |\n\n**The key insight:** AI assistants don't need your implementation - they need your *interfaces*. LogicStamp Context extracts what matters and discards the noise.\n\n### What \"Structured\" Means\n\nInstead of shipping raw source code to AI:\n\n```typescript\n// Raw: AI must parse and infer\nexport const Button = ({ variant = 'primary', disabled, onClick, children }) => {\n  const [isHovered, setIsHovered] = useState(false);\n  // ... 150 more lines of implementation\n}\n```\n\nLogicStamp Context generates:\n\n```json\n{\n  \"kind\": \"react:component\",\n  \"interface\": {\n    \"props\": {\n      \"variant\": { \"type\": \"literal-union\", \"literals\": [\"primary\", \"secondary\"] },\n      \"disabled\": { \"type\": \"boolean\" },\n      \"onClick\": { \"type\": \"function\", \"signature\": \"() => void\" }\n    }\n  },\n  \"composition\": { \"hooks\": [\"useState\"], \"components\": [\"./Icon\"] }\n}\n```\n\nPre-parsed. Categorized. Stable. The AI reads contracts, not implementations.\n\n## ⚡ Features\n\n**Core:**\n- **Deterministic contracts** - Same input = same output, auditable in version control\n- **Watch mode** - Auto-regenerate on file changes with incremental rebuilds\n- **Breaking change detection** - Strict watch mode catches removed props, events, functions in real-time\n- **MCP-ready** - AI agents consume context via standardized MCP interface\n\n**Analysis:**\n- React/Next.js/Vue component extraction (props, hooks, state, deps)\n- Backend API extraction (Express.js, NestJS routes and controllers)\n- Dependency graphs (handles circular dependencies)\n- Style metadata extraction (Tailwind, SCSS, MUI, shadcn)\n- Next.js App Router detection (client/server, layouts, pages)\n\n**Developer experience:**\n- Per-folder bundles matching your project structure\n- Accurate token estimates (GPT/Claude)\n- Security-first: automatic secret detection and sanitization\n- Zero config required - sensible defaults, works out of the box\n\n## Watch Mode\n\n<p align=\"center\">\n  <img src=\"./assets/logicstamp-strict-watch.gif\" width=\"820\" />\n</p>\n\n*Strict watch mode in action: detecting violations and clearing them when resolved.*\n\nFor development, run watch mode to keep context fresh as you code:\n\n```bash\nstamp context --watch                  # regenerate on changes\nstamp context --watch --strict-watch   # also detect breaking changes\n```\n\nStrict watch catches breaking changes that affect consumers:\n\n| Violation | Example |\n|-----------|---------|\n| `breaking_change_prop_removed` | Removed `disabled` prop from Button |\n| `breaking_change_event_removed` | Removed `onSubmit` callback |\n| `breaking_change_function_removed` | Deleted exported `formatDate()` |\n| `contract_removed` | Deleted entire component |\n\n**Errors vs Warnings:** Violations are classified by severity. **Errors** indicate breaking changes that will affect consumers (removed props, events, functions, or entire contracts). **Warnings** indicate less severe changes (type signature changes, removed internal state). Violations are tracked in real-time and automatically cleared when resolved.\n\n![Strict Watch Mode Terminal Output](./assets/logicstamp-strict-watch-output.png)\n\n*Example terminal output showing violations.*\n\n> ℹ️ **Note:** Strict Watch currently detects breaking changes at the source. Next step: a symbol-level import/export reverse index to trace which consumer files will break.\n\n### One-time Comparison\n\nCompare regenerated context against existing files:\n\n```bash\nstamp context compare            # detect changes\nstamp context compare --approve  # update (like jest -u)\n```\n\nUseful for reviewing changes before committing or validating context is up-to-date.\n\n> ⚠️ **Note:** Context files are gitignored by default. For CI-based drift detection, the `--baseline git:<ref>` option (e.g., `--baseline git:main`) is **not yet implemented**. Until automation is available, use the manual workflow: generate context from current code, checkout baseline branch, generate context from baseline, then compare. See the [roadmap](https://logicstamp.dev/roadmap) for planned automation.\n\n## How it Works\n\nThe compilation pipeline:\n\n1. **Scan** - Discovers all `.ts` and `.tsx` source files\n2. **Parse** - Builds AST (Abstract Syntax Tree) via `ts-morph` using the TypeScript compiler API\n3. **Extract** - Compiles contracts with props, hooks, state, signatures\n4. **Graph** - Resolves dependency relationships\n5. **Emit** - Outputs `context.json` bundles per folder\n6. **Index** - Generates `context_main.json` with metadata and statistics\n\n**Why AST-based compilation matters:** LogicStamp leverages the full TypeScript compiler (via ts-morph) for deterministic, type-aware contract extraction. Prop types, hooks, and composition patterns are resolved structurally - not inferred from text or retrieval.\n\nOne command. No build step required.\n\n> **💡Tip:** Use `stamp context` for basic contracts. Use `stamp context style` when you need style metadata (Tailwind classes, SCSS selectors, layout patterns). Use `--style-mode lean` (default) for compact output or `--style-mode full` for detailed arrays.\n\n<details>\n<summary><strong>📋 What LogicStamp Context Is (and Isn't)</strong></summary>\n\n**LogicStamp Context IS:**\n\n✅ **A context compiler** - Uses the TypeScript compiler API (via ts-morph) to compile source code into deterministic architectural contracts.\n\n✅ **Deterministic** - Same input always produces the same output. Contracts are auditable and diffable.\n\n✅ **Local execution** - Runs entirely on your machine (no cloud services, no network calls).\n\n✅ **Framework-aware** - Understands React, Next.js, Vue, Express, and NestJS patterns and extracts relevant metadata.\n\n✅ **Non-opinionated** - Describes what exists without enforcing patterns or architectural decisions.\n\n**LogicStamp Context IS NOT:**\n\n❌ **A code generator** - It never writes or modifies your source code.\n\n❌ **A documentation generator** - It produces structured contracts, not documentation.\n\n❌ **A build or runtime tool** - It compiles contracts from static source code; it does not execute or bundle your application.\n\n❌ **A linter, formatter, or testing framework** - It does not check code quality or run tests.\n\n❌ **An AI behavior controller** - It provides structured context; it does not alter AI responses.\n\n❌ **A replacement for reading code** - It accelerates understanding without replacing engineering judgment.\n\n</details>\n\n## MCP Server\n\nFor AI assistants with MCP support (Claude Desktop, Cursor, etc.):\n\n```bash\nnpm install -g logicstamp-mcp\n```\n\nThen configure your AI assistant to use the LogicStamp MCP Server.\n\n📋 **See [MCP Getting Started Guide](https://logicstamp.dev/docs/mcp/getting-started)** for setup instructions.\n\n## Example Output\n\nLogicStamp Context generates structured JSON bundles organized by folder:\n\n```json\n{\n  \"type\": \"LogicStampBundle\",\n  \"entryId\": \"src/components/Button.tsx\",\n  \"graph\": {\n    \"nodes\": [\n      {\n        \"entryId\": \"src/components/Button.tsx\",\n        \"contract\": {\n          \"kind\": \"react:component\",\n          \"interface\": {\n            \"props\": {\n              \"variant\": { \"type\": \"literal-uni",
+        "truncated": true,
+        "bytes": 18224,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.7.0",
+            "tag_name": "v0.7.0",
+            "published_at": "2026-03-03T14:54:40Z",
+            "body_excerpt": "This release focuses on **lean style-mode defaults, incremental watch performance, schema correctness, and expanded test coverage**.\r\n\r\n0.7.0 improves reliability and strengthens watch-mode stability.\r\n\r\n---\r\n\r\n## ⚠️ Breaking Changes\r\n\r\n### Default Style Mode is Now `lean`\r\n\r\n- `stamp context style` now defaults to **`--style-mode lean`**.\r\n- Produces smaller, faster bundles by default.\r\n- Use `--style-mode full` to restore previous behavior.\r\n\r\n---\r\n\r\n## ⚡ Watch Mode Improvements\r\n\r\n- Added structured style metadata cache to `incrementalRebuild`.\r\n- Reuses cached style metadata for faster rebuilds.\r\n- Introduced null-sentinel strategy to prevent retry storms.\r\n- Style extraction failures are now best-effort and never break rebuilds.\r\n- Added `strictWatch` flag to `.logicstamp/context_watch-status.json` for reliable external detection.\r\n\r\n---\r\n\r\n## 🐞 Schema & Reliability Fixes\r\n\r\n- Fixed JSON schema to properly support both `lean` and `full` style modes.\r\n- Added tests to prevent future schema drift.\r\n- Improved Windows stale-lock handling for better cross-platform stability.\r\n\r\n---\r\n\r\n## 🧪 Test Coverage Expansion\r\n\r\n- Statements: **88%**\r\n- Branches: **77.21%**\r\n- Functions: **93.9%**\r\n- Lines: **88.19%**\r\n- Refactored watch-mode tests into focused modules.\r\n- Expanded Vue extractor and edge-case coverage.\r\n\r\n---\r\n\r\n## 📚 Documentation\r\n\r\n- Officially reframed LogicStamp as the **“Context Compiler for TypeScript.”**\r\n- Synced terminology across CLI, README, and docs.\r\n- Documented `--style-mode` defaults and usage.\r\n\r\n---\r\n\r\n🔗 **Related PRs**\r\n\r\n- #100 – Context module barrel exports  \r\n- #101 – propExtractor refactor  \r\n- #102 – Failure-mode coverage expansion  \r\n- #103 – CI & Vitest refinement  \r\n- #104 – Extraction and error-path coverage expansion  \r\n- #105 – Context Compiler positioning update  \r\n- #106 – Security report awareness & test updates  \r\n- #107 – Terminology refactor (“context compilation”)  \r\n- #108 – Documentation terminology sync  \r\n- #109 – L"
+          },
+          {
+            "name": "v0.6.0",
+            "tag_name": "v0.6.0",
+            "published_at": "2026-02-20T18:48:29Z",
+            "body_excerpt": "This release focuses on **runtime schema validation hardening, dependency security updates, fail-closed contract loading behavior, and improved cross-platform correctness**. Contracts are now validated at load time and rejected when the schema is unavailable, ensuring deterministic architectural integrity.\r\n\r\n---\r\n\r\n## ⚠️ Breaking Changes\r\n\r\n### Node.js >= 20 Required\r\n\r\n- Minimum Node.js version bumped to **>=20**.\r\n- Required by dependency and security updates.\r\n- Users on Node.js < 20 must upgrade.\r\n\r\n---\r\n\r\n## 🔁 Changed\r\n\r\n### Dependency Updates\r\n\r\n- Upgraded **`ts-morph` to 27.0.2** (from 21.0.1) with improved TypeScript 5.x support.\r\n- Updated **`glob` to 13.0.6** to address a minimatch ReDoS vulnerability.\r\n\r\n---\r\n\r\n## ➕ Added\r\n\r\n### Runtime Schema Validation\r\n\r\n- `.uif.json` sidecar contract files are now validated via **AJV at load time**.\r\n- Invalid, malformed, or schema-drifted contracts are rejected.\r\n- Prevents corrupted architectural context from being consumed by tooling or AI agents.\r\n- Validation errors are capped at 20 entries for clarity.\r\n\r\n---\r\n\r\n## 🐞 Fixed\r\n\r\n### Fail-Closed Schema Behavior\r\n\r\n- Contracts are now rejected when the JSON schema cannot be loaded.\r\n- Prevents silent validation bypass.\r\n\r\n---\r\n\r\n### Schema Validator Reliability\r\n\r\n- Ensures consistent `valid` / `errors` return values.\r\n- Correct `err.data` reporting.\r\n- Properly reports `null` and `array` instead of generic `object`.\r\n\r\n---\r\n\r\n### Contract Loader Error Handling\r\n\r\n- Clearly distinguishes:\r\n  - File not found\r\n  - Read errors\r\n  - JSON parse errors\r\n  - Schema validation errors.\r\n- Improves debugging clarity.\r\n\r\n---\r\n\r\n### File Lock Race Condition\r\n\r\n- Prevents concurrent processes from acquiring locks mid-write.\r\n- Improves cross-platform reliability.\r\n\r\n---\r\n\r\n## 🔐 Security\r\n\r\n- Enforces strict project-root boundaries across file loading utilities (path traversal protection).\r\n- Includes a fix for a minimatch ReDoS vulnerability via `glob@13.0.6`.\r\n\r\n---\r\n\r\n## \ud83d"
+          },
+          {
+            "name": "v0.5.5",
+            "tag_name": "v0.5.5",
+            "published_at": "2026-02-17T15:04:09Z",
+            "body_excerpt": "This release focuses on **strict watch mode correctness, crash-safe file operations, Windows cleanup reliability, and more resilient glob and compare behavior**. Strict watch now reports **current state vs baseline (git-diff style)**, and config/status writes are protected with file locking and atomic writes to prevent corruption.\r\n\r\n---\r\n\r\n## 🔁 Changed\r\n\r\n### Strict Watch: State-Based Diffing\r\n\r\n- Strict watch violations now show **current state vs baseline**, not accumulated history.\r\n- Reverting breaking changes back to baseline now removes the violations file (no violations = no file).\r\n- `--log-file` remains append-based for event history.\r\n- Missing third-party dependencies are no longer reported as strict watch violations.\r\n\r\n---\r\n\r\n## 🐞 Fixed\r\n\r\n### Watch Mode Cleanup on Exit\r\n\r\n- Ensured `watch_status.json` is deleted reliably on Windows and Cursor.\r\n- Signal handlers are registered at watch startup.\r\n- Absolute path resolution for status file cleanup.\r\n- Added synchronous fallback via `process.on('exit')`.\r\n- MCP tools now clean up stale status files when PID validation fails.\r\n\r\n---\r\n\r\n### Watch Mode Revert Correctness\r\n\r\n- Prevented cache inconsistency when `pack()` fails during incremental rebuild.\r\n- Restores contracts from the previous bundle on revert.\r\n- Preserves reverse index entries.\r\n- Rebuilds manifest and contracts from actual bundle contents.\r\n\r\n---\r\n\r\n### Resilient Glob Failure Handling\r\n\r\n- Continues processing remaining patterns when one fails.\r\n- Returns partial results when at least one pattern succeeds.\r\n- Throws aggregate error only when all patterns fail.\r\n- Logs partial failures in debug mode.\r\n\r\n---\r\n\r\n### Config Race Condition (TOCTOU)\r\n\r\n- Introduced lightweight file locking (`O_CREAT | O_EXCL`).\r\n- Locks detect and clean stale processes safely.\r\n- Conservative ESRCH vs EPERM distinction to avoid deleting valid locks.\r\n- Configurable timeout and retry behavior.\r\n- No new dependencies.\r\n\r\n---\r\n\r\n### Atomic File Writes\r\n\r\n- Config"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        "CHANGELOG.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "LLM_CONTEXT.md",
+        "README.md",
+        "ROADMAP.md",
+        "SECURITY.md",
+        "assets",
+        "docs",
+        "examples",
+        "package-lock.json",
+        "package.json",
+        "schema",
+        "src",
+        "tests",
+        "tsconfig.json",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <a href=\"https://logicstamp.dev\"> <picture> <source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/logicstamp-woodmark-dark.png\"> <source media=\"(prefers-color-scheme: light)\" srcset=\"assets/logicstamp-woodmark-light.png\"> <img src=\"assets/logicstamp-woodmark-light.png\" alt=\"LogicStamp\" width=\"400\" height=\"auto\"> </picture> </a>",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 2)",
+          "excerpt": "LogicStamp Context is a CLI that compiles TypeScript codebases into deterministic, diffable architectural contracts and dependency graphs - a compact, structured source of truth for AI coding workflows.",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Watch mode. Strict, auditable diffs. Real-time breaking change detection. AST-based contract extraction.",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 4)",
+          "excerpt": "**Includes an MCP server. Works with Claude, Cursor, Copilot Chat, and any MCP-compatible agent.**",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<br/> <a href=\"https://github.com/LogicStamp\"> <img src=\"./assets/logicstamp-fox.svg\" alt=\"LogicStamp Fox Mascot\" width=\"100\" style=\"min-width: 80px;\"> </a>",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 6)",
+          "excerpt": "[![Version](https://img.shields.io/npm/v/logicstamp-context?color=8b5cf6&label=version)](https://www.npmjs.com/package/logicstamp-context) ![Beta](https://img.shields.io/badge/status-beta-orange.svg) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) ![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg) [![CI](https://github.com/LogicStamp/logicstamp-context/workflows/CI/badge.svg)](https://github.com/LogicStamp/logicstamp-context/actions)",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- [The Problem](#the-problem) - [Quick Start](#quick-start) - [Why Structured Context?](#why-structured-context) - [Features](#-features) - [Watch Mode](#watch-mode) - [How it Works](#how-it-works) - [MCP Server](#mcp-server) - [Example Output](#example-output) - [Installation](#installation) - [Security](#security) - [Usage](#usage) - [Framework Support](#framework-support) - [Documentation](#documentation) - [Known Limitations](#known-limitations) - [Requirements](#requirements) - [Need Help?](#need-help) - [License](#license) </details>",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context#readme",
+          "title": "README (segment 8)",
+          "excerpt": "AI coding assistants read your source code - but they don’t understand its structure. They hallucinate props, miss dependencies, and can’t detect when a breaking change impacts consumers.",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context/releases",
+          "title": "v0.7.0",
+          "excerpt": "This release focuses on **lean style-mode defaults, incremental watch performance, schema correctness, and expanded test coverage**. 0.7.0 improves reliability and strengthens watch-mode stability. --- ## ⚠️ Breaking Changes ### Default Style Mode is Now `lean` - `stamp context style` now defaults to **`--style-mode lean`**. - Produces smaller, faster bundles by default. - Use `--style-mode full` to restore previous behavior. --- ## ⚡ Watch Mode Improvements - Added structured style metadata cache to `incrementalRebuild`. - Reuses cached style metadata for faster rebuilds. - Introduced null-sentinel strategy to prevent retry storms. - Style extraction failures are now best-effort and never break rebuilds. - Added `strictWatch` flag to `.logicstamp/context_watch-status.json` for reliable external detection. --- ## 🐞 Schema & Reliability Fixes - Fixed JSON schema to properly support both `lean` and `full` style modes. - Added tests to prevent future schema drift. - Improved Windows stale-lock handling for better cross-platform stability. --- ## 🧪 Test Coverage Expansion - Statements: **88%** - Branches: **77.21%** - Functions: **93.9%** - Lines: **88.19%** - Refactored watch-mode …",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "tag_name": "v0.7.0",
+            "published_at": "2026-03-03T14:54:40Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context/releases",
+          "title": "v0.6.0",
+          "excerpt": "This release focuses on **runtime schema validation hardening, dependency security updates, fail-closed contract loading behavior, and improved cross-platform correctness**. Contracts are now validated at load time and rejected when the schema is unavailable, ensuring deterministic architectural integrity. --- ## ⚠️ Breaking Changes ### Node.js >= 20 Required - Minimum Node.js version bumped to **>=20**. - Required by dependency and security updates. - Users on Node.js < 20 must upgrade. --- ## 🔁 Changed ### Dependency Updates - Upgraded **`ts-morph` to 27.0.2** (from 21.0.1) with improved TypeScript 5.x support. - Updated **`glob` to 13.0.6** to address a minimatch ReDoS vulnerability. --- ## ➕ Added ### Runtime Schema Validation - `.uif.json` sidecar contract files are now validated via **AJV at load time**. - Invalid, malformed, or schema-drifted contracts are rejected. - Prevents corrupted architectural context from being consumed by tooling or AI agents. - Validation errors are capped at 20 entries for clarity. --- ## 🐞 Fixed ### Fail-Closed Schema Behavior - Contracts are now rejected when the JSON schema cannot be loaded. - Prevents silent validation bypass. --- ### Schem…",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "tag_name": "v0.6.0",
+            "published_at": "2026-02-20T18:48:29Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context/releases",
+          "title": "v0.5.5",
+          "excerpt": "This release focuses on **strict watch mode correctness, crash-safe file operations, Windows cleanup reliability, and more resilient glob and compare behavior**. Strict watch now reports **current state vs baseline (git-diff style)**, and config/status writes are protected with file locking and atomic writes to prevent corruption. --- ## 🔁 Changed ### Strict Watch: State-Based Diffing - Strict watch violations now show **current state vs baseline**, not accumulated history. - Reverting breaking changes back to baseline now removes the violations file (no violations = no file). - `--log-file` remains append-based for event history. - Missing third-party dependencies are no longer reported as strict watch violations. --- ## 🐞 Fixed ### Watch Mode Cleanup on Exit - Ensured `watch_status.json` is deleted reliably on Windows and Cursor. - Signal handlers are registered at watch startup. - Absolute path resolution for status file cleanup. - Added synchronous fallback via `process.on('exit')`. - MCP tools now clean up stale status files when PID validation fails. --- ### Watch Mode Revert Correctness - Prevented cache inconsistency when `pack()` fails during incremental rebuild. - Rest…",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "tag_name": "v0.5.5",
+            "published_at": "2026-02-17T15:04:09Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/LogicStamp/logicstamp-context",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, LLM_CONTEXT.md, README.md, ROADMAP.md, SECURITY.md, assets, docs, examples, package-lock.json, package.json, schema, src, tests, tsconfig.json, vitest.config.ts",
+          "fetched_at": "2026-03-05T13:26:28.065Z",
+          "meta": {
+            "repo_full_name": "LogicStamp/logicstamp-context",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "n8n-io/n8n",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "dailydotdev/apps",
+      "evidence_count": 9,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 0
+    },
+    {
+      "full_name": "kyma-project/cli",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 6,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "LogicStamp/logicstamp-context",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 0,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "n8n-io/n8n",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/n8n-io__n8n.json"
+    },
+    {
+      "repo": "dailydotdev/apps",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/dailydotdev__apps.json"
+    },
+    {
+      "repo": "kyma-project/cli",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/kyma-project__cli.json"
+    },
+    {
+      "repo": "LogicStamp/logicstamp-context",
+      "ok": true,
+      "spec_path": "specs/2026-03-05/LogicStamp__logicstamp-context.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "n8n-io/n8n",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/n8n-io__n8n.json"
+    },
+    {
+      "repo": "dailydotdev/apps",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/dailydotdev__apps.json"
+    },
+    {
+      "repo": "kyma-project/cli",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/kyma-project__cli.json"
+    },
+    {
+      "repo": "LogicStamp/logicstamp-context",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-05/LogicStamp__logicstamp-context.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "n8n-io/n8n",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/n8n-io__n8n.json"
+      ]
+    },
+    {
+      "repo": "dailydotdev/apps",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/dailydotdev__apps.json"
+      ]
+    },
+    {
+      "repo": "kyma-project/cli",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/kyma-project__cli.json"
+      ]
+    },
+    {
+      "repo": "LogicStamp/logicstamp-context",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-05/LogicStamp__logicstamp-context.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-05T13:26:44.145Z",
+      "run_id": "20260305T132621Z",
+      "repo": "n8n-io/n8n",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c4a134fb14e4819e00f8b5c0a0e0255f54a00aed856b952ffc168dbc77e93b02",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 8166
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16075,
+      "prompt_chars": 8166,
+      "completion_chars": 1372
+    },
+    {
+      "ts": "2026-03-05T13:26:59.844Z",
+      "run_id": "20260305T132621Z",
+      "repo": "n8n-io/n8n",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3edde1209770deb2598412c5a5c227d737bc94eff6583adef9fd32601cc61a4e",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9750
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15698,
+      "prompt_chars": 9750,
+      "completion_chars": 1660
+    },
+    {
+      "ts": "2026-03-05T13:27:16.550Z",
+      "run_id": "20260305T132621Z",
+      "repo": "n8n-io/n8n",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3d289834f65325fa890ba63532e7acefa8404ba52ef9a9d777dbca1c494f4c52",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11606
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16706,
+      "prompt_chars": 11606,
+      "completion_chars": 1737
+    },
+    {
+      "ts": "2026-03-05T13:27:32.173Z",
+      "run_id": "20260305T132621Z",
+      "repo": "n8n-io/n8n",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1d622e348c558c2743c4fda96b032a07eb2c271558f3b5ee2907c0ac088c6979",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13540
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15623,
+      "prompt_chars": 13540,
+      "completion_chars": 1795
+    },
+    {
+      "ts": "2026-03-05T13:27:55.331Z",
+      "run_id": "20260305T132621Z",
+      "repo": "n8n-io/n8n",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3e1a93d7b115c0fbcd5750ee72b606ba2a4e9bbefb404492d7ddf8060c5d806b",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 18187
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 23158,
+      "prompt_chars": 18187,
+      "completion_chars": 2744
+    },
+    {
+      "ts": "2026-03-05T13:28:05.755Z",
+      "run_id": "20260305T132621Z",
+      "repo": "dailydotdev/apps",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6017c5cd063a9114b65ad932afadb481d8339b7b035ddee1573c048cda8cce5f",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 4889
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10410,
+      "prompt_chars": 4889,
+      "completion_chars": 1127
+    },
+    {
+      "ts": "2026-03-05T13:28:15.549Z",
+      "run_id": "20260305T132621Z",
+      "repo": "dailydotdev/apps",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a4d74de1303d8310e6d9c522eba13bedc9ee2e52c7c6471814324e47463feda1",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 6219
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9793,
+      "prompt_chars": 6219,
+      "completion_chars": 1188
+    },
+    {
+      "ts": "2026-03-05T13:28:25.279Z",
+      "run_id": "20260305T132621Z",
+      "repo": "dailydotdev/apps",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4bc5e692cb89c3c607d67a4bada6e8417d41143191ddf72b380a7adb96c7f0fb",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 7598
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9730,
+      "prompt_chars": 7598,
+      "completion_chars": 1096
+    },
+    {
+      "ts": "2026-03-05T13:28:35.367Z",
+      "run_id": "20260305T132621Z",
+      "repo": "dailydotdev/apps",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e1b30147764e00aa3d0cbee782e1da3ec37b6a2765f0797af55e6509147724a4",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 8878
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10088,
+      "prompt_chars": 8878,
+      "completion_chars": 1149
+    },
+    {
+      "ts": "2026-03-05T13:28:56.755Z",
+      "run_id": "20260305T132621Z",
+      "repo": "dailydotdev/apps",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b3a4798c015fb5b73bbf8f1bdeaccea6970a13ce6cad0bb9af0bcce12bce109a",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 12818
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21388,
+      "prompt_chars": 12818,
+      "completion_chars": 2517
+    },
+    {
+      "ts": "2026-03-05T13:29:13.368Z",
+      "run_id": "20260305T132621Z",
+      "repo": "kyma-project/cli",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b31e5e0b2d8072353997f63a4a0ccebb6eac6bbbdc4dd6fe52cd5e7331f89586",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 5706
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16610,
+      "prompt_chars": 5706,
+      "completion_chars": 1683
+    },
+    {
+      "ts": "2026-03-05T13:29:25.476Z",
+      "run_id": "20260305T132621Z",
+      "repo": "kyma-project/cli",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9f88d4ad415770fc402d8c5001f8b775c92fad1f6fca66591d3d5f84abade1c6",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 7593
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12107,
+      "prompt_chars": 7593,
+      "completion_chars": 1326
+    },
+    {
+      "ts": "2026-03-05T13:29:40.575Z",
+      "run_id": "20260305T132621Z",
+      "repo": "kyma-project/cli",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c7791eed14b58d0a1fd4f67df17fb0f50d8730c6f29304285a2a3318c2200946",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9095
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15099,
+      "prompt_chars": 9095,
+      "completion_chars": 1609
+    },
+    {
+      "ts": "2026-03-05T13:29:58.144Z",
+      "run_id": "20260305T132621Z",
+      "repo": "kyma-project/cli",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6d956c51ca219d10b9f2938218e991d23df5d469377479b58828032d9da18a30",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10897
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17569,
+      "prompt_chars": 10897,
+      "completion_chars": 1925
+    },
+    {
+      "ts": "2026-03-05T13:30:42.979Z",
+      "run_id": "20260305T132621Z",
+      "repo": "kyma-project/cli",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "308b1e24bd984763475c955b9c13c2228f3307a4206cc28d4673ec6d64e65db9",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 15656
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 44834,
+      "prompt_chars": 15656,
+      "completion_chars": 5356
+    },
+    {
+      "ts": "2026-03-05T13:30:54.034Z",
+      "run_id": "20260305T132621Z",
+      "repo": "LogicStamp/logicstamp-context",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "10d95d6b701d0e49ffb372f4afd599195d7a92f11f41a381424817ed5e2a118f",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8879
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11050,
+      "prompt_chars": 8879,
+      "completion_chars": 1472
+    },
+    {
+      "ts": "2026-03-05T13:31:07.082Z",
+      "run_id": "20260305T132621Z",
+      "repo": "LogicStamp/logicstamp-context",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5e49cb292f8ce5dce1062d26f19433ed765d5ac05a5132167899335136d6ef13",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10551
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13047,
+      "prompt_chars": 10551,
+      "completion_chars": 1701
+    },
+    {
+      "ts": "2026-03-05T13:31:20.554Z",
+      "run_id": "20260305T132621Z",
+      "repo": "LogicStamp/logicstamp-context",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d696dfc203cb410638466bf6cd6c138a278691a260948d7ac62f758c7731d6c5",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 12444
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13471,
+      "prompt_chars": 12444,
+      "completion_chars": 1867
+    },
+    {
+      "ts": "2026-03-05T13:31:33.713Z",
+      "run_id": "20260305T132621Z",
+      "repo": "LogicStamp/logicstamp-context",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c5678f36c1aafc4caf5b1aedd1034e21e0c6cc031be30da8287422e12506fae0",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 14500
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13158,
+      "prompt_chars": 14500,
+      "completion_chars": 1838
+    },
+    {
+      "ts": "2026-03-05T13:32:15.200Z",
+      "run_id": "20260305T132621Z",
+      "repo": "LogicStamp/logicstamp-context",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "82d3ff79f9f23c193461e9efef288379ab2290cdc48e6b83c22fad0057197153",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 19186
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 41487,
+      "prompt_chars": 19186,
+      "completion_chars": 4927
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "n8n-io/n8n",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "dailydotdev/apps",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "kyma-project/cli",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "LogicStamp/logicstamp-context",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "n8n-io/n8n",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "dailydotdev/apps",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 9,
+      "evidence_total_final": 9,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "kyma-project/cli",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "LogicStamp/logicstamp-context",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 4,
+    "attempts_used_hist": {
+      "0": 4,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 4,
+    "success": 4
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1772717181835,
+    "llmCallsTotal": 20,
+    "llmCallsPerRepo": {
+      "n8n-io/n8n": 5,
+      "dailydotdev/apps": 5,
+      "kyma-project/cli": 5,
+      "LogicStamp/logicstamp-context": 5
+    },
+    "tokensApproxTotal": 64068,
+    "tokensApproxPerRepo": {
+      "n8n-io/n8n": 17641,
+      "dailydotdev/apps": 11871,
+      "kyma-project/cli": 15213,
+      "LogicStamp/logicstamp-context": 19343
+    },
+    "reposProcessed": 4,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "n8n-io/n8n": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "n8n is a fair-code, self-hostable workflow automation platform with strong AI integration, 400+ connectors, and both visual and code-based development. It emphasizes data control, enterprise readiness, and an active community.",
+        "highlights": [
+          "Offers hybrid no-code/low-code automation with JavaScript/Python support and npm package usage [ID:E-RD-004].",
+          "Features native AI capabilities via LangChain for building custom AI agent workflows [ID:E-RD-002, E-RD-004].",
+          "Available via Docker, npx, or cloud; supports air-gapped and self-hosted deployments [ID:E-RD-005, E-RD-006, E-RD-004].",
+          "Maintains active release cadence with recent patches addressing CVEs and collaboration bugs [ID:E-RL-001, E-RL-002, E-RL-003].",
+          "Rich ecosystem: 400+ integrations, 900+ templates, and community forum support [ID:E-RD-002, E-RD-004, E-RD-007, E-RD-008]."
+        ],
+        "risks": [
+          "Open bug reported regarding data table column refresh behavior may impact UI reliability [ID:E-IS-001].",
+          "Multiple recent security fixes (e.g., jsonpath, mailparser, mysql2) indicate ongoing vulnerability management needs [ID:E-RL-001, E-RL-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "n8n is an extensible, fair-code workflow automation platform that uniquely blends visual no-code design with code-level flexibility (JavaScript/Python, npm), native AI agent capabilities via LangChain, and robust self-hosting options—enabling technical teams to build secure, data-controlled automations across 400+ integrations.",
+        "highlights": [
+          "Hybrid development model allows switching between visual workflow builder and custom code (JavaScript/Python) with full npm package support [ID:E-RD-004].",
+          "Native AI integration built on LangChain enables users to create AI agent workflows using their own data and models [ID:E-RD-002, E-RD-004].",
+          "Fair-code licensing and support for air-gapped, self-hosted deployments give organizations full data sovereignty and compliance control [ID:E-RD-002, E-RD-004].",
+          "Rapid prototyping supported via npx one-liner or Docker container, lowering entry barrier for developers [ID:E-RD-005, E-RD-006].",
+          "Extensible architecture evidenced by 400+ integrations, 900+ community templates, and modular monorepo structure (packages/, pnpm-workspace.yaml) [ID:E-RD-002, E-RD-004, E-RF-001]."
+        ],
+        "risks": [
+          "Recent CVE patches for jsonpath, mailparser, and mysql2 highlight dependency-related security exposure requiring vigilant maintenance [ID:E-RL-001, E-RL-002].",
+          "Open UI bug in data table column refreshing may affect user experience in workflow configuration interfaces [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "n8n is a TypeScript-based, fair-code workflow automation platform offering a hybrid visual/code development model, native AI capabilities via LangChain, and robust self-hosting support. It features a modular monorepo architecture, active release cycles with security patching, and extensive integrations—but carries ongoing dependency-related CVE risks and at least one open UI bug.",
+        "highlights": [
+          "Modular monorepo structure with pnpm workspace, multiple packages, and tooling config (Biome, Turbo, Jest) indicates scalable engineering practices [ID:E-RF-001].",
+          "Hybrid development model supports visual workflows alongside custom JavaScript/Python code and npm package usage [ID:E-RD-004].",
+          "Native AI agent workflows built on LangChain allow integration of proprietary data and models [ID:E-RD-002, E-RD-004].",
+          "Self-hosted deployment options include Docker and npx, with support for air-gapped environments and enterprise features like SSO [ID:E-RD-004, E-RD-005, E-RD-006].",
+          "Active maintenance shown by recent releases patching CVEs (e.g., jsonpath, mailparser, mysql2) and collaboration bugs [ID:E-RL-001, E-RL-002, E-RL-003]."
+        ],
+        "risks": [
+          "Multiple recent security fixes for transitive dependencies (jsonpath, mailparser, mysql2) indicate persistent supply chain vulnerabilities requiring continuous monitoring [ID:E-RL-001, E-RL-002].",
+          "Open bug in data table column refresh logic may degrade editor usability and data consistency in workflow configuration [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-004",
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While n8n promotes itself as a secure, enterprise-ready automation platform with full data control, recent repeated CVE patches and an open UI bug suggest potential reliability and maintenance concerns that contradict its 'production-ready' claims.",
+        "highlights": [
+          "Claims of 'enterprise readiness' and 'full control' are undermined by recurring security vulnerabilities in core dependencies like jsonpath, mailparser, and mysql2 across multiple recent releases [ID:E-RL-001, E-RL-002].",
+          "Despite marketing emphasis on stability and self-hosting, an open bug affecting data table column refresh remains unresolved, potentially impacting workflow configuration accuracy [ID:E-IS-001].",
+          "The platform touts a 'fair-code license' and air-gapped deployment support, yet dependency on frequently patched third-party libraries raises questions about long-term supply chain security in isolated environments [ID:E-RD-002, E-RD-004, E-RL-001, E-RL-002]."
+        ],
+        "risks": [
+          "Repeated CVE fixes for the same or similar components (e.g., jsonpath replaced with jsonpath-plus in both v1.x and v2.x) suggest reactive rather than proactive security practices [ID:E-RL-001, E-RL-002].",
+          "An unresolved UI bug in a core editor feature (data table columns) indicates possible gaps in QA or prioritization, casting doubt on overall product polish despite high star count [ID:E-IS-001].",
+          "Heavy reliance on external npm packages (as enabled by the platform’s code flexibility) may amplify attack surface, especially in self-hosted deployments where users assume full control but inherit hidden transitive risks [ID:E-RD-004, E-RL-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"n8n\",\n    \"one_sentence\": \"A fair-code, self-hostable workflow automation platform that blends visual no-code design with code-level flexibility (JavaScript/Python) and native AI capabilities via LangChain.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users build, test, and deploy automations by visually connecting nodes representing apps, APIs, or custom code, optionally enhancing them with JavaScript/Python logic and AI agents, then executing or scheduling workflows while maintaining full data control.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Workflow Editor\",\n      \"purpose\": \"Visual canvas for designing and configuring automation workflows using drag-and-drop nodes and connections.\",\n      \"primary_actions\": [\n        \"Add node\",\n        \"Configure credentials\",\n        \"Execute workflow\",\n        \"Save workflow\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a workflow configuration to storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"workflows\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"nodes\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"connections\",\n            \"type\": \"json\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up monorepo structure with pnpm workspace\",\n          \"Implement basic workflow editor UI\",\n          \"Add support for saving/loading workflows\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can create a new workflow with at least two connected nodes and save it successfully.\",\n    \"Data table columns in the editor UI refresh correctly after node configuration changes.\"\n  ],\n  \"open_questions\": [\n    \"How are credential secrets secur"
+      }
+    },
+    "dailydotdev/apps": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "scout",
+        "summary": "The repository is a TypeScript monorepo for the daily.dev application suite, housing both the web app and browser extension with shared components and tooling. It uses pnpm workspaces and enforces code consistency via custom ESLint packages.",
+        "highlights": [
+          "Monorepo structure enables shared code and feature parity between web and extension platforms.",
+          "Uses modern stack: Node v22.11, pnpm, TypeScript, React, Next.js, and TailwindCSS.",
+          "Includes dedicated packages for shared ESLint configuration and custom linting rules.",
+          "Active CI/CD with CircleCI and GitHub Actions for E2E tests.",
+          "Well-documented root structure and development setup in README."
+        ],
+        "risks": [
+          "Reliance on multiple custom tooling packages (e.g., eslint-config, eslint-rules) may increase maintenance overhead.",
+          "No GitHub releases or tagged versions, which could complicate external adoption or stable referencing."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "inventor",
+        "summary": "The repository implements a monorepo architecture to unify development of the daily.dev web application and browser extension, leveraging shared codebases and custom tooling like dedicated ESLint packages to enforce consistency and accelerate feature delivery.",
+        "highlights": [
+          "Monorepo design enables shared components and synchronized feature development across web and extension platforms.",
+          "Custom internal tooling includes eslint-config and eslint-rules packages for standardized code quality.",
+          "Modern development stack with Node v22.11, pnpm workspaces, TypeScript, React, and Next.js supports rapid iteration.",
+          "CI/CD pipelines via CircleCI and GitHub Actions ensure build integrity and end-to-end test coverage."
+        ],
+        "risks": [
+          "Tight coupling of web and extension code may hinder independent scaling or platform-specific optimizations.",
+          "Absence of versioned releases limits external reuse and complicates dependency management for third parties."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "engineer",
+        "summary": "The repository is a TypeScript monorepo for the daily.dev application suite, containing both the web app and browser extension with shared components and custom ESLint tooling. It uses pnpm workspaces, Node v22.11, and modern frontend frameworks, supported by CI/CD via CircleCI and GitHub Actions.",
+        "highlights": [
+          "Monorepo structure enables code sharing and feature parity between web and extension platforms.",
+          "Uses pnpm workspaces and Node v22.11 for consistent dependency and runtime management.",
+          "Includes dedicated internal packages (eslint-config, eslint-rules) to enforce code quality standards.",
+          "CI/CD pipelines are in place with CircleCI builds and GitHub Actions for E2E testing."
+        ],
+        "risks": [
+          "Custom ESLint packages increase maintenance surface and onboarding complexity.",
+          "Lack of versioned releases or tags may hinder stable external consumption or integration."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "skeptic",
+        "summary": "While the repository presents a well-structured monorepo with modern tooling and CI/CD, several claims about maintainability, consistency, and development velocity lack concrete validation in the provided evidence.",
+        "highlights": [
+          "Claims of 'faster iterations' and 'feature parity' via monorepo are asserted without metrics or examples.",
+          "Custom ESLint packages suggest investment in code quality, but their actual enforcement or impact isn't demonstrated.",
+          "CI badges imply reliability, yet no test coverage reports, pass/fail rates, or build history are provided."
+        ],
+        "risks": [
+          "Overstated benefits of monorepo architecture without evidence of actual cross-platform synchronization or reduced duplication.",
+          "Heavy reliance on internal tooling (e.g., eslint-config, eslint-rules) may create hidden complexity not apparent from README alone.",
+          "Absence of releases or versioning raises questions about stability and production readiness despite active development."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"daily.dev App Suite\",\n    \"one_sentence\": \"A monorepo housing the daily.dev web application and browser extension with shared components and tooling.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers consume developer news through a unified feed across web and extension platforms, with synchronized features and shared UI components enabled by a TypeScript monorepo architecture.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Feed\",\n      \"purpose\": \"Display personalized developer news feed with consistent experience across web and extension.\",\n      \"primary_actions\": [\n        \"View articles\",\n        \"Interact with posts\",\n        \"Navigate between platforms\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist user-saved articles to local or remote storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"title\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"url\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up pnpm workspace with shared components\",\n          \"Initialize web and extension scaffolds\",\n          \"Integrate eslint-config and eslint-rules\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can view the same feed on both web and extension platforms.\",\n    \"Code quality is enforced via shared ESLint configuration.\"\n  ],\n  \"open_questions\": [\n    \"How are platform-specific features handled without breaking parity?\",\n    \"What mechanism synchronizes user data between web and extension?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 4,\n    \"stack_fit\": 5,\n    \"complexity_c"
+      }
+    },
+    "kyma-project/cli": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "The Kyma CLI repository provides a Go-based command-line tool to simplify interaction with Kyma clusters, focusing on module management and application deployment. It is actively maintained with recent v3.x releases introducing alpha features like authorization and diagnostics, while v2 is deprecated. The project follows open-source best practices with clear documentation, licensing, and contribution guidelines.",
+        "highlights": [
+          "Kyma CLI v2 is deprecated; users are directed to adopt v3, which includes new alpha features like 'authorize' and 'diagnose' commands [ID:E-RD-002].",
+          "Recent releases (e.g., v3.3.0) enhance community module management with pull/add/delete workflows and introduce alpha-grade authorization and diagnostics capabilities [ID:E-RL-003].",
+          "The README clearly demonstrates core functionality, such as deploying and exposing applications with simple commands [ID:E-RD-005, ID:E-RD-006].",
+          "Repository includes standard open-source files (LICENSE, CODE_OF_CONDUCT.md, SECURITY.md, CONTRIBUTING.md) and compliance badges (REUSE) [ID:E-RF-001, ID:E-RD-001]."
+        ],
+        "risks": [
+          "Use of alpha commands (e.g., 'authorize', 'diagnose') may indicate instability or breaking changes in future versions [ID:E-RL-003].",
+          "Open issues suggest ongoing UX gaps, such as lack of guidance for the 'authorize' command [ID:E-IS-001].",
+          "One release ('0.0.0-dev') has empty release notes, reducing transparency for development builds [ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-003",
+          "E-RL-001",
+          "E-IS-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "The Kyma CLI introduces novel workflows for managing Kyma modules and simplifying cluster interactions, with recent innovations including alpha-grade authorization and diagnostics commands, as well as a template-based community module management system.",
+        "highlights": [
+          "Introduces a new 'authorize' command group (alpha) that enables unified access control for users, groups, subaccounts, and GitHub repositories [ID:E-RL-003].",
+          "Implements a pull/add/delete workflow for community modules using templates, enabling declarative module lifecycle management [ID:E-RL-003].",
+          "Provides Day 2 diagnostics capabilities (alpha) for inspecting module/component error logs, enhancing operational visibility [ID:E-RL-003].",
+          "Demonstrates rapid application deployment with minimal commands, such as 'kyma app push' with automatic exposure [ID:E-RD-005, ID:E-RD-006]."
+        ],
+        "risks": [
+          "Alpha features like 'authorize' and 'diagnose' lack user guidance and may undergo breaking changes, limiting immediate production usability [ID:E-RL-003, ID:E-IS-001].",
+          "Community module behavior changes noted in v3.3.0 could disrupt existing automation or integrations [ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "The Kyma CLI is a Go-based command-line tool that streamlines Kyma cluster operations, with v3 introducing alpha features like module lifecycle management, authorization, and diagnostics. While the codebase follows standard open-source practices, engineers should note deprecation of v2, instability of alpha commands, and gaps in user guidance.",
+        "highlights": [
+          "v3 introduces a structured workflow for community module management: pull templates, add with default CRs, and delete modules [ID:E-RL-003].",
+          "Alpha-grade 'authorize' and 'diagnose' command groups offer new capabilities but are not yet stable or well-documented [ID:E-RL-003, ID:E-IS-001].",
+          "Core functionality like 'kyma app push --expose' enables rapid deployment and automatic service exposure [ID:E-RD-005, ID:E-RD-006].",
+          "Repository includes essential engineering artifacts: Makefile, go.mod, .goreleaser.yml, .golangci.yaml, and security/compliance files [ID:E-RF-001]."
+        ],
+        "risks": [
+          "Alpha features (e.g., 'authorize') lack sufficient user guidance, increasing integration risk [ID:E-IS-001, ID:E-RL-003].",
+          "Breaking changes in community module behavior may affect existing scripts or automation [ID:E-RL-003].",
+          "Deprecated v2 CLI may mislead users if documentation or tooling isn't clearly versioned [ID:E-RD-002].",
+          "Empty release notes for '0.0.0-dev' reduce traceability for development builds [ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While the Kyma CLI presents itself as a streamlined tool for Kyma cluster management, several red flags suggest overpromising on stability and usability—particularly around its new alpha features, incomplete documentation, and ambiguous versioning.",
+        "highlights": [
+          "The project openly deprecates v2 while pushing users toward v3, which still relies heavily on unstable alpha commands like 'authorize' and 'diagnose' [ID:E-RD-002, ID:E-RL-003].",
+          "Critical user guidance is missing for new functionality: an open issue explicitly notes the lack of help for the 'authorize' command, despite it being advertised in release notes [ID:E-IS-001, ID:E-RL-003].",
+          "The README showcases simplified app deployment (e.g., 'kyma app push'), but doesn’t clarify prerequisites, failure modes, or compatibility—raising questions about real-world reliability [ID:E-RD-005, ID:E-RD-006].",
+          "A development release ('0.0.0-dev') has empty release notes, undermining transparency and making it hard to assess progress or regression risks [ID:E-RL-001]."
+        ],
+        "risks": [
+          "Promoting alpha features as headline capabilities without adequate documentation or stability warnings may mislead adopters into using immature tooling in production contexts [ID:E-RL-003, ID:E-IS-001].",
+          "The deprecation of v2 without clear migration paths or feature parity guarantees could strand users if v3’s alpha workflows change or fail [ID:E-RD-002].",
+          "Demonstrations in the README (e.g., automatic app exposure) may not reflect real cluster constraints, creating unrealistic expectations [ID:E-RD-005, ID:E-RD-006].",
+          "Lack of detailed release notes for at least one version reduces auditability and increases integration risk for dependent teams [ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Kyma CLI\",\n    \"one_sentence\": \"A command-line interface tool designed to simplify the use of Kyma for application developers by managing modules and deploying applications with minimal commands.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with a Kyma cluster by issuing CLI commands to deploy applications, manage modules, and configure access or diagnostics, all through streamlined workflows that abstract underlying complexity.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Command Interface\",\n      \"purpose\": \"Provide a terminal-based interface for users to execute Kyma operations such as app deployment, module management, and cluster authorization.\",\n      \"primary_actions\": [\n        \"Deploy application with 'kyma app push'\",\n        \"Manage community modules with 'kyma module pull/add/delete'\",\n        \"Authorize access with 'kyma alpha authorize'\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"app_push\",\n      \"purpose\": \"Deploy and optionally expose a containerized application on a Kyma cluster using a single command.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"module_pull\",\n      \"purpose\": \"Pull community module templates (e.g., docker-registry) into the default namespace for later installation.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"alpha_authorize\",\n      \"purpose\": \"Grant unified access to Kyma clusters for users, groups, subaccounts, and GitHub repositories (alpha feature).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"alpha_diagnose_logs\",\n      \"purpose\": \"Retrieve error logs from modules or components for Day 2 diagnostics (alpha feature).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"modules\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n       "
+      }
+    },
+    "LogicStamp/logicstamp-context": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "LogicStamp Context is a TypeScript CLI tool that generates deterministic, diffable architectural contracts and dependency graphs for AI coding assistants. It emphasizes structured context to prevent hallucinations and breaking change oversights, with features like watch mode, AST-based extraction, and an MCP server for integration with AI agents.",
+        "highlights": [
+          "Generates deterministic, diffable architectural contracts from TypeScript codebases using AST analysis.",
+          "Includes an MCP server compatible with major AI coding assistants like Claude, Cursor, and Copilot Chat.",
+          "Watch mode provides real-time breaking change detection with strict, auditable diffs.",
+          "Recent releases focus on performance (lean style mode), reliability (schema validation, atomic writes), and compatibility (Node.js >=20, improved globbing).",
+          "Actively maintained with clear documentation, security policy, and structured release notes."
+        ],
+        "risks": [
+          "Requires Node.js >=20, which may limit adoption in environments stuck on older versions.",
+          "Still in beta status, as indicated by the README badge, suggesting potential instability or incomplete features.",
+          "Breaking changes introduced in recent versions (e.g., default style mode changed to 'lean') may disrupt existing workflows."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "LogicStamp Context invents a novel approach to AI-assisted development by compiling TypeScript codebases into deterministic, diffable architectural contracts using AST analysis, enabling precise, structured context for LLMs and real-time breaking change detection via a lean, watchable contract system.",
+        "highlights": [
+          "Introduces 'architectural contracts' as a structured, diffable representation of codebase interfaces and dependencies derived from TypeScript ASTs.",
+          "Pioneers integration of AI coding agents with deterministic context via an embedded MCP server compatible with Claude, Cursor, and Copilot Chat.",
+          "Invents a 'strict watch mode' that compares current state against a baseline (like git diff) to detect and report breaking changes in real time.",
+          "Defines a 'lean style mode' for contract generation that optimizes output size and performance while preserving structural fidelity.",
+          "Enforces schema correctness through runtime AJV validation of .uif.json contract files, rejecting malformed or drifted outputs to ensure integrity."
+        ],
+        "risks": [
+          "The concept of 'architectural contracts' may be too abstract or narrowly applicable outside well-structured TypeScript/React/Next.js projects.",
+          "Tight coupling to Node.js >=20 and recent tooling (e.g., ts-morph 27+) could hinder adoption in legacy environments.",
+          "Beta status and frequent breaking changes (e.g., default style mode shift) suggest the core abstraction is still evolving and may require rework by early adopters."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "LogicStamp Context is a TypeScript CLI that compiles codebases into deterministic, diffable architectural contracts using AST analysis, enabling structured context for AI agents and real-time breaking change detection via a robust watch mode with schema validation and performance optimizations.",
+        "highlights": [
+          "Uses AST-based extraction to generate deterministic, diffable architectural contracts from TypeScript codebases, ensuring precise structural representation for AI workflows.",
+          "Embeds an MCP server compatible with major AI coding assistants (Claude, Cursor, Copilot Chat), enabling direct integration of structured context into LLM toolchains.",
+          "Implements a strict watch mode that compares current state against a baseline (like git diff) and uses atomic writes and file locking to ensure crash-safe, reliable operation across platforms.",
+          "Enforces contract integrity through runtime AJV validation of .uif.json files, rejecting malformed or schema-drifted outputs to maintain deterministic behavior.",
+          "Optimizes performance with lean style-mode defaults, incremental rebuild caching, and dependency updates (e.g., ts-morph 27.0.2) for better TypeScript 5.x support."
+        ],
+        "risks": [
+          "Requires Node.js >=20, which may block adoption in environments constrained to older runtime versions.",
+          "Still in beta (as per README badge), with recent breaking changes (e.g., default style mode switched to 'lean') indicating potential instability for early adopters.",
+          "Heavy reliance on AST parsing and schema validation introduces complexity; failures in style extraction or schema drift could disrupt CI/CD or AI agent pipelines if not properly monitored."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-003",
+          "E-RL-002",
+          "E-RL-001",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While LogicStamp Context promises deterministic architectural contracts and AI integration, its beta status, recent breaking changes, and narrow compatibility requirements raise concerns about stability, adoption barriers, and real-world robustness.",
+        "highlights": [
+          "Marked as beta in README despite multiple releases, suggesting unresolved maturity issues.",
+          "Breaking changes in consecutive releases (e.g., default style mode switch, Node.js >=20 requirement) risk disrupting user workflows and signal unstable API design.",
+          "Claims of 'deterministic' and 'strict' behavior depend on complex AST parsing and schema validation that may fail silently or inconsistently across diverse TypeScript codebases.",
+          "MCP server integration is asserted but not demonstrated—no evidence of actual interoperability testing with Claude, Cursor, or Copilot Chat.",
+          "Watch mode improvements rely on file locking and atomic writes, yet Windows-specific cleanup fixes imply prior unreliability in common development environments."
+        ],
+        "risks": [
+          "Beta labeling contradicts claims of production readiness for critical AI-assisted workflows.",
+          "Node.js >=20 requirement excludes users on LTS versions like 18, limiting enterprise adoption.",
+          "Frequent breaking changes undermine trust in contract stability—core value proposition for 'diffable architectural truth'.",
+          "No public issue tracker activity (0 open issues) may indicate low community engagement or suppressed feedback, not project health.",
+          "Heavy reliance on internal caching and metadata strategies (e.g., null-sentinel, structured cache) introduces hidden failure modes not covered by test claims."
+        ],
+        "evidence_ids": [
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-004",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"LogicStamp Context\",\n    \"one_sentence\": \"A CLI that compiles TypeScript codebases into deterministic, diffable architectural contracts and dependency graphs for AI coding workflows.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Compile TypeScript source code into structured, diffable architectural contracts using AST analysis; serve these contracts via an MCP server to AI coding assistants; monitor for breaking changes in real time using strict watch mode with baseline comparison.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Interface\",\n      \"purpose\": \"Display project context status, contract generation progress, and watch mode violations.\",\n      \"primary_actions\": [\n        \"Generate architectural contracts\",\n        \"Start/stop watch mode\",\n        \"View current vs baseline diffs\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"generate_contracts\",\n      \"purpose\": \"Compile TypeScript codebase into deterministic .uif.json architectural contracts using AST extraction.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"start_watch_mode\",\n      \"purpose\": \"Initiate strict watch mode that compares current state against a git-like baseline and reports breaking changes.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"serve_mcp_server\",\n      \"purpose\": \"Launch an MCP server to provide structured context to AI agents like Claude, Cursor, and Copilot Chat.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"architectural_contracts\",\n        \"fields\": [\n          {\n            \"name\": \"file_path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"contract_hash\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"dependencies\",\n            \"type\": \"array\"\n          },\n          {\n            \"name\": \"interface"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "n8n-io/n8n",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 8,
+        "engineer": 9,
+        "skeptic": 5,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "dailydotdev/apps",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 8,
+        "engineer": 7,
+        "skeptic": 5,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "kyma-project/cli",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 4,
+        "engineer": 7,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "LogicStamp/logicstamp-context",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 6,
+        "inventor": 6,
+        "engineer": 6,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=3",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=93 kept=5 limit=5",
+    "[deduper] existing_index_repos=103",
+    "[deduper] candidates_total=5 new=4 skipped=1",
+    "[repo_card_builder] dailydotdev/apps evidence total=9 readme=8 issue=0 release=0 root_files=1",
+    "[repo_card_builder] kyma-project/cli evidence total=12 readme=6 issue=2 release=3 root_files=1",
+    "[repo_card_builder] n8n-io/n8n evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] LogicStamp/logicstamp-context evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] built=4 readme_ok=4/4 evidence_total=46 gaps=0",
+    "[llm_spec_generator] n8n-io/n8n canonical spec ok (iter=1) -> specs/2026-03-05/n8n-io__n8n.json",
+    "[llm_spec_generator] dailydotdev/apps canonical spec ok (iter=1) -> specs/2026-03-05/dailydotdev__apps.json",
+    "[llm_spec_generator] kyma-project/cli canonical spec ok (iter=1) -> specs/2026-03-05/kyma-project__cli.json",
+    "[llm_spec_generator] LogicStamp/logicstamp-context canonical spec ok (iter=1) -> specs/2026-03-05/LogicStamp__logicstamp-context.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-05T13:26:21.834Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:21.855Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260305T132621Z"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:21.855Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:21.858Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:22.624Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:22.624Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:23.257Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:23.257Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:23.786Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:23.786Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:24.312Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:24.312Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:24.831Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:24.831Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:25.352Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:25.352Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:25.887Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:25.887Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:26.216Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:26.216Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:26.664Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:26.664Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.166Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.170Z",
+      "run_id": "20260305T132621Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 103
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.170Z",
+      "run_id": "20260305T132621Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 4,
+        "skipped": 1,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.173Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T13:26:27.173Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "n8n-io__n8n/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.174Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "n8n-io__n8n/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.176Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "n8n-io__n8n/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.177Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "n8n-io__n8n/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.179Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T13:26:27.179Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dailydotdev__apps/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.180Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dailydotdev__apps/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.181Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dailydotdev__apps/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.183Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dailydotdev__apps/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.184Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T13:26:27.184Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kyma-project__cli/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.186Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kyma-project__cli/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.188Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kyma-project__cli/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.189Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kyma-project__cli/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.685Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 4745,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.685Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.685Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.685Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 506
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.686Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 9,
+        "readme": 8,
+        "issues": 0,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.686Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-05T13:26:27.686Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "LogicStamp__logicstamp-context/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.686Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "LogicStamp__logicstamp-context/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.687Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "LogicStamp__logicstamp-context/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.687Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "LogicStamp__logicstamp-context/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.719Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 1932,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.719Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.719Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.719Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 535
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.720Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 6,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.744Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3698,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.744Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.744Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.744Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 571
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:27.744Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.065Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 18224,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.065Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.065Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.065Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 379
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.066Z",
+      "run_id": "20260305T132621Z",
+      "node": "repo_card_builder",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.069Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:28.069Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:44.145Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1372,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:26:59.844Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1660,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:16.550Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1737,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:32.173Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1795,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:55.331Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2744,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:55.344Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:55.345Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/n8n-io__n8n.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:55.345Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "n8n-io/n8n",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/n8n-io__n8n.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:55.345Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 9,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T13:27:55.345Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 9,
+        "evidence_selected": 9,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:05.755Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1127,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:15.549Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1188,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:25.279Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1096,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:35.367Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1149,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:56.755Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2517,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:56.757Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:56.757Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/dailydotdev__apps.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:56.758Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "dailydotdev/apps",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/dailydotdev__apps.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:56.758Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 6,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T13:28:56.758Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:29:13.368Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1683,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:29:25.476Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1326,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:29:40.575Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1609,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:29:58.144Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1925,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:42.979Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5356,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:42.981Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:42.982Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/kyma-project__cli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:42.982Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "kyma-project/cli",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/kyma-project__cli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:42.983Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:42.983Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-05T13:30:54.034Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1472,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:31:07.082Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1701,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:31:20.554Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1867,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:31:33.713Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1838,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.200Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4927,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.202Z",
+      "run_id": "20260305T132621Z",
+      "node": "llm_spec_generator",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.202Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-05/LogicStamp__logicstamp-context.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.202Z",
+      "run_id": "20260305T132621Z",
+      "node": "artifacts",
+      "repo": "LogicStamp/logicstamp-context",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-05/LogicStamp__logicstamp-context.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.205Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 4,
+        "attempts_used_hist": {
+          "0": 4,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.205Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1772717181835,
+        "llmCallsTotal": 20,
+        "llmCallsPerRepo": {
+          "n8n-io/n8n": 5,
+          "dailydotdev/apps": 5,
+          "kyma-project/cli": 5,
+          "LogicStamp/logicstamp-context": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 4,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.206Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-05T13:32:15.206Z",
+      "run_id": "20260305T132621Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 4,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-05",
+    "evidence_dir": "evidence/2026-03-05"
+  }
+}

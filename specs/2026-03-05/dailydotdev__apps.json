@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "daily.dev App Suite",
+    "one_liner": "A monorepo housing the daily.dev web application and browser extension with shared components and tooling."
+  },
+  "screens": [
+    {
+      "name": "Main Feed",
+      "purpose": "Display personalized developer news feed with consistent experience across web and extension.",
+      "primary_actions": [
+        "Interact with posts",
+        "Navigate between platforms",
+        "View articles"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist user-saved articles to local or remote storage.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "title": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Initialize web and extension scaffolds",
+    "week 1: Integrate eslint-config and eslint-rules",
+    "week 1: Set up pnpm workspace with shared components"
+  ],
+  "acceptance_tests": [
+    "Code quality is enforced via shared ESLint configuration.",
+    "User can view the same feed on both web and extension platforms."
+  ]
+}

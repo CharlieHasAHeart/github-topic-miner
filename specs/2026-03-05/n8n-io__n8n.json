@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "n8n",
+    "one_liner": "A fair-code, self-hostable workflow automation platform that blends visual no-code design with code-level flexibility (JavaScript/Python) and native AI capabilities via LangChain."
+  },
+  "screens": [
+    {
+      "name": "Workflow Editor",
+      "purpose": "Visual canvas for designing and configuring automation workflows using drag-and-drop nodes and connections.",
+      "primary_actions": [
+        "Add node",
+        "Configure credentials",
+        "Execute workflow",
+        "Save workflow"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a workflow configuration to storage.",
+      "async": true,
+      "input": {
+        "connections": "json",
+        "nodes": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "workflows",
+        "columns": [
+          {
+            "name": "connections",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "nodes",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for saving/loading workflows",
+    "week 1: Implement basic workflow editor UI",
+    "week 1: Set up monorepo structure with pnpm workspace"
+  ],
+  "acceptance_tests": [
+    "Data table columns in the editor UI refresh correctly after node configuration changes.",
+    "User can create a new workflow with at least two connected nodes and save it successfully."
+  ]
+}

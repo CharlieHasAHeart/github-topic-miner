@@ -1,0 +1,159 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Kyma CLI",
+    "one_liner": "A command-line interface tool designed to simplify the use of Kyma for application developers by managing modules and deploying applications with minimal commands."
+  },
+  "screens": [
+    {
+      "name": "CLI Command Interface",
+      "purpose": "Provide a terminal-based interface for users to execute Kyma operations such as app deployment, module management, and cluster authorization.",
+      "primary_actions": [
+        "Authorize access with 'kyma alpha authorize'",
+        "Deploy application with 'kyma app push'",
+        "Manage community modules with 'kyma module pull/add/delete'"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "alpha_authorize",
+      "purpose": "Grant unified access to Kyma clusters for users, groups, subaccounts, and GitHub repositories (alpha feature).",
+      "async": true,
+      "input": {
+        "container_port": "int",
+        "exposed": "boolean",
+        "image": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "alpha_diagnose_logs",
+      "purpose": "Retrieve error logs from modules or components for Day 2 diagnostics (alpha feature).",
+      "async": true,
+      "input": {
+        "container_port": "int",
+        "exposed": "boolean",
+        "image": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "app_push",
+      "purpose": "Deploy and optionally expose a containerized application on a Kyma cluster using a single command.",
+      "async": true,
+      "input": {
+        "container_port": "int",
+        "exposed": "boolean",
+        "image": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "module_pull",
+      "purpose": "Pull community module templates (e.g., docker-registry) into the default namespace for later installation.",
+      "async": true,
+      "input": {
+        "container_port": "int",
+        "exposed": "boolean",
+        "image": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "applications",
+        "columns": [
+          {
+            "name": "container_port",
+            "type": "INTEGER"
+          },
+          {
+            "name": "exposed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "image",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "authorizations",
+        "columns": [
+          {
+            "name": "role",
+            "type": "TEXT"
+          },
+          {
+            "name": "scope",
+            "type": "TEXT"
+          },
+          {
+            "name": "subject",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "modules",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "namespace",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add alpha 'authorize' command with basic help text",
+    "week 1: Implement core 'app push' command with exposure support",
+    "week 1: Include diagnostic log retrieval for modules",
+    "week 1: Integrate module pull/add/delete workflow for community templates"
+  ],
+  "acceptance_tests": [
+    "User can pull a community module template (e.g., docker-registry), install it with a default CR, and delete it successfully",
+    "User can retrieve error logs for a failing module using 'kyma alpha diagnose logs'",
+    "User can run 'kyma app push --name test-app --image httpbin --expose --container-port 80' and access the app at https://test-app.{CLUSTER_DOMAIN}/",
+    "User receives actionable help when running 'kyma alpha authorize --help', despite it being an alpha command"
+  ]
+}

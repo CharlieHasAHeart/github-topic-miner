@@ -1,0 +1,128 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "LogicStamp Context",
+    "one_liner": "A CLI that compiles TypeScript codebases into deterministic, diffable architectural contracts and dependency graphs for AI coding workflows."
+  },
+  "screens": [
+    {
+      "name": "Main Interface",
+      "purpose": "Display project context status, contract generation progress, and watch mode violations.",
+      "primary_actions": [
+        "Generate architectural contracts",
+        "Start/stop watch mode",
+        "View current vs baseline diffs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_contracts",
+      "purpose": "Compile TypeScript codebase into deterministic .uif.json architectural contracts using AST extraction.",
+      "async": true,
+      "input": {
+        "contract_hash": "string",
+        "dependencies": "json",
+        "file_path": "string",
+        "interfaces": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "serve_mcp_server",
+      "purpose": "Launch an MCP server to provide structured context to AI agents like Claude, Cursor, and Copilot Chat.",
+      "async": true,
+      "input": {
+        "contract_hash": "string",
+        "dependencies": "json",
+        "file_path": "string",
+        "interfaces": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_watch_mode",
+      "purpose": "Initiate strict watch mode that compares current state against a git-like baseline and reports breaking changes.",
+      "async": true,
+      "input": {
+        "contract_hash": "string",
+        "dependencies": "json",
+        "file_path": "string",
+        "interfaces": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "architectural_contracts",
+        "columns": [
+          {
+            "name": "contract_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "dependencies",
+            "type": "JSON"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "interfaces",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "watch_violations",
+        "columns": [
+          {
+            "name": "baseline_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "breaking_changes",
+            "type": "JSON"
+          },
+          {
+            "name": "current_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build lean-style contract bundling with caching",
+    "week 1: Implement AST-based contract extraction from TypeScript files",
+    "week 1: Integrate AJV schema validation for .uif.json files",
+    "week 2: Add atomic file writes and signal handlers for crash safety",
+    "week 2: Develop strict watch mode with baseline diffing",
+    "week 2: Expose contracts via embedded MCP server"
+  ],
+  "acceptance_tests": [
+    "Given a TypeScript codebase, when contracts are generated in lean style mode, then output .uif.json files must be valid against the published JSON schema.",
+    "If a .uif.json contract fails AJV validation at load time, the system must reject it and not propagate invalid data to AI agents.",
+    "When the MCP server is running, it must respond to tool-use requests from compatible AI agents with up-to-date architectural context.",
+    "When watch mode is active and a breaking change is introduced, then the system must report current state vs baseline and write violations to disk atomically."
+  ]
+}
