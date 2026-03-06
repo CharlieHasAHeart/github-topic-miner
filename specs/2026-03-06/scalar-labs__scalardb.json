@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ScalarDB",
+    "one_liner": "A universal HTAP engine that enables ACID transactions and real-time analytics across heterogeneous databases."
+  },
+  "screens": [
+    {
+      "name": "ScalarDB Overview",
+      "purpose": "Display core capabilities and integration options for ScalarDB as a universal HTAP engine.",
+      "primary_actions": [
+        "Access documentation links",
+        "Add dependency via Gradle or Maven",
+        "View supported databases"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist an item using ScalarDB's transaction API with ACID guarantees across heterogeneous backends.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "transactions",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure storage backend (e.g., PostgreSQL)",
+    "week 1: Implement basic transaction workflow",
+    "week 1: Integrate ScalarDB Core via Maven/Gradle"
+  ],
+  "acceptance_tests": [
+    "Confirm schema evolution features (column rename, drop, type change) work as documented in v3.17.0+.",
+    "Verify ACID compliance when executing cross-table transactions on Oracle with NUMBER(1) mapped to BOOLEAN."
+  ]
+}
