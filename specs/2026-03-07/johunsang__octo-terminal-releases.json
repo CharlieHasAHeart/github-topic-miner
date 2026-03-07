@@ -1,0 +1,68 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Octo Terminal",
+    "one_liner": "An AI-powered all-in-one terminal for vibe coding, integrating multi-project/multi-terminal workflows with built-in Claude, Codex, Ollama, Kimi, document viewers, and AI image generation."
+  },
+  "screens": [
+    {
+      "name": "Main Workspace",
+      "purpose": "Hosts multi-project tabs, split terminal/editor/notes/browser panes, AI agent panels, and document viewers.",
+      "primary_actions": [
+        "Export selected files as EPUB",
+        "Launch AI agents (Claude, Codex, Ollama, Kimi)",
+        "Open and edit documents (MD, DOCX, PPTX, TXT, PDF, EPUB)",
+        "Split terminal panes horizontally/vertically",
+        "Switch between project tabs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist user data such as terminal sessions, editor content, or AI-generated assets to disk.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for at least one AI agent (e.g., Ollama)",
+    "week 1: Implement core Tauri + React shell with terminal emulation",
+    "week 1: Integrate basic multi-tab project switching"
+  ],
+  "acceptance_tests": [
+    "EPUB export modal appears when 2+ compatible files are open and allows reordering before generation.",
+    "PM2 panel resizes correctly when dragging the divider and toggles between all-process and selected-process logs.",
+    "Terminal input accepts commands without errors on both macOS and Windows.",
+    "User can open two projects simultaneously and switch between them via tabs without losing terminal state."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Transformalize",
+    "one_liner": "A configuration-based ETL tool that automates incremental denormalization of relational data for loading into search engines or analytics stores."
+  },
+  "screens": [
+    {
+      "name": "Configuration Editor",
+      "purpose": "Create and manage ETL arrangements using XML or JSON to define data flows between relational and non-relational systems.",
+      "primary_actions": [
+        "Execute ETL job",
+        "Load configuration file",
+        "Validate arrangement"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_etl",
+      "purpose": "Run a validated ETL arrangement to denormalize and transfer data from source to target.",
+      "async": true,
+      "input": {
+        "config_format": "string",
+        "payload": "json",
+        "source_connection": "string",
+        "target_connection": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "arrangements",
+        "columns": [
+          {
+            "name": "config_format",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_connection",
+            "type": "TEXT"
+          },
+          {
+            "name": "target_connection",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add XML/JSON configuration validation",
+    "week 1: Build basic CLI interface for executing arrangements",
+    "week 1: Implement core ETL execution engine supporting SQL Server, MySQL, PostgreSQL, and SQLite"
+  ],
+  "acceptance_tests": [
+    "Given a normalized Northwind-like schema with 8 tables, when an arrangement is defined and executed, then a single denormalized document is produced in the target store.",
+    "When an invalid XML configuration is provided, the system rejects execution with clear validation errors."
+  ]
+}

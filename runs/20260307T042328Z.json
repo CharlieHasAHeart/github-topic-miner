@@ -1,0 +1,3493 @@
+{
+  "run_id": "20260307T042328Z",
+  "generated_at": "2026-03-07T04:23:28.426Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 46,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 13,
+      "release": 6,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-07T04:28:13.047Z",
+    "repo_count": 110
+  },
+  "candidates": [
+    {
+      "full_name": "readest/readest",
+      "html_url": "https://github.com/readest/readest",
+      "description": "Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.",
+      "topics": [
+        "android",
+        "cross-platform",
+        "ebook",
+        "ebook-reader",
+        "epub",
+        "foliate",
+        "ios",
+        "koreader",
+        "nextjs",
+        "opds",
+        "pdf",
+        "reader",
+        "sync",
+        "tauri",
+        "tts"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 18514,
+      "forks_count": 999,
+      "open_issues_count": 132,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:21:58Z",
+      "created_at": "2024-10-12T23:16:55Z"
+    },
+    {
+      "full_name": "dalenewman/Transformalize",
+      "html_url": "https://github.com/dalenewman/Transformalize",
+      "description": "Configurable Extract, Transform, and Load",
+      "topics": [
+        "cli",
+        "data-warehouse",
+        "denormalize",
+        "elasticsearch",
+        "etl",
+        "etl-framework",
+        "excel",
+        "files",
+        "mysql",
+        "postgresql",
+        "solr",
+        "sql-server",
+        "sqlite"
+      ],
+      "language": "C#",
+      "stargazers_count": 161,
+      "forks_count": 31,
+      "open_issues_count": 2,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-03-07T04:21:36Z",
+      "created_at": "2013-05-31T03:07:43Z"
+    },
+    {
+      "full_name": "google-gemini/gemini-cli",
+      "html_url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "cli",
+        "gemini",
+        "gemini-api",
+        "mcp-client",
+        "mcp-server"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 96725,
+      "forks_count": 11979,
+      "open_issues_count": 2719,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:20:43Z",
+      "created_at": "2025-04-17T17:04:31Z"
+    },
+    {
+      "full_name": "johunsang/octo-terminal-releases",
+      "html_url": "https://github.com/johunsang/octo-terminal-releases",
+      "description": "Octo Terminal — The ultimate vibe coding terminal. AI-powered IDE with Claude, Codex, Ollama built-in. Terminal + editor + notes + browser in one app. Tauri + React + Rust.",
+      "topics": [
+        "ai-agent",
+        "ai-coding",
+        "ai-terminal",
+        "claude",
+        "codex",
+        "coding-terminal",
+        "developer-tools",
+        "ide",
+        "macos",
+        "mcp",
+        "ollama",
+        "react",
+        "rust",
+        "ssh",
+        "tauri",
+        "terminal-emulator",
+        "vibe-coding",
+        "vibe-coding-terminal",
+        "windows",
+        "xterm"
+      ],
+      "language": null,
+      "stargazers_count": 189,
+      "forks_count": 24,
+      "open_issues_count": 19,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:20:01Z",
+      "created_at": "2026-02-05T14:57:25Z"
+    },
+    {
+      "full_name": "wfxr/forgit",
+      "html_url": "https://github.com/wfxr/forgit",
+      "description": ":zzz: A utility tool powered by fzf for using git interactively.",
+      "topics": [
+        "bash",
+        "cli",
+        "fish",
+        "fzf",
+        "git",
+        "zsh",
+        "zsh-plugin"
+      ],
+      "language": "Shell",
+      "stargazers_count": 4905,
+      "forks_count": 155,
+      "open_issues_count": 14,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:18:50Z",
+      "created_at": "2017-11-15T15:27:38Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "dalenewman/Transformalize",
+      "html_url": "https://github.com/dalenewman/Transformalize",
+      "description": "Configurable Extract, Transform, and Load",
+      "topics": [
+        "cli",
+        "data-warehouse",
+        "denormalize",
+        "elasticsearch",
+        "etl",
+        "etl-framework",
+        "excel",
+        "files",
+        "mysql",
+        "postgresql",
+        "solr",
+        "sql-server",
+        "sqlite"
+      ],
+      "language": "C#",
+      "stargazers_count": 161,
+      "forks_count": 31,
+      "open_issues_count": 2,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-03-07T04:21:36Z",
+      "created_at": "2013-05-31T03:07:43Z"
+    },
+    {
+      "full_name": "johunsang/octo-terminal-releases",
+      "html_url": "https://github.com/johunsang/octo-terminal-releases",
+      "description": "Octo Terminal — The ultimate vibe coding terminal. AI-powered IDE with Claude, Codex, Ollama built-in. Terminal + editor + notes + browser in one app. Tauri + React + Rust.",
+      "topics": [
+        "ai-agent",
+        "ai-coding",
+        "ai-terminal",
+        "claude",
+        "codex",
+        "coding-terminal",
+        "developer-tools",
+        "ide",
+        "macos",
+        "mcp",
+        "ollama",
+        "react",
+        "rust",
+        "ssh",
+        "tauri",
+        "terminal-emulator",
+        "vibe-coding",
+        "vibe-coding-terminal",
+        "windows",
+        "xterm"
+      ],
+      "language": null,
+      "stargazers_count": 189,
+      "forks_count": 24,
+      "open_issues_count": 19,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:20:01Z",
+      "created_at": "2026-02-05T14:57:25Z"
+    },
+    {
+      "full_name": "wfxr/forgit",
+      "html_url": "https://github.com/wfxr/forgit",
+      "description": ":zzz: A utility tool powered by fzf for using git interactively.",
+      "topics": [
+        "bash",
+        "cli",
+        "fish",
+        "fzf",
+        "git",
+        "zsh",
+        "zsh-plugin"
+      ],
+      "language": "Shell",
+      "stargazers_count": 4905,
+      "forks_count": 155,
+      "open_issues_count": 14,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:18:50Z",
+      "created_at": "2017-11-15T15:27:38Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "dalenewman/Transformalize",
+      "html_url": "https://github.com/dalenewman/Transformalize",
+      "description": "Configurable Extract, Transform, and Load",
+      "topics": [
+        "cli",
+        "data-warehouse",
+        "denormalize",
+        "elasticsearch",
+        "etl",
+        "etl-framework",
+        "excel",
+        "files",
+        "mysql",
+        "postgresql",
+        "solr",
+        "sql-server",
+        "sqlite"
+      ],
+      "language": "C#",
+      "stargazers_count": 161,
+      "forks_count": 31,
+      "open_issues_count": 2,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-03-07T04:21:36Z",
+      "created_at": "2013-05-31T03:07:43Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Transformalize\n\nTransformalize is a configuration based ETL tool that automates \nincremental denormalization of relational data.  It may be \nused for other types of [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) \nas well.  \n\nThe supported inputs and outputs are below. \n\n<div class=\"table-responsive\" style=\"font-size:smaller;\">\n<table class=\"table table-condensed\">\n    <thead>\n      <!--<tr>\n         <th colspan=\"3\" style=\"text-align:center\">Cross Platform</th>\n      </tr>-->\n        <tr>\n            <th>Relational</th>\n            <th colspan=\"2\" style=\"text-align:center\">Non-Relational</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td style=\"vertical-align:top\">\n                <table class=\"table table-condensed\">\n                    <thead>\n                        <tr>\n                            <th>Provider</th>\n                            <th>Support</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><a href=\"./src/Providers/SqlServer/README.md\">SQL Server</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/MySql/README.md\">MySql</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/PostgreSql/README.md\">PostgreSql</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/Sqlite/README.md\">SQLite</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td> &nbsp;</td>\n                            <td> &nbsp;</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            <td style=\"vertical-align:top\">\n                <table class=\"table table-condensed\">\n                    <thead>\n                        <tr>\n                            <th>Provider</th>\n                            <th>Support</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><a href=\"./src/Providers/Elasticsearch/README.md\">Elasticsearch</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/Excel/README.md\">Excel</a></td>\n                            <td>In</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/CsvHelper/README.md\">Files</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/Mail/README.md\">Mail</a></td>\n                            <td>Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/GeoJson/README.md\">GeoJson</td>\n                            <td>Out</td>\n                        </tr>           \n                    </tbody>\n                </table>\n            </td>\n            <td style=\"vertical-align:top\">\n                <table class=\"table table-condensed\">\n                    <thead>\n                        <tr>\n                            <th>Provider</th>\n                            <th>Support</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td>Console</td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/Razor/README.md\">Razor</a></td>\n                            <td>Out</td>\n                        </tr>\n                        <tr>\n                            <td title=\"Forms in Orchard CMS Module\"><a href=\"https://github.com/dalenewman/OrchardCore.Transformalize\">Forms</a></td>\n                            <td>In</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/Bogus/README.md\">Bogus</a></td>\n                            <td>In</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"./src/Providers/Json/README.md\">JSON</td>\n                            <td>Out</td>\n                        </tr>    \n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n</table>\n</div>\n\n<!--<div class=\"table-responsive\" style=\"font-size:smaller;\">\n<table class=\"table table-condensed\">\n    <thead>\n      <tr>\n         <th colspan=\"3\" style=\"text-align:center\">Windows Only<span style=\"font-size:smaller\"></span></th>\n      </tr>\n      <tr>\n         <th>Relational</th>\n         <th colspan=\"2\" style=\"text-align:center\">Non-Relational</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td style=\"vertical-align:top\">\n                <table class=\"table table-condensed\">\n                    <thead>\n                        <tr>\n                            <th>Provider</th>\n                            <th>Support</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.SqlCe\">SqlCe</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Access\">Access</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td> &nbsp;</td>\n                            <td> &nbsp;</td>\n                        </tr>\n                        <tr>\n                            <td> &nbsp;</td>\n                            <td> &nbsp;</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            <td style=\"vertical-align:top\">\n                <table class=\"table table-condensed\">\n                    <thead>\n                        <tr>\n                            <th>Provider</th>\n                            <th>Support</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Lucene\">Lucene</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Solr\">SOLR</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Excel\">Excel</a></td>\n                            <td>Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.FileHelpers\">Files</a></td>\n                            <td>In/Out</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            <td style=\"vertical-align:top\">\n                <table class=\"table table-condensed\">\n                    <thead>\n                        <tr>\n                            <th>Provider</th>\n                            <th>Support</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td title=\"SQL Server Analysis Services\"><a href=\"https://github.com/dalenewman/Transformalize.Provider.Ssas\">SSAS</a></td>\n                            <td>Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.RethinkDb\">RethinkDB</a></td>\n                            <td>Out</td>\n                        </tr>\n                        <tr>\n                            <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.ActiveDirectory\">Active Directory</a></td>\n                            <td>In</td>\n                        </tr>\n                        <tr>\n                            <td> &nbsp;</td>\n                            <td> &nbsp;</td>\n                        </tr>                        \n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n</table>\n</div>-->\n\n---\n\n### Getting Started\n\nThis *readme* demonstrates how to denormalize a relational database and load it into Elasticsearch.\n \nTo follow along, see the [prerequisites](https://github.com/dalenewman/Transformalize/wiki/README-Prerequisites).\n\nWhen you start denormalizing a database, it's good to have a diagram. \n\n<img src=\"./Files/northwind-diagram.png\" class=\"img-responsive img-thumbnail\" alt=\"Northwind Schema\" />\n\nThis shows eight [normalized](https://en.wikipedia.org/wiki/Database_normalization) \ntables related to *Order Details*. \n\n> This section introduces `<connections/>`, `<entities/>`, and the `page` and `size` attributes.\n\nTransformalize arrangements are written in [XML](https://en.wikipedia.org/wiki/XML) or [JSON](https://en.wikipedia.org/wiki/JSON). \nThey are validated before execution.\n\nTo get started, open VS Code and paste this in:\n\n```xml\n<cfg name=\"NorthWind\" read-only=\"true\">\n  <connections>\n    <add name=\"input\" provider=\"sqlserver\" user=\"sa\" password=\"Secret1!\" database=\"Northwind\" />\n  </connections>\n  <entities>\n    <add name=\"Order Details\" page=\"1\" size=\"5\" />\n  </entities>\n</cfg>\n```\n\nThis defines an *input* as the `Order Details` table inside the Northwind database. \nSave it as *NorthWind.xml* and press CTRL-P to find and execute the `tfl:run` command. \n\n![Step01](./Files/Demo/step01-cp.gif \"Step 1\")\n\nTransformalize returned the first page of rows from the `Order Details` table. \nTo transform and save this data, the `<fields/>` must be defined.\n\n> Introducing `<fields/>`.\n\nTo see the schema, press CTRL-P to find and execute the `tfl:schema` command:\n\n<pre style=\"font-size:smaller;\">\n> tfl -a NorthWind.xml <strong>-m schema</strong>\n...\n&lt;fields&gt;\n  &lt;add name=\"OrderID\" type=\"int\" primary-key=\"true\" /&gt;\n  &lt;add name=\"ProductID\" type=\"int\" primary-key=\"true\" /&gt;\n  &lt;add name=\"UnitPrice\" type=\"decimal\" precision=\"19\" scale=\"4\" /&gt;\n  &lt;add name=\"Quantity\" type=\"short\" /&gt;\n  &lt;add name=\"Discount\" type=\"single\" /&gt;\n&lt;/fields>\n...\n</pre>\n\nCopy the `<fields/>` from the output into your arrangement like this:\n\n```xml\n<cfg name=\"NorthWind\">\n  <connections>\n    <add name=\"input\" provider=\"sqlserver\" user=\"sa\" password=\"Secret1!\" database=\"Northwind\" />\n  </connections>\n  <entities>\n    <add name=\"Order Details\" page=\"1\" size=\"5\">\n      <!-- copy/paste the fields here -->\n      <fields>\n        <add name=\"OrderID\" type=\"int\" primary-key=\"true\" />\n        <add name=\"ProductID\" type=\"int\" primary-key=\"true\" />\n        <add name=\"UnitPrice\" type=\"decimal\" precision=\"19\" scale=\"4\" />\n        <add name=\"Quantity\" type=\"short\" />\n        <add name=\"Discount\" type=\"single\" />\n      </fields>\n    </add>\n  </entities>\n</cfg>\n```\n\n> Introducing **`<calculated-fields/>`**, the **`t`** attribute, and the **`js`** and **`round`** transformations\n\nAdd **`<calculated-fields/>`** right after **`<fields/>`** like this:\n\n```xml\n<calculated-fields>\n  <add name=\"Revenue\" \n       type=\"decimal\" \n       t=\"js(Quantity * ((1-Discount) * UnitPrice)).",
+        "truncated": true,
+        "bytes": 36143,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".vscode",
+        "Directory.Build.props",
+        "Files",
+        "LICENSE.md",
+        "Nuget",
+        "README.md",
+        "Transformalize.sln",
+        "Transformalize.sln.DotSettings",
+        "docker.sh",
+        "docs",
+        "nuget.config",
+        "scripts",
+        "src",
+        "test"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Transformalize is a configuration based ETL tool that automates incremental denormalization of relational data. It may be used for other types of [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) as well.",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 1,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<div class=\"table-responsive\" style=\"font-size:smaller;\"> <table class=\"table table-condensed\"> <thead> <!--<tr> <th colspan=\"3\" style=\"text-align:center\">Cross Platform</th> </tr>--> <tr> <th>Relational</th> <th colspan=\"2\" style=\"text-align:center\">Non-Relational</th> </tr> </thead> <tbody> <tr> <td style=\"vertical-align:top\"> <table class=\"table table-condensed\"> <thead> <tr> <th>Provider</th> <th>Support</th> </tr> </thead> <tbody> <tr> <td><a href=\"./src/Providers/SqlServer/README.md\">SQL Server</a></td> <td>In/Out</td> </tr> <tr> <td><a href=\"./src/Providers/MySql/README.md\">MySql</a></td> <td>In/Out</td> </tr> <tr> <td><a href=\"./src/Providers/PostgreSql/README.md\">PostgreSql</a></td> <td>In/Out</td> </tr> <tr> <td><a href=\"./src/Providers/Sqlite/README.md\">SQLite</a></td> <td>In/Out</td> </tr> <tr> <td> &nbsp;</td> <td> &nbsp;</td> </tr> </tbody> </table> </td> <td style=\"vertical-align:top\"> <table class=\"table table-condensed\"> <thead> <tr> <th>Provider</th> <th>Support</th> </tr> </thead> <tbody> <tr> <td><a href=\"./src/Providers/Elasticsearch/README.md\">Elasticsearch</a></td> <td>In/Out</td> </tr> <tr> <td><a href=\"./src/Providers/Excel/README.md\">Excel</a></td> <td>In…",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 2,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<!--<div class=\"table-responsive\" style=\"font-size:smaller;\"> <table class=\"table table-condensed\"> <thead> <tr> <th colspan=\"3\" style=\"text-align:center\">Windows Only<span style=\"font-size:smaller\"></span></th> </tr> <tr> <th>Relational</th> <th colspan=\"2\" style=\"text-align:center\">Non-Relational</th> </tr> </thead> <tbody> <tr> <td style=\"vertical-align:top\"> <table class=\"table table-condensed\"> <thead> <tr> <th>Provider</th> <th>Support</th> </tr> </thead> <tbody> <tr> <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.SqlCe\">SqlCe</a></td> <td>In/Out</td> </tr> <tr> <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Access\">Access</a></td> <td>In/Out</td> </tr> <tr> <td> &nbsp;</td> <td> &nbsp;</td> </tr> <tr> <td> &nbsp;</td> <td> &nbsp;</td> </tr> </tbody> </table> </td> <td style=\"vertical-align:top\"> <table class=\"table table-condensed\"> <thead> <tr> <th>Provider</th> <th>Support</th> </tr> </thead> <tbody> <tr> <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Lucene\">Lucene</a></td> <td>In/Out</td> </tr> <tr> <td><a href=\"https://github.com/dalenewman/Transformalize.Provider.Solr\">SOLR</a></td> <td>In/Out</td> </tr> <tr>…",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 3,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 4)",
+          "excerpt": "This *readme* demonstrates how to denormalize a relational database and load it into Elasticsearch. To follow along, see the [prerequisites](https://github.com/dalenewman/Transformalize/wiki/README-Prerequisites).",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 4,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<img src=\"./Files/northwind-diagram.png\" class=\"img-responsive img-thumbnail\" alt=\"Northwind Schema\" />",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 5,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 6)",
+          "excerpt": "This shows eight [normalized](https://en.wikipedia.org/wiki/Database_normalization) tables related to *Order Details*.",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 6,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 7)",
+          "excerpt": "> This section introduces `<connections/>`, `<entities/>`, and the `page` and `size` attributes.",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 7,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/dalenewman/Transformalize#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Transformalize arrangements are written in [XML](https://en.wikipedia.org/wiki/XML) or [JSON](https://en.wikipedia.org/wiki/JSON). They are validated before execution.",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "segment": 8,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/dalenewman/Transformalize",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerignore, .gitattributes, .github, .gitignore, .vscode, Directory.Build.props, Files, LICENSE.md, Nuget, README.md, Transformalize.sln, Transformalize.sln.DotSettings, docker.sh, docs, nuget.config, scripts, src, test",
+          "fetched_at": "2026-03-07T04:23:32.530Z",
+          "meta": {
+            "repo_full_name": "dalenewman/Transformalize",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "johunsang/octo-terminal-releases",
+      "html_url": "https://github.com/johunsang/octo-terminal-releases",
+      "description": "Octo Terminal — The ultimate vibe coding terminal. AI-powered IDE with Claude, Codex, Ollama built-in. Terminal + editor + notes + browser in one app. Tauri + React + Rust.",
+      "topics": [
+        "ai-agent",
+        "ai-coding",
+        "ai-terminal",
+        "claude",
+        "codex",
+        "coding-terminal",
+        "developer-tools",
+        "ide",
+        "macos",
+        "mcp",
+        "ollama",
+        "react",
+        "rust",
+        "ssh",
+        "tauri",
+        "terminal-emulator",
+        "vibe-coding",
+        "vibe-coding-terminal",
+        "windows",
+        "xterm"
+      ],
+      "language": null,
+      "stargazers_count": 189,
+      "forks_count": 24,
+      "open_issues_count": 19,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:20:01Z",
+      "created_at": "2026-02-05T14:57:25Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src=\"assets/app_icon.png\" width=\"128\" alt=\"Octo Terminal — The Ultimate Vibe Coding Terminal with AI\" />\n</p>\n\n<h1 align=\"center\">Octo Terminal</h1>\n<h3 align=\"center\">The Ultimate Vibe Coding Terminal</h3>\n\n<p align=\"center\">\n  <strong>AI-powered all-in-one terminal for vibe coding.</strong><br/>\n  Multi-project, multi-terminal — switch freely between projects and terminals like a pro.<br/>\n  Built-in Claude, Codex, Ollama, Kimi — terminal + editor + notes + browser + AI image studio in a single app.<br/>\n  <em>The best AI coding terminal for developers who vibe code.</em>\n</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/version-0.1.42-blue\" alt=\"Version\" />\n  <img src=\"https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-black?logo=apple\" alt=\"macOS\" />\n  <img src=\"https://img.shields.io/badge/platform-macOS%20(Intel)-gray?logo=apple\" alt=\"macOS Intel\" />\n  <img src=\"https://img.shields.io/badge/platform-Windows%2010%2F11-blue?logo=windows\" alt=\"Windows\" />\n  <img src=\"https://img.shields.io/badge/Built%20with-Rust-orange?logo=rust\" alt=\"Rust\" />\n  <img src=\"https://img.shields.io/badge/Framework-Tauri%202-blue?logo=tauri\" alt=\"Tauri\" />\n  <img src=\"https://img.shields.io/badge/Frontend-React%2019-61dafb?logo=react\" alt=\"React\" />\n</p>\n\n<!--\nSEO Keywords: vibe coding, vibe coding terminal, ai terminal, ai coding terminal, ai ide,\nbest coding terminal, ultimate coding terminal, claude terminal, codex terminal, ollama terminal,\nai developer tools, ai pair programming, ai code editor, terminal emulator, tauri terminal,\nrust terminal, react terminal, xterm terminal, ssh terminal, mcp server, ai agent terminal,\nvibe code, coding with ai, ai-powered ide, desktop terminal app, macos terminal, windows terminal,\ndeveloper productivity, ai coding assistant, multi ai terminal, ai orchestration,\nmulti project terminal, multi tab terminal, ai image generator, nanobanana, gemini image studio,\nmarketing banner generator, logo generator, app icon generator, ai design tool\n-->\n\n---\n\n## What is Octo Terminal?\n\n**Octo Terminal** is the ultimate vibe coding terminal — like an octopus with many arms (terminals)!\n\n**The killer feature: Multi-Project + Multi-Terminal.** Open dozens of projects simultaneously, each with its own set of terminals, themes, and settings. Switch between projects instantly with tabs. Split terminals horizontally, vertically, in grids — run Claude in one pane, your dev server in another, and Codex in a third, all within the same project. Seamlessly jump between projects and terminals like a multitasking octopus.\n\nIt's an all-in-one AI-powered coding tool: terminal + editor + notes + AI + image studio in a single window. Run Claude, Codex, Ollama, and Kimi side by side. It also supports various document viewers (PowerPoint, Word, Excel, PDF, EPUB), a Kanban board, and NanoBanana AI image generation.\n\n---\n\n## Key Features\n\n> See the Feature Details Guide for in-depth descriptions of each feature.\n\n### AI & Terminal\n\n| Feature | Description |\n| --- | --- |\n| AI Friends | Run Claude, Codex, OpenCode, Kimi, Ollama directly in the terminal |\n| Orchestra | Multi-AI agent orchestration system |\n| Skills | Reusable AI commands (model selection, gallery, one-click execution) |\n| Voice Input | Speech-to-text conversion via Whisper API |\n| CJK Input | Native IME support for Korean/Chinese/Japanese |\n\n### Editor & Files\n\n| Feature | Description |\n| --- | --- |\n| Code Editor | Monaco Editor + Vim mode + Emmet + Prettier |\n| File Explorer | Tree view, drag & drop, multi-select, context menu |\n| Markdown Notes | Global notes + project docs + AI auto-generation + tag/wikilink auto-organization |\n| Note Graph View | Note connection visualization (4 layouts, minimap, glow effects) |\n| EPUB Reader | EPUB e-book viewer (chapter navigation, table of contents, font size adjustment) |\n| MD to EPUB | Export Markdown files as EPUB e-books |\n\n### Layout & UI\n\n| Feature | Description |\n| --- | --- |\n| Split View | 8 layouts (tabs, horizontal/vertical, tree, tile, grid, mix) |\n| View Modes | Editor / Full / Side / Terminal / Browser / Kanban / PM2 / Hub — 8 modes |\n| Themes | 75 themes + various coding fonts |\n| Shortcuts | Octo / VSCode / IntelliJ presets |\n| Kanban Board | Per-project Kanban board (To Do / In Progress / In Review / Done, drag & drop, tags) |\n| Multilingual | 8 languages: English, Korean, Japanese, Chinese, French, German, Italian, Spanish |\n\n### Server & Remote\n\n| Feature | Description |\n| --- | --- |\n| SSH Remote | Work on remote server projects via SSH as if they were local |\n| SSH Config Integration | Auto-reads `~/.ssh/config`, host dropdown selection when creating projects |\n| PM2 Server Monitoring | Real-time CPU/memory/disk monitoring with 3D gauges + spark charts |\n| PM2 Multi-Project | SSH project selection tabs + drag-resize for at-a-glance server overview |\n| PM2 Log Viewer | Full/selected process toggle, AI anomaly detection (Ollama) |\n| Scheduler | Automatically run CLI commands at set intervals |\n\n### Integrations\n\n| Feature | Description |\n| --- | --- |\n| Hub Unified Feed | View Linear/Slack/GitHub issues in one place + pagination |\n| Per-Project Integration | Individual GitHub repository and Slack channel settings per project |\n| Telegram | Remote terminal monitoring + command sending (per-project chat mapping) |\n| Discord | Remote control + mirroring via Discord Bot (same as Telegram) |\n| Slack | Remote control + mirroring via Slack Bot (same as Telegram/Discord) |\n| Built-in Browser | Browser panel + MCP integration for CLI-based browser control |\n| MCP Server | MCP server management + auto-integration with Claude/Codex CLI |\n| Vault | Password-protected storage for API keys / code snippets |\n| NanoBanana | AI design studio — 16 services: banners, logos, dev images, art, fashion models, outfits, influencer photos, ad packs, ad videos, cartoons, interior, pets, 360° rotation, smart store, web builder (Gemini/Imagen/Veo) |\n\n> Skills DB / Detached Window documentation: docs/SKILLS-DB-AND-STUDIO.md\n\n---\n\n## Screen Layout\n\n```\n+--------------------------------------------------+\n| [View] [Project1] [Project2] [+]  [Menu▼] [Settings] |  <- Project tab bar\n+----------+---------------------------------------+\n|          |  Editor Area                          |\n| File     |  (Code/Markdown editing)              |\n| Explorer |                                       |\n|   or     +---------------------------------------+\n| Notes    |  Terminal Area                        |\n| Sidebar  |  $ _                                  |\n|          |  [Tab1] [Tab2] [+Claude] [+Codex]     |\n+----------+---------------------------------------+\n```\n\n---\n\n## Installation\n\nDownload the latest version from [GitHub Releases](https://github.com/johunsang/octo-terminal-releases/releases).\n\n| Platform | File | Description |\n| --- | --- | --- |\n| macOS (Apple Silicon) | `Octo.Terminal_x.x.x_aarch64.dmg` | For M1/M2/M3/M4 Mac |\n| macOS (Intel) | `Octo.Terminal_x.x.x_x64.dmg` | For Intel Mac |\n| Windows | `Octo.Terminal_x.x.x_x64-setup.exe` | NSIS installer |\n| Windows | `Octo.Terminal_x.x.x_x64_en-US.msi` | Windows Installer |\n\n### macOS\n\n1. Download the `.dmg` file matching your Mac from the table above\n2. Double-click the `.dmg` file → drag to the Applications folder\n3. Launch from Launchpad or Spotlight (`Cmd + Space` > \"octo\")\n\n> Signed with Apple Developer ID — runs without Gatekeeper warnings.\n\n### Windows\n\n1. Download `.exe` or `.msi` from the table above (do not download `.dmg` — that's macOS only!)\n2. Run the installer → follow the instructions\n3. Launch \"Octo Terminal\" from the Start Menu or desktop\n\n> On Windows, use `Ctrl` instead of `Cmd`.\n\n---\n\n## Quick Start\n\n1. **Open a Project** — Click \"+\" to select a working folder\n2. **Browse Files** — Click files in the left sidebar\n3. **Edit Code** — Edit in the top editor area, `Cmd+S` to save\n4. **Use Terminal** — Run commands in the bottom terminal\n5. **Use AI** — Click \"+\" to launch a Claude/Codex/Kimi/Ollama terminal\n6. **Take Notes** — Manage Markdown notes in the sidebar \"Notes\" tab\n7. **Browser** — Open the built-in browser from the menu, control via MCP from CLI\n8. **Voice Input** — Hold `Right Alt` and speak → release to convert to text (requires OpenAI API key in Settings > Agent > Whisper)\n9. **PM2 Monitor** — Select PM2 in view mode for real-time server status per SSH project\n10. **Hub** — Select Hub in view mode to view Linear/Slack/GitHub issues in one unified feed\n\n---\n\n## PM2 Server Monitoring\n\nMonitor PM2 processes and server status of SSH projects in real time.\n\n### Features\n\n| Feature | Description |\n| --- | --- |\n| Process List | PM2 process status, CPU, memory, restart count |\n| Log Viewer | Real-time log streaming for all/selected processes |\n| AI Anomaly Detection | Automatic detection of abnormal log patterns via Ollama |\n| Server Dashboard | CPU, memory, disk usage with 3D gauges + spark charts |\n| Multi-Project | All/individual project tab selection, drag-to-resize panels |\n\n### How to Use\n\n1. Create an SSH project (you can select a host from `~/.ssh/config` in settings)\n2. Select **PM2** in view mode\n3. Select **All** or an individual project from the top tabs\n4. Click a process on the left → view real-time logs in the right panel\n5. Monitor CPU/memory/disk in the bottom server dashboard\n\n---\n\n## Hub Unified Feed\n\nView Linear, Slack, and GitHub issues all in one place.\n\n### Setup\n\n1. Register API tokens for each service in Settings > Integrations\n2. Optionally configure per-project GitHub repositories and Slack channels\n3. Select **Hub** in view mode\n\n### Features\n\n- Color-coded source filters (Linear/Slack/GitHub)\n- Click cards for detailed content\n- Pagination (8 per page)\n- Quick open (external browser)\n\n---\n\n## Built-in Browser + MCP Integration\n\nOcto Terminal includes a built-in browser, allowing Claude/Codex CLI to directly control the browser.\n\n### How to Use\n\n1. Select browser mode from the menu\n2. In Settings > **Browser** tab, select a project then:\n   - **Install for Project** — Register MCP server in `.mcp.json`\n   - **Install /browse** — Install the `/browse` slash command\n3. Control the browser with natural language from CLI:\n   - `/browse open https://google.com`\n   - `/browse read page text`\n   - `/browse take a screenshot`\n\n### MCP Tools\n\n| Tool | Description |\n| --- | --- |\n| `navigate` | Navigate to a URL |\n| `get_page_text` | Extract page text |\n| `get_page_html` | Get HTML source |\n| `get_page_info` | Current URL, title, status |\n| `javascript_eval` | Execute JavaScript |\n| `screenshot` | Take a screenshot |\n| `console_logs` | View console logs |\n| `go_back` / `go_forward` / `reload` | Navigation |\n| `list_tabs` / `new_tab` / `switch_tab` / `close_tab` | Tab management |\n\n### Architecture\n\n```\nCLI (Claude/Codex) → MCP Server (stdio) → HTTP POST localhost:19980\n  → Rust browser_bridge (axum) → Tauri event → BrowserPanel (React)\n    → Result → invoke(\"browser_bridge_respond\") → HTTP response → CLI\n```\n\n---\n\n## Telegram Remote Control\n\nConnect a Telegram bot to monitor terminal output and send commands from your smartphone while on the go.\n\n### Initial Setup\n\n1. **Create a Bot** — Search `@BotFather` on Telegram → `/newbot` → enter a bot name → copy the **bot token**\n2. **Register Token** — Settings > Agent > Telegram > paste bot token → \"Verify & Save\"\n3. **Link Chat** — Send any message to the bot → Settings > Agent > Telegram wizard > click \"Detect Chat\"\n4. **Map Project** — Link the detected chat to your desired project\n\n### Features\n\n| Feature | Description |\n| --- | --- |\n| Output Mirroring | Automatically sends terminal screen changes to Telegram chat |\n| Command Mirroring | Sends entered commands to Telegram (auto-masks passwords/API keys) |\n| Remote Commands | Messages sent from Telegram are delivered to the project's active terminal |\n| Per-Project Chat | Assign different Telegram chat IDs per project |\n\n### Security\n\n- Sensitive ",
+        "truncated": true,
+        "bytes": 39734,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Octo Terminal v0.1.41",
+            "tag_name": "v0.1.41",
+            "published_at": "2026-03-07T01:32:35Z",
+            "body_excerpt": "# v0.1.41 — EPUB 내보내기 통합\n\n## 변경 사항\n\n- **EPUB 내보내기 통합**: 단일/대량 EPUB 내보내기를 하나의 모달로 통합\n  - 에디터 툴바의 EPUB 버튼 하나로 모달 실행\n  - 파일 탐색기에서 다중 선택된 파일 또는 열린 탭 파일 자동 표시\n  - 제목 입력, 파일 순서 변경, EPUB 생성 지원\n  - md, txt, docx, pptx 파일 형식 지원\n- **모달 표시 수정**: `position: fixed` + `z-index: 10000`으로 오버플로우 컨테이너 내에서도 정상 표시\n- **EditorPanel 정리**: 중복 배치 EPUB 로직 제거, App.tsx로 통합\n"
+          },
+          {
+            "name": "Octo Terminal v0.1.40",
+            "tag_name": "v0.1.40",
+            "published_at": "2026-03-06T03:44:24Z",
+            "body_excerpt": "# v0.1.40\n\n## Fix\n- **terminal-panel-close / terminal-panel-action**: dark theme visibility fix\n  - `.terminal-panel-close` color: hardcoded `rgba(30,30,46,0.6)` -> `var(--text-color)` based\n  - `.terminal-panel-action` border/background/color: hardcoded light-only values -> `var(--text-color)` based\n  - hover states also updated to respect current theme\n\n## Feature\n- **Batch EPUB export**: combine multiple open files into a single EPUB\n  - Supports MD, DOCX, PPTX, TXT file types\n  - DOCX -> HTML via mammoth, PPTX -> text extraction via pptxParser\n  - File selection modal with reorder (up/down), per-file type badges\n  - Available when 2+ compatible files are open (BookPlus icon in editor toolbar)\n  - `multiFilesToEpubBase64()` in `mdToEpub.ts`\n  - Refactored existing `markdownToEpubBase64()` to reuse shared `buildEpubZip()`\n"
+          },
+          {
+            "name": "Octo Terminal v0.1.39",
+            "tag_name": "v0.1.39",
+            "published_at": "2026-03-05T22:18:33Z",
+            "body_excerpt": "# v0.1.39 — PM2 프로젝트 선택 + 패널 리사이즈\n\n## 새 기능\n\n- **PM2 프로젝트 선택 탭바**: 전체 SSH 프로젝트 보기 / 개별 프로젝트 선택 토글\n- **PM2 패널 크기 드래그 조절**: 패널 사이 디바이더를 드래그하여 가로/세로 크기 조절\n- **PM2 로그 전체/선택 토글**: 전체 프로세스 로그 또는 선택된 프로세스만 보기\n\n## 수정\n\n- PM2 누락 모듈 파일 추가 (pm2Commands, Pm2ProcessList, Pm2LogViewer 등)\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 34,
+            "title": "v0.1.41 에서 터미널 명령 입력 오류",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/34"
+          },
+          {
+            "number": 33,
+            "title": "기능 요청: 에이전트 CLI 커맨드 커스터마이징 및 터미널 편의 기능 추가 제안",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/33"
+          },
+          {
+            "number": 32,
+            "title": "v0.1.35 윈도우에서 스크롤 문제 다시 발생합니다.",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/32"
+          },
+          {
+            "number": 31,
+            "title": "[macOS/Bug] 마이크 권한이 시스템 설정에 표시되지 않음 — com.apple.security.device.audio-input entitlement 누락",
+            "state": "closed",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/31"
+          },
+          {
+            "number": 24,
+            "title": "추가한 터미널 강제 스크롤다운 버그",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/24"
+          },
+          {
+            "number": 20,
+            "title": "터미널이 스크롤이 계속 최하단으로 가려합니다.",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/20"
+          },
+          {
+            "number": 10,
+            "title": "[Windows] 키보드/마우스 버그 수정 및 핵심 기능 요청",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/10"
+          },
+          {
+            "number": 21,
+            "title": "텔레그램 메세지 윈도우 octo 터미널 처리로직 관련 이슈",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/21"
+          },
+          {
+            "number": 26,
+            "title": "클로드가 개발을 하다가 갑자기 먹통이 됩니다.",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/26"
+          },
+          {
+            "number": 27,
+            "title": "Slack도 지원되었으면 좋겠어요.",
+            "state": "open",
+            "url": "https://github.com/johunsang/octo-terminal-releases/issues/27"
+          }
+        ]
+      },
+      "root_files": [
+        "README.md",
+        "assets",
+        "images"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src=\"assets/app_icon.png\" width=\"128\" alt=\"Octo Terminal — The Ultimate Vibe Coding Terminal with AI\" /> </p>",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 1,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<h1 align=\"center\">Octo Terminal</h1> <h3 align=\"center\">The Ultimate Vibe Coding Terminal</h3>",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 2,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <strong>AI-powered all-in-one terminal for vibe coding.</strong><br/> Multi-project, multi-terminal — switch freely between projects and terminals like a pro.<br/> Built-in Claude, Codex, Ollama, Kimi — terminal + editor + notes + browser + AI image studio in a single app.<br/> <em>The best AI coding terminal for developers who vibe code.</em> </p>",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 3,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <img src=\"https://img.shields.io/badge/version-0.1.42-blue\" alt=\"Version\" /> <img src=\"https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-black?logo=apple\" alt=\"macOS\" /> <img src=\"https://img.shields.io/badge/platform-macOS%20(Intel)-gray?logo=apple\" alt=\"macOS Intel\" /> <img src=\"https://img.shields.io/badge/platform-Windows%2010%2F11-blue?logo=windows\" alt=\"Windows\" /> <img src=\"https://img.shields.io/badge/Built%20with-Rust-orange?logo=rust\" alt=\"Rust\" /> <img src=\"https://img.shields.io/badge/Framework-Tauri%202-blue?logo=tauri\" alt=\"Tauri\" /> <img src=\"https://img.shields.io/badge/Frontend-React%2019-61dafb?logo=react\" alt=\"React\" /> </p>",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 4,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<!-- SEO Keywords: vibe coding, vibe coding terminal, ai terminal, ai coding terminal, ai ide, best coding terminal, ultimate coding terminal, claude terminal, codex terminal, ollama terminal, ai developer tools, ai pair programming, ai code editor, terminal emulator, tauri terminal, rust terminal, react terminal, xterm terminal, ssh terminal, mcp server, ai agent terminal, vibe code, coding with ai, ai-powered ide, desktop terminal app, macos terminal, windows terminal, developer productivity, ai coding assistant, multi ai terminal, ai orchestration, multi project terminal, multi tab terminal, ai image generator, nanobanana, gemini image studio, marketing banner generator, logo generator, app icon generator, ai design tool -->",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 5,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**Octo Terminal** is the ultimate vibe coding terminal — like an octopus with many arms (terminals)!",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 6,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 7)",
+          "excerpt": "**The killer feature: Multi-Project + Multi-Terminal.** Open dozens of projects simultaneously, each with its own set of terminals, themes, and settings. Switch between projects instantly with tabs. Split terminals horizontally, vertically, in grids — run Claude in one pane, your dev server in another, and Codex in a third, all within the same project. Seamlessly jump between projects and terminals like a multitasking octopus.",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 7,
+            "language": null
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases#readme",
+          "title": "README (segment 8)",
+          "excerpt": "It's an all-in-one AI-powered coding tool: terminal + editor + notes + AI + image studio in a single window. Run Claude, Codex, Ollama, and Kimi side by side. It also supports various document viewers (PowerPoint, Word, Excel, PDF, EPUB), a Kanban board, and NanoBanana AI image generation.",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "segment": 8,
+            "language": null
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/34",
+          "title": "v0.1.41 에서 터미널 명령 입력 오류",
+          "excerpt": "v0.1.41 에서 터미널 명령 입력 오류 (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 34
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/33",
+          "title": "기능 요청: 에이전트 CLI 커맨드 커스터마이징 및 터미널 편의 기능 추가 제안",
+          "excerpt": "기능 요청: 에이전트 CLI 커맨드 커스터마이징 및 터미널 편의 기능 추가 제안 (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 33
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/32",
+          "title": "v0.1.35 윈도우에서 스크롤 문제 다시 발생합니다.",
+          "excerpt": "v0.1.35 윈도우에서 스크롤 문제 다시 발생합니다. (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 32
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/31",
+          "title": "[macOS/Bug] 마이크 권한이 시스템 설정에 표시되지 않음 — com.apple.security.device.audio-input entitlement 누락",
+          "excerpt": "[macOS/Bug] 마이크 권한이 시스템 설정에 표시되지 않음 — com.apple.security.device.audio-input entitlement 누락 (state:closed)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 31
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/24",
+          "title": "추가한 터미널 강제 스크롤다운 버그",
+          "excerpt": "추가한 터미널 강제 스크롤다운 버그 (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 24
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/20",
+          "title": "터미널이 스크롤이 계속 최하단으로 가려합니다.",
+          "excerpt": "터미널이 스크롤이 계속 최하단으로 가려합니다. (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 20
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/10",
+          "title": "[Windows] 키보드/마우스 버그 수정 및 핵심 기능 요청",
+          "excerpt": "[Windows] 키보드/마우스 버그 수정 및 핵심 기능 요청 (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 10
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/21",
+          "title": "텔레그램 메세지 윈도우 octo 터미널 처리로직 관련 이슈",
+          "excerpt": "텔레그램 메세지 윈도우 octo 터미널 처리로직 관련 이슈 (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 21
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/26",
+          "title": "클로드가 개발을 하다가 갑자기 먹통이 됩니다.",
+          "excerpt": "클로드가 개발을 하다가 갑자기 먹통이 됩니다. (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 26
+          }
+        },
+        {
+          "id": "E-IS-010",
+          "type": "issue",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/issues/27",
+          "title": "Slack도 지원되었으면 좋겠어요.",
+          "excerpt": "Slack도 지원되었으면 좋겠어요. (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "number": 27
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/releases",
+          "title": "v0.1.41",
+          "excerpt": "# v0.1.41 — EPUB 내보내기 통합 ## 변경 사항 - **EPUB 내보내기 통합**: 단일/대량 EPUB 내보내기를 하나의 모달로 통합 - 에디터 툴바의 EPUB 버튼 하나로 모달 실행 - 파일 탐색기에서 다중 선택된 파일 또는 열린 탭 파일 자동 표시 - 제목 입력, 파일 순서 변경, EPUB 생성 지원 - md, txt, docx, pptx 파일 형식 지원 - **모달 표시 수정**: `position: fixed` + `z-index: 10000`으로 오버플로우 컨테이너 내에서도 정상 표시 - **EditorPanel 정리**: 중복 배치 EPUB 로직 제거, App.tsx로 통합",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "tag_name": "v0.1.41",
+            "published_at": "2026-03-07T01:32:35Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/releases",
+          "title": "v0.1.40",
+          "excerpt": "# v0.1.40 ## Fix - **terminal-panel-close / terminal-panel-action**: dark theme visibility fix - `.terminal-panel-close` color: hardcoded `rgba(30,30,46,0.6)` -> `var(--text-color)` based - `.terminal-panel-action` border/background/color: hardcoded light-only values -> `var(--text-color)` based - hover states also updated to respect current theme ## Feature - **Batch EPUB export**: combine multiple open files into a single EPUB - Supports MD, DOCX, PPTX, TXT file types - DOCX -> HTML via mammoth, PPTX -> text extraction via pptxParser - File selection modal with reorder (up/down), per-file type badges - Available when 2+ compatible files are open (BookPlus icon in editor toolbar) - `multiFilesToEpubBase64()` in `mdToEpub.ts` - Refactored existing `markdownToEpubBase64()` to reuse shared `buildEpubZip()`",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "tag_name": "v0.1.40",
+            "published_at": "2026-03-06T03:44:24Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases/releases",
+          "title": "v0.1.39",
+          "excerpt": "# v0.1.39 — PM2 프로젝트 선택 + 패널 리사이즈 ## 새 기능 - **PM2 프로젝트 선택 탭바**: 전체 SSH 프로젝트 보기 / 개별 프로젝트 선택 토글 - **PM2 패널 크기 드래그 조절**: 패널 사이 디바이더를 드래그하여 가로/세로 크기 조절 - **PM2 로그 전체/선택 토글**: 전체 프로세스 로그 또는 선택된 프로세스만 보기 ## 수정 - PM2 누락 모듈 파일 추가 (pm2Commands, Pm2ProcessList, Pm2LogViewer 등)",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "tag_name": "v0.1.39",
+            "published_at": "2026-03-05T22:18:33Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/johunsang/octo-terminal-releases",
+          "title": "ROOT_FILES",
+          "excerpt": "README.md, assets, images",
+          "fetched_at": "2026-03-07T04:23:32.615Z",
+          "meta": {
+            "repo_full_name": "johunsang/octo-terminal-releases",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "wfxr/forgit",
+      "html_url": "https://github.com/wfxr/forgit",
+      "description": ":zzz: A utility tool powered by fzf for using git interactively.",
+      "topics": [
+        "bash",
+        "cli",
+        "fish",
+        "fzf",
+        "git",
+        "zsh",
+        "zsh-plugin"
+      ],
+      "language": "Shell",
+      "stargazers_count": 4905,
+      "forks_count": 155,
+      "open_issues_count": 14,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-07T04:18:50Z",
+      "created_at": "2017-11-15T15:27:38Z",
+      "readme": {
+        "fetched": true,
+        "text": "<h1 align=\"center\">💤 forgit</h1>\n<p align=\"center\">\n    <em>Utility tool for using git interactively. Powered by <a href=\"https://github.com/junegunn/fzf\">junegunn/fzf</a>.</em>\n</p>\n\n<p align=\"center\">\n    <a href=\"https://github.com/wfxr/forgit/actions\">\n        <img src=\"https://github.com/wfxr/forgit/workflows/ci/badge.svg\"/>\n    </a>\n    <a href=\"https://wfxr.mit-license.org/2017\">\n        <img src=\"https://img.shields.io/badge/License-MIT-brightgreen.svg\"/>\n    </a>\n    <a href=\"https://img.shields.io/badge/Shell-Bash%20%7C%20Zsh%20%7C%20Fish-blue\">\n        <img src=\"https://img.shields.io/badge/Shell-Bash%20%7C%20Zsh%20%7C%20Fish-blue\"/>\n    </a>\n    <a href=\"https://github.com/unixorn/awesome-zsh-plugins\">\n        <img src=\"https://img.shields.io/badge/Awesome-zsh--plugins-d07cd0?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABVklEQVRIS+3VvWpVURDF8d9CRAJapBAfwWCt+FEJthIUUcEm2NgIYiOxsrCwULCwktjYKSgYLfQF1JjCNvoMNhYRCwOO7HAiVw055yoBizvN3nBmrf8+M7PZsc2RbfY3AfRWeNMSVdUlHEzS1t6oqvt4n+TB78l/AKpqHrdwLcndXndU1WXcw50k10c1PwFV1fa3cQVzSR4PMd/IqaoLeIj2N1eTfG/f1gFVtQMLOI+zSV6NYz4COYFneIGLSdZSVbvwCMdxMsnbvzEfgRzCSyzjXAO8xlHcxMq/mI9oD+AGlhqgxjD93OVOD9TUuICdXd++/VeAVewecKKv2NPlfcHUAM1qK9FTnBmQvJjkdDfWzzE7QPOkAfZiEce2ECzhVJJPHWAfGuTwFpo365pO0NYjmEFr5Eas4SPeJfll2rqb38Z7/yaaD+0eNM3kPejt86REvSX6AamgdXkgoxLxAAAAAElFTkSuQmCC\"/>\n    </a>\n    <a href=\"https://github.com/pre-commit/pre-commit\">\n        <img src=\"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white\" alt=\"pre-commit\" />\n    </a>\n    <a href=\"https://github.com/wfxr/forgit/graphs/contributors\">\n        <img src=\"https://img.shields.io/github/contributors/wfxr/forgit\" alt=\"Contributors\"/>\n    </a>\n</p>\n\nThis tool is designed to help you use git more efficiently.\nIt's **lightweight** and **easy to use**.\n\n# 📝 Features\n\n**`ga`** - Interactive `git add` selector:\n\n![screenshot](https://raw.githubusercontent.com/wfxr/i/master/forgit-ga.png)\n\n**`glo`** - Interactive `git log` viewer:\n\n![screenshot](https://raw.githubusercontent.com/wfxr/i/master/forgit-glo.png)\n\n**`gi`** - Interactive `.gitignore` generator:\n\n![screenshot](https://raw.githubusercontent.com/wfxr/i/master/forgit-gi.png)\n\n## Full Command List\n\n| Command  | Description |\n|----------|-------------|\n| `ga`     | Interactive `git add` selector |\n| `gd`     | Interactive `git diff` viewer |\n| `gi`     | Interactive `.gitignore` generator |\n| `glo`    | Interactive `git log` viewer |\n| `gat`    | Interactive `.gitattributes` generator |\n| `gso`    | Interactive `git show` viewer |\n| `grh`    | Interactive `git reset HEAD <file>` selector |\n| `gcf`    | Interactive `git checkout <file>` selector |\n| `gcb`    | Interactive `git checkout <branch>` selector |\n| `gsw`    | Interactive `git switch <branch>` selector |\n| `gbd`    | Interactive `git branch -D <branch>` selector |\n| `gct`    | Interactive `git checkout <tag>` selector |\n| `gco`    | Interactive `git checkout <commit>` selector |\n| `grc`    | Interactive `git revert <commit>` selector |\n| `gss`    | Interactive `git stash` viewer |\n| `gsp`    | Interactive `git stash push` selector |\n| `gcp`    | Interactive `git cherry-pick` selector |\n| `grb`    | Interactive `git rebase -i` selector |\n| `grl`    | Interactive `git reflog` viewer |\n| `gbl`    | Interactive `git blame` selector |\n| `gfu`    | Interactive `git commit --fixup && git rebase -i --autosquash` selector |\n| `gsq`    | Interactive `git commit --squash && git rebase -i --autosquash` selector |\n| `grw`    | Interactive `git commit --fixup=reword && git rebase -i --autosquash` selector |\n| `gclean` | Interactive `git clean` selector |\n\n# 📥 Installation\n\n## Requirements\n\n- [`fzf`](https://github.com/junegunn/fzf) version `0.49.0` or higher\n\n  If your OS package manager bundles an older version of `fzf`, you might install it using [`fzf`'s own install script](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git).\n\n## Shell Package Managers\n\n``` zsh\n# for zplug\nzplug 'wfxr/forgit'\n\n# for zgen\nzgen load 'wfxr/forgit'\n\n# for antigen\nantigen bundle 'wfxr/forgit'\n\n# for fisher (requires fisher v4.4.3 or higher)\nfisher install wfxr/forgit\n\n# for omf\nomf install https://github.com/wfxr/forgit\n\n# for zinit\nzinit load wfxr/forgit\n\n# for oh-my-zsh\ngit clone https://github.com/wfxr/forgit.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/forgit\n\n# for sheldon.cli\n[plugins.forgit]\ngithub = \"wfxr/forgit\"\nrev = \"26.01.0\"  # check https://github.com/wfxr/forgit/releases for latest version\nuse = [\"forgit.plugin.zsh\"]\napply = [\"source\"]\n\n# manually\n# Clone the repository and source it in your shell's rc file or put bin/git-forgit into your $PATH\n```\n\n## Homebrew\n\nTo install using brew\n```sh\nbrew install forgit\n```\n\nThen add the following to your shell's config file:\n```sh\n# Fish:\n# ~/.config/fish/config.fish:\n[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.fish ]; and source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.fish\n\n# Zsh:\n# ~/.zshrc:\n[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh\n\n# Bash:\n# ~/.bashrc:\n[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh\n```\n\n## Arch User Repository\n\n[AUR](https://wiki.archlinux.org/title/Arch_User_Repository) packages, maintained by the developers of forgit, are available. Install the [forgit](https://aur.archlinux.org/packages/forgit) package for the latest release or [forgit-git](https://aur.archlinux.org/packages/forgit-git) to stay up to date with the latest commits from the default branch of this repository.\n\n## Completions\n\nForgit offers completions for all supported shells. Completions are automatically configured when installing forgit through Homebrew or the AUR. All other installation methods mentioned above require manual setup for completions. The necessary steps depend on the shell you use.\n\n### Bash\n\n- Put [`completions/git-forgit.bash`](https://github.com/wfxr/forgit/blob/main/completions/git-forgit.bash) in\n  `~/.local/share/bash-completion/completions` to have bash tab completion for `git forgit` and configured git aliases.\n- Source [`completions/git-forgit.bash`](https://github.com/wfxr/forgit/blob/main/completions/git-forgit.bash) explicitly to have\n  bash tab completion for forgit shell functions and aliases (e.g., `gsw <tab>` completes branches).\n\n### Fish\n\n- Put [`completions/git-forgit.fish`](https://github.com/wfxr/forgit/blob/main/completions/git-forgit.fish) in `~/.config/fish/completions/` to have fish tab completion for `git forgit` and configured git aliases, as well as shell command aliases, such as `ga`.\n\n### Zsh\n\n- Put [`completions/_git-forgit`](completions/_git-forgit) in a directory in your `$fpath` (e.g., `/usr/share/zsh/site-functions`) to have zsh tab completion for `git forgit` and configured git aliases, as well as shell command aliases, such as `forgit::add` and `ga`.\n\nIf you're having issues after updating, and commands such as `forgit::add` or aliases `ga` aren't working, remove your completions cache and restart your shell.\n\n```zsh\n> rm ~/.zcompdump\n> zsh\n```\n\n# 🚀 Usage\n\n## Shell Aliases\n\nYou can change the default aliases by defining these variables below before sourcing the forgit shell plugin.\n(To disable all aliases, Set the `FORGIT_NO_ALIASES` flag.)\n\n``` bash\nforgit_log=glo\nforgit_reflog=grl\nforgit_diff=gd\nforgit_show=gso\nforgit_add=ga\nforgit_reset_head=grh\nforgit_ignore=gi\nforgit_attributes=gat\nforgit_checkout_file=gcf\nforgit_checkout_branch=gcb\nforgit_switch_branch=gsw\nforgit_branch_delete=gbd\nforgit_checkout_tag=gct\nforgit_checkout_commit=gco\nforgit_revert_commit=grc\nforgit_clean=gclean\nforgit_stash_show=gss\nforgit_stash_push=gsp\nforgit_cherry_pick=gcp\nforgit_rebase=grb\nforgit_blame=gbl\nforgit_fixup=gfu\nforgit_squash=gsq\nforgit_reword=grw\n```\n\n## Git Integration\n\nYou can use forgit as a sub-command of git by making `git-forgit` available in `$PATH`:\n\n```sh\n# after `forgit` was loaded\nPATH=\"$PATH:$FORGIT_INSTALL_DIR/bin\"\n```\n\n*Some plugin managers can help do this.*\n\nThen, any forgit command will be a sub-command of git:\n\n```cmd\ngit forgit log\ngit forgit add\ngit forgit diff\n```\n\nOptionally you can add [aliases in git](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases):\n\n```sh\ngit config --global alias.cf 'forgit checkout_file'\n```\n\nAnd use forgit functions via a git alias:\n\n```sh\ngit cf\n```\n\n# ⚙ Configuration\n\nOptions can be set via environment variables. They have to be **exported** in\norder to be recognized by `forgit`.\n\nFor instance, if you want to order branches in `gcb` by the last committed date you could:\n\n```shell\nexport FORGIT_CHECKOUT_BRANCH_BRANCH_GIT_OPTS='--sort=-committerdate'\n```\n\n## Per-command Options\n\nEach forgit command can be customized with dedicated environment variables for git arguments and fzf options:\n\n| Command  | Git Options | FZF Options |\n|----------|-------------|-------------|\n| `ga`     | `FORGIT_ADD_GIT_OPTS` | `FORGIT_ADD_FZF_OPTS` |\n| `glo`    | `FORGIT_LOG_GIT_OPTS` | `FORGIT_LOG_FZF_OPTS` |\n| `grl`    | `FORGIT_REFLOG_GIT_OPTS` | `FORGIT_REFLOG_FZF_OPTS` |\n| `gi`     | | `FORGIT_IGNORE_FZF_OPTS` |\n| `gat`    | | `FORGIT_ATTRIBUTES_FZF_OPTS` |\n| `gd`     | `FORGIT_DIFF_GIT_OPTS` | `FORGIT_DIFF_FZF_OPTS` |\n| `gso`    | `FORGIT_SHOW_GIT_OPTS` | `FORGIT_SHOW_FZF_OPTS` |\n| `grh`    | `FORGIT_RESET_HEAD_GIT_OPTS` | `FORGIT_RESET_HEAD_FZF_OPTS` |\n| `gcf`    | `FORGIT_CHECKOUT_FILE_GIT_OPTS` | `FORGIT_CHECKOUT_FILE_FZF_OPTS` |\n| `gcb`    | `FORGIT_CHECKOUT_BRANCH_GIT_OPTS`<br>`FORGIT_CHECKOUT_BRANCH_BRANCH_GIT_OPTS` | `FORGIT_CHECKOUT_BRANCH_FZF_OPTS` |\n| `gsw`    | `FORGIT_SWITCH_BRANCH_GIT_OPTS` | `FORGIT_SWITCH_BRANCH_FZF_OPTS` |\n| `gbd`    | `FORGIT_BRANCH_DELETE_GIT_OPTS` | `FORGIT_BRANCH_DELETE_FZF_OPTS` |\n| `gct`    | `FORGIT_CHECKOUT_TAG_GIT_OPTS` | `FORGIT_CHECKOUT_TAG_FZF_OPTS` |\n| `gco`    | `FORGIT_CHECKOUT_COMMIT_GIT_OPTS` | `FORGIT_CHECKOUT_COMMIT_FZF_OPTS` |\n| `grc`    | `FORGIT_REVERT_COMMIT_GIT_OPTS` | `FORGIT_REVERT_COMMIT_FZF_OPTS` |\n| `gss`    | `FORGIT_STASH_SHOW_GIT_OPTS` | `FORGIT_STASH_FZF_OPTS` |\n| `gsp`    | `FORGIT_STASH_PUSH_GIT_OPTS` | `FORGIT_STASH_PUSH_FZF_OPTS` |\n| `gclean` | `FORGIT_CLEAN_GIT_OPTS` | `FORGIT_CLEAN_FZF_OPTS` |\n| `gcp`    | `FORGIT_CHERRY_PICK_GIT_OPTS` | `FORGIT_CHERRY_PICK_FZF_OPTS` |\n| `grb`    | `FORGIT_REBASE_GIT_OPTS` | `FORGIT_REBASE_FZF_OPTS` |\n| `gbl`    | `FORGIT_BLAME_GIT_OPTS` | `FORGIT_BLAME_FZF_OPTS` |\n| `gfu`    | `FORGIT_FIXUP_GIT_OPTS` | `FORGIT_FIXUP_FZF_OPTS` |\n| `gsq`    | `FORGIT_SQUASH_GIT_OPTS` | `FORGIT_SQUASH_FZF_OPTS` |\n| `grw`    | `FORGIT_REWORD_GIT_OPTS` | `FORGIT_REWORD_FZF_OPTS` |\n\n## Pagers\n\nForgit will use the default configured pager from git (`core.pager`,\n`pager.show`, `pager.diff`) but can be altered with the following environment\nvariables:\n\n| Pager                     | Fallbacks to                                     |\n|---------------------------|--------------------------------------------------|\n| `FORGIT_PAGER`            | `git config core.pager` _or_ `cat`               |\n| `FORGIT_SHOW_PAGER`       | `git config pager.show` _or_ `$FORGIT_PAGER`     |\n| `FORGIT_DIFF_PAGER`       | `git config pager.diff` _or_ `$FORGIT_PAGER`     |\n| `FORGIT_BLAME_PAGER`      | `git config pager.blame` _or_ `$FORGIT_PAGER`    |\n| `FORGIT_IGNORE_PAGER`     | `bat -l gitignore --color always` _or_ `cat`     |\n| `FORGIT_ATTRIBUTES_PAGER` | `bat -l gitattributes --color always` _or_ `cat` |\n\n## FZF Options\n\nYou can add default fzf options for `forgit`, including keybindings, layout, etc.\n(No need to repeat the options already defined in `FZF_DEFAULT_OPTS`)\n\n``` bash\nexport FORGIT_FZF_DEFAULT_OPTS=\"\n--exact\n--border\n--cycle\n--reverse\n--height '80%'\n\"\n```\n\nPer-command fzf options (`FORGIT_*_FZF_OPTS`) are listed in the [per-command options table](#per-command-options) above.\n\nComplete loading order of fzf options is:\n\n1. `FZF_DEFAULT_OPTS` (fzf global)\n2. `FORGIT_FZF_DEFAULT_OPTS` (fo",
+        "truncated": true,
+        "bytes": 17138,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "26.01.0",
+            "tag_name": "26.01.0",
+            "published_at": "2026-01-01T00:43:31Z",
+            "body_excerpt": "Changes since 25.12.0:\n\n* [Fix: preview for clean when file names contain backslashes (#465)](https://github.com/wfxr/forgit/commit/b9ed7bc40e697b67da34cd9d68743dfc3b29fc1e)\n  This is a breaking change: flag arguments provided to forgit clean are\n  now passed to git ls-files instead of git clean -n. This change is\n  necessary because git clean does not have a -z option that would prevent\n  it from escaping file names containing backslashes. However, git ls-files\n  is way more flexible than git clean, so all use cases covered by git\n  clean (and more) should still be possible.\n* [Feature: allow configuring arguments of git ls-files in forgit clean (#481)](https://github.com/wfxr/forgit/commit/779b59690f23fbc1f9af7af05511009f8a9e22bc)\n* [Feature: add interactive git switch selector (#472)](https://github.com/wfxr/forgit/commit/3cd63a1bbed2d1b0b8ac438afde15c342d124013)\n* [Feature: add empty state messages for checkout commands (#478)](https://github.com/wfxr/forgit/commit/76506fc3da3cc5a720dce0084816f3be83d548cb)\n  Show informative messages when there is nothing to checkout:\n  - checkout\\_file: \"Nothing to checkout.\" when no modified files\n  - checkout\\_tag: \"Nothing to checkout: there are no tags.\"\n* [ci: use stable bashunit version (#486)](https://github.com/wfxr/forgit/commit/a5f5ea5206b8fa573a3001c19f485638d9ed2b80)\n* [test: ignore global git config when running tests (#485)](https://github.com/wfxr/forgit/commit/024389f7996e2494120e4d785f2787bebb83fc24)\n* [fix: forgit add shows dir view for submodules (#484)](https://github.com/wfxr/forgit/commit/151d61daffe75d0c378af4ca80f0cc9a77e3f96e)\n"
+          },
+          {
+            "name": "25.12.0",
+            "tag_name": "25.12.0",
+            "published_at": "2025-12-01T00:44:21Z",
+            "body_excerpt": "Changes since 25.10.0:\n\n* [Chore(deps): Bump actions/checkout from 5 to 6](https://github.com/wfxr/forgit/commit/582a64ea36a3cf1b84e33e957f527e8092597c1e)\n  Bumps [actions/checkout](https://github.com/actions/checkout) from 5 to 6.\n  - [Release notes](https://github.com/actions/checkout/releases)\n  - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n  - [Commits](https://github.com/actions/checkout/compare/v5...v6)\n  ---\n  updated-dependencies:\n  - dependency-name: actions/checkout\n  dependency-version: '6'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  ...\n"
+          },
+          {
+            "name": "25.11.0",
+            "tag_name": "25.11.0",
+            "published_at": "2025-11-01T00:37:32Z",
+            "body_excerpt": "Changes since 25.09.0:\n\n* [Refactor: Move global code into a main function (#464)](https://github.com/wfxr/forgit/commit/9b3b185e249cbdbf5cfed6be37ae0aab96018fc1)\n  This is a prequisite for being able to source the script in order to\n  implement unit tests for individual functions.\n* [Chore: Do not execute any code when forgit is sourced (#464)](https://github.com/wfxr/forgit/commit/ab6a63ee0f4d760b1d14b9bd5a9724728d2e89ce)\n  In order to run unit tests for individual functions we have to be able\n  to source the script without triggering the main execution flow.\n* [Refactor: extract function to remove status from diff line (#464)](https://github.com/wfxr/forgit/commit/2a4e2e53b70f7f517475bb6c088650a374d45cd0)\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 431,
+            "title": "Feature request: support custom branch drawing symbols",
+            "state": "closed",
+            "url": "https://github.com/wfxr/forgit/issues/431"
+          },
+          {
+            "number": 491,
+            "title": "TUI pagers (diffnav, etc.) break fzf preview panes",
+            "state": "open",
+            "url": "https://github.com/wfxr/forgit/issues/491"
+          },
+          {
+            "number": 488,
+            "title": "when installing with fisher gives error",
+            "state": "open",
+            "url": "https://github.com/wfxr/forgit/issues/488"
+          }
+        ]
+      },
+      "root_files": [
+        ".commitlintrc.json",
+        ".editorconfig",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "LICENSE",
+        "README.md",
+        "bin",
+        "cliff.toml",
+        "completions",
+        "conf.d",
+        "forgit.plugin.sh",
+        "forgit.plugin.zsh",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<h1 align=\"center\">💤 forgit</h1> <p align=\"center\"> <em>Utility tool for using git interactively. Powered by <a href=\"https://github.com/junegunn/fzf\">junegunn/fzf</a>.</em> </p>",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 1,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/wfxr/forgit/actions\"> <img src=\"https://github.com/wfxr/forgit/workflows/ci/badge.svg\"/> </a> <a href=\"https://wfxr.mit-license.org/2017\"> <img src=\"https://img.shields.io/badge/License-MIT-brightgreen.svg\"/> </a> <a href=\"https://img.shields.io/badge/Shell-Bash%20%7C%20Zsh%20%7C%20Fish-blue\"> <img src=\"https://img.shields.io/badge/Shell-Bash%20%7C%20Zsh%20%7C%20Fish-blue\"/> </a> <a href=\"https://github.com/unixorn/awesome-zsh-plugins\"> <img src=\"https://img.shields.io/badge/Awesome-zsh--plugins-d07cd0?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABVklEQVRIS+3VvWpVURDF8d9CRAJapBAfwWCt+FEJthIUUcEm2NgIYiOxsrCwULCwktjYKSgYLfQF1JjCNvoMNhYRCwOO7HAiVw055yoBizvN3nBmrf8+M7PZsc2RbfY3AfRWeNMSVdUlHEzS1t6oqvt4n+TB78l/AKpqHrdwLcndXndU1WXcw50k10c1PwFV1fa3cQVzSR4PMd/IqaoLeIj2N1eTfG/f1gFVtQMLOI+zSV6NYz4COYFneIGLSdZSVbvwCMdxMsnbvzEfgRzCSyzjXAO8xlHcxMq/mI9oD+AGlhqgxjD93OVOD9TUuICdXd++/VeAVewecKKv2NPlfcHUAM1qK9FTnBmQvJjkdDfWzzE7QPOkAfZiEce2ECzhVJJPHWAfGuTwFpo365pO0NYjmEFr5Eas4SPeJfll2rqb38Z7/yaaD+0eNM3kPejt86REvSX6AamgdXkgoxLxAAAAAElFTkSuQmCC\"/> </a> <a href=\"https://github.com/pre-commit/pre-commit\"> <img src=\"https://img.sh…",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 2,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 3)",
+          "excerpt": "This tool is designed to help you use git more efficiently. It's **lightweight** and **easy to use**.",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 3,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 4)",
+          "excerpt": "| Command | Description | |----------|-------------| | `ga` | Interactive `git add` selector | | `gd` | Interactive `git diff` viewer | | `gi` | Interactive `.gitignore` generator | | `glo` | Interactive `git log` viewer | | `gat` | Interactive `.gitattributes` generator | | `gso` | Interactive `git show` viewer | | `grh` | Interactive `git reset HEAD <file>` selector | | `gcf` | Interactive `git checkout <file>` selector | | `gcb` | Interactive `git checkout <branch>` selector | | `gsw` | Interactive `git switch <branch>` selector | | `gbd` | Interactive `git branch -D <branch>` selector | | `gct` | Interactive `git checkout <tag>` selector | | `gco` | Interactive `git checkout <commit>` selector | | `grc` | Interactive `git revert <commit>` selector | | `gss` | Interactive `git stash` viewer | | `gsp` | Interactive `git stash push` selector | | `gcp` | Interactive `git cherry-pick` selector | | `grb` | Interactive `git rebase -i` selector | | `grl` | Interactive `git reflog` viewer | | `gbl` | Interactive `git blame` selector | | `gfu` | Interactive `git commit --fixup && git rebase -i --autosquash` selector | | `gsq` | Interactive `git commit --squash && git rebase -i --autosqu…",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 4,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 5)",
+          "excerpt": "If your OS package manager bundles an older version of `fzf`, you might install it using [`fzf`'s own install script](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git).",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 5,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 6)",
+          "excerpt": "# for oh-my-zsh git clone https://github.com/wfxr/forgit.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/forgit",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 6,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 7)",
+          "excerpt": "# for sheldon.cli [plugins.forgit] github = \"wfxr/forgit\" rev = \"26.01.0\" # check https://github.com/wfxr/forgit/releases for latest version use = [\"forgit.plugin.zsh\"] apply = [\"source\"]",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 7,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/wfxr/forgit#readme",
+          "title": "README (segment 8)",
+          "excerpt": "# manually # Clone the repository and source it in your shell's rc file or put bin/git-forgit into your $PATH ```",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "segment": 8,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/wfxr/forgit/issues/431",
+          "title": "Feature request: support custom branch drawing symbols",
+          "excerpt": "Feature request: support custom branch drawing symbols (state:closed)",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "number": 431
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/wfxr/forgit/issues/491",
+          "title": "TUI pagers (diffnav, etc.) break fzf preview panes",
+          "excerpt": "TUI pagers (diffnav, etc.) break fzf preview panes (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "number": 491
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/wfxr/forgit/issues/488",
+          "title": "when installing with fisher gives error",
+          "excerpt": "when installing with fisher gives error (state:open)",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "number": 488
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/wfxr/forgit/releases",
+          "title": "26.01.0",
+          "excerpt": "Changes since 25.12.0: * [Fix: preview for clean when file names contain backslashes (#465)](https://github.com/wfxr/forgit/commit/b9ed7bc40e697b67da34cd9d68743dfc3b29fc1e) This is a breaking change: flag arguments provided to forgit clean are now passed to git ls-files instead of git clean -n. This change is necessary because git clean does not have a -z option that would prevent it from escaping file names containing backslashes. However, git ls-files is way more flexible than git clean, so all use cases covered by git clean (and more) should still be possible. * [Feature: allow configuring arguments of git ls-files in forgit clean (#481)](https://github.com/wfxr/forgit/commit/779b59690f23fbc1f9af7af05511009f8a9e22bc) * [Feature: add interactive git switch selector (#472)](https://github.com/wfxr/forgit/commit/3cd63a1bbed2d1b0b8ac438afde15c342d124013) * [Feature: add empty state messages for checkout commands (#478)](https://github.com/wfxr/forgit/commit/76506fc3da3cc5a720dce0084816f3be83d548cb) Show informative messages when there is nothing to checkout: - checkout\\_file: \"Nothing to checkout.\" when no modified files - checkout\\_tag: \"Nothing to checkout: there are no tags.\" * …",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "tag_name": "26.01.0",
+            "published_at": "2026-01-01T00:43:31Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/wfxr/forgit/releases",
+          "title": "25.12.0",
+          "excerpt": "Changes since 25.10.0: * [Chore(deps): Bump actions/checkout from 5 to 6](https://github.com/wfxr/forgit/commit/582a64ea36a3cf1b84e33e957f527e8092597c1e) Bumps [actions/checkout](https://github.com/actions/checkout) from 5 to 6. - [Release notes](https://github.com/actions/checkout/releases) - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md) - [Commits](https://github.com/actions/checkout/compare/v5...v6) --- updated-dependencies: - dependency-name: actions/checkout dependency-version: '6' dependency-type: direct:production update-type: version-update:semver-major ...",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "tag_name": "25.12.0",
+            "published_at": "2025-12-01T00:44:21Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/wfxr/forgit/releases",
+          "title": "25.11.0",
+          "excerpt": "Changes since 25.09.0: * [Refactor: Move global code into a main function (#464)](https://github.com/wfxr/forgit/commit/9b3b185e249cbdbf5cfed6be37ae0aab96018fc1) This is a prequisite for being able to source the script in order to implement unit tests for individual functions. * [Chore: Do not execute any code when forgit is sourced (#464)](https://github.com/wfxr/forgit/commit/ab6a63ee0f4d760b1d14b9bd5a9724728d2e89ce) In order to run unit tests for individual functions we have to be able to source the script without triggering the main execution flow. * [Refactor: extract function to remove status from diff line (#464)](https://github.com/wfxr/forgit/commit/2a4e2e53b70f7f517475bb6c088650a374d45cd0)",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "tag_name": "25.11.0",
+            "published_at": "2025-11-01T00:37:32Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/wfxr/forgit",
+          "title": "ROOT_FILES",
+          "excerpt": ".commitlintrc.json, .editorconfig, .github, .gitignore, .pre-commit-config.yaml, LICENSE, README.md, bin, cliff.toml, completions, conf.d, forgit.plugin.sh, forgit.plugin.zsh, tests",
+          "fetched_at": "2026-03-07T04:23:32.782Z",
+          "meta": {
+            "repo_full_name": "wfxr/forgit",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "dalenewman/Transformalize",
+      "evidence_count": 9,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 0,
+      "releases_count": 0
+    },
+    {
+      "full_name": "johunsang/octo-terminal-releases",
+      "evidence_count": 22,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 10,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 10,
+      "releases_count": 3
+    },
+    {
+      "full_name": "wfxr/forgit",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 3,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "dalenewman/Transformalize",
+      "ok": true,
+      "spec_path": "specs/2026-03-07/dalenewman__Transformalize.json"
+    },
+    {
+      "repo": "johunsang/octo-terminal-releases",
+      "ok": true,
+      "spec_path": "specs/2026-03-07/johunsang__octo-terminal-releases.json"
+    },
+    {
+      "repo": "wfxr/forgit",
+      "ok": true,
+      "spec_path": "specs/2026-03-07/wfxr__forgit.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "dalenewman/Transformalize",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-07/dalenewman__Transformalize.json"
+    },
+    {
+      "repo": "johunsang/octo-terminal-releases",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-07/johunsang__octo-terminal-releases.json"
+    },
+    {
+      "repo": "wfxr/forgit",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-07/wfxr__forgit.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "dalenewman/Transformalize",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-07/dalenewman__Transformalize.json"
+      ]
+    },
+    {
+      "repo": "johunsang/octo-terminal-releases",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-07/johunsang__octo-terminal-releases.json"
+      ]
+    },
+    {
+      "repo": "wfxr/forgit",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 17,
+          "cited": 17
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-07/wfxr__forgit.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-07T04:23:48.479Z",
+      "run_id": "20260307T042328Z",
+      "repo": "dalenewman/Transformalize",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "63399aeb8f2726fa3b702558f99c4cd4917c0f69ea8dfc833ba75cf109542892",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 5989
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15693,
+      "prompt_chars": 5989,
+      "completion_chars": 1404
+    },
+    {
+      "ts": "2026-03-07T04:23:59.764Z",
+      "run_id": "20260307T042328Z",
+      "repo": "dalenewman/Transformalize",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2d5f0148f6a017e0d02c3757d6c5a053fe85a19289d1e243a30386e1d5b2106e",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 7584
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11284,
+      "prompt_chars": 7584,
+      "completion_chars": 1381
+    },
+    {
+      "ts": "2026-03-07T04:24:13.465Z",
+      "run_id": "20260307T042328Z",
+      "repo": "dalenewman/Transformalize",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "db880a6fd4039674de836aa203dcb0254b58e380dd67bad59d54b3c362b8bfa0",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 9144
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13702,
+      "prompt_chars": 9144,
+      "completion_chars": 1324
+    },
+    {
+      "ts": "2026-03-07T04:24:26.279Z",
+      "run_id": "20260307T042328Z",
+      "repo": "dalenewman/Transformalize",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9c525a5efbd66f6c4566be18011ee34916dbe8aac2cc9dcd76ced9cab3522b02",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 10644
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12813,
+      "prompt_chars": 10644,
+      "completion_chars": 1577
+    },
+    {
+      "ts": "2026-03-07T04:24:51.941Z",
+      "run_id": "20260307T042328Z",
+      "repo": "dalenewman/Transformalize",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d0e43b94880c69be1552b30e9954d96d4029e48a2fd97b9942dae58240f44c49",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 15008
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 25661,
+      "prompt_chars": 15008,
+      "completion_chars": 3024
+    },
+    {
+      "ts": "2026-03-07T04:25:11.727Z",
+      "run_id": "20260307T042328Z",
+      "repo": "johunsang/octo-terminal-releases",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b8ab64985c4ced6b9fc4011fc29387981d1bda020a4a1d16a4320ebb94999a85",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 10524
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19770,
+      "prompt_chars": 10524,
+      "completion_chars": 2098
+    },
+    {
+      "ts": "2026-03-07T04:25:24.777Z",
+      "run_id": "20260307T042328Z",
+      "repo": "johunsang/octo-terminal-releases",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6fd2389a2236b9bb7a6f4cd63733c9a0c47d9259112d5107850e2e7f4673aa55",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 12806
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13050,
+      "prompt_chars": 12806,
+      "completion_chars": 2068
+    },
+    {
+      "ts": "2026-03-07T04:25:42.520Z",
+      "run_id": "20260307T042328Z",
+      "repo": "johunsang/octo-terminal-releases",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "10d76ef766e16815e52256fcfb575fcdf725fd726c32d73c319485980db239aa",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 15090
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17742,
+      "prompt_chars": 15090,
+      "completion_chars": 2131
+    },
+    {
+      "ts": "2026-03-07T04:25:56.337Z",
+      "run_id": "20260307T042328Z",
+      "repo": "johunsang/octo-terminal-releases",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7007ae63ae892d8d837e99285ab3250cbdde0aa371e18be602cf332097ae9cf3",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 17434
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13816,
+      "prompt_chars": 17434,
+      "completion_chars": 2031
+    },
+    {
+      "ts": "2026-03-07T04:26:16.140Z",
+      "run_id": "20260307T042328Z",
+      "repo": "johunsang/octo-terminal-releases",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "618df26cecd554ef10667acf6fb8328fe60f2e18b1c54ba5b830c3d7127e3872",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 22349
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19802,
+      "prompt_chars": 22349,
+      "completion_chars": 3471
+    },
+    {
+      "ts": "2026-03-07T04:26:30.787Z",
+      "run_id": "20260307T042328Z",
+      "repo": "wfxr/forgit",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "606057241cd33e4d7857af82304cd8d05b2a40699acd35056d166aaf1089a341",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 8985
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14644,
+      "prompt_chars": 8985,
+      "completion_chars": 1469
+    },
+    {
+      "ts": "2026-03-07T04:26:43.500Z",
+      "run_id": "20260307T042328Z",
+      "repo": "wfxr/forgit",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d348408c3df196e087fa6fe72a558f24469bb16e6c17ff220afe43137a81e851",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 10658
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12713,
+      "prompt_chars": 10658,
+      "completion_chars": 1643
+    },
+    {
+      "ts": "2026-03-07T04:26:58.015Z",
+      "run_id": "20260307T042328Z",
+      "repo": "wfxr/forgit",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bf4c76c030c5e099900517719321aac8ca93072535b47c2040b1e120a7ce9d5d",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 12485
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14514,
+      "prompt_chars": 12485,
+      "completion_chars": 1561
+    },
+    {
+      "ts": "2026-03-07T04:27:12.154Z",
+      "run_id": "20260307T042328Z",
+      "repo": "wfxr/forgit",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f2317d5e4a959cbead62cc7c180cc43feeaddd9be0d5b62b4e69e09f05409783",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 14231
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14139,
+      "prompt_chars": 14231,
+      "completion_chars": 1746
+    },
+    {
+      "ts": "2026-03-07T04:28:13.043Z",
+      "run_id": "20260307T042328Z",
+      "repo": "wfxr/forgit",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "66ff0692ac82371974a34c596385f0560e22d6daabe58d5a10cdaeb827bf2ce4",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 18829
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 60889,
+      "prompt_chars": 18829,
+      "completion_chars": 6717
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "dalenewman/Transformalize",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "johunsang/octo-terminal-releases",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "wfxr/forgit",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "dalenewman/Transformalize",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 9,
+      "evidence_total_final": 9,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "johunsang/octo-terminal-releases",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 22,
+      "evidence_total_final": 22,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "wfxr/forgit",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1772857408435,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "dalenewman/Transformalize": 5,
+      "johunsang/octo-terminal-releases": 5,
+      "wfxr/forgit": 5
+    },
+    "tokensApproxTotal": 56359,
+    "tokensApproxPerRepo": {
+      "dalenewman/Transformalize": 14272,
+      "johunsang/octo-terminal-releases": 22503,
+      "wfxr/forgit": 19584
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "dalenewman/Transformalize": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "scout",
+        "summary": "Transformalize is a configuration-driven ETL tool written in C# that specializes in incremental denormalization of relational data and supports a wide range of relational and non-relational data sources. It uses XML or JSON for defining data transformation workflows and includes built-in support for databases like SQL Server, MySQL, PostgreSQL, and SQLite, with additional Windows-only providers such as Access and SQL CE.",
+        "highlights": [
+          "Supports bidirectional (In/Out) integration with major relational databases including SQL Server, MySQL, PostgreSQL, and SQLite [ID:E-RD-002].",
+          "Capable of denormalizing relational data for loading into search engines like Elasticsearch, as demonstrated in the README [ID:E-RD-004].",
+          "Configurations are defined declaratively in XML or JSON and validated before execution [ID:E-RD-008].",
+          "Project structure includes solution files, scripts, Docker support, and organized source/test directories [ID:E-RF-001]."
+        ],
+        "risks": [
+          "Some data providers (e.g., Access, SQL CE) are Windows-only, limiting cross-platform compatibility [ID:E-RD-003].",
+          "README is truncated in API response, potentially omitting critical setup or usage details [repo_profile.readme.truncated]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RF-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "inventor",
+        "summary": "Transformalize is a configurable, code-free ETL framework that enables incremental denormalization of normalized relational schemas into flattened structures suitable for search engines or analytics stores. It uses declarative XML/JSON configurations to define data flows between diverse sources and targets, with strong support for mainstream relational databases and extensible provider architecture.",
+        "highlights": [
+          "Enables incremental denormalization of complex relational models (e.g., Northwind’s 8-table Order Details schema) into single documents [ID:E-RD-006].",
+          "Supports bidirectional data movement with SQL Server, MySQL, PostgreSQL, and SQLite via modular providers [ID:E-RD-002].",
+          "Configuration-driven design eliminates need for custom ETL coding; arrangements are validated before execution [ID:E-RD-008].",
+          "Demonstrated use case: transforming relational data into Elasticsearch-compatible formats [ID:E-RD-004]."
+        ],
+        "risks": [
+          "Windows-only providers (Access, SQL CE) may hinder portability in cross-platform deployments [ID:E-RD-003].",
+          "Heavy reliance on configuration correctness—errors in XML/JSON could lead to silent failures or data loss without robust validation feedback."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "engineer",
+        "summary": "Transformalize is a C#-based, configuration-driven ETL tool designed for incremental denormalization of relational data into flattened structures suitable for search engines or analytics systems. It supports multiple relational databases with bidirectional I/O and uses validated XML/JSON configurations to define data pipelines.",
+        "highlights": [
+          "Core functionality centers on incremental denormalization of normalized relational schemas (e.g., Northwind’s 8-table structure) into single documents [ID:E-RD-006].",
+          "Supports In/Out operations for SQL Server, MySQL, PostgreSQL, and SQLite via modular provider architecture [ID:E-RD-002].",
+          "Configurations are declarative (XML/JSON) and validated before execution, reducing runtime errors [ID:E-RD-008].",
+          "Demonstrated integration path from relational sources to Elasticsearch, indicating suitability for search/analytics use cases [ID:E-RD-004]."
+        ],
+        "risks": [
+          "Windows-only providers (Access, SQL CE) limit cross-platform deployment options [ID:E-RD-003].",
+          "Truncated README in API response may obscure critical setup, error handling, or validation details [repo_profile.readme.truncated]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "skeptic",
+        "summary": "While Transformalize claims to offer a robust, configuration-driven ETL solution for incremental denormalization, key aspects of its reliability, validation rigor, and cross-platform viability remain inadequately substantiated by available evidence.",
+        "highlights": [
+          "The tool advertises support for major relational databases with In/Out capabilities, but actual implementation depth and performance characteristics are not demonstrated [ID:E-RD-002].",
+          "Configurations are said to be validated before execution, yet no details are provided on validation scope, error reporting, or recovery mechanisms—raising concerns about operational safety [ID:E-RD-008].",
+          "The README uses the Northwind schema as an example, but without showing actual configuration or output, making it difficult to assess real-world usability [ID:E-RD-006]."
+        ],
+        "risks": [
+          "Windows-only providers (Access, SQL CE) undermine claims of broad compatibility, especially given the lack of clarity on whether core functionality depends on them [ID:E-RD-003].",
+          "The absence of releases, issues, and recent meaningful activity (despite a future 'pushed_at' timestamp) suggests potential stagnation or lack of production adoption [repo_profile.releases_count, repo_profile.issues_count].",
+          "Heavy reliance on declarative configurations without visible testing, logging, or debugging support increases risk of undetected data transformation errors."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Transformalize\",\n    \"one_sentence\": \"A configuration-based ETL tool that automates incremental denormalization of relational data for loading into search engines or analytics stores.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Define XML/JSON configurations specifying source and target connections, entities, and transformation logic; execute validated arrangements to incrementally denormalize and load data.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Configuration Editor\",\n      \"purpose\": \"Create and manage ETL arrangements using XML or JSON to define data flows between relational and non-relational systems.\",\n      \"primary_actions\": [\n        \"Load configuration file\",\n        \"Validate arrangement\",\n        \"Execute ETL job\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"execute_etl\",\n      \"purpose\": \"Run a validated ETL arrangement to denormalize and transfer data from source to target.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"arrangements\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"config_format\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"source_connection\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"target_connection\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core ETL execution engine supporting SQL Server, MySQL, PostgreSQL, and SQLite\",\n          \"Add XML/JSON configuration validation\",\n          \"Build basic CLI interface for executing arrangements\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Given a normalized Northwind-like schema with 8 tables, when an arrangement is defined and executed, then a single denormal"
+      }
+    },
+    "johunsang/octo-terminal-releases": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "scout",
+        "summary": "Octo Terminal is an AI-powered, multi-project/multi-terminal desktop application built with Tauri (Rust + React), targeting 'vibe coding' workflows. It integrates multiple AI models (Claude, Codex, Ollama, Kimi), document viewers, and productivity tools like EPUB export and PM2 process management. The project shows active development with recent releases focusing on UX polish and feature expansion, but has several unresolved platform-specific bugs and stability issues.",
+        "highlights": [
+          "All-in-one AI coding terminal supporting multi-project, multi-terminal workflows with split panes and tabbed navigation.",
+          "Built with Tauri 2, Rust, and React 19; supports macOS (Apple Silicon/Intel) and Windows 10/11.",
+          "Integrated AI agents (Claude, Codex, Ollama, Kimi), document viewers (PDF, EPUB, DOCX, PPTX), and NanoBanana AI image generation.",
+          "Recent releases added batch EPUB export (v0.1.40) and PM2 project selection with resizable panels (v0.1.39).",
+          "Strong emphasis on 'vibe coding' UX with rich README marketing and SEO-optimized feature descriptions."
+        ],
+        "risks": [
+          "Multiple open issues related to terminal scrolling behavior on Windows and general input handling (e.g., forced scroll-to-bottom, command input errors).",
+          "Platform-specific bugs: macOS microphone permission entitlement missing (now closed), Windows keyboard/mouse and Telegram integration issues remain open.",
+          "AI agent instability reported (e.g., Claude becoming unresponsive during development).",
+          "Feature requests indicate gaps in core functionality (e.g., Slack integration, CLI customization), suggesting evolving scope.",
+          "Limited release history (only 3 releases visible) despite complex feature set, raising questions about long-term maintenance velocity."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "inventor",
+        "summary": "Octo Terminal invents a novel 'vibe coding' paradigm by unifying AI agents, multi-project terminals, document handling, and creative tools into a single desktop application. It pioneers integrated EPUB export from mixed document types and combines PM2 process management with resizable terminal panels, all within a Tauri-based cross-platform shell.",
+        "highlights": [
+          "Invents a unified 'vibe coding terminal' that merges terminal emulation, AI pair programming (Claude/Codex/Ollama/Kimi), document viewing, and AI image generation in one window.",
+          "Introduces batch EPUB export supporting mixed formats (MD, DOCX, PPTX, TXT) with reorderable file selection and shared ZIP-building logic.",
+          "Creates a multi-project terminal workspace with tabbed project switching, split panes, and per-project terminal/theme isolation—marketed as 'octopus-like' multitasking.",
+          "Integrates PM2 process management with dynamic panel resizing and log filtering, enhancing devops workflows inside the terminal UI.",
+          "Leverages Tauri 2 + Rust + React 19 to deliver a native-feeling cross-platform app with rich media and AI capabilities uncommon in traditional terminals."
+        ],
+        "risks": [
+          "Over-invention may lead to instability: open issues show core terminal behaviors (scrolling, input) are still broken on Windows.",
+          "AI agent integration appears fragile—Claude reportedly becomes unresponsive during use, suggesting unreliable orchestration.",
+          "Feature sprawl (EPUB, PM2, Telegram, Slack requests) risks diluting focus on foundational terminal reliability.",
+          "Missing macOS microphone entitlement (now fixed) indicates potential gaps in platform-specific packaging rigor.",
+          "Heavy reliance on marketing-driven 'vibe coding' narrative without clear technical differentiation from existing AI IDEs or terminals."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-009"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "engineer",
+        "summary": "Octo Terminal is a cross-platform desktop application built with Tauri (Rust + React) that combines terminal emulation, AI agent integration, document handling, and productivity tools. Recent engineering efforts focus on EPUB export enhancements and PM2 process management, but core terminal UX issues—especially around scrolling and input—remain unresolved across platforms.",
+        "highlights": [
+          "Built with Tauri 2, Rust, and React 19; supports macOS (Apple Silicon/Intel) and Windows 10/11 with native-feeling UI components.",
+          "Implements batch EPUB export from mixed file types (MD, DOCX, PPTX, TXT) using shared ZIP-building logic and a reorderable selection modal.",
+          "Integrates PM2 process management with dynamic panel resizing, log filtering, and project-specific tab views.",
+          "Centralizes AI agent orchestration (Claude, Codex, Ollama, Kimi) within split-pane terminal layouts alongside editors and document viewers.",
+          "Uses CSS theming variables (e.g., `--text-color`) to ensure UI consistency across light/dark modes, as seen in terminal panel fixes."
+        ],
+        "risks": [
+          "Persistent terminal scrolling bugs on Windows (e.g., forced scroll-to-bottom, reoccurring scroll issues in v0.1.35) indicate incomplete xterm.js or layout integration.",
+          "AI agent instability (e.g., Claude becoming unresponsive) suggests unreliable inter-process communication or error handling in agent orchestration.",
+          "Platform-specific packaging gaps: macOS microphone entitlement was missing (now fixed), raising concerns about future entitlement or sandboxing oversights.",
+          "Open issues reveal fundamental input handling flaws (e.g., command entry errors in v0.1.41), undermining core terminal reliability.",
+          "Feature velocity (EPUB, PM2, image studio) may be outpacing foundational stability, especially given limited release history (3 visible releases) for a complex app."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-009",
+          "E-IS-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "skeptic",
+        "summary": "Octo Terminal markets itself as a revolutionary 'vibe coding' AI terminal but exhibits significant gaps between its ambitious feature claims and actual stability, with unresolved core bugs, platform inconsistencies, and signs of overpromising.",
+        "highlights": [
+          "Aggressively marketed as an 'ultimate' all-in-one AI terminal with multi-agent support, yet critical terminal functionality like input and scrolling remains broken across platforms.",
+          "Claims cross-platform parity (macOS/Windows), but open issues reveal persistent Windows-specific bugs and a past macOS entitlement oversight, suggesting uneven QA.",
+          "Promotes advanced features like EPUB export and PM2 integration, but foundational terminal reliability—basic command entry and scroll control—is still unaddressed in recent versions.",
+          "Boasts integration with multiple AI models (Claude, Codex, etc.), yet users report complete agent failures during use, indicating superficial or unstable AI orchestration."
+        ],
+        "risks": [
+          "Core terminal UX is compromised: multiple open issues (E-IS-001, E-IS-005, E-IS-006) confirm that basic input and scroll behavior—essential for any terminal—are unreliable, especially on Windows.",
+          "AI integration appears more aspirational than robust: the reported 'Claude 먹통' (E-IS-009) suggests the AI layer lacks proper error recovery or lifecycle management.",
+          "Feature development may be prioritized over stability: releases highlight EPUB and PM2 enhancements (E-RL-001, E-RL-002, E-RL-003) while fundamental bugs from earlier versions persist (E-IS-003).",
+          "Marketing-heavy README (E-RD-002, E-RD-003, E-RD-007) overstates maturity; with only 3 visible releases and 19 open issues, the project risks being perceived as vaporware despite active commits."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-009",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Octo Terminal\",\n    \"one_sentence\": \"An AI-powered all-in-one terminal for vibe coding, integrating multi-project/multi-terminal workflows with built-in Claude, Codex, Ollama, Kimi, document viewers, and AI image generation.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User opens multiple projects, each with isolated terminals, editors, and AI agents; switches between tabs and split panes to run commands, edit files, generate EPUBs, manage PM2 processes, and interact with AI models—all within a single window.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Workspace\",\n      \"purpose\": \"Hosts multi-project tabs, split terminal/editor/notes/browser panes, AI agent panels, and document viewers.\",\n      \"primary_actions\": [\n        \"Switch between project tabs\",\n        \"Split terminal panes horizontally/vertically\",\n        \"Launch AI agents (Claude, Codex, Ollama, Kimi)\",\n        \"Open and edit documents (MD, DOCX, PPTX, TXT, PDF, EPUB)\",\n        \"Export selected files as EPUB\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist user data such as terminal sessions, editor content, or AI-generated assets to disk.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"projects\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"path\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core Tauri + React shell with terminal emulation\",\n          \"Integrate basic multi-tab project switching\",\n          \"Add support for at least one AI agent (e.g., Ollama)\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can open "
+      }
+    },
+    "wfxr/forgit": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "forgit is a lightweight, interactive Git utility powered by fzf, offering a rich set of shell commands for common Git operations across Bash, Zsh, and Fish. It is actively maintained with recent releases introducing new features and refactorings to support testing, though some open issues indicate compatibility problems with TUI pagers and Fish package managers.",
+        "highlights": [
+          "Provides 16+ interactive Git commands (e.g., `ga`, `gd`, `glo`, `gsw`) via fzf for enhanced CLI workflow.",
+          "Supports multiple shells: Bash, Zsh, and Fish, with installation instructions for oh-my-zsh, Fisher, and manual setups.",
+          "Recent releases (26.01.0, 25.12.0, 25.11.0) include new features like `git switch` selector, configurable `git ls-files` args, and internal refactoring for testability.",
+          "Actively maintained with CI pipeline, MIT license, and inclusion in awesome-zsh-plugins."
+        ],
+        "risks": [
+          "Open issue reports compatibility problems with TUI pagers breaking fzf preview panes (E-IS-002).",
+          "Installation errors reported when using Fish plugin manager Fisher (E-IS-003).",
+          "Breaking change in v26.01.0 alters behavior of `forgit clean` by switching from `git clean -n` to `git ls-files`, which may affect existing user workflows (E-RL-001)."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "forgit innovatively enhances Git workflows by wrapping core commands in interactive fzf-based selectors, enabling efficient file, branch, commit, and stash navigation without leaving the terminal. Its design emphasizes minimalism, shell compatibility, and extensibility through modular command aliases.",
+        "highlights": [
+          "Introduces a novel paradigm of interactive Git command selection using fzf previews and filtering, transforming static Git operations into dynamic, visual workflows.",
+          "Implements a comprehensive suite of 16+ mnemonic command aliases (e.g., `ga`, `gsw`, `gbd`) that abstract complex Git invocations into intuitive, single-purpose tools.",
+          "Enables customization of underlying Git behavior—such as configurable `git ls-files` arguments in `forgit clean`—balancing user control with safety through non-destructive previews.",
+          "Architects shell-agnostic support (Bash/Zsh/Fish) via plugin files and sourcing strategies, facilitating broad adoption across CLI environments."
+        ],
+        "risks": [
+          "Tight coupling with fzf limits usability in environments where fzf is unavailable or misconfigured, potentially breaking core functionality.",
+          "Breaking changes in utility behavior (e.g., `forgit clean` switching from `git clean -n` to `git ls-files`) may disrupt user expectations despite expanded flexibility.",
+          "Reliance on external TUI pagers like diffnav can interfere with fzf preview rendering, undermining the interactive experience (E-IS-002)."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RL-001",
+          "E-RD-002",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "forgit is a well-structured, shell-based Git utility that leverages fzf to provide interactive selectors for common Git operations. It supports Bash, Zsh, and Fish, with modular plugin files and recent architectural improvements to support testability. However, it faces integration challenges with TUI pagers and Fish package managers, and includes a breaking change in v26.01.0 affecting `forgit clean` behavior.",
+        "highlights": [
+          "Implements 16+ interactive Git commands (e.g., `ga`, `gsw`, `gbd`) using fzf for efficient CLI workflows.",
+          "Modular design with separate plugin files (`forgit.plugin.sh`, `.zsh`) and installation support for oh-my-zsh, Fisher, and manual setups.",
+          "Recent refactorings (v25.11.0) encapsulate logic in functions and prevent side effects on sourcing, enabling unit testing.",
+          "v26.01.0 introduces configurable `git ls-files` arguments and an interactive `git switch` selector, enhancing flexibility."
+        ],
+        "risks": [
+          "Breaking change in v26.01.0 replaces `git clean -n` with `git ls-files` in `forgit clean`, altering expected behavior and potentially disrupting user scripts (E-RL-001).",
+          "TUI pagers like diffnav interfere with fzf preview panes, degrading the interactive experience (E-IS-002).",
+          "Installation failures reported when using the Fish plugin manager Fisher, indicating packaging or compatibility issues (E-IS-003)."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RF-001",
+          "E-RL-003",
+          "E-RL-001",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "While forgit offers a convenient layer over Git with fzf, its reliability is undermined by breaking changes, unresolved compatibility issues, and fragile integration with external tools—raising concerns about stability and user experience.",
+        "highlights": [
+          "A breaking change in v26.01.0 fundamentally alters `forgit clean` behavior by replacing `git clean -n` with `git ls-files`, which may silently invalidate user assumptions and scripts without clear migration guidance.",
+          "Open issues reveal unresolved incompatibilities: TUI pagers like diffnav break fzf preview panes (E-IS-002), and Fish users encounter installation errors via Fisher (E-IS-003), suggesting insufficient cross-tool testing.",
+          "Despite claims of broad shell support (Bash/Zsh/Fish), the presence of shell-specific plugin files and installation quirks implies inconsistent or superficial compatibility rather than robust abstraction."
+        ],
+        "risks": [
+          "The switch from `git clean -n` to `git ls-files` in `forgit clean` (E-RL-001) changes semantics in a way that could mislead users expecting dry-run behavior, potentially leading to unintended file operations if misunderstood.",
+          "Lack of resolution on known UI-breaking issues (e.g., E-IS-002) after multiple releases suggests limited capacity or priority for addressing real-world usage conflicts, eroding trust in interactive reliability.",
+          "Dependency on fzf—a non-standard tool—combined with fragile integrations increases the risk of failure in minimal or customized environments, contradicting the project’s 'lightweight' claim (E-RD-003)."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RD-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"forgit\",\n    \"one_sentence\": \"A lightweight, interactive Git utility powered by fzf for efficient CLI workflows.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User invokes a mnemonic forgit command (e.g., `ga`, `gsw`) which launches an fzf-based interactive selector to preview and choose Git entities (files, branches, commits, etc.), then executes the corresponding Git operation.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Interactive Git Selector\",\n      \"purpose\": \"Display Git entities (files, branches, commits, etc.) in an fzf-powered interactive list with live previews for selection.\",\n      \"primary_actions\": [\n        \"Select item to stage, checkout, reset, or otherwise act upon\",\n        \"Filter items using fzf search syntax\",\n        \"Preview diffs or metadata before action\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"ga\",\n      \"purpose\": \"Interactive `git add` selector for staging files.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"gd\",\n      \"purpose\": \"Interactive `git diff` viewer with fzf preview.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"glo\",\n      \"purpose\": \"Interactive `git log` viewer for browsing commit history.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"gsw\",\n      \"purpose\": \"Interactive `git switch <branch>` selector.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"gbd\",\n      \"purpose\": \"Interactive `git branch -D <branch>` selector.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"gss\",\n      \"purpose\": \"Interactive `git stash` viewer.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"gi\",\n      \"purpose\": \"Interactive `.gitignore` generator.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"na"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "dalenewman/Transformalize",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 6,
+        "inventor": 5,
+        "engineer": 5,
+        "skeptic": 4,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "johunsang/octo-terminal-releases",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 10,
+        "engineer": 10,
+        "skeptic": 11,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "wfxr/forgit",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 5,
+        "engineer": 6,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=107",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] dalenewman/Transformalize evidence total=9 readme=8 issue=0 release=0 root_files=1",
+    "[repo_card_builder] johunsang/octo-terminal-releases evidence total=22 readme=8 issue=10 release=3 root_files=1",
+    "[repo_card_builder] wfxr/forgit evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=46 gaps=0",
+    "[llm_spec_generator] dalenewman/Transformalize canonical spec ok (iter=1) -> specs/2026-03-07/dalenewman__Transformalize.json",
+    "[llm_spec_generator] johunsang/octo-terminal-releases canonical spec ok (iter=1) -> specs/2026-03-07/johunsang__octo-terminal-releases.json",
+    "[llm_spec_generator] wfxr/forgit canonical spec ok (iter=1) -> specs/2026-03-07/wfxr__forgit.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-07T04:23:28.435Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:28.455Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260307T042328Z"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:28.455Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:28.460Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:28.874Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:28.874Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:29.288Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:29.288Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:29.663Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:29.663Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:30.019Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:30.019Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:30.648Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:30.649Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:30.942Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:30.942Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:31.244Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:31.244Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:31.514Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:31.514Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:31.958Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:31.958Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.261Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.264Z",
+      "run_id": "20260307T042328Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 107
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.264Z",
+      "run_id": "20260307T042328Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.267Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-07T04:23:32.268Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dalenewman__Transformalize/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.269Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dalenewman__Transformalize/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.270Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dalenewman__Transformalize/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.272Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dalenewman__Transformalize/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.273Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-07T04:23:32.273Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "johunsang__octo-terminal-releases/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.274Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "johunsang__octo-terminal-releases/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.276Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "johunsang__octo-terminal-releases/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.277Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "johunsang__octo-terminal-releases/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.278Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-07T04:23:32.278Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wfxr__forgit/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.280Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wfxr__forgit/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.281Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wfxr__forgit/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.282Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "wfxr__forgit/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.530Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 36143,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.530Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.530Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.530Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 263
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.531Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 9,
+        "readme": 8,
+        "issues": 0,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.614Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 39734,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.615Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.615Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.615Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 342
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.615Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 22,
+        "readme": 8,
+        "issues": 10,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.782Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 17138,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.782Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.782Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.782Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 504
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.782Z",
+      "run_id": "20260307T042328Z",
+      "node": "repo_card_builder",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.786Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 9,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:32.786Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 9,
+        "evidence_selected": 9,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:48.479Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1404,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:23:59.764Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1381,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:13.466Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1324,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:26.279Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1577,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:51.941Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3024,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:51.954Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:51.956Z",
+      "run_id": "20260307T042328Z",
+      "node": "artifacts",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-07/dalenewman__Transformalize.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:51.956Z",
+      "run_id": "20260307T042328Z",
+      "node": "artifacts",
+      "repo": "dalenewman/Transformalize",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-07/dalenewman__Transformalize.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:51.957Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 22,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 10,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-07T04:24:51.957Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 22,
+        "evidence_selected": 22,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:25:11.727Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2098,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:25:24.777Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2068,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:25:42.520Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2131,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:25:56.337Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2031,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:16.140Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3471,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:16.141Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:16.142Z",
+      "run_id": "20260307T042328Z",
+      "node": "artifacts",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-07/johunsang__octo-terminal-releases.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:16.142Z",
+      "run_id": "20260307T042328Z",
+      "node": "artifacts",
+      "repo": "johunsang/octo-terminal-releases",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-07/johunsang__octo-terminal-releases.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:16.142Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:16.143Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:30.787Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1469,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:43.500Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1643,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:26:58.015Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1561,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:27:12.154Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1746,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.043Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 6717,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.046Z",
+      "run_id": "20260307T042328Z",
+      "node": "llm_spec_generator",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.047Z",
+      "run_id": "20260307T042328Z",
+      "node": "artifacts",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-07/wfxr__forgit.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.047Z",
+      "run_id": "20260307T042328Z",
+      "node": "artifacts",
+      "repo": "wfxr/forgit",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-07/wfxr__forgit.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.050Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.050Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1772857408435,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "dalenewman/Transformalize": 5,
+          "johunsang/octo-terminal-releases": 5,
+          "wfxr/forgit": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.050Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-07T04:28:13.050Z",
+      "run_id": "20260307T042328Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-07",
+    "evidence_dir": "evidence/2026-03-07"
+  }
+}
