@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "JustOneAPI Data Aggregator",
+    "one_liner": "A commercial data API service that provides scraped data from over 30 Chinese and international platforms including Taobao, Xiaohongshu, Facebook, and YouTube."
+  },
+  "screens": [
+    {
+      "name": "Platform Data Explorer",
+      "purpose": "Allows users to browse and select data sources across e-commerce, social media, and job platforms.",
+      "primary_actions": [
+        "Access official API documentation",
+        "Select platform (e.g., Taobao, Xiaohongshu)",
+        "View available data types (e.g., product details, user notes)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_platform_data",
+      "purpose": "Retrieve structured data from a specified platform endpoint (e.g., Taobao product details).",
+      "async": true,
+      "input": {
+        "endpoint_type": "string",
+        "payload": "json",
+        "platform_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "platform_endpoints",
+        "columns": [
+          {
+            "name": "endpoint_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "platform_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define core set of supported platforms (Taobao, Xiaohongshu, Bilibili)",
+    "week 1: Design minimal API request/response schema",
+    "week 1: Map available data types per platform from README claims"
+  ],
+  "acceptance_tests": [
+    "Confirm that each listed platform has at least one documented data type (e.g., 'product details', 'user notes').",
+    "Verify that the main screen lists all platforms mentioned in the README (e.g., Taobao, Xiaohongshu, Facebook)."
+  ]
+}

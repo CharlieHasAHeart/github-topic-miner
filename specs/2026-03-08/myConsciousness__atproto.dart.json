@@ -1,0 +1,98 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "atproto.dart",
+    "one_liner": "A comprehensive Dart/Flutter SDK for building decentralized social applications on the AT Protocol and Bluesky ecosystem."
+  },
+  "screens": [
+    {
+      "name": "AT Protocol Integration Dashboard",
+      "purpose": "Enable developers to configure, authenticate, and interact with AT Protocol services including Bluesky APIs.",
+      "primary_actions": [
+        "Access user feeds and posts",
+        "Authenticate via OAuth DPoP",
+        "Manage profiles and messaging",
+        "Perform moderation actions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "authenticate_session",
+      "purpose": "Establish a secure user session using built-in OAuth DPoP authentication.",
+      "async": true,
+      "input": {
+        "dpop_proof": "string",
+        "payload": "json",
+        "session_token": "string",
+        "user_did": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_bluesky_feed",
+      "purpose": "Retrieve user or algorithmic feeds from Bluesky using the AT Protocol client libraries.",
+      "async": true,
+      "input": {
+        "dpop_proof": "string",
+        "payload": "json",
+        "session_token": "string",
+        "user_did": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "atproto_sessions",
+        "columns": [
+          {
+            "name": "dpop_proof",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_token",
+            "type": "TEXT"
+          },
+          {
+            "name": "user_did",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "bluesky_posts",
+        "columns": [
+          {
+            "name": "author_did",
+            "type": "TEXT"
+          },
+          {
+            "name": "content_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "post_uri",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Display user feed from Bluesky API",
+    "week 1: Implement OAuth DPoP authentication flow",
+    "week 1: Set up Flutter project with atproto.dart core and client libraries"
+  ],
+  "acceptance_tests": [
+    "The app retrieves and displays a user’s Bluesky feed with posts, authors, and content.",
+    "The app successfully authenticates a user session using OAuth DPoP against the AT Protocol."
+  ]
+}

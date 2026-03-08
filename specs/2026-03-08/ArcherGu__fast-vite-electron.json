@@ -1,0 +1,87 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Fast Vite Electron Template",
+    "one_liner": "A high-speed Vite + Electron template optimized for rapid development using esbuild, tsup, and custom tooling like Doubleshot and einf."
+  },
+  "screens": [
+    {
+      "name": "Main Application Window",
+      "purpose": "Host the primary Vue-based UI for the Electron application.",
+      "primary_actions": [
+        "Communicate with backend services via decorator-based IPC",
+        "Initialize Electron main process via Doubleshot",
+        "Render Vue frontend with Vite HMR"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_electron_app",
+      "purpose": "Build the Electron application using tsup and electron-builder integrated via @doubleshot/builder.",
+      "async": true,
+      "input": {
+        "build_target": "string",
+        "main_entry": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_dev_server",
+      "purpose": "Start the development server with Vite and Doubleshot-powered Electron main process.",
+      "async": true,
+      "input": {
+        "build_target": "string",
+        "main_entry": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "electron_config",
+        "columns": [
+          {
+            "name": "build_target",
+            "type": "TEXT"
+          },
+          {
+            "name": "main_entry",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "ipc_controllers",
+        "columns": [
+          {
+            "name": "controller_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "service_binding",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure Doubleshot plugin for main process development",
+    "week 1: Implement basic TypeScript decorator-based IPC controller",
+    "week 1: Set up Vite + Electron project structure using fast-vite-electron template"
+  ],
+  "acceptance_tests": [
+    "IPC communication between renderer and main process works via TypeScript decorators.",
+    "The application builds successfully using tsup and electron-builder without Webpack."
+  ]
+}
