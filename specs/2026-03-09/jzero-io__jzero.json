@@ -1,0 +1,106 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jzero",
+    "one_liner": "A Go-based code generation framework built on go-zero that automates API, gateway, and RPC project scaffolding using descriptive files (api/proto/sql) and AI-assisted business logic."
+  },
+  "screens": [
+    {
+      "name": "Project Initialization & Code Generation",
+      "purpose": "Allows developers to create new microservice projects or regenerate code from updated specs using CLI or Docker.",
+      "primary_actions": [
+        "Generate code from proto/api/sql files",
+        "Initialize new project with 'jzero new'",
+        "Run service locally with Swagger UI access"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "check_dependencies",
+      "purpose": "Validates and installs required tooling dependencies for jzero operation.",
+      "async": false,
+      "input": {
+        "file_path": "string",
+        "file_type": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "generate_code",
+      "purpose": "Generates server and client code from descriptive files (proto/api/sql) using built-in or custom templates.",
+      "async": false,
+      "input": {
+        "file_path": "string",
+        "file_type": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "new_project",
+      "purpose": "Creates a new jzero-based microservice project scaffold from templates.",
+      "async": false,
+      "input": {
+        "file_path": "string",
+        "file_type": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "descriptor_files",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "project_config",
+        "columns": [
+          {
+            "name": "config_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "generation_mode",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create initial project scaffold using 'jzero new'",
+    "week 1: Define basic API/proto descriptors for core service",
+    "week 1: Generate server/client code and validate structure",
+    "week 1: Set up jzero CLI environment via 'go install' or Docker",
+    "week 1: Start local service and verify Swagger UI accessibility"
+  ],
+  "acceptance_tests": [
+    "Code generation respects git-diff awareness and file filtering as described in README.",
+    "Generated project compiles and starts with 'go run main.go server'.",
+    "Running 'jzero new test_project' creates a valid directory structure with go.mod and main.go.",
+    "Swagger UI is accessible at http://localhost:8001/swagger after startup.",
+    "User can install jzero via 'go install' and run 'jzero check' without errors."
+  ]
+}

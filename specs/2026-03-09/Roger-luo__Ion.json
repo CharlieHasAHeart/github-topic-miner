@@ -1,0 +1,295 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Ion",
+    "one_liner": "A CLI toolbox for agentic developers to manage reusable AI agent skills as versioned, installable packages."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide access to all skill and project management commands through a terminal interface.",
+      "primary_actions": [
+        "Add or remove skills",
+        "Initialize or migrate projects",
+        "List or inspect installed skills",
+        "Run or validate skills"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "ion_add",
+      "purpose": "Add a skill from a source or install all skills defined in Ion.toml.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_cache_gc",
+      "purpose": "Clean up stale cached repositories and artifacts.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_config",
+      "purpose": "View or modify Ion configuration settings.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_project_init",
+      "purpose": "Initialize a new Ion.toml configuration file with targets.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_project_migrate",
+      "purpose": "Migrate legacy skill configurations to current format.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_remove",
+      "purpose": "Remove a specified skill; supports preview mode with --json and execution with --yes.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_run",
+      "purpose": "Execute a binary skill.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_search",
+      "purpose": "Search registries and GitHub for available skills.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_skill_eject",
+      "purpose": "Convert a remote skill into an editable local copy.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_skill_info",
+      "purpose": "Display detailed metadata about a specific skill.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_skill_link",
+      "purpose": "Link a local directory as a skill for development.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_skill_list",
+      "purpose": "List all currently installed skills.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_skill_new",
+      "purpose": "Create a new local skill scaffold.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_skill_validate",
+      "purpose": "Validate skill definitions against internal schema or rules.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ion_update",
+      "purpose": "Update one or all skills to their latest versions.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "last_used": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cache_entries",
+        "columns": [
+          {
+            "name": "key",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_used",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "ion_toml_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "skills",
+        "columns": [
+          {
+            "name": "installed_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build two-stage execution (preview + confirm) for destructive ops",
+    "week 1: Enable local skill linking and ejection",
+    "week 1: Implement core skill add/remove/update lifecycle",
+    "week 1: Support JSON output mode for all commands"
+  ],
+  "acceptance_tests": [
+    "All commands produce valid JSON when invoked with `--json` flag.",
+    "Running `ion --json remove my-skill --yes` removes the skill and exits with code 0.",
+    "Running `ion --json remove my-skill` returns a preview payload and exits with code 2.",
+    "User can initialize a project with `ion project init` and generate Ion.toml.",
+    "User can install a skill via `ion add <source>` and see it listed in `ion skill list`."
+  ]
+}

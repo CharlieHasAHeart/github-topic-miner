@@ -1,0 +1,57 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "DOCX JS Editor",
+    "one_liner": "Open-source WYSIWYG DOCX editor for the browser with no server required."
+  },
+  "screens": [
+    {
+      "name": "Editor View",
+      "purpose": "Primary interface for editing DOCX documents with WYSIWYG controls, track changes, and comment management.",
+      "primary_actions": [
+        "Accept/reject suggestions",
+        "Add/resolve comments",
+        "Edit text and formatting",
+        "Load DOCX file",
+        "Save edited document"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Save the edited DOCX document by patching only changed paragraphs in document.xml using selective XML saving.",
+      "async": true,
+      "input": {
+        "buffer": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "documents",
+        "columns": [
+          {
+            "name": "buffer",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Enable client-side document loading and saving",
+    "week 1: Implement basic WYSIWYG toolbar with formatting controls",
+    "week 1: Integrate core DOCX parsing and rendering engine"
+  ],
+  "acceptance_tests": [
+    "Edits made in the editor are saved correctly using selective XML patching without corrupting the document.",
+    "User can load a DOCX file and see accurate rendering of text, tables, and images."
+  ]
+}

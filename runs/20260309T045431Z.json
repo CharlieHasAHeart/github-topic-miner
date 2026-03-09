@@ -1,0 +1,4204 @@
+{
+  "run_id": "20260309T045431Z",
+  "generated_at": "2026-03-09T04:54:31.173Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 1,
+    "new_candidates": 4,
+    "repo_cards_built": 4,
+    "gaps_count": 0,
+    "specs_attempted": 4,
+    "specs_succeeded": 4,
+    "specs_failed": 0,
+    "evidence_validated": 4,
+    "evidence_valid_ok": 4,
+    "evidence_valid_failed": 0,
+    "evidence_written": 4,
+    "evidence_write_failed": 0,
+    "evidence_total": 49,
+    "evidence_by_type": {
+      "readme": 30,
+      "issue": 3,
+      "release": 12,
+      "root_files": 4
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-09T05:00:51.120Z",
+    "repo_count": 117
+  },
+  "candidates": [
+    {
+      "full_name": "jzero-io/jzero",
+      "html_url": "https://github.com/jzero-io/jzero",
+      "description": "基于 proto/api/sql 等可描述文件生成服务端/客户端代码，基于内置的 jzero-skills 让 AI 生成符合最佳实践的业务代码",
+      "topics": [
+        "api",
+        "cloud-native",
+        "cobra",
+        "code-generation",
+        "go",
+        "go-zero",
+        "grpc",
+        "grpc-gateway",
+        "microservice",
+        "proto",
+        "sqlbuilder",
+        "validator"
+      ],
+      "language": "Go",
+      "stargazers_count": 173,
+      "forks_count": 16,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:53:17Z",
+      "created_at": "2024-04-07T02:07:56Z"
+    },
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 623,
+      "forks_count": 168,
+      "open_issues_count": 1279,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:52:47Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    },
+    {
+      "full_name": "Roger-luo/Ion",
+      "html_url": "https://github.com/Roger-luo/Ion",
+      "description": "Ion - a CLI toolbox for agentic developers",
+      "topics": [
+        "agent",
+        "cli",
+        "package-manager",
+        "skills",
+        "tools"
+      ],
+      "language": "Rust",
+      "stargazers_count": 66,
+      "forks_count": 2,
+      "open_issues_count": 14,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:52:36Z",
+      "created_at": "2023-01-26T07:06:15Z"
+    },
+    {
+      "full_name": "kawarimidoll/deno-github-contributions-api",
+      "html_url": "https://github.com/kawarimidoll/deno-github-contributions-api",
+      "description": "The unofficial get api of GitHub contributions with Deno 🦕",
+      "topics": [
+        "contribution-graph",
+        "contributions",
+        "curl",
+        "deno",
+        "deno-deploy",
+        "github",
+        "github-api",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 169,
+      "forks_count": 9,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:51:01Z",
+      "created_at": "2021-06-30T07:34:57Z"
+    },
+    {
+      "full_name": "eigenpal/docx-editor",
+      "html_url": "https://github.com/eigenpal/docx-editor",
+      "description": "React DOCX editor",
+      "topics": [
+        "docx",
+        "docx-editor",
+        "editor",
+        "js",
+        "msword",
+        "next",
+        "prosemirror",
+        "react",
+        "vite",
+        "word",
+        "word-editor",
+        "wysiwyg"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 459,
+      "forks_count": 25,
+      "open_issues_count": 19,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:51:00Z",
+      "created_at": "2026-02-02T00:43:53Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "jzero-io/jzero",
+      "html_url": "https://github.com/jzero-io/jzero",
+      "description": "基于 proto/api/sql 等可描述文件生成服务端/客户端代码，基于内置的 jzero-skills 让 AI 生成符合最佳实践的业务代码",
+      "topics": [
+        "api",
+        "cloud-native",
+        "cobra",
+        "code-generation",
+        "go",
+        "go-zero",
+        "grpc",
+        "grpc-gateway",
+        "microservice",
+        "proto",
+        "sqlbuilder",
+        "validator"
+      ],
+      "language": "Go",
+      "stargazers_count": 173,
+      "forks_count": 16,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:53:17Z",
+      "created_at": "2024-04-07T02:07:56Z"
+    },
+    {
+      "full_name": "Roger-luo/Ion",
+      "html_url": "https://github.com/Roger-luo/Ion",
+      "description": "Ion - a CLI toolbox for agentic developers",
+      "topics": [
+        "agent",
+        "cli",
+        "package-manager",
+        "skills",
+        "tools"
+      ],
+      "language": "Rust",
+      "stargazers_count": 66,
+      "forks_count": 2,
+      "open_issues_count": 14,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:52:36Z",
+      "created_at": "2023-01-26T07:06:15Z"
+    },
+    {
+      "full_name": "kawarimidoll/deno-github-contributions-api",
+      "html_url": "https://github.com/kawarimidoll/deno-github-contributions-api",
+      "description": "The unofficial get api of GitHub contributions with Deno 🦕",
+      "topics": [
+        "contribution-graph",
+        "contributions",
+        "curl",
+        "deno",
+        "deno-deploy",
+        "github",
+        "github-api",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 169,
+      "forks_count": 9,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:51:01Z",
+      "created_at": "2021-06-30T07:34:57Z"
+    },
+    {
+      "full_name": "eigenpal/docx-editor",
+      "html_url": "https://github.com/eigenpal/docx-editor",
+      "description": "React DOCX editor",
+      "topics": [
+        "docx",
+        "docx-editor",
+        "editor",
+        "js",
+        "msword",
+        "next",
+        "prosemirror",
+        "react",
+        "vite",
+        "word",
+        "word-editor",
+        "wysiwyg"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 459,
+      "forks_count": 25,
+      "open_issues_count": 19,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:51:00Z",
+      "created_at": "2026-02-02T00:43:53Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "jzero-io/jzero",
+      "html_url": "https://github.com/jzero-io/jzero",
+      "description": "基于 proto/api/sql 等可描述文件生成服务端/客户端代码，基于内置的 jzero-skills 让 AI 生成符合最佳实践的业务代码",
+      "topics": [
+        "api",
+        "cloud-native",
+        "cobra",
+        "code-generation",
+        "go",
+        "go-zero",
+        "grpc",
+        "grpc-gateway",
+        "microservice",
+        "proto",
+        "sqlbuilder",
+        "validator"
+      ],
+      "language": "Go",
+      "stargazers_count": 173,
+      "forks_count": 16,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:53:17Z",
+      "created_at": "2024-04-07T02:07:56Z",
+      "readme": {
+        "fetched": true,
+        "text": "# jzero\n\n[![Build Status](https://img.shields.io/github/actions/workflow/status/jzero-io/jzero/ci.yaml?branch=main&label=jzero-ci&logo=github&style=flat-square)](https://github.com/jzero-io/jzero/actions?query=workflow%3Ajzero-ci)\n[![GitHub release](https://img.shields.io/github/release/jzero-io/jzero.svg?style=flat-square)](https://github.com/jzero-io/jzero/releases/latest)\n[![GitHub package version](https://img.shields.io/github/v/release/jzero-io/jzero-action?include_prereleases&sort=semver&label=Jzero%20Action%20Version)](https://github.com/marketplace/actions/jzero-action)\n[![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fvercel.jaronnie.com%2Fapi%2Fv1%2Fshields%2Fgithub%2Fjzero-io%2Fjzero%2Fpkgs%2Fcontainer%2Fjzero%2Fdownloads&label=image%20pulls)](https://vercel.jaronnie.com/api/v1/shields/github/jzero-io/jzero/pkgs/container/jzero/downloads)\n[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/jzero-io/jzero)\n\n<p align=\"center\">\n<img align=\"center\" width=\"150px\" src=\"https://oss.jaronnie.com/jzero.svg\">\n<img align=\"center\" width=\"300px\" src=\"https://github.com/user-attachments/assets/44184df0-20ce-403d-ab38-74088915bc33\">\n\n</p>\n\n## 简介\n\n基于 [go-zero框架](https://github.com/zeromicro/go-zero) 以及 [go-zero/goctl工具](https://github.com/zeromicro/go-zero/tree/master/tools/goctl) 开发的 [jzero](https://github.com/jzero-io/jzero) 框架, 可一键初始化 api/gateway/rpc 项目。\n\n基于可描述文件(**api/proto/sql**)自动生成**服务端和客户端**框架代码, 基于内置的 jzero-skills 让 AI 生成符合最佳实践的业务逻辑代码，降低开发心智, 解放双手!\n\n具备以下特点:\n\n* 支持通过**配置文件/命令行参数/环境变量**组合的方式灵活控制 jzero 的各项配置, 极简指令生成代码, ai 友好\n* 支持基于 **git 对改动文件**生成代码, 支持对**指定描述文件**生成代码或**忽略指定描述文件**生成代码, 提升大型项目代码生成效率\n* 内置常用开发模板并增强模板特性, 支持**自定义模板**, 构建专属企业内部代码模板, 极大降低开发成本\n\n更多详情请参阅：[https://docs.jzero.io](https://docs.jzero.io)\n\n## 设计理念\n\n* **开发体验**: 提供简单好用的一站式生产可用的解决方案, 提升开发体验感\n* **模板驱动**: 所有代码生成均基于模板渲染, 默认生成即最佳实践, 且支持自定义模板内容\n* **生态兼容**: 不修改 go-zero 和 go-zero/goctl, 保持生态兼容, 同时解决已有的痛点问题并扩展新的功能\n* **团队开发**: 通过模块**分层**, **插件**设计, 团队开发友好\n* **接口设计**: 不依赖特定数据库/缓存/配置中心等基础设施, 根据实际需求自由选择\n\n更多详情请参阅：https://docs.jzero.io\n\n## 快速开始\n\n```shell\n# 安装 jzero\ngo install github.com/jzero-io/jzero/cmd/jzero@latest\n# 一键安装所需的工具\njzero check\n# 一键创建项目\njzero new your_project\ncd your_project\n# 下载依赖\ngo mod tidy\n# 启动服务端程序\ngo run main.go server\n# 访问 swagger ui\nhttp://localhost:8001/swagger\n```\n\n### docker\n\n```shell\n# 一键创建项目\ndocker run --rm -v ${PWD}:/app ghcr.io/jzero-io/jzero:latest new your_project\ncd your_project \n# 下载依赖\ngo mod tidy\n# 启动服务端程序\ngo run main.go server\n# 访问 swagger ui\nhttp://localhost:8001/swagger\n```\n\n更多示例代码请参阅: https://github.com/jzero-io/examples\n\n## 生态\n\n* jzero-intellij(jzero 的 goland 插件): https://github.com/jzero-io/jzero-intellij\n* jzero-admin(基于 jzero 的后台管理系统): https://github.com/jzero-io/jzero-admin\n\n更多生态请查阅: [https://docs.jzero.io/ecosystem](https://docs.jzero.io/ecosystem)\n\n## 贡献者\n\n[贡献](https://docs.jzero.io/guide/contribute.html)\n\n<a href=\"https://openomy.app/github/jzero-io/jzero\" target=\"_blank\" style=\"display: block; width: 100%;\" align=\"center\">\n  <img src=\"https://openomy.app/svg?repo=jzero-io/jzero&chart=bubble&latestMonth=3\" target=\"_blank\" alt=\"Contribution Leaderboard\" style=\"display: block; width: 100%;\" />\n</a>\n\n## Stargazers over time\n\n[![Star History Chart](https://api.star-history.com/svg?repos=jzero-io/jzero&type=Date)](https://star-history.com/#jzero-io/jzero&Date)\n\n## 免责声明\n\njzero 基于 MIT License 发布，完全免费提供。作者及贡献者不对使用本软件所产生的任何直接或间接后果承担责任，包括但不限于性能下降、数据丢失、服务中断、或任何其他类型的损害。\n\n无任何保证：本软件不提供任何明示或暗示的保证，包括但不限于对特定用途的适用性、无侵权性、商用性及可靠性的保证。\n\n用户责任：使用本软件即表示您理解并同意承担由此产生的一切风险及责任。",
+        "truncated": false,
+        "bytes": 4838,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.2.1",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-02-02T13:59:15Z",
+            "body_excerpt": "## Changelog\n* 32db50285e1a9a4bb8e65e729578629fe45a1a8b Feat/docs/v1.2.1 (#387)\n* 06a0efe40716bbd93b16e50e267d32c305b7b02a Feat/optimize gen api 260130 (#385)\n* 8d13e4b3ec3346183ae3fa34c3b99bd9a3934706 feat(docs): add blog\n* 1b45d5f812e1cde06a14a6c9575513be9643810e feat(docs): update README\n* e8096448bc97b572ebd73ac74ea3efced0c23e52 fix(gen): fix genzrpcclient with sub dir desc proto (#386)\n\n"
+          },
+          {
+            "name": "v1.2.0",
+            "tag_name": "v1.2.0",
+            "published_at": "2026-01-30T06:40:34Z",
+            "body_excerpt": "## Changelog\n* fafc6f84d28acd128765f690f32b16c345386948 Feat/jzero skills (#383)\n* ac10d8f4cd464dd72070f65523453d3bf486254d chore(deps): bump github.com/alicebob/miniredis/v2 from 2.36.0 to 2.36.1 (#380)\n* 48bb3407bd412dad86bb294aab4910c01238ce5f chore(docs): add v1.1.3 release\n* 9812ba9657e8cba9a76e5da113d6497f98fa2743 feat(condition): support ForUpdate and ForShare operator (#379)\n* deb5ea1beded22e3c51f531881952505babc0993 feat(docs): add v1.2.0 release (#384)\n* d4646378fdeeaa2d0006d257bdb5ef453e189eb5 fix(jzero): support mono plugin #358 (#381)\n\n"
+          },
+          {
+            "name": "v1.1.3",
+            "tag_name": "v1.1.3",
+            "published_at": "2026-01-23T06:52:32Z",
+            "body_excerpt": "## Changelog\n* 78bbf2273b6ec6f477448c2f56cf4b855882b896 chore(deps): bump github.com/alicebob/miniredis/v2 from 2.35.0 to 2.36.0 (#377)\n* 7b56805f4092931eb36a9717cd78741468380aac chore(deps): bump github.com/huandu/go-sqlbuilder from 1.38.2 to 1.39.0 (#375)\n* d5d0c6cafd06401ac305df1467d47598ccc51c62 chore(deps): bump modernc.org/sqlite from 1.43.0 to 1.44.2 (#374)\n* f568857fe012103b2fca3ccf579ec13f117edca2 chore(deps): bump modernc.org/sqlite from 1.44.2 to 1.44.3 (#376)\n* 8c3b04fe60ead40eb171a7fa711ebff9bfc1d09c fix(rpc): fix middleware for rpc about middleware_gen.go.tpl (#378)\n\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 402,
+            "title": "Unresolved reference 'ProtoSets'",
+            "state": "closed",
+            "url": "https://github.com/jzero-io/jzero/issues/402"
+          },
+          {
+            "number": 416,
+            "title": "接入 AI 流程自动实现 feature",
+            "state": "open",
+            "url": "https://github.com/jzero-io/jzero/issues/416"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".golangci.yml",
+        ".goreleaser.yaml",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "cmd",
+        "core",
+        "docs",
+        "examples",
+        "go.mod",
+        "go.sum"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Build Status](https://img.shields.io/github/actions/workflow/status/jzero-io/jzero/ci.yaml?branch=main&label=jzero-ci&logo=github&style=flat-square)](https://github.com/jzero-io/jzero/actions?query=workflow%3Ajzero-ci) [![GitHub release](https://img.shields.io/github/release/jzero-io/jzero.svg?style=flat-square)](https://github.com/jzero-io/jzero/releases/latest) [![GitHub package version](https://img.shields.io/github/v/release/jzero-io/jzero-action?include_prereleases&sort=semver&label=Jzero%20Action%20Version)](https://github.com/marketplace/actions/jzero-action) [![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fvercel.jaronnie.com%2Fapi%2Fv1%2Fshields%2Fgithub%2Fjzero-io%2Fjzero%2Fpkgs%2Fcontainer%2Fjzero%2Fdownloads&label=image%20pulls)](https://vercel.jaronnie.com/api/v1/shields/github/jzero-io/jzero/pkgs/container/jzero/downloads) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/jzero-io/jzero)",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <img align=\"center\" width=\"150px\" src=\"https://oss.jaronnie.com/jzero.svg\"> <img align=\"center\" width=\"300px\" src=\"https://github.com/user-attachments/assets/44184df0-20ce-403d-ab38-74088915bc33\">",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 3)",
+          "excerpt": "基于 [go-zero框架](https://github.com/zeromicro/go-zero) 以及 [go-zero/goctl工具](https://github.com/zeromicro/go-zero/tree/master/tools/goctl) 开发的 [jzero](https://github.com/jzero-io/jzero) 框架, 可一键初始化 api/gateway/rpc 项目。",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 4)",
+          "excerpt": "基于可描述文件(**api/proto/sql**)自动生成**服务端和客户端**框架代码, 基于内置的 jzero-skills 让 AI 生成符合最佳实践的业务逻辑代码，降低开发心智, 解放双手!",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 5)",
+          "excerpt": "* 支持通过**配置文件/命令行参数/环境变量**组合的方式灵活控制 jzero 的各项配置, 极简指令生成代码, ai 友好 * 支持基于 **git 对改动文件**生成代码, 支持对**指定描述文件**生成代码或**忽略指定描述文件**生成代码, 提升大型项目代码生成效率 * 内置常用开发模板并增强模板特性, 支持**自定义模板**, 构建专属企业内部代码模板, 极大降低开发成本",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 6)",
+          "excerpt": "* **开发体验**: 提供简单好用的一站式生产可用的解决方案, 提升开发体验感 * **模板驱动**: 所有代码生成均基于模板渲染, 默认生成即最佳实践, 且支持自定义模板内容 * **生态兼容**: 不修改 go-zero 和 go-zero/goctl, 保持生态兼容, 同时解决已有的痛点问题并扩展新的功能 * **团队开发**: 通过模块**分层**, **插件**设计, 团队开发友好 * **接口设计**: 不依赖特定数据库/缓存/配置中心等基础设施, 根据实际需求自由选择",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```shell # 安装 jzero go install github.com/jzero-io/jzero/cmd/jzero@latest # 一键安装所需的工具 jzero check # 一键创建项目 jzero new your_project cd your_project # 下载依赖 go mod tidy # 启动服务端程序 go run main.go server # 访问 swagger ui http://localhost:8001/swagger ```",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/jzero-io/jzero#readme",
+          "title": "README (segment 8)",
+          "excerpt": "```shell # 一键创建项目 docker run --rm -v ${PWD}:/app ghcr.io/jzero-io/jzero:latest new your_project cd your_project # 下载依赖 go mod tidy # 启动服务端程序 go run main.go server # 访问 swagger ui http://localhost:8001/swagger ```",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/jzero-io/jzero/issues/402",
+          "title": "Unresolved reference 'ProtoSets'",
+          "excerpt": "Unresolved reference 'ProtoSets' (state:closed)",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "number": 402
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/jzero-io/jzero/issues/416",
+          "title": "接入 AI 流程自动实现 feature",
+          "excerpt": "接入 AI 流程自动实现 feature (state:open)",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "number": 416
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/jzero-io/jzero/releases",
+          "title": "v1.2.1",
+          "excerpt": "## Changelog * 32db50285e1a9a4bb8e65e729578629fe45a1a8b Feat/docs/v1.2.1 (#387) * 06a0efe40716bbd93b16e50e267d32c305b7b02a Feat/optimize gen api 260130 (#385) * 8d13e4b3ec3346183ae3fa34c3b99bd9a3934706 feat(docs): add blog * 1b45d5f812e1cde06a14a6c9575513be9643810e feat(docs): update README * e8096448bc97b572ebd73ac74ea3efced0c23e52 fix(gen): fix genzrpcclient with sub dir desc proto (#386)",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-02-02T13:59:15Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/jzero-io/jzero/releases",
+          "title": "v1.2.0",
+          "excerpt": "## Changelog * fafc6f84d28acd128765f690f32b16c345386948 Feat/jzero skills (#383) * ac10d8f4cd464dd72070f65523453d3bf486254d chore(deps): bump github.com/alicebob/miniredis/v2 from 2.36.0 to 2.36.1 (#380) * 48bb3407bd412dad86bb294aab4910c01238ce5f chore(docs): add v1.1.3 release * 9812ba9657e8cba9a76e5da113d6497f98fa2743 feat(condition): support ForUpdate and ForShare operator (#379) * deb5ea1beded22e3c51f531881952505babc0993 feat(docs): add v1.2.0 release (#384) * d4646378fdeeaa2d0006d257bdb5ef453e189eb5 fix(jzero): support mono plugin #358 (#381)",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "tag_name": "v1.2.0",
+            "published_at": "2026-01-30T06:40:34Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/jzero-io/jzero/releases",
+          "title": "v1.1.3",
+          "excerpt": "## Changelog * 78bbf2273b6ec6f477448c2f56cf4b855882b896 chore(deps): bump github.com/alicebob/miniredis/v2 from 2.35.0 to 2.36.0 (#377) * 7b56805f4092931eb36a9717cd78741468380aac chore(deps): bump github.com/huandu/go-sqlbuilder from 1.38.2 to 1.39.0 (#375) * d5d0c6cafd06401ac305df1467d47598ccc51c62 chore(deps): bump modernc.org/sqlite from 1.43.0 to 1.44.2 (#374) * f568857fe012103b2fca3ccf579ec13f117edca2 chore(deps): bump modernc.org/sqlite from 1.44.2 to 1.44.3 (#376) * 8c3b04fe60ead40eb171a7fa711ebff9bfc1d09c fix(rpc): fix middleware for rpc about middleware_gen.go.tpl (#378)",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "tag_name": "v1.1.3",
+            "published_at": "2026-01-23T06:52:32Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/jzero-io/jzero",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .golangci.yml, .goreleaser.yaml, CONTRIBUTING.md, Dockerfile, LICENSE, README.md, SECURITY.md, cmd, core, docs, examples, go.mod, go.sum",
+          "fetched_at": "2026-03-09T04:54:35.917Z",
+          "meta": {
+            "repo_full_name": "jzero-io/jzero",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "Roger-luo/Ion",
+      "html_url": "https://github.com/Roger-luo/Ion",
+      "description": "Ion - a CLI toolbox for agentic developers",
+      "topics": [
+        "agent",
+        "cli",
+        "package-manager",
+        "skills",
+        "tools"
+      ],
+      "language": "Rust",
+      "stargazers_count": 66,
+      "forks_count": 2,
+      "open_issues_count": 14,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:52:36Z",
+      "created_at": "2023-01-26T07:06:15Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Ion\n\nAgent skill manager for AI coding tools (Claude, Cursor, Windsurf, etc.).\n\nIon manages installation, validation, and organization of **skills** — reusable prompts and instructions that enhance AI agent capabilities.\n\n## Installation\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/Roger-luo/Ion/main/install.sh | sh\n```\n\nTo install a specific version:\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/Roger-luo/Ion/main/install.sh | sh -s -- 0.1.2\n```\n\nOr install from source:\n\n```bash\ncargo install --git https://github.com/Roger-luo/Ion\n```\n\n## Quick Start\n\n```bash\n# Initialize a project with a target\nion project init --target claude\n\n# Add a skill\nion add anthropics/skills/brainstorming\n\n# Install all skills from Ion.toml\nion add\n\n# Search for skills\nion search \"code review\"\n\n# Create a new local skill\nion skill new\n\n# List installed skills\nion skill list\n```\n\n## Commands\n\n| Command | Description |\n|---------|-------------|\n| `ion add [source]` | Add a skill, or install all from Ion.toml |\n| `ion remove <name>` | Remove a skill |\n| `ion search <query>` | Search registries and GitHub |\n| `ion update [name]` | Update skills to latest versions |\n| `ion run <name>` | Run a binary skill |\n| `ion skill new` | Create a new skill |\n| `ion skill eject <name>` | Eject a remote skill into an editable local copy |\n| `ion skill validate` | Validate skill definitions |\n| `ion skill list` | List installed skills |\n| `ion skill info <name>` | Show skill details |\n| `ion skill link <path>` | Link a local skill directory |\n| `ion project init` | Initialize Ion.toml with targets |\n| `ion project migrate` | Migrate from legacy formats |\n| `ion cache gc` | Clean up stale cached repos |\n| `ion config` | View and set configuration |\n\n## JSON Mode for Agents\n\nAll commands support `ion --json <command>` for structured, non-interactive output. This enables AI agents and CI scripts to operate Ion programmatically.\n\n```bash\n# Structured search results\nion --json search \"testing\"\n\n# Two-stage commands: preview first, then execute\nion --json remove my-skill        # returns what would be removed (exit 2)\nion --json remove my-skill --yes  # executes the removal (exit 0)\n```\n\nSee [SKILL.md](SKILL.md) for the full agent interface reference.\n\n## License\n\nMIT\n",
+        "truncated": false,
+        "bytes": 2282,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "ion-v0.1.5",
+            "tag_name": "ion-v0.1.5",
+            "published_at": "2026-03-08T06:03:28Z",
+            "body_excerpt": null
+          },
+          {
+            "name": "ion-v0.1.4",
+            "tag_name": "ion-v0.1.4",
+            "published_at": "2026-03-08T05:28:24Z",
+            "body_excerpt": null
+          },
+          {
+            "name": "ion-v0.1.3",
+            "tag_name": "ion-v0.1.3",
+            "published_at": "2026-03-08T05:12:47Z",
+            "body_excerpt": null
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "README.md",
+        "SKILL.md",
+        "build.rs",
+        "crates",
+        "docs",
+        "install.sh",
+        "release-plz.toml",
+        "skills-lock.json",
+        "src",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Roger-luo/Ion#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Ion manages installation, validation, and organization of **skills** — reusable prompts and instructions that enhance AI agent capabilities.",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Roger-luo/Ion#readme",
+          "title": "README (segment 2)",
+          "excerpt": "```bash curl -fsSL https://raw.githubusercontent.com/Roger-luo/Ion/main/install.sh | sh ```",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Roger-luo/Ion#readme",
+          "title": "README (segment 3)",
+          "excerpt": "```bash curl -fsSL https://raw.githubusercontent.com/Roger-luo/Ion/main/install.sh | sh -s -- 0.1.2 ```",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Roger-luo/Ion#readme",
+          "title": "README (segment 4)",
+          "excerpt": "| Command | Description | |---------|-------------| | `ion add [source]` | Add a skill, or install all from Ion.toml | | `ion remove <name>` | Remove a skill | | `ion search <query>` | Search registries and GitHub | | `ion update [name]` | Update skills to latest versions | | `ion run <name>` | Run a binary skill | | `ion skill new` | Create a new skill | | `ion skill eject <name>` | Eject a remote skill into an editable local copy | | `ion skill validate` | Validate skill definitions | | `ion skill list` | List installed skills | | `ion skill info <name>` | Show skill details | | `ion skill link <path>` | Link a local skill directory | | `ion project init` | Initialize Ion.toml with targets | | `ion project migrate` | Migrate from legacy formats | | `ion cache gc` | Clean up stale cached repos | | `ion config` | View and set configuration |",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Roger-luo/Ion#readme",
+          "title": "README (segment 5)",
+          "excerpt": "All commands support `ion --json <command>` for structured, non-interactive output. This enables AI agents and CI scripts to operate Ion programmatically.",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Roger-luo/Ion#readme",
+          "title": "README (segment 6)",
+          "excerpt": "# Two-stage commands: preview first, then execute ion --json remove my-skill # returns what would be removed (exit 2) ion --json remove my-skill --yes # executes the removal (exit 0) ```",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Roger-luo/Ion/releases",
+          "title": "ion-v0.1.5",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "tag_name": "ion-v0.1.5",
+            "published_at": "2026-03-08T06:03:28Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Roger-luo/Ion/releases",
+          "title": "ion-v0.1.4",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "tag_name": "ion-v0.1.4",
+            "published_at": "2026-03-08T05:28:24Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Roger-luo/Ion/releases",
+          "title": "ion-v0.1.3",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "tag_name": "ion-v0.1.3",
+            "published_at": "2026-03-08T05:12:47Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Roger-luo/Ion",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, AGENTS.md, CHANGELOG.md, CLAUDE.md, Cargo.lock, Cargo.toml, README.md, SKILL.md, build.rs, crates, docs, install.sh, release-plz.toml, skills-lock.json, src, tests",
+          "fetched_at": "2026-03-09T04:54:35.702Z",
+          "meta": {
+            "repo_full_name": "Roger-luo/Ion",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "kawarimidoll/deno-github-contributions-api",
+      "html_url": "https://github.com/kawarimidoll/deno-github-contributions-api",
+      "description": "The unofficial get api of GitHub contributions with Deno 🦕",
+      "topics": [
+        "contribution-graph",
+        "contributions",
+        "curl",
+        "deno",
+        "deno-deploy",
+        "github",
+        "github-api",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 169,
+      "forks_count": 9,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:51:01Z",
+      "created_at": "2021-06-30T07:34:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "# deno-github-contributions-api\n\n[![JSR](https://jsr.io/badges/@kawarimidoll/github-contributions-api)](https://jsr.io/@kawarimidoll/github-contributions-api)\n[![JSR Score](https://jsr.io/badges/@kawarimidoll/github-contributions-api/score)](https://jsr.io/@kawarimidoll/github-contributions-api)\n[![ci](https://github.com/kawarimidoll/deno-github-contributions-api/workflows/ci/badge.svg)](.github/workflows/ci.yml)\n[![deno deploy](https://img.shields.io/badge/deno-deploy-blue?logo=deno)](https://github-contributions-api.deno.dev)\n[![LICENSE](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)\n\nFetch and render GitHub contributions data as JSON, SVG, terminal text, or plain\ntext.\n\n![gif](resources/t-rec.gif)\n\n## Usage\n\n### As an API\n\nIn your terminal:\n\n```\n$ curl https://github-contributions-api.deno.dev\n# Then follow the messages...\n```\n\nOf course, you can access the endpoint from the web browser:\nhttps://github-contributions-api.deno.dev\n\n### As a library\n\n```ts\nimport { getContributions } from \"jsr:@kawarimidoll/github-contributions-api\";\n\nconst contributions = await getContributions(\"username\", \"ghp_token\");\n\nconsole.log(contributions.toTerm({ scheme: \"random\" }));\n// Also available: toJson(), toText(), toSvg()\n```\n\nYou can also specify a date range with `from` / `to` options.\n\nA personal access token with the `read:user` scope is required. Generate one\nhere: https://github.com/settings/tokens/new\n\n## Local Development\n\n1. Copy `.envrc.example` to `.envrc` and set your GitHub personal access token:\n\n```sh\ncp .envrc.example .envrc\n# Edit .envrc and set your token\n```\n\n2. Load environment variables with [direnv](https://direnv.net/):\n\n```sh\ndirenv allow\n```\n\n3. Start the development server:\n\n```sh\ndeno task dev\n```\n\n## Extra\n\nIf you are using [GitHub CLI](https://github.com/cli/cli), you can call this API\nfrom [gh-graph](https://github.com/kawarimidoll/gh-graph).\n\n<details>\n  <summary>Acknowledgements</summary>\n  <a href=\"https://twitter.com/deno_land/status/1420387162206478340\">\n    <img src=\"resources/tweet.webp\" alt=\"tweet\">\n  </a>\n</details>\n\n---\n\n```ts\nif (this.repo.isAwesome || this.repo.isHelpful) {\n  star(this.repo);\n}\n```\n\n<!-- this part is inspired by https://github.com/bhumijgupta/Deno-news-cli -->\n",
+        "truncated": false,
+        "bytes": 2260,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "1.0.0",
+            "tag_name": "1.0.0",
+            "published_at": "2026-03-08T08:30:39Z",
+            "body_excerpt": "**Full Changelog**: https://github.com/kawarimidoll/deno-github-contributions-api/compare/0.1.3...1.0.0"
+          },
+          {
+            "name": "0.1.3",
+            "tag_name": "0.1.3",
+            "published_at": "2026-03-08T03:10:24Z",
+            "body_excerpt": "update release workflow\r\n\r\n**Full Changelog**: https://github.com/kawarimidoll/deno-github-contributions-api/compare/0.1.2...0.1.3"
+          },
+          {
+            "name": "0.1.2",
+            "tag_name": "0.1.2",
+            "published_at": "2026-03-08T02:11:00Z",
+            "body_excerpt": "fix type definition\r\n\r\n**Full Changelog**: https://github.com/kawarimidoll/deno-github-contributions-api/compare/0.1.1...0.1.2"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 40,
+            "title": "JSR",
+            "state": "closed",
+            "url": "https://github.com/kawarimidoll/deno-github-contributions-api/issues/40"
+          }
+        ]
+      },
+      "root_files": [
+        ".envrc.example",
+        ".github",
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "color_scheme.ts",
+        "color_scheme_test.ts",
+        "contributions.ts",
+        "contributions_test.ts",
+        "deno.jsonc",
+        "deno.lock",
+        "health_check.ts",
+        "main.ts",
+        "mod.ts",
+        "resources",
+        "server.ts",
+        "utils.ts",
+        "utils_test.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![JSR](https://jsr.io/badges/@kawarimidoll/github-contributions-api)](https://jsr.io/@kawarimidoll/github-contributions-api) [![JSR Score](https://jsr.io/badges/@kawarimidoll/github-contributions-api/score)](https://jsr.io/@kawarimidoll/github-contributions-api) [![ci](https://github.com/kawarimidoll/deno-github-contributions-api/workflows/ci/badge.svg)](.github/workflows/ci.yml) [![deno deploy](https://img.shields.io/badge/deno-deploy-blue?logo=deno)](https://github-contributions-api.deno.dev) [![LICENSE](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Fetch and render GitHub contributions data as JSON, SVG, terminal text, or plain text.",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 3)",
+          "excerpt": "``` $ curl https://github-contributions-api.deno.dev # Then follow the messages... ```",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Of course, you can access the endpoint from the web browser: https://github-contributions-api.deno.dev",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 5)",
+          "excerpt": "```ts import { getContributions } from \"jsr:@kawarimidoll/github-contributions-api\";",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 6)",
+          "excerpt": "console.log(contributions.toTerm({ scheme: \"random\" })); // Also available: toJson(), toText(), toSvg() ```",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 7)",
+          "excerpt": "A personal access token with the `read:user` scope is required. Generate one here: https://github.com/settings/tokens/new",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api#readme",
+          "title": "README (segment 8)",
+          "excerpt": "If you are using [GitHub CLI](https://github.com/cli/cli), you can call this API from [gh-graph](https://github.com/kawarimidoll/gh-graph).",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api/issues/40",
+          "title": "JSR",
+          "excerpt": "JSR (state:closed)",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "number": 40
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api/releases",
+          "title": "1.0.0",
+          "excerpt": "**Full Changelog**: https://github.com/kawarimidoll/deno-github-contributions-api/compare/0.1.3...1.0.0",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "tag_name": "1.0.0",
+            "published_at": "2026-03-08T08:30:39Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api/releases",
+          "title": "0.1.3",
+          "excerpt": "update release workflow **Full Changelog**: https://github.com/kawarimidoll/deno-github-contributions-api/compare/0.1.2...0.1.3",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "tag_name": "0.1.3",
+            "published_at": "2026-03-08T03:10:24Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api/releases",
+          "title": "0.1.2",
+          "excerpt": "fix type definition **Full Changelog**: https://github.com/kawarimidoll/deno-github-contributions-api/compare/0.1.1...0.1.2",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "tag_name": "0.1.2",
+            "published_at": "2026-03-08T02:11:00Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/kawarimidoll/deno-github-contributions-api",
+          "title": "ROOT_FILES",
+          "excerpt": ".envrc.example, .github, .gitignore, LICENSE, README.md, color_scheme.ts, color_scheme_test.ts, contributions.ts, contributions_test.ts, deno.jsonc, deno.lock, health_check.ts, main.ts, mod.ts, resources, server.ts, utils.ts, utils_test.ts",
+          "fetched_at": "2026-03-09T04:54:35.742Z",
+          "meta": {
+            "repo_full_name": "kawarimidoll/deno-github-contributions-api",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "eigenpal/docx-editor",
+      "html_url": "https://github.com/eigenpal/docx-editor",
+      "description": "React DOCX editor",
+      "topics": [
+        "docx",
+        "docx-editor",
+        "editor",
+        "js",
+        "msword",
+        "next",
+        "prosemirror",
+        "react",
+        "vite",
+        "word",
+        "word-editor",
+        "wysiwyg"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 459,
+      "forks_count": 25,
+      "open_issues_count": 19,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-09T04:51:00Z",
+      "created_at": "2026-02-02T00:43:53Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://github.com/eigenpal/docx-js-editor\">\n    <img src=\"./assets/logo.png\" alt=\"DOCX JS Editor\" width=\"600\" />\n  </a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://www.npmjs.com/package/@eigenpal/docx-js-editor\"><img src=\"https://img.shields.io/npm/v/@eigenpal/docx-js-editor.svg?style=flat-square&color=00C853\" alt=\"npm version\" /></a>\n  <a href=\"https://www.npmjs.com/package/@eigenpal/docx-js-editor\"><img src=\"https://img.shields.io/npm/dm/@eigenpal/docx-js-editor.svg?style=flat-square&color=00C853\" alt=\"npm downloads\" /></a>\n  <a href=\"https://github.com/eigenpal/docx-js-editor/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&color=00C853\" alt=\"license\" /></a>\n  <a href=\"https://docx-js-editor.vercel.app/\"><img src=\"https://img.shields.io/badge/Live_Demo-00C853?style=flat-square&logo=vercel&logoColor=white\" alt=\"Live Demo\" /></a>\n</p>\n\n# @eigenpal/docx-js-editor\n\nOpen-source WYSIWYG DOCX editor for the browser. No server required. **[Live demo](https://docx-js-editor.vercel.app/)**\n\n> **AI agents (Claude Code, Cursor, Copilot, etc.):** See the [full Agent Reference](https://raw.githubusercontent.com/eigenpal/docx-editor/main/AGENTS_README.md) for comprehensive API docs, code examples, and integration patterns.\n\n<p align=\"center\">\n  <a href=\"https://docx-js-editor.vercel.app/\">\n    <img src=\"./assets/editor.png\" alt=\"DOCX JS Editor screenshot\" width=\"700\" />\n  </a>\n</p>\n\n- WYSIWYG editing with Word fidelity — formatting, tables, images, hyperlinks\n- Track changes (suggestion mode) with accept/reject\n- Comments with replies, resolve/reopen, scroll-to-highlight\n- Plugin system, undo/redo, find & replace, print preview\n- Client-side only, zero server dependencies\n\n## Quick Start\n\n```bash\nnpm install @eigenpal/docx-js-editor\n```\n\n```tsx\nimport { useRef } from 'react';\nimport { DocxEditor, type DocxEditorRef } from '@eigenpal/docx-js-editor';\nimport '@eigenpal/docx-js-editor/styles.css';\n\nfunction Editor({ file }: { file: ArrayBuffer }) {\n  const editorRef = useRef<DocxEditorRef>(null);\n  return <DocxEditor ref={editorRef} documentBuffer={file} onChange={() => {}} />;\n}\n```\n\n> **Next.js / SSR:** Use dynamic import — the editor requires the DOM.\n\n## Packages\n\n| Package                                      | Description                                                  |\n| -------------------------------------------- | ------------------------------------------------------------ |\n| [`@eigenpal/docx-js-editor`](packages/react) | React UI — toolbar, paged editor, plugins. **Install this.** |\n| [`@eigenpal/docx-editor-vue`](packages/vue)  | Vue.js scaffold — contributions welcome                      |\n\n## Plugins\n\n```tsx\nimport { DocxEditor, PluginHost, templatePlugin } from '@eigenpal/docx-js-editor';\n\n<PluginHost plugins={[templatePlugin]}>\n  <DocxEditor documentBuffer={file} />\n</PluginHost>;\n```\n\nSee [docs/PLUGINS.md](docs/PLUGINS.md) for the full plugin API.\n\n## Development\n\n```bash\nbun install\nbun run dev        # localhost:5173\nbun run build\nbun run typecheck\n```\n\nExamples: [Vite](examples/vite) | [Next.js](examples/nextjs) | [Remix](examples/remix) | [Astro](examples/astro) | [Vue](examples/vue)\n\n**[Props & Ref Methods](docs/PROPS.md)** | **[Plugins](docs/PLUGINS.md)** | **[Architecture](docs/ARCHITECTURE.md)**\n\n## License\n\nMIT\n",
+        "truncated": false,
+        "bytes": 3374,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.0.21",
+            "tag_name": "v0.0.21",
+            "published_at": "2026-03-09T03:45:28Z",
+            "body_excerpt": "## What's Changed\r\n* Fix: disable sourcemaps to reduce package from 16MB to 3.5MB by @jedrazb in https://github.com/eigenpal/docx-editor/pull/106\r\n\r\n\r\n**Full Changelog**: https://github.com/eigenpal/docx-editor/compare/v0.0.20...v0.0.21"
+          },
+          {
+            "name": "v0.0.20",
+            "tag_name": "v0.0.20",
+            "published_at": "2026-03-09T03:36:36Z",
+            "body_excerpt": "## What's Changed\r\n* fix: publish from packages/react and generate npm README with absolute URLs by @jedrazb in https://github.com/eigenpal/docx-editor/pull/99\r\n* feat: add AdvancedColorPicker with theme color matrix by @jedrazb in https://github.com/eigenpal/docx-editor/pull/100\r\n* fix: individual border presets and replace cell fill picker with AdvancedColorPicker by @jedrazb in https://github.com/eigenpal/docx-editor/pull/101\r\n* fix: correct default line spacing from 1.15x to 1.0x per OOXML spec by @jedrazb in https://github.com/eigenpal/docx-editor/pull/102\r\n* feat: selective XML save — patch only changed paragraphs in document.xml by @jedrazb in https://github.com/eigenpal/docx-editor/pull/103\r\n* fix: scroll page to follow cursor during arrow key navigation by @jedrazb in https://github.com/eigenpal/docx-editor/pull/105\r\n* Redesign demo badge and update repo URLs by @jedrazb in https://github.com/eigenpal/docx-editor/pull/104\r\n\r\n\r\n**Full Changelog**: https://github.com/eigenpal/docx-editor/compare/v0.0.19...v0.0.20"
+          },
+          {
+            "name": "v0.0.19",
+            "tag_name": "v0.0.19",
+            "published_at": "2026-03-06T04:13:13Z",
+            "body_excerpt": "## What's Changed\r\n* fix: compile Tailwind utilities into dist/styles.css by @jedrazb in https://github.com/eigenpal/docx-editor/pull/98\r\n\r\n\r\n**Full Changelog**: https://github.com/eigenpal/docx-editor/compare/v0.0.18...v0.0.19"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".claude",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".lintstagedrc",
+        ".prettierrc",
+        ".size-limit.json",
+        "AGENTS_README.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "bun.lock",
+        "bunfig.toml",
+        "docs",
+        "e2e",
+        "eslint.config.js",
+        "examples",
+        "openspec",
+        "package.json",
+        "packages",
+        "playwright.config.ts",
+        "postcss.config.js",
+        "reference",
+        "scripts",
+        "src",
+        "tailwind.config.js",
+        "tailwind.config.lib.js",
+        "tsconfig.json",
+        "vercel.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/eigenpal/docx-js-editor\"> <img src=\"./assets/logo.png\" alt=\"DOCX JS Editor\" width=\"600\" /> </a> </p>",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://www.npmjs.com/package/@eigenpal/docx-js-editor\"><img src=\"https://img.shields.io/npm/v/@eigenpal/docx-js-editor.svg?style=flat-square&color=00C853\" alt=\"npm version\" /></a> <a href=\"https://www.npmjs.com/package/@eigenpal/docx-js-editor\"><img src=\"https://img.shields.io/npm/dm/@eigenpal/docx-js-editor.svg?style=flat-square&color=00C853\" alt=\"npm downloads\" /></a> <a href=\"https://github.com/eigenpal/docx-js-editor/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&color=00C853\" alt=\"license\" /></a> <a href=\"https://docx-js-editor.vercel.app/\"><img src=\"https://img.shields.io/badge/Live_Demo-00C853?style=flat-square&logo=vercel&logoColor=white\" alt=\"Live Demo\" /></a> </p>",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Open-source WYSIWYG DOCX editor for the browser. No server required. **[Live demo](https://docx-js-editor.vercel.app/)**",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 4)",
+          "excerpt": "> **AI agents (Claude Code, Cursor, Copilot, etc.):** See the [full Agent Reference](https://raw.githubusercontent.com/eigenpal/docx-editor/main/AGENTS_README.md) for comprehensive API docs, code examples, and integration patterns.",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://docx-js-editor.vercel.app/\"> <img src=\"./assets/editor.png\" alt=\"DOCX JS Editor screenshot\" width=\"700\" /> </a> </p>",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- WYSIWYG editing with Word fidelity — formatting, tables, images, hyperlinks - Track changes (suggestion mode) with accept/reject - Comments with replies, resolve/reopen, scroll-to-highlight - Plugin system, undo/redo, find & replace, print preview - Client-side only, zero server dependencies",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```tsx import { useRef } from 'react'; import { DocxEditor, type DocxEditorRef } from '@eigenpal/docx-js-editor'; import '@eigenpal/docx-js-editor/styles.css';",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/eigenpal/docx-editor#readme",
+          "title": "README (segment 8)",
+          "excerpt": "function Editor({ file }: { file: ArrayBuffer }) { const editorRef = useRef<DocxEditorRef>(null); return <DocxEditor ref={editorRef} documentBuffer={file} onChange={() => {}} />; } ```",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/eigenpal/docx-editor/releases",
+          "title": "v0.0.21",
+          "excerpt": "## What's Changed * Fix: disable sourcemaps to reduce package from 16MB to 3.5MB by @jedrazb in https://github.com/eigenpal/docx-editor/pull/106 **Full Changelog**: https://github.com/eigenpal/docx-editor/compare/v0.0.20...v0.0.21",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "tag_name": "v0.0.21",
+            "published_at": "2026-03-09T03:45:28Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/eigenpal/docx-editor/releases",
+          "title": "v0.0.20",
+          "excerpt": "## What's Changed * fix: publish from packages/react and generate npm README with absolute URLs by @jedrazb in https://github.com/eigenpal/docx-editor/pull/99 * feat: add AdvancedColorPicker with theme color matrix by @jedrazb in https://github.com/eigenpal/docx-editor/pull/100 * fix: individual border presets and replace cell fill picker with AdvancedColorPicker by @jedrazb in https://github.com/eigenpal/docx-editor/pull/101 * fix: correct default line spacing from 1.15x to 1.0x per OOXML spec by @jedrazb in https://github.com/eigenpal/docx-editor/pull/102 * feat: selective XML save — patch only changed paragraphs in document.xml by @jedrazb in https://github.com/eigenpal/docx-editor/pull/103 * fix: scroll page to follow cursor during arrow key navigation by @jedrazb in https://github.com/eigenpal/docx-editor/pull/105 * Redesign demo badge and update repo URLs by @jedrazb in https://github.com/eigenpal/docx-editor/pull/104 **Full Changelog**: https://github.com/eigenpal/docx-editor/compare/v0.0.19...v0.0.20",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "tag_name": "v0.0.20",
+            "published_at": "2026-03-09T03:36:36Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/eigenpal/docx-editor/releases",
+          "title": "v0.0.19",
+          "excerpt": "## What's Changed * fix: compile Tailwind utilities into dist/styles.css by @jedrazb in https://github.com/eigenpal/docx-editor/pull/98 **Full Changelog**: https://github.com/eigenpal/docx-editor/compare/v0.0.18...v0.0.19",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "tag_name": "v0.0.19",
+            "published_at": "2026-03-06T04:13:13Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/eigenpal/docx-editor",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .github, .gitignore, .husky, .lintstagedrc, .prettierrc, .size-limit.json, AGENTS_README.md, CLAUDE.md, CONTRIBUTING.md, LICENSE, README.md, assets, bun.lock, bunfig.toml, docs, e2e, eslint.config.js, examples, openspec, package.json, packages, playwright.config.ts, postcss.config.js, reference, scripts, src, tailwind.config.js, tailwind.config.lib.js, tsconfig.json, vercel.json",
+          "fetched_at": "2026-03-09T04:54:36.131Z",
+          "meta": {
+            "repo_full_name": "eigenpal/docx-editor",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "jzero-io/jzero",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "Roger-luo/Ion",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 6,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "kawarimidoll/deno-github-contributions-api",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "eigenpal/docx-editor",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "jzero-io/jzero",
+      "ok": true,
+      "spec_path": "specs/2026-03-09/jzero-io__jzero.json"
+    },
+    {
+      "repo": "Roger-luo/Ion",
+      "ok": true,
+      "spec_path": "specs/2026-03-09/Roger-luo__Ion.json"
+    },
+    {
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "ok": true,
+      "spec_path": "specs/2026-03-09/kawarimidoll__deno-github-contributions-api.json"
+    },
+    {
+      "repo": "eigenpal/docx-editor",
+      "ok": true,
+      "spec_path": "specs/2026-03-09/eigenpal__docx-editor.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "jzero-io/jzero",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-09/jzero-io__jzero.json"
+    },
+    {
+      "repo": "Roger-luo/Ion",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-09/Roger-luo__Ion.json"
+    },
+    {
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-09/kawarimidoll__deno-github-contributions-api.json"
+    },
+    {
+      "repo": "eigenpal/docx-editor",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-09/eigenpal__docx-editor.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "jzero-io/jzero",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-09/jzero-io__jzero.json"
+      ]
+    },
+    {
+      "repo": "Roger-luo/Ion",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 15,
+          "cited": 15
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-09/Roger-luo__Ion.json"
+      ]
+    },
+    {
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-09/kawarimidoll__deno-github-contributions-api.json"
+      ]
+    },
+    {
+      "repo": "eigenpal/docx-editor",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-09/eigenpal__docx-editor.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-09T04:54:48.881Z",
+      "run_id": "20260309T045431Z",
+      "repo": "jzero-io/jzero",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fecc98db11ec5da28d3039896bb1f4b2aef169a80595e2c82bd019b7a907defc",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 7756
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12745,
+      "prompt_chars": 7756,
+      "completion_chars": 1429
+    },
+    {
+      "ts": "2026-03-09T04:55:05.610Z",
+      "run_id": "20260309T045431Z",
+      "repo": "jzero-io/jzero",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9fe7a2eff90826bbdb6a3f2d5450a58c2db4fd717dd3f88ba8b45573615974cc",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 9389
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16728,
+      "prompt_chars": 9389,
+      "completion_chars": 1631
+    },
+    {
+      "ts": "2026-03-09T04:55:23.457Z",
+      "run_id": "20260309T045431Z",
+      "repo": "jzero-io/jzero",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7ed36a50dde1afa175b46af3f7af5526a4e1477b02c6e7458a71582e2f5e1cc9",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 11216
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17846,
+      "prompt_chars": 11216,
+      "completion_chars": 1712
+    },
+    {
+      "ts": "2026-03-09T04:55:39.761Z",
+      "run_id": "20260309T045431Z",
+      "repo": "jzero-io/jzero",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f818d0b25fe00ff65d05914a9dd0d7167b0ff48622539be886dea436e216aef1",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 13133
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16304,
+      "prompt_chars": 13133,
+      "completion_chars": 1955
+    },
+    {
+      "ts": "2026-03-09T04:56:14.520Z",
+      "run_id": "20260309T045431Z",
+      "repo": "jzero-io/jzero",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "45c6fb02f090fe933c3aa87954517606b33206706624df872a7dd9c3a628d56c",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 17922
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 34758,
+      "prompt_chars": 17922,
+      "completion_chars": 4322
+    },
+    {
+      "ts": "2026-03-09T04:56:27.810Z",
+      "run_id": "20260309T045431Z",
+      "repo": "Roger-luo/Ion",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ef1b705ec82ad1d258d6c491e171700b8e9e99a0cc433037fa5fabff68b34a15",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 4730
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13275,
+      "prompt_chars": 4730,
+      "completion_chars": 1326
+    },
+    {
+      "ts": "2026-03-09T04:56:37.563Z",
+      "run_id": "20260309T045431Z",
+      "repo": "Roger-luo/Ion",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "574df464b9444f1d6a124d7fcaa1f9f44c0a877cfbb9464d2514ead47e27a9d9",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 6268
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9752,
+      "prompt_chars": 6268,
+      "completion_chars": 1445
+    },
+    {
+      "ts": "2026-03-09T04:56:51.002Z",
+      "run_id": "20260309T045431Z",
+      "repo": "Roger-luo/Ion",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "781eca196fc7d51af9f85555ad5595a6f55dc2c7268604ca4de6e4f87acbb76a",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 7905
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13439,
+      "prompt_chars": 7905,
+      "completion_chars": 1536
+    },
+    {
+      "ts": "2026-03-09T04:57:05.266Z",
+      "run_id": "20260309T045431Z",
+      "repo": "Roger-luo/Ion",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1da7fa1606f36841066abe2d7d8d913c19f5812e5e246ab7ecf78ccc95359714",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 9646
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14264,
+      "prompt_chars": 9646,
+      "completion_chars": 1855
+    },
+    {
+      "ts": "2026-03-09T04:58:04.046Z",
+      "run_id": "20260309T045431Z",
+      "repo": "Roger-luo/Ion",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a2b63befc525157b915bfc15f09f2cde71bfe6b5db628baf7dd5232b0c1c808b",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 14343
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 58780,
+      "prompt_chars": 14343,
+      "completion_chars": 7095
+    },
+    {
+      "ts": "2026-03-09T04:58:17.366Z",
+      "run_id": "20260309T045431Z",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6ea359171369691c84a3d0ae206ec5bb745cec094084b459b1567bb4ba8cbe0e",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 5727
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13315,
+      "prompt_chars": 5727,
+      "completion_chars": 1308
+    },
+    {
+      "ts": "2026-03-09T04:58:32.048Z",
+      "run_id": "20260309T045431Z",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9ef20daf8b299b3a19983930e9e36725a94e01e8eed18af9a930bedd838ddeda",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 7243
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14682,
+      "prompt_chars": 7243,
+      "completion_chars": 1603
+    },
+    {
+      "ts": "2026-03-09T04:58:48.176Z",
+      "run_id": "20260309T045431Z",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d05ff7c7692f67e3d1440de57f33a2f2545474a20c32fc5db9c38c70c64e5c3a",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9042
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16128,
+      "prompt_chars": 9042,
+      "completion_chars": 1759
+    },
+    {
+      "ts": "2026-03-09T04:59:06.114Z",
+      "run_id": "20260309T045431Z",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9d735e104abd727a1e5094b2d68a064eaf33133b432075b5f217b7a52bc65d10",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10994
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17937,
+      "prompt_chars": 10994,
+      "completion_chars": 1873
+    },
+    {
+      "ts": "2026-03-09T04:59:35.421Z",
+      "run_id": "20260309T045431Z",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6d6f236c0f65c6af5d2d672a56a2784e02a5ff4b4fa074073607558e20bfc0f0",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 15689
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 29307,
+      "prompt_chars": 15689,
+      "completion_chars": 3428
+    },
+    {
+      "ts": "2026-03-09T04:59:51.306Z",
+      "run_id": "20260309T045431Z",
+      "repo": "eigenpal/docx-editor",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "eebc077ff4ca05aff80d9eceb4597d448b69da1181e05266311f2a7451b5a3fc",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 7175
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15881,
+      "prompt_chars": 7175,
+      "completion_chars": 1583
+    },
+    {
+      "ts": "2026-03-09T05:00:04.285Z",
+      "run_id": "20260309T045431Z",
+      "repo": "eigenpal/docx-editor",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "82843707b32ae83deae4c31826efc5cef8a3d057308711cb1c1c5f37d6f28962",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8974
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12979,
+      "prompt_chars": 8974,
+      "completion_chars": 1481
+    },
+    {
+      "ts": "2026-03-09T05:00:19.891Z",
+      "run_id": "20260309T045431Z",
+      "repo": "eigenpal/docx-editor",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5f9336415a06fb63e6c82383bacd5694ed3205c1f86acb65d2370e549ca3bb5a",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10643
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15605,
+      "prompt_chars": 10643,
+      "completion_chars": 1623
+    },
+    {
+      "ts": "2026-03-09T05:00:32.380Z",
+      "run_id": "20260309T045431Z",
+      "repo": "eigenpal/docx-editor",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "524ed8e7a1b1aef3de09f0ac6e8699b12aadaa91c751ef8ea276924de09344b1",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 12463
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12488,
+      "prompt_chars": 12463,
+      "completion_chars": 1320
+    },
+    {
+      "ts": "2026-03-09T05:00:51.118Z",
+      "run_id": "20260309T045431Z",
+      "repo": "eigenpal/docx-editor",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3117666b173c2e9813bedd72624612d170c337529ca00e3ebb006cfc30801900",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 16605
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18737,
+      "prompt_chars": 16605,
+      "completion_chars": 2504
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "jzero-io/jzero",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "Roger-luo/Ion",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "eigenpal/docx-editor",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "jzero-io/jzero",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "Roger-luo/Ion",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "eigenpal/docx-editor",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 4,
+    "attempts_used_hist": {
+      "0": 4,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 4,
+    "success": 4
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1773032071179,
+    "llmCallsTotal": 20,
+    "llmCallsPerRepo": {
+      "jzero-io/jzero": 5,
+      "Roger-luo/Ion": 5,
+      "kawarimidoll/deno-github-contributions-api": 5,
+      "eigenpal/docx-editor": 5
+    },
+    "tokensApproxTotal": 62421,
+    "tokensApproxPerRepo": {
+      "jzero-io/jzero": 17617,
+      "Roger-luo/Ion": 14040,
+      "kawarimidoll/deno-github-contributions-api": 14669,
+      "eigenpal/docx-editor": 16095
+    },
+    "reposProcessed": 4,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "jzero-io/jzero": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "jzero is a Go-based code generation framework built on go-zero that automates API, gateway, and RPC project scaffolding using descriptive files (api/proto/sql). It emphasizes developer experience, template-driven code generation, AI-assisted business logic via 'jzero-skills', and compatibility with the go-zero ecosystem.",
+        "highlights": [
+          "Automates full-stack microservice project initialization (API/gateway/RPC) from declarative specs (proto/api/sql).",
+          "Features AI-powered code generation ('jzero-skills') to produce best-practice business logic.",
+          "Supports flexible configuration via config files, CLI args, and env vars; enables selective code gen based on git changes or file filters.",
+          "Maintains full compatibility with go-zero/goctl while extending functionality through plugins and layered modules.",
+          "Available via both CLI (go install) and Docker, with documented quick-start workflow including Swagger UI."
+        ],
+        "risks": [
+          "Open issue indicates ongoing work to fully integrate AI automation features, suggesting potential instability or incompleteness in 'jzero-skills'.",
+          "Closed issue about 'ProtoSets' reference error may signal past or residual tooling fragility in proto handling."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "jzero is an inventive Go-based code generation framework that extends go-zero with AI-assisted, template-driven automation for microservice development, enabling rapid scaffolding of API, gateway, and RPC services from declarative specs (proto/api/sql) while preserving ecosystem compatibility.",
+        "highlights": [
+          "Introduces 'jzero-skills'—an embedded AI capability to auto-generate best-practice business logic from descriptive files, reducing manual coding effort.",
+          "Invents a selective, git-aware code generation system that boosts efficiency in large projects by reacting to file changes or user-specified filters.",
+          "Architects a layered, plugin-based structure atop go-zero without modifying its core, enabling extensibility while maintaining backward compatibility.",
+          "Unifies configuration via config files, CLI flags, and environment variables into a single coherent control plane for code generation behavior.",
+          "Provides dual installation and execution modes (native Go CLI and Docker container), lowering onboarding friction for diverse developer environments."
+        ],
+        "risks": [
+          "The AI-assisted 'jzero-skills' feature is still under active development (open issue #416), indicating potential immaturity or incomplete implementation.",
+          "A past unresolved reference error ('ProtoSets', issue #402) suggests possible fragility in proto parsing or dependency resolution during code generation."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-003",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "jzero is a Go-based code generation framework built on go-zero that enables rapid, template-driven scaffolding of microservices from declarative specs (proto/api/sql), with experimental AI-assisted business logic generation and strong ecosystem compatibility.",
+        "highlights": [
+          "Leverages go-zero and goctl without modification, ensuring compatibility while extending functionality through plugins and layered architecture.",
+          "Supports flexible, selective code generation based on git changes or file filters—critical for large-scale projects.",
+          "Provides dual execution modes (native Go CLI via 'go install' and Docker container) with clear quick-start instructions including Swagger UI access.",
+          "Uses a unified configuration system combining config files, CLI args, and environment variables for fine-grained control over generation behavior.",
+          "Includes recent fixes for RPC middleware and proto handling, indicating active maintenance and responsiveness to developer feedback."
+        ],
+        "risks": [
+          "The 'jzero-skills' AI feature is still under development (open issue #416), which may limit its reliability or completeness in production use.",
+          "A past unresolved reference error ('ProtoSets', issue #402) suggests potential edge-case fragility in proto parsing or dependency resolution during codegen.",
+          "Limited release history (only 3 releases) and modest community adoption (173 stars, 16 forks) may indicate immaturity or niche applicability."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "jzero presents ambitious claims about AI-assisted code generation and seamless integration with go-zero, but evidence reveals unresolved technical issues, incomplete AI functionality, and limited adoption—raising doubts about its production readiness and long-term viability.",
+        "highlights": [
+          "The core 'jzero-skills' AI feature is still an open issue (#416), contradicting README assertions that it's a working capability for generating business logic.",
+          "A closed issue (#402) about 'Unresolved reference ProtoSets' suggests fragility in proto handling—a critical flaw for a tool claiming robust codegen from proto files.",
+          "Despite claims of 'production-ready' solutions, the project has only 3 releases, 173 stars, and 16 forks, indicating minimal community validation or real-world usage.",
+          "Recent changelogs focus on minor dependency bumps and documentation, with few substantial feature additions or stability improvements beyond basic fixes."
+        ],
+        "risks": [
+          "Overstated AI capabilities: Marketing language in the README implies functional AI-driven code generation, but the feature is explicitly still under development (E-IS-002), risking user disappointment or misuse.",
+          "Tooling reliability concerns: The 'ProtoSets' error (E-IS-001) hints at potential instability in core codegen pipelines, especially for gRPC/RPC projects reliant on accurate proto parsing.",
+          "Low adoption and maintenance bandwidth: With only 6 open issues but very few contributors or forks, the project may lack the support needed to address complex bugs or evolve sustainably.",
+          "Dependency on external ecosystems: While claiming compatibility with go-zero, any breaking changes upstream could destabilize jzero without timely updates—yet release cadence appears slow."
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-001",
+          "E-RD-004",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"jzero\",\n    \"one_sentence\": \"A Go-based code generation framework built on go-zero that automates API, gateway, and RPC project scaffolding using descriptive files (api/proto/sql) and AI-assisted business logic.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers define services via declarative specs (proto/api/sql), then use jzero to generate production-ready server/client code with optional AI-generated business logic through 'jzero-skills', all while maintaining compatibility with the go-zero ecosystem.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Project Initialization & Code Generation\",\n      \"purpose\": \"Allows developers to create new microservice projects or regenerate code from updated specs using CLI or Docker.\",\n      \"primary_actions\": [\n        \"Initialize new project with 'jzero new'\",\n        \"Generate code from proto/api/sql files\",\n        \"Run service locally with Swagger UI access\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"new_project\",\n      \"purpose\": \"Creates a new jzero-based microservice project scaffold from templates.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"generate_code\",\n      \"purpose\": \"Generates server and client code from descriptive files (proto/api/sql) using built-in or custom templates.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"check_dependencies\",\n      \"purpose\": \"Validates and installs required tooling dependencies for jzero operation.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"project_config\",\n        \"fields\": [\n          {\n            \"name\": \"config_source\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"generation_mode\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"descriptor_files\",\n        \"fields\": [\n      "
+      }
+    },
+    "Roger-luo/Ion": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "scout",
+        "summary": "Ion is a Rust-based CLI tool that functions as a package manager for AI agent 'skills'—reusable prompts and instructions. It supports skill installation, validation, execution, and project management, with strong support for programmatic use via JSON output.",
+        "highlights": [
+          "Enables AI agents to manage reusable skills through a rich CLI interface.",
+          "Supports structured, non-interactive operation via `--json` flag for integration in CI/automation.",
+          "Offers two-stage command execution (preview + confirm) for safe operations.",
+          "Includes commands for skill lifecycle management: add, remove, update, run, validate, and eject.",
+          "Installable via a simple one-liner script from the main branch."
+        ],
+        "risks": [
+          "Recent releases (v0.1.3–v0.1.5) lack release notes, reducing transparency for users evaluating upgrades.",
+          "Heavy reliance on a remote install script (`install.sh`) without version pinning by default may pose security or reproducibility concerns.",
+          "Low community engagement (66 stars, 2 forks, 14 open issues) suggests limited adoption or maintenance bandwidth."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "inventor",
+        "summary": "Ion introduces a novel concept of 'skills' as reusable, versioned AI agent instructions managed through a CLI package manager, enabling modular and programmable agent augmentation.",
+        "highlights": [
+          "Pioneers a skill-based packaging model for AI agents, treating prompts and instructions as installable, updatable units akin to software packages.",
+          "Enables safe, auditable agent operations via two-stage commands that preview changes before execution (e.g., `ion --json remove` vs. `--yes`).",
+          "Designed for machine consumption first: all commands support structured JSON output, facilitating integration into autonomous agent workflows.",
+          "Supports local development workflows with commands like `skill eject`, `skill link`, and `project init`, bridging remote registries and local iteration."
+        ],
+        "risks": [
+          "Lack of release notes across versions (v0.1.3–v0.1.5) obscures changelogs, making it hard to assess compatibility or innovation trajectory.",
+          "Default installation pulls latest main branch without version pinning, risking non-reproducible deployments in production agent systems.",
+          "Unclear skill validation criteria or schema—while `skill validate` exists, no evidence shows what constraints or standards are enforced."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "engineer",
+        "summary": "Ion is a Rust-based CLI tool that functions as a package manager for AI agent 'skills', offering comprehensive lifecycle management, structured programmatic interfaces, and safe execution workflows.",
+        "highlights": [
+          "Provides a full suite of commands for skill management (add, remove, update, run, validate, eject, link) and project initialization/migration.",
+          "All commands support `--json` output, enabling reliable integration into CI pipelines and autonomous AI agent systems.",
+          "Implements a two-stage execution model (preview + confirmation) for destructive operations, enhancing safety in automated environments.",
+          "Installation is streamlined via a shell script, with optional version pinning (e.g., `0.1.2`) for reproducibility.",
+          "Project structure includes standard Rust components (`Cargo.toml`, `src`, `crates`) alongside domain-specific files (`skills-lock.json`, `SKILL.md`)."
+        ],
+        "risks": [
+          "Releases v0.1.3–v0.1.5 lack release notes, hindering dependency auditing and upgrade decisions.",
+          "Default install script pulls from `main` without versioning, risking non-deterministic deployments unless explicitly pinned.",
+          "No visible evidence of test coverage or CI configuration beyond root file listing, raising concerns about software quality assurance."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "skeptic",
+        "summary": "Ion presents an ambitious vision for managing AI agent 'skills' as versioned packages, but lacks critical transparency, stability guarantees, and security safeguards expected of a tool intended for programmatic and production use.",
+        "highlights": [
+          "Claims to support structured, non-interactive operation via `--json`, yet provides no schema or contract for this output, making reliable integration speculative.",
+          "Promotes a two-stage command workflow for safety, but the preview mode (exit code 2) is undocumented beyond a single example, raising questions about consistency and error handling.",
+          "Installation relies on piping a remote shell script from `main` by default—a known anti-pattern for reproducible and secure deployments.",
+          "Despite positioning as a package manager, there is no evidence of registry infrastructure, dependency resolution logic, or skill validation standards."
+        ],
+        "risks": [
+          "All recent releases (v0.1.3–v0.1.5) have empty release notes, making it impossible to assess breaking changes, bug fixes, or feature additions—unacceptable for a tool managing agent behavior.",
+          "The default install command (`curl ... | sh`) executes unversioned code from `main`, exposing users to potential regressions or malicious changes without auditability.",
+          "No evidence of tests, CI workflows, or documentation beyond the README; with 14 open issues and minimal community activity, maintenance reliability is questionable.",
+          "The concept of 'skills' remains abstract—without examples, schemas, or validation rules, it’s unclear what guarantees (if any) Ion provides about skill integrity or compatibility."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Ion\",\n    \"one_sentence\": \"A CLI toolbox for agentic developers to manage reusable AI agent skills as versioned, installable packages.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users install, validate, run, and manage AI agent 'skills'—reusable prompts and instructions—via a rich CLI interface that supports structured JSON output for programmatic use in CI or autonomous agent workflows.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main CLI Interface\",\n      \"purpose\": \"Provide access to all skill and project management commands through a terminal interface.\",\n      \"primary_actions\": [\n        \"Add or remove skills\",\n        \"Run or validate skills\",\n        \"Initialize or migrate projects\",\n        \"List or inspect installed skills\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"ion_add\",\n      \"purpose\": \"Add a skill from a source or install all skills defined in Ion.toml.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ion_remove\",\n      \"purpose\": \"Remove a specified skill; supports preview mode with --json and execution with --yes.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ion_search\",\n      \"purpose\": \"Search registries and GitHub for available skills.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ion_update\",\n      \"purpose\": \"Update one or all skills to their latest versions.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ion_run\",\n      \"purpose\": \"Execute a binary skill.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ion_skill_new\",\n      \"purpose\": \"Create a new local skill scaffold.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ion_skill_eject\",\n      \"purpose\": \"Convert a remote skill into an editable local copy.\",\n      \"async\": false,\n"
+      }
+    },
+    "kawarimidoll/deno-github-contributions-api": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "A Deno-based API for fetching and rendering GitHub contributions data in multiple formats (JSON, SVG, terminal, plain text), deployable via Deno Deploy and published on JSR. It requires a GitHub personal access token with read:user scope and is actively maintained with recent releases.",
+        "highlights": [
+          "Published on JSR with badges indicating active maintenance and quality score [ID:E-RD-001].",
+          "Supports multiple output formats including JSON, SVG, terminal text, and plain text [ID:E-RD-002][ID:E-RD-006].",
+          "Deployed publicly via Deno Deploy at https://github-contributions-api.deno.dev [ID:E-RD-001][ID:E-RD-004].",
+          "Available as a reusable module via JSR import [ID:E-RD-005].",
+          "Integrates with GitHub CLI through the gh-graph tool [ID:E-RD-008].",
+          "Recent stable release (v1.0.0) indicates project maturity [ID:E-RL-001]."
+        ],
+        "risks": [
+          "Requires GitHub personal access token with read:user scope, which may pose security considerations if mishandled [ID:E-RD-007].",
+          "Limited number of contributors (9 forks, 169 stars) may affect long-term maintenance bandwidth."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "This repository invents a Deno-based API that fetches GitHub user contribution data and renders it in multiple formats (JSON, SVG, terminal, plain text), enabling flexible consumption via CLI, web, or embedded usage. It leverages Deno Deploy for hosting and JSR for distribution, with a modular design centered around the `getContributions` function.",
+        "highlights": [
+          "Invents a multi-format rendering system for GitHub contributions (JSON, SVG, terminal, plain text) from a single data source [ID:E-RD-002][ID:E-RD-006].",
+          "Provides a reusable, importable module via JSR (`jsr:@kawarimidoll/github-contributions-api`) for programmatic access [ID:E-RD-005].",
+          "Offers a public, curl-accessible endpoint at https://github-contributions-api.deno.dev, enabling zero-install usage [ID:E-RD-003][ID:E-RD-004].",
+          "Integrates with external tooling like `gh-graph` for GitHub CLI users, extending utility beyond direct API calls [ID:E-RD-008].",
+          "Achieved v1.0.0 stability, indicating a finalized core interface and reliable output contracts [ID:E-RL-001]."
+        ],
+        "risks": [
+          "Relies on GitHub’s undocumented contributions graph endpoint, which could change without notice and break functionality.",
+          "Requires a personal access token with `read:user` scope, creating a dependency on user-provided credentials that may limit adoption in automated or shared environments [ID:E-RD-007]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "This repository implements a Deno-based service to fetch and render GitHub contributions data in multiple formats (JSON, SVG, terminal, plain text), deployable via Deno Deploy and distributed through JSR. It provides both a public HTTP endpoint and a reusable TypeScript module, with clear usage examples and recent version stability.",
+        "highlights": [
+          "Implements a modular Deno service with clear separation of concerns: contributions fetching (`contributions.ts`), formatting (`toTerm`, `toJson`, etc.), utilities, and server logic [ID:E-RF-001].",
+          "Exposes a public, curl-accessible API endpoint hosted on Deno Deploy for immediate use without installation [ID:E-RD-003][ID:E-RD-004].",
+          "Published as a versioned, importable package on JSR (`jsr:@kawarimidoll/github-contributions-api`) with documented programmatic usage [ID:E-RD-005][ID:E-IS-001].",
+          "Achieved v1.0.0 release, indicating stable public interfaces and production readiness [ID:E-RL-001].",
+          "Includes comprehensive test files (`*_test.ts`) suggesting attention to correctness and maintainability [ID:E-RF-001]."
+        ],
+        "risks": [
+          "Requires users to supply a GitHub personal access token with `read:user` scope, which introduces credential management overhead and potential security exposure if used in client-side or shared contexts [ID:E-RD-007].",
+          "Relies on GitHub’s internal contributions graph, which is not part of the official API and may break without warning.",
+          "Limited contributor base (9 forks, 169 stars) could impact long-term maintenance and incident response."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RF-001",
+          "E-IS-001",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While the repository presents a functional Deno-based API for GitHub contributions with multiple output formats and public deployment, several concerns undermine its reliability and sustainability, including dependency on an undocumented GitHub endpoint, unclear maintenance commitment, and potential security risks from required personal access tokens.",
+        "highlights": [
+          "The project depends on GitHub’s internal contributions graph, which is not part of the official API and could be altered or removed without notice, breaking core functionality [ID:E-RD-007].",
+          "Despite a v1.0.0 release [ID:E-RL-001], the project has only one closed issue [ID:E-IS-001] and minimal community engagement (9 forks, 169 stars), raising questions about real-world testing and long-term support.",
+          "The public demo endpoint (https://github-contributions-api.deno.dev) requires users to provide their own GitHub personal access token [ID:E-RD-007], which is unusual for a public API and may expose users to credential misuse if they misunderstand the trust model."
+        ],
+        "risks": [
+          "Reliance on GitHub’s undocumented contributions endpoint creates a fragile foundation that could fail silently or catastrophically with no recourse [ID:E-RD-007].",
+          "The requirement for a `read:user` personal access token—even for public contribution data—introduces unnecessary friction and potential security confusion, especially since GitHub’s public contribution graphs typically don’t require authentication.",
+          "Limited evidence of active development beyond version tagging: recent releases focus on workflow and type fixes [ID:E-RL-002][ID:E-RL-003], with no clear roadmap or issue discussion to validate ongoing maintenance."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RL-001",
+          "E-IS-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"GitHub Contributions API\",\n    \"one_sentence\": \"A Deno-based API that fetches and renders GitHub user contribution data in multiple formats including JSON, SVG, terminal text, and plain text.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Fetch GitHub contributions data using a personal access token, then render it into one of several output formats (JSON, SVG, terminal, or plain text) based on user request.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Endpoint\",\n      \"purpose\": \"Serve as the public entry point for fetching and rendering GitHub contributions data via HTTP requests.\",\n      \"primary_actions\": [\n        \"Accept GitHub username and token\",\n        \"Return contributions in requested format\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"fetch_contributions\",\n      \"purpose\": \"Retrieve GitHub contributions data for a given user using their personal access token.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"render_contributions\",\n      \"purpose\": \"Convert raw contributions data into a specified output format (JSON, SVG, terminal, or plain text).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"contributions\",\n        \"fields\": [\n          {\n            \"name\": \"username\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"data\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"format\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core contributions fetching logic\",\n          \"Add support for multiple output formats\",\n          \"Deploy to Deno Deploy with public endpoint\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"The API returns valid JSON when queried with format=json\",\n    \"The API re"
+      }
+    },
+    "eigenpal/docx-editor": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "The repository is an open-source, client-side WYSIWYG DOCX editor built with React and TypeScript, offering Word-like editing features such as track changes, comments, tables, and formatting without server dependencies. It is actively maintained with recent releases focused on performance, fidelity, and developer experience.",
+        "highlights": [
+          "Client-side-only DOCX editor with no server dependencies [ID:E-RD-006]",
+          "Rich feature set including track changes, comments, tables, images, and undo/redo [ID:E-RD-006]",
+          "Recent optimization reduced package size from 16MB to 3.5MB by disabling sourcemaps [ID:E-RL-001]",
+          "Live demo available and actively published via Vercel [ID:E-RD-002], [ID:E-RD-003]",
+          "Designed for AI coding agents with dedicated documentation [ID:E-RD-004]",
+          "Uses selective XML saving to improve performance by patching only changed content [ID:E-RL-002]"
+        ],
+        "risks": [
+          "Very low release count (only 3 releases) despite active development, suggesting immaturity [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "Highly centralized contributions (all recent changes by single author @jedrazb), indicating bus factor risk [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "Presence of AI agent-specific files (.claude, CLAUDE.md) may indicate experimental or unstable integration patterns [ID:E-RF-001], [ID:E-RD-004]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "The repository introduces a novel client-side WYSIWYG DOCX editor that enables rich Word-compatible editing in the browser without server dependencies, leveraging selective XML patching and AI-assisted development patterns.",
+        "highlights": [
+          "Implements selective XML saving to patch only changed paragraphs, improving performance and reducing unnecessary document rewrites [ID:E-RL-002]",
+          "Provides full Word-like fidelity with track changes, comments, tables, images, and formatting—all processed client-side [ID:E-RD-006]",
+          "Designed with explicit support for AI coding agents, including dedicated reference docs and integration guidance [ID:E-RD-004]",
+          "Optimized bundle size (16MB → 3.5MB) by disabling sourcemaps, indicating attention to production deployment efficiency [ID:E-RL-001]"
+        ],
+        "risks": [
+          "Innovation heavily reliant on single contributor (@jedrazb), creating sustainability and maintenance risk [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "Experimental AI agent integration (evidenced by .claude, CLAUDE.md) may introduce instability or undocumented behavior [ID:E-RF-001], [ID:E-RD-004]",
+          "Extremely limited release history (only 3 versions) despite feature richness, suggesting unproven reliability in real-world use [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]"
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "The repository implements a client-side WYSIWYG DOCX editor in React/TypeScript with strong Word compatibility, featuring track changes, comments, and selective XML updates. It is optimized for bundle size and includes AI-assisted development support, but shows signs of immaturity and contributor concentration.",
+        "highlights": [
+          "Client-side-only architecture with zero server dependencies enables secure, offline-capable DOCX editing [ID:E-RD-006]",
+          "Selective XML saving patches only modified paragraphs, reducing I/O overhead and improving performance [ID:E-RL-002]",
+          "Bundle size reduced by 78% (16MB → 3.5MB) via sourcemap removal, indicating production-aware optimization [ID:E-RL-001]",
+          "Clear React integration example provided with typed ref and ArrayBuffer input [ID:E-RD-007], [ID:E-RD-008]",
+          "Tailwind styles compiled into distributable CSS ensures consistent styling without runtime dependencies [ID:E-RL-003]"
+        ],
+        "risks": [
+          "All recent releases authored solely by @jedrazb, creating high bus factor and maintenance risk [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "Only 3 published releases despite rich feature set, suggesting insufficient versioning discipline or stability testing [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "Presence of AI-specific files (.claude, CLAUDE.md) may indicate unstable or non-standard development workflows [ID:E-RF-001], [ID:E-RD-004]"
+        ],
+        "evidence_ids": [
+          "E-RD-006",
+          "E-RL-002",
+          "E-RL-001",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-003",
+          "E-RF-001",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "Despite impressive claims of Word-compatible editing and client-side DOCX manipulation, the repository shows strong signs of immaturity, over-reliance on a single developer, and potential instability from AI-driven development practices.",
+        "highlights": [
+          "Claims full Word fidelity but has only 3 releases and minimal community validation [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "All recent changes authored exclusively by @jedrazb, indicating extreme bus factor risk [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]",
+          "Explicit targeting of AI coding agents with dedicated files (.claude, CLAUDE.md) suggests experimental or unvetted implementation patterns [ID:E-RF-001], [ID:E-RD-004]"
+        ],
+        "risks": [
+          "Package size reduction via sourcemap removal (16MB → 3.5MB) may hinder debugging and transparency in production issues [ID:E-RL-001]",
+          "Selective XML patching sounds innovative but lacks evidence of robustness against document corruption or edge cases [ID:E-RL-002]",
+          "Zero open issues despite active development and complex functionality raises concerns about issue tracking or user adoption [ID:E-RL-001], [ID:E-RL-002], [ID:E-RL-003]"
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"DOCX JS Editor\",\n    \"one_sentence\": \"Open-source WYSIWYG DOCX editor for the browser with no server required.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User loads a DOCX file into the browser-based editor, makes edits with Word-like fidelity (formatting, tables, images, track changes, comments), and saves the updated document—all client-side without server dependencies.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Editor View\",\n      \"purpose\": \"Primary interface for editing DOCX documents with WYSIWYG controls, track changes, and comment management.\",\n      \"primary_actions\": [\n        \"Load DOCX file\",\n        \"Edit text and formatting\",\n        \"Add/resolve comments\",\n        \"Accept/reject suggestions\",\n        \"Save edited document\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Save the edited DOCX document by patching only changed paragraphs in document.xml using selective XML saving.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"documents\",\n        \"fields\": [\n          {\n            \"name\": \"buffer\",\n            \"type\": \"ArrayBuffer\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Integrate core DOCX parsing and rendering engine\",\n          \"Implement basic WYSIWYG toolbar with formatting controls\",\n          \"Enable client-side document loading and saving\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can load a DOCX file and see accurate rendering of text, tables, and images.\",\n    \"Edits made in the editor are saved correctly using selective XML patching without corrupting the document.\"\n  ],\n  \"open_questions\": [\n    \"How robust is selective XML saving against complex OOXML edge cases?\",\n    \"What is the performance impact on large DOCX files with many tracked changes?\"\n  ],\n  \"sco"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "jzero-io/jzero",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 8,
+        "engineer": 10,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "Roger-luo/Ion",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 7,
+        "engineer": 10,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 8,
+        "engineer": 7,
+        "skeptic": 5,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "eigenpal/docx-editor",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 6,
+        "engineer": 8,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=113",
+    "[deduper] candidates_total=5 new=4 skipped=1",
+    "[repo_card_builder] Roger-luo/Ion evidence total=10 readme=6 issue=0 release=3 root_files=1",
+    "[repo_card_builder] kawarimidoll/deno-github-contributions-api evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] jzero-io/jzero evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] eigenpal/docx-editor evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] built=4 readme_ok=4/4 evidence_total=49 gaps=0",
+    "[llm_spec_generator] jzero-io/jzero canonical spec ok (iter=1) -> specs/2026-03-09/jzero-io__jzero.json",
+    "[llm_spec_generator] Roger-luo/Ion canonical spec ok (iter=1) -> specs/2026-03-09/Roger-luo__Ion.json",
+    "[llm_spec_generator] kawarimidoll/deno-github-contributions-api canonical spec ok (iter=1) -> specs/2026-03-09/kawarimidoll__deno-github-contributions-api.json",
+    "[llm_spec_generator] eigenpal/docx-editor canonical spec ok (iter=1) -> specs/2026-03-09/eigenpal__docx-editor.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-09T04:54:31.179Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:31.201Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260309T045431Z"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:31.201Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:31.205Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:31.744Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:31.745Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:32.158Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:32.158Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:32.584Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:32.584Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:32.916Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:32.916Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:33.306Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:33.306Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:33.753Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:33.753Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:34.167Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:34.167Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:34.460Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:34.460Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:34.957Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:34.957Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.295Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.298Z",
+      "run_id": "20260309T045431Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 113
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.299Z",
+      "run_id": "20260309T045431Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 4,
+        "skipped": 1,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.302Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-09T04:54:35.302Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jzero-io__jzero/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.303Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jzero-io__jzero/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.304Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jzero-io__jzero/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.306Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jzero-io__jzero/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.307Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-09T04:54:35.307Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Roger-luo__Ion/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.309Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Roger-luo__Ion/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.310Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Roger-luo__Ion/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.311Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Roger-luo__Ion/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.313Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-09T04:54:35.313Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kawarimidoll__deno-github-contributions-api/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.314Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kawarimidoll__deno-github-contributions-api/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.315Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kawarimidoll__deno-github-contributions-api/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.316Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "kawarimidoll__deno-github-contributions-api/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.702Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2282,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.702Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.702Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.702Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 395
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.703Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 6,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.703Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-09T04:54:35.703Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "eigenpal__docx-editor/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.704Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "eigenpal__docx-editor/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.704Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "eigenpal__docx-editor/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.704Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "eigenpal__docx-editor/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.742Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2260,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.742Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.742Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.742Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 429
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.743Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.917Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 4838,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.917Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.917Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.917Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 615
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:35.917Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.131Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3374,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.131Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.131Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.131Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 428
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.131Z",
+      "run_id": "20260309T045431Z",
+      "node": "repo_card_builder",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.135Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:36.135Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:54:48.882Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1429,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:55:05.610Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1631,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:55:23.457Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1712,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:55:39.761Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1955,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:14.520Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4322,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:14.533Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:14.534Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-09/jzero-io__jzero.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:14.535Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "jzero-io/jzero",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-09/jzero-io__jzero.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:14.535Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 6,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:14.535Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:27.810Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1326,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:37.563Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1445,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:56:51.002Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1536,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:57:05.266Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1855,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:04.046Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 7095,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:04.050Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:04.050Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-09/Roger-luo__Ion.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:04.051Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "Roger-luo/Ion",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-09/Roger-luo__Ion.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:04.051Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:04.051Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:17.366Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1308,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:32.048Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1603,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:58:48.176Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1759,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:06.114Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1873,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:35.421Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3428,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:35.423Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:35.424Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-09/kawarimidoll__deno-github-contributions-api.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:35.424Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "kawarimidoll/deno-github-contributions-api",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-09/kawarimidoll__deno-github-contributions-api.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:35.425Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:35.425Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-09T04:59:51.306Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1583,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:04.285Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1481,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:19.891Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1623,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:32.380Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1320,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.118Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2504,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.119Z",
+      "run_id": "20260309T045431Z",
+      "node": "llm_spec_generator",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.120Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-09/eigenpal__docx-editor.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.120Z",
+      "run_id": "20260309T045431Z",
+      "node": "artifacts",
+      "repo": "eigenpal/docx-editor",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-09/eigenpal__docx-editor.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.123Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 4,
+        "attempts_used_hist": {
+          "0": 4,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.124Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1773032071179,
+        "llmCallsTotal": 20,
+        "llmCallsPerRepo": {
+          "jzero-io/jzero": 5,
+          "Roger-luo/Ion": 5,
+          "kawarimidoll/deno-github-contributions-api": 5,
+          "eigenpal/docx-editor": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 4,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.124Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-09T05:00:51.124Z",
+      "run_id": "20260309T045431Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 4,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-09",
+    "evidence_dir": "evidence/2026-03-09"
+  }
+}

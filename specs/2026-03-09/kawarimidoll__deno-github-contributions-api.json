@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GitHub Contributions API",
+    "one_liner": "A Deno-based API that fetches and renders GitHub user contribution data in multiple formats including JSON, SVG, terminal text, and plain text."
+  },
+  "screens": [
+    {
+      "name": "Main Endpoint",
+      "purpose": "Serve as the public entry point for fetching and rendering GitHub contributions data via HTTP requests.",
+      "primary_actions": [
+        "Accept GitHub username and token",
+        "Return contributions in requested format"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_contributions",
+      "purpose": "Retrieve GitHub contributions data for a given user using their personal access token.",
+      "async": true,
+      "input": {
+        "data": "json",
+        "format": "string",
+        "payload": "json",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "render_contributions",
+      "purpose": "Convert raw contributions data into a specified output format (JSON, SVG, terminal, or plain text).",
+      "async": true,
+      "input": {
+        "data": "json",
+        "format": "string",
+        "payload": "json",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "contributions",
+        "columns": [
+          {
+            "name": "data",
+            "type": "JSON"
+          },
+          {
+            "name": "format",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for multiple output formats",
+    "week 1: Deploy to Deno Deploy with public endpoint",
+    "week 1: Implement core contributions fetching logic"
+  ],
+  "acceptance_tests": [
+    "The API returns a valid SVG when queried with format=svg",
+    "The API returns valid JSON when queried with format=json",
+    "The API successfully renders terminal-formatted output with a random color scheme",
+    "The public endpoint responds correctly to curl requests without installation"
+  ]
+}
