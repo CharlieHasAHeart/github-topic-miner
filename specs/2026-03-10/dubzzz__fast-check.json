@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "fast-check",
+    "one_liner": "Property based testing framework for JavaScript/TypeScript"
+  },
+  "screens": [
+    {
+      "name": "Main Documentation",
+      "purpose": "Showcase core concepts, installation, and live examples of property-based testing",
+      "primary_actions": [
+        "Install package",
+        "Open CodeSandbox example",
+        "View tutorial"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_property_test",
+      "purpose": "Generate a property-based test using fast-check's composable generators",
+      "async": true,
+      "input": {
+        "generators": "json",
+        "payload": "json",
+        "predicate": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "property_tests",
+        "columns": [
+          {
+            "name": "generators",
+            "type": "JSON"
+          },
+          {
+            "name": "predicate",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement string and object generators",
+    "week 1: Integrate with Vitest runner",
+    "week 1: Set up basic property test scaffolding"
+  ],
+  "acceptance_tests": [
+    "Generated objects respect withNullPrototype=false configuration",
+    "Recursive types can be modeled using available combinators",
+    "stringMatching generator respects maxLength constraint"
+  ]
+}

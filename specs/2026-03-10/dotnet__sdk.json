@@ -1,0 +1,88 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": ".NET SDK Core",
+    "one_liner": "Shared infrastructure for creating and managing .NET projects across Visual Studio and the .NET CLI."
+  },
+  "screens": [
+    {
+      "name": "Project Creation Interface",
+      "purpose": "Allows users to select and instantiate project templates using the Template Engine.",
+      "primary_actions": [
+        "Choose project template",
+        "Configure project settings",
+        "Generate project files"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "discover_templates",
+      "purpose": "Fetches available project templates from local or remote sources using the Template Engine.",
+      "async": true,
+      "input": {
+        "implementation_path": "string",
+        "payload": "json",
+        "task_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "invoke_packaged_tool",
+      "purpose": "Executes a .NET tool whose package name may differ from its output DLL name.",
+      "async": true,
+      "input": {
+        "implementation_path": "string",
+        "payload": "json",
+        "task_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "msbuild_tasks",
+        "columns": [
+          {
+            "name": "implementation_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "task_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "project_templates",
+        "columns": [
+          {
+            "name": "source_feed",
+            "type": "TEXT"
+          },
+          {
+            "name": "template_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Integrate Template Engine with secure network layer",
+    "week 1: Stabilize MSBuild task execution across platforms",
+    "week 1: Validate containerized CI environment setup"
+  ],
+  "acceptance_tests": [
+    "Docker Buildx is available in container test environments",
+    "Packaged tools with mismatched package/DLL names execute correctly",
+    "Template discovery succeeds over SSL on macOS without connection reset"
+  ]
+}

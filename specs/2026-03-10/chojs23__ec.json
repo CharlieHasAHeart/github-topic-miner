@@ -1,0 +1,115 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ec",
+    "one_liner": "A terminal-native 3-way Git merge conflict resolver with diff3 base support and vim-like TUI workflow."
+  },
+  "screens": [
+    {
+      "name": "Conflict Resolver",
+      "purpose": "Display three-way merge panes and enable conflict resolution via keyboard navigation and selection.",
+      "primary_actions": [
+        "Edit merged result inline",
+        "Navigate between conflicted hunks",
+        "Save and exit",
+        "Select ours/theirs/base chunk"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "backup_merged_file",
+      "purpose": "Create a backup copy of the original conflicted file before saving resolution.",
+      "async": false,
+      "input": {
+        "base_chunk": "string",
+        "file_path": "string",
+        "ours_chunk": "string",
+        "payload": "json",
+        "resolved_chunk": "string",
+        "theirs_chunk": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list_conflicted_files",
+      "purpose": "Scan current Git repository for files with merge conflicts and return a selectable list.",
+      "async": false,
+      "input": {
+        "base_chunk": "string",
+        "file_path": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "ours_chunk": "string",
+        "query": "string?",
+        "resolved_chunk": "string",
+        "theirs_chunk": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "resolve_conflict",
+      "purpose": "Process a merge conflict file using diff3 output and apply user-selected resolutions.",
+      "async": false,
+      "input": {
+        "base_chunk": "string",
+        "file_path": "string",
+        "ours_chunk": "string",
+        "payload": "json",
+        "resolved_chunk": "string",
+        "theirs_chunk": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "conflict_hunks",
+        "columns": [
+          {
+            "name": "base_chunk",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "ours_chunk",
+            "type": "TEXT"
+          },
+          {
+            "name": "resolved_chunk",
+            "type": "TEXT"
+          },
+          {
+            "name": "theirs_chunk",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic keybindings for chunk selection",
+    "week 1: Implement core 3-pane TUI rendering",
+    "week 1: Integrate git merge-file diff3 parsing",
+    "week 1: Support save and exit with file write"
+  ],
+  "acceptance_tests": [
+    "Missing base chunk (e.g., from add/add conflict) does not crash the resolver and handles gracefully.",
+    "No-args mode correctly lists conflicted files and allows user to pick one for resolution.",
+    "Non-interactive mode exits cleanly and returns appropriate status code for CI use.",
+    "Tool successfully resolves a merge conflict with available diff3 base and produces correct merged output."
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Open DroneLog",
+    "one_liner": "A high-performance, local-first drone flight log analyzer supporting DJI and Litchi formats with rich telemetry visualizations and offline-first privacy."
+  },
+  "screens": [
+    {
+      "name": "Application Settings",
+      "purpose": "Configure date format, profiles, password protection, and manage log storage with clear options for deletion or re-import.",
+      "primary_actions": [
+        "Change date display format",
+        "Delete all logs",
+        "Enable password protection",
+        "Rename or delete profiles"
+      ]
+    },
+    {
+      "name": "Battery Health Report",
+      "purpose": "Show battery capacity over time, lifetime degradation trends, and flight count per battery with full/remaining capacity tracking.",
+      "primary_actions": [
+        "Export battery history",
+        "Tag battery as decommissioned",
+        "View capacity vs. cycle graph"
+      ]
+    },
+    {
+      "name": "Flight Overview Dashboard",
+      "purpose": "Display aggregated flight statistics, radial hour-of-flight chart, and list of imported flights with quick access to telemetry and map views.",
+      "primary_actions": [
+        "Access 3D flight replay map",
+        "Filter flights by drone or battery",
+        "Import new flight logs",
+        "View individual flight telemetry"
+      ]
+    },
+    {
+      "name": "Interactive Flight Map",
+      "purpose": "Render 3D terrain flight paths with satellite/topographic/OpenStreetMap layers, speed-controlled replay, and live telemetry overlay.",
+      "primary_actions": [
+        "Control replay speed (0.5x–16x)",
+        "Switch map type",
+        "Toggle telemetry overlay",
+        "View RC joystick input during flight"
+      ]
+    },
+    {
+      "name": "Telemetry Charts",
+      "purpose": "Visualize synchronized time-series data including height, speed, battery voltage, attitude, GPS, and RC signals with drag-to-zoom functionality.",
+      "primary_actions": [
+        "Adjust time range",
+        "Export chart data",
+        "Overlay RC joystick visualization",
+        "Toggle chart types"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "extract_battery_capacity",
+      "purpose": "Extract battery full and remaining capacity from flight logs during parsing for use in telemetry and degradation reports.",
+      "async": true,
+      "input": {
+        "log_hash": "string"
+      },
+      "output": {
+        "full_capacity_mah": "string",
+        "remained_capacity_mah": "string"
+      }
+    },
+    {
+      "name": "import_flight_logs",
+      "purpose": "Parse and ingest DJI (.txt) or Litchi CSV logs into the local DuckDB database with deduplication based on drone serial, battery serial, and start time.",
+      "async": true,
+      "input": {
+        "log_files": "string",
+        "profile_id": "string"
+      },
+      "output": {
+        "imported_count": "string",
+        "skipped_duplicates": "string"
+      }
+    },
+    {
+      "name": "preserve_record_customization",
+      "purpose": "Restore user-added notes, tags, colors, and names when re-importing logs with identical file hash.",
+      "async": true,
+      "input": {
+        "file_hash": "string"
+      },
+      "output": {
+        "restored_fields": "string"
+      }
+    },
+    {
+      "name": "render_radial_flight_hour_chart",
+      "purpose": "Generate a radial chart showing distribution of flight start times across hours of the day, localized to flight origin timezone.",
+      "async": false,
+      "input": {
+        "flight_ids": "string"
+      },
+      "output": {
+        "chart_data": "string"
+      }
+    },
+    {
+      "name": "tag_drone_decommissioned",
+      "purpose": "Mark a drone as decommissioned by detecting '[X]' in its custom name; hides it from maintenance views and grays it out in UI.",
+      "async": false,
+      "input": {
+        "custom_name": "string",
+        "drone_id": "string"
+      },
+      "output": {
+        "is_decommissioned": "boolean"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "batteries",
+        "columns": [
+          {
+            "name": "first_used",
+            "type": "DATETIME"
+          },
+          {
+            "name": "flight_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "is_decommissioned",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "last_used",
+            "type": "DATETIME"
+          },
+          {
+            "name": "serial",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "flights",
+        "columns": [
+          {
+            "name": "battery_serial",
+            "type": "TEXT"
+          },
+          {
+            "name": "color_tag",
+            "type": "TEXT"
+          },
+          {
+            "name": "custom_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "drone_serial",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_decommissioned",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "notes",
+            "type": "TEXT"
+          },
+          {
+            "name": "start_time_utc",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "profiles",
+        "columns": [
+          {
+            "name": "date_format",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "password_hash",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "telemetry_samples",
+        "columns": [
+          {
+            "name": "altitude",
+            "type": "REAL"
+          },
+          {
+            "name": "attitude_pitch",
+            "type": "REAL"
+          },
+          {
+            "name": "attitude_roll",
+            "type": "REAL"
+          },
+          {
+            "name": "battery_full_capacity_mah",
+            "type": "INTEGER"
+          },
+          {
+            "name": "battery_remained_capacity_mah",
+            "type": "INTEGER"
+          },
+          {
+            "name": "battery_voltage",
+            "type": "REAL"
+          },
+          {
+            "name": "cell_voltages",
+            "type": "TEXT"
+          },
+          {
+            "name": "distance_to_home",
+            "type": "REAL"
+          },
+          {
+            "name": "flight_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "gps_latitude",
+            "type": "REAL"
+          },
+          {
+            "name": "gps_longitude",
+            "type": "REAL"
+          },
+          {
+            "name": "ground_speed",
+            "type": "REAL"
+          },
+          {
+            "name": "rc_throttle",
+            "type": "REAL"
+          },
+          {
+            "name": "rc_yaw",
+            "type": "REAL"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build main dashboard screen with flight list",
+    "week 1: Create flights table with deduplication logic",
+    "week 1: Implement basic DJI .txt log parser",
+    "week 1: Set up Tauri v2 + React + DuckDB scaffold",
+    "week 2: Add macOS packaging workaround documentation",
+    "week 2: Add telemetry_samples ingestion and downsampling",
+    "week 2: Implement synchronized telemetry charts",
+    "week 2: Integrate OpenStreetMap flight path rendering",
+    "week 3: Add decommission tagging for drones/batteries",
+    "week 3: Develop battery health report with capacity tracking",
+    "week 3: Enable record customization persistence on re-import",
+    "week 3: Implement radial hour-of-flight chart",
+    "week 4: Add profile management and password protection",
+    "week 4: Address stack overflow risk in log ingestion pipeline",
+    "week 4: Implement Docker deployment workflow",
+    "week 4: Write acceptance tests for bulk import and deduplication"
+  ],
+  "acceptance_tests": [
+    "Given 100+ DJI logs, when importing, then app does not crash with 'maximum call stack size exceeded' error.",
+    "Given a drone labeled '[X] Retired', when viewing the maintenance section, then the drone is hidden and grayed out in all lists.",
+    "Given a flight log with known battery capacity values, when re-imported after deletion, then user-added notes and color tags are restored if file hash matches.",
+    "Given a macOS user following the installation guide, when launching the app, then it opens without 'Damaged File' or 'Can't open file' errors.",
+    "Given multiple flights across timezones, when viewing the radial hour chart, then flight start times are correctly binned by local hour of origin location."
+  ]
+}
