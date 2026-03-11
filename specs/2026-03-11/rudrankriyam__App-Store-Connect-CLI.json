@@ -1,0 +1,179 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "App Store Connect CLI",
+    "one_liner": "A fast, lightweight, and scriptable CLI for the App Store Connect API to automate iOS, macOS, tvOS, and visionOS release workflows from terminal, IDE, or CI/CD pipeline."
+  },
+  "screens": [
+    {
+      "name": "CLI Terminal Interface",
+      "purpose": "Execute App Store Connect operations via composable, canonicalized command structure without interactive prompts.",
+      "primary_actions": [
+        "Pipe JSON output into scripts or CI/CD pipelines",
+        "Run `asc` commands for builds, TestFlight, app info, IAP pricing, and subscriptions",
+        "Submit apps to the Wall of Apps via `asc apps wall submit`"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "asc_app_info",
+      "purpose": "Canonical command family to manage app information, consolidating legacy `app-infos` functionality.",
+      "async": false,
+      "input": {
+        "bundle_id": "string",
+        "name": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "asc_apps_wall_submit",
+      "purpose": "Submit app entries to the public Wall of Apps showcasing real-world usage.",
+      "async": false,
+      "input": {
+        "bundle_id": "string",
+        "name": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "asc_builds_test_notes",
+      "purpose": "Manage beta build localizations and test notes under a unified builds subcommand, replacing `beta-build-localizations`.",
+      "async": false,
+      "input": {
+        "bundle_id": "string",
+        "name": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "asc_iap_pricing",
+      "purpose": "Canonical command tree for In-App Purchase pricing management, currently under migration.",
+      "async": false,
+      "input": {
+        "bundle_id": "string",
+        "name": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "asc_subscriptions_pricing_equalize",
+      "purpose": "Equalize subscription pricing across regions with validation for missing metadata.",
+      "async": false,
+      "input": {
+        "bundle_id": "string",
+        "name": "string",
+        "payload": "json",
+        "platform": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "apps",
+        "columns": [
+          {
+            "name": "bundle_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "platform",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "builds",
+        "columns": [
+          {
+            "name": "build_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "test_notes",
+            "type": "JSON"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "iap_prices",
+        "columns": [
+          {
+            "name": "price_tier",
+            "type": "INTEGER"
+          },
+          {
+            "name": "product_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "region",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "subscriptions",
+        "columns": [
+          {
+            "name": "metadata_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "pricing",
+            "type": "JSON"
+          },
+          {
+            "name": "product_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add deep MISSING_METADATA diagnostics for subscriptions",
+    "week 1: Enable `asc apps wall submit` with validation",
+    "week 1: Implement canonical `asc app-info` command family",
+    "week 1: Migrate beta build localization logic into `asc builds test-notes`"
+  ],
+  "acceptance_tests": [
+    "Command `asc subscriptions pricing equalize --product-id premium_monthly` validates metadata completeness before applying changes.",
+    "New app submission via `asc apps wall submit --name 'MyApp' --bundle-id com.example.myapp` appears in Wall of Apps after PR merge.",
+    "Running `asc builds test-notes set --build 123 --locale en-US --text 'Fixed crash'` succeeds and replaces legacy `beta-build-localizations` behavior.",
+    "User can run `asc app-info get --bundle-id com.example.app` and receive structured JSON without prompts."
+  ]
+}

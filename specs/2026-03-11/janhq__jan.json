@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Jan",
+    "one_liner": "Jan is an open-source, privacy-focused desktop application that enables users to run large language models (LLMs) entirely offline with full control."
+  },
+  "screens": [
+    {
+      "name": "Chat Interface",
+      "purpose": "Primary screen for user interaction with locally running LLMs, including message input, response display, and model controls.",
+      "primary_actions": [
+        "Attach files or images for multimodal input",
+        "Send message to LLM",
+        "View generation progress"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist user messages, model responses, or session metadata to local storage.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "payload": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "conversations",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement file attachment handling for vision models",
+    "week 1: Integrate local LLM execution via llama.cpp backend",
+    "week 1: Set up Tauri-based desktop shell with basic chat UI"
+  ],
+  "acceptance_tests": [
+    "User can download and launch Jan on Windows, macOS, or Linux without internet dependency.",
+    "User receives real-time progress updates during LLM response generation."
+  ]
+}

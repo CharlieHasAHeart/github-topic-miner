@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "pi_agent_rust",
+    "one_liner": "High-performance AI coding agent CLI written in Rust with zero unsafe code."
+  },
+  "screens": [
+    {
+      "name": "Main Interactive Terminal",
+      "purpose": "Primary interface for user to issue commands and receive AI-generated code or tool responses.",
+      "primary_actions": [
+        "Enter natural language prompts",
+        "Execute slash commands (e.g., /models, /settings)",
+        "View streaming AI responses with rich formatting"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve available models or settings from internal registry.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "offset": "int?",
+        "provider": "string",
+        "query": "string?",
+        "token": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user session or configuration data securely to local storage.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "provider": "string",
+        "token": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "auth_tokens",
+        "columns": [
+          {
+            "name": "provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "token",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "session_history",
+        "columns": [
+          {
+            "name": "prompt",
+            "type": "TEXT"
+          },
+          {
+            "name": "response",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add secure local storage with atomic permissions",
+    "week 1: Implement core command parser and dispatcher",
+    "week 1: Integrate asupersync runtime for async I/O",
+    "week 1: Render basic Rich-style terminal output"
+  ],
+  "acceptance_tests": [
+    "All built-in tools execute without unsafe code violations",
+    "Application starts in under 500ms on x86_64 Linux",
+    "Login flow completes successfully for OpenAI Codex on supported platforms",
+    "Scrolling and viewport rendering work correctly in interactive mode"
+  ]
+}

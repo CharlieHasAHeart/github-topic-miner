@@ -1,0 +1,113 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ArchiSteamFarm",
+    "one_liner": "C# application with primary purpose of farming Steam cards from multiple accounts simultaneously."
+  },
+  "screens": [
+    {
+      "name": "Main Dashboard",
+      "purpose": "Display status and control of all configured bots/accounts for card farming.",
+      "primary_actions": [
+        "Access bot-specific commands",
+        "Start/stop bot instances",
+        "View farming progress"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "addlicense",
+      "purpose": "Parse and add license links for games to farm.",
+      "async": true,
+      "input": {
+        "bot_id": "string",
+        "farming_status": "string",
+        "payload": "json",
+        "steam_account": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "owns",
+      "purpose": "Check ownership of games via parsed links.",
+      "async": true,
+      "input": {
+        "bot_id": "string",
+        "farming_status": "string",
+        "payload": "json",
+        "steam_account": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "play",
+      "purpose": "Set custom game name while farming (deprecated due to Steam changes).",
+      "async": true,
+      "input": {
+        "bot_id": "string",
+        "farming_status": "string",
+        "payload": "json",
+        "steam_account": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "bots",
+        "columns": [
+          {
+            "name": "bot_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "farming_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "steam_account",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "games",
+        "columns": [
+          {
+            "name": "app_id",
+            "type": "INTEGER"
+          },
+          {
+            "name": "cards_remaining",
+            "type": "INTEGER"
+          },
+          {
+            "name": "owned",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic Steam idle interaction",
+    "week 1: Initialize multi-bot management core",
+    "week 1: Integrate plugin loading system"
+  ],
+  "acceptance_tests": [
+    "Bot states are accurately reflected in main dashboard.",
+    "Custom game play functionality is disabled when Steam API breaks it.",
+    "System correctly parses game links in addlicense and owns commands."
+  ]
+}
