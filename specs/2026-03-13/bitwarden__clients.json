@@ -1,0 +1,128 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Bitwarden Clients",
+    "one_liner": "A unified suite of password management clients for web, desktop, browser extensions, and CLI, excluding mobile platforms."
+  },
+  "screens": [
+    {
+      "name": "Security Settings",
+      "purpose": "Configure authentication, encryption, and account security options.",
+      "primary_actions": [
+        "Manage two-step login",
+        "Review device logins",
+        "Update KDF settings"
+      ]
+    },
+    {
+      "name": "Vault View",
+      "purpose": "Display and manage stored credentials and secure notes.",
+      "primary_actions": [
+        "Add new item",
+        "Edit existing item",
+        "Search items",
+        "View items"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a new or updated secure item to the local vault and sync with server.",
+      "async": true,
+      "input": {
+        "folder_id": "string",
+        "name": "string",
+        "notes": "string",
+        "organization_id": "string",
+        "payload": "json",
+        "type": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "upgrade_kdf",
+      "purpose": "Initiate background upgrade of Key Derivation Function settings for accounts below minimum security thresholds.",
+      "async": true,
+      "input": {
+        "folder_id": "string",
+        "name": "string",
+        "notes": "string",
+        "organization_id": "string",
+        "payload": "json",
+        "type": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "folder_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "notes",
+            "type": "TEXT"
+          },
+          {
+            "name": "organization_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "sends",
+        "columns": [
+          {
+            "name": "access_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "email",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "text",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create basic vault screen with item listing",
+    "week 1: Implement core cryptography module for master password salt handling",
+    "week 1: Set up Nx monorepo structure with shared libs"
+  ],
+  "acceptance_tests": [
+    "Desktop application supports 'login with device' functionality without regression.",
+    "System prompts user to upgrade KDF settings if account uses outdated parameters.",
+    "User can view email-protected Sends in all client applications after v2026.2.1 upgrade."
+  ]
+}

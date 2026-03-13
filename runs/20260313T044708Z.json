@@ -1,0 +1,2465 @@
+{
+  "run_id": "20260313T044708Z",
+  "generated_at": "2026-03-13T04:47:08.872Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 24,
+    "evidence_by_type": {
+      "readme": 13,
+      "issue": 3,
+      "release": 6,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-13T04:49:45.339Z",
+    "repo_count": 127
+  },
+  "candidates": [
+    {
+      "full_name": "Doubleshotjs/doubleshot",
+      "html_url": "https://github.com/Doubleshotjs/doubleshot",
+      "description": "☕ A split node backend and electron main process.",
+      "topics": [
+        "electron",
+        "esbuild",
+        "nestjs",
+        "vite",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 195,
+      "forks_count": 15,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:46:38Z",
+      "created_at": "2022-05-24T05:55:24Z"
+    },
+    {
+      "full_name": "google-gemini/gemini-cli",
+      "html_url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "cli",
+        "gemini",
+        "gemini-api",
+        "mcp-client",
+        "mcp-server"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 97469,
+      "forks_count": 12195,
+      "open_issues_count": 2874,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:45:59Z",
+      "created_at": "2025-04-17T17:04:31Z"
+    },
+    {
+      "full_name": "cargo-public-api/cargo-public-api",
+      "html_url": "https://github.com/cargo-public-api/cargo-public-api",
+      "description": "List and diff the public API of Rust library crates between releases and commits. Detect breaking API changes and semver violations via CI or a CLI.",
+      "topics": [
+        "api",
+        "cargo",
+        "cargo-plugin",
+        "cargo-subcommand",
+        "diff",
+        "rust",
+        "rustdoc-json",
+        "semver"
+      ],
+      "language": "Rust",
+      "stargazers_count": 538,
+      "forks_count": 41,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:44:13Z",
+      "created_at": "2022-01-09T09:20:48Z"
+    },
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 624,
+      "forks_count": 167,
+      "open_issues_count": 1320,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:44:05Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    },
+    {
+      "full_name": "bitwarden/clients",
+      "html_url": "https://github.com/bitwarden/clients",
+      "description": "Bitwarden client apps (web, browser extension, desktop, and cli).",
+      "topics": [
+        "angular",
+        "bitwarden",
+        "browser-extension",
+        "chrome",
+        "cli",
+        "desktop",
+        "electron",
+        "firefox",
+        "javascript",
+        "nodejs",
+        "safari",
+        "typescript",
+        "webextension"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 12506,
+      "forks_count": 1685,
+      "open_issues_count": 1082,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:43:00Z",
+      "created_at": "2016-03-09T23:14:01Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "Doubleshotjs/doubleshot",
+      "html_url": "https://github.com/Doubleshotjs/doubleshot",
+      "description": "☕ A split node backend and electron main process.",
+      "topics": [
+        "electron",
+        "esbuild",
+        "nestjs",
+        "vite",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 195,
+      "forks_count": 15,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:46:38Z",
+      "created_at": "2022-05-24T05:55:24Z"
+    },
+    {
+      "full_name": "bitwarden/clients",
+      "html_url": "https://github.com/bitwarden/clients",
+      "description": "Bitwarden client apps (web, browser extension, desktop, and cli).",
+      "topics": [
+        "angular",
+        "bitwarden",
+        "browser-extension",
+        "chrome",
+        "cli",
+        "desktop",
+        "electron",
+        "firefox",
+        "javascript",
+        "nodejs",
+        "safari",
+        "typescript",
+        "webextension"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 12506,
+      "forks_count": 1685,
+      "open_issues_count": 1082,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:43:00Z",
+      "created_at": "2016-03-09T23:14:01Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "Doubleshotjs/doubleshot",
+      "html_url": "https://github.com/Doubleshotjs/doubleshot",
+      "description": "☕ A split node backend and electron main process.",
+      "topics": [
+        "electron",
+        "esbuild",
+        "nestjs",
+        "vite",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 195,
+      "forks_count": 15,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:46:38Z",
+      "created_at": "2022-05-24T05:55:24Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n    <img width=\"200\" src=\"./DoubleShot.png\" alt=\"DoubleShot logo\">\n</p>\n\n<p align=\"center\">\nHi, give me a doubleshot ☕.\n<p>\n<p align=\"center\">\nA split node backend and electron main process.\n<p>\n\n<br>\n\n## Description\n\nDoubleshot is a collection of tools for integrating the nodejs backend framework with electron to build a desktop application. At some point in the future, you can simply and quickly split it up and convert it to a web application.\n\nA software engineer's time is precious, and I hope that one set of code can be applied to two different applications with minor modifications. So we can have more time to enjoy a cup of coffee. 😀\n\n## Features\n\n- 🏃‍ A [Runner](https://github.com/Doubleshotjs/doubleshot/tree/main/packages/runner) to start and build both the frontend (renderer) and backend (main).\n- 🔨 A [Builder](https://github.com/Doubleshotjs/doubleshot/tree/main/packages/builder) to run/build electron main process or node backend.\n- 🛻 An [electron ipc transport](https://github.com/Doubleshotjs/doubleshot/blob/main/packages/nest-electron/src/electron.transport.ts) for [nestjs](https://nestjs.com/) that provides simple ipc communication.\n- 🪟 An [electron module](https://github.com/Doubleshotjs/doubleshot/blob/main/packages/nest-electron/src/electron.module.ts) for [nestjs](https://nestjs.com/) to launch electron windows.\n- 😎 Very easy integration of electron and node.\n- ⚡ Quickly split and convert between C/S and B/S.\n- ⏩ Quick start and build, powered by [tsup](https://tsup.egoist.sh/) and [electron-builder](https://www.electron.build/)\n\n> **Warning**: this project is in early stage, do not use in production environment\n\n## License\n\nMIT License © 2022 [Archer Gu](https://github.com/archergu)\n",
+        "truncated": false,
+        "bytes": 1775,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "nest-electron@0.2.11",
+            "tag_name": "nest-electron@0.2.11",
+            "published_at": "2026-01-04T06:28:49Z",
+            "body_excerpt": "Please refer to [CHANGELOG.md](https://github.com/Doubleshotjs/doubleshot/blob/nest-electron@0.2.11/packages/nest-electron/CHANGELOG.md) for details."
+          },
+          {
+            "name": "runner@0.0.16",
+            "tag_name": "runner@0.0.16",
+            "published_at": "2025-11-13T05:13:23Z",
+            "body_excerpt": "Please refer to [CHANGELOG.md](https://github.com/Doubleshotjs/doubleshot/blob/runner@0.0.16/packages/runner/CHANGELOG.md) for details."
+          },
+          {
+            "name": "plugin-vite@0.0.20",
+            "tag_name": "plugin-vite@0.0.20",
+            "published_at": "2025-11-13T05:12:53Z",
+            "body_excerpt": "Please refer to [CHANGELOG.md](https://github.com/Doubleshotjs/doubleshot/blob/plugin-vite@0.0.20/packages/plugin-vite/CHANGELOG.md) for details."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 4,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/Doubleshotjs/doubleshot/issues/4"
+          }
+        ]
+      },
+      "root_files": [
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".npmrc",
+        ".vscode",
+        "DoubleShot.png",
+        "LICENSE",
+        "README.md",
+        "eslint.config.mjs",
+        "mono-release.config.ts",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "renovate.json",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img width=\"200\" src=\"./DoubleShot.png\" alt=\"DoubleShot logo\"> </p>",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> Hi, give me a doubleshot ☕. <p> <p align=\"center\"> A split node backend and electron main process. <p>",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Doubleshot is a collection of tools for integrating the nodejs backend framework with electron to build a desktop application. At some point in the future, you can simply and quickly split it up and convert it to a web application.",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot#readme",
+          "title": "README (segment 4)",
+          "excerpt": "A software engineer's time is precious, and I hope that one set of code can be applied to two different applications with minor modifications. So we can have more time to enjoy a cup of coffee. 😀",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- 🏃‍ A [Runner](https://github.com/Doubleshotjs/doubleshot/tree/main/packages/runner) to start and build both the frontend (renderer) and backend (main). - 🔨 A [Builder](https://github.com/Doubleshotjs/doubleshot/tree/main/packages/builder) to run/build electron main process or node backend. - 🛻 An [electron ipc transport](https://github.com/Doubleshotjs/doubleshot/blob/main/packages/nest-electron/src/electron.transport.ts) for [nestjs](https://nestjs.com/) that provides simple ipc communication. - 🪟 An [electron module](https://github.com/Doubleshotjs/doubleshot/blob/main/packages/nest-electron/src/electron.module.ts) for [nestjs](https://nestjs.com/) to launch electron windows. - 😎 Very easy integration of electron and node. - ⚡ Quickly split and convert between C/S and B/S. - ⏩ Quick start and build, powered by [tsup](https://tsup.egoist.sh/) and [electron-builder](https://www.electron.build/)",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot#readme",
+          "title": "README (segment 6)",
+          "excerpt": "> **Warning**: this project is in early stage, do not use in production environment",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot/issues/4",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "number": 4
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot/releases",
+          "title": "nest-electron@0.2.11",
+          "excerpt": "Please refer to [CHANGELOG.md](https://github.com/Doubleshotjs/doubleshot/blob/nest-electron@0.2.11/packages/nest-electron/CHANGELOG.md) for details.",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "tag_name": "nest-electron@0.2.11",
+            "published_at": "2026-01-04T06:28:49Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot/releases",
+          "title": "runner@0.0.16",
+          "excerpt": "Please refer to [CHANGELOG.md](https://github.com/Doubleshotjs/doubleshot/blob/runner@0.0.16/packages/runner/CHANGELOG.md) for details.",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "tag_name": "runner@0.0.16",
+            "published_at": "2025-11-13T05:13:23Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot/releases",
+          "title": "plugin-vite@0.0.20",
+          "excerpt": "Please refer to [CHANGELOG.md](https://github.com/Doubleshotjs/doubleshot/blob/plugin-vite@0.0.20/packages/plugin-vite/CHANGELOG.md) for details.",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "tag_name": "plugin-vite@0.0.20",
+            "published_at": "2025-11-13T05:12:53Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Doubleshotjs/doubleshot",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .gitattributes, .github, .gitignore, .npmrc, .vscode, DoubleShot.png, LICENSE, README.md, eslint.config.mjs, mono-release.config.ts, package.json, packages, pnpm-lock.yaml, pnpm-workspace.yaml, renovate.json, vitest.config.ts",
+          "fetched_at": "2026-03-13T04:47:13.352Z",
+          "meta": {
+            "repo_full_name": "Doubleshotjs/doubleshot",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "bitwarden/clients",
+      "html_url": "https://github.com/bitwarden/clients",
+      "description": "Bitwarden client apps (web, browser extension, desktop, and cli).",
+      "topics": [
+        "angular",
+        "bitwarden",
+        "browser-extension",
+        "chrome",
+        "cli",
+        "desktop",
+        "electron",
+        "firefox",
+        "javascript",
+        "nodejs",
+        "safari",
+        "typescript",
+        "webextension"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 12506,
+      "forks_count": 1685,
+      "open_issues_count": 1082,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-13T04:43:00Z",
+      "created_at": "2016-03-09T23:14:01Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/bitwarden/brand/main/screenshots/apps-combo-logo.png\" alt=\"Bitwarden\" />\n</p>\n<p align=\"center\">\n  <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-browser.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-browser.yml/badge.svg?branch=main\" alt=\"GitHub Workflow browser build on main\" /></a>\n  <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-cli.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-cli.yml/badge.svg?branch=main\" alt=\"GitHub Workflow CLI build on main\" /></a>\n  <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-desktop.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-desktop.yml/badge.svg?branch=main\" alt=\"GitHub Workflow desktop build on main\" /></a>\n  <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-web.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-web.yml/badge.svg?branch=main\" alt=\"GitHub Workflow web build on main\" /></a>\n</p>\n\n---\n\n# Bitwarden Client Applications\n\nThis repository houses all Bitwarden client applications except the mobile applications ([iOS](https://github.com/bitwarden/ios) | [android](https://github.com/bitwarden/android)).\n\nPlease refer to the [Clients section](https://contributing.bitwarden.com/getting-started/clients/) of the [Contributing Documentation](https://contributing.bitwarden.com/) for build instructions, recommended tooling, code style tips, and lots of other great information to get you started.\n\n## Related projects:\n\n- [bitwarden/server](https://github.com/bitwarden/server): The core infrastructure backend (API, database, Docker, etc).\n- [bitwarden/ios](https://github.com/bitwarden/ios): Bitwarden iOS Password Manager & Authenticator apps.\n- [bitwarden/android](https://github.com/bitwarden/android): Bitwarden Android Password Manager & Authenticator apps.\n- [bitwarden/directory-connector](https://github.com/bitwarden/directory-connector): A tool for syncing a directory (AD, LDAP, Azure, G Suite, Okta) to an organization.\n\n# We're Hiring!\n\nInterested in contributing in a big way? Consider joining our team! We're hiring for many positions. Please take a look at our [Careers page](https://bitwarden.com/careers/) to see what opportunities are [currently open](https://bitwarden.com/careers/#open-positions) as well as what it's like to work at Bitwarden.\n\n# Contribute\n\nCode contributions are welcome! Please commit any pull requests against the `main` branch. Learn more about how to contribute by reading the [Contributing Guidelines](https://contributing.bitwarden.com/contributing/). Check out the [Contributing Documentation](https://contributing.bitwarden.com/) for how to get started with your first contribution.\n\nSecurity audits and feedback are welcome. Please open an issue or email us privately if the report is sensitive in nature. You can read our security policy in the [`SECURITY.md`](SECURITY.md) file.\n",
+        "truncated": false,
+        "bytes": 3194,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Web v2026.2.1",
+            "tag_name": "web-v2026.2.1",
+            "published_at": "2026-03-03T21:44:46Z",
+            "body_excerpt": "* Added email protected Sends\n* Added background upgrade of KDF settings for accounts below allowed minimums\n* Added prompt to upgrade KDF settings for accounts below allowed minimums\n* Updated loading state UI for access intelligence\n* Updated UI for individual subscription page\n* Improved individual subscription page handling of edge cases\n* Core cryptography improvements to master password salt\n* Various under-the-hood improvements and minor bug fixes"
+          },
+          {
+            "name": "Desktop v2026.2.1",
+            "tag_name": "desktop-v2026.2.1",
+            "published_at": "2026-03-05T14:01:02Z",
+            "body_excerpt": "- Added email protected Sends\r\n- Added background upgrade of KDF settings for accounts below allowed minimums\r\n- Added prompt to upgrade KDF settings for accounts below allowed minimums\r\n- Updated Send UI\r\n- Core cryptography improvements to master password salt\r\n- Various under-the-hood improvements and minor bug fixes\r\n\r\nThank you! 💙 A big shout-out to the following community members for their contributions!\r\n\r\n[lzl0304](https://github.com/lzl0304) - Fix lock vault from system tray not working"
+          },
+          {
+            "name": "CLI v2026.2.0",
+            "tag_name": "cli-v2026.2.0",
+            "published_at": "2026-03-05T16:15:22Z",
+            "body_excerpt": "- Added email protected Sends\r\n- Bug-fix for confirm user command\r\n- Various under-the-hood improvements and minor bug fixes\r\n\r\nThank you! 💙 A big shout-out to the following community members for their contributions!"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 19543,
+            "title": "Desktop 2026.2.1 lack the `login in with device`",
+            "state": "closed",
+            "url": "https://github.com/bitwarden/clients/issues/19543"
+          },
+          {
+            "number": 19539,
+            "title": "Addy.io integration blocked by CSP",
+            "state": "open",
+            "url": "https://github.com/bitwarden/clients/issues/19539"
+          }
+        ]
+      },
+      "root_files": [
+        ".browserslistrc",
+        ".checkmarx",
+        ".claude",
+        ".codescene",
+        ".editorconfig",
+        ".git-blame-ignore-revs",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".npmrc",
+        ".nvmrc",
+        ".prettierignore",
+        ".prettierrc.json",
+        ".storybook",
+        ".vscode",
+        "CONTRIBUTING.md",
+        "LICENSE.txt",
+        "LICENSE_BITWARDEN.txt",
+        "LICENSE_GPL.txt",
+        "README.md",
+        "SECURITY.md",
+        "angular.json",
+        "apps",
+        "babel.config.json",
+        "bitwarden_license",
+        "clients.code-workspace",
+        "docs",
+        "eslint.config.mjs",
+        "jest.config.js",
+        "jest.preset.js",
+        "libs",
+        "lint-staged.config.mjs",
+        "nx.json",
+        "package-lock.json",
+        "package.json",
+        "scripts",
+        "tailwind.config.js",
+        "tsconfig.base.json",
+        "tsconfig.eslint.json",
+        "tsconfig.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src=\"https://raw.githubusercontent.com/bitwarden/brand/main/screenshots/apps-combo-logo.png\" alt=\"Bitwarden\" /> </p> <p align=\"center\"> <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-browser.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-browser.yml/badge.svg?branch=main\" alt=\"GitHub Workflow browser build on main\" /></a> <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-cli.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-cli.yml/badge.svg?branch=main\" alt=\"GitHub Workflow CLI build on main\" /></a> <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-desktop.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-desktop.yml/badge.svg?branch=main\" alt=\"GitHub Workflow desktop build on main\" /></a> <a href=\"https://github.com/bitwarden/clients/actions/workflows/build-web.yml?query=branch:main\" target=\"_blank\"><img src=\"https://github.com/bitwarden/clients/actions/workflows/build-web.yml/badge.svg?branch=main\" alt=\"GitHub Wo…",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 2)",
+          "excerpt": "This repository houses all Bitwarden client applications except the mobile applications ([iOS](https://github.com/bitwarden/ios) | [android](https://github.com/bitwarden/android)).",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Please refer to the [Clients section](https://contributing.bitwarden.com/getting-started/clients/) of the [Contributing Documentation](https://contributing.bitwarden.com/) for build instructions, recommended tooling, code style tips, and lots of other great information to get you started.",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- [bitwarden/server](https://github.com/bitwarden/server): The core infrastructure backend (API, database, Docker, etc). - [bitwarden/ios](https://github.com/bitwarden/ios): Bitwarden iOS Password Manager & Authenticator apps. - [bitwarden/android](https://github.com/bitwarden/android): Bitwarden Android Password Manager & Authenticator apps. - [bitwarden/directory-connector](https://github.com/bitwarden/directory-connector): A tool for syncing a directory (AD, LDAP, Azure, G Suite, Okta) to an organization.",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Interested in contributing in a big way? Consider joining our team! We're hiring for many positions. Please take a look at our [Careers page](https://bitwarden.com/careers/) to see what opportunities are [currently open](https://bitwarden.com/careers/#open-positions) as well as what it's like to work at Bitwarden.",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Code contributions are welcome! Please commit any pull requests against the `main` branch. Learn more about how to contribute by reading the [Contributing Guidelines](https://contributing.bitwarden.com/contributing/). Check out the [Contributing Documentation](https://contributing.bitwarden.com/) for how to get started with your first contribution.",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/bitwarden/clients#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Security audits and feedback are welcome. Please open an issue or email us privately if the report is sensitive in nature. You can read our security policy in the [`SECURITY.md`](SECURITY.md) file.",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/bitwarden/clients/issues/19543",
+          "title": "Desktop 2026.2.1 lack the `login in with device`",
+          "excerpt": "Desktop 2026.2.1 lack the `login in with device` (state:closed)",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "number": 19543
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/bitwarden/clients/issues/19539",
+          "title": "Addy.io integration blocked by CSP",
+          "excerpt": "Addy.io integration blocked by CSP (state:open)",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "number": 19539
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/bitwarden/clients/releases",
+          "title": "web-v2026.2.1",
+          "excerpt": "* Added email protected Sends * Added background upgrade of KDF settings for accounts below allowed minimums * Added prompt to upgrade KDF settings for accounts below allowed minimums * Updated loading state UI for access intelligence * Updated UI for individual subscription page * Improved individual subscription page handling of edge cases * Core cryptography improvements to master password salt * Various under-the-hood improvements and minor bug fixes",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "tag_name": "web-v2026.2.1",
+            "published_at": "2026-03-03T21:44:46Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/bitwarden/clients/releases",
+          "title": "desktop-v2026.2.1",
+          "excerpt": "- Added email protected Sends - Added background upgrade of KDF settings for accounts below allowed minimums - Added prompt to upgrade KDF settings for accounts below allowed minimums - Updated Send UI - Core cryptography improvements to master password salt - Various under-the-hood improvements and minor bug fixes Thank you! 💙 A big shout-out to the following community members for their contributions! [lzl0304](https://github.com/lzl0304) - Fix lock vault from system tray not working",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "tag_name": "desktop-v2026.2.1",
+            "published_at": "2026-03-05T14:01:02Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/bitwarden/clients/releases",
+          "title": "cli-v2026.2.0",
+          "excerpt": "- Added email protected Sends - Bug-fix for confirm user command - Various under-the-hood improvements and minor bug fixes Thank you! 💙 A big shout-out to the following community members for their contributions!",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "tag_name": "cli-v2026.2.0",
+            "published_at": "2026-03-05T16:15:22Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/bitwarden/clients",
+          "title": "ROOT_FILES",
+          "excerpt": ".browserslistrc, .checkmarx, .claude, .codescene, .editorconfig, .git-blame-ignore-revs, .gitattributes, .github, .gitignore, .husky, .npmrc, .nvmrc, .prettierignore, .prettierrc.json, .storybook, .vscode, CONTRIBUTING.md, LICENSE.txt, LICENSE_BITWARDEN.txt, LICENSE_GPL.txt, README.md, SECURITY.md, angular.json, apps, babel.config.json, bitwarden_license, clients.code-workspace, docs, eslint.config.mjs, jest.config.js, jest.preset.js, libs, lint-staged.config.mjs, nx.json, package-lock.json, package.json, scripts, tailwind.config.js, tsconfig.base.json, tsconfig.eslint.json, tsconfig.json",
+          "fetched_at": "2026-03-13T04:47:13.374Z",
+          "meta": {
+            "repo_full_name": "bitwarden/clients",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "Doubleshotjs/doubleshot",
+      "evidence_count": 11,
+      "evidence_by_type": {
+        "readme": 6,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "bitwarden/clients",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 7,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "Doubleshotjs/doubleshot",
+      "ok": true,
+      "spec_path": "specs/2026-03-13/Doubleshotjs__doubleshot.json"
+    },
+    {
+      "repo": "bitwarden/clients",
+      "ok": true,
+      "spec_path": "specs/2026-03-13/bitwarden__clients.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "Doubleshotjs/doubleshot",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-13/Doubleshotjs__doubleshot.json"
+    },
+    {
+      "repo": "bitwarden/clients",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-13/bitwarden__clients.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "Doubleshotjs/doubleshot",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-13/Doubleshotjs__doubleshot.json"
+      ]
+    },
+    {
+      "repo": "bitwarden/clients",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-13/bitwarden__clients.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-13T04:47:27.221Z",
+      "run_id": "20260313T044708Z",
+      "repo": "Doubleshotjs/doubleshot",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a1b24db5d32526eaf001a5a3ebc8845f0609b3ee0869d7a697725bfa5bb13049",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 5497
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13842,
+      "prompt_chars": 5497,
+      "completion_chars": 1299
+    },
+    {
+      "ts": "2026-03-13T04:47:39.262Z",
+      "run_id": "20260313T044708Z",
+      "repo": "Doubleshotjs/doubleshot",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f9243164dab7745ded4e9c36c1469a3f7bf5b72f01af484db384ed919647c33a",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 7004
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12040,
+      "prompt_chars": 7004,
+      "completion_chars": 1397
+    },
+    {
+      "ts": "2026-03-13T04:47:52.907Z",
+      "run_id": "20260313T044708Z",
+      "repo": "Doubleshotjs/doubleshot",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6b4342389fb75ffa0eeccfbde5fcb71d8adfcb0c7b02d709dc472212cf8a7370",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 8581
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13644,
+      "prompt_chars": 8581,
+      "completion_chars": 1675
+    },
+    {
+      "ts": "2026-03-13T04:48:08.635Z",
+      "run_id": "20260313T044708Z",
+      "repo": "Doubleshotjs/doubleshot",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "be08dbd69f067120079d13ddec58711dd7331b6a4d4f86bfe35194dbbc675001",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 10453
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15727,
+      "prompt_chars": 10453,
+      "completion_chars": 1852
+    },
+    {
+      "ts": "2026-03-13T04:48:23.765Z",
+      "run_id": "20260313T044708Z",
+      "repo": "Doubleshotjs/doubleshot",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "459ee6ee4f2a8e8b4314013006da710a679ca11a7ef38a20fbfc34ebe85c25f5",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 15147
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15129,
+      "prompt_chars": 15147,
+      "completion_chars": 2357
+    },
+    {
+      "ts": "2026-03-13T04:48:35.785Z",
+      "run_id": "20260313T044708Z",
+      "repo": "bitwarden/clients",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f449c24f852d4e5e8607910a575b03e57ca692f0b9d4a27857d05cb09e048aa5",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 8268
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12005,
+      "prompt_chars": 8268,
+      "completion_chars": 1415
+    },
+    {
+      "ts": "2026-03-13T04:48:48.682Z",
+      "run_id": "20260313T044708Z",
+      "repo": "bitwarden/clients",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "26a668b3afe5141da09f77b0ca36859559e8b763da93e4871df56f68341286a5",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9891
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12897,
+      "prompt_chars": 9891,
+      "completion_chars": 1432
+    },
+    {
+      "ts": "2026-03-13T04:49:01.307Z",
+      "run_id": "20260313T044708Z",
+      "repo": "bitwarden/clients",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fcf2419d833f6a4dc05f7a1d374082d05c1d3dd20b1121acec74764a3bd7da7e",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11515
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12624,
+      "prompt_chars": 11515,
+      "completion_chars": 1681
+    },
+    {
+      "ts": "2026-03-13T04:49:11.993Z",
+      "run_id": "20260313T044708Z",
+      "repo": "bitwarden/clients",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fe55db4455fb7460d9830cea948720007eaa57862542a6451d0e9110d31e2c39",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13389
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10686,
+      "prompt_chars": 13389,
+      "completion_chars": 1511
+    },
+    {
+      "ts": "2026-03-13T04:49:45.335Z",
+      "run_id": "20260313T044708Z",
+      "repo": "bitwarden/clients",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "740d719e24c62e17be3a96edd083c1ae70e66af24f3d7b2a2cadac866be3a570",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 17722
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 33341,
+      "prompt_chars": 17722,
+      "completion_chars": 4128
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "Doubleshotjs/doubleshot",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "bitwarden/clients",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "Doubleshotjs/doubleshot",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 11,
+      "evidence_total_final": 11,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "bitwarden/clients",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1773377228880,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "Doubleshotjs/doubleshot": 5,
+      "bitwarden/clients": 5
+    },
+    "tokensApproxTotal": 31556,
+    "tokensApproxPerRepo": {
+      "Doubleshotjs/doubleshot": 13817,
+      "bitwarden/clients": 17739
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "Doubleshotjs/doubleshot": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "scout",
+        "summary": "Doubleshot is an early-stage TypeScript monorepo that enables shared codebases between Electron desktop apps and web applications, leveraging NestJS for the backend and offering tooling for building, running, and IPC communication. It emphasizes developer efficiency and cross-platform reuse but is explicitly not ready for production.",
+        "highlights": [
+          "Aims to unify Electron (C/S) and web (B/S) application development with minimal code changes.",
+          "Provides dedicated packages for runner, builder, Electron IPC transport, and Electron window management with NestJS.",
+          "Built with modern tooling including tsup, electron-builder, Vite, and pnpm workspaces.",
+          "Actively maintained with recent releases across multiple packages."
+        ],
+        "risks": [
+          "Project is in early stage and explicitly warns against production use.",
+          "Limited adoption (195 stars, 15 forks) and minimal issue activity may indicate immaturity or low community validation.",
+          "Dependency management relies on automation (Renovate), which may introduce instability if not carefully monitored."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-001",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "inventor",
+        "summary": "Doubleshot introduces a novel architecture for dual-mode applications by tightly integrating NestJS with Electron, enabling a single codebase to serve both desktop (C/S) and web (B/S) targets through modular tooling and IPC abstraction.",
+        "highlights": [
+          "Invents a split-process model where the same Node.js backend can run either as an Electron main process or standalone server, reducing platform-specific code.",
+          "Introduces a custom Electron IPC transport for NestJS, abstracting inter-process communication as a first-class NestJS transport layer.",
+          "Packages reusable developer tooling (runner, builder, Vite plugin) in a monorepo to streamline build and launch workflows across platforms.",
+          "Designs for future web conversion from Electron apps with minimal modifications, prioritizing developer time savings."
+        ],
+        "risks": [
+          "The core innovation—seamless C/S to B/S transition—remains conceptual without demonstrated implementation or migration path evidence.",
+          "Early-stage status and lack of production readiness may hinder real-world validation of the architectural claims.",
+          "Tight coupling between Electron and NestJS could limit flexibility if developers need alternative frameworks or deeper Electron customization."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "engineer",
+        "summary": "Doubleshot is an early-stage TypeScript monorepo that provides tooling and abstractions to share a NestJS-based backend between Electron desktop apps and potential future web deployments, using custom IPC transport, modular packages, and modern build tools like tsup and Vite.",
+        "highlights": [
+          "Modular architecture with dedicated packages (runner, builder, nest-electron, plugin-vite) enables separation of concerns and targeted development.",
+          "Custom Electron IPC transport for NestJS abstracts inter-process communication as a standard NestJS transport layer, simplifying message passing between main and renderer processes.",
+          "Build system leverages tsup and electron-builder for fast compilation and packaging, with Vite support for frontend tooling.",
+          "Monorepo managed via pnpm workspaces with automated dependency updates via Renovate, indicating active maintenance."
+        ],
+        "risks": [
+          "Explicit warning against production use (E-RD-006) indicates instability or incomplete feature set.",
+          "Tight integration between Electron and NestJS may reduce flexibility for developers needing alternative backend frameworks or low-level Electron control.",
+          "Limited community adoption (195 stars, 15 forks) and minimal issue activity suggest unproven reliability and potential lack of long-term support.",
+          "No evidence of testing infrastructure beyond vitest.config.ts; absence of CI/CD or test coverage details raises quality assurance concerns."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RF-001",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "skeptic",
+        "summary": "Doubleshot presents ambitious goals of unifying Electron and web app development with shared NestJS code, but its early-stage status, lack of production readiness, and absence of concrete evidence for key claims—like seamless C/S to B/S conversion—raise serious doubts about its practical viability and stability.",
+        "highlights": [
+          "Claims of 'quickly split and convert between C/S and B/S' are aspirational and unsupported by implementation details or examples in the provided evidence.",
+          "Despite modular packaging and tooling, the project carries an explicit warning against production use (E-RD-006), undermining confidence in its reliability.",
+          "Active releases (E-RL-001, E-RL-002, E-RL-003) and dependency automation (E-IS-001) suggest maintenance activity, but do not compensate for the lack of demonstrated real-world applicability.",
+          "The README emphasizes developer convenience and coffee-fueled productivity (E-RD-002, E-RD-004), but offers no benchmarks, architecture diagrams, or migration pathways to substantiate technical claims."
+        ],
+        "risks": [
+          "Core value proposition—dual-mode deployment with minimal changes—is speculative and not validated by code samples, tests, or user reports.",
+          "Heavy reliance on tight NestJS-Electron integration may create vendor lock-in and obscure debugging or customization paths.",
+          "Low community engagement (195 stars, 15 forks, 4 open issues) suggests limited peer review or battle-testing, increasing adoption risk.",
+          "No evidence of testing strategy beyond a config file; absence of CI, coverage, or error handling documentation heightens concerns about robustness."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"DoubleShot\",\n    \"one_sentence\": \"A split node backend and electron main process enabling shared codebases between desktop and web applications.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers write a single NestJS-based backend that can run either as an Electron main process for desktop apps or as a standalone server for web applications, with minimal modifications.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Window\",\n      \"purpose\": \"Hosts the primary application interface powered by the shared backend logic.\",\n      \"primary_actions\": [\n        \"Launch Electron window with NestJS backend\",\n        \"Communicate via IPC transport\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist application data using the shared backend service.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up monorepo with runner and builder packages\",\n          \"Integrate NestJS with Electron main process\",\n          \"Implement basic IPC transport\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Electron window launches with NestJS backend running in main process\",\n    \"IPC communication between renderer and main processes works via NestJS transport\"\n  ],\n  \"open_questions\": [\n    \"How to handle platform-specific UI differences between Electron and web?\",\n    \"What is the migration path from C/S to B/S architecture?\"\n  ],\n  \"scores\": {\n    \"closure\": 2,\n    \"feasibility\": 3,\n    \"stack_fit\": 4,\n    \"complexity_control\": 2,\n    \"debuggability\": 2,\n    \"demo_value\": 3\n  },\n  \"overall_recommendation\": \"hold\",\n  \"citations\": {\n    \"app\": [\n      \"E-RD-002\"\n    ],\n    \"core_l"
+      }
+    },
+    "bitwarden/clients": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "The bitwarden/clients repository hosts the web, browser extension, desktop, and CLI clients for Bitwarden, excluding mobile apps. It is actively maintained with recent releases, clear contribution guidelines, and strong security practices. The project uses modern tooling (Nx, Angular, TypeScript) and welcomes community contributions.",
+        "highlights": [
+          "Repository contains all Bitwarden client applications except iOS and Android (which are in separate repos).",
+          "Recent releases (v2026.2.x) include security enhancements like KDF upgrades and core cryptography improvements.",
+          "Active CI workflows for browser, CLI, and desktop builds indicate robust automation.",
+          "Well-documented contribution process with links to detailed contributing docs and community recognition in release notes.",
+          "Security policy is documented (SECURITY.md), and external audits are welcomed."
+        ],
+        "risks": [
+          "An open issue indicates CSP (Content Security Policy) is blocking third-party integrations like Addy.io, potentially limiting extensibility.",
+          "A closed issue noted a missing 'login with device' feature in desktop v2026.2.1, suggesting possible gaps in feature parity or regression."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "The bitwarden/clients repository demonstrates a modular, multi-platform client architecture built on shared libraries and modern web technologies. It supports rapid feature rollout across web, desktop, CLI, and browser extensions with coordinated releases and cryptographic enhancements.",
+        "highlights": [
+          "Unified codebase for web, desktop (Electron), CLI, and browser extensions using Nx monorepo structure and shared libs.",
+          "Recent releases (v2026.2.x) consistently roll out synchronized features like email-protected Sends and KDF upgrades across all platforms.",
+          "Core cryptography improvements (e.g., master password salt handling) are implemented centrally and propagated to all clients.",
+          "Community contributions are actively integrated, as seen in desktop release fixes from external developers.",
+          "Clear separation of concerns: mobile apps are excluded and maintained in dedicated repos, enabling focused development."
+        ],
+        "risks": [
+          "Feature parity issues may arise, as evidenced by the missing 'login with device' in desktop v2026.2.1 despite its expected presence.",
+          "CSP restrictions hinder third-party integrations (e.g., Addy.io), potentially limiting innovation or compatibility with external tools."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001",
+          "E-IS-001",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "The bitwarden/clients repository is a well-structured, TypeScript-based monorepo using Nx to manage multiple client applications (web, desktop, CLI, browser extensions) with shared libraries. It demonstrates strong engineering practices including automated CI workflows, synchronized cross-platform releases, centralized cryptographic logic, and active community contribution integration.",
+        "highlights": [
+          "Monorepo architecture with Nx organizes apps and shared libs cleanly, enabling code reuse across web, desktop (Electron), CLI, and browser extensions.",
+          "Recent v2026.2.x releases show coordinated feature delivery (e.g., email-protected Sends, KDF upgrades) and core crypto improvements applied consistently across platforms.",
+          "Automated GitHub Actions workflows for browser, CLI, and desktop builds ensure reliable, reproducible builds on main branch.",
+          "Community contributions are actively merged and acknowledged, as seen in desktop release fixes from external developers.",
+          "Clear separation from mobile clients (iOS/Android in separate repos) reduces complexity and enables focused platform development."
+        ],
+        "risks": [
+          "Feature regression or parity gaps exist: desktop v2026.2.1 lacked 'login with device' despite expected availability, indicating potential testing or coordination gaps.",
+          "Strict Content Security Policy (CSP) blocks third-party integrations like Addy.io, limiting extensibility and possibly affecting user workflows."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-001",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While the bitwarden/clients repository presents a polished, well-maintained facade with synchronized releases and strong documentation, closer inspection reveals unresolved compatibility issues, potential feature regressions, and architectural constraints that may undermine user trust and extensibility.",
+        "highlights": [
+          "Despite claims of robust security and cross-platform consistency, a closed issue confirms a missing 'login with device' feature in desktop v2026.2.1—suggesting possible regression or inadequate testing.",
+          "An open issue shows CSP actively blocks third-party integrations like Addy.io, contradicting implied openness to ecosystem expansion.",
+          "Release notes emphasize 'core cryptography improvements' but provide no verifiable details or audit trails, raising questions about transparency in security claims."
+        ],
+        "risks": [
+          "Feature parity across platforms cannot be assumed—even recent releases lack expected functionality, risking user confusion and workflow disruption.",
+          "Overly restrictive CSP policies may alienate users relying on legitimate third-party services, limiting real-world utility despite modular architecture.",
+          "Heavy reliance on centralized contributing documentation (external links) means critical build or security guidance could become outdated or inaccessible without version control."
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Bitwarden Clients\",\n    \"one_sentence\": \"A unified suite of password management clients for web, desktop, browser extensions, and CLI, excluding mobile platforms.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users securely store, retrieve, and manage passwords and sensitive data across devices using synchronized client applications that enforce strong cryptographic standards and consistent UI/UX patterns.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Vault View\",\n      \"purpose\": \"Display and manage stored credentials and secure notes.\",\n      \"primary_actions\": [\n        \"View items\",\n        \"Search items\",\n        \"Add new item\",\n        \"Edit existing item\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Security Settings\",\n      \"purpose\": \"Configure authentication, encryption, and account security options.\",\n      \"primary_actions\": [\n        \"Update KDF settings\",\n        \"Manage two-step login\",\n        \"Review device logins\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a new or updated secure item to the local vault and sync with server.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"upgrade_kdf\",\n      \"purpose\": \"Initiate background upgrade of Key Derivation Function settings for accounts below minimum security thresholds.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"organization_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"folder_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"type\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n  "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "Doubleshotjs/doubleshot",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 4,
+        "engineer": 8,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "bitwarden/clients",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 7,
+        "engineer": 8,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=125",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] Doubleshotjs/doubleshot evidence total=11 readme=6 issue=1 release=3 root_files=1",
+    "[repo_card_builder] bitwarden/clients evidence total=13 readme=7 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=24 gaps=0",
+    "[llm_spec_generator] Doubleshotjs/doubleshot canonical spec ok (iter=1) -> specs/2026-03-13/Doubleshotjs__doubleshot.json",
+    "[llm_spec_generator] bitwarden/clients canonical spec ok (iter=1) -> specs/2026-03-13/bitwarden__clients.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-13T04:47:08.880Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:08.902Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260313T044708Z"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:08.902Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:08.906Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:09.450Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:09.450Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:09.903Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:09.903Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:10.282Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:10.282Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:10.623Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:10.623Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:10.965Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:10.965Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:11.410Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:11.410Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:11.811Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:11.811Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.120Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.120Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.562Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.562Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.993Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.997Z",
+      "run_id": "20260313T044708Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 125
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:12.998Z",
+      "run_id": "20260313T044708Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.001Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-13T04:47:13.001Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Doubleshotjs__doubleshot/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.002Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Doubleshotjs__doubleshot/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.004Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Doubleshotjs__doubleshot/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.005Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Doubleshotjs__doubleshot/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.006Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-13T04:47:13.006Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "bitwarden__clients/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.008Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "bitwarden__clients/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.009Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "bitwarden__clients/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.011Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "bitwarden__clients/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.352Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 1775,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.352Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.352Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.352Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 351
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.353Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 11,
+        "readme": 6,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.374Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3194,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.374Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.374Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.374Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 368
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.374Z",
+      "run_id": "20260313T044708Z",
+      "node": "repo_card_builder",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 7,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.378Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 11,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 6,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:13.379Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 11,
+        "evidence_selected": 11,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:27.221Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1299,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:39.262Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1397,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:47:52.907Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1675,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:08.635Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1852,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:23.765Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2357,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:23.777Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:23.779Z",
+      "run_id": "20260313T044708Z",
+      "node": "artifacts",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-13/Doubleshotjs__doubleshot.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:23.780Z",
+      "run_id": "20260313T044708Z",
+      "node": "artifacts",
+      "repo": "Doubleshotjs/doubleshot",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-13/Doubleshotjs__doubleshot.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:23.780Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 7,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:23.780Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:35.785Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1415,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:48:48.682Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1432,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:01.307Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1681,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:11.993Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1511,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.335Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4128,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.338Z",
+      "run_id": "20260313T044708Z",
+      "node": "llm_spec_generator",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.339Z",
+      "run_id": "20260313T044708Z",
+      "node": "artifacts",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-13/bitwarden__clients.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.339Z",
+      "run_id": "20260313T044708Z",
+      "node": "artifacts",
+      "repo": "bitwarden/clients",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-13/bitwarden__clients.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.342Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.342Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1773377228880,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "Doubleshotjs/doubleshot": 5,
+          "bitwarden/clients": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.342Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-13T04:49:45.342Z",
+      "run_id": "20260313T044708Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-13",
+    "evidence_dir": "evidence/2026-03-13"
+  }
+}

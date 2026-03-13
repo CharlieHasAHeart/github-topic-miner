@@ -1,0 +1,53 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "DoubleShot",
+    "one_liner": "A split node backend and electron main process enabling shared codebases between desktop and web applications."
+  },
+  "screens": [
+    {
+      "name": "Main Window",
+      "purpose": "Hosts the primary application interface powered by the shared backend logic.",
+      "primary_actions": [
+        "Communicate via IPC transport",
+        "Launch Electron window with NestJS backend"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist application data using the shared backend service.",
+      "async": true,
+      "input": {
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic IPC transport",
+    "week 1: Integrate NestJS with Electron main process",
+    "week 1: Set up monorepo with runner and builder packages"
+  ],
+  "acceptance_tests": [
+    "Electron window launches with NestJS backend running in main process",
+    "IPC communication between renderer and main processes works via NestJS transport"
+  ]
+}
