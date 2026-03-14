@@ -1,0 +1,3458 @@
+{
+  "run_id": "20260314T044524Z",
+  "generated_at": "2026-03-14T04:45:24.210Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 41,
+    "evidence_by_type": {
+      "readme": 20,
+      "issue": 12,
+      "release": 6,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-14T04:50:19.564Z",
+    "repo_count": 130
+  },
+  "candidates": [
+    {
+      "full_name": "google-gemini/gemini-cli",
+      "html_url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "cli",
+        "gemini",
+        "gemini-api",
+        "mcp-client",
+        "mcp-server"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 97622,
+      "forks_count": 12235,
+      "open_issues_count": 2931,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:41:32Z",
+      "created_at": "2025-04-17T17:04:31Z"
+    },
+    {
+      "full_name": "fastrepl/char",
+      "html_url": "https://github.com/fastrepl/char",
+      "description": "AI notepad for meetings",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 7943,
+      "forks_count": 556,
+      "open_issues_count": 131,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:38:46Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "hrzlgnm/mdns-browser",
+      "html_url": "https://github.com/hrzlgnm/mdns-browser",
+      "description": "A cross platform mDNS-Browser app written in Rust using tauri and leptos",
+      "topics": [
+        "android-app",
+        "aur",
+        "auto-update",
+        "debian-packages",
+        "macos-application",
+        "mdns",
+        "mdns-sd",
+        "rpm-packages",
+        "rust",
+        "tauri",
+        "thaw",
+        "ubuntu-packages",
+        "void-packages",
+        "windows-application"
+      ],
+      "language": "Rust",
+      "stargazers_count": 153,
+      "forks_count": 3,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:37:54Z",
+      "created_at": "2024-03-03T20:06:23Z"
+    },
+    {
+      "full_name": "adityastomar67/zsh-conf",
+      "html_url": "https://github.com/adityastomar67/zsh-conf",
+      "description": "A highly optimised, feature rich zsh config with almost under ~20ms load times.",
+      "topics": [
+        "aliases",
+        "cli",
+        "config",
+        "oh-my-zsh",
+        "omz",
+        "shell",
+        "theme",
+        "tmux",
+        "zap",
+        "zinit",
+        "zsh",
+        "zshrc",
+        "zshrc-configs"
+      ],
+      "language": "Shell",
+      "stargazers_count": 138,
+      "forks_count": 6,
+      "open_issues_count": 1,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "remastered",
+      "pushed_at": "2026-03-14T04:37:36Z",
+      "created_at": "2023-04-28T03:27:19Z"
+    },
+    {
+      "full_name": "Xinrea/bili-shadowreplay",
+      "html_url": "https://github.com/Xinrea/bili-shadowreplay",
+      "description": "bilibili 直播实时切片工具",
+      "topics": [
+        "bilibili",
+        "rust",
+        "svelte",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1009,
+      "forks_count": 66,
+      "open_issues_count": 15,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:37:07Z",
+      "created_at": "2023-04-08T07:32:34Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "hrzlgnm/mdns-browser",
+      "html_url": "https://github.com/hrzlgnm/mdns-browser",
+      "description": "A cross platform mDNS-Browser app written in Rust using tauri and leptos",
+      "topics": [
+        "android-app",
+        "aur",
+        "auto-update",
+        "debian-packages",
+        "macos-application",
+        "mdns",
+        "mdns-sd",
+        "rpm-packages",
+        "rust",
+        "tauri",
+        "thaw",
+        "ubuntu-packages",
+        "void-packages",
+        "windows-application"
+      ],
+      "language": "Rust",
+      "stargazers_count": 153,
+      "forks_count": 3,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:37:54Z",
+      "created_at": "2024-03-03T20:06:23Z"
+    },
+    {
+      "full_name": "adityastomar67/zsh-conf",
+      "html_url": "https://github.com/adityastomar67/zsh-conf",
+      "description": "A highly optimised, feature rich zsh config with almost under ~20ms load times.",
+      "topics": [
+        "aliases",
+        "cli",
+        "config",
+        "oh-my-zsh",
+        "omz",
+        "shell",
+        "theme",
+        "tmux",
+        "zap",
+        "zinit",
+        "zsh",
+        "zshrc",
+        "zshrc-configs"
+      ],
+      "language": "Shell",
+      "stargazers_count": 138,
+      "forks_count": 6,
+      "open_issues_count": 1,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "remastered",
+      "pushed_at": "2026-03-14T04:37:36Z",
+      "created_at": "2023-04-28T03:27:19Z"
+    },
+    {
+      "full_name": "Xinrea/bili-shadowreplay",
+      "html_url": "https://github.com/Xinrea/bili-shadowreplay",
+      "description": "bilibili 直播实时切片工具",
+      "topics": [
+        "bilibili",
+        "rust",
+        "svelte",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1009,
+      "forks_count": 66,
+      "open_issues_count": 15,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:37:07Z",
+      "created_at": "2023-04-08T07:32:34Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "hrzlgnm/mdns-browser",
+      "html_url": "https://github.com/hrzlgnm/mdns-browser",
+      "description": "A cross platform mDNS-Browser app written in Rust using tauri and leptos",
+      "topics": [
+        "android-app",
+        "aur",
+        "auto-update",
+        "debian-packages",
+        "macos-application",
+        "mdns",
+        "mdns-sd",
+        "rpm-packages",
+        "rust",
+        "tauri",
+        "thaw",
+        "ubuntu-packages",
+        "void-packages",
+        "windows-application"
+      ],
+      "language": "Rust",
+      "stargazers_count": 153,
+      "forks_count": 3,
+      "open_issues_count": 6,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:37:54Z",
+      "created_at": "2024-03-03T20:06:23Z",
+      "readme": {
+        "fetched": true,
+        "text": "![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/hrzlgnm/mdns-browser/total)\n[![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/hrzlgnm/mdns-browser/latest/total)](https://github.com/hrzlgnm/mdns-browser/releases/latest)\n[![GitHub Release](https://img.shields.io/github/v/release/hrzlgnm/mdns-browser)](https://github.com/hrzlgnm/mdns-browser/releases/latest)\n[![GitHub Release Date](https://img.shields.io/github/release-date/hrzlgnm/mdns-browser)](https://github.com/hrzlgnm/mdns-browser/releases/latest)\n[![WinGet Package Version](https://img.shields.io/winget/v/hrzlgnm.mdns-browser)](https://winstall.app/apps/hrzlgnm.mdns-browser)\n[![AUR Version](https://img.shields.io/aur/version/mdns-browser-bin)](https://aur.archlinux.org/packages/mdns-browser-bin)\n[![License: MIT](https://img.shields.io/github/license/hrzlgnm/mdns-browser)](https://github.com/hrzlgnm/mdns-browser/blob/main/LICENSE)\n[![Build Status](https://img.shields.io/github/actions/workflow/status/hrzlgnm/mdns-browser/ci.yml)](https://github.com/hrzlgnm/mdns-browser/actions)\n\n# mDNS-Browser\n\nThis application allows you to browse services using mDNS. For an alternative running in a terminal, check out [mDNS-TUI-Browser](https://github.com/hrzlgnm/mdns-tui-browser)\n\nScreenshots from [v0.11.28](https://github.com/hrzlgnm/mdns-browser/releases/tag/mdns-browser-v0.11.28)\n\n### Startup\n\n![intro](./docs/assets/screenshots/intro.png)\n\n### Browsing for \\_ssh.\\_tcp\n\n![browsing-ssh](./docs/assets/screenshots/browsing-_ssh._tcp.png)\n\n### Details of a resolved service having many IPs\n\n![ssh-details](./docs/assets/screenshots/_ssh._tcp.details.png)\n\n### Details of a resolved service having a subtype and TXT records\n\n![amzn-details](./docs/assets/screenshots/_amzn-wplay._tcp-details.png)\n\n### Checking for updates on Windows\n\n![check-update](./docs/assets/screenshots/check-update.png)\n\n### Response if no update is available\n\n![no-update](./docs/assets/screenshots/no-update.png)\n\n<!--toc:start-->\n\n- [mDNS-Browser Overview](#mdns-browser)\n    - [How to Build](#building)\n    - [Command line options](#command-line-options)\n    - [Where to find the executables?](#where-to-find-the-executables)\n        - [GitHub Release](#github-releases)\n        - [Winget Installation](#winget-installation)\n        - [Arch Linux (AUR)](#arch-linux-aur)\n        - [Void Linux](#void-linux)\n    - [Auditable binaries](#auditable-binaries)\n    - [Attested build artifacts](#attested-build-artifacts)\n    - [Privacy](#privacy)\n    - [Acknowledgments](#acknowledgments)\n\n<!--toc:end-->\n\n## Building\n\nFor instructions on building the application, checkout the document [BUILDING](BUILDING.md).\n\n## Command line options\n\n```console\nUsage: mdns-browser [OPTIONS]\n\nOptions:\n  -l, --log-level <LOG_LEVEL>    [default: info] [possible values: trace, debug, info, warn, error]\n  -D, --enable-devtools          Enable devtools at startup\n  -f, --log-to-file              Enable logging to file\n  -d, --disable-dmabuf-renderer  Disable dmabuf renderer, useful when having rendering issues\n  -h, --help                     Print help\n  -V, --version                  Print version\n\n```\n\n### log-to-file\n\nIf enabled, a log file will be created in a platform-specific location:\n\n- Windows: `%LOCALAPPDATA%\\com.github.hrzlgnm.mdns-browser\\logs`\n- Linux: `$XDG_DATA_HOME/com.github.hrzlgnm.mdns-browser/logs` or `$HOME/.local/share/com.github.hrzlgnm.mdns-browser/logs`\n- macOS: `~/Library/Logs/com.github.hrzlgnm.mdns-browser`\n\nThe log file will be named `mdns-browser.log` and will contain log messages with a log-level having at least a level specified by the `log-level` option.\n\n### enable-devtools\n\nIf enabled, the devtools will be open at startup\n\nThis option has been added with release [v0.19.0](https://github.com/hrzlgnm/mdns-browser/releases/tag/mdns-browser-v0.19.0)\n\n### disable-dmabuf-renderer (Linux only)\n\nThis option disables the dmabuf renderer, which is used to improve performance on Linux.\nIf you experience rendering issues, you can try disabling this option to see if it resolves the problem.\n\nThis option has been added with release [v0.12.0](https://github.com/hrzlgnm/mdns-browser/releases/tag/mdns-browser-v0.12.0)\n\n## Where to find the executables?\n\n### GitHub Releases\n\nYou can download the latest version of the application from the [GitHub Release page](https://github.com/hrzlgnm/mdns-browser/releases/latest)\n\n### Winget installation\n\nTo install via Winget, run the following command:\n\n```console\nwinget install mdns-browser\n```\n\n### Arch Linux (AUR)\n\nTo install on Arch Linux using the AUR, you can use an AUR helper like yay or paru:\n\nWith `yay`:\n\n```console\nyay -S mdns-browser\n```\n\nAlternatively using the -bin package:\n\n```console\nyay -S mdns-browser-bin\n```\n\nWith `paru`:\n\n```console\nparu -S mdns-browser\n```\n\nAlternatively using the -bin package:\n\n```console\nparu -S mdns-browser-bin\n```\n\n### Void Linux\n\nTo install on Void Linux with arch `x86_64`, you can add the GitHub release as a repository and install the package using `xbps-install`:\n\n```console\n# Add the repository\necho \"repository=https://github.com/hrzlgnm/mdns-browser/releases/latest/download\" | sudo tee /etc/xbps.d/mdns-browser-repo.conf\n\n# Install the package\nsudo xbps-install -S mdns-browser\n```\n\nDuring installation, you will be prompted to accept a public key signed by `hrzlgnm@users.noreply.github.com`. The repository and package are signed with a key having the fingerprint: `64:6d:b9:23:3d:ad:9d:f1:b0:fe:64:8e:da:46:57:d3`.\n\n## Auditable binaries\n\nThe binaries built for desktop targets are now all built in auditable mode using [cargo-auditable](https://github.com/rust-secure-code/cargo-auditable?tab=readme-ov-file#cargo-auditable).\nFor information on how to audit the binaries, see [Usage](https://github.com/rust-secure-code/cargo-auditable?tab=readme-ov-file#usage)\n\nSince release v0.8.x\n\n## Attested build artifacts\n\nThe build artifacts are now attested. Attestations information about the binaries is available [here](https://github.com/hrzlgnm/mdns-browser/attestations). For more information and details on how to verify those, see [Verifying artifact attestations with the GitHub CLI](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds#verifying-artifact-attestations-with-the-github-cli)\n\nSince release v0.8.x\n\n## Privacy\n\nFor a privacy statement checkout the document [PRIVACY](PRIVACY.md).\n\n## Acknowledgments\n\nThis app uses the fantastic [mdns-sd library](https://github.com/keepsimple1/mdns-sd) to handle all mDNS functionality. If you find this app helpful, consider giving the library a star on GitHub!\n",
+        "truncated": false,
+        "bytes": 6759,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "mDNS-Browser Release v1.5.12",
+            "tag_name": "mdns-browser-v1.5.12",
+            "published_at": "2026-03-11T07:21:09Z",
+            "body_excerpt": "## What's Changed\r\n\r\n### :sparkles: New Features\r\n\r\n- ci: add actionlint validation step to CI workflow @hrzlgnm #1990\r\n\r\n### :bug: Bug Fixes\r\n\r\n- ci: add permission comments and remove redundant comments from workflows @hrzlgnm #1985\r\n- fix: use RULESET_ID secret instead of hardcoded ruleset ID @hrzlgnm #1986\r\n- fix: address issues reported by actionlint @hrzlgnm #1988\r\n\r\n### 🧰 Maintenance\r\n\r\n- chore: temporary disable sscache to debug #1964 @hrzlgnm #1965\r\n- feat(ci): extract cargo-edit installation into reusable workflow @hrzlgnm #1969\r\n- chore: cached install komac using cargo-install @hrzlgnm #1973\r\n- chore: pass winget token via env to komac @hrzlgnm #1976\r\n- chore: improve cache-tools job ordering  @hrzlgnm #1978\r\n- chore: Enable SCCACHE action again @hrzlgnm #1979\r\n- chore: add actionlint and shellcheck to arch aur builder @hrzlgnm #1991\r\n- chore: don't allow skipping actionlint job @hrzlgnm #1994\r\n\r\n### :scroll: Documentation\r\n\r\n- docs: update agent instructions @hrzlgnm #1982\r\n- docs: address a leftover review comment @hrzlgnm #1984\r\n\r\n### :arrow_up: Dependency Updates\r\n\r\n<details>\r\n<summary>13 changes</summary>\r\n\r\n- chore(deps): update dependency cargo-auditable to v0.7.4 @[renovate[bot]](https://github.com/apps/renovate) #1966\r\n- chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to f83d313 @[renovate[bot]](https://github.com/apps/renovate) #1967\r\n- chore(deps): update hrzlgnm/actions action to v2.0.4 @[renovate[bot]](https://github.com/apps/renovate) #1977\r\n- chore(deps): update release-drafter/release-drafter action to v6.3.0 @[renovate[bot]](https://github.com/apps/renovate) #1980\r\n- chore(deps): update release-drafter/release-drafter action to v6.4.0 @[renovate[bot]](https://github.com/apps/renovate) #1981\r\n- chore(deps): update ghcr.io/hrzlgnm/mdns-browser-arch-aur-builder:v1 docker digest to 6bb7b3e @[renovate[bot]](https://github.com/apps/renovate) #1992\r\n- chore(deps): pin ghcr.io/hrzlgnm/mdns-browser-arch-aur"
+          },
+          {
+            "name": "mDNS-Browser Release v1.5.11",
+            "tag_name": "mdns-browser-v1.5.11",
+            "published_at": "2026-03-04T15:42:31Z",
+            "body_excerpt": "## What's Changed\r\n\r\n### 🧰 Maintenance\r\n\r\n- chore: consolidate winget jobs to install komac only once @hrzlgnm #1957\r\n\r\n### :arrow_up: Dependency Updates\r\n\r\n- chore(deps): update dependency cargo-auditable to v0.7.3 @[renovate[bot]](https://github.com/apps/renovate) #1958\r\n- chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to bfdb24f @[renovate[bot]](https://github.com/apps/renovate) #1959\r\n- chore(deps): update hrzlgnm/actions action to v2.0.3 @[renovate[bot]](https://github.com/apps/renovate) #1960\r\n- chore(deps): update tauri monorepo @[renovate[bot]](https://github.com/apps/renovate) #1961\r\n- chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to e110288 @[renovate[bot]](https://github.com/apps/renovate) #1962\r\n- chore(deps): lock file maintenance @[renovate[bot]](https://github.com/apps/renovate) #1963\r\n\r\n### Full Changelog\r\n[mdns-browser-v1.5.9...mdns-browser-v1.5.11](https://github.com/hrzlgnm/mdns-browser/compare/mdns-browser-v1.5.9...mdns-browser-v1.5.11)\r\n"
+          },
+          {
+            "name": "mDNS-Browser Release v1.5.10",
+            "tag_name": "mdns-browser-v1.5.10",
+            "published_at": "2026-03-04T12:05:55Z",
+            "body_excerpt": "\n## What's Changed\n\n### 🧰 Maintenance\n\n- chore: consolidate winget jobs to install komac only once @hrzlgnm #1957\n\n### :arrow_up: Dependency Updates\n\n- chore(deps): update dependency cargo-auditable to v0.7.3 @[renovate[bot]](https://github.com/apps/renovate) #1958\n- chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to bfdb24f @[renovate[bot]](https://github.com/apps/renovate) #1959\n- chore(deps): update hrzlgnm/actions action to v2.0.3 @[renovate[bot]](https://github.com/apps/renovate) #1960\n- chore(deps): update tauri monorepo @[renovate[bot]](https://github.com/apps/renovate) #1961\n\n### Full Changelog\n[mdns-browser-v1.5.9...mdns-browser-v1.5.10](https://github.com/hrzlgnm/mdns-browser/compare/mdns-browser-v1.5.9...mdns-browser-v1.5.10)\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 5,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/hrzlgnm/mdns-browser/issues/5"
+          }
+        ]
+      },
+      "root_files": [
+        ".coderabbit.yaml",
+        ".config",
+        ".github",
+        ".gitignore",
+        ".grype.yaml",
+        ".prettierrc",
+        ".taurignore",
+        ".zed",
+        "AGENTS.md",
+        "BUILDING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "PRIVACY.md",
+        "README.md",
+        "Trunk.toml",
+        "crates",
+        "docs",
+        "index.html",
+        "index.js",
+        "packaging",
+        "public",
+        "src-tauri",
+        "src",
+        "styles.css",
+        "typos.toml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/hrzlgnm/mdns-browser/total) [![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/hrzlgnm/mdns-browser/latest/total)](https://github.com/hrzlgnm/mdns-browser/releases/latest) [![GitHub Release](https://img.shields.io/github/v/release/hrzlgnm/mdns-browser)](https://github.com/hrzlgnm/mdns-browser/releases/latest) [![GitHub Release Date](https://img.shields.io/github/release-date/hrzlgnm/mdns-browser)](https://github.com/hrzlgnm/mdns-browser/releases/latest) [![WinGet Package Version](https://img.shields.io/winget/v/hrzlgnm.mdns-browser)](https://winstall.app/apps/hrzlgnm.mdns-browser) [![AUR Version](https://img.shields.io/aur/version/mdns-browser-bin)](https://aur.archlinux.org/packages/mdns-browser-bin) [![License: MIT](https://img.shields.io/github/license/hrzlgnm/mdns-browser)](https://github.com/hrzlgnm/mdns-browser/blob/main/LICENSE) [![Build Status](https://img.shields.io/github/actions/workflow/status/hrzlgnm/mdns-browser/ci.yml)](https://github.com/hrzlgnm/mdns-browser/actions)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 2)",
+          "excerpt": "This application allows you to browse services using mDNS. For an alternative running in a terminal, check out [mDNS-TUI-Browser](https://github.com/hrzlgnm/mdns-tui-browser)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Screenshots from [v0.11.28](https://github.com/hrzlgnm/mdns-browser/releases/tag/mdns-browser-v0.11.28)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- [mDNS-Browser Overview](#mdns-browser) - [How to Build](#building) - [Command line options](#command-line-options) - [Where to find the executables?](#where-to-find-the-executables) - [GitHub Release](#github-releases) - [Winget Installation](#winget-installation) - [Arch Linux (AUR)](#arch-linux-aur) - [Void Linux](#void-linux) - [Auditable binaries](#auditable-binaries) - [Attested build artifacts](#attested-build-artifacts) - [Privacy](#privacy) - [Acknowledgments](#acknowledgments)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 5)",
+          "excerpt": "For instructions on building the application, checkout the document [BUILDING](BUILDING.md).",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Options: -l, --log-level <LOG_LEVEL> [default: info] [possible values: trace, debug, info, warn, error] -D, --enable-devtools Enable devtools at startup -f, --log-to-file Enable logging to file -d, --disable-dmabuf-renderer Disable dmabuf renderer, useful when having rendering issues -h, --help Print help -V, --version Print version",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- Windows: `%LOCALAPPDATA%\\com.github.hrzlgnm.mdns-browser\\logs` - Linux: `$XDG_DATA_HOME/com.github.hrzlgnm.mdns-browser/logs` or `$HOME/.local/share/com.github.hrzlgnm.mdns-browser/logs` - macOS: `~/Library/Logs/com.github.hrzlgnm.mdns-browser`",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser#readme",
+          "title": "README (segment 8)",
+          "excerpt": "The log file will be named `mdns-browser.log` and will contain log messages with a log-level having at least a level specified by the `log-level` option.",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser/issues/5",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "number": 5
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser/releases",
+          "title": "mdns-browser-v1.5.12",
+          "excerpt": "## What's Changed ### :sparkles: New Features - ci: add actionlint validation step to CI workflow @hrzlgnm #1990 ### :bug: Bug Fixes - ci: add permission comments and remove redundant comments from workflows @hrzlgnm #1985 - fix: use RULESET_ID secret instead of hardcoded ruleset ID @hrzlgnm #1986 - fix: address issues reported by actionlint @hrzlgnm #1988 ### 🧰 Maintenance - chore: temporary disable sscache to debug #1964 @hrzlgnm #1965 - feat(ci): extract cargo-edit installation into reusable workflow @hrzlgnm #1969 - chore: cached install komac using cargo-install @hrzlgnm #1973 - chore: pass winget token via env to komac @hrzlgnm #1976 - chore: improve cache-tools job ordering @hrzlgnm #1978 - chore: Enable SCCACHE action again @hrzlgnm #1979 - chore: add actionlint and shellcheck to arch aur builder @hrzlgnm #1991 - chore: don't allow skipping actionlint job @hrzlgnm #1994 ### :scroll: Documentation - docs: update agent instructions @hrzlgnm #1982 - docs: address a leftover review comment @hrzlgnm #1984 ### :arrow_up: Dependency Updates <details> <summary>13 changes</summary> - chore(deps): update dependency cargo-auditable to v0.7.4 @[renovate[bot]](https://github.com/apps/…",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "tag_name": "mdns-browser-v1.5.12",
+            "published_at": "2026-03-11T07:21:09Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser/releases",
+          "title": "mdns-browser-v1.5.11",
+          "excerpt": "## What's Changed ### 🧰 Maintenance - chore: consolidate winget jobs to install komac only once @hrzlgnm #1957 ### :arrow_up: Dependency Updates - chore(deps): update dependency cargo-auditable to v0.7.3 @[renovate[bot]](https://github.com/apps/renovate) #1958 - chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to bfdb24f @[renovate[bot]](https://github.com/apps/renovate) #1959 - chore(deps): update hrzlgnm/actions action to v2.0.3 @[renovate[bot]](https://github.com/apps/renovate) #1960 - chore(deps): update tauri monorepo @[renovate[bot]](https://github.com/apps/renovate) #1961 - chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to e110288 @[renovate[bot]](https://github.com/apps/renovate) #1962 - chore(deps): lock file maintenance @[renovate[bot]](https://github.com/apps/renovate) #1963 ### Full Changelog [mdns-browser-v1.5.9...mdns-browser-v1.5.11](https://github.com/hrzlgnm/mdns-browser/compare/mdns-browser-v1.5.9...mdns-browser-v1.5.11)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "tag_name": "mdns-browser-v1.5.11",
+            "published_at": "2026-03-04T15:42:31Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser/releases",
+          "title": "mdns-browser-v1.5.10",
+          "excerpt": "## What's Changed ### 🧰 Maintenance - chore: consolidate winget jobs to install komac only once @hrzlgnm #1957 ### :arrow_up: Dependency Updates - chore(deps): update dependency cargo-auditable to v0.7.3 @[renovate[bot]](https://github.com/apps/renovate) #1958 - chore(deps): update ghcr.io/hrzlgnm/mdns-browser-void-package-builder:v1 docker digest to bfdb24f @[renovate[bot]](https://github.com/apps/renovate) #1959 - chore(deps): update hrzlgnm/actions action to v2.0.3 @[renovate[bot]](https://github.com/apps/renovate) #1960 - chore(deps): update tauri monorepo @[renovate[bot]](https://github.com/apps/renovate) #1961 ### Full Changelog [mdns-browser-v1.5.9...mdns-browser-v1.5.10](https://github.com/hrzlgnm/mdns-browser/compare/mdns-browser-v1.5.9...mdns-browser-v1.5.10)",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "tag_name": "mdns-browser-v1.5.10",
+            "published_at": "2026-03-04T12:05:55Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/hrzlgnm/mdns-browser",
+          "title": "ROOT_FILES",
+          "excerpt": ".coderabbit.yaml, .config, .github, .gitignore, .grype.yaml, .prettierrc, .taurignore, .zed, AGENTS.md, BUILDING.md, Cargo.lock, Cargo.toml, LICENSE, PRIVACY.md, README.md, Trunk.toml, crates, docs, index.html, index.js, packaging, public, src-tauri, src, styles.css, typos.toml",
+          "fetched_at": "2026-03-14T04:45:29.042Z",
+          "meta": {
+            "repo_full_name": "hrzlgnm/mdns-browser",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "adityastomar67/zsh-conf",
+      "html_url": "https://github.com/adityastomar67/zsh-conf",
+      "description": "A highly optimised, feature rich zsh config with almost under ~20ms load times.",
+      "topics": [
+        "aliases",
+        "cli",
+        "config",
+        "oh-my-zsh",
+        "omz",
+        "shell",
+        "theme",
+        "tmux",
+        "zap",
+        "zinit",
+        "zsh",
+        "zshrc",
+        "zshrc-configs"
+      ],
+      "language": "Shell",
+      "stargazers_count": 138,
+      "forks_count": 6,
+      "open_issues_count": 1,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "remastered",
+      "pushed_at": "2026-03-14T04:37:36Z",
+      "created_at": "2023-04-28T03:27:19Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src=\"https://upload.wikimedia.org/wikipedia/commons/7/75/Z_Shell_Logo_Color_Vertical.svg\" alt=\"Zsh Logo\" width=\"150\">\n</p>\n\n<div align = \"center\">\n\n<h1><a href=\"https://github.com/adityastomar67/zsh-conf\">Zsh-Conf</a></h1>\n</div>\n\n> **Blazing Fast, Modular, and Aesthetic Zsh Configuration Framework.** <br> A shell config with ~20ms load times. (Tested on M4)\n\nThis configuration is designed for speed, modularity, and a beautiful terminal experience. It leverages modern tools like `zoxide`, `fzf`, `eza`, and `starship` to provide a powerful command-line environment without the bloat.\n\n---\n\n## ✨ Key Features\n\n- **🚀 Blazing Fast Startup**: Optimized with lazy-loading and bytecode compilation. Includes a built-in benchmark tool (`ZSH_BENCHMARK`).\n- **🧩 Modular Architecture**: Clean separation between core logic, plugins, and user-specific config.\n- **🔌 Plugin Management**: Done by own core module.\n- **🎨 Visual Excellence**:\n    - Integrated **Starship** prompt support.\n    - Syntax Highlighting & Auto-suggestions.\n    - \"Fancy Startup\" with ASCII art and motivational quotes.\n    - Popular \"Faaaah\" sounds on wrong command inputs.\n- **🛠️ Developer Ready**:\n    - Pre-configured for **Git**, **Go**, **Python**, **Node**, etc.\n    - **Tmux** auto-launch integration.\n    - **Neovim** profile switcher (LazyVim, NvChad, AstroNvim, etc.).\n- **🔒 Secure**: Environment variables and API keys are loaded safely from `.env`.\n\n---\n\n## 📦 Installation\n\nTo install, simply run the installation script:\n\n```zsh\n# Change directory to /tmp to avoid cluttering the home folder\ncd /tmp\n\n# Download the zsh configuration installer from the GitHub repository\n#   -L: ensures we follow links\n#   -o: specifies the output filename\ncurl -Lo \\\n    install.zsh \\\n    https://raw.githubusercontent.com/adityastomar67/zsh-conf/refs/heads/remastered/install.zsh\n\n# Grant execute permissions to the downloaded script\nchmod +x install.zsh\n\n# Run the installer\ncommand zsh install.zsh\n```\n\n### Protocol\n\nThe installation script executes a comprehensive setup flow:\n\n1.  **Environment Detection**: Identifies your operating system (macOS/Linux) and active package managers (Homebrew, APT, Pacman).\n2.  **Automated Provisioning**: Prompts to install missing dependencies using the most appropriate tool for your system.\n3.  **Atomic Backups**: Automatically creates timestamped backups of your existing `.zshrc`, `.zshenv`, and other shell configurations to prevent data loss.\n4.  **Core Installation**: Clones the framework into `~/.config/zsh-conf` and establishes the modular directory structure.\n5.  **Configuration Linking**: Generates symlinks for entry points and initializes a local `.env` file for private environment variables.\n6.  **Performance Optimization**: Compiles shell scripts into bytecode (`.zwc`) to guarantee the ~20ms startup time from the very first launch.\n\n<br>\n\n**Dependency Detection Details**\n\n- The installer detects tools already present via **PATH**, **Volta**, **NVM**, or the OS package manager.\n- For tools with different binary names (e.g., `ripgrep` → `rg`, `git-delta` → `delta`), the installer checks the correct binary.\n- On macOS, if Homebrew is missing, dependency installation is skipped with a clear message so you can install via your preferred manager.\n\n### Prerequisites\n\n- **Nerd Font**: Required for icons in the prompt and `lsd`/`eza`. (e.g., [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)).\n\n---\n\n## ⚙️ Configuration\n\nStart customizing by editing `~/.config/zsh-conf/user.conf`. This method is safe from git updates!<br>\nOr you can just run the `zsettings` command to know all the availabe customisable options and edit from right there.\n\n### 1. The `user.conf` File\n\nThis is your control center. Tweak flags to enable/disable features:\n\n```bash\n# ~/.config/zsh-conf/user.conf\n\n# ---------------- Features ---------------- #\nexport ENABLE_AUTO_TMUX=\"No\"        # Auto-start Tmux?\nexport LOAD_CUSTOM_ALIASES=\"Yes\"    # Load alias shortcuts?\nexport ENABLE_FANCY_STARTUP=\"No\"    # Show cool banner?\nexport ZSH_BENCHMARK=\"Yes\"          # Measure startup time?\n\n# ---------------- Visuals ----------------- #\nexport PROMPT_THEME=\"gh0st\"         # Choose your prompt!\nexport ENABLE_THEME_SH_INTEGRATION=\"No\"\n\n# ---------------- Performance ------------- #\nexport ENABLE_MINIMAL_MODE=\"No\"     # \"Yes\" for root/slow machines\n```\n\n### 2. User Overrides\n\nFor custom aliases, functions, or exports that you don't want tracked by git (or are specific to _this_ machine), use:\n\n- **File**: `~/User-Overrides.zsh`\n- **Usage**: Automatically sourced at the end of `.zshrc`.\n    - During installation, any `PATH` exports found in your existing `~/.zshrc` are copied into this file (once), so your custom paths are preserved.\n\n### 3. Secrets (API Keys)\n\nStore sensitive data in `.env` inside `~/.config/zsh-conf/`:\n\n```bash\n# ~/.config/zsh-conf/.env\nexport GITHUB_TOKEN=\"ghp_xxxx...\"\nexport OPENAI_API_KEY=\"sk-xxxx...\"\n```\n\n---\n\n## 📂 Project Structure\n\n```text\n~/.config/zsh-conf/\n├── .zshrc           # Main entry point (DO NOT EDIT)\n├── user.conf        # User configuration flags & paths\n├── install.zsh      # Installer script\n├── lib/             # Core functions and utilities\n├── plugins/         # Plugin definitions\n└── zsh/             # Zsh internals\n```\n\n---\n\n## 💡 Tips & Tricks\n\n- **Benchmark**: See how fast your shell loads with the built-in timer (needs `ZSH_BENCHMARK=\"Yes\"`).\n- **Update**: Pull the latest changes from the repo by running `dotup -z` (it handles backups safely).\n- **Mini Mode**: Set `ENABLE_MINIMAL_MODE=\"Yes\"` in `user.conf` for a lightweight, dependency-free shell on servers.\n  - **Excludes**: Plugin manager, heavy plugins (autosuggestions, syntax highlighting), Starship prompt, custom functions (`pj`, `lg`, `weather`), benchmarking tools, and the fancy startup sequence.\n  - **Retains**: Basic aliases, history management, basic completions, Vi-mode keybindings, and optional Tmux auto-start.\n\n---\n\n## 🚀 Deep Dive: Custom Functions\n\nThis config isn't just about aliases; it packs powerful functions to speed up your workflow.\n\n### 1. `pj` (Project Jumper)\n\nStop `cd`-ing into oblivion. `pj` uses `fzf` to fuzzy-find directories in your `~/Code`, `~/Projects`, or `~/Work` folders and jumps straight there.\n\n- **Usage**: `pj` (interactive) or `pj react` (query).\n- **Tech**: Powered by `fd` for speed and `fzf` for selection. It even integrates with `zoxide` to learn your habits.\n\n### 2. `lg` (Lazygit Wrapper)\n\nWhen you exit `lazygit`, you usually stay in the same directory you started in. `lg` fixes this.\n\n- If you change directories inside Lazygit, `lg` will `cd` you to that directory upon exit.\n- Keeps your shell context synced with your git context.\n\n### 3. `weather`\n\nFetches a beautiful weather report from `wttr.in`.\n\n- **Smart**: Automatically adjusts the format based on your terminal window size (full report on large screens, one-liner on phones).\n- **Usage**: `weather` (defaults to your location) or `weather London`.\n\n### 4. `kubectl` Guardrails\n\nEver deleted a production pod by mistake? Never again.\n\n- Wraps `kubectl` to check your current context.\n- If the context contains `prod`, `production`, or `live`, it **prompts for confirmation** before running destructive commands (`delete`, `apply`, `scale`).\n\n---\n\n## ⚡ Supercharged Aliases\n\nWe map short commands to their modern, faster equivalents.\n\n### Navigation\n\n| Alias        | Command         | Description                        |\n| :----------- | :-------------- | :--------------------------------- |\n| `..`         | `cd ..`         | Go up one level                    |\n| `...`        | `cd ../..`      | Go up two levels                   |\n| `.1` to `.9` | `cd -1`...      | Jump back in directory stack       |\n| `-pj`        | `cd ~/Projects` | Dynamic bookmark (see `user.conf`) |\n\n### Named Directories (Hashes)\n\nAny shortcut defined in `user.conf` also becomes a global named directory.\n\n- **`~pj`** -> Expands to `~/Projects`\n- **`cd ~pj/project-name`** -> Works instantly.\n- **`cp file.txt ~pj/`** -> Works instantly.\n- **Prompt Shortening**: The prompt will even display `~pj` instead of the full path.\n\n### Modern Replacements\n\n| Alias  | Original | Replacement   | Why?                                     |\n| :----- | :------- | :------------ | :--------------------------------------- |\n| `cat`  | `cat`    | **`bat`**     | Syntax highlighting & git integration    |\n| `ls`   | `ls`     | **`eza`**     | Icons, git status, better formatting     |\n| `grep` | `grep`   | **`ripgrep`** | 10x faster searching                     |\n| `find` | `find`   | **`fd`**      | Simple syntax, ignores git files         |\n| `diff` | `diff`   | **`delta`**   | Side-by-side diffs with syntax highlight |\n\n### Global Aliases (Pipes)\n\nUse these _anywhere_ in a command.\n\n- **`:G`** -> `| grep` (e.g., `ps aux :G python`)\n- **`:L`** -> `| less` (e.g., `cat huge_file.log :L`)\n- **`:NE`** -> `2> /dev/null` (Silence errors)\n\n### Suffix Aliases\n\nJust type the file name to open it!\n\n- `main.py` -> Runs `python main.py`\n- `README.md` -> Opens in `$EDITOR`\n- `image.png` -> Opens in system image viewer\n- `archive.zip` -> Lists contents\n\n### The \"Magic\" Fixer\n\n- **`please`**: Forgot `sudo`? Type `please`, and it re-runs the last command with sudo.\n- **`esc^3`**: Or maybe you're in buffer and want to add sudo to the command? just escape thrice, and sudo will be added to the command.\n\n### Contextual History Search\n\n- **`up arrow`**: Search through your history if you have something in your buffer. or shows the last command.\n\n---\n\n## 🧠 Core Utilities & Lazy Loading\n\n### Plugin Manager: `plug`\n\nA custom, lightweight (<100 lines) plugin manager built right into `_core.utils`.\n\n- **Fast**: Clones repos in parallel.\n- **Lazy**: Supports the `defer` keyword to load plugins only when the shell is idle, slashing startup time.\n\n### Eval Cache\n\nTools like `starship`, `zoxide`, and `rbenv` need to run `init` commands that can take 100ms+.\n\n- **Solution**: We cache the output of these commands to a file.\n- **Result**: Subsequent shells load instantly. The cache auto-refreshes if the binary changes.\n\n### Lazy Loading Wrappers\n\nWe don't load heavyweight tools like `nvm` (Node) or `pyenv` (Python) until you actually use them.\n\n- `nvm` is only loaded when you type `node`, `npm`, or `yarn`.\n- Saves huge amounts of startup time.\n\n### UI Enhanced Git commands\n\nCustom wrappers that turn standard `git` output into a rich, visual experience.\n\n- **`git clone`**: Adds visual headers, icons, and real-time stream coloring for a cleaner progress view.\n- **`git pull`**: Displays local/remote branch context before syncing, with colorized status updates.\n- **`git status`**: A complete overhaul using `awk` to provide an iconic, high-density overview of your workspace (Added `+`, Modified `M`, Deleted `D`, Conflicts `C`).\n- **`git log`**: An interactive TUI powered by `fzf`.\n    - **Preview**: Real-time `git show` of the selected commit.\n    - **Actions**: `Enter` to view full diff, `Ctrl-Y` to copy hash, `Ctrl-X` to copy message, and `Ctrl-O` to checkout.\n    - **Layout**: Perfectly aligned columns for Hash, Age, Author, and Message.\n\n---\n\nMade with ❤️ by `adityastomar67`\n",
+        "truncated": false,
+        "bytes": 11349,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 14,
+            "title": "cat->bat renaming seems to break auto-suggestion",
+            "state": "open",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/14"
+          },
+          {
+            "number": 15,
+            "title": "Install script states it deleted backups when I pressed No",
+            "state": "closed",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/15"
+          },
+          {
+            "number": 13,
+            "title": "User-Overrides.sh settings being overwritten",
+            "state": "closed",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/13"
+          },
+          {
+            "number": 10,
+            "title": "Some troubles with Atuin and lazy loading pyenv/nvm",
+            "state": "closed",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/10"
+          },
+          {
+            "number": 12,
+            "title": "Fancy startup ColorScript stopped printing",
+            "state": "closed",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/12"
+          },
+          {
+            "number": 11,
+            "title": "stderr not shown",
+            "state": "closed",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/11"
+          },
+          {
+            "number": 9,
+            "title": "Installer stops at \"Backup System\" with no feedback",
+            "state": "closed",
+            "url": "https://github.com/adityastomar67/zsh-conf/issues/9"
+          }
+        ]
+      },
+      "root_files": [
+        ".gitignore",
+        ".zshrc",
+        "LICENSE",
+        "README.md",
+        "env.example",
+        "install.zsh",
+        "uninstall.zsh",
+        "user.conf",
+        "zhistory",
+        "zsh"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src=\"https://upload.wikimedia.org/wikipedia/commons/7/75/Z_Shell_Logo_Color_Vertical.svg\" alt=\"Zsh Logo\" width=\"150\"> </p>",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 1,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<h1><a href=\"https://github.com/adityastomar67/zsh-conf\">Zsh-Conf</a></h1> </div>",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 2,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 3)",
+          "excerpt": "> **Blazing Fast, Modular, and Aesthetic Zsh Configuration Framework.** <br> A shell config with ~20ms load times. (Tested on M4)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 3,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 4)",
+          "excerpt": "This configuration is designed for speed, modularity, and a beautiful terminal experience. It leverages modern tools like `zoxide`, `fzf`, `eza`, and `starship` to provide a powerful command-line environment without the bloat.",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 4,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- **🚀 Blazing Fast Startup**: Optimized with lazy-loading and bytecode compilation. Includes a built-in benchmark tool (`ZSH_BENCHMARK`). - **🧩 Modular Architecture**: Clean separation between core logic, plugins, and user-specific config. - **🔌 Plugin Management**: Done by own core module. - **🎨 Visual Excellence**: - Integrated **Starship** prompt support. - Syntax Highlighting & Auto-suggestions. - \"Fancy Startup\" with ASCII art and motivational quotes. - Popular \"Faaaah\" sounds on wrong command inputs. - **🛠️ Developer Ready**: - Pre-configured for **Git**, **Go**, **Python**, **Node**, etc. - **Tmux** auto-launch integration. - **Neovim** profile switcher (LazyVim, NvChad, AstroNvim, etc.). - **🔒 Secure**: Environment variables and API keys are loaded safely from `.env`.",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 5,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 6)",
+          "excerpt": "# Download the zsh configuration installer from the GitHub repository # -L: ensures we follow links # -o: specifies the output filename curl -Lo \\ install.zsh \\ https://raw.githubusercontent.com/adityastomar67/zsh-conf/refs/heads/remastered/install.zsh",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 6,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 7)",
+          "excerpt": "1. **Environment Detection**: Identifies your operating system (macOS/Linux) and active package managers (Homebrew, APT, Pacman). 2. **Automated Provisioning**: Prompts to install missing dependencies using the most appropriate tool for your system. 3. **Atomic Backups**: Automatically creates timestamped backups of your existing `.zshrc`, `.zshenv`, and other shell configurations to prevent data loss. 4. **Core Installation**: Clones the framework into `~/.config/zsh-conf` and establishes the modular directory structure. 5. **Configuration Linking**: Generates symlinks for entry points and initializes a local `.env` file for private environment variables. 6. **Performance Optimization**: Compiles shell scripts into bytecode (`.zwc`) to guarantee the ~20ms startup time from the very first launch.",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 7,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/adityastomar67/zsh-conf#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- The installer detects tools already present via **PATH**, **Volta**, **NVM**, or the OS package manager. - For tools with different binary names (e.g., `ripgrep` → `rg`, `git-delta` → `delta`), the installer checks the correct binary. - On macOS, if Homebrew is missing, dependency installation is skipped with a clear message so you can install via your preferred manager.",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "segment": 8,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/14",
+          "title": "cat->bat renaming seems to break auto-suggestion",
+          "excerpt": "cat->bat renaming seems to break auto-suggestion (state:open)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 14
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/15",
+          "title": "Install script states it deleted backups when I pressed No",
+          "excerpt": "Install script states it deleted backups when I pressed No (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 15
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/13",
+          "title": "User-Overrides.sh settings being overwritten",
+          "excerpt": "User-Overrides.sh settings being overwritten (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 13
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/10",
+          "title": "Some troubles with Atuin and lazy loading pyenv/nvm",
+          "excerpt": "Some troubles with Atuin and lazy loading pyenv/nvm (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 10
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/12",
+          "title": "Fancy startup ColorScript stopped printing",
+          "excerpt": "Fancy startup ColorScript stopped printing (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 12
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/11",
+          "title": "stderr not shown",
+          "excerpt": "stderr not shown (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 11
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/adityastomar67/zsh-conf/issues/9",
+          "title": "Installer stops at \"Backup System\" with no feedback",
+          "excerpt": "Installer stops at \"Backup System\" with no feedback (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "number": 9
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/adityastomar67/zsh-conf",
+          "title": "ROOT_FILES",
+          "excerpt": ".gitignore, .zshrc, LICENSE, README.md, env.example, install.zsh, uninstall.zsh, user.conf, zhistory, zsh",
+          "fetched_at": "2026-03-14T04:45:29.027Z",
+          "meta": {
+            "repo_full_name": "adityastomar67/zsh-conf",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "Xinrea/bili-shadowreplay",
+      "html_url": "https://github.com/Xinrea/bili-shadowreplay",
+      "description": "bilibili 直播实时切片工具",
+      "topics": [
+        "bilibili",
+        "rust",
+        "svelte",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1009,
+      "forks_count": 66,
+      "open_issues_count": 15,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-14T04:37:07Z",
+      "created_at": "2023-04-08T07:32:34Z",
+      "readme": {
+        "fetched": true,
+        "text": "# BiliBili ShadowReplay\n\n![icon](docs/public/images/header.png)\n\n![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/xinrea/bili-shadowreplay/main.yml?label=Application%20Build)\n![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Xinrea/bili-shadowreplay/package.yml?label=Docker%20Build)\n![GitHub Release](https://img.shields.io/github/v/release/xinrea/bili-shadowreplay)\n![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/xinrea/bili-shadowreplay/total)\n[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Xinrea/bili-shadowreplay)\n\nBiliBili ShadowReplay 是一个缓存直播并进行实时编辑投稿的工具。通过划定时间区间，并编辑简单的必需信息，即可完成直播切片以及投稿，将整个流程压缩到分钟级。同时，也支持对缓存的历史直播进行回放，以及相同的切片编辑投稿处理流程。\n\n目前仅支持 B 站和抖音平台的直播。\n\n[![Star History Chart](https://api.star-history.com/svg?repos=Xinrea/bili-shadowreplay&type=Date)](https://www.star-history.com/#Xinrea/bili-shadowreplay&Date)\n\n## 安装和使用\n\n![rooms](docs/public/images/summary.png)\n\n前往网站查看说明：[BiliBili ShadowReplay](https://bsr.xinrea.cn/)\n\n## 参与开发\n\n可以通过 [DeepWiki](https://deepwiki.com/Xinrea/bili-shadowreplay) 了解本项目。\n\n贡献指南：[Contributing](.github/CONTRIBUTING.md)\n\n## 赞助\n\n<!-- markdownlint-disable MD033 -->\n<img src=\"docs/public/images/donate.png\" alt=\"donate\" width=\"300\">\n",
+        "truncated": false,
+        "bytes": 1613,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "BiliBili ShadowReplay v2.19.1",
+            "tag_name": "v2.19.1",
+            "published_at": "2026-03-11T01:38:29Z",
+            "body_excerpt": "> [!NOTE]\r\n> 如果你是第一次下载安装，请参考 [安装准备](https://bsr.xinrea.cn/getting-started/installation/desktop.html) 选择合适的版本。\r\n> Changelog: https://github.com/Xinrea/bili-shadowreplay/compare/v2.19.0...v2.19.1\r\n\r\n- 修复了 Docker 模式下切片生成失败的问题\r\n- 修复了 Safari 浏览器下录播预览 Airplay 图标与设置按钮重叠的问题"
+          },
+          {
+            "name": "BiliBili ShadowReplay v2.19.0",
+            "tag_name": "v2.19.0",
+            "published_at": "2026-03-07T11:12:26Z",
+            "body_excerpt": "> [!NOTE]\r\n> 如果你是第一次下载安装，请参考 [安装准备](https://bsr.xinrea.cn/getting-started/installation/desktop.html) 选择合适的版本。\r\n> Changelog: https://github.com/Xinrea/bili-shadowreplay/compare/v2.18.1...v2.19.0\r\n\r\n- 新增多片段切片转场选择，片段衔接更自然\r\n- 修复了生成切片时无法应用已激活选区的问题 @0x4qE\r\n- 修复了 Docker 版本文件加载访问的问题 @0x4qE\r\n- 修复了某些直播流缓存后无法预览的问题"
+          },
+          {
+            "name": "BiliBili ShadowReplay v2.18.1",
+            "tag_name": "v2.18.1",
+            "published_at": "2026-01-25T05:43:50Z",
+            "body_excerpt": "> [!NOTE]\r\n> 如果你是第一次下载安装，请参考 [安装准备](https://bsr.xinrea.cn/getting-started/installation/desktop.html) 选择合适的版本。\r\n> Changelog: https://github.com/Xinrea/bili-shadowreplay/compare/v2.17.0...v2.18.1\r\n\r\n- 新增选区激活 / 停用功能，可按需选取想要导出的选区 @0x4qE \r\n- 新增快手与 Tiktok 的录制支持 @Laihiujin\r\n- 修复了 B 站录制每一小时左右会分段的问题\r\n- 修复了录制会产生空白片段的问题"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 259,
+            "title": "[feature] 直播间配置 cookie选择 自定义分段录制 直播间自动切片任务   大佬看看有可以采纳的吗？",
+            "state": "open",
+            "url": "https://github.com/Xinrea/bili-shadowreplay/issues/259"
+          },
+          {
+            "number": 182,
+            "title": "[feature] 增加选择录制分辨率、增加4k直播的录制",
+            "state": "closed",
+            "url": "https://github.com/Xinrea/bili-shadowreplay/issues/182"
+          },
+          {
+            "number": 255,
+            "title": "[bug] Safari浏览器预览录播页面右下角的AirPlay图标与设置图标重合",
+            "state": "closed",
+            "url": "https://github.com/Xinrea/bili-shadowreplay/issues/255"
+          },
+          {
+            "number": 254,
+            "title": "[bug] docker部署生成切片时报错",
+            "state": "closed",
+            "url": "https://github.com/Xinrea/bili-shadowreplay/issues/254"
+          }
+        ]
+      },
+      "root_files": [
+        ".cursor",
+        ".devcontainer",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".helix",
+        ".ignore",
+        ".markdownlint.json",
+        ".pre-commit-config.yaml",
+        "CLAUDE.md",
+        "Dockerfile",
+        "LICENSE",
+        "README.md",
+        "VIDEO_EDITING_TOOLS.md",
+        "_typos.toml",
+        "build.ps1",
+        "cliff.toml",
+        "docs",
+        "ffmpeg_setup.ps1",
+        "index.html",
+        "index_clip.html",
+        "index_live.html",
+        "package.json",
+        "postcss.config.cjs",
+        "public",
+        "scripts",
+        "src-tauri",
+        "src",
+        "tailwind.config.js",
+        "test_merge.sh",
+        "test_output",
+        "test_videos",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts",
+        "yarn.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/xinrea/bili-shadowreplay/main.yml?label=Application%20Build) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Xinrea/bili-shadowreplay/package.yml?label=Docker%20Build) ![GitHub Release](https://img.shields.io/github/v/release/xinrea/bili-shadowreplay) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/xinrea/bili-shadowreplay/total) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Xinrea/bili-shadowreplay)",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay#readme",
+          "title": "README (segment 2)",
+          "excerpt": "BiliBili ShadowReplay 是一个缓存直播并进行实时编辑投稿的工具。通过划定时间区间，并编辑简单的必需信息，即可完成直播切片以及投稿，将整个流程压缩到分钟级。同时，也支持对缓存的历史直播进行回放，以及相同的切片编辑投稿处理流程。",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![Star History Chart](https://api.star-history.com/svg?repos=Xinrea/bili-shadowreplay&type=Date)](https://www.star-history.com/#Xinrea/bili-shadowreplay&Date)",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<!-- markdownlint-disable MD033 --> <img src=\"docs/public/images/donate.png\" alt=\"donate\" width=\"300\">",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/issues/259",
+          "title": "[feature] 直播间配置 cookie选择 自定义分段录制 直播间自动切片任务   大佬看看有可以采纳的吗？",
+          "excerpt": "[feature] 直播间配置 cookie选择 自定义分段录制 直播间自动切片任务 大佬看看有可以采纳的吗？ (state:open)",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "number": 259
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/issues/182",
+          "title": "[feature] 增加选择录制分辨率、增加4k直播的录制",
+          "excerpt": "[feature] 增加选择录制分辨率、增加4k直播的录制 (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "number": 182
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/issues/255",
+          "title": "[bug] Safari浏览器预览录播页面右下角的AirPlay图标与设置图标重合",
+          "excerpt": "[bug] Safari浏览器预览录播页面右下角的AirPlay图标与设置图标重合 (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "number": 255
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/issues/254",
+          "title": "[bug] docker部署生成切片时报错",
+          "excerpt": "[bug] docker部署生成切片时报错 (state:closed)",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "number": 254
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/releases",
+          "title": "v2.19.1",
+          "excerpt": "> [!NOTE] > 如果你是第一次下载安装，请参考 [安装准备](https://bsr.xinrea.cn/getting-started/installation/desktop.html) 选择合适的版本。 > Changelog: https://github.com/Xinrea/bili-shadowreplay/compare/v2.19.0...v2.19.1 - 修复了 Docker 模式下切片生成失败的问题 - 修复了 Safari 浏览器下录播预览 Airplay 图标与设置按钮重叠的问题",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "tag_name": "v2.19.1",
+            "published_at": "2026-03-11T01:38:29Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/releases",
+          "title": "v2.19.0",
+          "excerpt": "> [!NOTE] > 如果你是第一次下载安装，请参考 [安装准备](https://bsr.xinrea.cn/getting-started/installation/desktop.html) 选择合适的版本。 > Changelog: https://github.com/Xinrea/bili-shadowreplay/compare/v2.18.1...v2.19.0 - 新增多片段切片转场选择，片段衔接更自然 - 修复了生成切片时无法应用已激活选区的问题 @0x4qE - 修复了 Docker 版本文件加载访问的问题 @0x4qE - 修复了某些直播流缓存后无法预览的问题",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "tag_name": "v2.19.0",
+            "published_at": "2026-03-07T11:12:26Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay/releases",
+          "title": "v2.18.1",
+          "excerpt": "> [!NOTE] > 如果你是第一次下载安装，请参考 [安装准备](https://bsr.xinrea.cn/getting-started/installation/desktop.html) 选择合适的版本。 > Changelog: https://github.com/Xinrea/bili-shadowreplay/compare/v2.17.0...v2.18.1 - 新增选区激活 / 停用功能，可按需选取想要导出的选区 @0x4qE - 新增快手与 Tiktok 的录制支持 @Laihiujin - 修复了 B 站录制每一小时左右会分段的问题 - 修复了录制会产生空白片段的问题",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "tag_name": "v2.18.1",
+            "published_at": "2026-01-25T05:43:50Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Xinrea/bili-shadowreplay",
+          "title": "ROOT_FILES",
+          "excerpt": ".cursor, .devcontainer, .dockerignore, .github, .gitignore, .helix, .ignore, .markdownlint.json, .pre-commit-config.yaml, CLAUDE.md, Dockerfile, LICENSE, README.md, VIDEO_EDITING_TOOLS.md, _typos.toml, build.ps1, cliff.toml, docs, ffmpeg_setup.ps1, index.html, index_clip.html, index_live.html, package.json, postcss.config.cjs, public, scripts, src-tauri, src, tailwind.config.js, test_merge.sh, test_output, test_videos, tsconfig.json, tsconfig.node.json, vite.config.ts, yarn.lock",
+          "fetched_at": "2026-03-14T04:45:29.119Z",
+          "meta": {
+            "repo_full_name": "Xinrea/bili-shadowreplay",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "hrzlgnm/mdns-browser",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "adityastomar67/zsh-conf",
+      "evidence_count": 16,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 0
+    },
+    {
+      "full_name": "Xinrea/bili-shadowreplay",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 4,
+        "issue": 4,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 4,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "hrzlgnm/mdns-browser",
+      "ok": true,
+      "spec_path": "specs/2026-03-14/hrzlgnm__mdns-browser.json"
+    },
+    {
+      "repo": "adityastomar67/zsh-conf",
+      "ok": true,
+      "spec_path": "specs/2026-03-14/adityastomar67__zsh-conf.json"
+    },
+    {
+      "repo": "Xinrea/bili-shadowreplay",
+      "ok": true,
+      "spec_path": "specs/2026-03-14/Xinrea__bili-shadowreplay.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "hrzlgnm/mdns-browser",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-14/hrzlgnm__mdns-browser.json"
+    },
+    {
+      "repo": "adityastomar67/zsh-conf",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-14/adityastomar67__zsh-conf.json"
+    },
+    {
+      "repo": "Xinrea/bili-shadowreplay",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-14/Xinrea__bili-shadowreplay.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "hrzlgnm/mdns-browser",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-14/hrzlgnm__mdns-browser.json"
+      ]
+    },
+    {
+      "repo": "adityastomar67/zsh-conf",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-14/adityastomar67__zsh-conf.json"
+      ]
+    },
+    {
+      "repo": "Xinrea/bili-shadowreplay",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 3,
+          "cited": 3
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-14/Xinrea__bili-shadowreplay.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-14T04:45:45.562Z",
+      "run_id": "20260314T044524Z",
+      "repo": "hrzlgnm/mdns-browser",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "689ae95860cccd95d29763eed8101e3781b811914cb6502c4cec9ecbe60e30ee",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9061
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16439,
+      "prompt_chars": 9061,
+      "completion_chars": 1621
+    },
+    {
+      "ts": "2026-03-14T04:45:59.556Z",
+      "run_id": "20260314T044524Z",
+      "repo": "hrzlgnm/mdns-browser",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "15b2f36538a98f8c77bf0f6836d7d0205c5ed8429c91e1491093cecb9f030c2c",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10902
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13993,
+      "prompt_chars": 10902,
+      "completion_chars": 1522
+    },
+    {
+      "ts": "2026-03-14T04:46:17.158Z",
+      "run_id": "20260314T044524Z",
+      "repo": "hrzlgnm/mdns-browser",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ef87eaca487261d14521f13a38972d1cf9817e56f43d2c27fdfee11df1f9007e",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 12616
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17601,
+      "prompt_chars": 12616,
+      "completion_chars": 2001
+    },
+    {
+      "ts": "2026-03-14T04:46:34.299Z",
+      "run_id": "20260314T044524Z",
+      "repo": "hrzlgnm/mdns-browser",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6c7703964f0803de79e85025e3b350b85d39cee2f6687bb62aab0dfc82d8bb8f",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 14830
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17141,
+      "prompt_chars": 14830,
+      "completion_chars": 2184
+    },
+    {
+      "ts": "2026-03-14T04:47:04.781Z",
+      "run_id": "20260314T044524Z",
+      "repo": "hrzlgnm/mdns-browser",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1e5912602b305d6adc15d9e866545c3ee7ab5bd57e5d09a498ddaab3013ebf25",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 19852
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 30481,
+      "prompt_chars": 19852,
+      "completion_chars": 3193
+    },
+    {
+      "ts": "2026-03-14T04:47:20.171Z",
+      "run_id": "20260314T044524Z",
+      "repo": "adityastomar67/zsh-conf",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3efa6b18283fd48f45dbdb8d3a0177d33a02be327e4c1b231906fd7e8b0a735f",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 7669
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15374,
+      "prompt_chars": 7669,
+      "completion_chars": 1672
+    },
+    {
+      "ts": "2026-03-14T04:47:34.679Z",
+      "run_id": "20260314T044524Z",
+      "repo": "adityastomar67/zsh-conf",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "72a800b75874c39fb9342c1d08c57223fb749615c392e2a8df3425a2f66f3248",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 9569
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14507,
+      "prompt_chars": 9569,
+      "completion_chars": 1821
+    },
+    {
+      "ts": "2026-03-14T04:47:49.456Z",
+      "run_id": "20260314T044524Z",
+      "repo": "adityastomar67/zsh-conf",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fe961dc0e34045b0b01dedefa509a4ffd792c7518198a7e94a97162626353fb5",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 11606
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14777,
+      "prompt_chars": 11606,
+      "completion_chars": 1940
+    },
+    {
+      "ts": "2026-03-14T04:48:04.083Z",
+      "run_id": "20260314T044524Z",
+      "repo": "adityastomar67/zsh-conf",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4699f2a5100a4a350115dc212fd30f778ba54b476aa96fef236c774158c3f9e3",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 13759
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14627,
+      "prompt_chars": 13759,
+      "completion_chars": 1983
+    },
+    {
+      "ts": "2026-03-14T04:48:41.899Z",
+      "run_id": "20260314T044524Z",
+      "repo": "adityastomar67/zsh-conf",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5e3142cdf7b506f7c5afa6de0ca6a464afcfdba4e2a19315718a31529ff411d6",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 18596
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 37815,
+      "prompt_chars": 18596,
+      "completion_chars": 5482
+    },
+    {
+      "ts": "2026-03-14T04:48:54.173Z",
+      "run_id": "20260314T044524Z",
+      "repo": "Xinrea/bili-shadowreplay",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "325f16643b29fc64287bff603fdd6a92c7ccd589486c265a11adf90f5cab81c4",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 5873
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12270,
+      "prompt_chars": 5873,
+      "completion_chars": 1345
+    },
+    {
+      "ts": "2026-03-14T04:49:06.161Z",
+      "run_id": "20260314T044524Z",
+      "repo": "Xinrea/bili-shadowreplay",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "eeb8b4b4daa004240cd1d8e575c975c7dd57bad750f471d117de181899969575",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 7422
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11988,
+      "prompt_chars": 7422,
+      "completion_chars": 1333
+    },
+    {
+      "ts": "2026-03-14T04:49:20.608Z",
+      "run_id": "20260314T044524Z",
+      "repo": "Xinrea/bili-shadowreplay",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "70f83fb72ce55a2b858d869594080b6fb23aa76b3dca2381a968050fcba734b1",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8947
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14446,
+      "prompt_chars": 8947,
+      "completion_chars": 1602
+    },
+    {
+      "ts": "2026-03-14T04:49:35.139Z",
+      "run_id": "20260314T044524Z",
+      "repo": "Xinrea/bili-shadowreplay",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ab2914e5af474ec2f5a4cf0ede85273e507eeb0f6cce070449b029b3998146a5",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10746
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14531,
+      "prompt_chars": 10746,
+      "completion_chars": 1548
+    },
+    {
+      "ts": "2026-03-14T04:50:19.562Z",
+      "run_id": "20260314T044524Z",
+      "repo": "Xinrea/bili-shadowreplay",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e963528fcf122085849b3e809e7341a24d2108192e73f6ea385d56008fb56123",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 15172
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 44423,
+      "prompt_chars": 15172,
+      "completion_chars": 5026
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "hrzlgnm/mdns-browser",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "adityastomar67/zsh-conf",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "Xinrea/bili-shadowreplay",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "hrzlgnm/mdns-browser",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "adityastomar67/zsh-conf",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 16,
+      "evidence_total_final": 16,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "Xinrea/bili-shadowreplay",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1773463524215,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "hrzlgnm/mdns-browser": 5,
+      "adityastomar67/zsh-conf": 5,
+      "Xinrea/bili-shadowreplay": 5
+    },
+    "tokensApproxTotal": 52731,
+    "tokensApproxPerRepo": {
+      "hrzlgnm/mdns-browser": 19448,
+      "adityastomar67/zsh-conf": 18527,
+      "Xinrea/bili-shadowreplay": 14756
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "hrzlgnm/mdns-browser": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "The repository hrzlgnm/mdns-browser is a cross-platform mDNS browser built with Rust, Tauri, and Leptos. It offers pre-built binaries via GitHub Releases, Winget, AUR, and Void Linux, with strong emphasis on auditable builds, CI maintenance, and privacy. The project is actively maintained with recent releases focusing on CI improvements and dependency updates.",
+        "highlights": [
+          "Cross-platform mDNS service browser with GUI, supporting Windows, macOS, Linux (including AUR and Void).",
+          "Distributed through multiple package managers (Winget, AUR, Debian/RPM/Ubuntu packages) and provides attested, auditable binaries.",
+          "Actively maintained CI pipeline with recent focus on workflow validation (actionlint), caching, and secure secret handling.",
+          "Clear documentation including build instructions, command-line options, log locations, and privacy policy.",
+          "Uses modern Rust stack (Tauri + Leptos) and integrates automated dependency updates via Renovate."
+        ],
+        "risks": [
+          "Open Dependency Dashboard issue (E-IS-001) may indicate unresolved or unpatched dependencies, though recent releases show active dependency maintenance.",
+          "Heavy reliance on maintainer-driven CI scripts and custom Docker builders (e.g., mdns-browser-void-package-builder) could pose maintainability risks if contributor base remains small (only 3 forks)."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "The mdns-browser project introduces a cross-platform GUI tool for browsing mDNS services, built with a modern Rust/Tauri/Leptos stack and distributed via multiple native package ecosystems. It emphasizes reproducible, auditable builds and includes features like configurable logging, devtools support, and platform-specific installers.",
+        "highlights": [
+          "Invents a user-friendly GUI alternative to terminal-based mDNS browsers (e.g., mDNS-TUI-Browser), targeting desktop users across Windows, macOS, and Linux.",
+          "Integrates auditable builds using cargo-auditable and provides attested binaries, enhancing supply chain transparency.",
+          "Offers native distribution through Winget, AUR, Void, and GitHub Releases, reducing friction for end-user adoption.",
+          "Exposes developer-oriented features like devtools toggle and fine-grained log-level control via CLI flags.",
+          "Implements structured logging with platform-specific paths and file output, aiding diagnostics and user support."
+        ],
+        "risks": [
+          "Novelty is limited to UI/UX integration; core mDNS functionality likely relies on existing libraries (e.g., libmdns or Tauri plugins), reducing technical inventiveness.",
+          "Tight coupling to maintainer-authored CI infrastructure (e.g., custom Docker builders) may hinder community-driven innovation or portability."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "The mdns-browser repository is a well-structured, cross-platform Rust application using Tauri and Leptos to provide a GUI for mDNS service discovery. It features a mature CI/CD pipeline with auditable builds, multi-platform packaging (Winget, AUR, Void), and clear developer and user documentation. Recent engineering efforts focus on CI robustness, dependency hygiene, and secure workflow practices.",
+        "highlights": [
+          "Built with a modern Rust stack (Tauri + Leptos) and organized in a modular crate structure (evident from root files like 'crates/', 'src-tauri/', 'Cargo.toml').",
+          "Implements auditable builds via cargo-auditable (E-RL-002, E-RL-003) and provides attested artifacts, enhancing binary trustworthiness.",
+          "CI pipeline includes advanced practices: actionlint validation (E-RL-001), reusable workflows (E-RL-001), secret management (E-RL-001), and caching optimizations (E-RL-001).",
+          "Supports structured logging with platform-specific paths and configurable levels (E-RD-006, E-RD-007, E-RD-008), aiding debugging and support.",
+          "Distributed through native package managers (Winget, AUR, Void) with automated update mechanisms, reducing deployment friction."
+        ],
+        "risks": [
+          "Open Dependency Dashboard issue (E-IS-001) suggests potential unaddressed vulnerabilities or outdated dependencies, despite recent updates—requires monitoring.",
+          "Heavy reliance on maintainer-authored CI infrastructure (e.g., custom Docker builders referenced in E-RL-002/E-RL-003) creates a bus factor risk given low community contribution (only 3 forks).",
+          "Use of hardcoded paths or environment assumptions in logging (E-RD-007) may cause issues in non-standard Linux environments if XDG_DATA_HOME is not set."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While the mdns-browser project presents itself as a well-maintained, cross-platform mDNS browser with auditable builds and multi-platform distribution, closer scrutiny reveals potential overstatement of security assurances, unresolved dependency concerns, and heavy reliance on a single maintainer’s infrastructure without sufficient community validation.",
+        "highlights": [
+          "Claims of 'auditable binaries' and 'attested build artifacts' lack public verification mechanisms or third-party attestations—these appear to be self-asserted based on cargo-auditable usage alone.",
+          "Despite active CI maintenance, the open Dependency Dashboard issue (E-IS-001) remains unaddressed for an unknown duration, raising questions about actual dependency hygiene.",
+          "Distribution via multiple package managers (Winget, AUR, Void) is impressive but depends entirely on maintainer-controlled pipelines (e.g., custom Docker builders), with no evidence of independent packaging or review.",
+          "Logging paths assume standard environment variables (e.g., XDG_DATA_HOME), which may fail silently in minimal or containerized environments, potentially misleading users about log availability."
+        ],
+        "risks": [
+          "Security claims around 'auditable' and 'attested' builds may mislead users into assuming stronger supply-chain guarantees than actually implemented—no reproducible build instructions or verification tooling are documented.",
+          "The project’s sustainability is questionable: only 3 forks and sole maintainer activity suggest fragility; if the maintainer steps away, CI, packaging, and updates could halt abruptly.",
+          "Over-reliance on GitHub Actions secrets and hardcoded workflow logic (e.g., RULESET_ID secret in E-RL-001) increases risk of misconfiguration or credential leakage without external audit.",
+          "No evidence of security testing, fuzzing, or memory safety validation beyond standard Rust guarantees—despite handling network protocols (mDNS), which are common attack surfaces."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"mDNS Browser\",\n    \"one_sentence\": \"A cross-platform GUI application for browsing mDNS services, built with Rust, Tauri, and Leptos.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"The user launches the app to discover and inspect local mDNS services; the app continuously listens for service announcements and updates the UI in real time.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Service Browser\",\n      \"purpose\": \"Display discovered mDNS services in a searchable, filterable list with details like name, type, IP, and port.\",\n      \"primary_actions\": [\n        \"Refresh service list\",\n        \"View service details\",\n        \"Copy service info\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"start_mdns_discovery\",\n      \"purpose\": \"Initiates mDNS service discovery on the local network and streams results to the frontend.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"set_log_level\",\n      \"purpose\": \"Dynamically adjusts the application's logging verbosity based on user preference.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"mdns_services\",\n        \"fields\": [\n          {\n            \"name\": \"service_name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"service_type\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"ip_address\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"port\",\n            \"type\": \"u16\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up Tauri + Leptos project structure\",\n          \"Implement basic mDNS discovery using existing Rust libraries\",\n          \"Render discovered services in a responsive table\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"On launch, the app begins discovering mDN"
+      }
+    },
+    "adityastomar67/zsh-conf": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "scout",
+        "summary": "The repository provides a highly optimized, modular Zsh configuration framework focused on speed (~20ms load time), aesthetics, and developer productivity. It includes modern tooling integrations (e.g., Starship, zoxide, fzf), lazy-loading, bytecode compilation, and an automated installer with backup and dependency provisioning. However, several closed and one open issue indicate instability in user overrides, installer feedback, and compatibility with tools like bat and Atuin.",
+        "highlights": [
+          "Blazing-fast Zsh startup (~20ms) via lazy-loading and bytecode compilation.",
+          "Modular architecture with clean separation of core, plugins, and user config.",
+          "Automated installer with OS detection, dependency provisioning, and atomic backups.",
+          "Rich developer experience: pre-configured for Git, Go, Python, Node; Tmux and Neovim integration.",
+          "Security-conscious design with private environment variables loaded from .env."
+        ],
+        "risks": [
+          "User customizations (e.g., User-Overrides.sh) may be overwritten during updates.",
+          "Installer UX issues: misleading backup messages and lack of feedback during critical steps.",
+          "Compatibility problems with renamed binaries (e.g., cat → bat) breaking auto-suggestions.",
+          "Fancy startup features (e.g., ColorScript, sound effects) prone to failure or suppression.",
+          "Limited error visibility (e.g., stderr not shown) complicating debugging."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "inventor",
+        "summary": "The repository introduces a novel, performance-optimized Zsh configuration framework that combines lazy-loading, bytecode compilation, and modular design to achieve ~20ms startup times while integrating modern CLI tools and aesthetic enhancements. It features an intelligent installer with environment detection, atomic backups, and secure .env handling, but exhibits fragility in user customization persistence and edge-case compatibility.",
+        "highlights": [
+          "Achieves ~20ms shell startup via lazy-loading and Zsh bytecode (.zwc) compilation from first launch.",
+          "Modular architecture cleanly separates core logic, plugins, and user overrides for maintainability.",
+          "Installer auto-detects OS, package managers, and existing toolchains (e.g., Volta, NVM) to provision dependencies safely.",
+          "Integrates developer-centric tools: Starship prompt, zoxide, fzf, eza, Tmux auto-launch, and Neovim config switching.",
+          "Secure by design: loads secrets from .env and avoids hardcoding sensitive data."
+        ],
+        "risks": [
+          "User customizations in User-Overrides.sh may be silently overwritten during updates or reinstallation.",
+          "Binary renames (e.g., cat → bat) break auto-suggestions due to tight coupling with original command names.",
+          "Installer provides misleading feedback (e.g., claims backup deletion when user declines) and stalls without output during critical phases.",
+          "Fancy startup features (ColorScript, sound effects) are unreliable and prone to silent failure.",
+          "Suppressed stderr output hinders debugging of underlying shell or plugin errors."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "engineer",
+        "summary": "The repository delivers a high-performance, modular Zsh configuration framework engineered for sub-20ms startup via lazy-loading and bytecode compilation. It includes an automated installer with OS-aware dependency provisioning and atomic backups, alongside integrations for modern CLI tools and developer workflows. However, implementation flaws in user customization handling, installer feedback, and binary compatibility introduce reliability and maintainability concerns.",
+        "highlights": [
+          "Engineered for ~20ms shell startup using lazy-loading and Zsh bytecode (.zwc) compilation from first launch.",
+          "Modular design cleanly separates core logic, plugins, and user config (e.g., user.conf, User-Overrides.sh).",
+          "Installer performs environment detection (OS, package managers), safe dependency installation, and timestamped backups of existing configs.",
+          "Pre-integrated with performance-oriented tools: zoxide, fzf, eza, Starship, Tmux, and Neovim config switcher.",
+          "Security-conscious: private variables loaded from .env; no hardcoded secrets in tracked files."
+        ],
+        "risks": [
+          "User customizations in User-Overrides.sh are vulnerable to being overwritten during reinstallation or updates.",
+          "Renaming standard utilities (e.g., cat → bat) breaks auto-suggestions due to hard-coded command assumptions.",
+          "Installer provides misleading output (e.g., falsely reports backup deletion when user declines) and stalls silently during backup phase.",
+          "Fancy startup features (ColorScript, sound effects) exhibit flaky behavior and may fail without error indication.",
+          "Critical stderr output is suppressed, hindering diagnosis of underlying shell or plugin failures."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "skeptic",
+        "summary": "While the repository claims exceptional performance and robustness, evidence from user-reported issues reveals recurring instability in core functionality—particularly around customization persistence, installer reliability, and compatibility with common tool substitutions. The aggressive performance claims (~20ms load time) lack independent verification, and several 'features' appear more gimmicky than practical.",
+        "highlights": [
+          "Claims of ~20ms startup rely on bytecode compilation and lazy-loading, but real-world conditions (e.g., missing dependencies, tool renames) may invalidate this benchmark.",
+          "Modular design is undermined by reports of User-Overrides.sh being overwritten, suggesting poor update safety.",
+          "Installer promises 'atomic backups' and clear feedback, yet users report misleading messages and silent hangs during critical steps.",
+          "Integration of aesthetic features like sound effects and ColorScript appears fragile, with multiple closed issues indicating frequent breakage.",
+          "Compatibility assumptions (e.g., expecting `cat` instead of `bat`) reveal tight coupling that breaks expected shell behaviors."
+        ],
+        "risks": [
+          "Performance claims may not hold in heterogeneous environments, especially where tools are aliased or replaced.",
+          "User customizations are not reliably preserved, risking configuration loss during maintenance operations.",
+          "Installer lacks transparency and error resilience, potentially leaving systems in inconsistent states.",
+          "Overemphasis on visual flair (sounds, ASCII art) introduces unnecessary failure points without clear utility.",
+          "Suppression of stderr (per issue reports) obscures underlying errors, complicating troubleshooting for users and contributors alike."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Zsh-Conf\",\n    \"one_sentence\": \"A blazing-fast, modular, and aesthetic Zsh configuration framework with ~20ms load times.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User installs the framework via an automated installer that detects OS and package managers, provisions dependencies, creates atomic backups, links configuration files, and compiles scripts to bytecode for optimized startup; then uses a rich terminal environment with lazy-loaded plugins, Starship prompt, auto-suggestions, and developer tool integrations.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Terminal Shell\",\n      \"purpose\": \"Primary interactive shell interface with enhanced prompt, syntax highlighting, and command execution.\",\n      \"primary_actions\": [\n        \"Execute shell commands\",\n        \"Access lazy-loaded developer tools (Git, Go, Python, Node)\",\n        \"Trigger Neovim profile switcher\"\n      ]\n    },\n    {\n      \"id\": \"installer\",\n      \"name\": \"Installation Wizard\",\n      \"purpose\": \"Guides user through dependency detection, backup creation, and secure setup of the Zsh configuration.\",\n      \"primary_actions\": [\n        \"Detect operating system and package manager\",\n        \"Prompt for missing dependency installation\",\n        \"Create timestamped backups of existing configs\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"install_framework\",\n      \"purpose\": \"Downloads and sets up the Zsh configuration with environment detection and atomic backups.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"benchmark_startup\",\n      \"purpose\": \"Measures and reports shell startup time using the built-in ZSH_BENCHMARK tool.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"switch_neovim_profile\",\n      \"purpose\": \"Switches between supported Neovim configurations like LazyVim, NvChad, and AstroNvim.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n"
+      }
+    },
+    "Xinrea/bili-shadowreplay": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "Bili-ShadowReplay is an active, well-maintained tool for real-time caching, editing, and uploading of Bilibili live streams, with recent support for multi-platform recording and Docker deployment. It features a responsive release cadence addressing both feature requests and bug fixes.",
+        "highlights": [
+          "Enables minute-level live stream clipping and uploading with simple metadata input [ID:E-RD-002].",
+          "Supports historical replay and re-editing of cached streams [ID:E-RD-002].",
+          "Recent releases fixed critical Docker and Safari compatibility issues [ID:E-RL-001].",
+          "Expanding platform support: added快手 (Kuaishou) and TikTok recording [ID:E-RL-003].",
+          "Active development shown by frequent releases and community feature integration [ID:E-IS-001][ID:E-RL-002]."
+        ],
+        "risks": [
+          "Open feature request for customizable segment recording suggests current automation may be limited [ID:E-IS-001].",
+          "Docker deployment has had recurring issues with file access and slice generation [ID:E-IS-004][ID:E-RL-001][ID:E-RL-002].",
+          "UI overlap bug in Safari indicates potential cross-browser compatibility gaps [ID:E-IS-003][ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-001",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-004",
+          "E-IS-003",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "Bili-ShadowReplay is a novel live-stream clipping and repurposing tool that integrates real-time caching, selective editing, and automated publishing for Bilibili and other platforms, with recent innovations in multi-segment transitions and cross-platform recording.",
+        "highlights": [
+          "Introduces minute-level workflow for clipping and uploading live streams by combining caching and metadata-driven publishing [ID:E-RD-002].",
+          "Pioneers support for multi-platform live recording beyond Bilibili, including Kuaishou and TikTok [ID:E-RL-003].",
+          "Implements user-selectable active regions for export, enabling non-linear editing of cached streams [ID:E-RL-003].",
+          "Adds configurable video transitions between multiple clips to improve output quality [ID:E-RL-002]."
+        ],
+        "risks": [
+          "Core automation lacks customizable segment triggers, limiting hands-off operation [ID:E-IS-001].",
+          "Docker-based deployment shows fragility in file handling and slice generation across versions [ID:E-IS-004][ID:E-RL-001][ID:E-RL-002].",
+          "UI rendering issues on Safari suggest incomplete cross-browser validation [ID:E-IS-003][ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-003",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-004",
+          "E-RL-001",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "Bili-ShadowReplay is a Rust/Svelte/Tauri-based application that enables real-time caching, selective editing, and rapid publishing of Bilibili live streams, with growing multi-platform support and Docker deployment. The codebase shows active maintenance, modular structure, and responsiveness to user-reported issues.",
+        "highlights": [
+          "Built with Rust (backend via Tauri) and Svelte (frontend), indicating strong performance and modern web-native UI [ID:E-RF-001].",
+          "Docker support is integrated but has required repeated fixes for file access and slice generation [ID:E-RL-001][ID:E-RL-002][ID:E-IS-004].",
+          "Recent versions added multi-segment transitions and active region selection, enhancing editing precision [ID:E-RL-002][ID:E-RL-003].",
+          "Expanding beyond Bilibili: now supports Kuaishou and TikTok live recording [ID:E-RL-003].",
+          "Automated CI/CD via GitHub Actions for both application and Docker builds, ensuring release reliability [ID:E-RD-001]."
+        ],
+        "risks": [
+          "Docker deployment remains fragile—multiple releases addressed slice generation and file loading issues [ID:E-IS-004][ID:E-RL-001][ID:E-RL-002].",
+          "UI rendering bug in Safari suggests insufficient cross-browser testing in the frontend [ID:E-IS-003][ID:E-RL-001].",
+          "Open feature request for automated segment recording implies current workflow still requires manual intervention [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-001",
+          "E-IS-004",
+          "E-IS-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While Bili-ShadowReplay presents itself as a streamlined tool for live stream clipping and publishing, closer inspection reveals recurring stability issues in core deployment scenarios, incomplete automation, and potential overstatement of cross-platform readiness.",
+        "highlights": [
+          "Claims of 'minute-level' workflow [ID:E-RD-002] are undermined by open feature requests for basic automation like auto-segmentation [ID:E-IS-001].",
+          "Docker support is advertised via CI badges [ID:E-RD-001], yet repeated releases fix the same class of Docker-related failures [ID:E-RL-001][ID:E-RL-002][ID:E-IS-004].",
+          "Multi-platform support (Kuaishou, TikTok) is touted [ID:E-RL-003], but no evidence confirms parity in reliability or feature completeness with Bilibili functionality."
+        ],
+        "risks": [
+          "Persistent Docker issues suggest the containerized version—critical for reproducibility—is not production-ready despite being prominently featured [ID:E-IS-004][ID:E-RL-001][ID:E-RL-002].",
+          "UI bugs in Safari [ID:E-IS-003][ID:E-RL-001] indicate superficial browser testing, raising doubts about frontend robustness across environments.",
+          "The project relies on user donations (README includes donation image [ID:E-RD-004]) but lacks transparency on maintenance sustainability or team size, increasing abandonment risk."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-IS-001",
+          "E-RD-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-004",
+          "E-RL-003",
+          "E-IS-003",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Bili-ShadowReplay\",\n    \"one_sentence\": \"A tool for caching Bilibili live streams and enabling real-time editing and minute-level publishing of clips.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User caches live streams, selects time intervals, edits metadata, and publishes clips within minutes; also supports replay and re-editing of historical cached streams.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Dashboard\",\n      \"purpose\": \"Display cached live streams and provide access to clipping and publishing workflows.\",\n      \"primary_actions\": [\n        \"Select time interval\",\n        \"Edit clip metadata\",\n        \"Publish to Bilibili\"\n      ]\n    },\n    {\n      \"id\": \"preview\",\n      \"name\": \"Stream Preview\",\n      \"purpose\": \"Preview cached or live stream segments before clipping.\",\n      \"primary_actions\": [\n        \"Play/pause stream\",\n        \"Set in/out points\",\n        \"Activate/deactivate export regions\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Recording Settings\",\n      \"purpose\": \"Configure recording options including platform, resolution, and automation preferences.\",\n      \"primary_actions\": [\n        \"Select platform (Bilibili, Kuaishou, TikTok)\",\n        \"Choose resolution\",\n        \"Enable auto-segmentation\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"generate_clip\",\n      \"purpose\": \"Generate a video clip from selected time intervals of a cached stream.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"publish_to_bilibili\",\n      \"purpose\": \"Upload and publish a generated clip to Bilibili with provided metadata.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"record_stream\",\n      \"purpose\": \"Initiate or manage live stream recording for supported platforms.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"cach"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "hrzlgnm/mdns-browser",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 7,
+        "engineer": 12,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "adityastomar67/zsh-conf",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 10,
+        "engineer": 10,
+        "skeptic": 9,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "Xinrea/bili-shadowreplay",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 7,
+        "inventor": 7,
+        "engineer": 8,
+        "skeptic": 9,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=127",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] adityastomar67/zsh-conf evidence total=16 readme=8 issue=7 release=0 root_files=1",
+    "[repo_card_builder] hrzlgnm/mdns-browser evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] Xinrea/bili-shadowreplay evidence total=12 readme=4 issue=4 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=41 gaps=0",
+    "[llm_spec_generator] hrzlgnm/mdns-browser canonical spec ok (iter=1) -> specs/2026-03-14/hrzlgnm__mdns-browser.json",
+    "[llm_spec_generator] adityastomar67/zsh-conf canonical spec ok (iter=1) -> specs/2026-03-14/adityastomar67__zsh-conf.json",
+    "[llm_spec_generator] Xinrea/bili-shadowreplay canonical spec ok (iter=1) -> specs/2026-03-14/Xinrea__bili-shadowreplay.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-14T04:45:24.214Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:24.237Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260314T044524Z"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:24.237Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:24.241Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:24.794Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:24.794Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:25.378Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:25.378Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:25.863Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:25.863Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:26.269Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:26.269Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:26.644Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:26.644Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:27.003Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:27.003Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:27.538Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:27.538Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:27.813Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:27.813Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.260Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.260Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.688Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.693Z",
+      "run_id": "20260314T044524Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 127
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.693Z",
+      "run_id": "20260314T044524Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.696Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-14T04:45:28.696Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "hrzlgnm__mdns-browser/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.697Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "hrzlgnm__mdns-browser/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.699Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "hrzlgnm__mdns-browser/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.700Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "hrzlgnm__mdns-browser/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.702Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-14T04:45:28.702Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "adityastomar67__zsh-conf/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.703Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "adityastomar67__zsh-conf/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.704Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "adityastomar67__zsh-conf/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.706Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "adityastomar67__zsh-conf/root_files_remastered.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.707Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-14T04:45:28.707Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Xinrea__bili-shadowreplay/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.708Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Xinrea__bili-shadowreplay/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.709Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Xinrea__bili-shadowreplay/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:28.710Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Xinrea__bili-shadowreplay/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.027Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 11349,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.027Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.027Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.027Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 325
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.029Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 16,
+        "readme": 8,
+        "issues": 7,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.042Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 6759,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.042Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.042Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.042Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 346
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.042Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.119Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 1613,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.119Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.119Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.119Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 412
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.119Z",
+      "run_id": "20260314T044524Z",
+      "node": "repo_card_builder",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 4,
+        "issues": 4,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.123Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:29.123Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:45.562Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1621,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:45:59.556Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1522,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:46:17.158Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2001,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:46:34.299Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2184,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:04.781Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3193,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:04.794Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:04.795Z",
+      "run_id": "20260314T044524Z",
+      "node": "artifacts",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-14/hrzlgnm__mdns-browser.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:04.795Z",
+      "run_id": "20260314T044524Z",
+      "node": "artifacts",
+      "repo": "hrzlgnm/mdns-browser",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-14/hrzlgnm__mdns-browser.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:04.796Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 16,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:04.796Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 16,
+        "evidence_selected": 16,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:20.171Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1672,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:34.679Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1821,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:47:49.456Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1940,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:04.083Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1983,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:41.899Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5482,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:41.901Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:41.902Z",
+      "run_id": "20260314T044524Z",
+      "node": "artifacts",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-14/adityastomar67__zsh-conf.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:41.902Z",
+      "run_id": "20260314T044524Z",
+      "node": "artifacts",
+      "repo": "adityastomar67/zsh-conf",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-14/adityastomar67__zsh-conf.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:41.902Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 4,
+          "issue": 4,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:41.902Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-14T04:48:54.173Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1345,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:49:06.161Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1333,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:49:20.608Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1602,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:49:35.139Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1548,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.562Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5026,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.563Z",
+      "run_id": "20260314T044524Z",
+      "node": "llm_spec_generator",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.564Z",
+      "run_id": "20260314T044524Z",
+      "node": "artifacts",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-14/Xinrea__bili-shadowreplay.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.564Z",
+      "run_id": "20260314T044524Z",
+      "node": "artifacts",
+      "repo": "Xinrea/bili-shadowreplay",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-14/Xinrea__bili-shadowreplay.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.567Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.567Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1773463524215,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "hrzlgnm/mdns-browser": 5,
+          "adityastomar67/zsh-conf": 5,
+          "Xinrea/bili-shadowreplay": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.568Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-14T04:50:19.568Z",
+      "run_id": "20260314T044524Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-14",
+    "evidence_dir": "evidence/2026-03-14"
+  }
+}

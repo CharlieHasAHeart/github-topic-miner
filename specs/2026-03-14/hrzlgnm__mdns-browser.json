@@ -1,0 +1,87 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "mDNS Browser",
+    "one_liner": "A cross-platform GUI application for browsing mDNS services, built with Rust, Tauri, and Leptos."
+  },
+  "screens": [
+    {
+      "name": "Service Browser",
+      "purpose": "Display discovered mDNS services in a searchable, filterable list with details like name, type, IP, and port.",
+      "primary_actions": [
+        "Copy service info",
+        "Refresh service list",
+        "View service details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "set_log_level",
+      "purpose": "Dynamically adjusts the application's logging verbosity based on user preference.",
+      "async": false,
+      "input": {
+        "ip_address": "string",
+        "payload": "json",
+        "port": "string",
+        "service_name": "string",
+        "service_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_mdns_discovery",
+      "purpose": "Initiates mDNS service discovery on the local network and streams results to the frontend.",
+      "async": true,
+      "input": {
+        "ip_address": "string",
+        "payload": "json",
+        "port": "string",
+        "service_name": "string",
+        "service_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "mdns_services",
+        "columns": [
+          {
+            "name": "ip_address",
+            "type": "TEXT"
+          },
+          {
+            "name": "port",
+            "type": "TEXT"
+          },
+          {
+            "name": "service_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "service_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic mDNS discovery using existing Rust libraries",
+    "week 1: Render discovered services in a responsive table",
+    "week 1: Set up Tauri + Leptos project structure"
+  ],
+  "acceptance_tests": [
+    "Log level can be changed via command-line flag and affects file output.",
+    "On launch, the app begins discovering mDNS services without user input.",
+    "Services are displayed with name, type, IP, and port within 5 seconds of appearing on the network."
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Bili-ShadowReplay",
+    "one_liner": "A tool for caching Bilibili live streams and enabling real-time editing and minute-level publishing of clips."
+  },
+  "screens": [
+    {
+      "name": "Main Dashboard",
+      "purpose": "Display cached live streams and provide access to clipping and publishing workflows.",
+      "primary_actions": [
+        "Edit clip metadata",
+        "Publish to Bilibili",
+        "Select time interval"
+      ]
+    },
+    {
+      "name": "Recording Settings",
+      "purpose": "Configure recording options including platform, resolution, and automation preferences.",
+      "primary_actions": [
+        "Choose resolution",
+        "Enable auto-segmentation",
+        "Select platform (Bilibili, Kuaishou, TikTok)"
+      ]
+    },
+    {
+      "name": "Stream Preview",
+      "purpose": "Preview cached or live stream segments before clipping.",
+      "primary_actions": [
+        "Activate/deactivate export regions",
+        "Play/pause stream",
+        "Set in/out points"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_clip",
+      "purpose": "Generate a video clip from selected time intervals of a cached stream.",
+      "async": true,
+      "input": {
+        "end_time": "timestamp",
+        "file_path": "string",
+        "payload": "json",
+        "platform": "string",
+        "start_time": "timestamp",
+        "stream_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "publish_to_bilibili",
+      "purpose": "Upload and publish a generated clip to Bilibili with provided metadata.",
+      "async": true,
+      "input": {
+        "end_time": "timestamp",
+        "file_path": "string",
+        "payload": "json",
+        "platform": "string",
+        "start_time": "timestamp",
+        "stream_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "record_stream",
+      "purpose": "Initiate or manage live stream recording for supported platforms.",
+      "async": true,
+      "input": {
+        "end_time": "timestamp",
+        "file_path": "string",
+        "payload": "json",
+        "platform": "string",
+        "start_time": "timestamp",
+        "stream_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cached_streams",
+        "columns": [
+          {
+            "name": "end_time",
+            "type": "DATETIME"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "platform",
+            "type": "TEXT"
+          },
+          {
+            "name": "start_time",
+            "type": "DATETIME"
+          },
+          {
+            "name": "stream_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "clips",
+        "columns": [
+          {
+            "name": "clip_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "in_point",
+            "type": "INTEGER"
+          },
+          {
+            "name": "is_active",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "out_point",
+            "type": "INTEGER"
+          },
+          {
+            "name": "stream_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic clip selection UI",
+    "week 1: Implement core stream caching mechanism",
+    "week 1: Integrate Bilibili publishing API"
+  ],
+  "acceptance_tests": [
+    "Kuaishou and TikTok streams can be recorded and cached like Bilibili streams.",
+    "Multi-segment clips apply user-selected transitions during generation.",
+    "Safari browser displays stream preview controls without overlapping UI elements.",
+    "User can generate a clip from a cached Bilibili stream without errors in Docker environment."
+  ]
+}

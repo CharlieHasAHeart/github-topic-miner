@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Zsh-Conf",
+    "one_liner": "A blazing-fast, modular, and aesthetic Zsh configuration framework with ~20ms load times."
+  },
+  "screens": [
+    {
+      "name": "Installation Wizard",
+      "purpose": "Guides user through dependency detection, backup creation, and secure setup of the Zsh configuration.",
+      "primary_actions": [
+        "Create timestamped backups of existing configs",
+        "Detect operating system and package manager",
+        "Prompt for missing dependency installation"
+      ]
+    },
+    {
+      "name": "Terminal Shell",
+      "purpose": "Primary interactive shell interface with enhanced prompt, syntax highlighting, and command execution.",
+      "primary_actions": [
+        "Access lazy-loaded developer tools (Git, Go, Python, Node)",
+        "Execute shell commands",
+        "Trigger Neovim profile switcher"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "benchmark_startup",
+      "purpose": "Measures and reports shell startup time using the built-in ZSH_BENCHMARK tool.",
+      "async": true,
+      "input": {
+        "backup_timestamp": "string",
+        "original_file": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "install_framework",
+      "purpose": "Downloads and sets up the Zsh configuration with environment detection and atomic backups.",
+      "async": true,
+      "input": {
+        "backup_timestamp": "string",
+        "original_file": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "switch_neovim_profile",
+      "purpose": "Switches between supported Neovim configurations like LazyVim, NvChad, and AstroNvim.",
+      "async": true,
+      "input": {
+        "backup_timestamp": "string",
+        "original_file": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "backup_records",
+        "columns": [
+          {
+            "name": "backup_timestamp",
+            "type": "TEXT"
+          },
+          {
+            "name": "original_file",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "installed_plugins",
+        "columns": [
+          {
+            "name": "lazy_loaded",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "plugin_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "user_config",
+        "columns": [
+          {
+            "name": "env_file",
+            "type": "TEXT"
+          },
+          {
+            "name": "overrides_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core installer logic with OS detection and backup creation",
+    "week 1: Integrate Starship prompt and basic syntax highlighting",
+    "week 1: Set up lazy-loading scaffold for plugins",
+    "week 2: Add Neovim profile switcher",
+    "week 2: Configure secure .env loading",
+    "week 2: Implement ZSH_BENCHMARK tool"
+  ],
+  "acceptance_tests": [
+    "After installation, shell startup time is under 25ms on M4 hardware as measured by ZSH_BENCHMARK.",
+    "Fancy startup features (ColorScript, sound effects) activate reliably on shell launch.",
+    "Installer correctly detects macOS and skips Homebrew dependency installation when not present, showing clear message.",
+    "Renaming 'cat' to 'bat' does not break command auto-suggestions.",
+    "User-Overrides.sh modifications persist across reinstallation without being overwritten."
+  ]
+}
