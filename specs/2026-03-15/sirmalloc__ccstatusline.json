@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ccstatusline",
+    "one_liner": "A highly customizable terminal status line formatter for Claude Code CLI that displays real-time metrics like token usage, git status, and model info."
+  },
+  "screens": [
+    {
+      "name": "Status Line Display",
+      "purpose": "Render real-time telemetry widgets in the terminal status bar during Claude Code sessions.",
+      "primary_actions": [
+        "Access skills list or count",
+        "Monitor git branch and changes",
+        "Observe current model and thinking effort",
+        "View token usage and speed metrics"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "configure_widget",
+      "purpose": "Adjust widget settings such as speed window duration or skills display mode using the 'w' key in the status line interface.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "widgets",
+        "columns": [
+          {
+            "name": "config",
+            "type": "JSON"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add widget configuration interface triggered by 'w' key",
+    "week 1: Implement core status line rendering with basic token and git widgets",
+    "week 1: Integrate Anthropic usage API with HTTPS_PROXY support"
+  ],
+  "acceptance_tests": [
+    "macOS user with OAuth token in credentials file (not keychain) sees correct session usage after fix.",
+    "User can see real-time input/output/total token speed in status line with configurable window (0–120s)."
+  ]
+}

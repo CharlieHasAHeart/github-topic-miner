@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Server Block Nuxt",
+    "one_liner": "A Nuxt 3 module that enables <server> blocks in Single File Components to co-locate API handlers with page components."
+  },
+  "screens": [
+    {
+      "name": "Main Page Component Editor",
+      "purpose": "Allows developers to author Nuxt pages with embedded <server> blocks for API logic.",
+      "primary_actions": [
+        "Add <server> block to component",
+        "Configure Nuxt module",
+        "Install Volar extension"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_module",
+      "purpose": "Installs the @hebilicious/server-block-nuxt Nuxt module and its Volar companion.",
+      "async": true,
+      "input": {
+        "component_path": "string",
+        "handler_code": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "server_blocks",
+        "columns": [
+          {
+            "name": "component_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "handler_code",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create a page with a <server> block",
+    "week 1: Install @hebilicious/server-block-nuxt module",
+    "week 1: Set up Nuxt 3 project",
+    "week 1: Verify endpoint is generated and functional"
+  ],
+  "acceptance_tests": [
+    "After installing the module, a <server> block in a .vue file compiles into a working API endpoint.",
+    "The Volar extension is automatically available in the IDE for type-checking server blocks."
+  ]
+}

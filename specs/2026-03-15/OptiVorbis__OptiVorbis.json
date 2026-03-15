@@ -1,0 +1,86 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OptiVorbis",
+    "one_liner": "A library and application for lossless, format-preserving, two-pass optimization and repair of Vorbis data, reducing its size without altering any audio information."
+  },
+  "screens": [
+    {
+      "name": "OptiVorbis CLI Interface",
+      "purpose": "Provide command-line access to lossless Vorbis optimization and repair functionality.",
+      "primary_actions": [
+        "Display detailed error diagnostics",
+        "Optimize Vorbis file",
+        "Repair malformed Vorbis stream"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "optimize_vorbis",
+      "purpose": "Perform two-pass lossless optimization on an Ogg Vorbis file to reduce size while preserving audio fidelity.",
+      "async": false,
+      "input": {
+        "file_path": "string",
+        "is_repaired": "boolean",
+        "optimized_size_bytes": "int",
+        "original_size_bytes": "int",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "repair_vorbis",
+      "purpose": "Attempt to repair a malformed but recoverable Vorbis stream using lenient parsing and spec-compliant reconstruction.",
+      "async": false,
+      "input": {
+        "file_path": "string",
+        "is_repaired": "boolean",
+        "optimized_size_bytes": "int",
+        "original_size_bytes": "int",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "vorbis_streams",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_repaired",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "optimized_size_bytes",
+            "type": "INTEGER"
+          },
+          {
+            "name": "original_size_bytes",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add CLI interface with basic commands",
+    "week 1: Implement core two-pass Vorbis optimizer",
+    "week 1: Integrate lenient parser for repair capability"
+  ],
+  "acceptance_tests": [
+    "Given a malformed but recoverable Vorbis stream, when processed by OptiVorbis, then the tool either repairs it successfully or provides actionable error diagnostics.",
+    "Given a valid Ogg Vorbis file, when optimized with OptiVorbis, then the output file decodes to identical audio samples and is smaller in size."
+  ]
+}

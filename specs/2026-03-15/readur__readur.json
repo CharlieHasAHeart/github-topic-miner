@@ -1,0 +1,128 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Readur",
+    "one_liner": "A modern, self-hosted document management system with OCR, secure authentication, and role-based access control."
+  },
+  "screens": [
+    {
+      "name": "Admin Settings",
+      "purpose": "Configure system settings, manage users, and view authentication options including OIDC/SSO.",
+      "primary_actions": [
+        "Configure OCR languages",
+        "Manage user roles",
+        "Reset admin password"
+      ]
+    },
+    {
+      "name": "Document Dashboard",
+      "purpose": "View, search, and manage uploaded documents with OCR-extracted text.",
+      "primary_actions": [
+        "Filter by file type or date",
+        "Search documents by content",
+        "Upload new document"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "reset_admin_password",
+      "purpose": "Regenerate and output a new secure admin password via CLI.",
+      "async": false,
+      "input": {
+        "filename": "string",
+        "language": "string",
+        "mime_type": "string",
+        "ocr_text": "string",
+        "payload": "json",
+        "uploaded_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist uploaded document metadata and extracted OCR text to storage.",
+      "async": true,
+      "input": {
+        "filename": "string",
+        "language": "string",
+        "mime_type": "string",
+        "ocr_text": "string",
+        "payload": "json",
+        "uploaded_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "documents",
+        "columns": [
+          {
+            "name": "filename",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "mime_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "ocr_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "uploaded_at",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "users",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "password_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "role",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build React drag-and-drop upload UI",
+    "week 1: Create Docker Compose deployment",
+    "week 1: Implement Tesseract OCR integration",
+    "week 1: Set up Rust backend with JWT auth and bcrypt"
+  ],
+  "acceptance_tests": [
+    "Admin can reset password using CLI command without downtime.",
+    "On first startup, system generates and logs a secure admin password exactly once.",
+    "User can upload a PDF and search its OCR-extracted text within 5 seconds."
+  ]
+}
