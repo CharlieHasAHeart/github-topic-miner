@@ -1,0 +1,2427 @@
+{
+  "run_id": "20260316T051928Z",
+  "generated_at": "2026-03-16T05:19:28.021Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 19,
+    "evidence_by_type": {
+      "readme": 9,
+      "issue": 2,
+      "release": 6,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-16T05:22:56.946Z",
+    "repo_count": 136
+  },
+  "candidates": [
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 624,
+      "forks_count": 168,
+      "open_issues_count": 1323,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-16T05:18:13Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    },
+    {
+      "full_name": "MeshAddicts/meshinfo",
+      "html_url": "https://github.com/MeshAddicts/meshinfo",
+      "description": "Realtime web UI to run against a Meshtastic regional or private mesh network.",
+      "topics": [
+        "lora",
+        "m",
+        "mesh",
+        "mesh-networks",
+        "meshtastic",
+        "meshtastic-python",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 129,
+      "forks_count": 18,
+      "open_issues_count": 19,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "develop",
+      "pushed_at": "2026-03-16T05:17:59Z",
+      "created_at": "2024-05-29T02:15:44Z"
+    },
+    {
+      "full_name": "makroumi/slowql",
+      "html_url": "https://github.com/makroumi/slowql",
+      "description": "SQL static analyzer for performance, security, compliance and  cost. 171 rules. Completely offline. Works in CI pipelines.",
+      "topics": [
+        "ai-tools",
+        "anti-patterns",
+        "ci-cd",
+        "cli",
+        "database-optimization",
+        "database-security",
+        "developer-tool",
+        "devops",
+        "devsecops",
+        "mysql",
+        "observibility",
+        "performance",
+        "postgresql",
+        "python",
+        "query-optimization",
+        "security",
+        "sql",
+        "sql-analyzer",
+        "sql-linter",
+        "static-analysis"
+      ],
+      "language": "Python",
+      "stargazers_count": 76,
+      "forks_count": 8,
+      "open_issues_count": 0,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-16T05:16:31Z",
+      "created_at": "2025-11-20T06:59:10Z"
+    },
+    {
+      "full_name": "fastrepl/char",
+      "html_url": "https://github.com/fastrepl/char",
+      "description": "AI notepad for meetings",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 7959,
+      "forks_count": 554,
+      "open_issues_count": 139,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-16T05:15:39Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "wireapp/wire-webapp",
+      "html_url": "https://github.com/wireapp/wire-webapp",
+      "description": "👽 Wire for web",
+      "topics": [
+        "end-to-end-encryption",
+        "hacktober",
+        "hacktoberfest",
+        "javascript",
+        "knockout",
+        "libsodium",
+        "messenger",
+        "reactjs",
+        "typescript",
+        "webapp",
+        "wire"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1185,
+      "forks_count": 305,
+      "open_issues_count": 24,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "dev",
+      "pushed_at": "2026-03-16T05:14:36Z",
+      "created_at": "2016-07-21T15:34:05Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "MeshAddicts/meshinfo",
+      "html_url": "https://github.com/MeshAddicts/meshinfo",
+      "description": "Realtime web UI to run against a Meshtastic regional or private mesh network.",
+      "topics": [
+        "lora",
+        "m",
+        "mesh",
+        "mesh-networks",
+        "meshtastic",
+        "meshtastic-python",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 129,
+      "forks_count": 18,
+      "open_issues_count": 19,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "develop",
+      "pushed_at": "2026-03-16T05:17:59Z",
+      "created_at": "2024-05-29T02:15:44Z"
+    },
+    {
+      "full_name": "makroumi/slowql",
+      "html_url": "https://github.com/makroumi/slowql",
+      "description": "SQL static analyzer for performance, security, compliance and  cost. 171 rules. Completely offline. Works in CI pipelines.",
+      "topics": [
+        "ai-tools",
+        "anti-patterns",
+        "ci-cd",
+        "cli",
+        "database-optimization",
+        "database-security",
+        "developer-tool",
+        "devops",
+        "devsecops",
+        "mysql",
+        "observibility",
+        "performance",
+        "postgresql",
+        "python",
+        "query-optimization",
+        "security",
+        "sql",
+        "sql-analyzer",
+        "sql-linter",
+        "static-analysis"
+      ],
+      "language": "Python",
+      "stargazers_count": 76,
+      "forks_count": 8,
+      "open_issues_count": 0,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-16T05:16:31Z",
+      "created_at": "2025-11-20T06:59:10Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "MeshAddicts/meshinfo",
+      "html_url": "https://github.com/MeshAddicts/meshinfo",
+      "description": "Realtime web UI to run against a Meshtastic regional or private mesh network.",
+      "topics": [
+        "lora",
+        "m",
+        "mesh",
+        "mesh-networks",
+        "meshtastic",
+        "meshtastic-python",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 129,
+      "forks_count": 18,
+      "open_issues_count": 19,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "develop",
+      "pushed_at": "2026-03-16T05:17:59Z",
+      "created_at": "2024-05-29T02:15:44Z",
+      "readme": {
+        "fetched": true,
+        "text": "# MeshInfo\r\n\r\nRealtime web UI to run against a Meshtastic regional or private mesh network.\r\n\r\n[![Docker Image](https://github.com/MeshAddicts/meshinfo/actions/workflows/docker.yml/badge.svg)](https://github.com/MeshAddicts/meshinfo/actions/workflows/docker.yml) ![GitHub Release](https://img.shields.io/github/v/release/meshaddicts/meshinfo) ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/meshaddicts/meshinfo)\r\n\r\n## Overview\r\n\r\nMeshInfo is written in Python and connects to an MQTT server that is receiving Meshtastic messages for the purpose of visualizing and inspecting traffic. It (currently) uses a filesystem to persist content, such as node info and telemetry. There are plans to optionally support Postgres and SQLite3 as optional persistance storage methods.\r\n\r\nTo make deployment to run an instance for your mesh easy, Docker support is included. We recommend using Docker Compose with a personalized version of the `docker-compose.yml` file to most easily deploy it, but any seasoned Docker user can also use the Docker image alone.\r\n\r\nIf you use MeshInfo and have a publicly accessible instance, we'd like to know! Drop a note to kevin@airframes.io with details and we'll link it below.\r\n\r\nSee an example instance running on the [Central Valley Mesh](https://meshinfo.cvme.sh).\r\n\r\nIf you are running a high elevation node, preferrably a `Router` or `Repeater` node, you might be interested in getting on the notification list for a [cavity filter](https://shop.airframes.io/products/lora-915mhz-filter) that Kevin and Trevor are having made.\r\n\r\nIf you're interested in aeronautical (ADS-B/ACARS/VDL/HFDL/SATCOM) or ship tracking (AIS), please take a look at sister project [Airframes](https://airframes.io) / [Airframes Github](https://github.com/airframesio).\r\n\r\n## Screenshots\r\n\r\n[<img src=\"meshinfo1.png\" alt=\"MeshInfo Screenshot 1\" width=\"200\" />](meshinfo1.png)\r\n[<img src=\"meshinfo2.png\" alt=\"MeshInfo Screenshot 2\" width=\"200\" />](meshinfo2.png)\r\n[<img src=\"meshinfo3.png\" alt=\"MeshInfo Screenshot 3\" width=\"200\" />](meshinfo3.png)\r\n[<img src=\"meshinfo4.png\" alt=\"MeshInfo Screenshot 4\" width=\"200\" />](meshinfo4.png)\r\n[<img src=\"meshinfo5.png\" alt=\"MeshInfo Screenshot 5\" width=\"260\" />](meshinfo5.png)\r\n\r\n## Supported Meshtastic Message Types\r\n\r\n- neighborinfo\r\n- nodeinfo\r\n- position\r\n- telemetry\r\n- text\r\n- traceroute\r\n\r\n## Features\r\n\r\n### Current\r\n\r\n- Chat\r\n- Map\r\n- Nodes\r\n- Node Neighbors\r\n- Mesh Messages\r\n- MQTT Messages\r\n- Telemetry\r\n- Traceroutes\r\n\r\n### Upcoming\r\n\r\n- Statistics\r\n- Overview of Routes\r\n\r\n## Chat\r\n\r\nIf you're using this and have questions, or perhaps you want to join in on the dev effort and want to interact collaboratively, come chat with us on [#meshinfo on the SacValleyMesh Discord](https://discord.gg/tj6dADagDJ).\r\n\r\n## Running\r\n\r\n### Docker Compose (preferred for 24/7 servers)\r\n\r\n#### Setup\r\n\r\n##### Clone the repo\r\n\r\n```sh\r\ngit clone https://github.com/MeshAddicts/meshinfo.git\r\ncd meshinfo\r\n```\r\n\r\n##### Edit Configuration\r\n\r\n1. Copy and then edit the `config.toml.sample` to `config.toml` (or `config.json.sample` to `config.json` for legacy JSON format).\r\n2. Copy `Caddyfile.sample` to `Caddyfile` then edit the `Caddyfile` and be sure it is setup for your hostname (FQDN if requiring Let's Encrypt cert to be generated) and your email address for the TLS line.\r\n\r\n - Caddy will request a cert of the FQDN, be sure to specify any subdomain. For example: `https://meshinfo.domain.com`.  \r\n\r\n - If you only wish to use a self-signed certificate and are OK with the browser warnings about this, change the TLS line from your email address to `tls internal`.\r\n   \r\n - If you are using a reverse proxy other than Caddy, change the `FQDN` to `:80` then set your reverse proxy's upstream config to listen to port 80.\r\n      \r\n3. Edit the `docker-compose.yml` (or `docker-compose-dev.yml` if you are going to use that one) and adjust any port mappings for caddy if you wish to have it run on anything other than 80/443. Keep in mind that if you are not using a FQDN and ports 80/443, Caddy will fail to provision a Let's Encrypt certificate. This is because Let's Encrypt requires 80/443 to be accessible and this is not a limitation of Caddy nor MeshInfo.\r\n4. Copy and then edit the `frontend/.env.sample` to `frontend/.env`. Note OSM is the default map provider, MapBox support requires opt-in with MapBox token. \r\n\r\n#### To Run\r\n\r\nChange to the directory.\r\n\r\n```sh\r\ncd meshinfo\r\n```\r\n\r\n```sh\r\ndocker compose pull && docker compose down && docker compose up -d && docker compose ps && docker compose logs -f meshinfo\r\n```\r\n\r\n#### To Update\r\n\r\n```sh\r\ngit fetch && git pull && docker compose pull && docker compose down && docker compose up -d && docker compose ps && docker compose logs -f meshinfo\r\n```\r\n\r\n### Directly (without Docker)\r\n\r\nBe sure you have `Python 3.12.4` or higher installed.\r\n\r\n```sh\r\npip install -r requirements.txt\r\npython main.py\r\n```\r\n\r\n## Development\r\n\r\n### Building a local Docker image\r\n\r\nClone the repository.\r\n\r\n```sh\r\ngit clone https://github.com/MeshAddicts/meshinfo.git\r\n```\r\n\r\nIf already existing, be sure to pull updates.\r\n\r\n```sh\r\ngit fetch && git pull\r\n```\r\n\r\nBuild. Be sure to specify a related version number and suffix (this example `dev5` but could be your name or initials and a number) as this will help prevent collisions in your local image cache when testing.\r\n\r\n```sh\r\nscripts/docker-build.sh 0.0.1dev5\r\n```\r\n\r\n### Running via Docker Compose while developing\r\n\r\n```sh\r\ndocker compose -f docker-compose-dev.yml up --build --force-recreate\r\n```\r\n\r\nYou will need to CTRL-C and run again if you make any changes to the python code, but not if you only make changes to\r\nthe templates.\r\n\r\n### Release\r\n\r\nTag the release using git and push up the tag. The image will be build by GitHub automatically (see: https://github.com/MeshAddicts/meshinfo/actions/workflows/docker.yml).\r\n\r\n```sh\r\ngit tag v0.0.0 && git push && git push --tags\r\n```\r\n\r\n## Contributing\r\n\r\nWe happily accept Pull Requests!\r\n\r\nTODO: Need to rewrite this section.\r\n\r\n## Meshtastic node settings\r\n\r\nThese are the settings that must be set, and how they must be set on your node if you would like it to show up on the map. Anything that is not preceded by \"Recommended\" must be set as stated for your node to show.\r\n\r\n```\r\nChannels > Click on LongFast\r\n\tUplink Enabled: True\r\n\tDownlink Enabled: Recommended False\r\n\tPosition Enabled: True\r\n\tPrecise Location: False\r\n\tBottom slider: 1194ft is the *most* accurate setting that will still show up on any map. This is a meshtastic limitation.\r\n\t\r\n\tBe sure to click send to save after each page/section\r\n\r\nPosition: \r\n\t\r\n\tSet your lat/long/alt and set \"Used fixed position\" to True if your node doesn't have GPS or is stationary\r\n\t\r\n\tOtherwise set your GPS settings.\r\n\t\r\nLora: \r\n\tOK to MQTT: True\r\n\t\r\nMQTT:\r\n\tAddress: mqtt.meshtastic.org\r\n\tUsername: meshdev\r\n\tPassword: large4cats\r\n\t\r\n\tEncryption enabled: True\r\n\tJSON output enabled: False\r\n\r\n\tRoot topic: msh/US/FL/anything\r\n (Typical options to replace 'anything' above are: orl, jax, etc...As long as your root topic starts with msh/US/FL then you're good.)\r\n\r\n\tProxy to client enabled: True if your board isn't directly hooked to Wi-Fi or Ethernet.\r\n\tMap reporting: True\r\n\tPrecise location: False\r\n\t\r\n\tSlider at the bottom: 1194 feet is the *most* accurate you can set things to and still have your node show up on maps.\r\n\t\r\n\tMap reporting interval: 900\r\n```\r\n",
+        "truncated": false,
+        "bytes": 7443,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.0.2",
+            "tag_name": "v2.0.2",
+            "published_at": "2026-02-28T05:53:04Z",
+            "body_excerpt": "> [!CAUTION]\r\n> **Breaking Change: PostgreSQL is now required.**\r\n> JSON/filesystem storage is deprecated and **will be removed in a future version**. All deployments must use PostgreSQL going forward. If you are currently using JSON storage, please follow the migration steps before upgrading.\r\n\r\n## What's Changed\r\n\r\n* build(deps-dev): bump @types/node from 25.3.0 to 25.3.1 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/279\r\n* Fix hex conversion by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/286\r\n\r\n\r\n**Full Changelog**: https://github.com/MeshAddicts/meshinfo/compare/v2.0.1...v2.0.2"
+          },
+          {
+            "name": "v2.0.1",
+            "tag_name": "v2.0.1",
+            "published_at": "2026-02-27T03:34:40Z",
+            "body_excerpt": "> [!CAUTION]\r\n> **Breaking Change: PostgreSQL is now required.**\r\n> JSON/filesystem storage is deprecated as of this release and **will be removed in a future version**. All deployments must use PostgreSQL going forward. If you are currently using JSON storage, please follow the migration steps below before upgrading.\r\n\r\n## Highlights\r\n\r\n**v2.0.1** is the first stable release of the v2 line, featuring a completely overhauled UI, mandatory PostgreSQL storage, config validation, structured logging, telemetry fixes, and native ARM64 CI builds.\r\n\r\n### 🗄️ PostgreSQL Now Required\r\n\r\nPostgreSQL is now the only supported storage backend. JSON/filesystem storage is deprecated and will be removed in a future release. Existing users **must** migrate their data to PostgreSQL before upgrading.\r\n\r\n#### New Deployments\r\n1. Ensure `storage.postgres.enabled` is set to `true` in your `config.json`\r\n2. Run `docker compose up -d`\r\n3. Tables are created automatically on startup\r\n\r\n#### Upgrading from JSON Storage\r\n1. Set `storage.postgres.enabled` to `true` in your `config.json`\r\n2. Run `docker compose up -d` (tables are created automatically)\r\n3. Run the migration script:\r\n   ```bash\r\n   docker exec -it meshinfo-meshinfo-1 python3 scripts/migrate_json_to_postgres.py\r\n   ```\r\n\r\n> [!TIP]\r\n> The migration script is idempotent and safe to run multiple times.\r\n\r\n---\r\n\r\n## What's Changed\r\n\r\n### Features & Improvements\r\n* Overhaul UI by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/269\r\n* Deprecate filesystem storage, require PostgreSQL by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/276\r\n* Config parsing and validation (closes #81) by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/262\r\n* Logging level control via server.log_level (Closes #263) by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/264\r\n* Fix telemetry variant overwrite and add missing metrics by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/266\r\n* UI: add loading skeleton to "
+          },
+          {
+            "name": "v2.0.0-rc",
+            "tag_name": "v2.0.0-rc",
+            "published_at": "2026-02-26T06:40:27Z",
+            "body_excerpt": "## What's Changed\r\n\r\n* Overhaul UI by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/269\r\n\r\n* build(deps): bump lodash from 4.17.21 to 4.17.23 in /frontend by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/234\r\n* build(deps): bump node from 25.2.1-alpine to 25.5.0-alpine by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/238\r\n* build(deps-dev): bump @types/node from 25.0.3 to 25.1.0 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/239\r\n* refactor map.tsx by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/249\r\n* fix panel collapse on desktop by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/253\r\n* fix map.tsx side panel positioning by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/254\r\n* fix postgres read issues by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/259\r\n* fix dockerfile.spa QEMU crash by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/260\r\n* Config parsing and validation (closes #81) by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/262\r\n* Logging level control via server.log_level (Closes #263) by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/264\r\n* Fix telemetry variant overwrite and add missing metrics by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/266\r\n* Bump actions/checkout from 4 to 6 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/246\r\n* Bump actions/setup-python from 5 to 6 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/245\r\n* Bump actions/setup-node from 4 to 6 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/244\r\n* Bump systeminformation from 5.27.14 to 5.31.1 in /frontend by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/267\r\n* build(deps-dev): bump @types/node from 25.1.0 to 25.2.3 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/256\r\n* build(deps): bump node from 25.5.0-alpine to 25.6.1-alpine by @depe"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 315,
+            "title": "Broken links on node details page",
+            "state": "closed",
+            "url": "https://github.com/MeshAddicts/meshinfo/issues/315"
+          },
+          {
+            "number": 280,
+            "title": "Bug: slow Chat.tsx loading times",
+            "state": "closed",
+            "url": "https://github.com/MeshAddicts/meshinfo/issues/280"
+          }
+        ]
+      },
+      "root_files": [
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".tool-versions",
+        ".vscode",
+        "API.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Caddyfile.dev",
+        "Caddyfile.sample",
+        "Dockerfile",
+        "Dockerfile.caddy",
+        "Dockerfile.spa",
+        "Dockerfile.spa.dev",
+        "LICENSE",
+        "POSTGRES.md",
+        "README.md",
+        "api",
+        "asyncio_helper.py",
+        "banner",
+        "bot",
+        "config.json.sample",
+        "config.py",
+        "config.toml.sample",
+        "data_renderer.py",
+        "docker-compose-dev.yml",
+        "docker-compose.yml",
+        "encoders.py",
+        "frontend",
+        "geo.py",
+        "input.css",
+        "main.py",
+        "memory_data_store.py",
+        "meshinfo1.png",
+        "meshinfo2.png",
+        "meshinfo3.png",
+        "meshinfo4.png",
+        "meshinfo5.png",
+        "meshtastic_support.py",
+        "models",
+        "mosquitto",
+        "mqtt.py",
+        "package-lock.json",
+        "package.json",
+        "postgres",
+        "public",
+        "pytest.ini",
+        "requirements-dev.txt",
+        "requirements.txt"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/MeshAddicts/meshinfo#readme",
+          "title": "README (segment 1)",
+          "excerpt": "# MeshInfo Realtime web UI to run against a Meshtastic regional or private mesh network. [![Docker Image](https://github.com/MeshAddicts/meshinfo/actions/workflows/docker.yml/badge.svg)](https://github.com/MeshAddicts/meshinfo/actions/workflows/docker.yml) ![GitHub Release](https://img.shields.io/github/v/release/meshaddicts/meshinfo) ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/meshaddicts/meshinfo) ## Overview MeshInfo is written in Python and connects to an MQTT server that is receiving Meshtastic messages for the purpose of visualizing and inspecting traffic. It (currently) uses a filesystem to persist content, such as node info and telemetry. There are plans to optionally support Postgres and SQLite3 as optional persistance storage methods. To make deployment to run an instance for your mesh easy, Docker support is included. We recommend using Docker Compose with a personalized version of the `docker-compose.yml` file to most easily deploy it, but any seasoned Docker user can also use the Docker image alone. If you use MeshInfo and have a publicly accessible instance, we'd like to know! Drop a note to kevin@airframes.io with details and we'll link…",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/MeshAddicts/meshinfo/issues/315",
+          "title": "Broken links on node details page",
+          "excerpt": "Broken links on node details page (state:closed)",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "number": 315
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/MeshAddicts/meshinfo/issues/280",
+          "title": "Bug: slow Chat.tsx loading times",
+          "excerpt": "Bug: slow Chat.tsx loading times (state:closed)",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "number": 280
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/MeshAddicts/meshinfo/releases",
+          "title": "v2.0.2",
+          "excerpt": "> [!CAUTION] > **Breaking Change: PostgreSQL is now required.** > JSON/filesystem storage is deprecated and **will be removed in a future version**. All deployments must use PostgreSQL going forward. If you are currently using JSON storage, please follow the migration steps before upgrading. ## What's Changed * build(deps-dev): bump @types/node from 25.3.0 to 25.3.1 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/279 * Fix hex conversion by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/286 **Full Changelog**: https://github.com/MeshAddicts/meshinfo/compare/v2.0.1...v2.0.2",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "tag_name": "v2.0.2",
+            "published_at": "2026-02-28T05:53:04Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/MeshAddicts/meshinfo/releases",
+          "title": "v2.0.1",
+          "excerpt": "> [!CAUTION] > **Breaking Change: PostgreSQL is now required.** > JSON/filesystem storage is deprecated as of this release and **will be removed in a future version**. All deployments must use PostgreSQL going forward. If you are currently using JSON storage, please follow the migration steps below before upgrading. ## Highlights **v2.0.1** is the first stable release of the v2 line, featuring a completely overhauled UI, mandatory PostgreSQL storage, config validation, structured logging, telemetry fixes, and native ARM64 CI builds. ### 🗄️ PostgreSQL Now Required PostgreSQL is now the only supported storage backend. JSON/filesystem storage is deprecated and will be removed in a future release. Existing users **must** migrate their data to PostgreSQL before upgrading. #### New Deployments 1. Ensure `storage.postgres.enabled` is set to `true` in your `config.json` 2. Run `docker compose up -d` 3. Tables are created automatically on startup #### Upgrading from JSON Storage 1. Set `storage.postgres.enabled` to `true` in your `config.json` 2. Run `docker compose up -d` (tables are created automatically) 3. Run the migration script: ```bash docker exec -it meshinfo-meshinfo-1 python3 s…",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "tag_name": "v2.0.1",
+            "published_at": "2026-02-27T03:34:40Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/MeshAddicts/meshinfo/releases",
+          "title": "v2.0.0-rc",
+          "excerpt": "## What's Changed * Overhaul UI by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/269 * build(deps): bump lodash from 4.17.21 to 4.17.23 in /frontend by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/234 * build(deps): bump node from 25.2.1-alpine to 25.5.0-alpine by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/238 * build(deps-dev): bump @types/node from 25.0.3 to 25.1.0 by @dependabot[bot] in https://github.com/MeshAddicts/meshinfo/pull/239 * refactor map.tsx by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/249 * fix panel collapse on desktop by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/253 * fix map.tsx side panel positioning by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/254 * fix postgres read issues by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/259 * fix dockerfile.spa QEMU crash by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/260 * Config parsing and validation (closes #81) by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/262 * Logging level control via server.log_level (Closes #263) by @SimmerV in https://github.com/MeshAddicts/meshinfo/pull/264 * Fix…",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "tag_name": "v2.0.0-rc",
+            "published_at": "2026-02-26T06:40:27Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/MeshAddicts/meshinfo",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerignore, .gitattributes, .github, .gitignore, .tool-versions, .vscode, API.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Caddyfile.dev, Caddyfile.sample, Dockerfile, Dockerfile.caddy, Dockerfile.spa, Dockerfile.spa.dev, LICENSE, POSTGRES.md, README.md, api, asyncio_helper.py, banner, bot, config.json.sample, config.py, config.toml.sample, data_renderer.py, docker-compose-dev.yml, docker-compose.yml, encoders.py, frontend, geo.py, input.css, main.py, memory_data_store.py, meshinfo1.png, meshinfo2.png, meshinfo3.png, meshinfo4.png, meshinfo5.png, meshtastic_support.py, models, mosquitto, mqtt.py, package-lock.json, package.json, postgres, public, pytest.ini, requirements-dev.txt, requirements.txt",
+          "fetched_at": "2026-03-16T05:19:33.420Z",
+          "meta": {
+            "repo_full_name": "MeshAddicts/meshinfo",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "makroumi/slowql",
+      "html_url": "https://github.com/makroumi/slowql",
+      "description": "SQL static analyzer for performance, security, compliance and  cost. 171 rules. Completely offline. Works in CI pipelines.",
+      "topics": [
+        "ai-tools",
+        "anti-patterns",
+        "ci-cd",
+        "cli",
+        "database-optimization",
+        "database-security",
+        "developer-tool",
+        "devops",
+        "devsecops",
+        "mysql",
+        "observibility",
+        "performance",
+        "postgresql",
+        "python",
+        "query-optimization",
+        "security",
+        "sql",
+        "sql-analyzer",
+        "sql-linter",
+        "static-analysis"
+      ],
+      "language": "Python",
+      "stargazers_count": 76,
+      "forks_count": 8,
+      "open_issues_count": 0,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-16T05:16:31Z",
+      "created_at": "2025-11-20T06:59:10Z",
+      "readme": {
+        "fetched": true,
+        "text": "# SlowQL\n\nSlowQL is a **production-focused offline SQL static analyzer** designed to catch security vulnerabilities, performance regressions, reliability issues, compliance risks, cost inefficiencies, and code quality problems before they reach production.\n\nIt performs safe static analysis of your SQL source code, requiring **no database connection**. SlowQL is built for modern engineering teams, supporting CI/CD pipelines, pre-commit hooks, GitHub Actions, SARIF output, and automated fixes.\n\n---\n\n<!-- Distribution -->\n\n<p align=\"center\">\n  <a href=\"https://github.com/makroumi/slowql/releases\"><img src=\"https://img.shields.io/github/v/release/makroumi/slowql?logo=github&label=release&color=4c1\" alt=\"Release\"></a>\n  <a href=\"https://pypi.org/project/slowql/\"><img src=\"https://img.shields.io/pypi/v/slowql?logo=pypi&logoColor=white&label=PyPI&color=3775A9\" alt=\"PyPI\"></a>\n  <a href=\"https://pypi.org/project/slowql/\"><img src=\"https://img.shields.io/pypi/pyversions/slowql?logo=python&logoColor=white&label=Python\" alt=\"Python\"></a>\n  <a href=\"https://hub.docker.com/r/makroumi/slowql\"><img src=\"https://img.shields.io/docker/v/makroumi/slowql?logo=docker&logoColor=white&label=Docker&color=2496ED\" alt=\"Docker\"></a>\n  <a href=\"https://github.com/makroumi/slowql/pkgs/container/slowql\"><img src=\"https://img.shields.io/badge/GHCR-available-181717?logo=github&logoColor=white\" alt=\"GHCR\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://hub.docker.com/r/makroumi/slowql\"><img src=\"https://img.shields.io/docker/pulls/makroumi/slowql?logo=docker&logoColor=white&label=Docker%20pulls\" alt=\"Docker Pulls\"></a>\n  <a href=\"https://pypistats.org/packages/slowql\"><img src=\"https://img.shields.io/pypi/dm/slowql?logo=pypi&logoColor=white&label=PyPI%20downloads\" alt=\"PyPI Downloads\"></a>\n</p>\n\n---\n\n<!-- Build & Quality -->\n\n<p align=\"center\">\n  <a href=\"https://github.com/makroumi/slowql/actions/workflows/ci.yml\"><img src=\"https://github.com/makroumi/slowql/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://codecov.io/gh/makroumi/slowql\"><img src=\"https://codecov.io/gh/makroumi/slowql/graph/badge.svg\" alt=\"Coverage\"></a>\n  <a href=\"https://github.com/astral-sh/ruff\"><img src=\"https://img.shields.io/badge/lint-ruff-46a758?logo=ruff&logoColor=white\" alt=\"Ruff\"></a>\n  <a href=\"http://mypy-lang.org/\"><img src=\"https://img.shields.io/badge/types-mypy-blue?logo=python&logoColor=white\" alt=\"Mypy\"></a>\n  <a href=\"https://github.com/makroumi/slowql/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/License-Apache%202.0-blue.svg\" alt=\"License\"></a>\n</p>\n\n---\n\n<!-- Community -->\n\n<p align=\"center\">\n  <a href=\"https://github.com/makroumi/slowql/stargazers\"><img src=\"https://img.shields.io/github/stars/makroumi/slowql?style=social\" alt=\"Stars\"></a>\n  <a href=\"https://github.com/makroumi/slowql/issues\"><img src=\"https://img.shields.io/github/issues/makroumi/slowql?logo=github\" alt=\"Issues\"></a>\n  <a href=\"https://github.com/makroumi/slowql/discussions\"><img src=\"https://img.shields.io/github/discussions/makroumi/slowql?logo=github\" alt=\"Discussions\"></a>\n  <a href=\"https://github.com/makroumi/slowql/graphs/contributors\"><img src=\"https://img.shields.io/github/contributors/makroumi/slowql?logo=github&color=success\" alt=\"Contributors\"></a>\n  <a href=\"https://github.com/sponsors/makroumi\"><img src=\"https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white\" alt=\"Sponsor\"></a>\n  <a href=\"https://snyk.io/test/github/makroumi/slowql\"><img src=\"https://snyk.io/test/github/makroumi/slowql/badge.svg\" alt=\"Known Vulnerabilities\"></a>\n</p>\n\n---\n\n<p align=\"center\">\n  <img src=\"assets/slowql.gif\" alt=\"SlowQL CLI demo\" width=\"850\">\n</p>\n\n---\n\n## Why SlowQL\n\n- **Offline-First Analysis**: Catch bugs without ever connecting to a live database.\n- **Deep Visibility**: 171 built-in rules covering performance, security, and reliability.\n- **Schema-Aware**: Optionally validate against your DDL files to catch missing tables and columns.\n- **Safe Autofix**: Automatically remediate common anti-patterns with one command.\n- **Native Context**: Native workflow integrations including pre-commit, GitHub Actions, SARIF, and foundational LSP/VS Code support.\n- **Actionable Reporting**: Results through console output, GitHub annotations, SARIF, and exported JSON/HTML reports.\n\n---\n\n# Installation\n\n### pipx (recommended)\n\n```bash\npipx install slowql\n```\n\n### pip\n\n```bash\npip install slowql\n```\n\nRequirements: Python 3.11+, Linux / macOS / Windows.\n\n---\n\n# Quick Start\n\nAnalyze a SQL file:\n```bash\nslowql queries.sql\n```\n\nAnalyze with schema validation:\n```bash\nslowql queries.sql --schema schema.sql\n```\n\nRun in CI mode with failure thresholds:\n```bash\nslowql --non-interactive --input-file sql/ --fail-on high --format github-actions\n```\n\nPreview and apply safe fixes:\n```bash\nslowql queries.sql --diff\nslowql queries.sql --fix --fix-report fix-report.json\n```\n\n---\n\n# Schema-Aware Validation\n\nSlowQL can perform optional schema-aware validation by inspecting your DDL files. This allows the analyzer to catch structural issues that generic static analysis might miss.\n\n- **Tables/Columns**: Detect references to non-existent tables or columns.\n- **Index Suggestions**: Identify filtered columns that lack corresponding indexes.\n\n```bash\n# Pass a single DDL file\nslowql queries.sql --schema database/schema.sql\n\n# Fail CI if schema issues are found\nslowql migrations/ --schema schema.sql --fail-on critical\n```\n\n### Example Schema Findings\n- `SCHEMA-TBL-001`: Table referenced but not defined in schema.\n- `SCHEMA-COL-001`: Column referenced but not present in table definition.\n- `SCHEMA-IDX-001`: Missing index suggested for highly-filtered column.\n\n---\n\n# Rule Coverage\n\nSlowQL ships with **171 rules** across six core dimensions:\n\n| Dimension | Focus | Rules |\n|-----------|-------|-------|\n| Security | SQL injection, permission risks, sensitive data | 45 |\n| Performance | Full scans, leading wildcards, N+1 patterns | 39 |\n| Quality | Style, readability, anti-patterns | 30 |\n| Cost | Inefficient cloud-warehouse patterns | 20 |\n| Reliability | Null handling, data integrity, lock risks | 19 |\n| Compliance | GDPR, PII handling, data sovereignty | 18 |\n\n---\n\n# CLI Usage\n\n### Primary Flags\n- `--input-file` : Path to SQL file or directory.\n- `--schema`: Path to DDL schema file.\n- `--fail-on`: Set exit failure threshold (`critical`, `high`, `medium`, `low`, `info`, `never`).\n- `--non-interactive`: Suppress spinners and interactive prompts.\n\n### Output Control\n- `--format`: Controls the primary output stream (`console`, `github-actions`, `sarif`).\n- `--export`: Writes detailed reports to disk (`json`, `html`, `csv`).\n- `--out /`: Directory for exported reports.\n\n### Exit Codes\n- `0`: No issues found or issues below failure threshold.\n- `2`: Issues found meet or exceed the `--fail-on` threshold.\n- `3`: Runtime error or tool failure.\n\n---\n\n# Configuration\n\nSlowQL automatically discovers configuration from `slowql.toml`, `.slowql.toml`, `slowql.yaml`, `.slowql.yaml`, or `pyproject.toml` (under `[tool.slowql]`).\n\n```yaml\n# slowql.yaml example\nseverity:\n  fail_on: high\n  warn_on: medium\n\nanalysis:\n  dialect: postgresql\n  enabled_dimensions:\n    - security\n    - performance\n    - reliability\n  disabled_rules:\n    - PERF-SCAN-001\n\nschema:\n  path: db/schema.sql\n\noutput:\n  format: console\n  verbose: false\n  show_fixes: true\n\ncost:\n  cloud_provider: none\n\ncompliance:\n  frameworks:\n    - gdpr\n```\n\n---\n\n# CI Integration\n\n### GitHub Action (Official)\n\n```yaml\n- uses: makroumi/slowql-action@v1\n  with:\n    path: \"./sql/**/*.sql\"\n    schema: \"db/schema.sql\"\n    fail-on: high\n    format: github-actions\n```\n\n### Direct CLI Usage\n\n```yaml\n- name: SlowQL Analysis\n  run: |\n    pip install slowql\n    # Direct CLI usage with schema validation\n    slowql --non-interactive --input-file sql/ --schema db/schema.sql --fail-on high --format github-actions\n```\n\n---\n\n# Architecture\n\nSlowQL is designed as a modular pipeline for SQL analysis:\n\n- **Parser**: Leverages [sqlglot](https://github.com/tobymao/sqlglot) for robust SQL AST generation.\n- **Engine**: Orchestrates rule execution and cross-query analysis.\n- **Analyzers**: Domain-specific logic controllers (Security, Perf, etc.).\n- **Inspector**: Handles schema loading and metadata resolution.\n- **Reporters**: Transforms results into actionable formats (SARIF, HTML, etc.).\n\n---\n\n# Development\n\n```bash\ngit clone https://github.com/makroumi/slowql.git\npip install -e \".[dev]\"\n\n# Run comprehensive test suite\npytest\n\n# Static analysis\nruff check .\nmypy src/slowql\n```\n\n---\n\n# License & Support\n\n- **License**: Apache License 2.0.\n- **Issues**: [GitHub Issues](https://github.com/makroumi/slowql/issues)\n- **Discussions**: [Community Discussions](https://github.com/makroumi/slowql/discussions)\n\n---\n\n<p align=\"center\">\n<a href=\"#slowql\">Back to top</a>\n</p>\n",
+        "truncated": false,
+        "bytes": 8894,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Release v1.5.0",
+            "tag_name": "v1.5.0",
+            "published_at": "2026-03-12T04:27:09Z",
+            "body_excerpt": "Added\r\nConservative autofix foundation\r\n--diff preview mode\r\n--fix safe apply mode with backup support\r\n--fail-on severity threshold support\r\ngithub-actions output format\r\n--fix-report JSON output\r\nSource-anchored parser support\r\nRemediation mode classification\r\nSafe autofixes for:\r\nQUAL-NULL-001\r\nQUAL-STYLE-002\r\nChanged\r\nNon-interactive session export now requires explicit --export-session\r\nMulti-file CLI input improved for automation/pre-commit style use"
+          },
+          {
+            "name": "Release v1.3.0",
+            "tag_name": "v1.3.0",
+            "published_at": "2025-12-19T05:17:38Z",
+            "body_excerpt": null
+          },
+          {
+            "name": "SlowQL v1.0.4",
+            "tag_name": "v1.0.4",
+            "published_at": "2025-12-03T10:39:33Z",
+            "body_excerpt": "Bugfixes + CI improvements"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".pre-commit-hooks.yaml",
+        "CHANGELOG.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "LICENSE",
+        "MANIFEST.in",
+        "Makefile",
+        "README.md",
+        "SECURITY.md",
+        "assets",
+        "codecov.yml",
+        "dangerous.sql",
+        "demo.gif",
+        "docs",
+        "editors",
+        "mkdocs.yml",
+        "mypy.ini",
+        "pyproject.toml",
+        "pytest.ini",
+        "requirements.txt",
+        "src",
+        "test_integration.py",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 1)",
+          "excerpt": "SlowQL is a **production-focused offline SQL static analyzer** designed to catch security vulnerabilities, performance regressions, reliability issues, compliance risks, cost inefficiencies, and code quality problems before they reach production.",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 2)",
+          "excerpt": "It performs safe static analysis of your SQL source code, requiring **no database connection**. SlowQL is built for modern engineering teams, supporting CI/CD pipelines, pre-commit hooks, GitHub Actions, SARIF output, and automated fixes.",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/makroumi/slowql/releases\"><img src=\"https://img.shields.io/github/v/release/makroumi/slowql?logo=github&label=release&color=4c1\" alt=\"Release\"></a> <a href=\"https://pypi.org/project/slowql/\"><img src=\"https://img.shields.io/pypi/v/slowql?logo=pypi&logoColor=white&label=PyPI&color=3775A9\" alt=\"PyPI\"></a> <a href=\"https://pypi.org/project/slowql/\"><img src=\"https://img.shields.io/pypi/pyversions/slowql?logo=python&logoColor=white&label=Python\" alt=\"Python\"></a> <a href=\"https://hub.docker.com/r/makroumi/slowql\"><img src=\"https://img.shields.io/docker/v/makroumi/slowql?logo=docker&logoColor=white&label=Docker&color=2496ED\" alt=\"Docker\"></a> <a href=\"https://github.com/makroumi/slowql/pkgs/container/slowql\"><img src=\"https://img.shields.io/badge/GHCR-available-181717?logo=github&logoColor=white\" alt=\"GHCR\"></a> </p>",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://hub.docker.com/r/makroumi/slowql\"><img src=\"https://img.shields.io/docker/pulls/makroumi/slowql?logo=docker&logoColor=white&label=Docker%20pulls\" alt=\"Docker Pulls\"></a> <a href=\"https://pypistats.org/packages/slowql\"><img src=\"https://img.shields.io/pypi/dm/slowql?logo=pypi&logoColor=white&label=PyPI%20downloads\" alt=\"PyPI Downloads\"></a> </p>",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/makroumi/slowql/actions/workflows/ci.yml\"><img src=\"https://github.com/makroumi/slowql/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a> <a href=\"https://codecov.io/gh/makroumi/slowql\"><img src=\"https://codecov.io/gh/makroumi/slowql/graph/badge.svg\" alt=\"Coverage\"></a> <a href=\"https://github.com/astral-sh/ruff\"><img src=\"https://img.shields.io/badge/lint-ruff-46a758?logo=ruff&logoColor=white\" alt=\"Ruff\"></a> <a href=\"http://mypy-lang.org/\"><img src=\"https://img.shields.io/badge/types-mypy-blue?logo=python&logoColor=white\" alt=\"Mypy\"></a> <a href=\"https://github.com/makroumi/slowql/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/License-Apache%202.0-blue.svg\" alt=\"License\"></a> </p>",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/makroumi/slowql/stargazers\"><img src=\"https://img.shields.io/github/stars/makroumi/slowql?style=social\" alt=\"Stars\"></a> <a href=\"https://github.com/makroumi/slowql/issues\"><img src=\"https://img.shields.io/github/issues/makroumi/slowql?logo=github\" alt=\"Issues\"></a> <a href=\"https://github.com/makroumi/slowql/discussions\"><img src=\"https://img.shields.io/github/discussions/makroumi/slowql?logo=github\" alt=\"Discussions\"></a> <a href=\"https://github.com/makroumi/slowql/graphs/contributors\"><img src=\"https://img.shields.io/github/contributors/makroumi/slowql?logo=github&color=success\" alt=\"Contributors\"></a> <a href=\"https://github.com/sponsors/makroumi\"><img src=\"https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white\" alt=\"Sponsor\"></a> <a href=\"https://snyk.io/test/github/makroumi/slowql\"><img src=\"https://snyk.io/test/github/makroumi/slowql/badge.svg\" alt=\"Known Vulnerabilities\"></a> </p>",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<p align=\"center\"> <img src=\"assets/slowql.gif\" alt=\"SlowQL CLI demo\" width=\"850\"> </p>",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/makroumi/slowql#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- **Offline-First Analysis**: Catch bugs without ever connecting to a live database. - **Deep Visibility**: 171 built-in rules covering performance, security, and reliability. - **Schema-Aware**: Optionally validate against your DDL files to catch missing tables and columns. - **Safe Autofix**: Automatically remediate common anti-patterns with one command. - **Native Context**: Native workflow integrations including pre-commit, GitHub Actions, SARIF, and foundational LSP/VS Code support. - **Actionable Reporting**: Results through console output, GitHub annotations, SARIF, and exported JSON/HTML reports.",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/makroumi/slowql/releases",
+          "title": "v1.5.0",
+          "excerpt": "Added Conservative autofix foundation --diff preview mode --fix safe apply mode with backup support --fail-on severity threshold support github-actions output format --fix-report JSON output Source-anchored parser support Remediation mode classification Safe autofixes for: QUAL-NULL-001 QUAL-STYLE-002 Changed Non-interactive session export now requires explicit --export-session Multi-file CLI input improved for automation/pre-commit style use",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "tag_name": "v1.5.0",
+            "published_at": "2026-03-12T04:27:09Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/makroumi/slowql/releases",
+          "title": "v1.3.0",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "tag_name": "v1.3.0",
+            "published_at": "2025-12-19T05:17:38Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/makroumi/slowql/releases",
+          "title": "v1.0.4",
+          "excerpt": "Bugfixes + CI improvements",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "tag_name": "v1.0.4",
+            "published_at": "2025-12-03T10:39:33Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/makroumi/slowql",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerignore, .github, .gitignore, .pre-commit-hooks.yaml, CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Dockerfile, LICENSE, MANIFEST.in, Makefile, README.md, SECURITY.md, assets, codecov.yml, dangerous.sql, demo.gif, docs, editors, mkdocs.yml, mypy.ini, pyproject.toml, pytest.ini, requirements.txt, src, test_integration.py, tests",
+          "fetched_at": "2026-03-16T05:19:33.280Z",
+          "meta": {
+            "repo_full_name": "makroumi/slowql",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "MeshAddicts/meshinfo",
+      "evidence_count": 7,
+      "evidence_by_type": {
+        "readme": 1,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "makroumi/slowql",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "MeshAddicts/meshinfo",
+      "ok": true,
+      "spec_path": "specs/2026-03-16/MeshAddicts__meshinfo.json"
+    },
+    {
+      "repo": "makroumi/slowql",
+      "ok": true,
+      "spec_path": "specs/2026-03-16/makroumi__slowql.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "MeshAddicts/meshinfo",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-16/MeshAddicts__meshinfo.json"
+    },
+    {
+      "repo": "makroumi/slowql",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-16/makroumi__slowql.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "MeshAddicts/meshinfo",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 3,
+          "cited": 3
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-16/MeshAddicts__meshinfo.json"
+      ]
+    },
+    {
+      "repo": "makroumi/slowql",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 4,
+          "cited": 4
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-16/makroumi__slowql.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-16T05:19:43.380Z",
+      "run_id": "20260316T051928Z",
+      "repo": "MeshAddicts/meshinfo",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "53457f276ffe2474b4f5182ec52ba4c93a98409c531f3c187b26d6ae79f4a5f9",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 6676
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9955,
+      "prompt_chars": 6676,
+      "completion_chars": 1104
+    },
+    {
+      "ts": "2026-03-16T05:19:54.743Z",
+      "run_id": "20260316T051928Z",
+      "repo": "MeshAddicts/meshinfo",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "08e8f3071fa88d1557e0f66fc36d107e89b40bcf2bad8e3a6f88dc929772a3a4",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 7967
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11363,
+      "prompt_chars": 7967,
+      "completion_chars": 1400
+    },
+    {
+      "ts": "2026-03-16T05:20:07.084Z",
+      "run_id": "20260316T051928Z",
+      "repo": "MeshAddicts/meshinfo",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8a2a21f72129d6773f394a032eda73e5a0778e9b3d406fc2ca10ccfe8633c905",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 9546
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12340,
+      "prompt_chars": 9546,
+      "completion_chars": 1466
+    },
+    {
+      "ts": "2026-03-16T05:20:21.803Z",
+      "run_id": "20260316T051928Z",
+      "repo": "MeshAddicts/meshinfo",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c82fa677f8d3661deea49098ba0839415b216c86f7e62c8d249fc9aa7fd9f8cb",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 11188
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14719,
+      "prompt_chars": 11188,
+      "completion_chars": 1455
+    },
+    {
+      "ts": "2026-03-16T05:20:58.140Z",
+      "run_id": "20260316T051928Z",
+      "repo": "MeshAddicts/meshinfo",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e842ffbf438684b9a199cefdfe216614143d410781943631e08f061f95f56104",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 15470
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 36336,
+      "prompt_chars": 15470,
+      "completion_chars": 4442
+    },
+    {
+      "ts": "2026-03-16T05:21:13.141Z",
+      "run_id": "20260316T051928Z",
+      "repo": "makroumi/slowql",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "63e4115d476057d3fb5db6c562341a6699117ab2261ced2b7558807044adfaf6",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8647
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14986,
+      "prompt_chars": 8647,
+      "completion_chars": 1440
+    },
+    {
+      "ts": "2026-03-16T05:21:28.783Z",
+      "run_id": "20260316T051928Z",
+      "repo": "makroumi/slowql",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9eb1bf94281987c677ee4cee3072828dc2b8fcba3af65a54bb542c7bc9f1b948",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10291
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15641,
+      "prompt_chars": 10291,
+      "completion_chars": 1717
+    },
+    {
+      "ts": "2026-03-16T05:21:50.507Z",
+      "run_id": "20260316T051928Z",
+      "repo": "makroumi/slowql",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c1cf623fd35990f62ca5142b62920c9b63188da35537a08c7c902e3a40946176",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 12200
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21723,
+      "prompt_chars": 12200,
+      "completion_chars": 2030
+    },
+    {
+      "ts": "2026-03-16T05:22:04.894Z",
+      "run_id": "20260316T051928Z",
+      "repo": "makroumi/slowql",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a8bb6e8d549f18364938a89e0c5f6f0b3ff87efa55d4545c1aec17a966890911",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 14427
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14387,
+      "prompt_chars": 14427,
+      "completion_chars": 1507
+    },
+    {
+      "ts": "2026-03-16T05:22:56.943Z",
+      "run_id": "20260316T051928Z",
+      "repo": "makroumi/slowql",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c4f85eb3bef1fff67347c6276346ac8958ac5d635eb41d7f4e0255cfd33174ef",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 18766
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 52049,
+      "prompt_chars": 18766,
+      "completion_chars": 5863
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "MeshAddicts/meshinfo",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "makroumi/slowql",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "MeshAddicts/meshinfo",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 7,
+      "evidence_total_final": 7,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "makroumi/slowql",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1773638368168,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "MeshAddicts/meshinfo": 5,
+      "makroumi/slowql": 5
+    },
+    "tokensApproxTotal": 34403,
+    "tokensApproxPerRepo": {
+      "MeshAddicts/meshinfo": 15179,
+      "makroumi/slowql": 19224
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "MeshAddicts/meshinfo": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "scout",
+        "summary": "MeshInfo is a Python-based realtime web UI for visualizing Meshtastic mesh network traffic via MQTT, with recent major shifts toward mandatory PostgreSQL storage and a modernized TypeScript frontend. The project emphasizes Docker-based deployment and has an active release cadence, though it carries migration risks for legacy users.",
+        "highlights": [
+          "Realtime Meshtastic mesh network visualization via MQTT",
+          "Mandatory PostgreSQL storage introduced in v2.0.1, deprecating JSON/filesystem backend",
+          "Modern React/TypeScript frontend with recent UI overhaul",
+          "Docker-first deployment strategy with multi-arch (including ARM64) support"
+        ],
+        "risks": [
+          "Breaking change: Users on JSON storage must migrate to PostgreSQL immediately or risk incompatibility",
+          "Recent performance issues reported in frontend components (e.g., slow Chat.tsx loading)",
+          "Potential instability from rapid architectural shifts (storage backend removal, UI rewrite)"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "inventor",
+        "summary": "MeshInfo is an evolving realtime web UI for Meshtastic mesh networks that has recently pivoted to a PostgreSQL-backed architecture with a modernized React/TypeScript frontend, enabling scalable data persistence and improved user experience—but at the cost of breaking compatibility with earlier JSON-based deployments.",
+        "highlights": [
+          "Transitioned from filesystem-based storage to mandatory PostgreSQL backend as of v2.0.1, signaling a strategic shift toward robust, scalable data handling",
+          "Complete UI overhaul in v2 introduces a modern React/TypeScript frontend, enhancing usability and maintainability",
+          "Docker-first deployment model with multi-arch (including ARM64) support simplifies setup for diverse hardware environments",
+          "Active development cycle with structured releases and dependency management via Dependabot"
+        ],
+        "risks": [
+          "Forced migration from JSON to PostgreSQL creates adoption friction and potential data loss for legacy users without clear migration paths",
+          "Recent frontend performance issues (e.g., slow Chat.tsx loading) suggest incomplete optimization post-rewrite",
+          "Rapid architectural changes (storage deprecation, UI rewrite) may introduce instability or technical debt if not thoroughly validated"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "engineer",
+        "summary": "MeshInfo is a Python and TypeScript-based realtime web UI for Meshtastic mesh networks that has transitioned to mandatory PostgreSQL storage as of v2.0.1, deprecating its original filesystem backend. The system uses MQTT for message ingestion and offers Docker-based deployment with multi-arch support. Recent releases include a complete frontend overhaul but also introduce breaking changes and migration requirements.",
+        "highlights": [
+          "Mandatory PostgreSQL adoption in v2.0.1 replaces deprecated JSON/filesystem storage, requiring all users to migrate existing data",
+          "Realtime visualization of Meshtastic traffic via MQTT with Docker-first deployment and ARM64 CI support",
+          "Modern React/TypeScript frontend introduced in v2, including UI overhaul and component-level fixes (e.g., map.tsx, panel collapse)",
+          "Structured configuration and logging improvements alongside active dependency management via Dependabot"
+        ],
+        "risks": [
+          "Breaking storage change forces immediate migration from JSON to PostgreSQL; failure to do so will break upgrades",
+          "Frontend performance issues persist post-rewrite (e.g., slow Chat.tsx loading), indicating potential optimization gaps",
+          "Rapid architectural shifts—storage backend removal and full UI rewrite—may strain testing coverage and increase instability risk"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "skeptic",
+        "summary": "MeshInfo's abrupt deprecation of its original filesystem storage in favor of mandatory PostgreSQL raises serious concerns about backward compatibility and user burden, while recent frontend performance issues and rapid architectural changes suggest instability beneath the surface of its modernized UI.",
+        "highlights": [
+          "Project abandoned filesystem storage with no grace period—PostgreSQL became mandatory in v2.0.1 despite earlier documentation stating it was only 'optional'",
+          "Multiple closed issues (e.g., slow Chat.tsx, broken node links) indicate unresolved UX flaws even after major UI overhaul",
+          "Docker-first deployment claims ease of use, yet forces complex database migration on users who adopted the tool based on simpler initial design"
+        ],
+        "risks": [
+          "Users relying on original JSON/filesystem persistence face forced, potentially error-prone migration with no fallback—contradicting early project messaging about optional Postgres support [ID:E-RD-001]",
+          "Performance regressions in core frontend components (e.g., Chat.tsx) persist post-rewrite, undermining claims of improved UX [ID:E-IS-002]",
+          "Breaking changes introduced in consecutive releases (v2.0.0-rc → v2.0.1 → v2.0.2) suggest rushed architecture decisions without sufficient stabilization [ID:E-RL-002][ID:E-RL-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"MeshInfo\",\n    \"one_sentence\": \"Realtime web UI to run against a Meshtastic regional or private mesh network.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Connects to an MQTT server receiving Meshtastic messages, persists data in PostgreSQL, and visualizes mesh traffic in a modern React/TypeScript frontend.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Dashboard\",\n      \"purpose\": \"Display real-time node telemetry, messages, and map visualization for the Meshtastic mesh network.\",\n      \"primary_actions\": [\n        \"View node details\",\n        \"Inspect telemetry data\",\n        \"Navigate map view\"\n      ]\n    },\n    {\n      \"id\": \"chat\",\n      \"name\": \"Chat View\",\n      \"purpose\": \"Show message history and enable inspection of Meshtastic chat traffic.\",\n      \"primary_actions\": [\n        \"Load message history\",\n        \"Filter by node or time\"\n      ]\n    },\n    {\n      \"id\": \"node_details\",\n      \"name\": \"Node Details\",\n      \"purpose\": \"Present detailed information about a specific mesh node including metadata and telemetry.\",\n      \"primary_actions\": [\n        \"View node statistics\",\n        \"Access linked resources\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"load_chat_history\",\n      \"purpose\": \"Fetch and render historical chat messages from PostgreSQL storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"fetch_node_info\",\n      \"purpose\": \"Retrieve detailed node information including telemetry and metadata.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"migrate_storage\",\n      \"purpose\": \"Migrate existing JSON/filesystem data to PostgreSQL as required by v2.0.1+.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"nodes\",\n        \"fields\": [\n          {\n            \"name\": \"node_id\",\n            \"type\": \"string\"\n          },\n          {\n "
+      }
+    },
+    "makroumi/slowql": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "SlowQL is a production-ready, offline SQL static analyzer written in Python, offering 171 built-in rules for security, performance, reliability, and compliance. It integrates with CI/CD, pre-commit hooks, GitHub Actions, and supports safe autofixes and SARIF output—all without requiring a live database connection.",
+        "highlights": [
+          "Fully offline SQL analysis with no database dependency [ID:E-RD-001][ID:E-RD-002]",
+          "171 built-in rules covering security, performance, cost, and code quality [ID:E-RD-008]",
+          "Safe autofix capability with preview, backup, and severity-based failure controls [ID:E-RL-001]",
+          "Strong CI/CD and developer workflow integration (pre-commit, GitHub Actions, SARIF, LSP) [ID:E-RD-002][ID:E-RD-008]",
+          "Active maintenance with recent releases adding core features like remediation modes and multi-file CLI support [ID:E-RL-001]"
+        ],
+        "risks": [
+          "Limited release history: only 3 releases, with two having minimal or empty notes [ID:E-RL-002][ID:E-RL-003]",
+          "Low community traction: 76 stars and 8 forks may indicate limited adoption or testing in diverse environments [repo_profile]",
+          "Presence of 'dangerous.sql' in root files raises questions about test safety or documentation clarity [ID:E-RF-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "SlowQL is an offline, schema-aware SQL static analyzer that introduces a novel combination of deep rule-based inspection (171 rules), safe automated remediation, and seamless integration into modern development workflows—all without requiring a live database connection.",
+        "highlights": [
+          "Invents a production-grade, offline SQL analysis model that eliminates runtime dependencies while supporting schema validation via DDL files [ID:E-RD-001][ID:E-RD-002][ID:E-RD-008]",
+          "Pioneers a 'safe autofix' system with diff preview, backup, severity thresholds, and remediation classification—uncommon in SQL linters [ID:E-RL-001]",
+          "Unifies developer experience across pre-commit hooks, GitHub Actions, SARIF, and emerging LSP/VS Code support within a single CLI tool [ID:E-RD-002][ID:E-RD-008]",
+          "Delivers comprehensive coverage across six dimensions: security, performance, reliability, compliance, cost, and code quality—rare in open-source SQL analyzers [ID:E-RD-001][ID:E-RD-008]"
+        ],
+        "risks": [
+          "Core innovation (e.g., source-anchored parser, autofix logic) lacks detailed public documentation or architectural evidence in available materials [ID:E-RL-001][ID:E-RD-008]",
+          "Limited release cadence (only 3 releases) and sparse notes for early versions may indicate immature or undocumented foundational inventions [ID:E-RL-002][ID:E-RL-003]",
+          "Presence of 'dangerous.sql' in root without explanation raises ambiguity about whether it demonstrates vulnerability patterns or poses actual risk [ID:E-RF-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "SlowQL is a well-structured, offline SQL static analyzer implemented in Python, designed for integration into modern CI/CD and developer workflows. It features a robust CLI, safe autofix capabilities, schema-aware validation, and support for multiple output formats including SARIF. The codebase shows signs of engineering discipline with linting (Ruff), type checking (mypy), testing infrastructure, and containerization.",
+        "highlights": [
+          "Fully offline analysis with optional DDL-based schema validation enables safe, reproducible checks without database connectivity [ID:E-RD-001][ID:E-RD-002][ID:E-RD-008]",
+          "Safe autofix system includes diff preview, backup, severity thresholds, and classification—indicating thoughtful error recovery and user control [ID:E-RL-001]",
+          "Strong engineering hygiene: uses Ruff, mypy, pytest, pre-commit hooks, Dockerfile, and GitHub Actions CI—suggesting maintainable and testable code [ID:E-RD-005][ID:E-RF-001]",
+          "Multi-format reporting (console, SARIF, JSON, GitHub annotations) and workflow integrations (pre-commit, GitHub Actions, LSP) demonstrate production readiness [ID:E-RD-002][ID:E-RD-008]",
+          "Modular project structure with src/, tests/, docs/, and configuration files (pyproject.toml, mypy.ini) follows Python best practices [ID:E-RF-001]"
+        ],
+        "risks": [
+          "Sparse release notes for v1.3.0 and v1.0.4 limit visibility into bug fixes and architectural changes, complicating dependency risk assessment [ID:E-RL-002][ID:E-RL-003]",
+          "Presence of 'dangerous.sql' in root directory without documentation raises concerns about whether it’s a test fixture, example, or potential security oversight [ID:E-RF-001]",
+          "Low community adoption (76 stars, 8 forks) may imply limited real-world stress testing across diverse SQL dialects and schemas [repo_profile]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While SlowQL presents an ambitious offline SQL static analyzer with extensive rule coverage and workflow integrations, several red flags undermine confidence in its maturity, transparency, and real-world reliability.",
+        "highlights": [
+          "Claims of '171 built-in rules' and 'safe autofix' lack substantiating evidence in release notes or documentation—only v1.5.0 provides meaningful detail [ID:E-RD-008][ID:E-RL-001]",
+          "Two of three releases have minimal or empty release notes, obscuring the nature and severity of changes or bug fixes [ID:E-RL-002][ID:E-RL-003]",
+          "The presence of a file named 'dangerous.sql' in the root directory is unexplained and raises legitimate concerns about whether it reflects unsafe patterns or actual risk [ID:E-RF-001]"
+        ],
+        "risks": [
+          "Overstated production readiness: despite claims of CI/CD and GitHub Actions support, sparse release history and undocumented early versions suggest immaturity [ID:E-RL-002][ID:E-RL-003]",
+          "Lack of community validation: only 76 stars and 8 forks indicate limited adoption, increasing the risk of undiscovered edge-case failures in diverse SQL environments [repo_profile]",
+          "Opacity around core capabilities: critical features like schema-aware parsing and autofix logic are mentioned but not demonstrated or verified in available evidence [ID:E-RD-008][ID:E-RL-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"SlowQL\",\n    \"one_sentence\": \"A production-focused offline SQL static analyzer that detects security vulnerabilities, performance regressions, reliability issues, compliance risks, cost inefficiencies, and code quality problems without requiring a live database connection.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users provide SQL files or directories to SlowQL, which performs schema-aware static analysis using 171 built-in rules, reports findings via multiple formats (console, SARIF, JSON), and optionally applies safe autofixes with preview and backup support—all within CI/CD, pre-commit hooks, or local development workflows.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Dashboard\",\n      \"purpose\": \"Display analysis results, rule violations, and remediation options in an interactive terminal interface.\",\n      \"primary_actions\": [\n        \"Run analysis on SQL files\",\n        \"Preview autofix suggestions\",\n        \"Apply safe fixes with backup\",\n        \"Export results in SARIF/JSON\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"analyze_sql\",\n      \"purpose\": \"Perform static analysis on provided SQL input using built-in rules and optional DDL schema context.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"apply_autofix\",\n      \"purpose\": \"Safely apply automated fixes for supported anti-patterns with diff preview and backup support.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"export_report\",\n      \"purpose\": \"Generate and export analysis results in specified formats (SARIF, JSON, GitHub annotations).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"sql_files\",\n        \"fields\": [\n          {\n            \"name\": \"path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"text\"\n          "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "MeshAddicts/meshinfo",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 4,
+        "inventor": 4,
+        "engineer": 4,
+        "skeptic": 4,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "makroumi/slowql",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 7,
+        "inventor": 7,
+        "engineer": 8,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=134",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] makroumi/slowql evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] MeshAddicts/meshinfo evidence total=7 readme=1 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=19 gaps=0",
+    "[llm_spec_generator] MeshAddicts/meshinfo canonical spec ok (iter=1) -> specs/2026-03-16/MeshAddicts__meshinfo.json",
+    "[llm_spec_generator] makroumi/slowql canonical spec ok (iter=1) -> specs/2026-03-16/makroumi__slowql.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-16T05:19:28.168Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:28.192Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260316T051928Z"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:28.192Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:28.196Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:28.804Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:28.804Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:29.320Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:29.320Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:29.741Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:29.741Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:30.152Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:30.152Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:30.653Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:30.653Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:31.152Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:31.152Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:31.634Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:31.634Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:31.984Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:31.984Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.447Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.447Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.882Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.885Z",
+      "run_id": "20260316T051928Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 134
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.886Z",
+      "run_id": "20260316T051928Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.889Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-16T05:19:32.889Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "MeshAddicts__meshinfo/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.890Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "MeshAddicts__meshinfo/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.891Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "MeshAddicts__meshinfo/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.893Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "MeshAddicts__meshinfo/root_files_develop.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.894Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-16T05:19:32.894Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makroumi__slowql/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.896Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makroumi__slowql/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.897Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makroumi__slowql/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:32.898Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makroumi__slowql/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.280Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 8894,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.280Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.280Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.280Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 386
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.280Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.420Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7443,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.420Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.420Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.420Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 531
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.420Z",
+      "run_id": "20260316T051928Z",
+      "node": "repo_card_builder",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 7,
+        "readme": 1,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.424Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 7,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 1,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:33.424Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 7,
+        "evidence_selected": 7,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:43.380Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1104,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:19:54.743Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1400,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:07.084Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1466,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:21.803Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1455,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:58.140Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4442,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:58.153Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:58.155Z",
+      "run_id": "20260316T051928Z",
+      "node": "artifacts",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-16/MeshAddicts__meshinfo.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:58.155Z",
+      "run_id": "20260316T051928Z",
+      "node": "artifacts",
+      "repo": "MeshAddicts/meshinfo",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-16/MeshAddicts__meshinfo.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:58.155Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-16T05:20:58.155Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-16T05:21:13.141Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1440,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:21:28.783Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1717,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:21:50.507Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2030,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:04.894Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1507,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.943Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5863,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.945Z",
+      "run_id": "20260316T051928Z",
+      "node": "llm_spec_generator",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.946Z",
+      "run_id": "20260316T051928Z",
+      "node": "artifacts",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-16/makroumi__slowql.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.946Z",
+      "run_id": "20260316T051928Z",
+      "node": "artifacts",
+      "repo": "makroumi/slowql",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-16/makroumi__slowql.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.949Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.949Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1773638368168,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "MeshAddicts/meshinfo": 5,
+          "makroumi/slowql": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.949Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-16T05:22:56.949Z",
+      "run_id": "20260316T051928Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-16",
+    "evidence_dir": "evidence/2026-03-16"
+  }
+}

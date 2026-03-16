@@ -1,0 +1,164 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "SlowQL",
+    "one_liner": "A production-focused offline SQL static analyzer that detects security vulnerabilities, performance regressions, reliability issues, compliance risks, cost inefficiencies, and code quality problems without requiring a live database connection."
+  },
+  "screens": [
+    {
+      "name": "CLI Dashboard",
+      "purpose": "Display analysis results, rule violations, and remediation options in an interactive terminal interface.",
+      "primary_actions": [
+        "Apply safe fixes with backup",
+        "Export results in SARIF/JSON",
+        "Preview autofix suggestions",
+        "Run analysis on SQL files"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "analyze_sql",
+      "purpose": "Perform static analysis on provided SQL input using built-in rules and optional DDL schema context.",
+      "async": true,
+      "input": {
+        "is_safe": "boolean",
+        "original": "string",
+        "payload": "json",
+        "suggested": "string",
+        "violation_id": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "apply_autofix",
+      "purpose": "Safely apply automated fixes for supported anti-patterns with diff preview and backup support.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "fix_ids": "json?",
+        "is_safe": "boolean",
+        "original": "string",
+        "suggested": "string",
+        "violation_id": "json"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "export_report",
+      "purpose": "Generate and export analysis results in specified formats (SARIF, JSON, GitHub annotations).",
+      "async": true,
+      "input": {
+        "is_safe": "boolean",
+        "original": "string",
+        "payload": "json",
+        "suggested": "string",
+        "violation_id": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "fixes",
+        "columns": [
+          {
+            "name": "is_safe",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "original",
+            "type": "TEXT"
+          },
+          {
+            "name": "suggested",
+            "type": "TEXT"
+          },
+          {
+            "name": "violation_id",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "rules",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "rule_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "severity",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sql_files",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "violations",
+        "columns": [
+          {
+            "name": "file_id",
+            "type": "JSON"
+          },
+          {
+            "name": "location",
+            "type": "JSON"
+          },
+          {
+            "name": "message",
+            "type": "TEXT"
+          },
+          {
+            "name": "rule_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add --diff and --fix modes with backup support",
+    "week 1: Build CLI interface supporting multi-file input",
+    "week 1: Implement core offline SQL parser with source anchoring",
+    "week 1: Integrate 171 built-in rules across six categories",
+    "week 2: Add GitHub Actions and pre-commit hook support",
+    "week 2: Develop severity threshold and --fail-on logic",
+    "week 2: Enable DDL-based schema validation",
+    "week 2: Implement SARIF and JSON output formatters"
+  ],
+  "acceptance_tests": [
+    "Given a SQL file with NULL comparison anti-pattern, when analyzed with SlowQL, then it should report QUAL-NULL-001 violation and offer safe autofix.",
+    "Given a SQL query referencing non-existent table, when DDL schema is provided, then it should flag missing table error.",
+    "Given multiple SQL files in a directory, when run with --fix --diff, then it should show preview diffs without modifying files.",
+    "When executed in CI with --fail-on error, and high-severity issue found, then exit code should be non-zero."
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "MeshInfo",
+    "one_liner": "Realtime web UI to run against a Meshtastic regional or private mesh network."
+  },
+  "screens": [
+    {
+      "name": "Chat View",
+      "purpose": "Show message history and enable inspection of Meshtastic chat traffic.",
+      "primary_actions": [
+        "Filter by node or time",
+        "Load message history"
+      ]
+    },
+    {
+      "name": "Main Dashboard",
+      "purpose": "Display real-time node telemetry, messages, and map visualization for the Meshtastic mesh network.",
+      "primary_actions": [
+        "Inspect telemetry data",
+        "Navigate map view",
+        "View node details"
+      ]
+    },
+    {
+      "name": "Node Details",
+      "purpose": "Present detailed information about a specific mesh node including metadata and telemetry.",
+      "primary_actions": [
+        "Access linked resources",
+        "View node statistics"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_node_info",
+      "purpose": "Retrieve detailed node information including telemetry and metadata.",
+      "async": true,
+      "input": {
+        "from_node": "string",
+        "message_id": "string",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "load_chat_history",
+      "purpose": "Fetch and render historical chat messages from PostgreSQL storage.",
+      "async": true,
+      "input": {
+        "from_node": "string",
+        "message_id": "string",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "migrate_storage",
+      "purpose": "Migrate existing JSON/filesystem data to PostgreSQL as required by v2.0.1+.",
+      "async": true,
+      "input": {
+        "from_node": "string",
+        "message_id": "string",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "messages",
+        "columns": [
+          {
+            "name": "from_node",
+            "type": "TEXT"
+          },
+          {
+            "name": "message_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "payload",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "nodes",
+        "columns": [
+          {
+            "name": "last_seen",
+            "type": "DATETIME"
+          },
+          {
+            "name": "node_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "telemetry",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build chat history viewer with pagination",
+    "week 1: Implement main dashboard with node list and map",
+    "week 1: Set up PostgreSQL-backed data ingestion from MQTT"
+  ],
+  "acceptance_tests": [
+    "All node detail links are functional and resolve correctly",
+    "Chat view loads within 2 seconds for networks with <1000 messages",
+    "Data migration from legacy JSON storage completes without loss",
+    "System rejects startup if PostgreSQL is not configured (enforce v2.0.1+ requirement)"
+  ]
+}
