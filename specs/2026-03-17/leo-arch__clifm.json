@@ -1,0 +1,97 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CliFM",
+    "one_liner": "A shell-like, command-line terminal file manager that replaces GUI/TUI with direct CLI interaction for powerful file management."
+  },
+  "screens": [
+    {
+      "name": "Main Command Interface",
+      "purpose": "Primary interface where users interact via typed commands to navigate, select, preview, and manipulate files.",
+      "primary_actions": [
+        "execute file operations (copy, move, delete, open)",
+        "invoke plugins or built-in tools (e.g., fzf, chafa)",
+        "navigate directories",
+        "select files"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Enumerate files in the current directory with optional filters, tags, or previews.",
+      "async": false,
+      "input": {
+        "limit": "int?",
+        "offset": "int?",
+        "path": "string",
+        "query": "string?",
+        "selected": "boolean",
+        "tags": "json"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persistently store a selected file or metadata (e.g., tags, bookmarks) to disk within the current profile.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "selected": "boolean",
+        "tags": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "selected",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "tags",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "profiles",
+        "columns": [
+          {
+            "name": "config_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add profile-aware persistence layer",
+    "week 1: Implement core command parser mimicking clifm’s shell-like interface",
+    "week 1: Integrate basic file listing with selection state"
+  ],
+  "acceptance_tests": [
+    "Archive extraction via 'unzip' or 'bsdtar' backend succeeds without crashing",
+    "Selected files persist across sessions when saved under a named profile",
+    "User can type 'cd /tmp' and see updated file list from /tmp"
+  ]
+}

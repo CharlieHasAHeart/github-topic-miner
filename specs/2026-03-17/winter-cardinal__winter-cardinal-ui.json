@@ -1,0 +1,99 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Winter Cardinal UI",
+    "one_liner": "A WebGL-based UI library built on PixiJS that supports both tree-shakable ES module imports and prebuilt CDN bundles with auto-loaded themes."
+  },
+  "screens": [
+    {
+      "name": "Main UI Canvas",
+      "purpose": "Hosts rendered WebGL UI components such as buttons, panels, and trees within a PixiJS application stage.",
+      "primary_actions": [
+        "Attach components to application.stage",
+        "Instantiate DButtonCheck or other wcardinal.ui components",
+        "Render UI using PixiJS WebGL renderer"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "load_all_modules",
+      "purpose": "Explicitly loads all optional UI modules to enable component instantiation in ES module environments where tree-shaking is active.",
+      "async": false,
+      "input": {
+        "auto_loaded_in_cdn": "boolean",
+        "locale": "string",
+        "payload": "json",
+        "theme_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "load_white_theme_en_us",
+      "purpose": "Loads the default white English/US theme for UI components in modular setups.",
+      "async": false,
+      "input": {
+        "auto_loaded_in_cdn": "boolean",
+        "locale": "string",
+        "payload": "json",
+        "theme_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "themes",
+        "columns": [
+          {
+            "name": "auto_loaded_in_cdn",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "locale",
+            "type": "TEXT"
+          },
+          {
+            "name": "theme_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "ui_components",
+        "columns": [
+          {
+            "name": "component_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "namespace",
+            "type": "TEXT"
+          },
+          {
+            "name": "requires_load_all",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Call loadAll() and loadThemeWhiteEnUsAll()",
+    "week 1: Import @wcardinal/wcardinal-ui via ES modules",
+    "week 1: Instantiate DButtonCheck and attach to stage",
+    "week 1: Set up PixiJS 5.3.12 dependency",
+    "week 1: Verify rendering in WebGL context"
+  ],
+  "acceptance_tests": [
+    "When using CDN scripts, DButtonCheck is available under wcardinal.ui without manual load calls.",
+    "When using ES module imports, DButtonCheck can be instantiated only after calling loadAll() and loadThemeWhiteEnUsAll()."
+  ]
+}

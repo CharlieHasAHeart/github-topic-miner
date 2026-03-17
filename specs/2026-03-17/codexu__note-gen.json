@@ -1,0 +1,121 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "NoteGen",
+    "one_liner": "A cross-platform Markdown AI note-taking application that uses intelligent agents and RAG to transform fragmented inputs into structured notes."
+  },
+  "screens": [
+    {
+      "name": "Main Note Editor",
+      "purpose": "Primary workspace for editing Markdown notes with AI assistance, file navigation, and agent interaction.",
+      "primary_actions": [
+        "Create new note",
+        "Edit existing note",
+        "Search across notes",
+        "Trigger AI agent processing"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure sync backends (WebDAV/S3), AI models, and application preferences.",
+      "primary_actions": [
+        "Adjust UI preferences",
+        "Configure AI model endpoint",
+        "Set sync provider"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve list of notes or files from local storage or remote sync backend.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "path": "string",
+        "query": "string?",
+        "sync_status": "string",
+        "title": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist a note or configuration item to local storage and queue for sync.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "path": "string",
+        "payload": "json",
+        "sync_status": "string",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "notes",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "sync_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sync_configs",
+        "columns": [
+          {
+            "name": "credentials",
+            "type": "TEXT"
+          },
+          {
+            "name": "endpoint",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add WebDAV sync configuration screen",
+    "week 1: Implement core Markdown editor with local save/load",
+    "week 1: Integrate basic AI agent for note summarization"
+  ],
+  "acceptance_tests": [
+    "Notes starting with '1. 2. 3.' render consistently without unexpected jumps [E-IS-004].",
+    "On macOS, Command+number shortcuts do not interfere with system-level shortcuts [E-IS-001].",
+    "Starting a new AI conversation clears the previous context to avoid leakage [E-IS-005].",
+    "Window title correctly displays current note name on desktop platforms [E-IS-006]."
+  ]
+}

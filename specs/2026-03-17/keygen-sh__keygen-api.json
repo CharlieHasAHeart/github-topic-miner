@@ -1,0 +1,104 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Keygen",
+    "one_liner": "Keygen is a fair source software licensing and distribution API, built for developers, by developers."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Overview of licenses, activations, and distribution engines for the current account or environment.",
+      "primary_actions": [
+        "Create new license",
+        "Manage distribution engines",
+        "View activations"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "migrate_database",
+      "purpose": "Apply database migrations during upgrade as part of deployment workflow.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "seed_data",
+      "purpose": "Seed new data after database migrations during release rollout.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "engines",
+        "columns": [
+          {
+            "name": "config",
+            "type": "JSON"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "licenses",
+        "columns": [
+          {
+            "name": "key",
+            "type": "TEXT"
+          },
+          {
+            "name": "metadata",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "machines",
+        "columns": [
+          {
+            "name": "disk_usage",
+            "type": "INTEGER"
+          },
+          {
+            "name": "identifier",
+            "type": "TEXT"
+          },
+          {
+            "name": "memory_usage",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic license creation and validation endpoints",
+    "week 1: Run initial database migration with rake db:migrate",
+    "week 1: Set up Docker-based development environment using compose.yaml"
+  ],
+  "acceptance_tests": [
+    "After deploying v1.6.0, running `rake db:migrate` successfully applies all schema and data migrations without errors.",
+    "OCI engine correctly serves container images to licensed users according to entitlement rules."
+  ]
+}

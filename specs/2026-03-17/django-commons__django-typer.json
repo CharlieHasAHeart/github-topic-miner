@@ -1,0 +1,114 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Django Typer",
+    "one_liner": "Use static typing to define the CLI for your Django management commands with Typer."
+  },
+  "screens": [
+    {
+      "name": "Command Definition Interface",
+      "purpose": "Allow developers to declaratively define CLI parameters and subcommands using typed function signatures.",
+      "primary_actions": [
+        "Define command parameters with type hints",
+        "Enable shell tab-completion",
+        "Register subcommands and command groups"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "define_typed_command",
+      "purpose": "Create a Django management command using Typer’s type-driven interface definition.",
+      "async": false,
+      "input": {
+        "command_name": "string",
+        "parameter_signatures": "json",
+        "payload": "json",
+        "subcommands": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "enable_shell_completion",
+      "purpose": "Install and configure portable shell tab-completion for bash, zsh, fish, and PowerShell.",
+      "async": false,
+      "input": {
+        "command_name": "string",
+        "parameter_signatures": "json",
+        "payload": "json",
+        "subcommands": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "render_rich_tracebacks",
+      "purpose": "Optionally use rich to format exception stack traces in the terminal for better debugging.",
+      "async": false,
+      "input": {
+        "command_name": "string",
+        "parameter_signatures": "json",
+        "payload": "json",
+        "subcommands": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ManagementCommand",
+        "columns": [
+          {
+            "name": "command_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "parameter_signatures",
+            "type": "JSON"
+          },
+          {
+            "name": "subcommands",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "ShellCompletionConfig",
+        "columns": [
+          {
+            "name": "completion_script",
+            "type": "TEXT"
+          },
+          {
+            "name": "shell_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for subcommands and command groups",
+    "week 1: Implement type-hint based parameter parsing",
+    "week 1: Integrate TyperCommand as drop-in replacement for BaseCommand",
+    "week 2: Enable shell tab-completion across major shells",
+    "week 2: Integrate rich for enhanced terminal output",
+    "week 2: Write comprehensive documentation and examples"
+  ],
+  "acceptance_tests": [
+    "A developer can define a Django management command using only type hints and have it parse CLI arguments correctly.",
+    "Rich-formatted tracebacks appear when exceptions occur (if rich is installed).",
+    "Shell tab-completion works for all supported shells after installation.",
+    "Subcommands are properly registered and accessible via hierarchical CLI syntax.",
+    "The TyperCommand class preserves all BaseCommand functionality and is a true drop-in replacement."
+  ]
+}
