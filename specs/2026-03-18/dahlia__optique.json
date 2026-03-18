@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Optique",
+    "one_liner": "Type-safe combinatorial CLI parser for TypeScript inspired by Haskell's optparse-applicative and Zod."
+  },
+  "screens": [
+    {
+      "name": "Parser Builder",
+      "purpose": "Construct and compose CLI parsers using modular combinators with real-time type feedback.",
+      "primary_actions": [
+        "Define parser combinators",
+        "Generate shell completions",
+        "Preview inferred types"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a composed CLI parser configuration for reuse or documentation generation.",
+      "async": true,
+      "input": {
+        "combinator_type": "string",
+        "inferred_type": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "parsers",
+        "columns": [
+          {
+            "name": "combinator_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "inferred_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add shell completion generator",
+    "week 1: Implement core parser combinators (object, optional, or)",
+    "week 1: Integrate type inference engine"
+  ],
+  "acceptance_tests": [
+    "A user can define a CLI parser using object() and optional() combinators and receive correct TypeScript types.",
+    "Shell completions for Bash and zsh are correctly generated from a composed parser."
+  ]
+}

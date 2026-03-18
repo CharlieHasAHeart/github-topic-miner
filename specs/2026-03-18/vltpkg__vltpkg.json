@@ -1,0 +1,92 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "vlt",
+    "one_liner": "A modular, TypeScript-based package manager with secure caching, dependency graph resolution, and CLI tooling."
+  },
+  "screens": [
+    {
+      "name": "CLI Interface",
+      "purpose": "Primary entry point for users to execute package management commands such as install, uninstall, and view.",
+      "primary_actions": [
+        "run install command",
+        "run uninstall command",
+        "view package information"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "hydrate_cli_options",
+      "purpose": "Populate CLI command options from configuration or defaults during execution.",
+      "async": true,
+      "input": {
+        "has_vlt_json": "boolean",
+        "payload": "json",
+        "secure_defaults_applied": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "uninstall_package",
+      "purpose": "Remove a package from the project, handling cases where only a lockfile exists.",
+      "async": true,
+      "input": {
+        "has_vlt_json": "boolean",
+        "payload": "json",
+        "secure_defaults_applied": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config",
+        "columns": [
+          {
+            "name": "has_vlt_json",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "secure_defaults_applied",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "packages",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "resolved_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Ensure CLI hydration works with minimal project state",
+    "week 1: Implement core uninstall logic resilient to missing vlt.json",
+    "week 1: Validate lockfile-only scenarios in integration tests"
+  ],
+  "acceptance_tests": [
+    "CLI options are correctly hydrated from available configuration sources during command execution.",
+    "Default secure configuration entries are applied automatically if vlt.json is missing.",
+    "The `vlt uninstall` command succeeds when only vlt-lock.json is present and no vlt.json exists."
+  ]
+}

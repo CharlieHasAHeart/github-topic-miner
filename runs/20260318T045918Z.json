@@ -1,0 +1,3274 @@
+{
+  "run_id": "20260318T045918Z",
+  "generated_at": "2026-03-18T04:59:18.516Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 38,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 8,
+      "release": 3,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-18T05:04:00.258Z",
+    "repo_count": 144
+  },
+  "candidates": [
+    {
+      "full_name": "dahlia/optique",
+      "html_url": "https://github.com/dahlia/optique",
+      "description": "Type-safe combinatorial CLI parser for TypeScript",
+      "topics": [
+        "cli",
+        "getopt",
+        "parser-combinators",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 605,
+      "forks_count": 7,
+      "open_issues_count": 263,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:59:00Z",
+      "created_at": "2025-08-19T05:34:10Z"
+    },
+    {
+      "full_name": "vltpkg/vltpkg",
+      "html_url": "https://github.com/vltpkg/vltpkg",
+      "description": "the vlt monorepo",
+      "topics": [
+        "cli",
+        "javascript",
+        "monorepo",
+        "nodejs",
+        "package",
+        "package-manager",
+        "vlt"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 493,
+      "forks_count": 25,
+      "open_issues_count": 97,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:58:28Z",
+      "created_at": "2024-04-01T23:24:59Z"
+    },
+    {
+      "full_name": "lanl/yelpapi",
+      "html_url": "https://github.com/lanl/yelpapi",
+      "description": "yelpapi is a pure Python implementation of the Yelp Fusion API (aka Yelp v3 API).",
+      "topics": [
+        "api",
+        "python",
+        "python-yelp",
+        "yelp"
+      ],
+      "language": "Python",
+      "stargazers_count": 139,
+      "forks_count": 47,
+      "open_issues_count": 0,
+      "license_spdx_id": "BSD-3-Clause",
+      "default_branch": "master",
+      "pushed_at": "2026-03-18T04:57:51Z",
+      "created_at": "2013-10-03T20:55:21Z"
+    },
+    {
+      "full_name": "eigenpal/docx-editor",
+      "html_url": "https://github.com/eigenpal/docx-editor",
+      "description": "React DOCX editor",
+      "topics": [
+        "docx",
+        "docx-editor",
+        "editor",
+        "js",
+        "msword",
+        "next",
+        "prosemirror",
+        "react",
+        "vite",
+        "word",
+        "word-editor",
+        "wysiwyg"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 512,
+      "forks_count": 32,
+      "open_issues_count": 15,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:56:53Z",
+      "created_at": "2026-02-02T00:43:53Z"
+    },
+    {
+      "full_name": "onejs/one",
+      "html_url": "https://github.com/onejs/one",
+      "description": "❶ One is a new React framework - target web and native with a single Vite plugin and fully shared code, so you can ship cross-platform nearly as easy as single-platform.",
+      "topics": [
+        "local-first",
+        "react",
+        "react-native",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 4416,
+      "forks_count": 116,
+      "open_issues_count": 36,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:56:53Z",
+      "created_at": "2023-10-02T03:31:40Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "dahlia/optique",
+      "html_url": "https://github.com/dahlia/optique",
+      "description": "Type-safe combinatorial CLI parser for TypeScript",
+      "topics": [
+        "cli",
+        "getopt",
+        "parser-combinators",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 605,
+      "forks_count": 7,
+      "open_issues_count": 263,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:59:00Z",
+      "created_at": "2025-08-19T05:34:10Z"
+    },
+    {
+      "full_name": "vltpkg/vltpkg",
+      "html_url": "https://github.com/vltpkg/vltpkg",
+      "description": "the vlt monorepo",
+      "topics": [
+        "cli",
+        "javascript",
+        "monorepo",
+        "nodejs",
+        "package",
+        "package-manager",
+        "vlt"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 493,
+      "forks_count": 25,
+      "open_issues_count": 97,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:58:28Z",
+      "created_at": "2024-04-01T23:24:59Z"
+    },
+    {
+      "full_name": "lanl/yelpapi",
+      "html_url": "https://github.com/lanl/yelpapi",
+      "description": "yelpapi is a pure Python implementation of the Yelp Fusion API (aka Yelp v3 API).",
+      "topics": [
+        "api",
+        "python",
+        "python-yelp",
+        "yelp"
+      ],
+      "language": "Python",
+      "stargazers_count": 139,
+      "forks_count": 47,
+      "open_issues_count": 0,
+      "license_spdx_id": "BSD-3-Clause",
+      "default_branch": "master",
+      "pushed_at": "2026-03-18T04:57:51Z",
+      "created_at": "2013-10-03T20:55:21Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "dahlia/optique",
+      "html_url": "https://github.com/dahlia/optique",
+      "description": "Type-safe combinatorial CLI parser for TypeScript",
+      "topics": [
+        "cli",
+        "getopt",
+        "parser-combinators",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 605,
+      "forks_count": 7,
+      "open_issues_count": 263,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:59:00Z",
+      "created_at": "2025-08-19T05:34:10Z",
+      "readme": {
+        "fetched": true,
+        "text": "<!-- hongdown-disable-next-line -->\n\n<img src=\"docs/public/optique.svg\" width=\"128\" height=\"58\" align=\"right\" alt=\"Optique logo\">\n\nOptique: Type-safe combinatorial CLI parser for TypeScript\n==========================================================\n\n[![JSR][JSR badge]][JSR]\n[![npm][npm badge]][npm]\n[![GitHub Actions][GitHub Actions badge]][GitHub Actions]\n[![Codecov][Codecov badge]][Codecov]\n\nType-safe combinatorial CLI parser for TypeScript inspired by Haskell's\n[optparse-applicative] and TypeScript's [Zod]. Build composable parsers for\ncommand-line interfaces with full type safety, automatic type inference, and\nbuilt-in shell completion support for Bash, zsh, fish, PowerShell, and Nushell,\nplus config file integration and man page generation from the same parser\ndefinitions.\n\n> [!NOTE]\n> Optique is a parsing library that focuses on extracting and validating\n> command-line arguments. It doesn't dictate your application's structure,\n> handle command execution, or provide scaffolding—it simply transforms\n> command-line input into well-typed data structures.\n\n[JSR badge]: https://jsr.io/badges/@optique/core\n[JSR]: https://jsr.io/@optique\n[npm badge]: https://img.shields.io/npm/v/@optique/core?logo=npm\n[npm]: https://www.npmjs.com/package/@optique/core\n[GitHub Actions badge]: https://github.com/dahlia/optique/actions/workflows/main.yaml/badge.svg\n[GitHub Actions]: https://github.com/dahlia/optique/actions/workflows/main.yaml\n[Codecov badge]: https://codecov.io/gh/dahlia/optique/graph/badge.svg?token=Dw50j2DTjG\n[Codecov]: https://codecov.io/gh/dahlia/optique\n[optparse-applicative]: https://github.com/pcapriotti/optparse-applicative\n[Zod]: https://zod.dev/\n\n\nWhy Optique\n-----------\n\n -  *Composable by default*: Build small parser pieces and combine them into\n    larger CLIs without losing readability or types.\n -  *Types that model real CLI rules*: Optional flags, mutually exclusive\n    branches, and dependent options are reflected directly in inferred types.\n -  *One parser, many outputs*: Derive help text, shell completions, and\n    (with *@optique/man*) man pages from the same parser definition.\n -  *Practical integrations*: Extend parsers with config files, environment\n    variables, schema validators, interactive prompts, and git-aware parsing.\n -  *Cross-runtime consistency*: Use the same parser model in Deno, Node.js,\n    and Bun.\n\n\nFeatures\n--------\n\n -  *Parser combinators*: `object()`, `or()`, `merge()`, `optional()`,\n    `multiple()`, `map()`, `conditional()`, `passThrough()`, and more\n    for composable CLI parsing\n -  *Full type safety*: Automatic TypeScript type inference for all parser\n    compositions with compile-time validation\n -  *Rich value parsers*: Built-in parsers for strings, numbers, URLs, locales,\n    UUIDs, networking types (`port()`, `ipv4()`, `hostname()`, `email()`, etc.),\n    Temporal types (via *@optique/temporal*), Zod schemas (via *@optique/zod*),\n    and Valibot schemas (via *@optique/valibot*)\n -  *Config file support*: Load config from files with Standard Schema validation\n    (via *@optique/config*), supporting Zod, Valibot, ArkType, and more\n -  *Environment variable support*: Bind options to environment variables\n    with type-safe parsing and fallback behavior (via *@optique/env*)\n -  *Interactive prompts*: Prompt users for missing values via Inquirer.js\n    with parser-integrated fallback flows (via *@optique/inquirer*)\n -  *Inter-option dependencies*: Options whose valid values depend on other\n    options, with dynamic validation and context-aware shell completion\n -  *Async parser support*: Type-safe sync/async mode distinction for parsers\n    that validate against external sources like git refs or remote APIs\n -  *Man page generation*: Generate Unix man pages directly from parser\n    definitions (via *@optique/man*), keeping documentation always in sync\n -  *Shell completion*: Automatic completion script generation for Bash, zsh,\n    fish, PowerShell, and Nushell\n -  *Smart error messages*: “Did you mean?” suggestions for typos with\n    context-aware error formatting\n -  *Automatic help generation*: Beautiful help text with usage formatting,\n    labeled sections, and colored output\n -  *Multi-runtime support*: Works seamlessly with Deno, Node.js, and Bun\n -  *CLI integration*: Complete CLI setup with `run()` function including help,\n    version, and completion support\n\n\nQuick example\n-------------\n\n~~~~ typescript\nimport { option, constant } from \"@optique/core/primitives\";\nimport { object, or, merge } from \"@optique/core/constructs\";\nimport { optional } from \"@optique/core/modifiers\";\nimport { string, integer } from \"@optique/core/valueparser\";\nimport { run, print } from \"@optique/run\";\n\n// Reusable parser components\nconst commonOptions = object({\n  verbose: option(\"-v\", \"--verbose\"),\n  config: optional(option(\"-c\", \"--config\", string())),\n});\n\n// Mutually exclusive deployment strategies\nconst localDeploy = object({\n  mode: constant(\"local\" as const),\n  path: option(\"--path\", string()),\n  port: option(\"--port\", integer({ min: 1000 })),\n});\n\nconst cloudDeploy = object({\n  mode: constant(\"cloud\" as const),\n  provider: option(\"--provider\", string()),\n  region: option(\"--region\", string()),\n  apiKey: option(\"--api-key\", string()),\n});\n\n// Compose parsers with type-safe constraints\nconst parser = merge(\n  commonOptions,\n  or(localDeploy, cloudDeploy)\n);\n\nconst config = run(parser, { help: \"both\" });\n// config: {\n//   readonly verbose: boolean;\n//   readonly config: string | undefined;\n// } & (\n//   | {\n//       readonly mode: \"local\";\n//       readonly path: string;\n//       readonly port: number;\n//   }\n//   | {\n//       readonly mode: \"cloud\";\n//       readonly provider: string;\n//       readonly region: string;\n//       readonly apiKey: string;\n//   }\n// )\n\n// TypeScript knows exactly what's available based on the mode\nif (config.mode === \"local\") {\n  print(`Deploying to ${config.path} on port ${config.port}.`);\n} else {\n  print(`Deploying to ${config.provider} in ${config.region}.`);\n}\n~~~~\n\n\nDocs\n----\n\nOptique provides comprehensive documentation to help you get started quickly:\n<https://optique.dev/>.\n\nNew to Optique? Start with the [tutorial] and then explore the [cookbook].\n\n -  [Why Optique?] — What makes Optique different from other CLI libraries\n -  [Tutorial] — Step-by-step guide from simple options to nested subcommands\n -  [Cookbook] — Practical recipes for common CLI patterns including shell\n    completion\n\nAPI reference documentation for each package is available on JSR (see below).\n\n[tutorial]: https://optique.dev/tutorial\n[cookbook]: https://optique.dev/cookbook\n[Why Optique?]: https://optique.dev/why\n[Tutorial]: https://optique.dev/tutorial\n[Cookbook]: https://optique.dev/cookbook\n\n\nPackages\n--------\n\nOptique is a monorepo which contains multiple packages.  The main package is\n*@optique/core*, which provides the shared types and parser combinators.\nThe following is a list of the available packages:\n\n| Package                                  | JSR                          | npm                          | Description                                  |\n| ---------------------------------------- | ---------------------------- | ---------------------------- | -------------------------------------------- |\n| [@optique/core](/packages/core/)         | [JSR][jsr:@optique/core]     | [npm][npm:@optique/core]     | Shared types and parser combinators          |\n| [@optique/run](/packages/run/)           | [JSR][jsr:@optique/run]      | [npm][npm:@optique/run]      | Runner for Node.js/Deno/Bun                  |\n| [@optique/config](/packages/config/)     | [JSR][jsr:@optique/config]   | [npm][npm:@optique/config]   | Config file support with [Standard Schema]   |\n| [@optique/env](/packages/env/)           | [JSR][jsr:@optique/env]      | [npm][npm:@optique/env]      | Environment variable integration             |\n| [@optique/git](/packages/git/)           | [JSR][jsr:@optique/git]      | [npm][npm:@optique/git]      | Git reference parsers (branches, tags, etc)  |\n| [@optique/logtape](/packages/logtape/)   | [JSR][jsr:@optique/logtape]  | [npm][npm:@optique/logtape]  | [LogTape] logging integration                |\n| [@optique/man](/packages/man/)           | [JSR][jsr:@optique/man]      | [npm][npm:@optique/man]      | Man page generation from parsers             |\n| [@optique/temporal](/packages/temporal/) | [JSR][jsr:@optique/temporal] | [npm][npm:@optique/temporal] | [Temporal] value parsers (date and time)     |\n| [@optique/valibot](/packages/valibot/)   | [JSR][jsr:@optique/valibot]  | [npm][npm:@optique/valibot]  | [Valibot] schema integration for validation  |\n| [@optique/zod](/packages/zod/)           | [JSR][jsr:@optique/zod]      | [npm][npm:@optique/zod]      | [Zod] schema integration for validation      |\n| [@optique/inquirer](/packages/inquirer/) | [JSR][jsr:@optique/inquirer] | [npm][npm:@optique/inquirer] | Interactive prompt support via [Inquirer.js] |\n\n[jsr:@optique/core]: https://jsr.io/@optique/core\n[npm:@optique/core]: https://www.npmjs.com/package/@optique/core\n[jsr:@optique/run]: https://jsr.io/@optique/run\n[npm:@optique/run]: https://www.npmjs.com/package/@optique/run\n[jsr:@optique/config]: https://jsr.io/@optique/config\n[npm:@optique/config]: https://www.npmjs.com/package/@optique/config\n[Standard Schema]: https://standardschema.dev/\n[jsr:@optique/env]: https://jsr.io/@optique/env\n[npm:@optique/env]: https://www.npmjs.com/package/@optique/env\n[jsr:@optique/git]: https://jsr.io/@optique/git\n[npm:@optique/git]: https://www.npmjs.com/package/@optique/git\n[jsr:@optique/logtape]: https://jsr.io/@optique/logtape\n[npm:@optique/logtape]: https://www.npmjs.com/package/@optique/logtape\n[LogTape]: https://logtape.org/\n[jsr:@optique/man]: https://jsr.io/@optique/man\n[npm:@optique/man]: https://www.npmjs.com/package/@optique/man\n[jsr:@optique/temporal]: https://jsr.io/@optique/temporal\n[npm:@optique/temporal]: https://www.npmjs.com/package/@optique/temporal\n[Temporal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal\n[jsr:@optique/valibot]: https://jsr.io/@optique/valibot\n[npm:@optique/valibot]: https://www.npmjs.com/package/@optique/valibot\n[Valibot]: https://valibot.dev/\n[jsr:@optique/zod]: https://jsr.io/@optique/zod\n[npm:@optique/zod]: https://www.npmjs.com/package/@optique/zod\n[jsr:@optique/inquirer]: https://jsr.io/@optique/inquirer\n[npm:@optique/inquirer]: https://www.npmjs.com/package/@optique/inquirer\n[Inquirer.js]: https://github.com/SBoudrias/Inquirer.js\n",
+        "truncated": false,
+        "bytes": 10580,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 200,
+            "title": "The `getDocPage*()` helpers lose inner docs for a top-level `command()` parser",
+            "state": "closed",
+            "url": "https://github.com/dahlia/optique/issues/200"
+          },
+          {
+            "number": 590,
+            "title": "`shouldDeferCompletion` forwarding in `optional()`/`withDefault()` has state shape mismatch",
+            "state": "closed",
+            "url": "https://github.com/dahlia/optique/issues/590"
+          },
+          {
+            "number": 594,
+            "title": "Annotation propagation drops annotations for primitive and non-plain object states in `optional()`/`withDefault()`",
+            "state": "open",
+            "url": "https://github.com/dahlia/optique/issues/594"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".cursorrules",
+        ".github",
+        ".gitignore",
+        ".hongdown.toml",
+        ".vscode",
+        ".windsurfrules",
+        ".zed",
+        "AGENT.md",
+        "AGENTS.md",
+        "CHANGES.md",
+        "CLAUDE.md",
+        "GEMINI.md",
+        "LICENSE",
+        "README.md",
+        "context7.json",
+        "cspell.json",
+        "deno.json",
+        "deno.lock",
+        "docs",
+        "examples",
+        "mise.toml",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "readme-imports.test.ts",
+        "scripts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<img src=\"docs/public/optique.svg\" width=\"128\" height=\"58\" align=\"right\" alt=\"Optique logo\">",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Optique: Type-safe combinatorial CLI parser for TypeScript ==========================================================",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![JSR][JSR badge]][JSR] [![npm][npm badge]][npm] [![GitHub Actions][GitHub Actions badge]][GitHub Actions] [![Codecov][Codecov badge]][Codecov]",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Type-safe combinatorial CLI parser for TypeScript inspired by Haskell's [optparse-applicative] and TypeScript's [Zod]. Build composable parsers for command-line interfaces with full type safety, automatic type inference, and built-in shell completion support for Bash, zsh, fish, PowerShell, and Nushell, plus config file integration and man page generation from the same parser definitions.",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 5)",
+          "excerpt": "> [!NOTE] > Optique is a parsing library that focuses on extracting and validating > command-line arguments. It doesn't dictate your application's structure, > handle command execution, or provide scaffolding—it simply transforms > command-line input into well-typed data structures.",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 6)",
+          "excerpt": "[JSR badge]: https://jsr.io/badges/@optique/core [JSR]: https://jsr.io/@optique [npm badge]: https://img.shields.io/npm/v/@optique/core?logo=npm [npm]: https://www.npmjs.com/package/@optique/core [GitHub Actions badge]: https://github.com/dahlia/optique/actions/workflows/main.yaml/badge.svg [GitHub Actions]: https://github.com/dahlia/optique/actions/workflows/main.yaml [Codecov badge]: https://codecov.io/gh/dahlia/optique/graph/badge.svg?token=Dw50j2DTjG [Codecov]: https://codecov.io/gh/dahlia/optique [optparse-applicative]: https://github.com/pcapriotti/optparse-applicative [Zod]: https://zod.dev/",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- *Composable by default*: Build small parser pieces and combine them into larger CLIs without losing readability or types. - *Types that model real CLI rules*: Optional flags, mutually exclusive branches, and dependent options are reflected directly in inferred types. - *One parser, many outputs*: Derive help text, shell completions, and (with *@optique/man*) man pages from the same parser definition. - *Practical integrations*: Extend parsers with config files, environment variables, schema validators, interactive prompts, and git-aware parsing. - *Cross-runtime consistency*: Use the same parser model in Deno, Node.js, and Bun.",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/dahlia/optique#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- *Parser combinators*: `object()`, `or()`, `merge()`, `optional()`, `multiple()`, `map()`, `conditional()`, `passThrough()`, and more for composable CLI parsing - *Full type safety*: Automatic TypeScript type inference for all parser compositions with compile-time validation - *Rich value parsers*: Built-in parsers for strings, numbers, URLs, locales, UUIDs, networking types (`port()`, `ipv4()`, `hostname()`, `email()`, etc.), Temporal types (via *@optique/temporal*), Zod schemas (via *@optique/zod*), and Valibot schemas (via *@optique/valibot*) - *Config file support*: Load config from files with Standard Schema validation (via *@optique/config*), supporting Zod, Valibot, ArkType, and more - *Environment variable support*: Bind options to environment variables with type-safe parsing and fallback behavior (via *@optique/env*) - *Interactive prompts*: Prompt users for missing values via Inquirer.js with parser-integrated fallback flows (via *@optique/inquirer*) - *Inter-option dependencies*: Options whose valid values depend on other options, with dynamic validation and context-aware shell completion - *Async parser support*: Type-safe sync/async mode distinction for parsers that …",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/dahlia/optique/issues/200",
+          "title": "The `getDocPage*()` helpers lose inner docs for a top-level `command()` parser",
+          "excerpt": "The `getDocPage*()` helpers lose inner docs for a top-level `command()` parser (state:closed)",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "number": 200
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/dahlia/optique/issues/590",
+          "title": "`shouldDeferCompletion` forwarding in `optional()`/`withDefault()` has state shape mismatch",
+          "excerpt": "`shouldDeferCompletion` forwarding in `optional()`/`withDefault()` has state shape mismatch (state:closed)",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "number": 590
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/dahlia/optique/issues/594",
+          "title": "Annotation propagation drops annotations for primitive and non-plain object states in `optional()`/`withDefault()`",
+          "excerpt": "Annotation propagation drops annotations for primitive and non-plain object states in `optional()`/`withDefault()` (state:open)",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "number": 594
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/dahlia/optique",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .cursorrules, .github, .gitignore, .hongdown.toml, .vscode, .windsurfrules, .zed, AGENT.md, AGENTS.md, CHANGES.md, CLAUDE.md, GEMINI.md, LICENSE, README.md, context7.json, cspell.json, deno.json, deno.lock, docs, examples, mise.toml, packages, pnpm-lock.yaml, pnpm-workspace.yaml, readme-imports.test.ts, scripts",
+          "fetched_at": "2026-03-18T04:59:22.796Z",
+          "meta": {
+            "repo_full_name": "dahlia/optique",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "vltpkg/vltpkg",
+      "html_url": "https://github.com/vltpkg/vltpkg",
+      "description": "the vlt monorepo",
+      "topics": [
+        "cli",
+        "javascript",
+        "monorepo",
+        "nodejs",
+        "package",
+        "package-manager",
+        "vlt"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 493,
+      "forks_count": 25,
+      "open_issues_count": 97,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-03-18T04:58:28Z",
+      "created_at": "2024-04-01T23:24:59Z",
+      "readme": {
+        "fetched": true,
+        "text": "![vlt](https://github.com/user-attachments/assets/aec7c817-b83f-4d71-b34a-4e480b97e82c)\n\n# vlt /vōlt/\n\n![vlt Version](https://img.shields.io/npm/v/vlt?logo=npm&label=Version)\n![Package Downloads](https://img.shields.io/npm/dm/vlt?logo=npm&label=Downloads)\n![GitHub Branch Status](https://img.shields.io/github/checks-status/vltpkg/vltpkg/main?logo=github&label=GitHub)\n![Discord Server Status](https://img.shields.io/discord/1093366081067954178?logo=discord&label=Discord)\n[![Socket Security Status](https://socket.dev/api/badge/npm/package/vlt)](https://socket.dev/npm/package/vlt)\n\n**Develop. Run. Distribute.**\n\nThis is the source monorepo for the [vlt](https://www.vlt.sh) package\nmanager.\n\n### Documentation\n\nFull documentation, startup guides & API references can be found at\n[docs.vlt.sh](https://docs.vlt.sh).\n\n#### Development\n\n```bash\n# Clone the repo\ngit clone git@github.com:vltpkg/vltpkg.git\ncd vltpkg\n\n# Install deps (and run prepare scripts)\nvlt install\n\n# Run the locally built CLI\nvlr vlt # OR ./node_modules/.bin/vlt\n```\n\nSee the [contributing guide](./CONTRIBUTING.md) for more information\non how to build and develop the various workspaces.\n\n### Contributors\n\n<a href=\"https://github.com/vltpkg/vltpkg/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=vltpkg/vltpkg\" />\n</a>\n\n### Licenses\n\nBelow you can find a complete table of each workspace available in\nthis repository and its corresponding license:\n\n#### Reusable Client Internals (`src/*`)\n\n| Workspace Name                                     | License                                               | Downloads                                                                         |\n| -------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------- |\n| [@vltpkg/cache](./src/cache)                       | [BSD-2-Clause-Patent](./src/cache/LICENSE)            | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cache?logo=npm)            |\n| [@vltpkg/cache-unzip](./src/cache-unzip)           | [BSD-2-Clause-Patent](./src/cache-unzip/LICENSE)      | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cache-unzip?logo=npm)      |\n| [@vltpkg/cli-sdk](./src/cli-sdk)                   | [BSD-2-Clause-Patent](./src/cli-sdk/LICENSE)          | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cli-sdk?logo=npm)          |\n| [@vltpkg/cmd-shim](./src/cmd-shim)                 | [BSD-2-Clause-Patent](./src/cmd-shim/LICENSE)         | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cmd-shim?logo=npm)         |\n| [@vltpkg/config](./src/config)                     | [BSD-2-Clause-Patent](./src/config/LICENSE)           | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/config?logo=npm)           |\n| [@vltpkg/dep-id](./src/dep-id)                     | [BSD-2-Clause-Patent](./src/dep-id/LICENSE)           | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/dep-id?logo=npm)           |\n| [@vltpkg/dot-prop](./src/dot-prop)                 | [MIT](./src/dot-prop/LICENSE)                         | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/dot-prop?logo=npm)         |\n| [@vltpkg/dss-breadcrumb](./src/dss-breadcrumb)     | [BSD-2-Clause-Patent](./src/dss-breadcrumb/LICENSE)   | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/dss-breadcrumb?logo=npm)   |\n| [@vltpkg/dss-parser](./src/dss-parser)             | [BSD-2-Clause-Patent](./src/dss-parser/LICENSE)       | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/dss-parser?logo=npm)       |\n| [@vltpkg/error-cause](./src/error-cause)           | [BSD-2-Clause-Patent](./src/error-cause/LICENSE)      | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/error-cause?logo=npm)      |\n| [@vltpkg/fast-split](./src/fast-split)             | [BSD-2-Clause-Patent](./src/fast-split/LICENSE)       | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/fast-split?logo=npm)       |\n| [@vltpkg/git](./src/git)                           | [ISC](./src/git/LICENSE)                              | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/git?logo=npm)              |\n| [@vltpkg/git-scp-url](./src/git-scp-url)           | [BSD-2-Clause-Patent](./src/git-scp-url/LICENSE)      | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/git-scp-url?logo=npm)      |\n| [@vltpkg/graph](./src/graph)                       | [BSD-2-Clause-Patent](./src/graph/LICENSE)            | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/graph?logo=npm)            |\n| [@vltpkg/graph-run](./src/graph-run)               | [BSD-2-Clause-Patent](./src/graph-run/LICENSE)        | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/graph-run?logo=npm)        |\n| [@vltpkg/init](./src/init)                         | [BSD-2-Clause-Patent](./src/init/LICENSE)             | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/init?logo=npm)             |\n| [@vltpkg/keychain](./src/keychain)                 | [BSD-2-Clause-Patent](./src/keychain/LICENSE)         | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/keychain?logo=npm)         |\n| [@vltpkg/output](./src/output)                     | [BSD-2-Clause-Patent](./src/output/LICENSE)           | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/output?logo=npm)           |\n| [@vltpkg/package-info](./src/package-info)         | [BSD-2-Clause-Patent](./src/package-info/LICENSE)     | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/package-info?logo=npm)     |\n| [@vltpkg/package-json](./src/package-json)         | [BSD-2-Clause-Patent](./src/package-json/LICENSE)     | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/package-json?logo=npm)     |\n| [@vltpkg/pick-manifest](./src/pick-manifest)       | [BSD-2-Clause-Patent](./src/pick-manifest/LICENSE)    | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/pick-manifest?logo=npm)    |\n| [@vltpkg/promise-spawn](./src/promise-spawn)       | [ISC](./src/promise-spawn/LICENSE)                    | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/promise-spawn?logo=npm)    |\n| [@vltpkg/query](./src/query)                       | [BSD-2-Clause-Patent](./src/query/LICENSE)            | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/query?logo=npm)            |\n| [@vltpkg/registry-client](./src/registry-client)   | [BSD-2-Clause-Patent](./src/registry-client/LICENSE)  | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/registry-client?logo=npm)  |\n| [@vltpkg/rollback-remove](./src/rollback-remove)   | [BSD-2-Clause-Patent](./src/rollback-remove/LICENSE)  | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/rollback-remove?logo=npm)  |\n| [@vltpkg/run](./src/run)                           | [BSD-2-Clause-Patent](./src/run/LICENSE)              | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/run?logo=npm)              |\n| [@vltpkg/satisfies](./src/satisfies)               | [BSD-2-Clause-Patent](./src/satisfies/LICENSE)        | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/satisfies?logo=npm)        |\n| [@vltpkg/security-archive](./src/security-archive) | [BSD-2-Clause-Patent](./src/security-archive/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/security-archive?logo=npm) |\n| [@vltpkg/semver](./src/semver)                     | [BSD-2-Clause-Patent](./src/semver/LICENSE)           | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/semver?logo=npm)           |\n| [@vltpkg/spec](./src/spec)                         | [BSD-2-Clause-Patent](./src/spec/LICENSE)             | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/spec?logo=npm)             |\n| [@vltpkg/tar](./src/tar)                           | [BSD-2-Clause-Patent](./src/tar/LICENSE)              | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/tar?logo=npm)              |\n| [@vltpkg/types](./src/types)                       | [BSD-2-Clause-Patent](./src/types/LICENSE)            | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/types?logo=npm)            |\n| [@vltpkg/url-open](./src/url-open)                 | [BSD-2-Clause-Patent](./src/url-open/LICENSE)         | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/url-open?logo=npm)         |\n| [@vltpkg/vlt-json](./src/vlt-json)                 | [BSD-2-Clause-Patent](./src/vlt-json/LICENSE)         | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/vlt-json?logo=npm)         |\n| [@vltpkg/vlx](./src/vlx)                           | [BSD-2-Clause-Patent](./src/vlx/LICENSE)              | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/vlx?logo=npm)              |\n| [@vltpkg/which](./src/which)                       | [ISC](./src/which/LICENSE)                            | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/which?logo=npm)            |\n| [@vltpkg/workspaces](./src/workspaces)             | [BSD-2-Clause-Patent](./src/workspaces/LICENSE)       | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/workspaces?logo=npm)       |\n| [@vltpkg/xdg](./src/xdg)                           | [BSD-2-Clause-Patent](./src/xdg/LICENSE)              | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/xdg?logo=npm)              |\n\n#### Infrastructure (`infra/*`)\n\n| Workspace Name                           | License                                           | Downloads                                                               |\n| ---------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------- |\n| [@vltpkg/benchmark](./infra/benchmark)   | [BSD-2-Clause-Patent](./infra/benchmark/LICENSE)  | N/A                                                                     |\n| [@vltpkg/infra-build](./infra/build)     | [BSD-2-Clause-Patent](./infra/build/LICENSE)      | N/A                                                                     |\n| [vlt](./infra/cli)                       | [BSD-2-Clause-Patent](./infra/cli/LICENSE)        | ![NPM Downloads](https://img.shields.io/npm/dm/vlt?logo=npm)            |\n| [@vltpkg/cli-js](./infra/cli-js)         | [BSD-2-Clause-Patent](./infra/cli-js/LICENSE)     | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cli-js?logo=npm) |\n| [@vltpkg/smoke-test](./infra/smoke-test) | [BSD-2-Clause-Patent](./infra/smoke-test/LICENSE) | N/A                                                                     |\n\n#### Documentation (`www/*`)\n\n| Workspace Name             | License                                   |\n| -------------------------- | ----------------------------------------- |\n| [@vltpkg/docs](./www/docs) | [BSD-2-Clause-Patent](./www/docs/LICENSE) |\n",
+        "truncated": false,
+        "bytes": 10772,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.0.0-rc.18",
+            "tag_name": "v1.0.0-rc.18",
+            "published_at": "2026-02-04T20:31:31Z",
+            "body_excerpt": "## What's Changed\n* cli-sdk: hydrate cli options by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1441\n* graph: preserve lockfile custom resolved values by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1440\n* fix(docs): add frontmatter to md files that are linked to by @lukekarrys in https://github.com/vltpkg/vltpkg/pull/1446\n* cli-sdk: add view count option by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1445\n* graph: avoid lockfile empty registries key by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1447\n* chore: update lockfile by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1442\n* chore: revert benchmark action runners by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1448\n* Release v1.0.0-rc.18 by @vltops in https://github.com/vltpkg/vltpkg/pull/1443\n\n\n**Full Changelog**: https://github.com/vltpkg/vltpkg/compare/v1.0.0-rc.17...v1.0.0-rc.18"
+          },
+          {
+            "name": "v1.0.0-rc.17",
+            "tag_name": "v1.0.0-rc.17",
+            "published_at": "2026-02-03T00:46:02Z",
+            "body_excerpt": "## What's Changed\n* graph: fix idempotent peer dep installs by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1436\n* Release v1.0.0-rc.17 by @vltops in https://github.com/vltpkg/vltpkg/pull/1438\n\n\n**Full Changelog**: https://github.com/vltpkg/vltpkg/compare/v1.0.0-rc.16...v1.0.0-rc.17"
+          },
+          {
+            "name": "v1.0.0-rc.16",
+            "tag_name": "v1.0.0-rc.16",
+            "published_at": "2026-01-29T21:40:13Z",
+            "body_excerpt": "## What's Changed\n* chore(infra): revert to ubuntu-latest for project workflow by @darcyclarke in https://github.com/vltpkg/vltpkg/pull/1431\n* types: memoize normalize manifests by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1433\n* Release v1.0.0-rc.16 by @vltops in https://github.com/vltpkg/vltpkg/pull/1432\n\n\n**Full Changelog**: https://github.com/vltpkg/vltpkg/compare/v1.0.0-rc.15...v1.0.0-rc.16"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1474,
+            "title": "[DOCS] Add/Append default and secure configuration entries if vlt.json is missing",
+            "state": "open",
+            "url": "https://github.com/vltpkg/vltpkg/issues/1474"
+          },
+          {
+            "number": 1545,
+            "title": "[BUG] `vlt uninstall` should work when there's only a lockfile",
+            "state": "open",
+            "url": "https://github.com/vltpkg/vltpkg/issues/1545"
+          }
+        ]
+      },
+      "root_files": [
+        ".cursor",
+        ".github",
+        ".gitignore",
+        ".nave_profile",
+        ".naverc",
+        ".nvmrc",
+        ".prettierignore",
+        ".prettierrc.js",
+        "AGENTS.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "coverage-map.js",
+        "eslint.config.mjs",
+        "infra",
+        "knip.ts",
+        "package.json",
+        "scripts",
+        "src",
+        "tap-config.yaml",
+        "tsconfig.json",
+        "vlt-lock.json",
+        "vlt.json",
+        "www"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![vlt](https://github.com/user-attachments/assets/aec7c817-b83f-4d71-b34a-4e480b97e82c)",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 2)",
+          "excerpt": "![vlt Version](https://img.shields.io/npm/v/vlt?logo=npm&label=Version) ![Package Downloads](https://img.shields.io/npm/dm/vlt?logo=npm&label=Downloads) ![GitHub Branch Status](https://img.shields.io/github/checks-status/vltpkg/vltpkg/main?logo=github&label=GitHub) ![Discord Server Status](https://img.shields.io/discord/1093366081067954178?logo=discord&label=Discord) [![Socket Security Status](https://socket.dev/api/badge/npm/package/vlt)](https://socket.dev/npm/package/vlt)",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Full documentation, startup guides & API references can be found at [docs.vlt.sh](https://docs.vlt.sh).",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 4)",
+          "excerpt": "See the [contributing guide](./CONTRIBUTING.md) for more information on how to build and develop the various workspaces.",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<a href=\"https://github.com/vltpkg/vltpkg/graphs/contributors\"> <img src=\"https://contrib.rocks/image?repo=vltpkg/vltpkg\" /> </a>",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Below you can find a complete table of each workspace available in this repository and its corresponding license:",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| Workspace Name | License | Downloads | | -------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------- | | [@vltpkg/cache](./src/cache) | [BSD-2-Clause-Patent](./src/cache/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cache?logo=npm) | | [@vltpkg/cache-unzip](./src/cache-unzip) | [BSD-2-Clause-Patent](./src/cache-unzip/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cache-unzip?logo=npm) | | [@vltpkg/cli-sdk](./src/cli-sdk) | [BSD-2-Clause-Patent](./src/cli-sdk/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cli-sdk?logo=npm) | | [@vltpkg/cmd-shim](./src/cmd-shim) | [BSD-2-Clause-Patent](./src/cmd-shim/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cmd-shim?logo=npm) | | [@vltpkg/config](./src/config) | [BSD-2-Clause-Patent](./src/config/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/config?logo=npm) | | [@vltpkg/dep-id](./src/dep-id) | [BSD-2-Clause-Patent](./src/dep-id/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/dep-id?logo=npm) | | [@v…",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/vltpkg/vltpkg#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Workspace Name | License | Downloads | | ---------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------- | | [@vltpkg/benchmark](./infra/benchmark) | [BSD-2-Clause-Patent](./infra/benchmark/LICENSE) | N/A | | [@vltpkg/infra-build](./infra/build) | [BSD-2-Clause-Patent](./infra/build/LICENSE) | N/A | | [vlt](./infra/cli) | [BSD-2-Clause-Patent](./infra/cli/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/vlt?logo=npm) | | [@vltpkg/cli-js](./infra/cli-js) | [BSD-2-Clause-Patent](./infra/cli-js/LICENSE) | ![NPM Downloads](https://img.shields.io/npm/dm/@vltpkg/cli-js?logo=npm) | | [@vltpkg/smoke-test](./infra/smoke-test) | [BSD-2-Clause-Patent](./infra/smoke-test/LICENSE) | N/A |",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/vltpkg/vltpkg/issues/1474",
+          "title": "[DOCS] Add/Append default and secure configuration entries if vlt.json is missing",
+          "excerpt": "[DOCS] Add/Append default and secure configuration entries if vlt.json is missing (state:open)",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "number": 1474
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/vltpkg/vltpkg/issues/1545",
+          "title": "[BUG] `vlt uninstall` should work when there's only a lockfile",
+          "excerpt": "[BUG] `vlt uninstall` should work when there's only a lockfile (state:open)",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "number": 1545
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/vltpkg/vltpkg/releases",
+          "title": "v1.0.0-rc.18",
+          "excerpt": "## What's Changed * cli-sdk: hydrate cli options by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1441 * graph: preserve lockfile custom resolved values by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1440 * fix(docs): add frontmatter to md files that are linked to by @lukekarrys in https://github.com/vltpkg/vltpkg/pull/1446 * cli-sdk: add view count option by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1445 * graph: avoid lockfile empty registries key by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1447 * chore: update lockfile by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1442 * chore: revert benchmark action runners by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1448 * Release v1.0.0-rc.18 by @vltops in https://github.com/vltpkg/vltpkg/pull/1443 **Full Changelog**: https://github.com/vltpkg/vltpkg/compare/v1.0.0-rc.17...v1.0.0-rc.18",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "tag_name": "v1.0.0-rc.18",
+            "published_at": "2026-02-04T20:31:31Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/vltpkg/vltpkg/releases",
+          "title": "v1.0.0-rc.17",
+          "excerpt": "## What's Changed * graph: fix idempotent peer dep installs by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1436 * Release v1.0.0-rc.17 by @vltops in https://github.com/vltpkg/vltpkg/pull/1438 **Full Changelog**: https://github.com/vltpkg/vltpkg/compare/v1.0.0-rc.16...v1.0.0-rc.17",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "tag_name": "v1.0.0-rc.17",
+            "published_at": "2026-02-03T00:46:02Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/vltpkg/vltpkg/releases",
+          "title": "v1.0.0-rc.16",
+          "excerpt": "## What's Changed * chore(infra): revert to ubuntu-latest for project workflow by @darcyclarke in https://github.com/vltpkg/vltpkg/pull/1431 * types: memoize normalize manifests by @ruyadorno in https://github.com/vltpkg/vltpkg/pull/1433 * Release v1.0.0-rc.16 by @vltops in https://github.com/vltpkg/vltpkg/pull/1432 **Full Changelog**: https://github.com/vltpkg/vltpkg/compare/v1.0.0-rc.15...v1.0.0-rc.16",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "tag_name": "v1.0.0-rc.16",
+            "published_at": "2026-01-29T21:40:13Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/vltpkg/vltpkg",
+          "title": "ROOT_FILES",
+          "excerpt": ".cursor, .github, .gitignore, .nave_profile, .naverc, .nvmrc, .prettierignore, .prettierrc.js, AGENTS.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, README.md, coverage-map.js, eslint.config.mjs, infra, knip.ts, package.json, scripts, src, tap-config.yaml, tsconfig.json, vlt-lock.json, vlt.json, www",
+          "fetched_at": "2026-03-18T04:59:22.825Z",
+          "meta": {
+            "repo_full_name": "vltpkg/vltpkg",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "lanl/yelpapi",
+      "html_url": "https://github.com/lanl/yelpapi",
+      "description": "yelpapi is a pure Python implementation of the Yelp Fusion API (aka Yelp v3 API).",
+      "topics": [
+        "api",
+        "python",
+        "python-yelp",
+        "yelp"
+      ],
+      "language": "Python",
+      "stargazers_count": 139,
+      "forks_count": 47,
+      "open_issues_count": 0,
+      "license_spdx_id": "BSD-3-Clause",
+      "default_branch": "master",
+      "pushed_at": "2026-03-18T04:57:51Z",
+      "created_at": "2013-10-03T20:55:21Z",
+      "readme": {
+        "fetched": true,
+        "text": "# yelpapi\n\n[![Tests](https://github.com/lanl/yelpapi/actions/workflows/tests.yml/badge.svg)](https://github.com/lanl/yelpapi/actions/workflows/tests.yml)\n\n## LICENSE\nThis software is licensed under the [BSD 3-Clause License](http://opensource.org/licenses/BSD-3-Clause). Please refer to the separate [LICENSE](LICENSE) file for the exact text of the license. You are obligated to give attribution if you use this code.\n\n## ABOUT\nyelpapi is a pure Python implementation of the [Yelp Fusion API](https://docs.developer.yelp.com/docs/fusion-intro). It is simple, fast, and robust to any changes Yelp may make to the API in the future.\n\n## REQUIREMENTS\nThis code requires Python 3.9 or higher and [requests](https://github.com/requests/requests).\n\n## INSTALL\nyelpapi is available on PyPI at https://pypi.org/project/yelpapi/.\n\nInstall using [pip](http://www.pip-installer.org/):\n\n    pip install yelpapi\n\nInstall from source:\n\n    python setup.py install\n\n## USING THIS CODE\nThis API is demonstrated more thoroughly in [examples.py](examples/examples.py), but the following chunk of code demonstrates basic use of yelpapi:\n\n```python\nfrom yelpapi import YelpAPI\nwith YelpAPI(api_key) as yelp_api:\n    search_results = yelp_api.search_query(args)\n```\n\nYou can also set timeouts so API calls do not block indefinitely in degraded network conditions:\n\n```python\nfrom yelpapi import YelpAPI\nwith YelpAPI(api_key, timeout_s=3.0) as yelp_api:\n    search_results = yelp_api.search_query(args)\n```\n\nUnder the covers, this module uses a [`requests.Session`](https://requests.readthedocs.io/en/latest/user/advanced/#session-objects) object for issuing all API calls, which offers potentially significant performance benefits over issuing separate API calls outside of a session. You should be sure to close the underlying session when all API interactions are complete. The above examples demonstrate using the class as a context manager, which will automatically close the connection when you're done and is the preferred way of using the class, but you can also manually close it like this if a context manager won't work for your use case:\n\n```python\nfrom yelpapi import YelpAPI\ntry:\n    yelp_api = YelpAPI(api_key)\n    search_results = yelp_api.search_query(args)\nfinally:\n    yelp_api.close()\n```\n\n## METHODS\n* [Autocomplete API](https://www.yelp.com/developers/documentation/v3/autocomplete) - `autocomplete_query(...)`\n* [Business API](https://www.yelp.com/developers/documentation/v3/business) - `business_query(...)`\n* [Business Match API](https://www.yelp.com/developers/documentation/v3/business_match) - `business_match_query(...)`\n* [Event Lookup API](https://www.yelp.com/developers/documentation/v3/event) - `event_lookup_query(...)`\n* [Event Search API](https://www.yelp.com/developers/documentation/v3/event_search) - `event_search_query(...)`\n* [Featured Event API](https://www.yelp.com/developers/documentation/v3/featured_event) - `featured_event_query(...)`\n* [Phone Search API](https://www.yelp.com/developers/documentation/v3/business_search_phone) - `phone_search_query(...)`\n* [Reviews API](https://www.yelp.com/developers/documentation/v3/business_reviews) - `reviews_query(...)`\n* [Search API](https://www.yelp.com/developers/documentation/v3/business_search) - `search_query(...)`\n* [Transaction Search API](https://www.yelp.com/developers/documentation/v3/transactions_search) - `transaction_search_query(...)`\n",
+        "truncated": false,
+        "bytes": 3426,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 20,
+            "title": "Readme has broken example",
+            "state": "closed",
+            "url": "https://github.com/lanl/yelpapi/issues/20"
+          },
+          {
+            "number": 19,
+            "title": "business-id != but alias for search business, but when copy and paste works!",
+            "state": "closed",
+            "url": "https://github.com/lanl/yelpapi/issues/19"
+          },
+          {
+            "number": 16,
+            "title": "can we get business emails from yelp fusion api",
+            "state": "closed",
+            "url": "https://github.com/lanl/yelpapi/issues/16"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        "AUTHORS.md",
+        "CHANGES.md",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "examples",
+        "requirements.txt",
+        "setup.py",
+        "tests",
+        "yelpapi"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Tests](https://github.com/lanl/yelpapi/actions/workflows/tests.yml/badge.svg)](https://github.com/lanl/yelpapi/actions/workflows/tests.yml)",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 2)",
+          "excerpt": "## LICENSE This software is licensed under the [BSD 3-Clause License](http://opensource.org/licenses/BSD-3-Clause). Please refer to the separate [LICENSE](LICENSE) file for the exact text of the license. You are obligated to give attribution if you use this code.",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 3)",
+          "excerpt": "## ABOUT yelpapi is a pure Python implementation of the [Yelp Fusion API](https://docs.developer.yelp.com/docs/fusion-intro). It is simple, fast, and robust to any changes Yelp may make to the API in the future.",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 4)",
+          "excerpt": "## REQUIREMENTS This code requires Python 3.9 or higher and [requests](https://github.com/requests/requests).",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 5)",
+          "excerpt": "## USING THIS CODE This API is demonstrated more thoroughly in [examples.py](examples/examples.py), but the following chunk of code demonstrates basic use of yelpapi:",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 6)",
+          "excerpt": "```python from yelpapi import YelpAPI with YelpAPI(api_key) as yelp_api: search_results = yelp_api.search_query(args) ```",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 7)",
+          "excerpt": "You can also set timeouts so API calls do not block indefinitely in degraded network conditions:",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/lanl/yelpapi#readme",
+          "title": "README (segment 8)",
+          "excerpt": "```python from yelpapi import YelpAPI with YelpAPI(api_key, timeout_s=3.0) as yelp_api: search_results = yelp_api.search_query(args) ```",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/lanl/yelpapi/issues/20",
+          "title": "Readme has broken example",
+          "excerpt": "Readme has broken example (state:closed)",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "number": 20
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/lanl/yelpapi/issues/19",
+          "title": "business-id != but alias for search business, but when copy and paste works!",
+          "excerpt": "business-id != but alias for search business, but when copy and paste works! (state:closed)",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "number": 19
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/lanl/yelpapi/issues/16",
+          "title": "can we get business emails from yelp fusion api",
+          "excerpt": "can we get business emails from yelp fusion api (state:closed)",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "number": 16
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/lanl/yelpapi",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, AUTHORS.md, CHANGES.md, CLAUDE.md, LICENSE, README.md, examples, requirements.txt, setup.py, tests, yelpapi",
+          "fetched_at": "2026-03-18T04:59:22.958Z",
+          "meta": {
+            "repo_full_name": "lanl/yelpapi",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "dahlia/optique",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 0
+    },
+    {
+      "full_name": "vltpkg/vltpkg",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "lanl/yelpapi",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 0
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "dahlia/optique",
+      "ok": true,
+      "spec_path": "specs/2026-03-18/dahlia__optique.json"
+    },
+    {
+      "repo": "vltpkg/vltpkg",
+      "ok": true,
+      "spec_path": "specs/2026-03-18/vltpkg__vltpkg.json"
+    },
+    {
+      "repo": "lanl/yelpapi",
+      "ok": true,
+      "spec_path": "specs/2026-03-18/lanl__yelpapi.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "dahlia/optique",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-18/dahlia__optique.json"
+    },
+    {
+      "repo": "vltpkg/vltpkg",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-18/vltpkg__vltpkg.json"
+    },
+    {
+      "repo": "lanl/yelpapi",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-18/lanl__yelpapi.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "dahlia/optique",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-18/dahlia__optique.json"
+      ]
+    },
+    {
+      "repo": "vltpkg/vltpkg",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-18/vltpkg__vltpkg.json"
+      ]
+    },
+    {
+      "repo": "lanl/yelpapi",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-18/lanl__yelpapi.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-18T04:59:35.714Z",
+      "run_id": "20260318T045918Z",
+      "repo": "dahlia/optique",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "083c6057b6211edb903bbee80beb0b6ecd1ad3872990ae5cec7cd62421484dba",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 7259
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12751,
+      "prompt_chars": 7259,
+      "completion_chars": 1174
+    },
+    {
+      "ts": "2026-03-18T04:59:46.915Z",
+      "run_id": "20260318T045918Z",
+      "repo": "dahlia/optique",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "606dea503dff4aea88ed4699095caf40a0a062f1c03fd19cc5680d64bcc3984a",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8629
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11200,
+      "prompt_chars": 8629,
+      "completion_chars": 1380
+    },
+    {
+      "ts": "2026-03-18T04:59:54.011Z",
+      "run_id": "20260318T045918Z",
+      "repo": "dahlia/optique",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "305add57450c3cf5bc39120a987842906ff68b870cb19480c5def6d8b626260d",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10193
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 7096,
+      "prompt_chars": 10193,
+      "completion_chars": 1383
+    },
+    {
+      "ts": "2026-03-18T05:00:13.562Z",
+      "run_id": "20260318T045918Z",
+      "repo": "dahlia/optique",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "823dad6a783dd043ccde64103e6b258ef362746c5928e6b198a6bdc5f6fe112d",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 11753
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19551,
+      "prompt_chars": 11753,
+      "completion_chars": 1508
+    },
+    {
+      "ts": "2026-03-18T05:00:40.835Z",
+      "run_id": "20260318T045918Z",
+      "repo": "dahlia/optique",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "90b5a1a925c40027fd7185c0173a0367fffe005a1c230ac6d9e87bb1905a8c96",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 16049
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 27272,
+      "prompt_chars": 16049,
+      "completion_chars": 2675
+    },
+    {
+      "ts": "2026-03-18T05:00:59.940Z",
+      "run_id": "20260318T045918Z",
+      "repo": "vltpkg/vltpkg",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "02b727c47aae11c7a83fd1c90adec6bc1fc1f2303587c84e58406b80f7e528d0",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 8396
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19090,
+      "prompt_chars": 8396,
+      "completion_chars": 1438
+    },
+    {
+      "ts": "2026-03-18T05:01:15.834Z",
+      "run_id": "20260318T045918Z",
+      "repo": "vltpkg/vltpkg",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "508a1545155530b5544c8c43fc8e23f193ba402ba3b2ef24af1e76fc4a5fa92b",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 10046
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15894,
+      "prompt_chars": 10046,
+      "completion_chars": 1651
+    },
+    {
+      "ts": "2026-03-18T05:01:34.318Z",
+      "run_id": "20260318T045918Z",
+      "repo": "vltpkg/vltpkg",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e8c9cab2fbe5a1f3cf39aec161a74fec8e70b0763db604e52ef3ca3e2e75ec35",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 11893
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18484,
+      "prompt_chars": 11893,
+      "completion_chars": 1878
+    },
+    {
+      "ts": "2026-03-18T05:01:49.932Z",
+      "run_id": "20260318T045918Z",
+      "repo": "vltpkg/vltpkg",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "862360a634955270d01865db1c7b22aff1bea63cb43b1eae016f68acd0859bcd",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 13972
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15614,
+      "prompt_chars": 13972,
+      "completion_chars": 1740
+    },
+    {
+      "ts": "2026-03-18T05:02:26.046Z",
+      "run_id": "20260318T045918Z",
+      "repo": "vltpkg/vltpkg",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2f752b377149c561c67a4e776809779cc9c73d0048aad77cd86a5f8c81c42d4b",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 18572
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 36113,
+      "prompt_chars": 18572,
+      "completion_chars": 3512
+    },
+    {
+      "ts": "2026-03-18T05:02:36.429Z",
+      "run_id": "20260318T045918Z",
+      "repo": "lanl/yelpapi",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5802794fac2887bda0771b508f244d3613b1dd5d796724cce5eb7eb381631351",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 4847
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10380,
+      "prompt_chars": 4847,
+      "completion_chars": 1246
+    },
+    {
+      "ts": "2026-03-18T05:02:49.179Z",
+      "run_id": "20260318T045918Z",
+      "repo": "lanl/yelpapi",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b1cd4662d544052ca9b9c745ad92648e393ebc4de47194ea21a08d3c67a48aca",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 6301
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12750,
+      "prompt_chars": 6301,
+      "completion_chars": 1110
+    },
+    {
+      "ts": "2026-03-18T05:03:03.612Z",
+      "run_id": "20260318T045918Z",
+      "repo": "lanl/yelpapi",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "047cd04fe89015b10c202bce82766d4e98de6308ca6fa855425c4734458f13ef",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 7583
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14432,
+      "prompt_chars": 7583,
+      "completion_chars": 1302
+    },
+    {
+      "ts": "2026-03-18T05:03:20.503Z",
+      "run_id": "20260318T045918Z",
+      "repo": "lanl/yelpapi",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "90b21dc6bc4c1e5df18a09dd505b43455ee118e9ef264a9d0e59b988facc8a61",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9066
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16891,
+      "prompt_chars": 9066,
+      "completion_chars": 1372
+    },
+    {
+      "ts": "2026-03-18T05:04:00.256Z",
+      "run_id": "20260318T045918Z",
+      "repo": "lanl/yelpapi",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "34d3e1e1fffa373b045e4ba665a9dc64dcaadeb5444bd3b5184ba2c966d83e45",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 13230
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 39752,
+      "prompt_chars": 13230,
+      "completion_chars": 3436
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "dahlia/optique",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "vltpkg/vltpkg",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "lanl/yelpapi",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "dahlia/optique",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "vltpkg/vltpkg",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "lanl/yelpapi",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1773809958525,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "dahlia/optique": 5,
+      "vltpkg/vltpkg": 5,
+      "lanl/yelpapi": 5
+    },
+    "tokensApproxTotal": 46155,
+    "tokensApproxPerRepo": {
+      "dahlia/optique": 15503,
+      "vltpkg/vltpkg": 18276,
+      "lanl/yelpapi": 12376
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "dahlia/optique": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "Optique is a type-safe, combinatorial CLI parser for TypeScript that emphasizes composability, cross-runtime support, and rich integrations (e.g., config files, env vars, shell completions). It draws inspiration from Haskell’s optparse-applicative and Zod, offering strong type inference and tooling like man page generation.",
+        "highlights": [
+          "Composable parser combinators with full TypeScript type inference",
+          "Supports multiple runtimes (Deno, Node.js, Bun) and shells (Bash, zsh, fish, etc.)",
+          "Integrates with config files, environment variables, Zod/Valibot schemas, and interactive prompts",
+          "Generates help text, shell completions, and man pages from parser definitions"
+        ],
+        "risks": [
+          "Open issue regarding annotation propagation loss in optional/withDefault parsers may affect metadata reliability [ID:E-IS-003]",
+          "High open issues count (263) relative to forks (7) and low release activity (0 releases) suggests potential maintenance or stability concerns"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "Optique is a highly composable, type-safe CLI parsing library for TypeScript that leverages parser combinators to enable expressive command-line interfaces with automatic type inference, shell completion, and multi-format documentation generation.",
+        "highlights": [
+          "Built on parser combinator principles inspired by Haskell’s optparse-applicative and Zod, enabling modular and reusable CLI definitions",
+          "Automatic derivation of help text, shell completions (Bash/zsh/fish/PowerShell/Nushell), and man pages from a single parser definition",
+          "Rich ecosystem of integrations including config files (@optique/config), environment variables (@optique/env), Zod/Valibot schemas, and interactive prompts",
+          "Cross-runtime compatibility across Deno, Node.js, and Bun with consistent behavior"
+        ],
+        "risks": [
+          "An open issue indicates annotation metadata is dropped in optional() and withDefault() for non-plain object states, potentially breaking tooling that relies on preserved annotations [ID:E-IS-003]",
+          "Despite active development signals (recent push, CI badges), the absence of GitHub releases and high open issue count (263) may signal immaturity or instability for production adoption"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "Optique is a type-safe, combinatorial CLI parser for TypeScript that enables building composable command-line interfaces with strong type inference, shell completion support, and integrations for config files, environment variables, and schema validation libraries.",
+        "highlights": [
+          "Composable parser combinators (e.g., object(), or(), optional()) with full TypeScript type inference [ID:E-RD-007][ID:E-RD-008]",
+          "Cross-runtime support for Deno, Node.js, and Bun with consistent parsing behavior [ID:E-RD-007]",
+          "Automatic generation of help text, shell completions (Bash/zsh/fish/PowerShell/Nushell), and man pages from parser definitions [ID:E-RD-004][ID:E-RD-007]",
+          "Extensible via official integrations for config files (@optique/config), env vars (@optique/env), Zod, Valibot, and interactive prompts [ID:E-RD-008]"
+        ],
+        "risks": [
+          "Open issue E-IS-003 indicates annotation propagation fails in optional()/withDefault() for primitive and non-plain object states, which may break metadata-dependent features like documentation or completion [ID:E-IS-003]",
+          "High open issues count (263) with no GitHub releases suggests potential instability or incomplete API surface for production use [ID:E-RF-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RD-008",
+          "E-RD-004",
+          "E-IS-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "Optique promises a type-safe, composable CLI parsing experience for TypeScript but exhibits concerning signs of immaturity and unresolved correctness issues that undermine its reliability claims.",
+        "highlights": [
+          "Despite bold claims of 'full type safety' and 'automatic type inference', an open issue confirms annotation metadata is dropped in common combinators like optional() and withDefault(), breaking downstream tooling [ID:E-IS-003]",
+          "The project touts integrations and cross-runtime support, yet has zero GitHub releases—raising questions about API stability and production readiness [ID:E-RF-001]",
+          "High open issue count (263) relative to minimal community adoption (7 forks, 605 stars) suggests unresolved technical debt or maintenance bottlenecks"
+        ],
+        "risks": [
+          "Annotation loss in optional()/withDefault() [ID:E-IS-003] directly contradicts the promise of 'one parser, many outputs'—if metadata isn’t preserved, generated docs or completions may be incomplete or incorrect",
+          "Absence of any tagged releases despite active development (recent push, CI badges) implies unstable or shifting APIs, making dependency management risky for consumers [ID:E-RF-001]",
+          "Closed issues like E-IS-001 and E-IS-002 reveal past bugs in core functionality (doc generation, completion forwarding), suggesting systemic fragility in combinator logic"
+        ],
+        "evidence_ids": [
+          "E-IS-003",
+          "E-RF-001",
+          "E-IS-001",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Optique\",\n    \"one_sentence\": \"Type-safe combinatorial CLI parser for TypeScript inspired by Haskell's optparse-applicative and Zod.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Define composable CLI parsers using combinators like object(), optional(), and or(); derive type-safe argument structures, help text, shell completions, and man pages from a single parser definition.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Parser Builder\",\n      \"purpose\": \"Construct and compose CLI parsers using modular combinators with real-time type feedback.\",\n      \"primary_actions\": [\n        \"Define parser combinators\",\n        \"Preview inferred types\",\n        \"Generate shell completions\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a composed CLI parser configuration for reuse or documentation generation.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"parsers\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"combinator_type\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"inferred_type\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core parser combinators (object, optional, or)\",\n          \"Integrate type inference engine\",\n          \"Add shell completion generator\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"A user can define a CLI parser using object() and optional() combinators and receive correct TypeScript types.\",\n    \"Shell completions for Bash and zsh are correctly generated from a composed parser.\"\n  ],\n  \"open_questions\": [\n    \"How to handle annotation propagation in optional() and withDefault() without breaking metadata integrity?\",\n    \"Wh"
+      }
+    },
+    "vltpkg/vltpkg": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "The vltpkg/vltpkg repository is an active TypeScript-based monorepo implementing a package manager called 'vlt', with structured workspaces, regular releases, and public documentation. It shows healthy maintenance activity but has open issues related to core functionality and configuration resilience.",
+        "highlights": [
+          "Monorepo architecture with clearly defined workspaces under BSD-2-Clause-Patent licenses [ID:E-RD-007][ID:E-RD-008].",
+          "Active release cadence with recent versions (e.g., v1.0.0-rc.18) addressing CLI, graph resolution, and lockfile handling [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Public documentation hosted at docs.vlt.sh and contribution guidelines available [ID:E-RD-003][ID:E-RD-004].",
+          "Project uses modern tooling (TypeScript, npm, GitHub Actions) and displays community metrics like downloads and contributor visuals [ID:E-RD-002][ID:E-RD-005]."
+        ],
+        "risks": [
+          "Open bug affecting `vlt uninstall` when only a lockfile exists, indicating potential reliability gaps in core operations [ID:E-IS-002].",
+          "Missing or incomplete vlt.json configuration may lead to insecure or undefined behavior, per open documentation issue [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-002",
+          "E-RD-005",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "The vltpkg/vltpkg repository implements a modular, TypeScript-based package manager 'vlt' with a well-structured monorepo containing specialized workspaces for caching, CLI tooling, dependency graph resolution, and infrastructure. Recent releases show iterative improvements in lockfile handling, CLI hydration, and peer dependency management, while documentation and configuration resilience remain areas of active refinement.",
+        "highlights": [
+          "Modular architecture with distinct workspaces (e.g., @vltpkg/cache, @vltpkg/cli-sdk, vlt CLI) under consistent BSD-2-Clause-Patent licensing [ID:E-RD-007][ID:E-RD-008].",
+          "Recent release v1.0.0-rc.18 includes enhancements to CLI option hydration, lockfile integrity, and graph resolution logic [ID:E-RL-001].",
+          "Core functionality spans dependency graph management, secure caching, command shimming, and manifest normalization—indicating a full-featured package manager design [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Public documentation at docs.vlt.sh and contribution guidelines support extensibility and community involvement [ID:E-RD-003][ID:E-RD-004]."
+        ],
+        "risks": [
+          "Incomplete configuration handling: lack of fallback defaults when vlt.json is missing may compromise security or usability [ID:E-IS-001].",
+          "Unreliable uninstall behavior in minimal project states (lockfile-only) suggests gaps in state validation during core operations [ID:E-IS-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-003",
+          "E-RD-004",
+          "E-IS-001",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "The vltpkg/vltpkg repository is a TypeScript-based monorepo implementing the 'vlt' package manager with a modular, well-structured architecture. It features specialized workspaces for caching, CLI tooling, dependency graph resolution, and infrastructure, all under consistent BSD-2-Clause-Patent licensing. Recent releases demonstrate active development focused on lockfile integrity, CLI hydration, and peer dependency handling, while documentation and configuration resilience remain ongoing concerns.",
+        "highlights": [
+          "Modular monorepo design with clearly scoped workspaces such as @vltpkg/cache, @vltpkg/cli-sdk, and vlt CLI, each with explicit licensing and download metrics [ID:E-RD-007][ID:E-RD-008].",
+          "Active release cycle (e.g., v1.0.0-rc.16 through rc.18) addressing core functionality including CLI option hydration, lockfile consistency, and graph resolution logic [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Public documentation hosted at docs.vlt.sh and contribution guidelines in CONTRIBUTING.md support developer onboarding and extensibility [ID:E-RD-003][ID:E-RD-004].",
+          "Project uses modern tooling (TypeScript, npm, GitHub Actions) and displays community engagement via contributor visuals and real-time metrics [ID:E-RD-002][ID:E-RD-005]."
+        ],
+        "risks": [
+          "Open bug where `vlt uninstall` fails when only a lockfile is present suggests insufficient state validation in core package management operations [ID:E-IS-002].",
+          "Lack of secure defaults when vlt.json is missing may lead to undefined or insecure runtime behavior, indicating incomplete configuration resilience [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-002",
+          "E-RD-005",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "While the vltpkg/vltpkg repository presents a polished, modular package manager with active development and comprehensive documentation, critical gaps in core functionality and configuration resilience raise concerns about its readiness for production use.",
+        "highlights": [
+          "Despite claims of robustness, the package manager fails basic uninstall operations when only a lockfile exists—suggesting inadequate state handling in real-world scenarios [ID:E-IS-002].",
+          "The absence of secure defaults when vlt.json is missing implies the system may operate in an undefined or insecure state by design, contradicting expectations for a modern package manager [ID:E-IS-001].",
+          "Heavy reliance on external documentation (docs.vlt.sh) without inline safeguards means users are exposed to potential misconfiguration if they skip reading guides [ID:E-RD-003].",
+          "Frequent release cadence (e.g., rc.16 to rc.18) focuses on incremental fixes rather than addressing foundational reliability issues, indicating possible technical debt accumulation [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "risks": [
+          "Core package management operations like uninstall are unreliable under minimal project states, undermining trust in the tool’s stability [ID:E-IS-002].",
+          "Lack of automatic secure configuration fallbacks increases risk of insecure deployments, especially for new or casual users [ID:E-IS-001].",
+          "Modular architecture and consistent licensing provide surface-level confidence, but do not compensate for unresolved functional defects in critical paths."
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-001",
+          "E-RD-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"vlt\",\n    \"one_sentence\": \"A modular, TypeScript-based package manager with secure caching, dependency graph resolution, and CLI tooling.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with the vlt CLI to install, manage, and uninstall packages, leveraging a dependency graph resolver and secure local cache, with configuration persisted via vlt.json and vlt-lock.json.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Interface\",\n      \"purpose\": \"Primary entry point for users to execute package management commands such as install, uninstall, and view.\",\n      \"primary_actions\": [\n        \"run install command\",\n        \"run uninstall command\",\n        \"view package information\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"uninstall_package\",\n      \"purpose\": \"Remove a package from the project, handling cases where only a lockfile exists.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"hydrate_cli_options\",\n      \"purpose\": \"Populate CLI command options from configuration or defaults during execution.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"packages\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"version\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"resolved_url\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"config\",\n        \"fields\": [\n          {\n            \"name\": \"has_vlt_json\",\n            \"type\": \"boolean\"\n          },\n          {\n            \"name\": \"secure_defaults_applied\",\n            \"type\": \"boolean\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core uninstall logic resilient to missing vlt.json\",\n        "
+      }
+    },
+    "lanl/yelpapi": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "The lanl/yelpapi repository provides a lightweight, pure-Python client for the Yelp Fusion API, with clear documentation, active maintenance signals (CI badge, recent push), and adherence to open-source standards (BSD-3 license, attribution requirement). It supports basic usage with timeout controls and includes examples, though past issues indicate minor documentation inaccuracies.",
+        "highlights": [
+          "Pure Python implementation of the Yelp Fusion API requiring Python 3.9+ and requests library.",
+          "Includes usage examples and supports configurable timeouts for robust network handling.",
+          "Licensed under BSD 3-Clause with explicit attribution requirement.",
+          "Repository shows healthy maintenance: CI pipeline, zero open issues, recent activity."
+        ],
+        "risks": [
+          "Past issue indicates README example was broken (now closed), suggesting potential for outdated documentation.",
+          "No releases published despite functional codebase, which may affect packaging or version stability expectations."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "The yelpapi library offers a clean, minimal Python interface to the Yelp Fusion API with built-in resilience features like timeout control, but its innovation is limited to convenience wrapping rather than novel functionality.",
+        "highlights": [
+          "Provides a context-managed, pure-Python client that abstracts direct HTTP calls to Yelp Fusion API endpoints.",
+          "Supports configurable timeouts (e.g., timeout_s=3.0) to prevent indefinite blocking during network issues, enhancing robustness.",
+          "Demonstrates idiomatic Python usage via 'with' statement and clear method naming (e.g., search_query), improving developer experience."
+        ],
+        "risks": [
+          "No evidence of unique algorithmic or architectural innovation—acts as a thin wrapper around Yelp’s official API without added intelligence or caching.",
+          "Relies entirely on Yelp’s API stability; any breaking changes upstream could immediately affect usability despite claims of 'robustness to future changes'."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "The yelpapi library is a well-structured, pure-Python client for the Yelp Fusion API that emphasizes simplicity and robustness through timeout support and context management. It meets modern Python requirements (3.9+) and integrates cleanly with the requests library, though it offers no advanced features like caching or retry logic.",
+        "highlights": [
+          "Implements a context-managed API client (using 'with' statement) for safe resource handling.",
+          "Supports configurable timeouts (e.g., timeout_s=3.0) to prevent indefinite blocking during network issues.",
+          "Requires only Python 3.9+ and the requests library, ensuring minimal dependencies.",
+          "Includes working examples and clear basic usage patterns in the README."
+        ],
+        "risks": [
+          "Lacks built-in retry mechanisms or error resilience beyond timeouts, which may lead to fragile integrations in unstable network conditions.",
+          "No evidence of input validation or rate-limiting awareness, potentially exposing users to API misuse or quota exhaustion.",
+          "Past broken example in README (now fixed) suggests documentation may not be thoroughly tested alongside code changes."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While yelpapi presents itself as a robust and future-proof wrapper for the Yelp Fusion API, its actual resilience is unproven, documentation has had accuracy issues, and it offers no safeguards against common integration pitfalls like rate limits or network failures beyond basic timeouts.",
+        "highlights": [
+          "Claims of being 'robust to any changes Yelp may make' [E-RD-003] are unsubstantiated—no versioning, adapter layer, or changelog-based update strategy is evident.",
+          "A past broken example in the README [E-IS-001] undermines confidence in documentation reliability, despite current examples appearing functional.",
+          "Timeout support exists [E-RD-007, E-RD-008], but there’s no evidence of retry logic, error classification, or handling of HTTP 429 (rate limit) responses."
+        ],
+        "risks": [
+          "Overstated robustness claims could mislead users into assuming compatibility resilience that isn’t technically implemented.",
+          "Absence of release versions [E-RF-001 shows no release artifacts] makes dependency pinning and production stability difficult to guarantee.",
+          "Zero open issues may reflect low usage rather than high quality—only 139 stars and 47 forks suggest limited real-world validation."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-IS-001",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"YelpAPI Client\",\n    \"one_sentence\": \"A pure Python client for the Yelp Fusion API that provides simple, robust access with timeout controls.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User configures an API key and issues queries (e.g., search, business lookup) through a context-managed client that handles HTTP communication with Yelp’s Fusion API, optionally enforcing timeouts to avoid indefinite blocking.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"API Query Interface\",\n      \"purpose\": \"Allow developers to construct and execute Yelp Fusion API queries using a Pythonic interface.\",\n      \"primary_actions\": [\n        \"Initialize YelpAPI client with API key\",\n        \"Execute search_query or business_query\",\n        \"Configure timeout for network resilience\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"initialize_client\",\n      \"purpose\": \"Create a new YelpAPI client instance with authentication and optional timeout settings.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"execute_search\",\n      \"purpose\": \"Perform a search query against the Yelp Fusion API using provided parameters.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"api_config\",\n        \"fields\": [\n          {\n            \"name\": \"api_key\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"timeout_s\",\n            \"type\": \"float\"\n          }\n        ]\n      },\n      {\n        \"name\": \"search_results\",\n        \"fields\": [\n          {\n            \"name\": \"businesses\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"region\",\n            \"type\": \"json\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core YelpAPI client with context manager\",\n          \"Add support for search_query"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "dahlia/optique",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 7,
+        "inventor": 6,
+        "engineer": 5,
+        "skeptic": 4,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "vltpkg/vltpkg",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 9,
+        "engineer": 11,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "lanl/yelpapi",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 4,
+        "engineer": 5,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=141",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] dahlia/optique evidence total=12 readme=8 issue=3 release=0 root_files=1",
+    "[repo_card_builder] vltpkg/vltpkg evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] lanl/yelpapi evidence total=12 readme=8 issue=3 release=0 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=38 gaps=0",
+    "[llm_spec_generator] dahlia/optique canonical spec ok (iter=1) -> specs/2026-03-18/dahlia__optique.json",
+    "[llm_spec_generator] vltpkg/vltpkg canonical spec ok (iter=1) -> specs/2026-03-18/vltpkg__vltpkg.json",
+    "[llm_spec_generator] lanl/yelpapi canonical spec ok (iter=1) -> specs/2026-03-18/lanl__yelpapi.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-18T04:59:18.525Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:18.545Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260318T045918Z"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:18.545Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:18.549Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:19.035Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:19.035Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:19.435Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:19.435Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:19.794Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:19.794Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:20.186Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:20.186Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:20.606Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:20.606Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:21.024Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:21.024Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:21.443Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:21.443Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:21.745Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:21.745Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.146Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.146Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.508Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.512Z",
+      "run_id": "20260318T045918Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 141
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.512Z",
+      "run_id": "20260318T045918Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.515Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-18T04:59:22.516Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dahlia__optique/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.516Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dahlia__optique/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.518Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dahlia__optique/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.519Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dahlia__optique/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.521Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-18T04:59:22.521Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vltpkg__vltpkg/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.522Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vltpkg__vltpkg/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.524Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vltpkg__vltpkg/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.525Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "vltpkg__vltpkg/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.527Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-18T04:59:22.527Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lanl__yelpapi/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.528Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lanl__yelpapi/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.529Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lanl__yelpapi/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.532Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lanl__yelpapi/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.796Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 10580,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.796Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.796Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.796Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 281
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.797Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 3,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.825Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 10772,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.825Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.825Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.825Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 304
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.825Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.958Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3426,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.958Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.958Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.958Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 431
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.958Z",
+      "run_id": "20260318T045918Z",
+      "node": "repo_card_builder",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 3,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.962Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:22.962Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:35.714Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1174,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:46.915Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1380,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T04:59:54.011Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1383,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:13.562Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1508,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:40.835Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2675,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:40.848Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:40.849Z",
+      "run_id": "20260318T045918Z",
+      "node": "artifacts",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-18/dahlia__optique.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:40.849Z",
+      "run_id": "20260318T045918Z",
+      "node": "artifacts",
+      "repo": "dahlia/optique",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-18/dahlia__optique.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:40.850Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:40.850Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-18T05:00:59.940Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1438,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:01:15.834Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1651,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:01:34.318Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1878,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:01:49.932Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1740,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:26.046Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3512,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:26.048Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:26.049Z",
+      "run_id": "20260318T045918Z",
+      "node": "artifacts",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-18/vltpkg__vltpkg.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:26.049Z",
+      "run_id": "20260318T045918Z",
+      "node": "artifacts",
+      "repo": "vltpkg/vltpkg",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-18/vltpkg__vltpkg.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:26.049Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:26.049Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:36.429Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1246,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:02:49.179Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1110,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:03:03.612Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1302,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:03:20.503Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1372,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.256Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3436,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.257Z",
+      "run_id": "20260318T045918Z",
+      "node": "llm_spec_generator",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.258Z",
+      "run_id": "20260318T045918Z",
+      "node": "artifacts",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-18/lanl__yelpapi.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.258Z",
+      "run_id": "20260318T045918Z",
+      "node": "artifacts",
+      "repo": "lanl/yelpapi",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-18/lanl__yelpapi.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.262Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.262Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1773809958525,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "dahlia/optique": 5,
+          "vltpkg/vltpkg": 5,
+          "lanl/yelpapi": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.262Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-18T05:04:00.262Z",
+      "run_id": "20260318T045918Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-18",
+    "evidence_dir": "evidence/2026-03-18"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "YelpAPI Client",
+    "one_liner": "A pure Python client for the Yelp Fusion API that provides simple, robust access with timeout controls."
+  },
+  "screens": [
+    {
+      "name": "API Query Interface",
+      "purpose": "Allow developers to construct and execute Yelp Fusion API queries using a Pythonic interface.",
+      "primary_actions": [
+        "Configure timeout for network resilience",
+        "Execute search_query or business_query",
+        "Initialize YelpAPI client with API key"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_search",
+      "purpose": "Perform a search query against the Yelp Fusion API using provided parameters.",
+      "async": true,
+      "input": {
+        "api_key": "string",
+        "payload": "json",
+        "timeout_s": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "initialize_client",
+      "purpose": "Create a new YelpAPI client instance with authentication and optional timeout settings.",
+      "async": false,
+      "input": {
+        "api_key": "string",
+        "payload": "json",
+        "timeout_s": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "api_config",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "timeout_s",
+            "type": "REAL"
+          }
+        ]
+      },
+      {
+        "name": "search_results",
+        "columns": [
+          {
+            "name": "businesses",
+            "type": "JSON"
+          },
+          {
+            "name": "region",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for search_query and business_query methods",
+    "week 1: Implement core YelpAPI client with context manager",
+    "week 1: Integrate configurable timeout parameter",
+    "week 1: Write basic usage examples mirroring README"
+  ],
+  "acceptance_tests": [
+    "Client initializes successfully with valid API key and optional timeout",
+    "Search query returns structured results matching Yelp Fusion API schema",
+    "Timeout parameter prevents indefinite blocking during network failure"
+  ]
+}
