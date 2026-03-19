@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GitButler",
+    "one_liner": "A modern Git-based version control interface with both GUI and CLI built for AI-powered workflows."
+  },
+  "screens": [
+    {
+      "name": "Main Workspace",
+      "purpose": "Display repository state with file diffs, commit history, and branch stack visualization.",
+      "primary_actions": [
+        "Access operations log",
+        "Manage stacked branches",
+        "View file diffs"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure appearance, AI integrations, and project-specific behaviors like Husky hooks.",
+      "primary_actions": [
+        "Enable SVG preview",
+        "Manage forge integrations",
+        "Toggle All-in-one diff"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "but_rub",
+      "purpose": "Address uncommitted hunks by index for AI-assisted code refinement.",
+      "async": true,
+      "input": {
+        "action_type": "string",
+        "operation_id": "string",
+        "payload": "json",
+        "reversible": "boolean",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "but_skill_install",
+      "purpose": "Install or update AI skill files for enhanced Claude Code and Codex performance.",
+      "async": true,
+      "input": {
+        "action_type": "string",
+        "operation_id": "string",
+        "payload": "json",
+        "reversible": "boolean",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "but_stack",
+      "purpose": "Move branches on top of others to create stacked branch workflows.",
+      "async": true,
+      "input": {
+        "action_type": "string",
+        "operation_id": "string",
+        "payload": "json",
+        "reversible": "boolean",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "operations_log",
+        "columns": [
+          {
+            "name": "action_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "operation_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "reversible",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "stacked_branches",
+        "columns": [
+          {
+            "name": "branch_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "commit_range",
+            "type": "TEXT"
+          },
+          {
+            "name": "parent_branch",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic Tauri/Svelte GUI shell",
+    "week 1: Expose `but stack` and `but rub` CLI commands",
+    "week 1: Implement core Rust Git abstraction layer"
+  ],
+  "acceptance_tests": [
+    "File diffs render correctly in floating window when popped out from main view.",
+    "Operations log shows auto-commit events and supports undo to prior snapshot.",
+    "User can run `but stack` to reorder branches without manual rebase."
+  ]
+}

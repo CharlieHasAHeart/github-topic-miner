@@ -1,0 +1,82 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Lyrictor",
+    "one_liner": "A Final Cut Pro-inspired web editor for creating lyric animations synced to audio tracks."
+  },
+  "screens": [
+    {
+      "name": "Editor Workspace",
+      "purpose": "Primary interface for synchronizing lyrics with audio using a multi-track timeline and visual editing tools.",
+      "primary_actions": [
+        "Adjust timing via waveform scrubbing",
+        "Drag lyric segments onto timeline tracks",
+        "Import audio (local file or stream URL)",
+        "Paste and edit full lyrics in reference panel",
+        "Switch between Custom and Vertical Scrolled modes"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_project",
+      "purpose": "Persist project state to cloud (Firebase) or browser localStorage based on user preference.",
+      "async": true,
+      "input": {
+        "aspect_ratio": "json",
+        "audio_source": "string",
+        "edit_mode": "json",
+        "lyrics_full_text": "string",
+        "payload": "json",
+        "timeline_items": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "aspect_ratio",
+            "type": "JSON"
+          },
+          {
+            "name": "audio_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "edit_mode",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "lyrics_full_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "timeline_items",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add localStorage persistence with unsaved changes warning",
+    "week 1: Build dual-mode layout engine (Custom + Vertical Scrolled)",
+    "week 1: Enable drag-and-drop of lyric segments onto timeline tracks",
+    "week 1: Implement waveform-based audio player with seek controls"
+  ],
+  "acceptance_tests": [
+    "In Vertical Scrolled mode, lyrics automatically scroll in sync with playback like Apple Music.",
+    "User can create a new project, import an audio file, paste lyrics, and save to localStorage without losing data on refresh."
+  ]
+}
