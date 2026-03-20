@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Hulunote",
+    "one_liner": "An open-source outliner note-taking application with bidirectional linking and AI-powered knowledge organization via Model Context Protocol (MCP) integration."
+  },
+  "screens": [
+    {
+      "name": "Main Note Editor",
+      "purpose": "Edit and navigate hierarchical outline notes with bidirectional links and AI-assisted operations.",
+      "primary_actions": [
+        "Create nested bullet points",
+        "Insert [[wiki-style links]]",
+        "Switch between multiple databases",
+        "Trigger AI note generation or restructuring via MCP"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a note or outline node to the local database.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "database_id": "string",
+        "parent_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "notes",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "database_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "parent_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for [[wiki-style links]] and backlink indexing",
+    "week 1: Implement basic outliner editor with infinite nesting",
+    "week 1: Integrate minimal MCP client for AI note generation"
+  ],
+  "acceptance_tests": [
+    "AI agent connected via MCP can perform batch reorganization of notes based on natural language command.",
+    "User can create a nested outline note and save it persistently.",
+    "User can insert a [[wiki-style link]] and see it appear in the backlinks panel of the target note."
+  ]
+}

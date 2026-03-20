@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "SpectaQL",
+    "one_liner": "A Node.js library that autogenerates static, modern, and customizable documentation for GraphQL APIs."
+  },
+  "screens": [
+    {
+      "name": "Documentation Viewer",
+      "purpose": "Display generated GraphQL API documentation in a responsive three-column layout.",
+      "primary_actions": [
+        "Navigate types and fields",
+        "Toggle dark/light mode",
+        "View query/mutation examples"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_docs",
+      "purpose": "Generate static GraphQL documentation from configured schema input sources.",
+      "async": true,
+      "input": {
+        "location": "string",
+        "payload": "json",
+        "source_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "graphql_schema_sources",
+        "columns": [
+          {
+            "name": "location",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core schema ingestion from introspection or SDL",
+    "week 1: Render basic three-column documentation UI",
+    "week 1: Set up project scaffolding with Node.js tooling"
+  ],
+  "acceptance_tests": [
+    "Given a live GraphQL endpoint, SpectaQL generates complete static documentation via introspection.",
+    "Given SDL files as input, SpectaQL produces accurate and navigable documentation."
+  ]
+}

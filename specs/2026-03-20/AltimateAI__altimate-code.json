@@ -1,0 +1,122 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Altimate Code",
+    "one_liner": "An open-source agentic data engineering CLI that provides AI-powered SQL analysis, column-level lineage, and integrations with dbt and major cloud warehouses."
+  },
+  "screens": [
+    {
+      "name": "Terminal User Interface (TUI)",
+      "purpose": "Primary interaction surface for configuring LLMs, discovering data stacks, and executing agentic data engineering tasks.",
+      "primary_actions": [
+        "/connect — configure LLM provider and API key",
+        "/discover — auto-detect dbt projects and warehouse connections",
+        "/traces — view trace history dialog"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "connect",
+      "purpose": "Interactively configure LLM provider and authenticate with API key.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "profile_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "discover",
+      "purpose": "Auto-detect dbt projects, warehouse connections from ~/.dbt/profiles.yml, Docker, or environment variables in a read-only manner.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "profile_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "traces",
+      "purpose": "Display trace history dialog for debugging agent interactions.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "profile_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "dbt_projects",
+        "columns": [
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "profile_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "llm_providers",
+        "columns": [
+          {
+            "name": "api_key_set",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "warehouse_connections",
+        "columns": [
+          {
+            "name": "credentials_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for Anthropic and OpenAI API key configuration",
+    "week 1: Build schema caching with better-sqlite3 (addressing Bun compatibility)",
+    "week 1: Implement core TUI with /connect and /discover commands",
+    "week 1: Integrate read-only warehouse connection detection from standard sources"
+  ],
+  "acceptance_tests": [
+    "Application runs on Linux systems without GLIBC_2.35 or native binding errors.",
+    "Application starts in TUI mode and displays streaming responses without corrupted output from SDK logs.",
+    "Installation via npm includes all required components (dbt-tools, altimate-setup) without missing bundles.",
+    "Running 'altimate /discover' correctly detects dbt projects from ~/.dbt/profiles.yml without write access.",
+    "User can run 'altimate /connect' and successfully configure an LLM provider via interactive prompt."
+  ]
+}

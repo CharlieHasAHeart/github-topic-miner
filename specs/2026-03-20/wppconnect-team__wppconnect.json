@@ -1,0 +1,150 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "WPPConnect",
+    "one_liner": "An open-source Node.js library that exports WhatsApp Web functionality to enable automation, chatbots, and AI-driven messaging interactions."
+  },
+  "screens": [
+    {
+      "name": "WhatsApp Automation Dashboard",
+      "purpose": "Provide developers with an entry point to configure sessions, send messages, and monitor WhatsApp interactions.",
+      "primary_actions": [
+        "Access documentation",
+        "Send text/media message",
+        "Start new WhatsApp session",
+        "View contact list"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_contacts",
+      "purpose": "Retrieve user's contact list, group memberships, and block list from WhatsApp.",
+      "async": true,
+      "input": {
+        "contact_id": "string",
+        "is_group": "boolean",
+        "members": "json",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "send_message",
+      "purpose": "Send text, image, video, audio, documents, contacts, stickers, or location via WhatsApp.",
+      "async": true,
+      "input": {
+        "contact_id": "string",
+        "is_group": "boolean",
+        "members": "json",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_session",
+      "purpose": "Initialize a new WhatsApp Web session using QR code authentication.",
+      "async": true,
+      "input": {
+        "contact_id": "string",
+        "is_group": "boolean",
+        "members": "json",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "contact_directory",
+        "columns": [
+          {
+            "name": "contact_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_group",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "members",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "message_log",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "media_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "message_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "whatsapp_session",
+        "columns": [
+          {
+            "name": "qr_code",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Expose basic message sending and contact fetching APIs",
+    "week 1: Implement core session management using WhatsApp Web reverse engineering",
+    "week 1: Set up TypeScript project structure with linting and CI",
+    "week 2: Add support for media types (image, video, audio, docs)",
+    "week 2: Implement multi-session handling",
+    "week 2: Integrate external documentation links and getting-started guides",
+    "week 3: Add location sharing and sticker support",
+    "week 3: Implement message forwarding and receipt handling",
+    "week 3: Publish initial version with dependency tracking for WhatsApp Web changes"
+  ],
+  "acceptance_tests": [
+    "Application successfully starts a WhatsApp session and refreshes QR code automatically.",
+    "Contact list, group memberships, and block list are retrievable via API.",
+    "Multiple concurrent sessions operate without interference.",
+    "System warns user when package is outdated relative to WhatsApp Web changes.",
+    "User can send text, image, and video messages to individual contacts and groups."
+  ]
+}
