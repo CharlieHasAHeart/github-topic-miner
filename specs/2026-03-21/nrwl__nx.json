@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Nx",
+    "one_liner": "Nx is a high-performance monorepo platform built with Rust and TypeScript that enables incremental adoption, AI-native tooling, and polyglot support for scalable development workflows."
+  },
+  "screens": [
+    {
+      "name": "Nx Workspace Dashboard",
+      "purpose": "Provide an overview of projects, tasks, and dependency graph with quick access to run targets and view affected changes.",
+      "primary_actions": [
+        "Open dependency graph",
+        "Run target",
+        "View affected projects"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_task",
+      "purpose": "Spawn child processes for build/test/lint tasks with proper shell quoting and Windows process hiding.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "root": "string",
+        "targets": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "scan_dependencies",
+      "purpose": "Use the native Rust scanner to parse source files and infer dependencies across polyglot codebases.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "root": "string",
+        "targets": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "root",
+            "type": "TEXT"
+          },
+          {
+            "name": "targets",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "tasks",
+        "columns": [
+          {
+            "name": "command",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Enable Rust-based dependency scanning",
+    "week 1: Initialize Nx workspace with `npx nx init`",
+    "week 1: Integrate existing npm scripts as Nx targets"
+  ],
+  "acceptance_tests": [
+    "Concurrent execution of multiple Nx targets does not crash the daemon or ignore parallel flags",
+    "File saves in Windows do not trigger visible cmd.exe flashes due to proper windowsHide configuration",
+    "Rust scanner correctly parses imports without misinterpreting string literals on macOS case-insensitive filesystems"
+  ]
+}

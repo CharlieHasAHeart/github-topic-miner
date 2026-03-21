@@ -1,0 +1,169 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "JavBus API Proxy",
+    "one_liner": "A self-hosted, stateless API service that scrapes and transforms JavBus website content into structured JSON endpoints in real time."
+  },
+  "screens": [
+    {
+      "name": "API Endpoints Overview",
+      "purpose": "Display available REST-like endpoints for movies, stars, and magnets with usage examples.",
+      "primary_actions": [
+        "View /api/magnets/{movieId} documentation",
+        "View /api/movies documentation",
+        "View /api/movies/{movieId} documentation",
+        "View /api/movies/search documentation",
+        "View /api/stars/{starId} documentation"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_magnets",
+      "purpose": "Scrape and return magnet links associated with a given movie ID from JavBus.",
+      "async": true,
+      "input": {
+        "link": "string",
+        "movie_id": "string",
+        "payload": "json",
+        "size": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_movie_detail",
+      "purpose": "Fetch detailed movie information including metadata and cover image by parsing JavBus detail page.",
+      "async": true,
+      "input": {
+        "link": "string",
+        "movie_id": "string",
+        "payload": "json",
+        "size": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_movie_list",
+      "purpose": "Retrieve paginated list of movies from JavBus by scraping and transforming HTML to JSON.",
+      "async": true,
+      "input": {
+        "link": "string",
+        "movie_id": "string",
+        "payload": "json",
+        "size": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_star_detail",
+      "purpose": "Retrieve actor/actress profile and filmography by parsing JavBus star page.",
+      "async": true,
+      "input": {
+        "link": "string",
+        "movie_id": "string",
+        "payload": "json",
+        "size": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "search_movies",
+      "purpose": "Search movies by keyword or ID via real-time scraping of JavBus search results.",
+      "async": true,
+      "input": {
+        "link": "string",
+        "movie_id": "string",
+        "payload": "json",
+        "size": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "magnets",
+        "columns": [
+          {
+            "name": "link",
+            "type": "TEXT"
+          },
+          {
+            "name": "movie_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "size",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "movies",
+        "columns": [
+          {
+            "name": "cover_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "release_date",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "stars",
+        "columns": [
+          {
+            "name": "avatar_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add Docker deployment support with documented image",
+    "week 1: Expose /api/movies and /api/movies/search endpoints",
+    "week 1: Implement core scraping logic for movie list endpoint",
+    "week 1: Integrate basic authentication via token or username/password"
+  ],
+  "acceptance_tests": [
+    "Deployment via Docker runs successfully on non-US IP and serves API on port 3000.",
+    "Fetching magnets for a valid movie ID returns at least one magnet link.",
+    "Searching by movie ID returns structured detail including cover image URL.",
+    "The /api/movies endpoint returns a non-empty list of movies when JavBus is accessible and not blocked.",
+    "Vercel deployment completes without 500 errors and routes /api requests correctly."
+  ]
+}

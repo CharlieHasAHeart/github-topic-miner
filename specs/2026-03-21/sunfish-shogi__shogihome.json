@@ -1,0 +1,185 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ShogiHome",
+    "one_liner": "An open-source, Electron-based shogi GUI with touch-friendly UI, USI engine integration, and advanced analysis features like SPRT testing and evaluation delta visualization."
+  },
+  "screens": [
+    {
+      "name": "Engine & Analysis Settings",
+      "purpose": "Configure USI engines, resource allocation, and analysis behavior including logging and script execution workarounds.",
+      "primary_actions": [
+        "Adjust CPU/memory limits",
+        "Enable protocol logging",
+        "Register USI-compatible engines",
+        "Set up script-based engines"
+      ]
+    },
+    {
+      "name": "Main Shogi Board",
+      "purpose": "Primary interface for playing, analyzing, and studying shogi positions with engine assistance and visual feedback.",
+      "primary_actions": [
+        "Drag and drop pieces",
+        "Launch parallel games or SPRT tests",
+        "Start engine analysis or opening book search",
+        "View move arrows with evaluation deltas"
+      ]
+    },
+    {
+      "name": "Time Consumption Chart",
+      "purpose": "Visualize time usage per move during games or analysis sessions.",
+      "primary_actions": [
+        "Customize layout (pending implementation)",
+        "Toggle chart visibility"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "launch_parallel_games",
+      "purpose": "Start multiple simultaneous shogi games for testing or analysis.",
+      "async": true,
+      "input": {
+        "arrow_visible": "boolean",
+        "evaluation_delta": "float",
+        "move": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_sprt_test",
+      "purpose": "Execute Sequential Probability Ratio Test between two engine configurations.",
+      "async": true,
+      "input": {
+        "arrow_visible": "boolean",
+        "evaluation_delta": "float",
+        "move": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_game_state",
+      "purpose": "Persist current board state, engine settings, and analysis results.",
+      "async": true,
+      "input": {
+        "arrow_visible": "boolean",
+        "evaluation_delta": "float",
+        "move": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_engine_analysis",
+      "purpose": "Initiate analysis using a registered USI engine or opening book as a pseudo-engine.",
+      "async": true,
+      "input": {
+        "arrow_visible": "boolean",
+        "evaluation_delta": "float",
+        "move": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "analysis_results",
+        "columns": [
+          {
+            "name": "arrow_visible",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "evaluation_delta",
+            "type": "REAL"
+          },
+          {
+            "name": "move",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "engines",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_opening_book",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "games",
+        "columns": [
+          {
+            "name": "engine_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "moves",
+            "type": "JSON"
+          },
+          {
+            "name": "time_consumption",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add engine registration and settings screen",
+    "week 1: Display evaluation arrows with delta values",
+    "week 1: Implement core shogi board with drag-and-drop piece movement",
+    "week 1: Integrate basic USI engine communication",
+    "week 2: Add CPU/memory warning dialog for resource-heavy configurations",
+    "week 2: Add support for opening books as pseudo-engines",
+    "week 2: Enable saving and loading game states",
+    "week 2: Implement time consumption chart",
+    "week 3: Add SPRT test runner",
+    "week 3: Enable protocol logging toggle in developer settings",
+    "week 3: Implement parallel game execution",
+    "week 3: Support custom time chart layouts"
+  ],
+  "acceptance_tests": [
+    "CPU/memory over-allocation triggers a warning in the game setup dialog.",
+    "Evaluation deltas are displayed on move arrows when engine analysis is active.",
+    "Opening books can be selected as an alternative to engines for move generation.",
+    "Protocol logging can be enabled via developer settings to debug engine communication.",
+    "SPRT test runs correctly between two engine configurations and reports statistical outcome.",
+    "Time consumption chart renders accurately during gameplay.",
+    "User can drag and drop pieces on the main board using touch or mouse input."
+  ]
+}
