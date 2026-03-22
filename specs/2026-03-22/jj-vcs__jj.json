@@ -1,0 +1,131 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Jujutsu (jj)",
+    "one_liner": "A Git-compatible version control system that is both simple and powerful, featuring change-centric workflows and pluggable storage backends."
+  },
+  "screens": [
+    {
+      "name": "Main CLI/TUI Interface",
+      "purpose": "Provide access to core version control operations including commit manipulation, bookmark management, and history navigation.",
+      "primary_actions": [
+        "Execute `jj bookmark advance` to auto-move bookmarks",
+        "Run `jj arrange` to reorder or abandon revisions via TUI",
+        "View and restore historical or divergent changes using disambiguation syntax"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "jj_arrange",
+      "purpose": "Launch a terminal user interface to interactively reorder, split, or abandon revisions.",
+      "async": true,
+      "input": {
+        "is_remote": "boolean",
+        "name": "string",
+        "payload": "json",
+        "target_change_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "jj_bookmark_advance",
+      "purpose": "Automatically move bookmarks forward to a target revision using configurable revset policies.",
+      "async": true,
+      "input": {
+        "is_remote": "boolean",
+        "name": "string",
+        "payload": "json",
+        "target_change_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "jj_restore_from_divergent",
+      "purpose": "Restore a change to a previous version using disambiguated change ID syntax (e.g., xyz/1).",
+      "async": true,
+      "input": {
+        "is_remote": "boolean",
+        "name": "string",
+        "payload": "json",
+        "target_change_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "bookmarks",
+        "columns": [
+          {
+            "name": "is_remote",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "target_change_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "changes",
+        "columns": [
+          {
+            "name": "change_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "divergence_index",
+            "type": "INTEGER"
+          },
+          {
+            "name": "git_commit_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "visibility",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "remotes",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic `jj arrange` TUI for revision reordering",
+    "week 1: Implement core change tracking with external bookmark storage",
+    "week 1: Integrate Git backend for commit/file persistence"
+  ],
+  "acceptance_tests": [
+    "Confirm `jj bookmark advance` moves local bookmarks forward according to configured revsets.",
+    "Ensure remote names containing whitespace do not cause panics during fetch/push operations.",
+    "Validate that change IDs with divergence syntax (e.g., xyz/1) correctly resolve to historical versions.",
+    "Verify that `jj arrange` launches a functional TUI allowing revision reordering and abandonment."
+  ]
+}

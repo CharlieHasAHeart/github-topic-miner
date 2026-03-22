@@ -1,0 +1,2561 @@
+{
+  "run_id": "20260322T045508Z",
+  "generated_at": "2026-03-22T04:55:08.804Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 30,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 6,
+      "release": 6,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-22T04:58:12.077Z",
+    "repo_count": 155
+  },
+  "candidates": [
+    {
+      "full_name": "Ataraxy-Labs/sem",
+      "html_url": "https://github.com/Ataraxy-Labs/sem",
+      "description": "Semantic version control CLI. Entity-level diff, blame, graph, and impact analysis for code. 21 languages via tree-sitter.",
+      "topics": [
+        "ai-agents",
+        "cli",
+        "code-review",
+        "developer-tools",
+        "diff",
+        "git",
+        "rust",
+        "semantic-diff",
+        "tree-sitter"
+      ],
+      "language": "Rust",
+      "stargazers_count": 932,
+      "forks_count": 28,
+      "open_issues_count": 5,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:54:26Z",
+      "created_at": "2026-02-05T19:49:35Z"
+    },
+    {
+      "full_name": "gptme/gptme",
+      "html_url": "https://github.com/gptme/gptme",
+      "description": "Your agent in your terminal, equipped with local tools: writes code, uses the terminal, browses the web. Make your own persistent autonomous agent on top!",
+      "topics": [
+        "agent",
+        "agents",
+        "ai-agents",
+        "ai-assistant",
+        "anthropic",
+        "chatbot",
+        "chatgpt",
+        "cli",
+        "code-generation",
+        "llamacpp",
+        "llm",
+        "llm-agent",
+        "llm-apps",
+        "openai",
+        "openrouter",
+        "rag"
+      ],
+      "language": "Python",
+      "stargazers_count": 4238,
+      "forks_count": 366,
+      "open_issues_count": 25,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-03-22T04:52:27Z",
+      "created_at": "2023-03-24T16:25:01Z"
+    },
+    {
+      "full_name": "dahlia/optique",
+      "html_url": "https://github.com/dahlia/optique",
+      "description": "Type-safe combinatorial CLI parser for TypeScript",
+      "topics": [
+        "cli",
+        "getopt",
+        "parser-combinators",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 606,
+      "forks_count": 7,
+      "open_issues_count": 145,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:50:45Z",
+      "created_at": "2025-08-19T05:34:10Z"
+    },
+    {
+      "full_name": "sunfish-shogi/shogihome",
+      "html_url": "https://github.com/sunfish-shogi/shogihome",
+      "description": "PC で動く高機能な将棋の GUI「ShogiHome」の開発リポジトリ",
+      "topics": [
+        "electron",
+        "shogi",
+        "typescript",
+        "usi",
+        "vite",
+        "vitejs",
+        "vue",
+        "vuejs",
+        "vuejs3"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 220,
+      "forks_count": 43,
+      "open_issues_count": 21,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:50:39Z",
+      "created_at": "2022-03-25T10:09:44Z"
+    },
+    {
+      "full_name": "jj-vcs/jj",
+      "html_url": "https://github.com/jj-vcs/jj",
+      "description": "A Git-compatible VCS that is both simple and powerful",
+      "topics": [
+        "cli",
+        "git",
+        "jj",
+        "jujutsu",
+        "mercurial",
+        "vcs"
+      ],
+      "language": "Rust",
+      "stargazers_count": 27153,
+      "forks_count": 978,
+      "open_issues_count": 1037,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:50:14Z",
+      "created_at": "2020-12-18T04:05:27Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "Ataraxy-Labs/sem",
+      "html_url": "https://github.com/Ataraxy-Labs/sem",
+      "description": "Semantic version control CLI. Entity-level diff, blame, graph, and impact analysis for code. 21 languages via tree-sitter.",
+      "topics": [
+        "ai-agents",
+        "cli",
+        "code-review",
+        "developer-tools",
+        "diff",
+        "git",
+        "rust",
+        "semantic-diff",
+        "tree-sitter"
+      ],
+      "language": "Rust",
+      "stargazers_count": 932,
+      "forks_count": 28,
+      "open_issues_count": 5,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:54:26Z",
+      "created_at": "2026-02-05T19:49:35Z"
+    },
+    {
+      "full_name": "jj-vcs/jj",
+      "html_url": "https://github.com/jj-vcs/jj",
+      "description": "A Git-compatible VCS that is both simple and powerful",
+      "topics": [
+        "cli",
+        "git",
+        "jj",
+        "jujutsu",
+        "mercurial",
+        "vcs"
+      ],
+      "language": "Rust",
+      "stargazers_count": 27153,
+      "forks_count": 978,
+      "open_issues_count": 1037,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:50:14Z",
+      "created_at": "2020-12-18T04:05:27Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "Ataraxy-Labs/sem",
+      "html_url": "https://github.com/Ataraxy-Labs/sem",
+      "description": "Semantic version control CLI. Entity-level diff, blame, graph, and impact analysis for code. 21 languages via tree-sitter.",
+      "topics": [
+        "ai-agents",
+        "cli",
+        "code-review",
+        "developer-tools",
+        "diff",
+        "git",
+        "rust",
+        "semantic-diff",
+        "tree-sitter"
+      ],
+      "language": "Rust",
+      "stargazers_count": 932,
+      "forks_count": 28,
+      "open_issues_count": 5,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:54:26Z",
+      "created_at": "2026-02-05T19:49:35Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src=\"assets/banner.svg\" alt=\"sem\" width=\"600\" />\n</p>\n\n<p align=\"center\">\n  Instead of lines changed, sem tells you what entities changed: functions, methods, classes.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/Ataraxy-Labs/sem/releases/latest\"><img src=\"https://img.shields.io/github/v/release/Ataraxy-Labs/sem?color=blue&label=release\" alt=\"Release\"></a>\n  <img src=\"https://img.shields.io/badge/rust-stable-orange\" alt=\"Rust\">\n  <img src=\"https://img.shields.io/badge/tests-46_passing-brightgreen\" alt=\"Tests\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-yellow\" alt=\"License\"></a>\n  <img src=\"https://img.shields.io/badge/languages-21-blue\" alt=\"Languages\">\n</p>\n\n```\nsem diff\n\n┌─ src/auth/login.ts ──────────────────────────────────\n│\n│  ⊕ function  validateToken          [added]\n│  ∆ function  authenticateUser       [modified]\n│  ⊖ function  legacyAuth             [deleted]\n│\n└──────────────────────────────────────────────────────\n\n┌─ config/database.yml ─────────────────────────────────\n│\n│  ∆ property  production.pool_size   [modified]\n│    - 5\n│    + 20\n│\n└──────────────────────────────────────────────────────\n\nSummary: 1 added, 1 modified, 1 deleted across 2 files\n```\n\n## Install\n\n```bash\nbrew install sem-cli\n```\n\nOr build from source (requires Rust):\n\n```bash\ngit clone https://github.com/Ataraxy-Labs/sem\ncd sem/crates\ncargo install --path sem-cli\n```\n\nOr grab a binary from [GitHub Releases](https://github.com/Ataraxy-Labs/sem/releases).\n\nOr run via Docker:\n\n```bash\ndocker build -t sem .\ndocker run --rm -it -u \"$(id -u):$(id -g)\" -v \"$(pwd):/repo\" sem diff\n```\n\n## Usage\n\nWorks in any Git repo. No setup required. Also works outside Git for arbitrary file comparison.\n\n```bash\n# Semantic diff of working changes\nsem diff\n\n# Staged changes only\nsem diff --staged\n\n# Specific commit\nsem diff --commit abc1234\n\n# Commit range\nsem diff --from HEAD~5 --to HEAD\n\n# Plain text output (git status style)\nsem diff --format plain\n\n# JSON output (for AI agents, CI pipelines)\nsem diff --format json\n\n# Compare any two files (no git repo needed)\nsem diff file1.ts file2.ts\n\n# Read file changes from stdin (no git repo needed)\necho '[{\"filePath\":\"src/main.rs\",\"status\":\"modified\",\"beforeContent\":\"...\",\"afterContent\":\"...\"}]' \\\n  | sem diff --stdin --format json\n\n# Only specific file types\nsem diff --file-exts .py .rs\n\n# Entity dependency graph\nsem graph\n\n# Impact analysis (what breaks if this entity changes?)\nsem impact validateToken\n\n# Entity-level blame\nsem blame src/auth.ts\n```\n\n## Use as default Git diff\n\nReplace `git diff` output with entity-level diffs. Agents and humans get sem output automatically without changing any commands.\n\n```bash\n# Set sem as your git diff tool\ngit config --global diff.external sem-diff-wrapper\n\n# Create the wrapper script\necho '#!/bin/sh\nsem diff \"$2\" \"$5\"' > ~/.local/bin/sem-diff-wrapper\nchmod +x ~/.local/bin/sem-diff-wrapper\n```\n\nNow `git diff` shows entity-level changes instead of line-level. No prompts, no agent configuration needed. Everything that calls `git diff` gets sem output automatically.\n\nTo disable and go back to normal git diff:\n\n```bash\ngit config --global --unset diff.external\n```\n\n## What it parses\n\n21 programming languages with full entity extraction via tree-sitter:\n\n| Language | Extensions | Entities |\n|----------|-----------|----------|\n| TypeScript | `.ts` `.tsx` | functions, classes, interfaces, types, enums, exports |\n| JavaScript | `.js` `.jsx` `.mjs` `.cjs` | functions, classes, variables, exports |\n| Python | `.py` | functions, classes, decorated definitions |\n| Go | `.go` | functions, methods, types, vars, consts |\n| Rust | `.rs` | functions, structs, enums, impls, traits, mods, consts |\n| Java | `.java` | classes, methods, interfaces, enums, fields, constructors |\n| C | `.c` `.h` | functions, structs, enums, unions, typedefs |\n| C++ | `.cpp` `.cc` `.hpp` | functions, classes, structs, enums, namespaces, templates |\n| C# | `.cs` | classes, methods, interfaces, enums, structs, properties |\n| Ruby | `.rb` | methods, classes, modules |\n| PHP | `.php` | functions, classes, methods, interfaces, traits, enums |\n| Swift | `.swift` | functions, classes, protocols, structs, enums, properties |\n| Elixir | `.ex` `.exs` | modules, functions, macros, guards, protocols |\n| Bash | `.sh` | functions |\n| HCL/Terraform | `.hcl` `.tf` `.tfvars` | blocks, attributes (qualified names for nested blocks) |\n| Kotlin | `.kt` `.kts` | classes, interfaces, objects, functions, properties, companion objects |\n| Fortran | `.f90` `.f95` `.f` | functions, subroutines, modules, programs |\n| Vue | `.vue` | template/script/style blocks + inner TS/JS entities |\n| XML | `.xml` `.plist` `.svg` `.csproj` | elements (nested, tag-name identity) |\n| ERB | `.erb` `.html.erb` | blocks, expressions, code tags |\n\nPlus structured data formats:\n\n| Format | Extensions | Entities |\n|--------|-----------|----------|\n| JSON | `.json` | properties, objects (RFC 6901 paths) |\n| YAML | `.yml` `.yaml` | sections, properties (dot paths) |\n| TOML | `.toml` | sections, properties |\n| CSV | `.csv` `.tsv` | rows (first column as identity) |\n| Markdown | `.md` `.mdx` | heading-based sections |\n\nEverything else falls back to chunk-based diffing.\n\n## How matching works\n\nThree-phase entity matching:\n\n1. **Exact ID match** — same entity in before/after = modified or unchanged\n2. **Structural hash match** — same AST structure, different name = renamed or moved (ignores whitespace/comments)\n3. **Fuzzy similarity** — >80% token overlap = probable rename\n\nThis means sem detects renames and moves, not just additions and deletions. Structural hashing also distinguishes cosmetic changes (whitespace, formatting) from real logic changes.\n\n## JSON output\n\n```bash\nsem diff --format json\n```\n\n```json\n{\n  \"summary\": {\n    \"fileCount\": 2,\n    \"added\": 1,\n    \"modified\": 1,\n    \"deleted\": 1,\n    \"total\": 3\n  },\n  \"changes\": [\n    {\n      \"entityId\": \"src/auth.ts::function::validateToken\",\n      \"changeType\": \"added\",\n      \"entityType\": \"function\",\n      \"entityName\": \"validateToken\",\n      \"filePath\": \"src/auth.ts\"\n    }\n  ]\n}\n```\n\n## As a library\n\nsem-core can be used as a Rust library dependency:\n\n```toml\n[dependencies]\nsem-core = { git = \"https://github.com/Ataraxy-Labs/sem\", version = \"0.3\" }\n```\n\nUsed by [weave](https://github.com/Ataraxy-Labs/weave) (semantic merge driver) and [inspect](https://github.com/Ataraxy-Labs/inspect) (entity-level code review).\n\n## Architecture\n\n- **tree-sitter** for code parsing (native Rust, not WASM)\n- **git2** for Git operations\n- **rayon** for parallel file processing\n- **xxhash** for structural hashing\n- Plugin system for adding new languages and formats\n\n## Contributing\n\nWant to add a new language? See [CONTRIBUTING.md](CONTRIBUTING.md) for a step-by-step guide.\n\n## Star History\n\n[![Star History Chart](https://api.star-history.com/svg?repos=Ataraxy-Labs/sem&type=Date)](https://star-history.com/#Ataraxy-Labs/sem&Date)\n\n## License\n\nMIT OR Apache-2.0\n",
+        "truncated": false,
+        "bytes": 7437,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.3.10",
+            "tag_name": "v0.3.10",
+            "published_at": "2026-03-15T17:50:25Z",
+            "body_excerpt": "## What's New\n\n- Add crates.io publishing metadata for `sem-core` and `sem-cli`\n- Version pin `sem-core` dependency in `sem-cli`"
+          },
+          {
+            "name": "v0.3.9",
+            "tag_name": "v0.3.9",
+            "published_at": "2026-03-10T05:33:52Z",
+            "body_excerpt": "**Kotlin language support** (.kt, .kts)\n\nExtracts: classes, interfaces, objects, functions, properties, companion objects, constructors, type aliases.\n\nAlso in this release:\n- Structural hash now excludes entity names, fixing rename detection for small functions (#20)\n- 19 languages supported, 46 tests passing"
+          },
+          {
+            "name": "v0.3.8",
+            "tag_name": "v0.3.8",
+            "published_at": "2026-03-09T09:44:30Z",
+            "body_excerpt": null
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 36,
+            "title": "feat: full compatibility with git diff",
+            "state": "closed",
+            "url": "https://github.com/Ataraxy-Labs/sem/issues/36"
+          },
+          {
+            "number": 38,
+            "title": "React-Specific Output / JavaScript Support in General",
+            "state": "open",
+            "url": "https://github.com/Ataraxy-Labs/sem/issues/38"
+          },
+          {
+            "number": 34,
+            "title": "WASM Support",
+            "state": "open",
+            "url": "https://github.com/Ataraxy-Labs/sem/issues/34"
+          },
+          {
+            "number": 24,
+            "title": "Plans for VScode extension?",
+            "state": "closed",
+            "url": "https://github.com/Ataraxy-Labs/sem/issues/24"
+          }
+        ]
+      },
+      "root_files": [
+        ".DS_Store",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "Formula",
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "README.md",
+        "assets",
+        "bench",
+        "bin",
+        "bun.lock",
+        "crates",
+        "docs",
+        "package-lock.json",
+        "package.json",
+        "site",
+        "src",
+        "test",
+        "tsconfig.json",
+        "tsup.config.ts",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> Instead of lines changed, sem tells you what entities changed: functions, methods, classes. </p>",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/Ataraxy-Labs/sem/releases/latest\"><img src=\"https://img.shields.io/github/v/release/Ataraxy-Labs/sem?color=blue&label=release\" alt=\"Release\"></a> <img src=\"https://img.shields.io/badge/rust-stable-orange\" alt=\"Rust\"> <img src=\"https://img.shields.io/badge/tests-46_passing-brightgreen\" alt=\"Tests\"> <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-yellow\" alt=\"License\"></a> <img src=\"https://img.shields.io/badge/languages-21-blue\" alt=\"Languages\"> </p>",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 3)",
+          "excerpt": "┌─ src/auth/login.ts ────────────────────────────────── │ │ ⊕ function validateToken [added] │ ∆ function authenticateUser [modified] │ ⊖ function legacyAuth [deleted] │ └──────────────────────────────────────────────────────",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 4)",
+          "excerpt": "┌─ config/database.yml ───────────────────────────────── │ │ ∆ property production.pool_size [modified] │ - 5 │ + 20 │ └──────────────────────────────────────────────────────",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 5)",
+          "excerpt": "```bash git clone https://github.com/Ataraxy-Labs/sem cd sem/crates cargo install --path sem-cli ```",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Or grab a binary from [GitHub Releases](https://github.com/Ataraxy-Labs/sem/releases).",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```bash docker build -t sem . docker run --rm -it -u \"$(id -u):$(id -g)\" -v \"$(pwd):/repo\" sem diff ```",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/Ataraxy-Labs/sem#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Works in any Git repo. No setup required. Also works outside Git for arbitrary file comparison.",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/issues/36",
+          "title": "feat: full compatibility with git diff",
+          "excerpt": "feat: full compatibility with git diff (state:closed)",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "number": 36
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/issues/38",
+          "title": "React-Specific Output / JavaScript Support in General",
+          "excerpt": "React-Specific Output / JavaScript Support in General (state:open)",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "number": 38
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/issues/34",
+          "title": "WASM Support",
+          "excerpt": "WASM Support (state:open)",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "number": 34
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/issues/24",
+          "title": "Plans for VScode extension?",
+          "excerpt": "Plans for VScode extension? (state:closed)",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "number": 24
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/releases",
+          "title": "v0.3.10",
+          "excerpt": "## What's New - Add crates.io publishing metadata for `sem-core` and `sem-cli` - Version pin `sem-core` dependency in `sem-cli`",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "tag_name": "v0.3.10",
+            "published_at": "2026-03-15T17:50:25Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/releases",
+          "title": "v0.3.9",
+          "excerpt": "**Kotlin language support** (.kt, .kts) Extracts: classes, interfaces, objects, functions, properties, companion objects, constructors, type aliases. Also in this release: - Structural hash now excludes entity names, fixing rename detection for small functions (#20) - 19 languages supported, 46 tests passing",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "tag_name": "v0.3.9",
+            "published_at": "2026-03-10T05:33:52Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Ataraxy-Labs/sem/releases",
+          "title": "v0.3.8",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "tag_name": "v0.3.8",
+            "published_at": "2026-03-09T09:44:30Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Ataraxy-Labs/sem",
+          "title": "ROOT_FILES",
+          "excerpt": ".DS_Store, .dockerignore, .github, .gitignore, CONTRIBUTING.md, Dockerfile, Formula, LICENSE-APACHE, LICENSE-MIT, README.md, assets, bench, bin, bun.lock, crates, docs, package-lock.json, package.json, site, src, test, tsconfig.json, tsup.config.ts, vitest.config.ts",
+          "fetched_at": "2026-03-22T04:55:12.495Z",
+          "meta": {
+            "repo_full_name": "Ataraxy-Labs/sem",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "jj-vcs/jj",
+      "html_url": "https://github.com/jj-vcs/jj",
+      "description": "A Git-compatible VCS that is both simple and powerful",
+      "topics": [
+        "cli",
+        "git",
+        "jj",
+        "jujutsu",
+        "mercurial",
+        "vcs"
+      ],
+      "language": "Rust",
+      "stargazers_count": 27153,
+      "forks_count": 978,
+      "open_issues_count": 1037,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-22T04:50:14Z",
+      "created_at": "2020-12-18T04:05:27Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div class=\"title-block\" style=\"text-align: center;\" align=\"center\">\n\n# Jujutsu—a version control system\n\n<p><img title=\"jj logo\" src=\"docs/images/jj-logo.svg\" width=\"320\" height=\"320\"></p>\n\n[![Release](https://img.shields.io/github/v/release/martinvonz/jj)](https://github.com/jj-vcs/jj/releases)\n[![Release date](https://img.shields.io/github/release-date/martinvonz/jj)](https://github.com/jj-vcs/jj/releases)\n<br/>\n[![License](https://img.shields.io/github/license/martinvonz/jj)](https://github.com/jj-vcs/jj/blob/main/LICENSE)\n[![Discord](https://img.shields.io/discord/968932220549103686.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/dkmfj3aGQN)\n[![IRC](https://img.shields.io/badge/irc-%23jujutsu-blue.svg)](https://web.libera.chat/?channel=#jujutsu)\n\n**[Homepage] &nbsp;&nbsp;&bull;&nbsp;&nbsp;**\n**[Installation] &nbsp;&nbsp;&bull;&nbsp;&nbsp;**\n**[Getting Started] &nbsp;&nbsp;&bull;&nbsp;&nbsp;**\n**[Development Roadmap] &nbsp;&nbsp;&bull;&nbsp;&nbsp;**\n**[Contributing](#contributing)**\n\n[Homepage]: https://www.jj-vcs.dev\n[Installation]: https://docs.jj-vcs.dev/latest/install-and-setup\n[Getting Started]: https://docs.jj-vcs.dev/latest/tutorial\n[Development Roadmap]: https://docs.jj-vcs.dev/latest/roadmap\n\n</div>\n\n## Introduction\n\nJujutsu is a powerful [version control system](https://en.wikipedia.org/wiki/Version_control)\nfor software projects. You use it to get a copy of your code, track changes\nto the code, and finally publish those changes for others to see and use.\nIt is designed from the ground up to be easy to use—whether you're new or\nexperienced, working on brand new projects alone, or large scale software\nprojects with large histories and teams.\n\nJujutsu is unlike most other systems, because internally it abstracts the user\ninterface and version control algorithms from the *storage systems* used to\nserve your content. This allows it to serve as a VCS with many possible physical\nbackends, that may have their own data or networking models—like [Mercurial] or\n[Breezy], or hybrid systems like Google's cloud-based design, [Piper/CitC].\n\n[Mercurial]: https://www.mercurial-scm.org/\n[Breezy]: https://www.breezy-vcs.org/\n[Piper/CitC]: https://youtu.be/W71BTkUbdqE?t=645\n\nToday, we use Git repositories as a storage layer to serve and track content,\nmaking it **compatible with many of your favorite Git-based tools, right now!**\nHowever, note that only commits and files are stored in Git; bookmarks\n(branches) and other higher-level metadata are stored in custom storage outside\nof Git. All core developers use Jujutsu to develop Jujutsu, right here on\nGitHub. But it should hopefully work with your favorite Git forges, too.\n\nWe combine many distinct design choices and concepts from other version control\nsystems into a single tool. Some of those sources of inspiration include:\n\n- **Git**: We make an effort to [be fast][perf]—with a snappy UX, efficient\n  algorithms, correct data structures, and good-old-fashioned attention to\n  detail. The default storage backend uses Git repositories for \"physical\n  storage\", for wide interoperability and ease of onboarding.\n\n- **Mercurial & Sapling**: There are many Mercurial-inspired features, such as\n  the [revset] language to select commits. There is [no explicit index][no-index]\n  or staging area. Branches are \"anonymous\" like Mercurial, so you don't need\n  to make up a name for each small change. Primitives for rewriting history are\n  powerful and simple. Formatting output is done with a robust template language\n  that can be configured by the user.\n\n- **Darcs**: Jujutsu keeps track of conflicts as [first-class\n  objects][conflicts] in its model; they are first-class in the same way commits\n  are, while alternatives like Git simply think of conflicts as textual diffs.\n  While not as rigorous as systems like Darcs (which is based on a formalized\n  theory of patches, as opposed to snapshots), the effect is that many forms of\n  conflict resolution can be performed and propagated automatically.\n\n[perf]: https://github.com/jj-vcs/jj/discussions/49\n[revset]: https://docs.jj-vcs.dev/latest/revsets/\n[no-index]: https://docs.jj-vcs.dev/latest/git-comparison/#the-index\n[conflicts]: https://docs.jj-vcs.dev/latest/conflicts/\n\nAnd it adds several innovative, useful features of its own:\n\n- **Working-copy-as-a-commit**: Changes to files are [recorded automatically][wcc]\n  as normal commits, and amended on every subsequent change. This \"snapshot\"\n  design simplifies the user-facing data model (commits are the only visible\n  object), simplifies internal algorithms, and completely subsumes features like\n  Git's stashes or the index/staging-area.\n\n- **Operation log & undo**: Jujutsu records every operation that is performed on the\n  repository, from commits, to pulls, to pushes. This makes debugging problems like\n  \"what just happened?\" or \"how did I end up here?\" easier, *especially* when\n  you're helping your coworker answer those questions about their repository!\n  And because everything is recorded, you can undo that mistake you just made\n  with ease. Version control has finally entered [the 1960s][undo-history]!\n\n- **Automatic rebase and conflict resolution**: When you modify a commit, every\n  descendent is automatically rebased on top of the freshly-modified one. This\n  makes \"patch-based\" workflows a breeze. If you resolve a conflict in a commit,\n  the _resolution_ of that conflict is also propagated through descendants as\n  well. In effect, this is a completely transparent version of `git rebase\n  --update-refs` combined with `git rerere`, supported by design.\n\n> [!WARNING]\n> The following features are available for use, but experimental; they may have\n> bugs, backwards incompatible storage changes, and user-interface changes!\n\n- **Safe, concurrent replication**: Have you ever wanted to store your version\n  controlled repositories inside a Dropbox folder? Or continuously backup\n  repositories to S3? No? Well, now you can!\n\n  The fundamental problem with using filesystems like Dropbox and backup tools\n  like `rsync` on your typical Git/Mercurial repositories is that they rely\n  on *local filesystem operations* being atomic, serialized, and non-concurrent\n  with respect to other reads and writes—which is _not_ true when operating on\n  distributed file systems, or when operations like concurrent file copies (for\n  backup) happen while lock files are being held.\n\n  Jujutsu is instead designed to be [safe under concurrent scenarios][conc-safety];\n  simply using rsync or Dropbox and then using that resulting repository\n  should never result in a repository in a *corrupt state*. The worst that\n  _should_ happen is that it will expose conflicts between the local and remote\n  state, leaving you to resolve them.\n\n[wcc]: https://docs.jj-vcs.dev/latest/working-copy/\n[undo-history]: https://en.wikipedia.org/wiki/Undo#History\n[conc-safety]: https://docs.jj-vcs.dev/latest/technical/concurrency/\n\nThe command-line tool is called `jj` for now because it's easy to type and easy\nto replace (rare in English). The project is called \"Jujutsu\" because it matches\n\"jj\".\n\nJujutsu is relatively young, with lots of work to still be done. If you have any\nquestions, or want to talk about future plans, please join us on Discord\n[![Discord](https://img.shields.io/discord/968932220549103686.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/dkmfj3aGQN),\nstart a [GitHub Discussion](https://github.com/jj-vcs/jj/discussions), or\nsend an IRC message to [`#jujutsu` on Libera\nChat](https://web.libera.chat/?channel=#jujutsu). The developers monitor all of\nthese channels[^bridge].\n\n[^bridge]: To be more precise, the `#jujutsu` Libera IRC channel is bridged to\none of the channels on jj's Discord. Some of the developers stay on Discord and\nuse the bridge to follow IRC.\n\n### News and Updates 📣\n\n- **December 2024**: The `jj` Repository has moved to the `jj-vcs` GitHub\n  organization.\n- **November 2024**: Version 0.24 is released which adds `jj file annotate`,\n  which is equivalent to `git blame` or `hg annotate`.\n- **September 2024**: Martin gave a [presentation about Jujutsu][merge-vid-2024] at\n  Git Merge 2024.\n- **Feb 2024**: Version 0.14 is released, which deprecates [\"jj checkout\" and \"jj merge\"](CHANGELOG.md#0140---2024-02-07),\n  as well as `jj init --git`, which is now just called `jj git init`.\n- **Oct 2023**: Version 0.10.0 is released! Now includes a bundled merge and\n  diff editor for all platforms, \"immutable revsets\" to avoid accidentally\n  `edit`-ing the wrong revisions, and lots of polish.\n- **Jan 2023**: Martin gave a presentation about Google's plans for Jujutsu at\n  Git Merge 2022!\n  See the [slides][merge-slides] or the [recording][merge-talk].\n\n### Related Media\n\n- **Mar 2024**: Chris Krycho started [a YouTube series about Jujutsu][krycho-yt].\n- **Feb 2024**: Chris Krycho published an article about Jujutsu called [jj init][krycho]\n  and Steve Klabnik followed up with the [Jujutsu Tutorial][klabnik].\n- **Jan 2024**: Jujutsu was featured in an LWN.net article called\n  [Jujutsu: a new, Git-compatible version control system][lwn].\n- **Jan 2023**: Martin's Talk about Jujutsu at Git Merge 2022, [video][merge-talk]\n  and the associated [slides][merge-slides].\n\nThe wiki also contains a more extensive list of [media references][wiki-media].\n\n[krycho-yt]: https://www.youtube.com/playlist?list=PLelyiwKWHHAq01Pvmpf6x7J0y-yQpmtxp\n[krycho]: https://v5.chriskrycho.com/essays/jj-init/\n[klabnik]: https://steveklabnik.github.io/jujutsu-tutorial/\n[lwn]: https://lwn.net/Articles/958468/\n[merge-talk]: https://www.youtube.com/watch?v=bx_LGilOuE4\n[merge-slides]: https://docs.google.com/presentation/d/1F8j9_UOOSGUN9MvHxPZX_L4bQ9NMcYOp1isn17kTC_M/view\n[merge-vid-2024]: https://www.youtube.com/watch?v=LV0JzI8IcCY\n[wiki-media]: https://github.com/jj-vcs/jj/wiki/Media\n\n## Getting started\n\n> [!IMPORTANT]\n> Jujutsu is an **experimental version control system**. While Git compatibility\n> is stable, and most developers use it daily for all their needs, there may\n> still be work-in-progress features, suboptimal UX, and workflow gaps that make\n> it unusable for your particular use.\n\nFollow the [installation\ninstructions](https://docs.jj-vcs.dev/latest/install-and-setup) to\nobtain and configure `jj`.\n\nThe best way to get started is probably to go through [the\ntutorial](https://docs.jj-vcs.dev/latest/tutorial). Also see the [Git\ncomparison](https://docs.jj-vcs.dev/latest/git-comparison), which\nincludes a table of `jj` vs. `git` commands.\n\nAs you become more familiar with Jujutsu, the following resources may be helpful:\n\n- The [FAQ](https://docs.jj-vcs.dev/latest/FAQ).\n- The [Glossary](https://docs.jj-vcs.dev/latest/glossary).\n- The `jj help` command (e.g. `jj help rebase`).\n- The `jj help -k <keyword>` command (e.g. `jj help -k config`). Use `jj help --help`\n  to see what keywords are available.\n\nIf you are using a **prerelease** version of `jj`, you would want to consult\n[the docs for the prerelease (main branch)\nversion](https://docs.jj-vcs.dev/prerelease/). You can also get there\nfrom the docs for the latest release by using the website's version switcher. The version switcher is visible in\nthe header of the website when you scroll to the top of any page.\n\n## Features\n\n### Compatible with Git\n\nJujutsu is designed so that the underlying data and storage model is abstract.\nToday, only the Git backend is production-ready. The Git backend uses the\n[gitoxide](https://github.com/Byron/gitoxide) Rust library.\n\n[backends]: https://docs.jj-vcs.dev/latest/glossary#backend\n\nThe Git backend is fully featured and maintained, and allows you to use Jujutsu\nwith any Git remote. The commits you create will look like regular Git commits.\nYou can fetch branches from a regular Git remote and push branches to the\nremote. You can always switch back to Git.\n\nHere is how you can explore a GitHub repository with `jj`.\n\n<img src=\"demos/git_compa",
+        "truncated": true,
+        "bytes": 17858,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.39.0",
+            "tag_name": "v0.39.0",
+            "published_at": "2026-03-04T18:28:43Z",
+            "body_excerpt": "### About\r\n\r\njj is a Git-compatible version control system that is both simple and powerful. See\r\nthe [installation instructions](https://jj-vcs.github.io/jj/v0.34.0/install-and-setup/) to get started.\r\n\r\n### Release highlights\r\n\r\n* `jj arrange` command brings up a TUI where you can reorder and abandon\r\n  revisions. [#1531](https://github.com/jj-vcs/jj/issues/1531)\r\n\r\n* `jj bookmark advance` automatically moves bookmarks forward to a\r\n  target revision (defaults to `@`) using customization points\r\n  `revsets.bookmark-advance-from` and `revsets.bookmark-advance-to`.\r\n  It is heavily inspired by the longstanding community alias `jj tug`.\r\n\r\n### Breaking changes\r\n\r\n* Dropped support for legacy index files written by jj < 0.33. New index files\r\n  will be created as needed.\r\n\r\n* The following deprecated config options have been removed:\r\n  - `core.fsmonitor`\r\n  - `core.watchman.register-snapshot-trigger`\r\n\r\n* The deprecated command `jj op undo` has been removed. Use `jj op revert` or\r\n  `jj undo`/`redo` instead.\r\n\r\n### Deprecations\r\n\r\n* `jj debug snapshot` is deprecated in favor of `jj util snapshot`. Although\r\n  this was an undocumented command in the first place, it will be removed after\r\n  6 months (v0.45.0) to give people time to migrate away.\r\n\r\n### New features\r\n\r\n* Add support for push options in `jj git push` with the `--option` flag.\r\n  This allows users to pass options to the remote server when pushing commits.\r\n  The short alias `-o` is also supported.\r\n\r\n* `jj new` now evaluates the `new_description` template to populate the\r\n  initial commit description when no `-m` message is provided.\r\n\r\n* Templates now support `first()`, `last()`, `get(index)`, `reverse()`,\r\n  `skip(count)`, and `take(count)` methods on list types for more flexible\r\n  list manipulation.\r\n\r\n* New `builtin_draft_commit_description_with_diff` template that includes the\r\n  diff in the commit description editor, making it easier to review changes\r\n  while writing commit messages.\r\n\r\n* Revsets "
+          },
+          {
+            "name": "v0.38.0",
+            "tag_name": "v0.38.0",
+            "published_at": "2026-02-05T14:42:25Z",
+            "body_excerpt": "### About\r\n\r\njj is a Git-compatible version control system that is both simple and powerful. See\r\nthe [installation instructions](https://jj-vcs.github.io/jj/v0.34.0/install-and-setup/) to get started.\r\n\r\n### Release highlights\r\n\r\n* Per-repo and per-workspace config is now stored outside the repo, for security\r\n  reasons. This is not a breaking change because we automatically migrate\r\n  legacy repos to this new format. `.jj/repo/config.toml` and\r\n  `.jj/workspace-config.toml` should no longer be used.\r\n\r\n### Breaking changes\r\n\r\n* The minimum supported `git` command version is now 2.41.0. macOS users will\r\n  need to either upgrade \"Developer Tools\" to 26 or install Git from\r\n  e.g. Homebrew.\r\n\r\n* Deprecated `ui.always-allow-large-revsets` setting and `all:` revset modifier\r\n  have been removed.\r\n\r\n* `<name>@<remote>` revset symbols can also be resolved to remote tags. Tags are\r\n  prioritized ahead of bookmarks.\r\n\r\n* Legacy placeholder support used for unset `user.name` or `user.email` has been\r\n  removed. Commits containing these values will now be pushed with `jj git push`\r\n  without producing an error.\r\n\r\n* If any side of a conflicted file is missing a terminating newline, then the\r\n  materialized file in the working copy will no longer be terminated by a\r\n  newline.\r\n\r\n### Deprecations\r\n\r\n* The revset function `diff_contains()` has been renamed to `diff_lines()`.\r\n\r\n### New features\r\n\r\n* `jj git fetch` now shows details of abandoned commits (change IDs and\r\n  descriptions) by default, matching the `jj abandon` output format.\r\n  [#3081](https://github.com/jj-vcs/jj/issues/3081)\r\n\r\n* `jj workspace root` now accepts an optional `--name` argument to show\r\n  the root path of the specified workspace (defaults to the current one). When\r\n  given a workspace that was created before this release, it errors out.\r\n\r\n* `jj git push --bookmark <name>` will now automatically track the bookmark if\r\n  it isn't tracked with any remote already.\r\n\r\n* Add `git_web_url([remote])` templ"
+          },
+          {
+            "name": "v0.37.0",
+            "tag_name": "v0.37.0",
+            "published_at": "2026-01-08T02:04:07Z",
+            "body_excerpt": "### About\r\n\r\njj is a Git-compatible version control system that is both simple and powerful. See\r\nthe [installation instructions](https://jj-vcs.github.io/jj/v0.34.0/install-and-setup/) to get started.\r\n\r\n### Release highlights\r\n\r\n* A new syntax for referring to hidden and divergent change IDs is available:\r\n  `xyz/n` where `n` is a number. For instance, `xyz/0` refers to the latest\r\n  version of `xyz`, while `xyz/1` refers to the previous version of `xyz`.\r\n  This allows you to perform actions like `jj restore --from xyz/1 --to xyz` to\r\n  restore `xyz` to its previous contents, if you made a mistake.\r\n\r\n  For divergent changes, the numeric suffix will always be shown in the log,\r\n  allowing you to disambiguate them in a similar manner.\r\n\r\n### Breaking changes\r\n\r\n* [String patterns](docs/revsets.md#string-patterns) in revsets, command\r\n  arguments, and configuration are now parsed as globs by default. Use\r\n  `substring:` or `exact:` prefix as needed.\r\n\r\n* `remotes.<name>.auto-track-bookmarks` is now parsed the same way they\r\n  are in revsets and can be combined with logical operators.\r\n\r\n* `jj bookmark track`/`untrack` now accepts `--remote` argument. If omitted, all\r\n  remote bookmarks matching the bookmark names will be tracked/untracked. The\r\n  old `<bookmark>@<remote>` syntax is deprecated in favor of `<bookmark>\r\n  --remote=<remote>`.\r\n\r\n* On Windows, symlinks that point to a path with `/` won't be supported. This\r\n  path is [invalid on Windows](https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions).\r\n\r\n* The template alias `format_short_change_id_with_hidden_and_divergent_info(commit)`\r\n  has been replaced by `format_short_change_id_with_change_offset(commit)`.\r\n\r\n* The following deprecated config options have been removed:\r\n  - `git.push-bookmark-prefix`\r\n  - `ui.default-description`\r\n  - `ui.diff.format`\r\n  - `ui.diff.tool`\r\n\r\n* The deprecated `commit_id.normal_hex()` template method has been removed.\r\n\r\n* Template expansion"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 9164,
+            "title": "FR: More info in combined squash description",
+            "state": "open",
+            "url": "https://github.com/jj-vcs/jj/issues/9164"
+          },
+          {
+            "number": 9099,
+            "title": "Bug: Remote name with whitespace causes a panic",
+            "state": "open",
+            "url": "https://github.com/jj-vcs/jj/issues/9099"
+          }
+        ]
+      },
+      "root_files": [
+        ".cargo",
+        ".config",
+        ".editorconfig",
+        ".envrc.recommended",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".watchmanconfig",
+        "AUTHORS",
+        "CHANGELOG.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "GOVERNANCE.md",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "cli",
+        "default.nix",
+        "demos",
+        "deny.toml",
+        "docs",
+        "flake.lock",
+        "flake.nix",
+        "lib",
+        "mkdocs.yml",
+        "pyproject.toml",
+        "rustfmt.toml",
+        "uv.lock",
+        "web"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p><img title=\"jj logo\" src=\"docs/images/jj-logo.svg\" width=\"320\" height=\"320\"></p>",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![Release](https://img.shields.io/github/v/release/martinvonz/jj)](https://github.com/jj-vcs/jj/releases) [![Release date](https://img.shields.io/github/release-date/martinvonz/jj)](https://github.com/jj-vcs/jj/releases) <br/> [![License](https://img.shields.io/github/license/martinvonz/jj)](https://github.com/jj-vcs/jj/blob/main/LICENSE) [![Discord](https://img.shields.io/discord/968932220549103686.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/dkmfj3aGQN) [![IRC](https://img.shields.io/badge/irc-%23jujutsu-blue.svg)](https://web.libera.chat/?channel=#jujutsu)",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 3)",
+          "excerpt": "**[Homepage] &nbsp;&nbsp;&bull;&nbsp;&nbsp;** **[Installation] &nbsp;&nbsp;&bull;&nbsp;&nbsp;** **[Getting Started] &nbsp;&nbsp;&bull;&nbsp;&nbsp;** **[Development Roadmap] &nbsp;&nbsp;&bull;&nbsp;&nbsp;** **[Contributing](#contributing)**",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[Homepage]: https://www.jj-vcs.dev [Installation]: https://docs.jj-vcs.dev/latest/install-and-setup [Getting Started]: https://docs.jj-vcs.dev/latest/tutorial [Development Roadmap]: https://docs.jj-vcs.dev/latest/roadmap",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Jujutsu is a powerful [version control system](https://en.wikipedia.org/wiki/Version_control) for software projects. You use it to get a copy of your code, track changes to the code, and finally publish those changes for others to see and use. It is designed from the ground up to be easy to use—whether you're new or experienced, working on brand new projects alone, or large scale software projects with large histories and teams.",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Jujutsu is unlike most other systems, because internally it abstracts the user interface and version control algorithms from the *storage systems* used to serve your content. This allows it to serve as a VCS with many possible physical backends, that may have their own data or networking models—like [Mercurial] or [Breezy], or hybrid systems like Google's cloud-based design, [Piper/CitC].",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 7)",
+          "excerpt": "[Mercurial]: https://www.mercurial-scm.org/ [Breezy]: https://www.breezy-vcs.org/ [Piper/CitC]: https://youtu.be/W71BTkUbdqE?t=645",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/jj-vcs/jj#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Today, we use Git repositories as a storage layer to serve and track content, making it **compatible with many of your favorite Git-based tools, right now!** However, note that only commits and files are stored in Git; bookmarks (branches) and other higher-level metadata are stored in custom storage outside of Git. All core developers use Jujutsu to develop Jujutsu, right here on GitHub. But it should hopefully work with your favorite Git forges, too.",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/jj-vcs/jj/issues/9164",
+          "title": "FR: More info in combined squash description",
+          "excerpt": "FR: More info in combined squash description (state:open)",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "number": 9164
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/jj-vcs/jj/issues/9099",
+          "title": "Bug: Remote name with whitespace causes a panic",
+          "excerpt": "Bug: Remote name with whitespace causes a panic (state:open)",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "number": 9099
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/jj-vcs/jj/releases",
+          "title": "v0.39.0",
+          "excerpt": "### About jj is a Git-compatible version control system that is both simple and powerful. See the [installation instructions](https://jj-vcs.github.io/jj/v0.34.0/install-and-setup/) to get started. ### Release highlights * `jj arrange` command brings up a TUI where you can reorder and abandon revisions. [#1531](https://github.com/jj-vcs/jj/issues/1531) * `jj bookmark advance` automatically moves bookmarks forward to a target revision (defaults to `@`) using customization points `revsets.bookmark-advance-from` and `revsets.bookmark-advance-to`. It is heavily inspired by the longstanding community alias `jj tug`. ### Breaking changes * Dropped support for legacy index files written by jj < 0.33. New index files will be created as needed. * The following deprecated config options have been removed: - `core.fsmonitor` - `core.watchman.register-snapshot-trigger` * The deprecated command `jj op undo` has been removed. Use `jj op revert` or `jj undo`/`redo` instead. ### Deprecations * `jj debug snapshot` is deprecated in favor of `jj util snapshot`. Although this was an undocumented command in the first place, it will be removed after 6 months (v0.45.0) to give people time to migrate awa…",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "tag_name": "v0.39.0",
+            "published_at": "2026-03-04T18:28:43Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/jj-vcs/jj/releases",
+          "title": "v0.38.0",
+          "excerpt": "### About jj is a Git-compatible version control system that is both simple and powerful. See the [installation instructions](https://jj-vcs.github.io/jj/v0.34.0/install-and-setup/) to get started. ### Release highlights * Per-repo and per-workspace config is now stored outside the repo, for security reasons. This is not a breaking change because we automatically migrate legacy repos to this new format. `.jj/repo/config.toml` and `.jj/workspace-config.toml` should no longer be used. ### Breaking changes * The minimum supported `git` command version is now 2.41.0. macOS users will need to either upgrade \"Developer Tools\" to 26 or install Git from e.g. Homebrew. * Deprecated `ui.always-allow-large-revsets` setting and `all:` revset modifier have been removed. * `<name>@<remote>` revset symbols can also be resolved to remote tags. Tags are prioritized ahead of bookmarks. * Legacy placeholder support used for unset `user.name` or `user.email` has been removed. Commits containing these values will now be pushed with `jj git push` without producing an error. * If any side of a conflicted file is missing a terminating newline, then the materialized file in the working copy will no longer…",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "tag_name": "v0.38.0",
+            "published_at": "2026-02-05T14:42:25Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/jj-vcs/jj/releases",
+          "title": "v0.37.0",
+          "excerpt": "### About jj is a Git-compatible version control system that is both simple and powerful. See the [installation instructions](https://jj-vcs.github.io/jj/v0.34.0/install-and-setup/) to get started. ### Release highlights * A new syntax for referring to hidden and divergent change IDs is available: `xyz/n` where `n` is a number. For instance, `xyz/0` refers to the latest version of `xyz`, while `xyz/1` refers to the previous version of `xyz`. This allows you to perform actions like `jj restore --from xyz/1 --to xyz` to restore `xyz` to its previous contents, if you made a mistake. For divergent changes, the numeric suffix will always be shown in the log, allowing you to disambiguate them in a similar manner. ### Breaking changes * [String patterns](docs/revsets.md#string-patterns) in revsets, command arguments, and configuration are now parsed as globs by default. Use `substring:` or `exact:` prefix as needed. * `remotes.<name>.auto-track-bookmarks` is now parsed the same way they are in revsets and can be combined with logical operators. * `jj bookmark track`/`untrack` now accepts `--remote` argument. If omitted, all remote bookmarks matching the bookmark names will be tracked/unt…",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "tag_name": "v0.37.0",
+            "published_at": "2026-01-08T02:04:07Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/jj-vcs/jj",
+          "title": "ROOT_FILES",
+          "excerpt": ".cargo, .config, .editorconfig, .envrc.recommended, .gitattributes, .github, .gitignore, .watchmanconfig, AUTHORS, CHANGELOG.md, Cargo.lock, Cargo.toml, GOVERNANCE.md, LICENSE, README.md, SECURITY.md, cli, default.nix, demos, deny.toml, docs, flake.lock, flake.nix, lib, mkdocs.yml, pyproject.toml, rustfmt.toml, uv.lock, web",
+          "fetched_at": "2026-03-22T04:55:12.497Z",
+          "meta": {
+            "repo_full_name": "jj-vcs/jj",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "Ataraxy-Labs/sem",
+      "evidence_count": 16,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 4,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 4,
+      "releases_count": 3
+    },
+    {
+      "full_name": "jj-vcs/jj",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 2,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "Ataraxy-Labs/sem",
+      "ok": true,
+      "spec_path": "specs/2026-03-22/Ataraxy-Labs__sem.json"
+    },
+    {
+      "repo": "jj-vcs/jj",
+      "ok": true,
+      "spec_path": "specs/2026-03-22/jj-vcs__jj.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "Ataraxy-Labs/sem",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-22/Ataraxy-Labs__sem.json"
+    },
+    {
+      "repo": "jj-vcs/jj",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-22/jj-vcs__jj.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "Ataraxy-Labs/sem",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-22/Ataraxy-Labs__sem.json"
+      ]
+    },
+    {
+      "repo": "jj-vcs/jj",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-22/jj-vcs__jj.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-22T04:55:25.926Z",
+      "run_id": "20260322T045508Z",
+      "repo": "Ataraxy-Labs/sem",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "00bc63efa7a6dfc8cda367eb17f372eab4e3dfc0427c46c68eff1f4df1f2fcf3",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 6433
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13424,
+      "prompt_chars": 6433,
+      "completion_chars": 1491
+    },
+    {
+      "ts": "2026-03-22T04:55:36.864Z",
+      "run_id": "20260322T045508Z",
+      "repo": "Ataraxy-Labs/sem",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "50d2b1b8901ab0807aad25d866cc480840526af25fa7674da0baad4df0c79fc0",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 8152
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10937,
+      "prompt_chars": 8152,
+      "completion_chars": 1559
+    },
+    {
+      "ts": "2026-03-22T04:55:49.764Z",
+      "run_id": "20260322T045508Z",
+      "repo": "Ataraxy-Labs/sem",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bad82dbdd66941c07e25ae083c8842542b42051cf7377176ee57271cbfd5e095",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 9931
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12899,
+      "prompt_chars": 9931,
+      "completion_chars": 1711
+    },
+    {
+      "ts": "2026-03-22T04:56:05.012Z",
+      "run_id": "20260322T045508Z",
+      "repo": "Ataraxy-Labs/sem",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2870ba37a97ab10df46c9102e8dba8fff81cbe3fdda8e72978ec911d3884c5f0",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 11859
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15248,
+      "prompt_chars": 11859,
+      "completion_chars": 1574
+    },
+    {
+      "ts": "2026-03-22T04:56:34.398Z",
+      "run_id": "20260322T045508Z",
+      "repo": "Ataraxy-Labs/sem",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7c6c6df95893cfaa17a2080f42b32ecffee2539d2e04dd8b063be0cff105206e",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 16259
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 29385,
+      "prompt_chars": 16259,
+      "completion_chars": 3211
+    },
+    {
+      "ts": "2026-03-22T04:56:49.273Z",
+      "run_id": "20260322T045508Z",
+      "repo": "jj-vcs/jj",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5732519122fe35d45ebdf9a343f5f1deacced416c18205f7f6a4b1d5b2cfafcd",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 9190
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14860,
+      "prompt_chars": 9190,
+      "completion_chars": 1558
+    },
+    {
+      "ts": "2026-03-22T04:57:02.578Z",
+      "run_id": "20260322T045508Z",
+      "repo": "jj-vcs/jj",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5f847cdfea7df32d87412cfb16df451cc0f409a7baef63a3dd50166bfdee4cbd",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 10952
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13304,
+      "prompt_chars": 10952,
+      "completion_chars": 1694
+    },
+    {
+      "ts": "2026-03-22T04:57:20.146Z",
+      "run_id": "20260322T045508Z",
+      "repo": "jj-vcs/jj",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3442c0405862ad0cad8741e30ad7c545ff12f2024b7082eeb5230b1f9657ed74",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 12842
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17568,
+      "prompt_chars": 12842,
+      "completion_chars": 1963
+    },
+    {
+      "ts": "2026-03-22T04:57:33.768Z",
+      "run_id": "20260322T045508Z",
+      "repo": "jj-vcs/jj",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f35f802670ec9e1682972c9cf950ae69560d1048aae1c756b7605a68983a7009",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 14994
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13621,
+      "prompt_chars": 14994,
+      "completion_chars": 1675
+    },
+    {
+      "ts": "2026-03-22T04:58:12.073Z",
+      "run_id": "20260322T045508Z",
+      "repo": "jj-vcs/jj",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2d9860c95954425f035ec1d2a54394a56100bd3c3bd10c8b033c3293cd2ed090",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 19517
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 38304,
+      "prompt_chars": 19517,
+      "completion_chars": 4750
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "Ataraxy-Labs/sem",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "jj-vcs/jj",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "Ataraxy-Labs/sem",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 16,
+      "evidence_total_final": 16,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "jj-vcs/jj",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1774155308814,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "Ataraxy-Labs/sem": 5,
+      "jj-vcs/jj": 5
+    },
+    "tokensApproxTotal": 35333,
+    "tokensApproxPerRepo": {
+      "Ataraxy-Labs/sem": 15547,
+      "jj-vcs/jj": 19786
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "Ataraxy-Labs/sem": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "scout",
+        "summary": "Ataraxy-Labs/sem is a Rust-based semantic diff CLI that identifies changes at the code entity level (functions, classes, etc.) across 21 languages using tree-sitter. It offers multiple installation methods (Cargo, binaries, Docker), works in any Git repo without setup, and supports arbitrary file comparisons. Recent releases added Kotlin support and improved rename detection. Open issues indicate ongoing work on JavaScript/React support and WASM compatibility.",
+        "highlights": [
+          "Provides semantic diffs showing added/modified/deleted code entities instead of line-based changes",
+          "Supports 21 languages via tree-sitter, with recent Kotlin support added in v0.3.9",
+          "No project setup required—works in any Git repository or for arbitrary file comparisons",
+          "Available via Cargo install, GitHub Releases binaries, and Docker container",
+          "Actively developed with recent releases and responsive issue tracking"
+        ],
+        "risks": [
+          "JavaScript/React support is incomplete (open issue #38)",
+          "WASM support remains unimplemented (open issue #34)",
+          "Limited release history (only 3 releases) may indicate immaturity",
+          "Small core team suggested by low fork count (28) and modest contributor footprint"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "inventor",
+        "summary": "Ataraxy-Labs/sem introduces a novel approach to version control by shifting from line-based diffs to entity-level semantic diffs using tree-sitter, enabling precise tracking of code changes across 21 languages without requiring project setup.",
+        "highlights": [
+          "Invents a new diffing paradigm that reports changes at the level of functions, classes, and other code entities instead of raw lines",
+          "Leverages tree-sitter for cross-language structural parsing, supporting 21 languages including recent Kotlin support",
+          "Operates universally in any Git repo or on arbitrary files with zero configuration",
+          "Provides multiple deployment options: Rust crate, standalone binaries, and Docker container",
+          "Demonstrates extensible architecture through modular crates (sem-core, sem-cli) and planned integrations (VS Code, WASM)"
+        ],
+        "risks": [
+          "Core innovation depends on tree-sitter’s language coverage and parsing accuracy, which may lag for newer or niche languages",
+          "JavaScript/React support is incomplete, limiting utility in widely used frontend ecosystems",
+          "WASM port remains unrealized, blocking browser-based or lightweight agent deployments",
+          "Early-stage product with limited release history and small community footprint may affect long-term viability"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "engineer",
+        "summary": "Ataraxy-Labs/sem is a Rust-based CLI tool that provides semantic diffs at the code entity level (e.g., functions, classes) using tree-sitter across 21 languages. It supports multiple installation methods (Cargo, binaries, Docker), requires no project setup, and works both in Git repositories and on arbitrary files. Recent releases added Kotlin support and improved rename detection, while open issues highlight ongoing work on JavaScript/React and WASM support.",
+        "highlights": [
+          "Delivers precise semantic diffs showing added, modified, or deleted code entities instead of line-by-line changes",
+          "Built with a modular Rust architecture (sem-core, sem-cli) and leverages tree-sitter for cross-language parsing",
+          "Supports 21 languages, with Kotlin recently added in v0.3.9 including detailed entity extraction",
+          "Zero-configuration operation in any Git repo or for standalone file comparisons",
+          "Multiple deployment options: Cargo install, GitHub release binaries, and Docker container"
+        ],
+        "risks": [
+          "JavaScript/React support is incomplete (issue #38 remains open), limiting frontend utility",
+          "WASM support is unimplemented (issue #34 open), blocking browser or lightweight agent use cases",
+          "Limited release history (only 3 releases) and small contributor base may impact maintenance velocity",
+          "Reliance on tree-sitter’s language coverage could affect accuracy or completeness for less common languages"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "skeptic",
+        "summary": "While Ataraxy-Labs/sem promises semantic diffs across 21 languages with zero setup, its practical utility is undermined by incomplete support for major ecosystems like JavaScript/React, lack of WASM compatibility, and minimal release history—raising questions about maturity, accuracy, and real-world robustness.",
+        "highlights": [
+          "Claims broad language support (21 languages) but lacks full JavaScript/React compatibility despite their ubiquity [ID:E-IS-002]",
+          "Advertises 'no setup required' operation, yet relies on tree-sitter parsers whose quality varies significantly across languages—risking inconsistent or inaccurate entity detection",
+          "Only 3 releases to date with sparse release notes (e.g., v0.3.8 has empty body [ID:E-RL-003]), suggesting immature release discipline",
+          "Despite 46 passing tests [ID:E-RD-002], test coverage scope and edge-case handling remain unverified"
+        ],
+        "risks": [
+          "JavaScript/React support is explicitly incomplete (open issue #38), limiting adoption in dominant frontend workflows",
+          "WASM support remains unrealized (open issue #34), blocking integration with modern AI agent or browser-based toolchains",
+          "Heavy reliance on tree-sitter may lead to false positives/negatives in entity diffing for languages with poor grammar stability or complex syntax",
+          "Low fork count (28) and small open-source footprint suggest limited community validation or third-party scrutiny"
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-003",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"sem\",\n    \"one_sentence\": \"A semantic version control CLI that shows diffs at the code entity level (functions, classes, etc.) across 21 languages using tree-sitter.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User runs `sem diff` in any Git repository or on arbitrary files; the tool parses source code with tree-sitter, identifies added/modified/deleted code entities (e.g., functions, classes), and displays structured semantic diffs without requiring project setup.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Semantic Diff Viewer\",\n      \"purpose\": \"Display entity-level changes (added, modified, deleted) per file with clear visual indicators.\",\n      \"primary_actions\": [\n        \"Run semantic diff on current Git repo\",\n        \"Compare two arbitrary files\",\n        \"View language-specific entity changes\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"run_semantic_diff\",\n      \"purpose\": \"Execute semantic diff analysis using tree-sitter parsers to detect entity-level changes in source code.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"code_entities\",\n        \"fields\": [\n          {\n            \"name\": \"file_path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"entity_type\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"entity_name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"change_type\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Integrate tree-sitter for 21 supported languages\",\n          \"Implement core semantic diff logic in Rust\",\n          \"Support Git repo and arbitrary file input modes\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Shows function additions/deletions/modifications in TypeScript files lik"
+      }
+    },
+    "jj-vcs/jj": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "Jujutsu (jj) is a modern, Git-compatible version control system written in Rust, emphasizing simplicity and power with innovative features like change-centric workflows, TUI-based revision manipulation, and flexible backend support. It maintains strong compatibility with Git while introducing unique abstractions for branches/bookmarks and metadata storage.",
+        "highlights": [
+          "Git-compatible VCS with active development and a growing community (27k+ stars).",
+          "Innovative features like `jj arrange` (TUI for reordering revisions) and `jj bookmark advance` for streamlined workflows.",
+          "Designed with pluggable storage backends (currently uses Git), supporting future integration with systems like Mercurial or Breezy.",
+          "Bookmarks (branches) and metadata are stored outside Git, enabling richer semantics while retaining Git interoperability.",
+          "Recent releases show rapid iteration with breaking changes managed via deprecation cycles and automatic migrations."
+        ],
+        "risks": [
+          "Breaking changes in frequent releases (e.g., dropped legacy index support, config file relocation) may impact stability for early adopters.",
+          "Open bugs exist, such as a panic triggered by remote names containing whitespace (issue #9099).",
+          "Dependency on relatively recent Git versions (≥2.41.0) may complicate setup on older systems like macOS without Homebrew."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "Jujutsu (jj) invents a novel version control paradigm by decoupling user-facing operations from storage backends, enabling Git compatibility while introducing change-centric workflows, external metadata storage, and pluggable backend support.",
+        "highlights": [
+          "Introduces a change-centric model where commits are mutable by default and identified independently of Git commit hashes, enabling safer and more intuitive history rewriting.",
+          "Stores bookmarks (branches) and metadata outside Git, allowing richer semantics and avoiding Git's branch limitations while maintaining interoperability with Git tools.",
+          "Features innovative commands like `jj arrange` (TUI for interactive revision reordering) and `jj bookmark advance` (automated bookmark movement), streamlining complex VCS tasks.",
+          "Designed with abstracted storage layer to support future backends beyond Git, such as Mercurial or Breezy, as hinted in documentation.",
+          "Implements disambiguation syntax for hidden/divergent changes (e.g., `xyz/1`) to recover from mistakes, enhancing usability in non-linear workflows."
+        ],
+        "risks": [
+          "Frequent breaking changes (e.g., removal of legacy index formats, config file relocation) may disrupt adoption despite migration aids.",
+          "Critical bugs like panic on remote names with whitespace (issue #9099) indicate potential instability in edge-case handling.",
+          "Dependency on Git ≥2.41.0 creates friction for users on older systems, especially macOS without package managers."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "Jujutsu (jj) is a Rust-based, Git-compatible version control system that introduces a change-centric model with external metadata storage, innovative CLI/TUI workflows, and an abstracted backend architecture. It prioritizes developer ergonomics while maintaining interoperability with Git ecosystems.",
+        "highlights": [
+          "Built in Rust with a modular structure evident from Cargo.toml, lib/, and cli/ directories, indicating clear separation of concerns.",
+          "Uses Git as the current storage backend but decouples higher-level VCS semantics (e.g., bookmarks, change IDs) into custom metadata stored outside .git, enabling richer workflows without breaking Git compatibility.",
+          "Introduces engineering-focused features like `jj arrange` (TUI for revision manipulation) and disambiguation syntax (`xyz/1`) for divergent/historical changes, improving recoverability and interactivity.",
+          "Actively maintained with structured releases (v0.37.0–v0.39.0) that include automated migrations for breaking changes, such as relocating config files out of the repo for security.",
+          "Supports modern development practices: includes .editorconfig, rustfmt.toml, deny.toml, Nix flakes, and CI via .github/, suggesting strong engineering hygiene."
+        ],
+        "risks": [
+          "Breaking changes are frequent and sometimes require manual intervention (e.g., Git ≥2.41.0 dependency), which may complicate deployment in constrained environments like older macOS systems.",
+          "Critical bugs remain open, such as a panic when remote names contain whitespace (issue #9099), indicating potential gaps in input validation or error handling.",
+          "Reliance on non-standard metadata storage outside Git could lead to tooling incompatibilities or data loss if users interact with the repo using only Git commands."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "While Jujutsu (jj) promises a powerful, Git-compatible VCS with innovative abstractions, its frequent breaking changes, unresolved critical bugs, and non-standard metadata storage raise serious concerns about stability, interoperability, and production readiness.",
+        "highlights": [
+          "Claims of Git compatibility are undermined by storing bookmarks and metadata outside Git, risking data loss or confusion when users interact with the repo using standard Git tools [ID:E-RD-008].",
+          "Despite high star count, the project exhibits instability: recent releases introduce breaking changes like dropped legacy index support and config file relocation, even as critical bugs like whitespace-triggered panics remain open [ID:E-RL-001, ID:E-RL-002, ID:E-IS-002].",
+          "Dependency on Git ≥2.41.0 excludes users on older systems (e.g., macOS without Homebrew), contradicting claims of broad compatibility and ease of use [ID:E-RL-002]."
+        ],
+        "risks": [
+          "Non-standard storage of branches/bookmarks outside Git may lead to silent data divergence or loss when collaborating with Git-only users or tools, despite advertised compatibility [ID:E-RD-008].",
+          "Open critical bug (remote name with whitespace causes panic) suggests inadequate input validation and testing, raising doubts about robustness in real-world usage [ID:E-IS-002].",
+          "Rapid pace of breaking changes—even with migration aids—imposes upgrade burdens and undermines trust in API stability, especially for teams relying on consistent tooling [ID:E-RL-001, ID:E-RL-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Jujutsu (jj)\",\n    \"one_sentence\": \"A Git-compatible version control system that is both simple and powerful, featuring change-centric workflows and pluggable storage backends.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with a Git-compatible repository using jj commands to track, manipulate, and publish changes; bookmarks and metadata are stored externally while commits and files remain in Git, enabling rich VCS semantics without breaking Git interoperability.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main CLI/TUI Interface\",\n      \"purpose\": \"Provide access to core version control operations including commit manipulation, bookmark management, and history navigation.\",\n      \"primary_actions\": [\n        \"Run `jj arrange` to reorder or abandon revisions via TUI\",\n        \"Execute `jj bookmark advance` to auto-move bookmarks\",\n        \"View and restore historical or divergent changes using disambiguation syntax\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"jj_arrange\",\n      \"purpose\": \"Launch a terminal user interface to interactively reorder, split, or abandon revisions.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"jj_bookmark_advance\",\n      \"purpose\": \"Automatically move bookmarks forward to a target revision using configurable revset policies.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"jj_restore_from_divergent\",\n      \"purpose\": \"Restore a change to a previous version using disambiguated change ID syntax (e.g., xyz/1).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"bookmarks\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"target_change_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"is_remote\",\n  "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "Ataraxy-Labs/sem",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 12,
+        "engineer": 12,
+        "skeptic": 4,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "jj-vcs/jj",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 7,
+        "inventor": 7,
+        "engineer": 6,
+        "skeptic": 4,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=153",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] Ataraxy-Labs/sem evidence total=16 readme=8 issue=4 release=3 root_files=1",
+    "[repo_card_builder] jj-vcs/jj evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=30 gaps=0",
+    "[llm_spec_generator] Ataraxy-Labs/sem canonical spec ok (iter=1) -> specs/2026-03-22/Ataraxy-Labs__sem.json",
+    "[llm_spec_generator] jj-vcs/jj canonical spec ok (iter=1) -> specs/2026-03-22/jj-vcs__jj.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-22T04:55:08.814Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:08.837Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260322T045508Z"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:08.837Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:08.841Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:09.275Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:09.275Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:09.567Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:09.567Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:09.958Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:09.958Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:10.229Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:10.229Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:10.564Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:10.564Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:10.876Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:10.876Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:11.284Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:11.285Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:11.560Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:11.560Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:11.895Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:11.895Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.225Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.228Z",
+      "run_id": "20260322T045508Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 153
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.229Z",
+      "run_id": "20260322T045508Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.232Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-22T04:55:12.232Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Ataraxy-Labs__sem/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.233Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Ataraxy-Labs__sem/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.235Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Ataraxy-Labs__sem/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.236Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Ataraxy-Labs__sem/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.238Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-22T04:55:12.238Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jj-vcs__jj/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.239Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jj-vcs__jj/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.241Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jj-vcs__jj/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.242Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "jj-vcs__jj/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.495Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7437,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.495Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.495Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.495Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 263
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.495Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 16,
+        "readme": 8,
+        "issues": 4,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.497Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 17858,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.497Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.497Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.497Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 259
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.497Z",
+      "run_id": "20260322T045508Z",
+      "node": "repo_card_builder",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.501Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 16,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 4,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:12.501Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 16,
+        "evidence_selected": 16,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:25.926Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1491,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:36.864Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1559,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:55:49.764Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1711,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:05.012Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1574,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:34.398Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3211,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:34.411Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:34.412Z",
+      "run_id": "20260322T045508Z",
+      "node": "artifacts",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-22/Ataraxy-Labs__sem.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:34.413Z",
+      "run_id": "20260322T045508Z",
+      "node": "artifacts",
+      "repo": "Ataraxy-Labs/sem",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-22/Ataraxy-Labs__sem.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:34.413Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:34.413Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-22T04:56:49.273Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1558,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:57:02.578Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1694,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:57:20.147Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1963,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:57:33.768Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1675,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.073Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4750,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.076Z",
+      "run_id": "20260322T045508Z",
+      "node": "llm_spec_generator",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.076Z",
+      "run_id": "20260322T045508Z",
+      "node": "artifacts",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-22/jj-vcs__jj.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.076Z",
+      "run_id": "20260322T045508Z",
+      "node": "artifacts",
+      "repo": "jj-vcs/jj",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-22/jj-vcs__jj.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.080Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.080Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1774155308814,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "Ataraxy-Labs/sem": 5,
+          "jj-vcs/jj": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.080Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-22T04:58:12.080Z",
+      "run_id": "20260322T045508Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-22",
+    "evidence_dir": "evidence/2026-03-22"
+  }
+}

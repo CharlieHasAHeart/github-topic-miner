@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "sem",
+    "one_liner": "A semantic version control CLI that shows diffs at the code entity level (functions, classes, etc.) across 21 languages using tree-sitter."
+  },
+  "screens": [
+    {
+      "name": "Semantic Diff Viewer",
+      "purpose": "Display entity-level changes (added, modified, deleted) per file with clear visual indicators.",
+      "primary_actions": [
+        "Compare two arbitrary files",
+        "Run semantic diff on current Git repo",
+        "View language-specific entity changes"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_semantic_diff",
+      "purpose": "Execute semantic diff analysis using tree-sitter parsers to detect entity-level changes in source code.",
+      "async": true,
+      "input": {
+        "change_type": "string",
+        "entity_name": "string",
+        "entity_type": "string",
+        "file_path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "code_entities",
+        "columns": [
+          {
+            "name": "change_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "entity_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "entity_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core semantic diff logic in Rust",
+    "week 1: Integrate tree-sitter for 21 supported languages",
+    "week 1: Support Git repo and arbitrary file input modes"
+  ],
+  "acceptance_tests": [
+    "Correctly displays property changes in YAML config files as shown in documentation",
+    "Installs and runs via Cargo, binary, and Docker as documented",
+    "Shows function additions/deletions/modifications in TypeScript files like README example",
+    "Works without setup in any Git repository or on standalone files"
+  ]
+}
