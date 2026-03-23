@@ -1,0 +1,3398 @@
+{
+  "run_id": "20260323T050613Z",
+  "generated_at": "2026-03-23T05:06:13.637Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 36,
+    "evidence_by_type": {
+      "readme": 17,
+      "issue": 7,
+      "release": 9,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-23T05:10:37.687Z",
+    "repo_count": 158
+  },
+  "candidates": [
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 628,
+      "forks_count": 169,
+      "open_issues_count": 1443,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:44Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    },
+    {
+      "full_name": "weapp-vite/weapp-vite",
+      "html_url": "https://github.com/weapp-vite/weapp-vite",
+      "description": "weapp-vite 把现代化的 web 开发方式，带入传统的小程序开发吧！",
+      "topics": [
+        "mini",
+        "miniprogram",
+        "vite",
+        "weapp",
+        "wechat"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 290,
+      "forks_count": 15,
+      "open_issues_count": 5,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:31Z",
+      "created_at": "2024-09-18T16:21:53Z"
+    },
+    {
+      "full_name": "shadcn-ui/ui",
+      "html_url": "https://github.com/shadcn-ui/ui",
+      "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+      "topics": [
+        "base-ui",
+        "components",
+        "laravel",
+        "nextjs",
+        "radix-ui",
+        "react",
+        "shadcn",
+        "tailwindcss",
+        "tanstack",
+        "ui",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 110440,
+      "forks_count": 8276,
+      "open_issues_count": 1805,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:24Z",
+      "created_at": "2023-01-04T12:43:27Z"
+    },
+    {
+      "full_name": "manticoresoftware/manticoresearch",
+      "html_url": "https://github.com/manticoresoftware/manticoresearch",
+      "description": "Easy to use open source fast database for search | Good alternative to Elasticsearch now | Drop-in replacement for E in the ELK stack",
+      "topics": [
+        "api",
+        "bm25",
+        "cpp",
+        "database",
+        "full-text-search",
+        "hacktoberfest",
+        "json",
+        "mysql",
+        "search",
+        "search-api",
+        "search-engine",
+        "search-server",
+        "sphinxsearch",
+        "sql",
+        "stream-filtering"
+      ],
+      "language": "C++",
+      "stargazers_count": 11721,
+      "forks_count": 625,
+      "open_issues_count": 694,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-03-23T05:05:04Z",
+      "created_at": "2017-06-28T01:15:30Z"
+    },
+    {
+      "full_name": "xmlui-org/xmlui",
+      "html_url": "https://github.com/xmlui-org/xmlui",
+      "description": "A framework for building user interfaces declaratively, with XML markup and flexible theming",
+      "topics": [
+        "ui-framework",
+        "webapp",
+        "webapplication",
+        "webapps",
+        "xml"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 201,
+      "forks_count": 7,
+      "open_issues_count": 27,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:01Z",
+      "created_at": "2024-08-06T12:29:14Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "shadcn-ui/ui",
+      "html_url": "https://github.com/shadcn-ui/ui",
+      "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+      "topics": [
+        "base-ui",
+        "components",
+        "laravel",
+        "nextjs",
+        "radix-ui",
+        "react",
+        "shadcn",
+        "tailwindcss",
+        "tanstack",
+        "ui",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 110440,
+      "forks_count": 8276,
+      "open_issues_count": 1805,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:24Z",
+      "created_at": "2023-01-04T12:43:27Z"
+    },
+    {
+      "full_name": "manticoresoftware/manticoresearch",
+      "html_url": "https://github.com/manticoresoftware/manticoresearch",
+      "description": "Easy to use open source fast database for search | Good alternative to Elasticsearch now | Drop-in replacement for E in the ELK stack",
+      "topics": [
+        "api",
+        "bm25",
+        "cpp",
+        "database",
+        "full-text-search",
+        "hacktoberfest",
+        "json",
+        "mysql",
+        "search",
+        "search-api",
+        "search-engine",
+        "search-server",
+        "sphinxsearch",
+        "sql",
+        "stream-filtering"
+      ],
+      "language": "C++",
+      "stargazers_count": 11721,
+      "forks_count": 625,
+      "open_issues_count": 694,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-03-23T05:05:04Z",
+      "created_at": "2017-06-28T01:15:30Z"
+    },
+    {
+      "full_name": "xmlui-org/xmlui",
+      "html_url": "https://github.com/xmlui-org/xmlui",
+      "description": "A framework for building user interfaces declaratively, with XML markup and flexible theming",
+      "topics": [
+        "ui-framework",
+        "webapp",
+        "webapplication",
+        "webapps",
+        "xml"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 201,
+      "forks_count": 7,
+      "open_issues_count": 27,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:01Z",
+      "created_at": "2024-08-06T12:29:14Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "shadcn-ui/ui",
+      "html_url": "https://github.com/shadcn-ui/ui",
+      "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+      "topics": [
+        "base-ui",
+        "components",
+        "laravel",
+        "nextjs",
+        "radix-ui",
+        "react",
+        "shadcn",
+        "tailwindcss",
+        "tanstack",
+        "ui",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 110440,
+      "forks_count": 8276,
+      "open_issues_count": 1805,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:24Z",
+      "created_at": "2023-01-04T12:43:27Z",
+      "readme": {
+        "fetched": true,
+        "text": "# shadcn/ui\n\nA set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code. **Use this to build your own component library**.\n\n![hero](apps/v4/public/opengraph-image.png)\n\n## Documentation\n\nVisit https://ui.shadcn.com/docs to view the documentation.\n\n## Contributing\n\nPlease read the [contributing guide](/CONTRIBUTING.md).\n\n## License\n\nLicensed under the [MIT license](./LICENSE.md).\n",
+        "truncated": false,
+        "bytes": 467,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "shadcn@4.1.0",
+            "tag_name": "shadcn@4.1.0",
+            "published_at": "2026-03-19T19:38:35Z",
+            "body_excerpt": "### Minor Changes\n\n-   [#10115](https://github.com/shadcn-ui/ui/pull/10115) [`687f09817b614a3450f0f56779edf367082e1e53`](https://github.com/shadcn-ui/ui/commit/687f09817b614a3450f0f56779edf367082e1e53) Thanks [@shadcn](https://github.com/shadcn)! - add fontHeading to presets\n\n-   [#10115](https://github.com/shadcn-ui/ui/pull/10115) [`687f09817b614a3450f0f56779edf367082e1e53`](https://github.com/shadcn-ui/ui/commit/687f09817b614a3450f0f56779edf367082e1e53) Thanks [@shadcn](https://github.com/shadcn)! - add chartColor\n"
+          },
+          {
+            "name": "shadcn@4.0.8",
+            "tag_name": "shadcn@4.0.8",
+            "published_at": "2026-03-15T06:08:53Z",
+            "body_excerpt": "### Patch Changes\n\n-   [#10041](https://github.com/shadcn-ui/ui/pull/10041) [`a97ebe54f1824032d8ad00d1d0c079e3dc6f52d7`](https://github.com/shadcn-ui/ui/commit/a97ebe54f1824032d8ad00d1d0c079e3dc6f52d7) Thanks [@shadcn](https://github.com/shadcn)! - Bundle @antfu/ni and tinyexec to fix missing module error with npx\n"
+          },
+          {
+            "name": "shadcn@4.0.7",
+            "tag_name": "shadcn@4.0.7",
+            "published_at": "2026-03-14T14:51:47Z",
+            "body_excerpt": "### Patch Changes\n\n-   [#9929](https://github.com/shadcn-ui/ui/pull/9929) [`f9b365bc7f9d591c995952976711dbdd7b1bc45a`](https://github.com/shadcn-ui/ui/commit/f9b365bc7f9d591c995952976711dbdd7b1bc45a) Thanks [@kapishdima](https://github.com/kapishdima)! - add dependency field to registry:font\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 7805,
+            "title": "[bug]: Sheet/Dialog reopens and closes on mobile after page navigation in Next.js 15.3.5 App Router",
+            "state": "open",
+            "url": "https://github.com/shadcn-ui/ui/issues/7805"
+          },
+          {
+            "number": 6995,
+            "title": "[bug]: Issue with Radix when try to use sidebar",
+            "state": "open",
+            "url": "https://github.com/shadcn-ui/ui/issues/6995"
+          }
+        ]
+      },
+      "root_files": [
+        ".changeset",
+        ".claude",
+        ".commitlintrc.json",
+        ".cursor",
+        ".editorconfig",
+        ".eslintignore",
+        ".eslintrc.json",
+        ".github",
+        ".gitignore",
+        ".kodiak.toml",
+        ".npmrc",
+        ".nvmrc",
+        ".prettierignore",
+        ".vscode",
+        "CONTRIBUTING.md",
+        "LICENSE.md",
+        "README.md",
+        "SECURITY.md",
+        "apps",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "prettier.config.cjs",
+        "scripts",
+        "skills",
+        "templates",
+        "tsconfig.json",
+        "turbo.json",
+        "vitest.config.ts",
+        "vitest.workspace.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/shadcn-ui/ui#readme",
+          "title": "README (segment 1)",
+          "excerpt": "A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code. **Use this to build your own component library**.",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/shadcn-ui/ui/issues/7805",
+          "title": "[bug]: Sheet/Dialog reopens and closes on mobile after page navigation in Next.js 15.3.5 App Router",
+          "excerpt": "[bug]: Sheet/Dialog reopens and closes on mobile after page navigation in Next.js 15.3.5 App Router (state:open)",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "number": 7805
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/shadcn-ui/ui/issues/6995",
+          "title": "[bug]: Issue with Radix when try to use sidebar",
+          "excerpt": "[bug]: Issue with Radix when try to use sidebar (state:open)",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "number": 6995
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/shadcn-ui/ui/releases",
+          "title": "shadcn@4.1.0",
+          "excerpt": "### Minor Changes - [#10115](https://github.com/shadcn-ui/ui/pull/10115) [`687f09817b614a3450f0f56779edf367082e1e53`](https://github.com/shadcn-ui/ui/commit/687f09817b614a3450f0f56779edf367082e1e53) Thanks [@shadcn](https://github.com/shadcn)! - add fontHeading to presets - [#10115](https://github.com/shadcn-ui/ui/pull/10115) [`687f09817b614a3450f0f56779edf367082e1e53`](https://github.com/shadcn-ui/ui/commit/687f09817b614a3450f0f56779edf367082e1e53) Thanks [@shadcn](https://github.com/shadcn)! - add chartColor",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "tag_name": "shadcn@4.1.0",
+            "published_at": "2026-03-19T19:38:35Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/shadcn-ui/ui/releases",
+          "title": "shadcn@4.0.8",
+          "excerpt": "### Patch Changes - [#10041](https://github.com/shadcn-ui/ui/pull/10041) [`a97ebe54f1824032d8ad00d1d0c079e3dc6f52d7`](https://github.com/shadcn-ui/ui/commit/a97ebe54f1824032d8ad00d1d0c079e3dc6f52d7) Thanks [@shadcn](https://github.com/shadcn)! - Bundle @antfu/ni and tinyexec to fix missing module error with npx",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "tag_name": "shadcn@4.0.8",
+            "published_at": "2026-03-15T06:08:53Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/shadcn-ui/ui/releases",
+          "title": "shadcn@4.0.7",
+          "excerpt": "### Patch Changes - [#9929](https://github.com/shadcn-ui/ui/pull/9929) [`f9b365bc7f9d591c995952976711dbdd7b1bc45a`](https://github.com/shadcn-ui/ui/commit/f9b365bc7f9d591c995952976711dbdd7b1bc45a) Thanks [@kapishdima](https://github.com/kapishdima)! - add dependency field to registry:font",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "tag_name": "shadcn@4.0.7",
+            "published_at": "2026-03-14T14:51:47Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/shadcn-ui/ui",
+          "title": "ROOT_FILES",
+          "excerpt": ".changeset, .claude, .commitlintrc.json, .cursor, .editorconfig, .eslintignore, .eslintrc.json, .github, .gitignore, .kodiak.toml, .npmrc, .nvmrc, .prettierignore, .vscode, CONTRIBUTING.md, LICENSE.md, README.md, SECURITY.md, apps, package.json, packages, pnpm-lock.yaml, pnpm-workspace.yaml, prettier.config.cjs, scripts, skills, templates, tsconfig.json, turbo.json, vitest.config.ts, vitest.workspace.ts",
+          "fetched_at": "2026-03-23T05:06:17.794Z",
+          "meta": {
+            "repo_full_name": "shadcn-ui/ui",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "manticoresoftware/manticoresearch",
+      "html_url": "https://github.com/manticoresoftware/manticoresearch",
+      "description": "Easy to use open source fast database for search | Good alternative to Elasticsearch now | Drop-in replacement for E in the ELK stack",
+      "topics": [
+        "api",
+        "bm25",
+        "cpp",
+        "database",
+        "full-text-search",
+        "hacktoberfest",
+        "json",
+        "mysql",
+        "search",
+        "search-api",
+        "search-engine",
+        "search-server",
+        "sphinxsearch",
+        "sql",
+        "stream-filtering"
+      ],
+      "language": "C++",
+      "stargazers_count": 11721,
+      "forks_count": 625,
+      "open_issues_count": 694,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-03-23T05:05:04Z",
+      "created_at": "2017-06-28T01:15:30Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://manticoresearch.com\" target=\"_blank\" rel=\"noopener\">\n    <img src=\"https://manticoresearch.com/logo.png\" width=\"50%\" alt=\"Manticore Search Logo\">\n  </a>\n</p>\n\n<h3 align=\"center\"><strong>Easy to use open source fast database for search</strong></h3>\n<p align=\"center\">\nManticore Search is an easy-to-use, open-source, and fast database designed for search. It is a great alternative to Elasticsearch.\n</p>\n\n<div align=\"center\">\n<a href=\"https://trendshift.io/repositories/3537\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/3537\" alt=\"manticoresoftware%2Fmanticoresearch | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a>\n</div>\n\n<h3 align=\"center\">\n  <a href=\"https://manticoresearch.com\">Website</a> •\n  <a href=\"https://manticoresearch.com/install/\">Downloads</a> •\n  <a href=\"https://manual.manticoresearch.com\">Docs</a> •\n  <a href=\"https://manticoresearch.com/blog/\">Blog</a> •\n  <a href=\"https://play.manticoresearch.com\">Courses</a> •\n  <a href=\"https://forum.manticoresearch.com\">Forum</a> •\n  <a href=\"https://slack.manticoresearch.com\">Slack</a> •\n  <a href=\"https://t.me/manticoresearch_en\">Telegram (En)</a> •\n  <a href=\"https://t.me/manticore_chat\">Telegram (Ru)</a> •\n  <a href=\"https://twitter.com/manticoresearch\">Twitter</a> •\n  <a href=\"https://github.com/manticoresoftware/manticoresearch/discussions/categories/feedback\">User feedback</a>\n</h3>\n\n<p align=\"center\">\n<a href=\"LICENSE\"><img alt=\"License: GPLv3 or later\" src=\"https://img.shields.io/badge/license-GPL%20V3%2B-green?style=plastic\"></a>\n<a href=\"https://github.com/manticoresoftware/manticoresearch/actions/workflows/test.yml?query=branch%3Amaster\"><img alt=\"GitHub Actions Workflow Status\" src=\"https://img.shields.io/github/actions/workflow/status/manticoresoftware/manticoresearch/test.yml?branch=master&style=plastic&color=green\"></a>\n<a href=\"https://twitter.com/manticoresearch\"><img alt=\"Twitter Follow\" src=\"https://img.shields.io/twitter/follow/manticoresearch?color=green&logo=Twitter&style=plastic\"></a>\n<a href=\"http://slack.manticoresearch.com/\"><img alt=\"Slack\" src=\"https://img.shields.io/badge/slack-manticoresearch-green.svg?logo=slack&style=plastic\"></a>\n<a href=\"https://github.com/manticoresoftware/docker\"><img alt=\"Docker pulls\" src=\"https://img.shields.io/docker/pulls/manticoresearch/manticore?color=green&style=plastic\"></a>\n<a href=\"https://eepurl.com/dkUTHv\"><img alt=\"Newsletter\" src=\"https://img.shields.io/badge/newsletter-green?style=plastic\"></a>\n<a href=\"https://github.com/manticoresoftware/manticoresearch/graphs/commit-activity\"><img alt=\"Activity\" src=\"https://img.shields.io/github/commit-activity/m/manticoresoftware/manticoresearch?color=green&style=plastic\"></a>\n<a href=\"https://github.com/manticoresoftware/manticoresearch/issues?q=is%3Aissue+is%3Aclosed\"><img alt=\"GitHub closed issues\" src=\"https://img.shields.io/github/issues-closed/manticoresoftware/manticoresearch?color=green&style=plastic\"></a>\n</p>\n\n# Introduction\n\n**❗Read recent [blog post about Manticore vs Elasticsearch](https://manticoresearch.com/blog/manticore-alternative-to-elasticsearch/)❗**\n\nWhat distinguishes it from other solutions is:\n* It's very fast and therefore more cost-efficient than alternatives, for example Manticore is:\n  - **182x faster** than MySQL for [small data](https://db-benchmarks.com/test-hn-small/#mysql-vs-manticore-search) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗)\n  - **29x faster** than Elasticsearch for [log analytics](https://db-benchmarks.com/test-logs10m/#elasticsearch-with-no-tuning-vs-manticore-search-default-row-wise-storage) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗)\n  - **15x faster** than Elasticsearch for [small dataset](https://db-benchmarks.com/test-hn-small/#manticore-search-vs-elasticsearch) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗)\n  - **5x faster** than Elasticsearch for [medium-size data](https://db-benchmarks.com/test-hn/#manticore-search-columnar-storage-vs-elasticsearch) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗)\n  - **4x faster** than Elasticsearch for [big data](https://db-benchmarks.com/test-taxi/#manticore-search-vs-elasticsearch) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗)\n  - **up to 2x faster** max throughput than Elasticsearch's for data ingestion on a single server ([reproducible](https://manticoresearch.com/blog/manticore-alternative-to-elasticsearch/#data-ingestion-performance)❗)\n* With its modern multithreading architecture and efficient query parallelization capabilities, Manticore is able to fully utilize all your CPU cores to achieve the quickest response times possible.\n* The powerful and speedy full-text search works seamlessly with both small and large datasets.\n* Row-wise storage for small, medium and big size datasets.\n* For even larger datasets, Manticore offers columnar storage support through the [Manticore Columnar Library](https://github.com/manticoresoftware/columnar/), capable of handling datasets too big to fit in RAM.\n* Performant secondary indexes are automatically created using the PGM-index (Piecewise Geometric Model index), which provides efficient mapping between indexed keys and their memory locations.\n* The cost-based query optimizer uses statistical data about indexed data to evaluate and determine the most efficient execution plan.\n* Manticore is SQL-first, utilizing SQL as its native syntax, and offers compatibility with the MySQL protocol, allowing you to use your preferred MySQL client.\n* With clients available in [PHP](https://github.com/manticoresoftware/manticoresearch-php), [Python](https://github.com/manticoresoftware/manticoresearch-python), [Python asyncio](https://github.com/manticoresoftware/manticoresearch-python-asyncio) [JavaScript](https://github.com/manticoresoftware/manticoresearch-javascript), [Typescript](https://github.com/manticoresoftware/manticoresearch-typescript), [Java](https://github.com/manticoresoftware/manticoresearch-java), [Elixir](https://github.com/manticoresoftware/manticoresearch-elixir), [Go](https://github.com/manticoresoftware/manticoresearch-go), and [Rust](https://github.com/manticoresoftware/manticoresearch-rust), integration with Manticore Search becomes easy.\n* Manticore also provides a programmatic HTTP JSON protocol for more versatile data and schema management, with Elasticsearch-compatible writes support.\n* Built in C++, Manticore Search starts quickly and uses minimal RAM (around 40MB RSS for an empty instance), with low-level optimizations contributing to its impressive performance.\n* With real-time inserts, newly added or updated documents are immediately accessible.\n* Interactive courses are available through [Interactive courses](https://play.manticoresearch.com/) to make learning a breeze.\n* Manticore also boasts built-in virtually synchronous multi-master replication using the Galera library and load balancing capabilities.\n* Data can be synced from sources such as MySQL, PostgreSQL, ODBC, xml, and csv with ease.\n* While not fully ACID-compliant, Manticore supports isolated transactions and binary logging for safe writes.\n* Effortless data backup and recovery with built-in tools like manticore-backup and SQL BACKUP command\n\n[Craigslist](https://www.craigslist.org/), [Socialgist](https://socialgist.com/), [PubChem](https://pubchem.ncbi.nlm.nih.gov/), [Rozetka](https://rozetka.com.ua/) and many others use Manticore for efficient searching and stream filtering.\n\nManticore Search was forked from [Sphinx 2.3.2](https://github.com/sphinxsearch/sphinx) in 2017.\n\n# More features\n* Full-text search and relevance:\n  - Over 20 [full-text operators](https://play.manticoresearch.com/fulltextintro/) and over 20 ranking factors\n  - Custom ranking\n* Other search capabilities:\n  - [Rich filtering functionality](https://manual.manticoresearch.com/Searching/Full_text_matching/Operators)\n  - [Fuzzy search](https://manual.manticoresearch.com/Searching/Spell_correction#Fuzzy-Search)\n  - [Faceted search](https://play.manticoresearch.com/faceting/)\n  - [Geo-spatial search](https://play.manticoresearch.com/geosearch/)\n  - [Vector search](https://manual.manticoresearch.com/Searching/KNN)\n  - [Joining tables](https://manual.manticoresearch.com/Searching/Joining)\n  - [Spelling correction](https://play.manticoresearch.com/didyoumean/)\n  - [Autocomplete](https://manual.manticoresearch.com/Searching/Autocomplete#Autocomplete)\n  - A wide range of functions for filtering and data manipulation\n* Natural language processing (NLP):\n  - [Stemming](https://manual.manticoresearch.com/Creating_a_table/NLP_and_tokenization/Morphology)\n  - [Lemmatization](https://manual.manticoresearch.com/Creating_a_table/NLP_and_tokenization/Morphology)\n  - [Stopwords](https://manual.manticoresearch.com/Creating_a_table/NLP_and_tokenization/Ignoring_stop-words#stopwords)\n  - [Synonyms](https://manual.manticoresearch.com/Creating_a_table/NLP_and_tokenization/Exceptions)\n  - [Wordforms](https://manual.manticoresearch.com/Creating_a_table/NLP_and_tokenization/Wordforms#wordforms)\n  - [Advanced tokenization at character and word level](https://manual.manticoresearch.com/Creating_a_table/NLP_and_tokenization/Low-level_tokenization#charset_table)\n  - [Proper Chinese segmentation](https://play.manticoresearch.com/icu-chinese/)\n  - [Text highlighting](https://play.manticoresearch.com/highlighting/)\n* Stream filtering:\n  - [using a \"percolate\" table](https://play.manticoresearch.com/pq/)\n  - or the [Kafka integration](https://manual.manticoresearch.com/Integration/Kafka)\n* High-availability:\n  - Data can be distributed across servers and data-centers\n  - [Synchronous replication](https://play.manticoresearch.com/replication/)\n  - Built-in load balancing\n* Security:\n  - [https support](https://play.manticoresearch.com/https/)\n  - [read-only mode](https://manual.manticoresearch.com/Security/Read_only)\n* Data safety:\n  - [manticore-backup tool and SQL command BACKUP](https://manual.manticoresearch.com/Securing_and_compacting_a_table/Backup_and_restore) to back up and restore your data\n* Data storages:\n  - row-wise - requires more RAM, provides faster performance\n  - columnar - requires less RAM, still provides decent performance, but lower than the row-wise storage for some kinds of queries\n  - docstore - doesn't require RAM at all, but allows only fetching original value, not sorting/grouping/filtering\n* Performance optimizations:\n  - [Secondary indexes](https://manual.manticoresearch.com/Server_settings/Searchd#secondary_indexes)\n  - Cost-based optimizer determines the most efficient execution plan of a search query\n* Data types:\n  - full-text field - inverted index\n  - int, bigint and float numeric fields in row-wise and columnar fashion\n  - multi-value attributes (array)\n  - string and JSON\n  - on-disk \"[stored](https://play.manticoresearch.com/docstore/)\" for key-value purpose\n* Integrations:\n  - [Sync from MySQL and PostgreSQL](https://manual.manticoresearch.com/Creating_a_table/Local_tables/Plain_table#Plain-table)\n  - [Sync from XML](https://manual.manticoresearch.com/Adding_data_from_external_storages/Fetching_from_XML_streams#XML-file-format)\n  - [Sync from CSV](https://manual.manticoresearch.com/Adding_data_from_external_storages/Fetching_from_CSV,TSV#Fetching-from-TSV,CSV)\n  - [Sync from ODBC](https://manual.manticoresearch.com/Data_creation_and_modification/Adding_data_from_external_storages/Fetching_from_databases/Introduction#Introduction)\n  - [Sync from MS SQL](https://manual.manticoresearch.com/Data_creation_and_modification/Adding_data_from_external_storages/Fetching_from_databases/Introduction#Introduction)\n  - [Sync from Kafka](https://manual.manticoresearch.com/Integration/Kafka)\n  - [With MySQL as a storage engine](https://manual.manticoresearch.com/Extensions/SphinxSE#Using-Sp",
+        "truncated": true,
+        "bytes": 17427,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Manticore Search 17.5.1",
+            "tag_name": "release-17.5.1",
+            "published_at": "2026-02-07T09:25:27Z",
+            "body_excerpt": "## Version 17.5.1\r\n**Released**: February 7th 2026\r\n\r\n### Recommended Libraries\r\n- Recommended [MCL](https://github.com/manticoresoftware/columnar) version: 10.2.0\r\n- Recommended [Buddy](https://manual.manticoresearch.com/Installation/Manticore_Buddy#Manticore-Buddy) version: 3.41.0\r\n\r\nIf you follow the [official installation guide](https://manticoresearch.com/install/), you don't need to worry about this.\r\n\r\n❤️ We’d like to thank [@pakud](https://github.com/pakud) for their work on [PR #4075](https://github.com/manticoresoftware/manticoresearch/pull/4075).\r\n\r\n## Breaking Changes\r\n* ⚠️ [v17.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/17.0.0) [ Issue #4120](https://github.com/manticoresoftware/manticoresearch/issues/4120) MCL 10.0.0: Added support for `DROP CACHE`. This updates the interface between the daemon and MCL. Older Manticore Search versions don't suport the newer MCL.\r\n* ⚠️ [v16.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/16.0.0) [ Issue #4019](https://github.com/manticoresoftware/manticoresearch/issues/4019) Percolate query JSON responses now return hit `_id` and `_score` as numbers instead of strings, matching regular search; this is a breaking change for clients that relied on string type for these fields.\r\n\r\n## New Features and Improvements\r\n* 🆕 [v17.5.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/17.5.0) [ PR #130](https://github.com/manticoresoftware/columnar/pull/130) MCL updated to 10.2.0: QWEN model support fixed and support for additional models added.\r\n* 🆕 [v17.3.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/17.3.0) [ PR #4186](https://github.com/manticoresoftware/manticoresearch/pull/4186) Executor updated to 1.4.0, including an updated PHP version and the llm-php-ext extension.\r\n* 🆕 [v17.2.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/17.2.0) [ PR #4195](https://github.com/manticoresoftware/manticoresearch/pull/4195) Upd"
+          },
+          {
+            "name": "Manticore Search 15.1.0",
+            "tag_name": "release-15.1.0",
+            "published_at": "2025-12-07T15:54:18Z",
+            "body_excerpt": "## Version 15.1.0\r\n**Released**: December 7th 2025\r\n\r\n### Recommended Libraries\r\n- Recommended [MCL](https://github.com/manticoresoftware/columnar) version: 9.0.0\r\n- Recommended [Buddy](https://manual.manticoresearch.com/Installation/Manticore_Buddy#Manticore-Buddy) version: 3.40.2\r\n\r\nIf you follow the [official installation guide](https://manticoresearch.com/install/), you don't need to worry about this.\r\n\r\n## Breaking Changes\r\n* ⚠️ [v15.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/15.0.0) [ PR #4003](https://github.com/manticoresoftware/manticoresearch/pull/4003) Updated MCL requirement to 9.0.0, bringing uncompressed float-vector storage, block-size change for KNN vectors, and non-buffered reads. This update changes the data format. Older MCL versions won’t be able to read it, but the new version can still read your existing columnar tables without any issues.\r\n\r\n### New Features and Improvements\r\n* 🆕 [v15.1.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/15.1.0) [ PR #3990](https://github.com/manticoresoftware/manticoresearch/pull/3990) Improved disk chunk flushing log records by breaking the total time into clearer parts.\r\n* 🆕 [v14.7.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/14.7.0) [ Issue #3860](https://github.com/manticoresoftware/manticoresearch/issues/3860) Updated Buddy requirement to 3.40.1, which includes an improvement in autocomplete: normalized bigram-separator characters to spaces and filtered out duplicate or malformed suggestion combinations to improve suggestion quality. It also includes a fix for invalid JSON errors in Kafka views and a fix for autocomplete so sorting combinations no longer throws errors when some keys are missing in the score map.\r\n* 🆕 [v14.6.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/14.6.0) [ Issue #615](https://github.com/manticoresoftware/manticoresearch-buddy/issues/615) Updated the Manticore Buddy requirement to version "
+          },
+          {
+            "name": "Manticore Search 14.1.0",
+            "tag_name": "release-14.1.0",
+            "published_at": "2025-11-07T16:14:20Z",
+            "body_excerpt": "## Version 14.1.0\r\n\r\n**Released**: November 7th 2025\r\n\r\n❤️ We’d like to extend our heartfelt thanks to [@ricardopintottrdata](https://github.com/ricardopintottrdata) for their work on [PR #3792](https://github.com/manticoresoftware/manticoresearch/pull/3792) and [PR #3828](https://github.com/manticoresoftware/manticoresearch/pull/3828) — addressing issues around `HAVING` total counts and the `filter with empty name` error — and to [@jdelStrother](https://github.com/jdelStrother) for their contribution with [PR #3819](https://github.com/manticoresoftware/manticoresearch/pull/3819), which improves handling of `ParseCJKSegmentation` when Jieba support isn’t available. \r\n\r\nYour efforts help make the project stronger — many thanks!\r\n\r\n### Recommended libraries\r\n- Recommended [MCL](https://github.com/manticoresoftware/columnar) version: 8.1.0\r\n- Recommended [Buddy](https://manual.manticoresearch.com/Installation/Manticore_Buddy#Manticore-Buddy) version: 3.37.0\r\n\r\nIf you follow the [official installation guide](https://manticoresearch.com/install/), you don't need to worry about this.\r\n\r\n### ⚠️ Important\r\nVersion [v14.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/14.0.0) updates the replication protocol. If you are running a replication cluster, you need to:\r\n  - First, cleanly stop all your nodes\r\n  - Then, start the node that was stopped last with `--new-cluster`, using the tool `manticore_new_cluster` in Linux.\r\n  - Read about [restarting a cluster](https://manual.manticoresearch.com/Creating_a_cluster/Setting_up_replication/Restarting_a_cluster#Restarting-a-cluster) for more details.\r\n\r\n### New Features and Improvements\r\n* 🆕 [v14.1.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/14.1.0) [ Issue #3047](https://github.com/manticoresoftware/manticoresearch/issues/3047) Added support for `LOCK TABLES` statements generated by mysqldump, improving the safety of logical backups.\r\n* ⚠️ [v14.0.0](https://github.com/manticoresoftwar"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 4395,
+            "title": "Concurrency issue when running AUTOOPTIMIZE",
+            "state": "open",
+            "url": "https://github.com/manticoresoftware/manticoresearch/issues/4395"
+          },
+          {
+            "number": 4393,
+            "title": "buddy communication screw the daemon global stats",
+            "state": "open",
+            "url": "https://github.com/manticoresoftware/manticoresearch/issues/4393"
+          }
+        ]
+      },
+      "root_files": [
+        ".clt",
+        ".cursorignore",
+        ".editorconfig",
+        ".github",
+        ".gitignore",
+        ".gitlab-ci.yml",
+        ".gitmodules",
+        ".noindex",
+        ".translation-cache",
+        "116.conf",
+        "CMakeLists.txt",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "INSTALL",
+        "LICENSE",
+        "README.md",
+        "TESTING.md",
+        "actions",
+        "api",
+        "cmake",
+        "columnar_src.txt",
+        "compare_manuals.sh",
+        "component-licenses",
+        "config",
+        "configure",
+        "contrib",
+        "deps.txt",
+        "dist",
+        "doc",
+        "docker-compose-test.yml",
+        "example.sql",
+        "galera_packaging",
+        "libicu",
+        "libre2",
+        "libstemmer_c",
+        "manticore.conf.in",
+        "manual",
+        "memcheck.sh",
+        "memdocker.sh",
+        "misc",
+        "mysqlse",
+        "smoke.sh",
+        "smokeci.sh",
+        "sphinxrev.cmake",
+        "sphinxrevcheck.cmake",
+        "src",
+        "stack.txt",
+        "test",
+        "translator",
+        "translator.config.yaml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://manticoresearch.com\" target=\"_blank\" rel=\"noopener\"> <img src=\"https://manticoresearch.com/logo.png\" width=\"50%\" alt=\"Manticore Search Logo\"> </a> </p>",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 1,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<h3 align=\"center\"><strong>Easy to use open source fast database for search</strong></h3> <p align=\"center\"> Manticore Search is an easy-to-use, open-source, and fast database designed for search. It is a great alternative to Elasticsearch. </p>",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 2,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<div align=\"center\"> <a href=\"https://trendshift.io/repositories/3537\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/3537\" alt=\"manticoresoftware%2Fmanticoresearch | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a> </div>",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 3,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<h3 align=\"center\"> <a href=\"https://manticoresearch.com\">Website</a> • <a href=\"https://manticoresearch.com/install/\">Downloads</a> • <a href=\"https://manual.manticoresearch.com\">Docs</a> • <a href=\"https://manticoresearch.com/blog/\">Blog</a> • <a href=\"https://play.manticoresearch.com\">Courses</a> • <a href=\"https://forum.manticoresearch.com\">Forum</a> • <a href=\"https://slack.manticoresearch.com\">Slack</a> • <a href=\"https://t.me/manticoresearch_en\">Telegram (En)</a> • <a href=\"https://t.me/manticore_chat\">Telegram (Ru)</a> • <a href=\"https://twitter.com/manticoresearch\">Twitter</a> • <a href=\"https://github.com/manticoresoftware/manticoresearch/discussions/categories/feedback\">User feedback</a> </h3>",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 4,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <a href=\"LICENSE\"><img alt=\"License: GPLv3 or later\" src=\"https://img.shields.io/badge/license-GPL%20V3%2B-green?style=plastic\"></a> <a href=\"https://github.com/manticoresoftware/manticoresearch/actions/workflows/test.yml?query=branch%3Amaster\"><img alt=\"GitHub Actions Workflow Status\" src=\"https://img.shields.io/github/actions/workflow/status/manticoresoftware/manticoresearch/test.yml?branch=master&style=plastic&color=green\"></a> <a href=\"https://twitter.com/manticoresearch\"><img alt=\"Twitter Follow\" src=\"https://img.shields.io/twitter/follow/manticoresearch?color=green&logo=Twitter&style=plastic\"></a> <a href=\"http://slack.manticoresearch.com/\"><img alt=\"Slack\" src=\"https://img.shields.io/badge/slack-manticoresearch-green.svg?logo=slack&style=plastic\"></a> <a href=\"https://github.com/manticoresoftware/docker\"><img alt=\"Docker pulls\" src=\"https://img.shields.io/docker/pulls/manticoresearch/manticore?color=green&style=plastic\"></a> <a href=\"https://eepurl.com/dkUTHv\"><img alt=\"Newsletter\" src=\"https://img.shields.io/badge/newsletter-green?style=plastic\"></a> <a href=\"https://github.com/manticoresoftware/manticoresearch/graphs/commit-activity\"><img alt=\"Activity\"…",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 5,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**❗Read recent [blog post about Manticore vs Elasticsearch](https://manticoresearch.com/blog/manticore-alternative-to-elasticsearch/)❗**",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 6,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 7)",
+          "excerpt": "What distinguishes it from other solutions is: * It's very fast and therefore more cost-efficient than alternatives, for example Manticore is: - **182x faster** than MySQL for [small data](https://db-benchmarks.com/test-hn-small/#mysql-vs-manticore-search) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗) - **29x faster** than Elasticsearch for [log analytics](https://db-benchmarks.com/test-logs10m/#elasticsearch-with-no-tuning-vs-manticore-search-default-row-wise-storage) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗) - **15x faster** than Elasticsearch for [small dataset](https://db-benchmarks.com/test-hn-small/#manticore-search-vs-elasticsearch) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗) - **5x faster** than Elasticsearch for [medium-size data](https://db-benchmarks.com/test-hn/#manticore-search-columnar-storage-vs-elasticsearch) ([reproducible](https://github.com/db-benchmarks/db-benchmarks#get-started)❗) - **4x faster** than Elasticsearch for [big data](https://db-benchmarks.com/test-taxi/#manticore-search-vs-elasticsearch) ([reproducible](https://github.com/db-benchmarks/db-benchmar…",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 7,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch#readme",
+          "title": "README (segment 8)",
+          "excerpt": "[Craigslist](https://www.craigslist.org/), [Socialgist](https://socialgist.com/), [PubChem](https://pubchem.ncbi.nlm.nih.gov/), [Rozetka](https://rozetka.com.ua/) and many others use Manticore for efficient searching and stream filtering.",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "segment": 8,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch/issues/4395",
+          "title": "Concurrency issue when running AUTOOPTIMIZE",
+          "excerpt": "Concurrency issue when running AUTOOPTIMIZE (state:open)",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "number": 4395
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch/issues/4393",
+          "title": "buddy communication screw the daemon global stats",
+          "excerpt": "buddy communication screw the daemon global stats (state:open)",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "number": 4393
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch/releases",
+          "title": "release-17.5.1",
+          "excerpt": "## Version 17.5.1 **Released**: February 7th 2026 ### Recommended Libraries - Recommended [MCL](https://github.com/manticoresoftware/columnar) version: 10.2.0 - Recommended [Buddy](https://manual.manticoresearch.com/Installation/Manticore_Buddy#Manticore-Buddy) version: 3.41.0 If you follow the [official installation guide](https://manticoresearch.com/install/), you don't need to worry about this. ❤️ We’d like to thank [@pakud](https://github.com/pakud) for their work on [PR #4075](https://github.com/manticoresoftware/manticoresearch/pull/4075). ## Breaking Changes * ⚠️ [v17.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/17.0.0) [ Issue #4120](https://github.com/manticoresoftware/manticoresearch/issues/4120) MCL 10.0.0: Added support for `DROP CACHE`. This updates the interface between the daemon and MCL. Older Manticore Search versions don't suport the newer MCL. * ⚠️ [v16.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/16.0.0) [ Issue #4019](https://github.com/manticoresoftware/manticoresearch/issues/4019) Percolate query JSON responses now return hit `_id` and `_score` as numbers instead of strings, matching regular search; this is…",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "tag_name": "release-17.5.1",
+            "published_at": "2026-02-07T09:25:27Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch/releases",
+          "title": "release-15.1.0",
+          "excerpt": "## Version 15.1.0 **Released**: December 7th 2025 ### Recommended Libraries - Recommended [MCL](https://github.com/manticoresoftware/columnar) version: 9.0.0 - Recommended [Buddy](https://manual.manticoresearch.com/Installation/Manticore_Buddy#Manticore-Buddy) version: 3.40.2 If you follow the [official installation guide](https://manticoresearch.com/install/), you don't need to worry about this. ## Breaking Changes * ⚠️ [v15.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/15.0.0) [ PR #4003](https://github.com/manticoresoftware/manticoresearch/pull/4003) Updated MCL requirement to 9.0.0, bringing uncompressed float-vector storage, block-size change for KNN vectors, and non-buffered reads. This update changes the data format. Older MCL versions won’t be able to read it, but the new version can still read your existing columnar tables without any issues. ### New Features and Improvements * 🆕 [v15.1.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/15.1.0) [ PR #3990](https://github.com/manticoresoftware/manticoresearch/pull/3990) Improved disk chunk flushing log records by breaking the total time into clearer parts. * 🆕 [v14.7.0](https://…",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "tag_name": "release-15.1.0",
+            "published_at": "2025-12-07T15:54:18Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch/releases",
+          "title": "release-14.1.0",
+          "excerpt": "## Version 14.1.0 **Released**: November 7th 2025 ❤️ We’d like to extend our heartfelt thanks to [@ricardopintottrdata](https://github.com/ricardopintottrdata) for their work on [PR #3792](https://github.com/manticoresoftware/manticoresearch/pull/3792) and [PR #3828](https://github.com/manticoresoftware/manticoresearch/pull/3828) — addressing issues around `HAVING` total counts and the `filter with empty name` error — and to [@jdelStrother](https://github.com/jdelStrother) for their contribution with [PR #3819](https://github.com/manticoresoftware/manticoresearch/pull/3819), which improves handling of `ParseCJKSegmentation` when Jieba support isn’t available. Your efforts help make the project stronger — many thanks! ### Recommended libraries - Recommended [MCL](https://github.com/manticoresoftware/columnar) version: 8.1.0 - Recommended [Buddy](https://manual.manticoresearch.com/Installation/Manticore_Buddy#Manticore-Buddy) version: 3.37.0 If you follow the [official installation guide](https://manticoresearch.com/install/), you don't need to worry about this. ### ⚠️ Important Version [v14.0.0](https://github.com/manticoresoftware/manticoresearch/releases/tag/14.0.0) updates the r…",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "tag_name": "release-14.1.0",
+            "published_at": "2025-11-07T16:14:20Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/manticoresoftware/manticoresearch",
+          "title": "ROOT_FILES",
+          "excerpt": ".clt, .cursorignore, .editorconfig, .github, .gitignore, .gitlab-ci.yml, .gitmodules, .noindex, .translation-cache, 116.conf, CMakeLists.txt, CODE_OF_CONDUCT.md, CONTRIBUTING.md, INSTALL, LICENSE, README.md, TESTING.md, actions, api, cmake, columnar_src.txt, compare_manuals.sh, component-licenses, config, configure, contrib, deps.txt, dist, doc, docker-compose-test.yml, example.sql, galera_packaging, libicu, libre2, libstemmer_c, manticore.conf.in, manual, memcheck.sh, memdocker.sh, misc, mysqlse, smoke.sh, smokeci.sh, sphinxrev.cmake, sphinxrevcheck.cmake, src, stack.txt, test, translator, translator.config.yaml",
+          "fetched_at": "2026-03-23T05:06:17.724Z",
+          "meta": {
+            "repo_full_name": "manticoresoftware/manticoresearch",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "xmlui-org/xmlui",
+      "html_url": "https://github.com/xmlui-org/xmlui",
+      "description": "A framework for building user interfaces declaratively, with XML markup and flexible theming",
+      "topics": [
+        "ui-framework",
+        "webapp",
+        "webapplication",
+        "webapps",
+        "xml"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 201,
+      "forks_count": 7,
+      "open_issues_count": 27,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-23T05:05:01Z",
+      "created_at": "2024-08-06T12:29:14Z",
+      "readme": {
+        "fetched": true,
+        "text": "![NPM Version](https://img.shields.io/npm/v/xmlui?color=blue)\n![Components](https://img.shields.io/badge/Components-92-brightgreen)\n![Extension packages](https://img.shields.io/badge/Extension%20packages-7-brightgreen)\n![Theme variables](https://img.shields.io/badge/theme%20variables-3639-brightgreen)\n\n# XMLUI\n\n\n**XMLUI** is a framework for building user interfaces declaratively, with XML markup and flexible theming.\n\n**Easy to create**. Build on the web platform with little or no knowledge of React or CSS.\n\n**Clean and modern**. Enjoy themes that look great out of the box and are easy to modify. Create experiences that meet expectations for modern web apps.\n\n**Connected**. Read and write APIs with little or no scripting.\n\n**Modular**. Use a comprehensive suite of [components](https://docs.xmlui.org/components/_overview) that you can extend with — again! — little or no scripting.\n\n**Easy to deploy**. Just drop a handful of files onto a static webserver.\n\n## See it in action\n\n```xml\n<App>\n  <Select id=\"lines\" initialValue=\"bakerloo\">\n    <Items data=\"https://api.tfl.gov.uk/line/mode/tube/status\">\n        <Option value=\"{$item.id}\" label=\"{$item.name}\" />\n    </Items>\n  </Select>\n  <DataSource\n    id=\"tubeStations\"\n    url=\"https://api.tfl.gov.uk/Line/{lines.value}/Route/Sequence/inbound\"\n    resultSelector=\"stations\"/>\n  <Table data=\"{tubeStations}\" height=\"280px\">\n    <Column bindTo=\"name\" />\n    <Column bindTo=\"modes\" />\n  </Table>\n</App>\n```\n\n![xmlui](https://github.com/user-attachments/assets/93523e15-be19-47d1-913d-d8016c1e44e4)\n\n\n## Getting started\n\nThe fastest way to get started with XMLUI is to [download our starter kit](https://github.com/xmlui-org/xmlui-invoice/releases), which includes the XMLUI engine and `XMLUI Invoice` - a complete business application that demonstrates key features and common patterns.\n\n### What's included\n\nXMLUI Invoice: A complete business application with client and product management, invoice creation and tracking, search, and charts.\n\nXMLUI engine: The core framework file.\n\nXMLUI test server: A simple server to run the app.\n\n### Quick start\n\nExtract the files to a working folder and run the start script.\n\n### See also\n\nVisit [demo.xmlui.org](https://demo.xmlui.org) to explore a gallery of components.\n\nVisit [docs.xmlui.org](https://docs.xmlui.org) for an introduction, a tutorial, and full documentation. The documentation site is itself an XMLUI app!\n\n<a href=\"https://docs.xmlui.org\"><img width=\"1285\" alt=\"image\" src=\"https://github.com/user-attachments/assets/9a54ae74-4f45-4079-a5d4-142e23fb4134\" /></a>\n\n\n## Contributing\n\nWe welcome contributions! If you have ideas for new features, suggestions, or find a bug, please open an issue. Pull requests are also encouraged. (Please read our [Contribution Guidelines](./CONTRIBUTING.md) before contributing.)\n\n## Feature Requests\n\nHave a feature request? Here's how to submit it:\n\nIf your feature request is not already listed in the [Issues](https://github.com/xmlui-org/xmlui/issues) section, please follow these steps:\n\n1. Click on the link below to open the feature request template.\n2. Fill out the template with as much detail as possible.\n3. Submit the issue.\n\n[New feature request](https://github.com/xmlui-org/xmlui/issues/new?template=feature_request.md)\n\n## Bug Reports\n\nHave you found a bug? Here's how to report it:\n\n1. Click on the link below to open the bug report template.\n2. Fill out the template with as much detail as possible.\n3. Submit the issue.\n\n[New bug report](https://github.com/xmlui-org/xmlui/issues/new?template=bug_report.md)\n\n## License\n\nXMLUI is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.\n\n## Attribution\n\nXMLUI was stared as an internal project at [/n software](https://nsoftware.com) which is the primary sponsor and source of funding for this open source project.\n\nOur virtualized components and data management mechanisms would not be as simple, performant, and powerful without the help of a few [TanStack](https://github.com/TanStack) projects, such as [query](https://github.com/TanStack/query), [table](https://github.com/TanStack/table), and others. We appreciate their outstanding work!\n\nWe based some of our essential components on [Radix UI](https://www.radix-ui.com/) components and involved some of the architectural approaches they used in their project. Thanks to all project contributors for their excellent work.\n\nWe loved the simple and beautiful UI style used by the [Tabler.io](https://tabler.io/) project; it illuminated our component design and theming. Thanks to [Paweł Kuna](https://github.com/codecalm) for this inspiration.\n\n",
+        "truncated": false,
+        "bytes": 4661,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "xmlui@0.12.11",
+            "tag_name": "xmlui@0.12.11",
+            "published_at": "2026-03-19T14:32:36Z",
+            "body_excerpt": "### Patch Changes\n\n-   3daa045: Fix FormItem theme variable regression\n-   93a19dd: Charts moved from xmlui core to the xmlui-recharts extension\n-   8a3180d: Fix FormItem type=\"checkbox\" regression\n-   1b695f0: fix: JSDOM preventing running xmlui commands when bundled into executable file\n-   c903b50: List can handle row selection (similarly to Table)\n"
+          },
+          {
+            "name": "xmlui-vscode@0.12.11",
+            "tag_name": "xmlui-vscode@0.12.11",
+            "published_at": "2026-03-19T14:32:46Z",
+            "body_excerpt": null
+          },
+          {
+            "name": "create-xmlui-app@0.12.11",
+            "tag_name": "create-xmlui-app@0.12.11",
+            "published_at": "2026-03-19T14:32:39Z",
+            "body_excerpt": "\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 3086,
+            "title": "useHashBasedRouting: true in config.json has no effect",
+            "state": "closed",
+            "url": "https://github.com/xmlui-org/xmlui/issues/3086"
+          },
+          {
+            "number": 3099,
+            "title": "Inspector component ignores __PUBLIC_PATH for xs-diff.html",
+            "state": "open",
+            "url": "https://github.com/xmlui-org/xmlui/issues/3099"
+          },
+          {
+            "number": 3092,
+            "title": "upgrade from lodash 4.17.21 to at least lodash 4.17.23",
+            "state": "open",
+            "url": "https://github.com/xmlui-org/xmlui/issues/3092"
+          }
+        ]
+      },
+      "root_files": [
+        ".changeset",
+        ".cursor",
+        ".editorconfig",
+        ".eslintrc.cjs",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".npmrc",
+        ".prettierrc.js",
+        ".vscode",
+        "AGENTS.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "feature.md",
+        "guidelines",
+        "mcp-paths.json",
+        "package-lock.json",
+        "package.json",
+        "packages",
+        "playground",
+        "playwright.config.ts",
+        "tools",
+        "turbo.json",
+        "vitest.workspace.ts",
+        "website",
+        "xmlui"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![NPM Version](https://img.shields.io/npm/v/xmlui?color=blue) ![Components](https://img.shields.io/badge/Components-92-brightgreen) ![Extension packages](https://img.shields.io/badge/Extension%20packages-7-brightgreen) ![Theme variables](https://img.shields.io/badge/theme%20variables-3639-brightgreen)",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 2)",
+          "excerpt": "**XMLUI** is a framework for building user interfaces declaratively, with XML markup and flexible theming.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 3)",
+          "excerpt": "**Easy to create**. Build on the web platform with little or no knowledge of React or CSS.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 4)",
+          "excerpt": "**Clean and modern**. Enjoy themes that look great out of the box and are easy to modify. Create experiences that meet expectations for modern web apps.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 5)",
+          "excerpt": "**Modular**. Use a comprehensive suite of [components](https://docs.xmlui.org/components/_overview) that you can extend with — again! — little or no scripting.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 6)",
+          "excerpt": "```xml <App> <Select id=\"lines\" initialValue=\"bakerloo\"> <Items data=\"https://api.tfl.gov.uk/line/mode/tube/status\"> <Option value=\"{$item.id}\" label=\"{$item.name}\" /> </Items> </Select> <DataSource id=\"tubeStations\" url=\"https://api.tfl.gov.uk/Line/{lines.value}/Route/Sequence/inbound\" resultSelector=\"stations\"/> <Table data=\"{tubeStations}\" height=\"280px\"> <Column bindTo=\"name\" /> <Column bindTo=\"modes\" /> </Table> </App> ```",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 7)",
+          "excerpt": "![xmlui](https://github.com/user-attachments/assets/93523e15-be19-47d1-913d-d8016c1e44e4)",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/xmlui-org/xmlui#readme",
+          "title": "README (segment 8)",
+          "excerpt": "The fastest way to get started with XMLUI is to [download our starter kit](https://github.com/xmlui-org/xmlui-invoice/releases), which includes the XMLUI engine and `XMLUI Invoice` - a complete business application that demonstrates key features and common patterns.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/xmlui-org/xmlui/issues/3086",
+          "title": "useHashBasedRouting: true in config.json has no effect",
+          "excerpt": "useHashBasedRouting: true in config.json has no effect (state:closed)",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "number": 3086
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/xmlui-org/xmlui/issues/3099",
+          "title": "Inspector component ignores __PUBLIC_PATH for xs-diff.html",
+          "excerpt": "Inspector component ignores __PUBLIC_PATH for xs-diff.html (state:open)",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "number": 3099
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/xmlui-org/xmlui/issues/3092",
+          "title": "upgrade from lodash 4.17.21 to at least lodash 4.17.23",
+          "excerpt": "upgrade from lodash 4.17.21 to at least lodash 4.17.23 (state:open)",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "number": 3092
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/xmlui-org/xmlui/releases",
+          "title": "xmlui@0.12.11",
+          "excerpt": "### Patch Changes - 3daa045: Fix FormItem theme variable regression - 93a19dd: Charts moved from xmlui core to the xmlui-recharts extension - 8a3180d: Fix FormItem type=\"checkbox\" regression - 1b695f0: fix: JSDOM preventing running xmlui commands when bundled into executable file - c903b50: List can handle row selection (similarly to Table)",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "tag_name": "xmlui@0.12.11",
+            "published_at": "2026-03-19T14:32:36Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/xmlui-org/xmlui/releases",
+          "title": "xmlui-vscode@0.12.11",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "tag_name": "xmlui-vscode@0.12.11",
+            "published_at": "2026-03-19T14:32:46Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/xmlui-org/xmlui/releases",
+          "title": "create-xmlui-app@0.12.11",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "tag_name": "create-xmlui-app@0.12.11",
+            "published_at": "2026-03-19T14:32:39Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/xmlui-org/xmlui",
+          "title": "ROOT_FILES",
+          "excerpt": ".changeset, .cursor, .editorconfig, .eslintrc.cjs, .gitattributes, .github, .gitignore, .npmrc, .prettierrc.js, .vscode, AGENTS.md, CONTRIBUTING.md, LICENSE, README.md, feature.md, guidelines, mcp-paths.json, package-lock.json, package.json, packages, playground, playwright.config.ts, tools, turbo.json, vitest.workspace.ts, website, xmlui",
+          "fetched_at": "2026-03-23T05:06:17.719Z",
+          "meta": {
+            "repo_full_name": "xmlui-org/xmlui",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "shadcn-ui/ui",
+      "evidence_count": 7,
+      "evidence_by_type": {
+        "readme": 1,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "manticoresoftware/manticoresearch",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "xmlui-org/xmlui",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "shadcn-ui/ui",
+      "ok": true,
+      "spec_path": "specs/2026-03-23/shadcn-ui__ui.json"
+    },
+    {
+      "repo": "manticoresoftware/manticoresearch",
+      "ok": true,
+      "spec_path": "specs/2026-03-23/manticoresoftware__manticoresearch.json"
+    },
+    {
+      "repo": "xmlui-org/xmlui",
+      "ok": true,
+      "spec_path": "specs/2026-03-23/xmlui-org__xmlui.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "shadcn-ui/ui",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-23/shadcn-ui__ui.json"
+    },
+    {
+      "repo": "manticoresoftware/manticoresearch",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-23/manticoresoftware__manticoresearch.json"
+    },
+    {
+      "repo": "xmlui-org/xmlui",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-23/xmlui-org__xmlui.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "shadcn-ui/ui",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-23/shadcn-ui__ui.json"
+      ]
+    },
+    {
+      "repo": "manticoresoftware/manticoresearch",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-23/manticoresoftware__manticoresearch.json"
+      ]
+    },
+    {
+      "repo": "xmlui-org/xmlui",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-23/xmlui-org__xmlui.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-23T05:06:30.407Z",
+      "run_id": "20260323T050613Z",
+      "repo": "shadcn-ui/ui",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1887569b3bd821b7f1eaa4d6dce5453357054bedc421426d71e6ece4f97dfcf9",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 4614
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12608,
+      "prompt_chars": 4614,
+      "completion_chars": 1246
+    },
+    {
+      "ts": "2026-03-23T05:06:41.213Z",
+      "run_id": "20260323T050613Z",
+      "repo": "shadcn-ui/ui",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bc416168cdfaccf0f940c2bf89d7e203dba4948a8405c820a810a1762711e4d2",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 6051
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10806,
+      "prompt_chars": 6051,
+      "completion_chars": 1177
+    },
+    {
+      "ts": "2026-03-23T05:06:54.175Z",
+      "run_id": "20260323T050613Z",
+      "repo": "shadcn-ui/ui",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d60739e3caadb3ab5a8f3a33a16236faf3476d4ced3573e308cd1a21f32649dd",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 7407
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12962,
+      "prompt_chars": 7407,
+      "completion_chars": 1360
+    },
+    {
+      "ts": "2026-03-23T05:07:09.364Z",
+      "run_id": "20260323T050613Z",
+      "repo": "shadcn-ui/ui",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "88c3aa29200c825284d649f1385422b469e23607ca1e0dfb51d6c0bdd6814f97",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 8943
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15189,
+      "prompt_chars": 8943,
+      "completion_chars": 1458
+    },
+    {
+      "ts": "2026-03-23T05:07:32.429Z",
+      "run_id": "20260323T050613Z",
+      "repo": "shadcn-ui/ui",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ab40a22f1a951325417116f5b515e97d86e4978d5dce1589fdc19f9ff2c1752d",
+      "input_stats": {
+        "evidence_count": 7,
+        "approx_chars": 13242
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 23064,
+      "prompt_chars": 13242,
+      "completion_chars": 2548
+    },
+    {
+      "ts": "2026-03-23T05:07:49.128Z",
+      "run_id": "20260323T050613Z",
+      "repo": "manticoresoftware/manticoresearch",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "53f9e7cfd7b029076d422eef27ec8d8256cafaf93511c91fec15630a65ebf1cd",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 11273
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16683,
+      "prompt_chars": 11273,
+      "completion_chars": 1839
+    },
+    {
+      "ts": "2026-03-23T05:08:02.995Z",
+      "run_id": "20260323T050613Z",
+      "repo": "manticoresoftware/manticoresearch",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4503046b573909069d77a5b01a50c03c0cebd9b1a7d1a2fda3903f9fa6609280",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 13324
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13867,
+      "prompt_chars": 13324,
+      "completion_chars": 1796
+    },
+    {
+      "ts": "2026-03-23T05:08:17.040Z",
+      "run_id": "20260323T050613Z",
+      "repo": "manticoresoftware/manticoresearch",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ff22641bd2d72cee1c1b957cf4e1159f1e6dcf36e5e709dd7bccdaa8c2ed8ecb",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 15312
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14045,
+      "prompt_chars": 15312,
+      "completion_chars": 1819
+    },
+    {
+      "ts": "2026-03-23T05:08:38.132Z",
+      "run_id": "20260323T050613Z",
+      "repo": "manticoresoftware/manticoresearch",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ea12fa5572985cbb4b55212a1348ec33998dce0cf48a730cd0566a93571c5d30",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 17324
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21091,
+      "prompt_chars": 17324,
+      "completion_chars": 1754
+    },
+    {
+      "ts": "2026-03-23T05:09:11.704Z",
+      "run_id": "20260323T050613Z",
+      "repo": "manticoresoftware/manticoresearch",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b01e94d2db1d0109b93225099a68e140dfdaddad1fa907c70d5aae2d592ec223",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 21918
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 33572,
+      "prompt_chars": 21918,
+      "completion_chars": 3567
+    },
+    {
+      "ts": "2026-03-23T05:09:25.142Z",
+      "run_id": "20260323T050613Z",
+      "repo": "xmlui-org/xmlui",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3c2323293ae49d4e288dce8b7887456a1eda0dd47bb33d8cb141925c465ee667",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 6488
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13435,
+      "prompt_chars": 6488,
+      "completion_chars": 1492
+    },
+    {
+      "ts": "2026-03-23T05:09:40.524Z",
+      "run_id": "20260323T050613Z",
+      "repo": "xmlui-org/xmlui",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8655d899b217e80eee4bb95464230f77dc157415763541c94c725949a1ca43d4",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 8204
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15381,
+      "prompt_chars": 8204,
+      "completion_chars": 1691
+    },
+    {
+      "ts": "2026-03-23T05:09:59.405Z",
+      "run_id": "20260323T050613Z",
+      "repo": "xmlui-org/xmlui",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "58d53d117279812b62dba2b185c0534a9ee0ecfddfe53a7cb985ea3d84cd9597",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 10111
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18881,
+      "prompt_chars": 10111,
+      "completion_chars": 1808
+    },
+    {
+      "ts": "2026-03-23T05:10:13.097Z",
+      "run_id": "20260323T050613Z",
+      "repo": "xmlui-org/xmlui",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fd020cf2deca2b904b8b56dc6fa01e0f1637f15b68f726075d3418739f742734",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 12132
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13692,
+      "prompt_chars": 12132,
+      "completion_chars": 1658
+    },
+    {
+      "ts": "2026-03-23T05:10:37.684Z",
+      "run_id": "20260323T050613Z",
+      "repo": "xmlui-org/xmlui",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c111dace45ba91f9a0fafd6c59206f45561a1effb4e4f73306790b8d182902db",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 16636
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 24586,
+      "prompt_chars": 16636,
+      "completion_chars": 2886
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "shadcn-ui/ui",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "manticoresoftware/manticoresearch",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "xmlui-org/xmlui",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "shadcn-ui/ui",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 7,
+      "evidence_total_final": 7,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "manticoresoftware/manticoresearch",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "xmlui-org/xmlui",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1774242373649,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "shadcn-ui/ui": 5,
+      "manticoresoftware/manticoresearch": 5,
+      "xmlui-org/xmlui": 5
+    },
+    "tokensApproxTotal": 50274,
+    "tokensApproxPerRepo": {
+      "shadcn-ui/ui": 12013,
+      "manticoresoftware/manticoresearch": 22483,
+      "xmlui-org/xmlui": 15778
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "shadcn-ui/ui": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "scout",
+        "summary": "shadcn-ui/ui is a popular, open-source UI component library built on Radix UI and Tailwind CSS, designed for customization and extension. It emphasizes developer control and framework compatibility (e.g., Next.js, React). Recent releases show active maintenance with minor enhancements and dependency fixes, but open issues highlight unresolved mobile and Radix integration bugs.",
+        "highlights": [
+          "Marketed as a customizable base for building custom component libraries [ID:E-RD-001].",
+          "Actively maintained with recent patch and minor releases addressing dependencies and presets [ID:E-RL-001, E-RL-002, E-RL-003].",
+          "Strong ecosystem alignment with Next.js, Radix UI, and Tailwind CSS per repo topics and description."
+        ],
+        "risks": [
+          "Open bug reports indicate instability in mobile navigation with Sheets/Dialogs in Next.js App Router [ID:E-IS-001].",
+          "Integration issues with Radix UI components (e.g., Sidebar) remain unresolved [ID:E-IS-002].",
+          "High open issue count (1,805) relative to recent release activity may signal growing maintenance debt."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "inventor",
+        "summary": "shadcn-ui/ui provides a composable, open-source foundation for building custom UI libraries using Radix primitives and Tailwind CSS, with recent enhancements to design presets and dependency management—but faces unresolved mobile and integration bugs that could hinder reliable adoption in production.",
+        "highlights": [
+          "Explicitly designed as a starting point for developers to build their own component libraries [ID:E-RD-001].",
+          "Recent minor release added fontHeading and chartColor presets, expanding design system capabilities [ID:E-RL-001].",
+          "Active maintenance includes bundling missing dependencies to improve CLI reliability [ID:E-RL-002]."
+        ],
+        "risks": [
+          "Mobile-specific Sheet/Dialog behavior breaks navigation in Next.js App Router, affecting user experience [ID:E-IS-001].",
+          "Radix UI integration issues (e.g., with Sidebar) suggest incomplete or unstable primitive wrapping [ID:E-IS-002].",
+          "High volume of open issues (1,805) may delay resolution of critical compatibility problems."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "engineer",
+        "summary": "shadcn-ui/ui is a well-structured, open-source UI component library built on Radix UI and Tailwind CSS, intended as a customizable foundation for building custom design systems. It shows active maintenance through recent releases that enhance design presets and fix dependency issues, but suffers from unresolved mobile and integration bugs that could impact production reliability.",
+        "highlights": [
+          "Designed explicitly as a base for developers to build and extend their own component libraries [ID:E-RD-001].",
+          "Recent minor release (v4.1.0) introduced new design tokens like fontHeading and chartColor, improving theming flexibility [ID:E-RL-001].",
+          "Patch releases address practical tooling issues, such as bundling missing CLI dependencies to prevent runtime errors [ID:E-RL-002]."
+        ],
+        "risks": [
+          "Mobile navigation in Next.js App Router triggers unintended Sheet/Dialog reopen/close behavior, degrading UX [ID:E-IS-001].",
+          "Radix UI integration problems with components like Sidebar indicate potential instability in primitive wrappers [ID:E-IS-002].",
+          "Despite active patching, the high number of open issues (1,805) suggests possible scalability or maintenance bottlenecks."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role": "skeptic",
+        "summary": "Despite its popularity and active release cadence, shadcn-ui/ui exhibits concerning gaps between its promise of a stable, customizable component foundation and real-world reliability—evidenced by persistent mobile and Radix integration bugs, while recent updates focus on minor aesthetic additions rather than core stability.",
+        "highlights": [
+          "Marketed as a robust base for custom component libraries, yet critical mobile navigation bugs remain unresolved [ID:E-RD-001, E-IS-001].",
+          "Recent releases prioritize superficial enhancements (e.g., fontHeading, chartColor) over fixing known integration flaws with underlying Radix primitives [ID:E-RL-001, E-IS-002].",
+          "Tooling fixes like bundling @antfu/ni address symptoms, not root causes of dependency fragility [ID:E-RL-002]."
+        ],
+        "risks": [
+          "Adopting shadcn-ui as a foundational library may expose applications to unaddressed mobile UX regressions in Next.js environments [ID:E-IS-001].",
+          "Reliance on Radix UI is undermined by open issues showing broken or incomplete component wrappers (e.g., Sidebar), suggesting insufficient testing of core integrations [ID:E-IS-002].",
+          "The disparity between high issue volume (1,805) and limited patch scope implies maintenance may not scale with user expectations or ecosystem complexity."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 7,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"shadcn-ui/ui\",\n    \"one_sentence\": \"A customizable, open-source UI component library built on Radix UI and Tailwind CSS for building custom design systems.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers import shadcn-ui components into their projects, customize them using Tailwind CSS and Radix primitives, and extend them to build unique, accessible user interfaces aligned with their design system.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Component Library Overview\",\n      \"purpose\": \"Display available UI components and customization options for developers to integrate and extend.\",\n      \"primary_actions\": [\n        \"Browse components\",\n        \"Customize theme\",\n        \"Generate code\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a customized UI component configuration to the project.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"components\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"config\",\n            \"type\": \"json\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up base component scaffolding\",\n          \"Integrate Radix UI primitives\",\n          \"Configure Tailwind theming\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Mobile navigation in Next.js App Router does not trigger unintended Sheet/Dialog reopen/close behavior.\",\n    \"Sidebar component integrates correctly with Radix UI without runtime errors.\"\n  ],\n  \"open_questions\": [\n    \"How to ensure stable mobile behavior across different routing frameworks?\",\n    \"What testing strategy ensures Radix primitive wrappers remain compatible with upstream changes?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fi"
+      }
+    },
+    "manticoresoftware/manticoresearch": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "Manticore Search is a high-performance, open-source search database positioned as a fast and cost-efficient alternative to Elasticsearch, with strong community presence and active development. It features drop-in compatibility with parts of the ELK stack, extensive documentation, and real-world adoption by notable organizations. However, it faces ongoing concurrency and internal communication issues, and frequent breaking changes in dependencies may complicate upgrades.",
+        "highlights": [
+          "Marketed as significantly faster than Elasticsearch and MySQL across multiple benchmark scenarios (e.g., 182x faster than MySQL on small data, 29x faster than Elasticsearch on log analytics).",
+          "Actively maintained with recent releases (latest: v17.5.1 in Feb 2026) and integration with companion components like MCL (columnar library) and Buddy.",
+          "Strong ecosystem signals: 11.7k+ stars, public documentation, blog, Slack/Telegram communities, and adoption by companies like Craigslist and PubChem.",
+          "GPLv3+ licensed C++ codebase with CI/CD (GitHub Actions), Docker support, and structured contribution guidelines."
+        ],
+        "risks": [
+          "Open critical issues include concurrency problems during AUTOOPTIMIZE and daemon stats corruption due to 'buddy communication', indicating potential stability concerns in production.",
+          "Frequent breaking changes in core dependencies (e.g., MCL format updates in v15.0.0 and v17.0.0) require careful version coordination and may disrupt upgrades.",
+          "Heavy reliance on external components (MCL, Buddy) increases operational complexity and coupling risk."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RF-001",
+          "E-RD-004",
+          "E-RD-005"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "Manticore Search is a high-performance, open-source search database engineered for speed and efficiency, offering drop-in compatibility with parts of the ELK stack and leveraging a modular architecture with external components like MCL and Buddy. It demonstrates strong real-world adoption and benchmarked performance advantages but introduces upgrade complexity due to frequent breaking changes in its dependencies.",
+        "highlights": [
+          "Engineered for extreme speed: claims 182x faster than MySQL on small datasets and up to 29x faster than Elasticsearch in log analytics, with reproducible benchmarks.",
+          "Modular design integrates external libraries (MCL for columnar storage, Buddy for auxiliary services), enabling specialized functionality while maintaining a core C++ search engine.",
+          "Adopted by major platforms like Craigslist and PubChem, validating its production readiness for large-scale search and stream filtering.",
+          "Actively innovating with recent features like KNN vector storage improvements and CJK segmentation enhancements via community contributions."
+        ],
+        "risks": [
+          "Tight coupling with evolving external components (MCL, Buddy) creates fragility; breaking interface changes (e.g., v15.0.0 and v17.0.0) require synchronized upgrades and risk data compatibility.",
+          "Critical unresolved concurrency bugs (e.g., during AUTOOPTIMIZE) and inter-component communication flaws suggest potential reliability gaps in high-load scenarios.",
+          "Dependency-driven architectural complexity may hinder independent deployment or customization without deep integration knowledge."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "Manticore Search is a high-performance, C++-based open-source search database designed as a fast and cost-efficient alternative to Elasticsearch, with modular dependencies like MCL and Buddy. It demonstrates strong benchmarked performance and real-world adoption but exhibits stability risks from unresolved concurrency bugs and operational complexity due to frequent breaking changes in tightly coupled components.",
+        "highlights": [
+          "Delivers significant performance gains: up to 182x faster than MySQL and 29x faster than Elasticsearch in documented, reproducible benchmarks.",
+          "Modular architecture leverages external components—MCL for columnar storage and Buddy for auxiliary services—with version coordination enforced via release notes.",
+          "Actively maintained with recent releases (e.g., v17.5.1 in Feb 2026) and integrates CI/CD, Docker, and comprehensive documentation.",
+          "Used in production by major organizations including Craigslist, PubChem, and Rozetka, validating scalability and reliability for search and stream filtering."
+        ],
+        "risks": [
+          "Open critical issues indicate instability: concurrency failures during AUTOOPTIMIZE [E-IS-001] and daemon stats corruption from Buddy communication [E-IS-002] may impact production reliability.",
+          "Breaking changes in core dependencies (e.g., MCL format updates in v15.0.0 [E-RL-002] and v17.0.0 [E-RL-001]) require strict version alignment and risk data compatibility during upgrades.",
+          "Tight coupling between daemon, MCL, and Buddy increases deployment and maintenance complexity, especially for custom or air-gapped environments."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "Manticore Search presents bold performance claims and real-world adoption, but its reliability is undermined by unresolved concurrency bugs, unstable inter-component communication, and a pattern of breaking changes that complicate upgrades and long-term maintenance.",
+        "highlights": [
+          "Performance benchmarks (e.g., '182x faster than MySQL') are cited with external links, but lack in-repo validation or methodology transparency—raising questions about reproducibility under diverse conditions.",
+          "Despite claims of being a 'drop-in replacement' for Elasticsearch, the architecture depends on tightly coupled, externally versioned components (MCL, Buddy), contradicting simplicity promises.",
+          "Public endorsements from companies like Craigslist are listed, but no verifiable case studies or integration details are provided in the repository to substantiate production robustness."
+        ],
+        "risks": [
+          "Two open critical issues—concurrency failure during AUTOOPTIMIZE [E-IS-001] and corrupted daemon stats due to Buddy communication [E-IS-002]—suggest systemic instability in core operations, especially under load.",
+          "Back-to-back breaking changes in MCL (v15.0.0 [E-RL-002] and v17.0.0 [E-RL-001]) alter data formats and interfaces, risking data incompatibility and forcing users into complex, synchronized upgrades.",
+          "Heavy reliance on non-core components (Buddy, MCL) with shifting version requirements increases operational fragility and contradicts the 'easy-to-use' positioning if manual coordination is needed outside official install paths."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RD-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Manticore Search\",\n    \"one_sentence\": \"Easy to use open source fast database for search, positioned as a high-performance alternative to Elasticsearch.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users define data sources and schemas, index documents via SQL or HTTP APIs, and execute fast full-text or vector searches; the system continuously optimizes indexes and serves low-latency queries using a modular architecture with external components like MCL and Buddy.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Search Dashboard\",\n      \"purpose\": \"Provide an entry point to manage indexes, run queries, and monitor performance metrics.\",\n      \"primary_actions\": [\n        \"Create index\",\n        \"Run search query\",\n        \"View system stats\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"optimize_index\",\n      \"purpose\": \"Trigger background index optimization (e.g., AUTOOPTIMIZE) to improve query performance.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"sync_daemon_stats\",\n      \"purpose\": \"Fetch and reconcile global daemon statistics, especially after Buddy communication events.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"indexes\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"schema\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"storage_type\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"documents\",\n        \"fields\": [\n          {\n            \"name\": \"index_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"text\"\n          },\n          {\n            \"name\": \"vector\",\n            \"type\": \"float[]\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n"
+      }
+    },
+    "xmlui-org/xmlui": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "XMLUI is a declarative UI framework using XML markup and theming, targeting developers seeking to build modern web apps with minimal React or CSS knowledge. It offers modularity, rich components, and integrations like data binding and routing, but faces minor unresolved issues and dependency concerns.",
+        "highlights": [
+          "Declarative UI framework using XML syntax with live data binding and theming (e.g., Select + Table example).",
+          "Modular architecture with 92 components and 7 extension packages; core charting moved to extension.",
+          "Emphasis on ease of use—requires little to no React or CSS expertise.",
+          "Active maintenance shown by recent patch fixes (e.g., FormItem regressions, JSDOM bundling issue).",
+          "Starter kit available for rapid onboarding via pre-built business application."
+        ],
+        "risks": [
+          "Open issue: Inspector component ignores __PUBLIC_PATH, potentially breaking asset paths in deployed environments.",
+          "Security concern: Outdated lodash version (4.17.21) flagged for upgrade to ≥4.17.23.",
+          "Hash-based routing configuration reportedly non-functional despite being a documented feature.",
+          "Sparse release notes for tooling packages (xmlui-vscode, create-xmlui-app), reducing transparency."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "XMLUI introduces a novel approach to web UI development by combining declarative XML markup with live data binding and theming, enabling developers to build modern applications without deep frontend expertise. Its architecture emphasizes modularity, extensibility, and rapid prototyping through pre-built components and starter kits.",
+        "highlights": [
+          "Invents a declarative UI paradigm using XML syntax for web apps, reducing reliance on React or CSS knowledge.",
+          "Integrates live data binding directly in markup (e.g., {tubeStations}, {$item.id}) for dynamic UIs without scripting.",
+          "Offers a modular component system with 92 core components and 7 extension packages, including recent extraction of charts into an extension.",
+          "Provides a complete starter kit (XMLUI Invoice) demonstrating real-world patterns and accelerating onboarding.",
+          "Supports theming with 3639 customizable variables, enabling deep visual customization without code changes."
+        ],
+        "risks": [
+          "Core routing feature (useHashBasedRouting) is documented but non-functional, undermining navigation reliability.",
+          "Security vulnerability due to outdated lodash dependency (4.17.21), requiring immediate upgrade.",
+          "Inspector tool fails to respect __PUBLIC_PATH, risking broken asset resolution in production deployments.",
+          "Sparse release notes for developer tooling (VS Code extension, app creator) reduce trust and adoption clarity."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-002",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "XMLUI is a TypeScript-based declarative UI framework that uses XML markup for building web applications with live data binding and extensive theming. It emphasizes low-code development, modularity, and rapid prototyping but has unresolved engineering concerns around routing, asset path resolution, and dependency security.",
+        "highlights": [
+          "Declarative XML syntax enables UI construction with minimal React or CSS knowledge, featuring live data binding (e.g., {tubeStations}, {$item.id}).",
+          "Modular architecture includes 92 core components and 7 extension packages; charting functionality was recently extracted into xmlui-recharts.",
+          "Recent patch releases address critical regressions (FormItem checkbox/theme) and bundling issues (JSDOM in executables).",
+          "Comprehensive theming system with 3639 customizable variables supports deep visual customization without code changes.",
+          "Starter kit (XMLUI Invoice) provides a production-grade reference implementation for common patterns and quick onboarding."
+        ],
+        "risks": [
+          "Hash-based routing configuration (useHashBasedRouting) is documented but non-functional, impacting SPA navigation reliability.",
+          "Inspector component ignores __PUBLIC_PATH, which may break asset loading in deployed environments using custom base paths.",
+          "Outdated lodash dependency (4.17.21) poses a known security risk; upgrade to ≥4.17.23 is pending.",
+          "Tooling releases (xmlui-vscode, create-xmlui-app) lack detailed changelogs, reducing visibility into updates and potential breaking changes."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-001",
+          "E-RL-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "While XMLUI presents an ambitious low-code UI framework with declarative XML and rich theming, several unresolved technical issues, security gaps, and inconsistent maintenance practices raise doubts about its production readiness and long-term reliability.",
+        "highlights": [
+          "Claims of 'easy' development with 'little or no React or CSS knowledge' may oversimplify real-world complexity, especially given underlying dependency on modern web tooling.",
+          "Modular architecture and large component count (92) sound impressive but recent extraction of Charts into an extension suggests instability in core scope.",
+          "Starter kit and live data binding examples showcase potential, but depend on features like routing that are documented yet broken.",
+          "Active patching (e.g., FormItem fixes, JSDOM bundling) shows responsiveness, but critical issues remain open for extended periods."
+        ],
+        "risks": [
+          "Documented routing feature (useHashBasedRouting) is non-functional—undermines trust in documentation and core SPA capabilities.",
+          "Known security vulnerability in lodash (4.17.21) remains unpatched despite being flagged; exposes apps to potential exploits.",
+          "Inspector ignores __PUBLIC_PATH, indicating poor handling of deployment environments—a red flag for production use.",
+          "Tooling releases (VS Code extension, app creator) have empty release notes, suggesting lack of rigor in developer experience maintenance."
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-002",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RL-001",
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"XMLUI\",\n    \"one_sentence\": \"A declarative UI framework for building modern web applications using XML markup and flexible theming with minimal React or CSS knowledge.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers define UIs in XML with live data binding and theming; the framework renders responsive, interactive web apps using a modular component system.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Application View\",\n      \"purpose\": \"Display dynamic UI composed of declarative XML components bound to live data sources.\",\n      \"primary_actions\": [\n        \"Render data-bound components like Select and Table\",\n        \"Apply theme variables dynamically\",\n        \"Interact with modular UI elements\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist user-modified data items to backend or local storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"list_items\",\n      \"purpose\": \"Fetch and display list of items from a data source using declarative binding.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"modes\",\n            \"type\": \"array\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up XMLUI starter kit with Invoice demo\",\n          \"Implement basic data binding between Select and Table components\",\n          \"Verify theming customization with subset of 3639 variables\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Application loads and renders XML-defined UI with live data binding without scripting.\",\n    \"Theme variables ap"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "shadcn-ui/ui",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 6,
+        "inventor": 5,
+        "engineer": 5,
+        "skeptic": 5,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "manticoresoftware/manticoresearch",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 7,
+        "engineer": 8,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "xmlui-org/xmlui",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 11,
+        "engineer": 11,
+        "skeptic": 9,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=155",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] xmlui-org/xmlui evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] manticoresoftware/manticoresearch evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] shadcn-ui/ui evidence total=7 readme=1 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=36 gaps=0",
+    "[llm_spec_generator] shadcn-ui/ui canonical spec ok (iter=1) -> specs/2026-03-23/shadcn-ui__ui.json",
+    "[llm_spec_generator] manticoresoftware/manticoresearch canonical spec ok (iter=1) -> specs/2026-03-23/manticoresoftware__manticoresearch.json",
+    "[llm_spec_generator] xmlui-org/xmlui canonical spec ok (iter=1) -> specs/2026-03-23/xmlui-org__xmlui.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-23T05:06:13.649Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:13.671Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260323T050613Z"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:13.671Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:13.675Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:14.137Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:14.137Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:14.464Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:14.464Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:14.847Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:14.847Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:15.319Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:15.319Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:15.668Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:15.668Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:15.963Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:15.963Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:16.351Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:16.351Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:16.747Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:16.747Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.075Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.075Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.390Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.393Z",
+      "run_id": "20260323T050613Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 155
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.394Z",
+      "run_id": "20260323T050613Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.396Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-23T05:06:17.397Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "shadcn-ui__ui/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.397Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "shadcn-ui__ui/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.399Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "shadcn-ui__ui/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.401Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "shadcn-ui__ui/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.402Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-23T05:06:17.403Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "manticoresoftware__manticoresearch/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.404Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "manticoresoftware__manticoresearch/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.406Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "manticoresoftware__manticoresearch/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.407Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "manticoresoftware__manticoresearch/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.409Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-23T05:06:17.409Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "xmlui-org__xmlui/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.412Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "xmlui-org__xmlui/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.413Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "xmlui-org__xmlui/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.415Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "xmlui-org__xmlui/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.719Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 4661,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.719Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.719Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.719Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 310
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.719Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.724Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 17427,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.724Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.724Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.724Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 322
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.725Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.794Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 467,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.794Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.794Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.794Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 398
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.795Z",
+      "run_id": "20260323T050613Z",
+      "node": "repo_card_builder",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 7,
+        "readme": 1,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.799Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 7,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 1,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:17.799Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 7,
+        "evidence_selected": 7,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:30.407Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1246,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:41.213Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1177,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:06:54.175Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1360,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:09.364Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1458,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:32.429Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2548,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:32.442Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:32.443Z",
+      "run_id": "20260323T050613Z",
+      "node": "artifacts",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-23/shadcn-ui__ui.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:32.443Z",
+      "run_id": "20260323T050613Z",
+      "node": "artifacts",
+      "repo": "shadcn-ui/ui",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-23/shadcn-ui__ui.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:32.445Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:32.445Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:07:49.128Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1839,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:08:02.995Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1796,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:08:17.040Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1819,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:08:38.132Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1754,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:11.704Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3567,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:11.706Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:11.706Z",
+      "run_id": "20260323T050613Z",
+      "node": "artifacts",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-23/manticoresoftware__manticoresearch.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:11.707Z",
+      "run_id": "20260323T050613Z",
+      "node": "artifacts",
+      "repo": "manticoresoftware/manticoresearch",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-23/manticoresoftware__manticoresearch.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:11.707Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:11.707Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:25.142Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1492,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:40.524Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1691,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:09:59.405Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1808,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:13.097Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1658,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.684Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2886,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.686Z",
+      "run_id": "20260323T050613Z",
+      "node": "llm_spec_generator",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.687Z",
+      "run_id": "20260323T050613Z",
+      "node": "artifacts",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-23/xmlui-org__xmlui.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.687Z",
+      "run_id": "20260323T050613Z",
+      "node": "artifacts",
+      "repo": "xmlui-org/xmlui",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-23/xmlui-org__xmlui.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.691Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.691Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1774242373649,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "shadcn-ui/ui": 5,
+          "manticoresoftware/manticoresearch": 5,
+          "xmlui-org/xmlui": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.691Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-23T05:10:37.691Z",
+      "run_id": "20260323T050613Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-23",
+    "evidence_dir": "evidence/2026-03-23"
+  }
+}

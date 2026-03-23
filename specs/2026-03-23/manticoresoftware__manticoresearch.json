@@ -1,0 +1,98 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Manticore Search",
+    "one_liner": "Easy to use open source fast database for search, positioned as a high-performance alternative to Elasticsearch."
+  },
+  "screens": [
+    {
+      "name": "Search Dashboard",
+      "purpose": "Provide an entry point to manage indexes, run queries, and monitor performance metrics.",
+      "primary_actions": [
+        "Create index",
+        "Run search query",
+        "View system stats"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "optimize_index",
+      "purpose": "Trigger background index optimization (e.g., AUTOOPTIMIZE) to improve query performance.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "index_id": "string",
+        "payload": "json",
+        "vector": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_daemon_stats",
+      "purpose": "Fetch and reconcile global daemon statistics, especially after Buddy communication events.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "index_id": "string",
+        "payload": "json",
+        "vector": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "documents",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "index_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "vector",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "indexes",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "schema",
+            "type": "JSON"
+          },
+          {
+            "name": "storage_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic HTTP/JSON API layer",
+    "week 1: Integrate MCL columnar storage",
+    "week 1: Set up core C++ search engine with SQL interface"
+  ],
+  "acceptance_tests": [
+    "Daemon global stats must remain consistent after Buddy communication events.",
+    "Queries on small datasets must execute at least 100x faster than equivalent MySQL full-text queries.",
+    "System must handle concurrent AUTOOPTIMIZE requests without crashing or corrupting state."
+  ]
+}

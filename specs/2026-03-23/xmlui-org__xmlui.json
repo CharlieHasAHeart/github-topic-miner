@@ -1,0 +1,80 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "XMLUI",
+    "one_liner": "A declarative UI framework for building modern web applications using XML markup and flexible theming with minimal React or CSS knowledge."
+  },
+  "screens": [
+    {
+      "name": "Main Application View",
+      "purpose": "Display dynamic UI composed of declarative XML components bound to live data sources.",
+      "primary_actions": [
+        "Apply theme variables dynamically",
+        "Interact with modular UI elements",
+        "Render data-bound components like Select and Table"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Fetch and display list of items from a data source using declarative binding.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "modes": "json",
+        "name": "string",
+        "offset": "int?",
+        "query": "string?"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user-modified data items to backend or local storage.",
+      "async": true,
+      "input": {
+        "modes": "json",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "modes",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic data binding between Select and Table components",
+    "week 1: Set up XMLUI starter kit with Invoice demo",
+    "week 1: Verify theming customization with subset of 3639 variables"
+  ],
+  "acceptance_tests": [
+    "Application loads and renders XML-defined UI with live data binding without scripting.",
+    "Theme variables apply correctly across all 92 core components."
+  ]
+}
