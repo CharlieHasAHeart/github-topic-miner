@@ -1,0 +1,1709 @@
+{
+  "run_id": "20260324T045639Z",
+  "generated_at": "2026-03-24T04:56:39.600Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 4,
+    "new_candidates": 1,
+    "repo_cards_built": 1,
+    "gaps_count": 0,
+    "specs_attempted": 1,
+    "specs_succeeded": 1,
+    "specs_failed": 0,
+    "evidence_validated": 1,
+    "evidence_valid_ok": 1,
+    "evidence_valid_failed": 0,
+    "evidence_written": 1,
+    "evidence_write_failed": 0,
+    "evidence_total": 17,
+    "evidence_by_type": {
+      "readme": 8,
+      "issue": 5,
+      "release": 3,
+      "root_files": 1
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-24T04:58:12.886Z",
+    "repo_count": 159
+  },
+  "candidates": [
+    {
+      "full_name": "google-gemini/gemini-cli",
+      "html_url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "cli",
+        "gemini",
+        "gemini-api",
+        "mcp-client",
+        "mcp-server"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 98849,
+      "forks_count": 12568,
+      "open_issues_count": 3150,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-24T04:56:26Z",
+      "created_at": "2025-04-17T17:04:31Z"
+    },
+    {
+      "full_name": "scalar/scalar",
+      "html_url": "https://github.com/scalar/scalar",
+      "description": "Scalar is an open-source API platform:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　🌐 Modern REST API Client　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　📖 Beautiful API References　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　✨ 1st-Class OpenAPI/Swagger Support",
+      "topics": [
+        "api",
+        "api-client",
+        "docs",
+        "http-client",
+        "openapi",
+        "openapi3",
+        "reference",
+        "rest-api",
+        "swagger",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 14382,
+      "forks_count": 789,
+      "open_issues_count": 144,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-24T04:56:06Z",
+      "created_at": "2023-08-16T13:42:32Z"
+    },
+    {
+      "full_name": "makeplane/plane",
+      "html_url": "https://github.com/makeplane/plane",
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "topics": [
+        "boards",
+        "bug-tracker",
+        "django",
+        "docker",
+        "gantt",
+        "issue-tracker",
+        "jira",
+        "jira-alternative",
+        "kanban",
+        "linear",
+        "postgresql",
+        "product-management",
+        "project-management",
+        "project-planning",
+        "python",
+        "react",
+        "redis",
+        "typescipt",
+        "vite",
+        "work-management"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 46904,
+      "forks_count": 3783,
+      "open_issues_count": 703,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "preview",
+      "pushed_at": "2026-03-24T04:53:59Z",
+      "created_at": "2022-11-19T12:55:01Z"
+    },
+    {
+      "full_name": "fastrepl/char",
+      "html_url": "https://github.com/fastrepl/char",
+      "description": "AI notepad for meetings",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8056,
+      "forks_count": 565,
+      "open_issues_count": 163,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-24T04:53:58Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 628,
+      "forks_count": 169,
+      "open_issues_count": 1433,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-24T04:53:33Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "makeplane/plane",
+      "html_url": "https://github.com/makeplane/plane",
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "topics": [
+        "boards",
+        "bug-tracker",
+        "django",
+        "docker",
+        "gantt",
+        "issue-tracker",
+        "jira",
+        "jira-alternative",
+        "kanban",
+        "linear",
+        "postgresql",
+        "product-management",
+        "project-management",
+        "project-planning",
+        "python",
+        "react",
+        "redis",
+        "typescipt",
+        "vite",
+        "work-management"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 46904,
+      "forks_count": 3783,
+      "open_issues_count": 703,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "preview",
+      "pushed_at": "2026-03-24T04:53:59Z",
+      "created_at": "2022-11-19T12:55:01Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "makeplane/plane",
+      "html_url": "https://github.com/makeplane/plane",
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "topics": [
+        "boards",
+        "bug-tracker",
+        "django",
+        "docker",
+        "gantt",
+        "issue-tracker",
+        "jira",
+        "jira-alternative",
+        "kanban",
+        "linear",
+        "postgresql",
+        "product-management",
+        "project-management",
+        "project-planning",
+        "python",
+        "react",
+        "redis",
+        "typescipt",
+        "vite",
+        "work-management"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 46904,
+      "forks_count": 3783,
+      "open_issues_count": 703,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "preview",
+      "pushed_at": "2026-03-24T04:53:59Z",
+      "created_at": "2022-11-19T12:55:01Z",
+      "readme": {
+        "fetched": true,
+        "text": "<br /><br />\n\n<p align=\"center\">\n<a href=\"https://plane.so\">\n  <img src=\"https://media.docs.plane.so/logo/plane_github_readme.png\" alt=\"Plane Logo\" width=\"400\">\n</a>\n</p>\n<p align=\"center\"><b>Modern project management for all teams</b></p>\n\n<p align=\"center\">\n    <a href=\"https://plane.so/\"><b>Website</b></a> •\n    <a href=\"https://forum.plane.so\"><b>Forum</b></a> •\n    <a href=\"https://twitter.com/planepowers\"><b>Twitter</b></a> •\n    <a href=\"https://docs.plane.so/\"><b>Documentation</b></a>\n</p>\n\n<p>\n    <a href=\"https://app.plane.so/#gh-light-mode-only\" target=\"_blank\">\n      <img\n        src=\"https://media.docs.plane.so/GitHub-readme/github-top.webp\"\n        alt=\"Plane Screens\"\n        width=\"100%\"\n      />\n    </a>\n</p>\n\nMeet [Plane](https://plane.so/), an open-source project management tool to track issues, run ~sprints~ cycles, and manage product roadmaps without the chaos of managing the tool itself. 🧘‍♀️\n\n> Plane is evolving every day. Your suggestions, ideas, and reported bugs help us immensely. Do not hesitate to join in the conversation on [Forum](https://forum.plane.so) or raise a GitHub issue. We read everything and respond to most.\n\n## 🚀 Installation\n\nGetting started with Plane is simple. Choose the setup that works best for you:\n\n- **Plane Cloud**\n  Sign up for a free account on [Plane Cloud](https://app.plane.so)—it's the fastest way to get up and running without worrying about infrastructure.\n\n- **Self-host Plane**\n  Prefer full control over your data and infrastructure? Install and run Plane on your own servers. Follow our detailed [deployment guides](https://developers.plane.so/self-hosting/overview) to get started.\n\n| Installation methods | Docs link                                                                                                                                                                               |\n| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Docker               | [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://developers.plane.so/self-hosting/methods/docker-compose)         |\n| Kubernetes           | [![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)](https://developers.plane.so/self-hosting/methods/kubernetes) |\n\n`Instance admins` can configure instance settings with [God mode](https://developers.plane.so/self-hosting/govern/instance-admin).\n\n## 🌟 Features\n\n- **Work Items**\n  Efficiently create and manage tasks with a robust rich text editor that supports file uploads. Enhance organization and tracking by adding sub-properties and referencing related issues.\n\n- **Cycles**\n  Maintain your team’s momentum with Cycles. Track progress effortlessly using burn-down charts and other insightful tools.\n\n- **Modules**\n  Simplify complex projects by dividing them into smaller, manageable modules.\n\n- **Views**\n  Customize your workflow by creating filters to display only the most relevant issues. Save and share these views with ease.\n\n- **Pages**\n  Capture and organize ideas using Plane Pages, complete with AI capabilities and a rich text editor. Format text, insert images, add hyperlinks, or convert your notes into actionable items.\n\n- **Analytics**\n  Access real-time insights across all your Plane data. Visualize trends, remove blockers, and keep your projects moving forward.\n\n## 🛠️ Local development\n\nSee [CONTRIBUTING](./CONTRIBUTING.md)\n\n## ⚙️ Built with\n\n[![React Router](https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router&style=for-the-badge&logoColor=white)](https://reactrouter.com/)\n[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green)](https://www.djangoproject.com/)\n[![Node JS](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white)](https://nodejs.org/en)\n\n## 📸 Screenshots\n\n  <p>\n    <a href=\"https://plane.so\" target=\"_blank\">\n      <img\n        src=\"https://media.docs.plane.so/GitHub-readme/github-work-items.webp\"\n        alt=\"Plane Views\"\n        width=\"100%\"\n      />\n    </a>\n  </p>\n  <p>\n    <a href=\"https://plane.so\" target=\"_blank\">\n      <img\n        src=\"https://media.docs.plane.so/GitHub-readme/github-cycles.webp\"\n        width=\"100%\"\n      />\n    </a>\n  </p>\n  <p>\n    <a href=\"https://plane.so\" target=\"_blank\">\n      <img\n        src=\"https://media.docs.plane.so/GitHub-readme/github-modules.webp\"\n        alt=\"Plane Cycles and Modules\"\n        width=\"100%\"\n      />\n    </a>\n  </p>\n  <p>\n    <a href=\"https://plane.so\" target=\"_blank\">\n      <img\n        src=\"https://media.docs.plane.so/GitHub-readme/github-views.webp\"\n        alt=\"Plane Analytics\"\n        width=\"100%\"\n      />\n    </a>\n  </p>\n   <p>\n    <a href=\"https://plane.so\" target=\"_blank\">\n      <img\n        src=\"https://media.docs.plane.so/GitHub-readme/github-analytics.webp\"\n        alt=\"Plane Pages\"\n        width=\"100%\"\n      />\n    </a>\n  </p>\n</p>\n\n## 📝 Documentation\n\nExplore Plane's [product documentation](https://docs.plane.so/) and [developer documentation](https://developers.plane.so/) to learn about features, setup, and usage.\n\n## ❤️ Community\n\nJoin the Plane community on [GitHub Discussions](https://github.com/orgs/makeplane/discussions) and our [Forum](https://forum.plane.so). We follow a [Code of conduct](https://github.com/makeplane/plane/blob/master/CODE_OF_CONDUCT.md) in all our community channels.\n\nFeel free to ask questions, report bugs, participate in discussions, share ideas, request features, or showcase your projects. We’d love to hear from you!\n\n## 🛡️ Security\n\nIf you discover a security vulnerability in Plane, please report it responsibly instead of opening a public issue. We take all legitimate reports seriously and will investigate them promptly. See [Security policy](https://github.com/makeplane/plane/blob/master/SECURITY.md) for more info.\n\nTo disclose any security issues, please email us at security@plane.so.\n\n## 🤝 Contributing\n\nThere are many ways you can contribute to Plane:\n\n- Report [bugs](https://github.com/makeplane/plane/issues/new?assignees=srinivaspendem%2Cpushya22&labels=%F0%9F%90%9Bbug&projects=&template=--bug-report.yaml&title=%5Bbug%5D%3A+) or submit [feature requests](https://github.com/makeplane/plane/issues/new?assignees=srinivaspendem%2Cpushya22&labels=%E2%9C%A8feature&projects=&template=--feature-request.yaml&title=%5Bfeature%5D%3A+).\n- Review the [documentation](https://docs.plane.so/) and submit [pull requests](https://github.com/makeplane/docs) to improve it—whether it's fixing typos or adding new content.\n- Talk or write about Plane or any other ecosystem integration and [let us know](https://forum.plane.so)!\n- Show your support by upvoting [popular feature requests](https://github.com/makeplane/plane/issues).\n\nPlease read [CONTRIBUTING.md](https://github.com/makeplane/plane/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests to us.\n\n### Repo activity\n\n![Plane Repo Activity](https://repobeats.axiom.co/api/embed/2523c6ed2f77c082b7908c33e2ab208981d76c39.svg \"Repobeats analytics image\")\n\n### We couldn't have done this without you.\n\n<a href=\"https://github.com/makeplane/plane/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=makeplane/plane\" />\n</a>\n\n## License\n\nThis project is licensed under the [GNU Affero General Public License v3.0](https://github.com/makeplane/plane/blob/master/LICENSE.txt).\n",
+        "truncated": false,
+        "bytes": 7711,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.2.3",
+            "tag_name": "v1.2.3",
+            "published_at": "2026-03-05T12:51:52Z",
+            "body_excerpt": "### 🛡️ Security\r\n- Added validation while saving webhooks with reserver IP addresses"
+          },
+          {
+            "name": "v1.2.2",
+            "tag_name": "v1.2.2",
+            "published_at": "2026-02-23T08:54:08Z",
+            "body_excerpt": "### Security patch\r\n\r\n- Fixed arbitrary modification of API token rate limits by enforcing server-side validation and authorization checks.\r\n- Mitigated SSRF vulnerability in work item link handling through strict URL validation and outbound request controls.\r\n- Fixed member information disclosure via publicly accessible endpoint by applying proper access control checks.\r\n- Resolved IDOR vulnerabilities in asset and attachment endpoints to prevent unauthorized resource access.\r\n- Upgraded Django to 4.2.28\r\n- Upgraded the cryptography to 46.0.5"
+          },
+          {
+            "name": "v1.2.1",
+            "tag_name": "v1.2.1",
+            "published_at": "2025-12-12T11:13:02Z",
+            "body_excerpt": "### 🛡️  Security\r\n\r\n- Removed underlying NextJS dependencies. "
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 8784,
+            "title": "Kjc",
+            "state": "closed",
+            "url": "https://github.com/makeplane/plane/issues/8784"
+          },
+          {
+            "number": 8786,
+            "title": "[bug]: Abort after Upgrade",
+            "state": "open",
+            "url": "https://github.com/makeplane/plane/issues/8786"
+          },
+          {
+            "number": 6711,
+            "title": "[bug]: Self hosted Gitlab Integration in Pro version",
+            "state": "open",
+            "url": "https://github.com/makeplane/plane/issues/6711"
+          },
+          {
+            "number": 8788,
+            "title": "I don't receive any notification when a work item is assigned to me",
+            "state": "open",
+            "url": "https://github.com/makeplane/plane/issues/8788"
+          },
+          {
+            "number": 2245,
+            "title": "[feature]: Automated generating of cycles ",
+            "state": "open",
+            "url": "https://github.com/makeplane/plane/issues/2245"
+          }
+        ]
+      },
+      "root_files": [
+        ".codespellrc",
+        ".dockerignore",
+        ".env.example",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".idx",
+        ".mise.toml",
+        ".npmrc",
+        ".oxfmtrc.json",
+        ".oxlintrc.json",
+        ".prettierignore",
+        "AGENTS.md",
+        "CODEOWNERS",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "COPYRIGHT.txt",
+        "COPYRIGHT_CHECK.md",
+        "LICENSE.txt",
+        "README.md",
+        "SECURITY.md",
+        "apps",
+        "deployments",
+        "docker-compose-local.yml",
+        "docker-compose.yml",
+        "docs",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "setup.sh",
+        "turbo.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://plane.so\"> <img src=\"https://media.docs.plane.so/logo/plane_github_readme.png\" alt=\"Plane Logo\" width=\"400\"> </a> </p> <p align=\"center\"><b>Modern project management for all teams</b></p>",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://plane.so/\"><b>Website</b></a> • <a href=\"https://forum.plane.so\"><b>Forum</b></a> • <a href=\"https://twitter.com/planepowers\"><b>Twitter</b></a> • <a href=\"https://docs.plane.so/\"><b>Documentation</b></a> </p>",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p> <a href=\"https://app.plane.so/#gh-light-mode-only\" target=\"_blank\"> <img src=\"https://media.docs.plane.so/GitHub-readme/github-top.webp\" alt=\"Plane Screens\" width=\"100%\" /> </a> </p>",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Meet [Plane](https://plane.so/), an open-source project management tool to track issues, run ~sprints~ cycles, and manage product roadmaps without the chaos of managing the tool itself. 🧘‍♀️",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 5)",
+          "excerpt": "> Plane is evolving every day. Your suggestions, ideas, and reported bugs help us immensely. Do not hesitate to join in the conversation on [Forum](https://forum.plane.so) or raise a GitHub issue. We read everything and respond to most.",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- **Plane Cloud** Sign up for a free account on [Plane Cloud](https://app.plane.so)—it's the fastest way to get up and running without worrying about infrastructure.",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **Self-host Plane** Prefer full control over your data and infrastructure? Install and run Plane on your own servers. Follow our detailed [deployment guides](https://developers.plane.so/self-hosting/overview) to get started.",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/makeplane/plane#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Installation methods | Docs link | | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | | Docker | [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://developers.plane.so/self-hosting/methods/docker-compose) | | Kubernetes | [![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)](https://developers.plane.so/self-hosting/methods/kubernetes) |",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/makeplane/plane/issues/8784",
+          "title": "Kjc",
+          "excerpt": "Kjc (state:closed)",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "number": 8784
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/makeplane/plane/issues/8786",
+          "title": "[bug]: Abort after Upgrade",
+          "excerpt": "[bug]: Abort after Upgrade (state:open)",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "number": 8786
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/makeplane/plane/issues/6711",
+          "title": "[bug]: Self hosted Gitlab Integration in Pro version",
+          "excerpt": "[bug]: Self hosted Gitlab Integration in Pro version (state:open)",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "number": 6711
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/makeplane/plane/issues/8788",
+          "title": "I don't receive any notification when a work item is assigned to me",
+          "excerpt": "I don't receive any notification when a work item is assigned to me (state:open)",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "number": 8788
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/makeplane/plane/issues/2245",
+          "title": "[feature]: Automated generating of cycles ",
+          "excerpt": "[feature]: Automated generating of cycles (state:open)",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "number": 2245
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/makeplane/plane/releases",
+          "title": "v1.2.3",
+          "excerpt": "### 🛡️ Security - Added validation while saving webhooks with reserver IP addresses",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "tag_name": "v1.2.3",
+            "published_at": "2026-03-05T12:51:52Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/makeplane/plane/releases",
+          "title": "v1.2.2",
+          "excerpt": "### Security patch - Fixed arbitrary modification of API token rate limits by enforcing server-side validation and authorization checks. - Mitigated SSRF vulnerability in work item link handling through strict URL validation and outbound request controls. - Fixed member information disclosure via publicly accessible endpoint by applying proper access control checks. - Resolved IDOR vulnerabilities in asset and attachment endpoints to prevent unauthorized resource access. - Upgraded Django to 4.2.28 - Upgraded the cryptography to 46.0.5",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "tag_name": "v1.2.2",
+            "published_at": "2026-02-23T08:54:08Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/makeplane/plane/releases",
+          "title": "v1.2.1",
+          "excerpt": "### 🛡️ Security - Removed underlying NextJS dependencies.",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "tag_name": "v1.2.1",
+            "published_at": "2025-12-12T11:13:02Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/makeplane/plane",
+          "title": "ROOT_FILES",
+          "excerpt": ".codespellrc, .dockerignore, .env.example, .gitattributes, .github, .gitignore, .husky, .idx, .mise.toml, .npmrc, .oxfmtrc.json, .oxlintrc.json, .prettierignore, AGENTS.md, CODEOWNERS, CODE_OF_CONDUCT.md, CONTRIBUTING.md, COPYRIGHT.txt, COPYRIGHT_CHECK.md, LICENSE.txt, README.md, SECURITY.md, apps, deployments, docker-compose-local.yml, docker-compose.yml, docs, package.json, packages, pnpm-lock.yaml, pnpm-workspace.yaml, setup.sh, turbo.json",
+          "fetched_at": "2026-03-24T04:56:44.613Z",
+          "meta": {
+            "repo_full_name": "makeplane/plane",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "makeplane/plane",
+      "evidence_count": 17,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 5,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 5,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "makeplane/plane",
+      "ok": true,
+      "spec_path": "specs/2026-03-24/makeplane__plane.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "makeplane/plane",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-24/makeplane__plane.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "makeplane/plane",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 3,
+          "cited": 3
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-24/makeplane__plane.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-24T04:56:56.060Z",
+      "run_id": "20260324T045639Z",
+      "repo": "makeplane/plane",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8c92a58b798b07e6fc79113979d0dd80e44e017d5384baa12190e62ed4fea094",
+      "input_stats": {
+        "evidence_count": 17,
+        "approx_chars": 8023
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11442,
+      "prompt_chars": 8023,
+      "completion_chars": 1387
+    },
+    {
+      "ts": "2026-03-24T04:57:07.305Z",
+      "run_id": "20260324T045639Z",
+      "repo": "makeplane/plane",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e2e0bb5c564750ca8c6a8ca87d5ec50eb6d623fba6b8007b83a3fdfd1f421f7c",
+      "input_stats": {
+        "evidence_count": 17,
+        "approx_chars": 9630
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11245,
+      "prompt_chars": 9630,
+      "completion_chars": 1309
+    },
+    {
+      "ts": "2026-03-24T04:57:18.059Z",
+      "run_id": "20260324T045639Z",
+      "repo": "makeplane/plane",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9b1d9e1d15d2c68ecf6421d0f056f463d989e87dfff64a20eb1af3c589ffeba7",
+      "input_stats": {
+        "evidence_count": 17,
+        "approx_chars": 11139
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10754,
+      "prompt_chars": 11139,
+      "completion_chars": 1334
+    },
+    {
+      "ts": "2026-03-24T04:57:27.951Z",
+      "run_id": "20260324T045639Z",
+      "repo": "makeplane/plane",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "31e964ff6ea4fd4ad85c0c2be3f2df9f5a93e68ae1fd9a5b5efd14f32744e251",
+      "input_stats": {
+        "evidence_count": 17,
+        "approx_chars": 12670
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9892,
+      "prompt_chars": 12670,
+      "completion_chars": 1145
+    },
+    {
+      "ts": "2026-03-24T04:58:12.872Z",
+      "run_id": "20260324T045639Z",
+      "repo": "makeplane/plane",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "19b1c9c5f24fb9d807a8bd3602e124d9d9c69239206ab7e279a98ce68053dd07",
+      "input_stats": {
+        "evidence_count": 17,
+        "approx_chars": 16677
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 44920,
+      "prompt_chars": 16677,
+      "completion_chars": 6919
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "makeplane/plane",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "makeplane/plane",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 17,
+      "evidence_total_final": 17,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 1,
+    "attempts_used_hist": {
+      "0": 1,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 1,
+    "success": 1
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1774328199610,
+    "llmCallsTotal": 5,
+    "llmCallsPerRepo": {
+      "makeplane/plane": 5
+    },
+    "tokensApproxTotal": 17560,
+    "tokensApproxPerRepo": {
+      "makeplane/plane": 17560
+    },
+    "reposProcessed": 1,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "makeplane/plane": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 17,
+        "role": "scout",
+        "summary": "Plane is a rapidly growing open-source project management platform positioned as an alternative to Jira, Linear, and ClickUp. It offers both cloud-hosted and self-hosted deployment options with strong documentation and active community engagement. The project demonstrates robust security practices through regular patches and dependency updates, though several unresolved bugs and feature requests indicate ongoing stability and completeness challenges.",
+        "highlights": [
+          "Modern, open-source project management tool with cloud and self-hosted options",
+          "Active development with recent security-focused releases",
+          "Strong documentation and multiple deployment methods (Docker, Kubernetes)",
+          "High community interest (46.9k stars, 3.7k forks)"
+        ],
+        "risks": [
+          "Multiple open high-impact bugs (e.g., post-upgrade abort, missing notifications, GitLab integration issues)",
+          "Pending feature requests suggest incomplete core functionality (e.g., automated cycle generation)",
+          "Recent security vulnerabilities (SSRF, IDOR, token rate limit bypass) indicate potential exposure in self-hosted deployments"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 17,
+        "role": "inventor",
+        "summary": "Plane is an open-source, full-stack project management platform designed as a modern alternative to tools like Jira and Linear, combining issue tracking, cycle planning, and roadmapping with self-hosting flexibility and cloud availability.",
+        "highlights": [
+          "Unified platform for issues, cycles, docs, and triage—positioned as an all-in-one alternative to multiple proprietary tools",
+          "Dual deployment model: fully managed Plane Cloud and self-hosted options via Docker or Kubernetes",
+          "Built with a modern stack (TypeScript, React, Django, PostgreSQL, Redis) enabling extensibility and performance",
+          "Active innovation evidenced by frequent security-hardened releases and community-driven feature development"
+        ],
+        "risks": [
+          "Core workflow gaps persist, such as missing automated cycle generation and unreliable assignment notifications",
+          "Self-hosted deployments may expose users to SSRF, IDOR, and token abuse vulnerabilities despite recent patches",
+          "Integration instability, particularly with self-hosted GitLab in the Pro version, limits enterprise adoption"
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 17,
+        "role": "engineer",
+        "summary": "Plane is a full-stack, open-source project management platform built with TypeScript, React, and Django, offering both cloud and self-hosted deployment options. It emphasizes modern workflows for issue tracking, cycle planning, and roadmapping, with active development focused on security hardening and infrastructure flexibility.",
+        "highlights": [
+          "Modern tech stack (TypeScript, React, Django, PostgreSQL, Redis) supports scalable architecture",
+          "Multiple self-hosting options (Docker, Kubernetes) with detailed deployment guides",
+          "Recent releases include critical security fixes (SSRF, IDOR, token rate limit bypass)",
+          "Active community engagement and clear contribution pathways (CODEOWNERS, CONTRIBUTING.md)"
+        ],
+        "risks": [
+          "Open bugs indicate instability in core features: post-upgrade aborts, missing assignment notifications, and broken GitLab Pro integration",
+          "Security vulnerabilities patched recently suggest potential exposure in older or unpatched self-hosted instances",
+          "Incomplete automation (e.g., manual cycle creation) may hinder adoption for mature engineering teams"
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 17,
+        "role": "skeptic",
+        "summary": "Despite Plane's popularity and active development, significant unresolved bugs, recent critical security flaws, and incomplete core features raise concerns about its readiness for production use—especially in self-hosted or enterprise contexts.",
+        "highlights": [
+          "High-profile security vulnerabilities (SSRF, IDOR, token abuse) were only recently patched, suggesting prior exposure in deployed instances",
+          "Core functionality gaps remain open: missing assignment notifications, post-upgrade crashes, and broken GitLab Pro integration",
+          "Feature requests like automated cycle generation indicate the product lacks maturity compared to established alternatives"
+        ],
+        "risks": [
+          "Self-hosted deployments may still be vulnerable if not updated to latest patched versions (v1.2.2+)",
+          "Reliance on cloud-hosted version locks users into vendor infrastructure despite 'open-source' claims",
+          "Open high-impact bugs suggest insufficient QA or regression testing in release cycles"
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 17,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Plane\",\n    \"one_sentence\": \"Modern open-source project management platform for tracking issues, running cycles, and managing roadmaps.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users create and organize work items (issues), group them into time-bound cycles, assign them to team members, track progress via boards and roadmaps, and collaborate through integrated notifications and documentation.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Workspace Dashboard\",\n      \"purpose\": \"Central hub for viewing and managing projects, cycles, issues, and team activity.\",\n      \"primary_actions\": [\n        \"Create new issue\",\n        \"View active cycles\",\n        \"Navigate to project boards\",\n        \"Access roadmap\"\n      ]\n    },\n    {\n      \"id\": \"issue_detail\",\n      \"name\": \"Issue Detail View\",\n      \"purpose\": \"Display and edit detailed information about a specific work item including description, assignee, status, and comments.\",\n      \"primary_actions\": [\n        \"Update issue status\",\n        \"Assign to team member\",\n        \"Add comment\",\n        \"Link related issues\"\n      ]\n    },\n    {\n      \"id\": \"cycle_planner\",\n      \"name\": \"Cycle Planner\",\n      \"purpose\": \"Plan and manage time-boxed work cycles with automated or manual issue assignment.\",\n      \"primary_actions\": [\n        \"Create new cycle\",\n        \"Add issues to cycle\",\n        \"Set cycle dates\",\n        \"Review cycle progress\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_issue\",\n      \"purpose\": \"Persist an issue with its metadata including title, description, assignee, and status.\",\n      \"async\": true,\n      \"input\": {\n        \"issue_id\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"assignee_id\": \"string\",\n        \"status\": \"string\",\n        \"project_id\": \"string\"\n      },\n      \"output\": {\n        \"success\": \"boolean\",\n        \"updated_at\": \"timestamp\"\n      }\n    },\n    {\n      \"name\": \"assign_issue\",\n   "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "makeplane/plane",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 9,
+        "engineer": 9,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=158",
+    "[deduper] candidates_total=5 new=1 skipped=4",
+    "[repo_card_builder] makeplane/plane evidence total=17 readme=8 issue=5 release=3 root_files=1",
+    "[repo_card_builder] built=1 readme_ok=1/1 evidence_total=17 gaps=0",
+    "[llm_spec_generator] makeplane/plane canonical spec ok (iter=1) -> specs/2026-03-24/makeplane__plane.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-24T04:56:39.610Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:39.630Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260324T045639Z"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:39.630Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:39.634Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:40.239Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:40.239Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:40.729Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:40.729Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:41.165Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:41.165Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:41.573Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:41.573Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:42.043Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:42.043Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:42.434Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:42.434Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:42.854Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:42.854Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:43.165Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:43.165Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:43.628Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:43.628Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.050Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.054Z",
+      "run_id": "20260324T045639Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 158
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.054Z",
+      "run_id": "20260324T045639Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 1,
+        "skipped": 4,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.057Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-24T04:56:44.058Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makeplane__plane/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.058Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makeplane__plane/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.060Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makeplane__plane/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.062Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "makeplane__plane/root_files_preview.json"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.613Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7711,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.613Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.613Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 5
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.613Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 556
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.614Z",
+      "run_id": "20260324T045639Z",
+      "node": "repo_card_builder",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 17,
+        "readme": 8,
+        "issues": 5,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.617Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 17,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 5,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:44.617Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 17,
+        "evidence_selected": 17,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-24T04:56:56.060Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1387,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:57:07.305Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1309,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:57:18.059Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1334,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:57:27.951Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1145,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.872Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 6919,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.885Z",
+      "run_id": "20260324T045639Z",
+      "node": "llm_spec_generator",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.886Z",
+      "run_id": "20260324T045639Z",
+      "node": "artifacts",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-24/makeplane__plane.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.886Z",
+      "run_id": "20260324T045639Z",
+      "node": "artifacts",
+      "repo": "makeplane/plane",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-24/makeplane__plane.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.889Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 1,
+        "attempts_used_hist": {
+          "0": 1,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.890Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1774328199610,
+        "llmCallsTotal": 5,
+        "llmCallsPerRepo": {
+          "makeplane/plane": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 1,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.890Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-24T04:58:12.890Z",
+      "run_id": "20260324T045639Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 1,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-24",
+    "evidence_dir": "evidence/2026-03-24"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Plane",
+    "one_liner": "Modern open-source project management platform for tracking issues, running cycles, and managing roadmaps."
+  },
+  "screens": [
+    {
+      "name": "Cycle Planner",
+      "purpose": "Plan and manage time-boxed work cycles with automated or manual issue assignment.",
+      "primary_actions": [
+        "Add issues to cycle",
+        "Create new cycle",
+        "Review cycle progress",
+        "Set cycle dates"
+      ]
+    },
+    {
+      "name": "Issue Detail View",
+      "purpose": "Display and edit detailed information about a specific work item including description, assignee, status, and comments.",
+      "primary_actions": [
+        "Add comment",
+        "Assign to team member",
+        "Link related issues",
+        "Update issue status"
+      ]
+    },
+    {
+      "name": "Workspace Dashboard",
+      "purpose": "Central hub for viewing and managing projects, cycles, issues, and team activity.",
+      "primary_actions": [
+        "Access roadmap",
+        "Create new issue",
+        "Navigate to project boards",
+        "View active cycles"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "assign_issue",
+      "purpose": "Assign an issue to a team member and trigger notification delivery.",
+      "async": true,
+      "input": {
+        "assignee_id": "string",
+        "issue_id": "string",
+        "notifier_user_id": "string"
+      },
+      "output": {
+        "notification_sent": "boolean",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "create_cycle",
+      "purpose": "Create a new time-bound cycle and optionally auto-populate with issues based on filters.",
+      "async": true,
+      "input": {
+        "auto_generate": "boolean",
+        "end_date": "timestamp",
+        "name": "string",
+        "project_id": "string",
+        "start_date": "timestamp"
+      },
+      "output": {
+        "cycle_id": "string",
+        "issue_count": "int"
+      }
+    },
+    {
+      "name": "save_issue",
+      "purpose": "Persist an issue with its metadata including title, description, assignee, and status.",
+      "async": true,
+      "input": {
+        "assignee_id": "string",
+        "description": "string",
+        "issue_id": "string",
+        "project_id": "string",
+        "status": "string",
+        "title": "string"
+      },
+      "output": {
+        "success": "boolean",
+        "updated_at": "timestamp"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cycles",
+        "columns": [
+          {
+            "name": "end_date",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "start_date",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "issues",
+        "columns": [
+          {
+            "name": "assignee_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "updated_at",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "users",
+        "columns": [
+          {
+            "name": "display_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "email",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic workspace dashboard UI",
+    "week 1: Implement core issue CRUD operations",
+    "week 1: Set up user authentication and project scoping",
+    "week 2: Add cycle creation and management",
+    "week 2: Design database schema for issues and cycles",
+    "week 2: Implement issue assignment with notification stub",
+    "week 3: Add validation for webhook IP addresses",
+    "week 3: Implement SSRF and IDOR mitigations from v1.2.2",
+    "week 3: Integrate real-time updates for issue changes"
+  ],
+  "acceptance_tests": [
+    "After upgrading Plane, the application does not abort unexpectedly during normal operation.",
+    "Automated cycle generation creates cycles with appropriate default issues based on project filters.",
+    "Self-hosted GitLab integration in Pro version correctly authenticates and syncs issues without failure.",
+    "When a work item is assigned to a user, they receive a notification via the configured channel."
+  ]
+}
