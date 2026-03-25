@@ -1,0 +1,170 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "qbit",
+    "one_liner": "An open-source, agentic terminal application for macOS that integrates AI workflows with local development tools, emphasizing user control and transparency."
+  },
+  "screens": [
+    {
+      "name": "Git Integration",
+      "purpose": "Perform version control operations directly within the agentic terminal interface.",
+      "primary_actions": [
+        "Commit changes",
+        "Push to remote",
+        "View diff"
+      ]
+    },
+    {
+      "name": "Home",
+      "purpose": "Organize workspaces with project shortcuts and quick access to recent directories.",
+      "primary_actions": [
+        "Add project shortcut",
+        "Delete project",
+        "Remove recent directory"
+      ]
+    },
+    {
+      "name": "Model Selection",
+      "purpose": "Select and configure AI models including advanced variants like GPT-5.4 with reasoning effort options.",
+      "primary_actions": [
+        "Choose model",
+        "Configure custom endpoint",
+        "Set reasoning effort"
+      ]
+    },
+    {
+      "name": "Sub-Agent Details",
+      "purpose": "Inspect and debug modular agent workflows with visual sub-agent architecture.",
+      "primary_actions": [
+        "Debug execution trace",
+        "Modify agent behavior",
+        "View agent steps"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "delete_project",
+      "purpose": "Delete a project shortcut and associated metadata.",
+      "async": true,
+      "input": {
+        "endpoint": "string",
+        "name": "string",
+        "payload": "json",
+        "reasoning_effort": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "remove_recent_dir",
+      "purpose": "Remove a recently accessed directory from the home screen list.",
+      "async": true,
+      "input": {
+        "endpoint": "string",
+        "name": "string",
+        "payload": "json",
+        "reasoning_effort": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist project or workspace metadata locally.",
+      "async": true,
+      "input": {
+        "endpoint": "string",
+        "name": "string",
+        "payload": "json",
+        "reasoning_effort": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "stream_ai_response",
+      "purpose": "Handle resilient streaming of AI responses with retry logic on stream start failures.",
+      "async": true,
+      "input": {
+        "endpoint": "string",
+        "name": "string",
+        "payload": "json",
+        "reasoning_effort": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "models",
+        "columns": [
+          {
+            "name": "endpoint",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "reasoning_effort",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_accessed",
+            "type": "DATETIME"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "recent_dirs",
+        "columns": [
+          {
+            "name": "accessed_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build home screen with project management actions",
+    "week 1: Implement core Rust backend with Tauri integration",
+    "week 1: Integrate unified timeline for AI and terminal output"
+  ],
+  "acceptance_tests": [
+    "AI response streaming recovers from initial connection failures",
+    "Custom OpenAI endpoints are configurable and functional",
+    "Git operations are accessible and functional within the UI",
+    "GPT-5.4 model with reasoning effort variants is selectable",
+    "User can add and remove project shortcuts from the home screen"
+  ]
+}
