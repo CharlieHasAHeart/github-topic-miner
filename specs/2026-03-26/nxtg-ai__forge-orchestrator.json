@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Forge Orchestrator",
+    "one_liner": "A Rust-based CLI tool that coordinates multiple AI coding agents through shared state, file locking, knowledge capture, and drift detection."
+  },
+  "screens": [
+    {
+      "name": "Task Board",
+      "purpose": "Display the current task graph with assignments, dependencies, and project health.",
+      "primary_actions": [
+        "Check dependency status",
+        "Monitor drift detection alerts",
+        "View task assignments"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "config",
+      "purpose": "Configure the AI brain (e.g., 'openai' or 'rule-based').",
+      "async": false,
+      "input": {
+        "event_log": "string",
+        "knowledge_base": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "init",
+      "purpose": "Initialize the .forge/ directory with state, event log, and knowledge base.",
+      "async": false,
+      "input": {
+        "event_log": "string",
+        "knowledge_base": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "plan",
+      "purpose": "Generate a dependency-aware task graph from SPEC.md or README.",
+      "async": false,
+      "input": {
+        "event_log": "string",
+        "knowledge_base": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "status",
+      "purpose": "Display the current task board with assignments, dependencies, and project health.",
+      "async": false,
+      "input": {
+        "event_log": "string",
+        "knowledge_base": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "state_directory",
+        "columns": [
+          {
+            "name": "event_log",
+            "type": "TEXT"
+          },
+          {
+            "name": "knowledge_base",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "task_graph",
+        "columns": [
+          {
+            "name": "assigned_agent",
+            "type": "TEXT"
+          },
+          {
+            "name": "dependencies",
+            "type": "JSON"
+          },
+          {
+            "name": "task_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add file locking mechanism",
+    "week 1: Implement .forge/ initialization",
+    "week 1: Integrate basic task planning from SPEC.md"
+  ],
+  "acceptance_tests": [
+    "Executing `forge plan --generate` produces a dependency-aware task graph from SPEC.md.",
+    "Multiple AI tools (Claude, Codex, Gemini) can operate on the same repo without conflicting edits due to file locking.",
+    "Running `forge init` creates a .forge/ directory with state, event log, and knowledge base.",
+    "The `forge status` command displays task assignments and project health without errors."
+  ]
+}

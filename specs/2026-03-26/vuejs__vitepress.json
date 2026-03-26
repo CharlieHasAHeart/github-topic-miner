@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "VitePress",
+    "one_liner": "A Vue-powered static site generator built on Vite for fast, modern documentation sites."
+  },
+  "screens": [
+    {
+      "name": "Documentation Site",
+      "purpose": "Display rendered documentation from Markdown files with live preview during development.",
+      "primary_actions": [
+        "Build static site",
+        "Edit Markdown source",
+        "Preview changes instantly"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_site",
+      "purpose": "Compile Markdown and Vue components into a static HTML site.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "themeConfig": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "serve_dev",
+      "purpose": "Start a local development server with hot module replacement.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "themeConfig": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config",
+        "columns": [
+          {
+            "name": "themeConfig",
+            "type": "JSON"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "pages",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "metadata",
+            "type": "JSON"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure basic Markdown parsing",
+    "week 1: Generate static build output",
+    "week 1: Implement dev server with HMR",
+    "week 1: Initialize VitePress project structure"
+  ],
+  "acceptance_tests": [
+    "Site renders Vue components embedded in Markdown correctly",
+    "User can run 'vitepress build' and get a deployable static site",
+    "User can run 'vitepress dev' and see live-updating docs at localhost"
+  ]
+}
