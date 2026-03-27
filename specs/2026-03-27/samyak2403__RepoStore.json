@@ -1,0 +1,175 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "RepoStore",
+    "one_liner": "A GitHub-powered Android app store that discovers repositories shipping real installable APKs and lets you install, track, and update them from one place."
+  },
+  "screens": [
+    {
+      "name": "App Detail Screen",
+      "purpose": "Show comprehensive information about a GitHub repository’s app, including release notes, stats, developer info, README, and installation status.",
+      "primary_actions": [
+        "Install latest APK (architecture-aware)",
+        "Uninstall installed app",
+        "View changelog and README"
+      ]
+    },
+    {
+      "name": "Home Screen",
+      "purpose": "Display curated lists of GitHub repositories that ship installable APKs, organized into sections such as Trending, Recently Updated, and Featured.",
+      "primary_actions": [
+        "Browse app listings by category",
+        "Navigate to app detail screen",
+        "Search for specific repositories"
+      ]
+    },
+    {
+      "name": "Settings Screen",
+      "purpose": "Allow users to customize app behavior including theme (dark/light/system), download preferences, and proxy settings.",
+      "primary_actions": [
+        "Adjust advanced installation options",
+        "Configure mirror proxy for downloads",
+        "Toggle theme mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "detect_installed_apps",
+      "purpose": "Map installed Android packages to known GitHub repositories using a local database for accurate update and uninstall tracking.",
+      "async": true,
+      "input": {
+        "github_repo_url": "string",
+        "last_checked_at": "timestamp",
+        "package_name": "string",
+        "payload": "json",
+        "version_code": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_github_releases_with_apks",
+      "purpose": "Discover and validate GitHub repositories that publish real installable APK assets in their releases.",
+      "async": true,
+      "input": {
+        "github_repo_url": "string",
+        "last_checked_at": "timestamp",
+        "package_name": "string",
+        "payload": "json",
+        "version_code": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "select_architecture_appropriate_apk",
+      "purpose": "Choose the correct APK variant (arm64, x86_64, etc.) based on device architecture during installation.",
+      "async": true,
+      "input": {
+        "github_repo_url": "string",
+        "last_checked_at": "timestamp",
+        "package_name": "string",
+        "payload": "json",
+        "version_code": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "uninstall_app",
+      "purpose": "Remove an installed application directly from the app detail screen using Android's package manager.",
+      "async": true,
+      "input": {
+        "github_repo_url": "string",
+        "last_checked_at": "timestamp",
+        "package_name": "string",
+        "payload": "json",
+        "version_code": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "installed_apps",
+        "columns": [
+          {
+            "name": "github_repo_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_checked_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "package_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "version_code",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "repository_cache",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "has_valid_apk",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "latest_release_tag",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "repo_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build home screen with trending/recently updated sections",
+    "week 1: Create basic app detail view showing README and release info",
+    "week 1: Implement core GitHub API integration to fetch repos with APK assets",
+    "week 2: Add architecture-aware APK selection logic",
+    "week 2: Implement local database for installed app tracking",
+    "week 2: Integrate uninstall functionality from detail screen",
+    "week 3: Add reproducible build support and unit tests",
+    "week 3: Develop settings screen with theme and proxy options",
+    "week 3: Refine UI with Material 3 and system color adaptation"
+  ],
+  "acceptance_tests": [
+    "Installed apps are correctly detected and mapped to their source repository.",
+    "Releases without valid APKs are excluded from all listings.",
+    "Settings screen allows toggling between dark/light/system themes without crashing.",
+    "The app selects the correct APK architecture variant during installation.",
+    "User can browse and install an APK from a GitHub repository that provides valid assets.",
+    "User can uninstall an app directly from the detail screen."
+  ]
+}

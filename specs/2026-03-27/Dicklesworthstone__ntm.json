@@ -1,0 +1,266 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "NTM (Named Tmux Manager)",
+    "one_liner": "NTM transforms tmux into a durable, policy-aware control plane for orchestrating multiple AI coding agents with TUI dashboards, work triage, safety guards, and automation APIs."
+  },
+  "screens": [
+    {
+      "name": "Command Palette",
+      "purpose": "Provide searchable access to all NTM commands including session management, work assignment, safety controls, and automation triggers.",
+      "primary_actions": [
+        "Filter by category (orchestration, safety, automation)",
+        "Run robot-mode exports",
+        "Search and execute commands"
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "purpose": "Visualize active agent sessions, work status, mail inbox, and safety alerts in a TUI interface.",
+      "primary_actions": [
+        "Access Agent Mail inbox",
+        "Open command palette",
+        "Spawn new agent session",
+        "View work triage suggestions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "ntm_checkpoint",
+      "purpose": "Capture durable state snapshots including session layout, agent outputs, timelines, and audit logs for replayability.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ntm_mail",
+      "purpose": "Manage human-agent communication via an inbox system that supports replies, assignments, and approvals.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ntm_safety_approve",
+      "purpose": "Enforce destructive operation policies by requiring explicit approval workflows before execution.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ntm_send",
+      "purpose": "Deliver work items, interrupts, or follow-ups to specific agent panes using structured messaging and prompt injection.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ntm_serve_api",
+      "purpose": "Expose REST, WebSocket, and SSE endpoints alongside OpenAPI spec generation for external tool integration.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ntm_spawn",
+      "purpose": "Launch a new tmux session with a specified AI agent type (e.g., Claude, Cursor, Ollama), applying configuration, prompts, and pane labeling.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ntm_work_triaage",
+      "purpose": "Analyze codebase graph to recommend next actionable tasks, considering impact, dependencies, and agent capabilities.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string",
+        "status": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "checkpoints",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_snapshot",
+            "type": "JSON"
+          },
+          {
+            "name": "timeline_log",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "mail_messages",
+        "columns": [
+          {
+            "name": "body",
+            "type": "TEXT"
+          },
+          {
+            "name": "from",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "requires_approval",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "to",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "safety_policies",
+        "columns": [
+          {
+            "name": "action",
+            "type": "TEXT"
+          },
+          {
+            "name": "approval_required",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "pattern",
+            "type": "TEXT"
+          },
+          {
+            "name": "rule_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "work_items",
+        "columns": [
+          {
+            "name": "assigned_agent",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "priority",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add Agent Mail inbox view",
+    "week 1: Build basic command palette with search",
+    "week 1: Implement core tmux session spawning with agent labeling",
+    "week 1: Integrate simple safety guard for rm -rf patterns",
+    "week 2: Add graph-aware work triage engine",
+    "week 2: Expose REST API with OpenAPI spec",
+    "week 2: Implement checkpointing with timeline capture",
+    "week 2: Support multi-agent coordination via file reservations"
+  ],
+  "acceptance_tests": [
+    "AGENTS.md is generated during project init even when aliases exist [E-IS-002]",
+    "Memory limits apply correctly in containerized environments without systemd [E-IS-006]",
+    "Multi-line prompts are correctly submitted to agents without newline stripping [E-IS-007]",
+    "REST API serves valid OpenAPI spec and accepts WebSocket connections [E-RD-007]",
+    "Safety policy blocks destructive commands unless explicitly approved [E-RD-006]",
+    "User can spawn a Claude Code agent session via 'ntm spawn claude' and see it labeled in dashboard [E-RL-002]"
+  ]
+}

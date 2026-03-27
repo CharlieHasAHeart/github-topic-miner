@@ -1,0 +1,134 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Feluda",
+    "one_liner": "A Rust-based command-line tool that analyzes project dependencies, records their licenses, and flags restrictive or incompatible usage permissions."
+  },
+  "screens": [
+    {
+      "name": "License Compliance Report",
+      "purpose": "Display analyzed dependencies with their licenses and compliance warnings.",
+      "primary_actions": [
+        "Configure GitHub token for authenticated API access",
+        "Export report to file",
+        "Run analysis on current project"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "analyze_dependencies",
+      "purpose": "Scan project dependencies across multiple ecosystems and determine license compliance status.",
+      "async": true,
+      "input": {
+        "incompatible_with_project_license": "boolean",
+        "license_spdx": "string",
+        "package_name": "string",
+        "payload": "json",
+        "restricts_commercial_use": "boolean",
+        "source_ecosystem": "string",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "check_local_licenses",
+      "purpose": "Inspect local dependency manifests (Cargo.toml, go.mod, requirements.txt, etc.) for embedded license info.",
+      "async": false,
+      "input": {
+        "incompatible_with_project_license": "boolean",
+        "license_spdx": "string",
+        "package_name": "string",
+        "payload": "json",
+        "restricts_commercial_use": "boolean",
+        "source_ecosystem": "string",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_github_license",
+      "purpose": "Retrieve license information from GitHub API with optional token authentication and caching.",
+      "async": true,
+      "input": {
+        "incompatible_with_project_license": "boolean",
+        "license_spdx": "string",
+        "package_name": "string",
+        "payload": "json",
+        "restricts_commercial_use": "boolean",
+        "source_ecosystem": "string",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "dependencies",
+        "columns": [
+          {
+            "name": "incompatible_with_project_license",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "license_spdx",
+            "type": "TEXT"
+          },
+          {
+            "name": "package_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "restricts_commercial_use",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "source_ecosystem",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "github_license_cache",
+        "columns": [
+          {
+            "name": "fetched_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "license_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "repo_url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic CLI output formatting for compliance warnings",
+    "week 1: Implement core dependency parsing for Rust (Cargo) and Go (go.mod)",
+    "week 1: Integrate GitHub license fetching with caching"
+  ],
+  "acceptance_tests": [
+    "Given a Go module with a local LICENSE file, when Feluda scans it offline, then it should detect the license without calling GitHub API.",
+    "Given a project with a dependency under GPL-3.0, when Feluda runs with a valid --github-token, then it correctly identifies the license and flags incompatibility if the project uses MIT.",
+    "Given a Rust project with a permissive license, when Feluda analyzes it, then it should report no restrictive licenses."
+  ]
+}
