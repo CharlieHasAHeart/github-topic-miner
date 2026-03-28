@@ -1,0 +1,1675 @@
+{
+  "run_id": "20260328T045611Z",
+  "generated_at": "2026-03-28T04:56:11.860Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 4,
+    "new_candidates": 1,
+    "repo_cards_built": 1,
+    "gaps_count": 0,
+    "specs_attempted": 1,
+    "specs_succeeded": 1,
+    "specs_failed": 0,
+    "evidence_validated": 1,
+    "evidence_valid_ok": 1,
+    "evidence_valid_failed": 0,
+    "evidence_written": 1,
+    "evidence_write_failed": 0,
+    "evidence_total": 16,
+    "evidence_by_type": {
+      "readme": 8,
+      "issue": 4,
+      "release": 3,
+      "root_files": 1
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-28T04:58:07.493Z",
+    "repo_count": 166
+  },
+  "candidates": [
+    {
+      "full_name": "synle/sqlui-native",
+      "html_url": "https://github.com/synle/sqlui-native",
+      "description": "SQLUI Native (sqluinative) is a simple UI client for most SQL Engines written in Electron. It is compatible with Windows, Mac, Ubuntu / Debian and Redhat. It supports most dialects of RMBDs like MySQL, Microsoft SQL Server, Postgres, SQLite and has limited supports for Cassandra, MongoDB, Redis, CockroachDB, Azure CosmosDB and Azure Storage Tab",
+      "topics": [
+        "azure",
+        "azure-storage",
+        "cassandra",
+        "cockroachdb",
+        "cosmosdb",
+        "mongodb",
+        "mssql",
+        "mysql",
+        "postgresql",
+        "redis",
+        "sql",
+        "sqlite",
+        "sqlui-native",
+        "sqluinative"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 65,
+      "forks_count": 7,
+      "open_issues_count": 13,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:55:50Z",
+      "created_at": "2022-01-23T03:42:41Z"
+    },
+    {
+      "full_name": "mxsm/rocketmq-rust",
+      "html_url": "https://github.com/mxsm/rocketmq-rust",
+      "description": "🚀Apache RocketMQ build in  Rust🦀. Faster, safer, and with lower memory usage. ⭐ Star to support our work❤️!",
+      "topics": [
+        "cloud-native",
+        "messaging",
+        "rocketmq",
+        "rocketmq-rust",
+        "rocketmq-rust-client",
+        "rocketmq-rust-sdk",
+        "rust",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1490,
+      "forks_count": 244,
+      "open_issues_count": 36,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:55:07Z",
+      "created_at": "2023-12-13T09:39:05Z"
+    },
+    {
+      "full_name": "fastrepl/char",
+      "html_url": "https://github.com/fastrepl/char",
+      "description": "AI notepad for meetings",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8091,
+      "forks_count": 565,
+      "open_issues_count": 158,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:53:29Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "google-gemini/gemini-cli",
+      "html_url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "cli",
+        "gemini",
+        "gemini-api",
+        "mcp-client",
+        "mcp-server"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 99298,
+      "forks_count": 12679,
+      "open_issues_count": 3263,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:52:48Z",
+      "created_at": "2025-04-17T17:04:31Z"
+    },
+    {
+      "full_name": "jhlee0409/claude-code-history-viewer",
+      "html_url": "https://github.com/jhlee0409/claude-code-history-viewer",
+      "description": "desktop app to browse and analyze your Claude Code conversation history",
+      "topics": [
+        "claude",
+        "claude-code",
+        "codex",
+        "conversation-history",
+        "desktop-app",
+        "developer-tools",
+        "opencode",
+        "react",
+        "rust",
+        "tauri"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 742,
+      "forks_count": 75,
+      "open_issues_count": 5,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:50:00Z",
+      "created_at": "2025-06-28T10:29:54Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "mxsm/rocketmq-rust",
+      "html_url": "https://github.com/mxsm/rocketmq-rust",
+      "description": "🚀Apache RocketMQ build in  Rust🦀. Faster, safer, and with lower memory usage. ⭐ Star to support our work❤️!",
+      "topics": [
+        "cloud-native",
+        "messaging",
+        "rocketmq",
+        "rocketmq-rust",
+        "rocketmq-rust-client",
+        "rocketmq-rust-sdk",
+        "rust",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1490,
+      "forks_count": 244,
+      "open_issues_count": 36,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:55:07Z",
+      "created_at": "2023-12-13T09:39:05Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "mxsm/rocketmq-rust",
+      "html_url": "https://github.com/mxsm/rocketmq-rust",
+      "description": "🚀Apache RocketMQ build in  Rust🦀. Faster, safer, and with lower memory usage. ⭐ Star to support our work❤️!",
+      "topics": [
+        "cloud-native",
+        "messaging",
+        "rocketmq",
+        "rocketmq-rust",
+        "rocketmq-rust-client",
+        "rocketmq-rust-sdk",
+        "rust",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1490,
+      "forks_count": 244,
+      "open_issues_count": 36,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-28T04:55:07Z",
+      "created_at": "2023-12-13T09:39:05Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n    <img src=\"resources/RocketMQ-Rust.png\" width=\"30%\" height=\"auto\"/>\n    <img src=\"resources/logo.png\" width=\"30%\" height=\"auto\"/>\n</p>\n\n<div align=\"center\">\n\n[![GitHub last commit](https://img.shields.io/github/last-commit/mxsm/rocketmq-rust)](https://github.com/mxsm/rocketmq-rust/commits/main)\n[![Crates.io](https://img.shields.io/crates/v/rocketmq-rust.svg)](https://crates.io/crates/rocketmq-rust)\n[![Docs.rs](https://docs.rs/rocketmq-rust/badge.svg)](https://docs.rs/rocketmq-rust)\n[![CI](https://github.com/mxsm/rocketmq-rust/workflows/CI/badge.svg)](https://github.com/mxsm/rocketmq-rust/actions)\n[![Website Deploy](https://github.com/mxsm/rocketmq-rust/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/mxsm/rocketmq-rust/actions/workflows/deploy.yml)\n[![Website Check](https://github.com/mxsm/rocketmq-rust/workflows/Website%20Deploy%20Check/badge.svg)](https://github.com/mxsm/rocketmq-rust/actions/workflows/website-check.yml)\n[![CodeCov][codecov-image]][codecov-url] [![GitHub contributors](https://img.shields.io/github/contributors/mxsm/rocketmq-rust)](https://github.com/mxsm/rocketmq-rust/graphs/contributors) [![Crates.io License](https://img.shields.io/crates/l/rocketmq-rust)](#license)\n<br/>\n![GitHub repo size](https://img.shields.io/github/repo-size/mxsm/rocketmq-rust)\n![Static Badge](https://img.shields.io/badge/MSRV-1.85.0%2B-25b373)\n[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mxsm/rocketmq-rust)\n\n</div>\n\n<div align=\"center\">\n  <a href=\"https://trendshift.io/repositories/12176\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/12176\" alt=\"mxsm%2Frocketmq-rust | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a>\n  <a href=\"https://trendshift.io/developers/3818\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/developers/3818\" alt=\"mxsm | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a>\n</div>\n\n# RocketMQ-Rust\n\n🚀 A high-performance, reliable, and feature-rich **unofficial Rust implementation** of [Apache RocketMQ](https://github.com/apache/rocketmq), designed to bring\nenterprise-grade message middleware to the Rust ecosystem.\n\n<div align=\"center\">\n\n[![Overview](https://img.shields.io/badge/📖_Overview-4A90E2?style=flat-square&labelColor=2C5F9E&color=4A90E2)](#-overview)\n[![Quick Start](https://img.shields.io/badge/🚀_Quick_Start-50C878?style=flat-square&labelColor=2D7A4F&color=50C878)](#-quick-start)\n[![Documentation](https://img.shields.io/badge/📚_Documentation-FF8C42?style=flat-square&labelColor=CC6A2F&color=FF8C42)](#-documentation)\n[![Components](https://img.shields.io/badge/📦_Components-9B59B6?style=flat-square&labelColor=6C3483&color=9B59B6)](#-components--crates)\n<br/>\n[![Roadmap](https://img.shields.io/badge/🗺️_Roadmap-E74C3C?style=flat-square&labelColor=B03A2E&color=E74C3C)](#️-roadmap)\n[![Contributing](https://img.shields.io/badge/🤝_Contributing-F39C12?style=flat-square&labelColor=B9770E&color=F39C12)](#-contributing)\n[![Community](https://img.shields.io/badge/👥_Community-8E44AD?style=flat-square&labelColor=633974&color=8E44AD)](#-community--support)\n\n</div>\n\n---\n\n## ✨ Overview\n\n**RocketMQ-Rust** is a complete reimplementation of Apache RocketMQ in Rust, leveraging Rust's unique advantages in memory safety, zero-cost abstractions, and\nfearless concurrency. This project aims to provide Rust developers with a production-ready distributed message queue system that delivers exceptional\nperformance while maintaining full compatibility with the RocketMQ protocol.\n\n### 🎯 Why RocketMQ-Rust?\n\n- **🦀 Memory Safety**: Built on Rust's ownership model, eliminating entire classes of bugs like null pointer dereferences, buffer overflows, and data races at\n  compile time\n- **⚡ High Performance**: Zero-cost abstractions and efficient async runtime deliver exceptional throughput with minimal resource overhead\n- **🔒 Thread Safety**: Fearless concurrency enables safe parallel processing without the risk of race conditions\n- **🌐 Cross-Platform**: First-class support for Linux, Windows, and macOS with native performance on each platform\n- **🔌 Ecosystem Integration**: Seamlessly integrates with the rich Rust ecosystem including Tokio, Serde, and other modern libraries\n- **📦 Production Ready**: Battle-tested architecture with comprehensive error handling and observability\n\n## 🏗️ Architecture\n\n<p align=\"center\">\n  <img src=\"resources/architecture.png\" alt=\"RocketMQ-Rust Architecture\" width=\"80%\"/>\n</p>\n\nRocketMQ-Rust implements a distributed architecture with the following core components:\n\n- **Name Server**: Lightweight service discovery and routing coordination\n- **Broker**: Message storage and delivery engine with support for topics, queues, and consumer groups\n- **Producer Client**: High-performance message publishing with various sending modes\n- **Consumer Client**: Flexible message consumption with push and pull models\n- **Store**: Efficient local storage engine optimized for sequential writes\n- **Controller** (In Development): Advanced high availability and failover capabilities\n\n## 📚 Documentation\n\n- **📖 Official Documentation**: [rocketmqrust.com](https://rocketmqrust.com) - Comprehensive guides, API references, and best practices\n- **🤖 AI-Powered Docs**: [DeepWiki](https://deepwiki.com/mxsm/rocketmq-rust) - Interactive documentation with intelligent search\n- **📝 API Docs**: [docs.rs/rocketmq-rust](https://docs.rs/rocketmq-rust) - Complete API documentation\n- **📋 Examples**: [rocketmq-client/examples](https://github.com/mxsm/rocketmq-rust/tree/main/rocketmq-client/examples) - Ready-to-run code samples\n\n## 🚀 Quick Start\n\n### Prerequisites\n\n- Rust toolchain 1.85.0 or later (stable or nightly)\n- Basic familiarity with message queue concepts\n\n### Installation\n\nAdd the client SDK to your `Cargo.toml`:\n\n```toml\n[dependencies]\nrocketmq-client-rust = \"0.8.0\"\n```\n\nOr for specific components:\n\n```toml\n[dependencies]\n# Client SDK (Producer & Consumer)\nrocketmq-client-rust = \"0.8.0\"\n\n# Core utilities and data structures\nrocketmq-common = \"0.8.0\"\n\n# Low-level runtime abstractions\nrocketmq-rust = \"0.8.0\"\n```\n\n### Start Name Server\n\n```bash\n# Start with default configuration (listening on 0.0.0.0:9876)\ncargo run --bin rocketmq-namesrv-rust\n\n# Or specify custom host and port\ncargo run --bin rocketmq-namesrv-rust -- --ip 127.0.0.1 --port 9876\n\n# View all options\ncargo run --bin rocketmq-namesrv-rust -- --help\n```\n\n### Start Broker\n\n```bash\n# Set ROCKETMQ_HOME environment variable (required)\nexport ROCKETMQ_HOME=/path/to/rocketmq  # Linux/macOS\nset ROCKETMQ_HOME=D:\\rocketmq           # Windows\n\n# Start broker with default configuration\ncargo run --bin rocketmq-broker-rust\n\n# Start with custom name server address\ncargo run --bin rocketmq-broker-rust -- -n \"127.0.0.1:9876\"\n\n# Start with custom configuration file\ncargo run --bin rocketmq-broker-rust -- -c ./conf/broker.toml\n\n# View all options\ncargo run --bin rocketmq-broker-rust -- --help\n```\n\n### Send Your First Message\n\n```rust\nuse rocketmq_client_rust::producer::default_mq_producer::DefaultMQProducer;\nuse rocketmq_client_rust::producer::mq_producer::MQProducer;\nuse rocketmq_client_rust::Result;\nuse rocketmq_common::common::message::message_single::Message;\n\n#[tokio::main]\nasync fn main() -> Result<()> {\n    // Create producer instance\n    let mut producer = DefaultMQProducer::builder()\n        .producer_group(\"example_producer_group\")\n        .name_server_addr(\"127.0.0.1:9876\")\n        .build();\n\n    // Start producer\n    producer.start().await?;\n\n    // Create and send message\n    let message = Message::builder()\n        .topic(\"TestTopic\")\n        .body(\"Hello RocketMQ from Rust!\".as_bytes().to_vec())\n        .build();\n\n    let send_result = producer.send(message).await?;\n    println!(\"Message sent: {:?}\", send_result);\n\n    // Shutdown producer\n    producer.shutdown().await;\n    Ok(())\n}\n```\n\nFor more examples including batch sending, transactions, and consumer patterns, check out:\n\n- [Send single messages](https://github.com/mxsm/rocketmq-rust/blob/main/rocketmq-client/README.md#send-a-single-message)\n- [Send batch messages](https://github.com/mxsm/rocketmq-rust/blob/main/rocketmq-client/README.md#send-batch-messages)\n- [RPC messaging](https://github.com/mxsm/rocketmq-rust/blob/main/rocketmq-client/README.md#send-rpc-messages)\n- [All examples](https://github.com/mxsm/rocketmq-rust/tree/main/rocketmq-client/examples)\n\n## 📦 Components & Crates\n\nRocketMQ-Rust is organized as a monorepo with the following crates:\n\n| Crate                                        | Description                                | Status            |\n|----------------------------------------------|--------------------------------------------|-------------------|\n| [rocketmq](./rocketmq)                       | Core library and main entry point          | ✅ Production      |\n| [rocketmq-namesrv](./rocketmq-namesrv)       | Name server for service discovery          | ✅ Production      |\n| [rocketmq-broker](./rocketmq-broker)         | Message broker and storage engine          | ✅ Production      |\n| [rocketmq-client](./rocketmq-client)         | Producer and consumer SDK                  | ✅ Production      |\n| [rocketmq-store](./rocketmq-store)           | Local storage implementation               | ✅ Production      |\n| [rocketmq-remoting](./rocketmq-remoting)     | Network communication layer                | ✅ Production      |\n| [rocketmq-common](./rocketmq-common)         | Common utilities and data structures       | ✅ Production      |\n| [rocketmq-runtime](./rocketmq-runtime)       | Async runtime abstractions                 | ✅ Production      |\n| [rocketmq-filter](./rocketmq-filter)         | Message filtering engine                   | ✅ Production      |\n| [rocketmq-auth](./rocketmq-auth)             | Authentication and authorization           | ✅ Production      |\n| [rocketmq-error](./rocketmq-error)           | Error types and handling                   | ✅ Production      |\n| [rocketmq-macros](./rocketmq-macros)         | Procedural macros and derive macros        | ✅ Production      |\n| [rocketmq-controller](./rocketmq-controller) | High availability controller               | 🚧 In Development |\n| [rocketmq-proxy](./rocketmq-proxy)           | Protocol proxy layer                       | 🚧 In Development |\n| [rocketmq-example](./rocketmq-example)       | Example applications and demos             | ✅ Production      |\n| [rocketmq-tools](./rocketmq-tools)           | Command-line tools and utilities           | 🚧 In Development |\n| ├─ [rocketmq-admin](./rocketmq-tools/rocketmq-admin) | Admin tools for cluster management | 🚧 In Development |\n| │  ├─ [rocketmq-admin-core](./rocketmq-tools/rocketmq-admin/rocketmq-admin-core) | Core admin functionality | 🚧 In Development |\n| │  └─ [rocketmq-admin-tui](./rocketmq-tools/rocketmq-admin/rocketmq-admin-tui) | Terminal UI for admin operations | 🚧 In Development |\n| └─ [rocketmq-store-inspect](./rocketmq-tools/rocketmq-store-inspect) | Storage inspection tools | ✅ Production |\n| [rocketmq-dashboard](./rocketmq-dashboard)   | Management dashboard and UI                | 🚧 In Development |\n| ├─ [rocketmq-dashboard-common](./rocketmq-dashboard/rocketmq-dashboard-common) | Shared dashboard components | 🚧 In Development |\n| ├─ [rocketmq-dashboard-gpui](./rocketmq-dashboard/rocketmq-dashboard-gpui) | GPUI-based desktop dashboard | 🚧 In Development |\n| └─ [rocketmq-dashboard-tauri](./rocketmq-dashboard/rocketmq-dashboard-tauri) | Tauri-based cross-platform dashboard | 🚧 In Development |\n\n## 🗺️ Roadmap\n\nOur development follows the RocketMQ architecture with focus on:\n\n- [x] **Core Messaging**: Topic management, message storage, and basic publish/subscribe\n- [x] **Client SDK**: Producer and consumer APIs with async support\n- [x] **Name Server**: Service discovery and routing\n- [x] **Broker**: Message persistence and delivery guarantees",
+        "truncated": true,
+        "bytes": 18192,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "rocketmq-rust-all-0.8.0",
+            "tag_name": "v0.8.0",
+            "published_at": "2026-03-28T01:46:35Z",
+            "body_excerpt": "# Announcement: RocketMQ Rust 🔖v0.8.0 has been released\r\n\r\n## New Feature and improve performance\r\n- ✨ Fix some bugs\r\n- ⚡️ Optimize code performance\r\n- 🚀 Add proxy mode\r\n- 🚀 Add dashborad\r\n\r\n## What's Changed\r\n* [ISSUE #4495]📝Update to Version 0.7.0 for Next-Stage Development by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4496\r\n* [ISSUE #4498]♻️Refactor pull message processing to return RocketMQResult for improved error handling by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4499\r\n* [ISSUE #4500]Refactor validation rules in refactor.yml to improve clarity and reduce redundancy by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4501\r\n* [ISSUE #4503]🔧Update enhancement and feature request templates for improved clarity and structure by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4504\r\n* [ISSUE #4505]♻️Refactor EndTransactionProcessor to return RocketMQResult for improved error handling by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4506\r\n* [ISSUE #4507]♻️Refactor consumer management processor to return RocketMQResult for improved error handling by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4508\r\n* [ISSUE #4465] BrokerRuntimeInner#message_store method to return an Option reference for improved safety by @EricZZZ in https://github.com/mxsm/rocketmq-rust/pull/4509\r\n* [ISSUE #4511]♻️Refactor subscription group management to use Arc for improved memory efficiency and thread safety by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4512\r\n* [ISSUE #4468] Remove GetMessageResult#release method by @EricZZZ in https://github.com/mxsm/rocketmq-rust/pull/4510\r\n* [ISSUE #4513]♻️Refactor ConsumeMessageContext to use references for improved memory efficiency by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4514\r\n* [ISSUE #4515]♻️Refactor update_order_topic_config to accept a reference for improved performance and implement topic configuration updates by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4516\r\n* [ISSUE #451"
+          },
+          {
+            "name": "rocketmq-rust-all-0.7.0",
+            "tag_name": "v0.7.0",
+            "published_at": "2025-12-07T15:49:17Z",
+            "body_excerpt": "# Announcement: RocketMQ Rust 🔖v0.7.0 has been released\r\n\r\n## New Feature and improve performance\r\n- ✨ Fix some bugs\r\n- ⚡️ Optimize code performance\r\n- 🚀 Add Controller mode\r\n\r\n## What's Changed\r\n* [ISSUE #3778]📝Update release notes and documentation for version 0.6.0, reflecting new features and changes by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3779\r\n* [ISSUE #3780]📝Update to Version 0.7.0 for Next-Stage Development by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3781\r\n* Bump serde_json from 1.0.142 to 1.0.143 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3782\r\n* Bump cfg-if from 1.0.1 to 1.0.3 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3783\r\n* [ISSUE #3784]🚀Simple in-process scheduling framework (ScheduledTaskManager) by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3785\r\n* Bump thiserror from 2.0.15 to 2.0.16 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3787\r\n* Bump tempfile from 3.20.0 to 3.21.0 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3788\r\n* feat: Introduce #[inline] for Builder methods by @4ddx in https://github.com/mxsm/rocketmq-rust/pull/3786\r\n* [ISSUE #3789]📝Enhance documentation for `WeakArcMut` and `ArcMut` structs with safety notes by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3790\r\n* [ISSUE #3791]⚡️Evolve ScheduledTaskManager: cron layer, jitter, metrics, shutdown integration by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3792\r\n* [ISSUE #3794]✨Add fixed-rate and fixed-delay task scheduling methods to ScheduledTaskManager by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3795\r\n* Bump form_urlencoded from 1.2.1 to 1.2.2 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3798\r\n* [ISSUE #3796]✨Implement asynchronous fixed-rate, fixed-delay, and fixed-rate-no-overlap task scheduling methods in ScheduledTaskManager by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3797\r\n* [ISSUE #3799]♻️Migrate Bro"
+          },
+          {
+            "name": "rocketmq-rust-all-0.6.0",
+            "tag_name": "v0.6.0",
+            "published_at": "2025-08-19T13:41:43Z",
+            "body_excerpt": "# 🔊Announcement: RocketMQ Rust 🔖v0.6.0 has been released\r\n\r\n## New Feature and improve performance\r\n\r\n- ✨ Fix some bugs\r\n- ⚡️ Optimize code performance\r\n- 🚀 Support  Slave Master and so on\r\n\r\n## What's Changed\r\n* [ISSUE #3282]⚡️Add Release Notes for Version 0.5.0 by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3283\r\n* [ISSUE #3284]📝Update to Version 0.6.0 for Next-Stage Development by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3285\r\n* [ISSUE #3286]📝Update rocketmq-broker Cargo.toml by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3287\r\n* [ISSUE #3288]📝Update package_publish_workspace script by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3289\r\n* Bump criterion from 0.5.1 to 0.6.0 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3291\r\n* [ISSUE #3290]🐛Fix parse_config_file file error by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3294\r\n* [ISSUE #3296]⚡️Optimize rocketmq-example crate  Cargo.toml by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3297\r\n* [ISSUE #3298]Remove dead code from the LocalFileMessageStore by @SleepyStew in https://github.com/mxsm/rocketmq-rust/pull/3299\r\n* [ISSUE #3300]⚡️Optimize CommitLog put_message and put_messages methods signature by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3301\r\n* [ISSUE #3302]⚡️Remove LocalFileMessageStore useless code by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3303\r\n* [ISSUE #3305]🚀CommitLog put messages add unlockMappedFile logic by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3306\r\n* [ISSUE #3308]🚀Build the command framework based on clap by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3309\r\n* [ISSUE #3310]🚀Add the second-level command show by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3311\r\n* [ISSUE #3319]🚀Add getNamesrvConfig command clap💫 by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3320\r\n* [ISSUE #3321]🚀Add CommandExecute trait💫 by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3322"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 6979,
+            "title": "[Enhancement✨] Update announcement messages to reflect RocketMQ-Rust v0.8.0 release",
+            "state": "closed",
+            "url": "https://github.com/mxsm/rocketmq-rust/issues/6979"
+          },
+          {
+            "number": 6977,
+            "title": "[Enhancement✨] Refactor package publishing scripts to remove retry logic and simplify command execution",
+            "state": "closed",
+            "url": "https://github.com/mxsm/rocketmq-rust/issues/6977"
+          },
+          {
+            "number": 6975,
+            "title": "[Enhancement✨] Enhance package publishing scripts with retry logic and update dependency paths",
+            "state": "closed",
+            "url": "https://github.com/mxsm/rocketmq-rust/issues/6975"
+          },
+          {
+            "number": 6973,
+            "title": "[Enhancement✨] Enhance package publishing scripts with improved project handling and error reporting",
+            "state": "closed",
+            "url": "https://github.com/mxsm/rocketmq-rust/issues/6973"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".clippy.toml",
+        ".coderabbit.yaml",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "NOTICE",
+        "README-zh_cn.md",
+        "README.md",
+        "distribution",
+        "docker",
+        "resources",
+        "rocketmq-auth",
+        "rocketmq-broker",
+        "rocketmq-client",
+        "rocketmq-common",
+        "rocketmq-controller",
+        "rocketmq-dashboard",
+        "rocketmq-doc",
+        "rocketmq-error",
+        "rocketmq-example",
+        "rocketmq-filter",
+        "rocketmq-macros",
+        "rocketmq-namesrv",
+        "rocketmq-proxy",
+        "rocketmq-remoting",
+        "rocketmq-runtime",
+        "rocketmq-store",
+        "rocketmq-tools",
+        "rocketmq-website",
+        "rocketmq",
+        "rust-toolchain.toml",
+        "rustfmt.toml",
+        "scripts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src=\"resources/RocketMQ-Rust.png\" width=\"30%\" height=\"auto\"/> <img src=\"resources/logo.png\" width=\"30%\" height=\"auto\"/> </p>",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![GitHub last commit](https://img.shields.io/github/last-commit/mxsm/rocketmq-rust)](https://github.com/mxsm/rocketmq-rust/commits/main) [![Crates.io](https://img.shields.io/crates/v/rocketmq-rust.svg)](https://crates.io/crates/rocketmq-rust) [![Docs.rs](https://docs.rs/rocketmq-rust/badge.svg)](https://docs.rs/rocketmq-rust) [![CI](https://github.com/mxsm/rocketmq-rust/workflows/CI/badge.svg)](https://github.com/mxsm/rocketmq-rust/actions) [![Website Deploy](https://github.com/mxsm/rocketmq-rust/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/mxsm/rocketmq-rust/actions/workflows/deploy.yml) [![Website Check](https://github.com/mxsm/rocketmq-rust/workflows/Website%20Deploy%20Check/badge.svg)](https://github.com/mxsm/rocketmq-rust/actions/workflows/website-check.yml) [![CodeCov][codecov-image]][codecov-url] [![GitHub contributors](https://img.shields.io/github/contributors/mxsm/rocketmq-rust)](https://github.com/mxsm/rocketmq-rust/graphs/contributors) [![Crates.io License](https://img.shields.io/crates/l/rocketmq-rust)](#license) <br/> ![GitHub repo size](https://img.shields.io/github/repo-size/mxsm/rocketmq-rust) ![Static Badge](https://img.shields.io/badge/…",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<div align=\"center\"> <a href=\"https://trendshift.io/repositories/12176\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/12176\" alt=\"mxsm%2Frocketmq-rust | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a> <a href=\"https://trendshift.io/developers/3818\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/developers/3818\" alt=\"mxsm | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a> </div>",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 4)",
+          "excerpt": "🚀 A high-performance, reliable, and feature-rich **unofficial Rust implementation** of [Apache RocketMQ](https://github.com/apache/rocketmq), designed to bring enterprise-grade message middleware to the Rust ecosystem.",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[![Overview](https://img.shields.io/badge/📖_Overview-4A90E2?style=flat-square&labelColor=2C5F9E&color=4A90E2)](#-overview) [![Quick Start](https://img.shields.io/badge/🚀_Quick_Start-50C878?style=flat-square&labelColor=2D7A4F&color=50C878)](#-quick-start) [![Documentation](https://img.shields.io/badge/📚_Documentation-FF8C42?style=flat-square&labelColor=CC6A2F&color=FF8C42)](#-documentation) [![Components](https://img.shields.io/badge/📦_Components-9B59B6?style=flat-square&labelColor=6C3483&color=9B59B6)](#-components--crates) <br/> [![Roadmap](https://img.shields.io/badge/🗺️_Roadmap-E74C3C?style=flat-square&labelColor=B03A2E&color=E74C3C)](#️-roadmap) [![Contributing](https://img.shields.io/badge/🤝_Contributing-F39C12?style=flat-square&labelColor=B9770E&color=F39C12)](#-contributing) [![Community](https://img.shields.io/badge/👥_Community-8E44AD?style=flat-square&labelColor=633974&color=8E44AD)](#-community--support)",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**RocketMQ-Rust** is a complete reimplementation of Apache RocketMQ in Rust, leveraging Rust's unique advantages in memory safety, zero-cost abstractions, and fearless concurrency. This project aims to provide Rust developers with a production-ready distributed message queue system that delivers exceptional performance while maintaining full compatibility with the RocketMQ protocol.",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **🦀 Memory Safety**: Built on Rust's ownership model, eliminating entire classes of bugs like null pointer dereferences, buffer overflows, and data races at compile time - **⚡ High Performance**: Zero-cost abstractions and efficient async runtime deliver exceptional throughput with minimal resource overhead - **🔒 Thread Safety**: Fearless concurrency enables safe parallel processing without the risk of race conditions - **🌐 Cross-Platform**: First-class support for Linux, Windows, and macOS with native performance on each platform - **🔌 Ecosystem Integration**: Seamlessly integrates with the rich Rust ecosystem including Tokio, Serde, and other modern libraries - **📦 Production Ready**: Battle-tested architecture with comprehensive error handling and observability",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/mxsm/rocketmq-rust#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<p align=\"center\"> <img src=\"resources/architecture.png\" alt=\"RocketMQ-Rust Architecture\" width=\"80%\"/> </p>",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/issues/6979",
+          "title": "[Enhancement✨] Update announcement messages to reflect RocketMQ-Rust v0.8.0 release",
+          "excerpt": "[Enhancement✨] Update announcement messages to reflect RocketMQ-Rust v0.8.0 release (state:closed)",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "number": 6979
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/issues/6977",
+          "title": "[Enhancement✨] Refactor package publishing scripts to remove retry logic and simplify command execution",
+          "excerpt": "[Enhancement✨] Refactor package publishing scripts to remove retry logic and simplify command execution (state:closed)",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "number": 6977
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/issues/6975",
+          "title": "[Enhancement✨] Enhance package publishing scripts with retry logic and update dependency paths",
+          "excerpt": "[Enhancement✨] Enhance package publishing scripts with retry logic and update dependency paths (state:closed)",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "number": 6975
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/issues/6973",
+          "title": "[Enhancement✨] Enhance package publishing scripts with improved project handling and error reporting",
+          "excerpt": "[Enhancement✨] Enhance package publishing scripts with improved project handling and error reporting (state:closed)",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "number": 6973
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/releases",
+          "title": "v0.8.0",
+          "excerpt": "# Announcement: RocketMQ Rust 🔖v0.8.0 has been released ## New Feature and improve performance - ✨ Fix some bugs - ⚡️ Optimize code performance - 🚀 Add proxy mode - 🚀 Add dashborad ## What's Changed * [ISSUE #4495]📝Update to Version 0.7.0 for Next-Stage Development by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4496 * [ISSUE #4498]♻️Refactor pull message processing to return RocketMQResult for improved error handling by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4499 * [ISSUE #4500]Refactor validation rules in refactor.yml to improve clarity and reduce redundancy by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4501 * [ISSUE #4503]🔧Update enhancement and feature request templates for improved clarity and structure by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4504 * [ISSUE #4505]♻️Refactor EndTransactionProcessor to return RocketMQResult for improved error handling by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4506 * [ISSUE #4507]♻️Refactor consumer management processor to return RocketMQResult for improved error handling by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/4508 * [ISSUE #4465] BrokerRuntimeInner#message_store method…",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "tag_name": "v0.8.0",
+            "published_at": "2026-03-28T01:46:35Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/releases",
+          "title": "v0.7.0",
+          "excerpt": "# Announcement: RocketMQ Rust 🔖v0.7.0 has been released ## New Feature and improve performance - ✨ Fix some bugs - ⚡️ Optimize code performance - 🚀 Add Controller mode ## What's Changed * [ISSUE #3778]📝Update release notes and documentation for version 0.6.0, reflecting new features and changes by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3779 * [ISSUE #3780]📝Update to Version 0.7.0 for Next-Stage Development by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3781 * Bump serde_json from 1.0.142 to 1.0.143 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3782 * Bump cfg-if from 1.0.1 to 1.0.3 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3783 * [ISSUE #3784]🚀Simple in-process scheduling framework (ScheduledTaskManager) by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3785 * Bump thiserror from 2.0.15 to 2.0.16 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3787 * Bump tempfile from 3.20.0 to 3.21.0 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3788 * feat: Introduce #[inline] for Builder methods by @4ddx in https://github.com/mxsm/rocketmq-rust/pull/3786 * [ISSUE #3789]📝Enhance doc…",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "tag_name": "v0.7.0",
+            "published_at": "2025-12-07T15:49:17Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/mxsm/rocketmq-rust/releases",
+          "title": "v0.6.0",
+          "excerpt": "# 🔊Announcement: RocketMQ Rust 🔖v0.6.0 has been released ## New Feature and improve performance - ✨ Fix some bugs - ⚡️ Optimize code performance - 🚀 Support Slave Master and so on ## What's Changed * [ISSUE #3282]⚡️Add Release Notes for Version 0.5.0 by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3283 * [ISSUE #3284]📝Update to Version 0.6.0 for Next-Stage Development by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3285 * [ISSUE #3286]📝Update rocketmq-broker Cargo.toml by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3287 * [ISSUE #3288]📝Update package_publish_workspace script by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3289 * Bump criterion from 0.5.1 to 0.6.0 by @dependabot[bot] in https://github.com/mxsm/rocketmq-rust/pull/3291 * [ISSUE #3290]🐛Fix parse_config_file file error by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3294 * [ISSUE #3296]⚡️Optimize rocketmq-example crate Cargo.toml by @mxsm in https://github.com/mxsm/rocketmq-rust/pull/3297 * [ISSUE #3298]Remove dead code from the LocalFileMessageStore by @SleepyStew in https://github.com/mxsm/rocketmq-rust/pull/3299 * [ISSUE #3300]⚡️Optimize CommitLog put_message and put_messag…",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "tag_name": "v0.6.0",
+            "published_at": "2025-08-19T13:41:43Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/mxsm/rocketmq-rust",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .clippy.toml, .coderabbit.yaml, .dockerignore, .github, .gitignore, AGENTS.md, CHANGELOG.md, CLAUDE.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Cargo.lock, Cargo.toml, LICENSE-APACHE, LICENSE-MIT, NOTICE, README-zh_cn.md, README.md, distribution, docker, resources, rocketmq-auth, rocketmq-broker, rocketmq-client, rocketmq-common, rocketmq-controller, rocketmq-dashboard, rocketmq-doc, rocketmq-error, rocketmq-example, rocketmq-filter, rocketmq-macros, rocketmq-namesrv, rocketmq-proxy, rocketmq-remoting, rocketmq-runtime, rocketmq-store, rocketmq-tools, rocketmq-website, rocketmq, rust-toolchain.toml, rustfmt.toml, scripts",
+          "fetched_at": "2026-03-28T04:56:15.961Z",
+          "meta": {
+            "repo_full_name": "mxsm/rocketmq-rust",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "mxsm/rocketmq-rust",
+      "evidence_count": 16,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 4,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 4,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "mxsm/rocketmq-rust",
+      "ok": true,
+      "spec_path": "specs/2026-03-28/mxsm__rocketmq-rust.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "mxsm/rocketmq-rust",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-28/mxsm__rocketmq-rust.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "mxsm/rocketmq-rust",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-28/mxsm__rocketmq-rust.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-28T04:56:30.845Z",
+      "run_id": "20260328T045611Z",
+      "repo": "mxsm/rocketmq-rust",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "668e278acb57ba596e2a82113e72f7cb75c00350dc0f13c9762a0effd0f3d03b",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 12068
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14878,
+      "prompt_chars": 12068,
+      "completion_chars": 1587
+    },
+    {
+      "ts": "2026-03-28T04:56:48.140Z",
+      "run_id": "20260328T045611Z",
+      "repo": "mxsm/rocketmq-rust",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a30b355c9f48af0a08c1efa0fa8d3e81d4b3b648fb5bb7cbc50c9343ce734bf5",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 13875
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17295,
+      "prompt_chars": 13875,
+      "completion_chars": 1955
+    },
+    {
+      "ts": "2026-03-28T04:57:09.542Z",
+      "run_id": "20260328T045611Z",
+      "repo": "mxsm/rocketmq-rust",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "38fa4e78441128f54c143eebeaae114c2a4323f928b834ba5773950203e39b36",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 16034
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21402,
+      "prompt_chars": 16034,
+      "completion_chars": 2188
+    },
+    {
+      "ts": "2026-03-28T04:57:28.064Z",
+      "run_id": "20260328T045611Z",
+      "repo": "mxsm/rocketmq-rust",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "41e3b319d4e4ca9793f9d74a0e61b83e7d3b41b42c788709f3d53383d63f80c3",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 18427
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18521,
+      "prompt_chars": 18427,
+      "completion_chars": 1786
+    },
+    {
+      "ts": "2026-03-28T04:58:07.478Z",
+      "run_id": "20260328T045611Z",
+      "repo": "mxsm/rocketmq-rust",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "47a8cc9bf20d393b7e79ad246740385af7f9b615fbd14d0df0636a9be394323e",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 23081
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 39412,
+      "prompt_chars": 23081,
+      "completion_chars": 4863
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "mxsm/rocketmq-rust",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "mxsm/rocketmq-rust",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 16,
+      "evidence_total_final": 16,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 1,
+    "attempts_used_hist": {
+      "0": 1,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 1,
+    "success": 1
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1774673771868,
+    "llmCallsTotal": 5,
+    "llmCallsPerRepo": {
+      "mxsm/rocketmq-rust": 5
+    },
+    "tokensApproxTotal": 23968,
+    "tokensApproxPerRepo": {
+      "mxsm/rocketmq-rust": 23968
+    },
+    "reposProcessed": 1,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "mxsm/rocketmq-rust": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "scout",
+        "summary": "RocketMQ-Rust is an active, unofficial Rust reimplementation of Apache RocketMQ, emphasizing memory safety, high performance, and protocol compatibility. It has a modular crate structure, recent releases (v0.8.0 as latest), and strong CI/CD and documentation practices. The project is maintained primarily by a single contributor but shows consistent engineering discipline.",
+        "highlights": [
+          "Unofficial but production-targeted Rust implementation of Apache RocketMQ with full protocol compatibility.",
+          "Recent stable releases (v0.6.0 to v0.8.0) introducing features like proxy mode, controller mode, and dashboard.",
+          "Strong emphasis on Rust’s safety guarantees: memory safety, thread safety, and zero-cost abstractions.",
+          "Well-structured monorepo with dedicated crates for broker, client, namesrv, proxy, dashboard, and more.",
+          "Active maintenance with automated publishing scripts, CI workflows, and comprehensive README/documentation."
+        ],
+        "risks": [
+          "Heavy reliance on a single maintainer (@mxsm), evident from commit and PR ownership across releases and issues.",
+          "Despite being labeled 'production ready', the project is still pre-1.0 (latest is v0.8.0), indicating potential API instability.",
+          "Limited community contribution signals—most enhancements and fixes are authored by the same individual."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "inventor",
+        "summary": "RocketMQ-Rust is an innovative, unofficial Rust reimplementation of Apache RocketMQ that leverages Rust’s memory safety and concurrency model to deliver a high-performance, production-targeted message queue system with full protocol compatibility. It introduces novel architectural components like proxy mode and dashboard while maintaining a modular crate design.",
+        "highlights": [
+          "Introduces a complete Rust-native reimplementation of Apache RocketMQ, enabling memory-safe, concurrent, and zero-cost-abstraction-based messaging infrastructure.",
+          "Innovates beyond the original Java implementation by adding new operational modes such as proxy mode (v0.8.0) and controller mode (v0.7.0), expanding deployment flexibility.",
+          "Architecturally modular with dedicated crates (e.g., rocketmq-proxy, rocketmq-dashboard, rocketmq-controller) enabling composable, cloud-native deployments.",
+          "Demonstrates systematic engineering innovation through iterative improvements in publishing scripts, error handling (RocketMQResult), and internal scheduling frameworks.",
+          "Prioritizes developer experience with comprehensive documentation, CI/CD automation, and ecosystem integration (Tokio, Serde), lowering adoption barriers for Rust teams."
+        ],
+        "risks": [
+          "Innovation is heavily centralized around a single inventor (@mxsm), creating sustainability and scalability risks for long-term evolution.",
+          "Pre-1.0 status (latest v0.8.0) implies ongoing architectural experimentation; new features like proxy mode may lack battle-testing in diverse production environments.",
+          "As an unofficial implementation, it may diverge from upstream Apache RocketMQ roadmap, risking compatibility or community fragmentation over time."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "engineer",
+        "summary": "RocketMQ-Rust is a well-architected, unofficial Rust implementation of Apache RocketMQ that emphasizes memory safety, performance, and protocol compatibility. It features a modular monorepo structure with dedicated crates for core components (broker, client, proxy, dashboard, etc.), active CI/CD pipelines, and recent releases (v0.6.0–v0.8.0) introducing significant features like proxy mode and controller mode. Engineering practices show strong discipline in error handling, dependency management, and automation, though the project remains pre-1.0 and heavily reliant on a single maintainer.",
+        "highlights": [
+          "Modular crate architecture (e.g., rocketmq-proxy, rocketmq-dashboard, rocketmq-controller) enables clear separation of concerns and cloud-native deployment patterns.",
+          "Recent releases demonstrate consistent engineering velocity: v0.8.0 added proxy mode and dashboard; v0.7.0 introduced controller mode; v0.6.0 enhanced master-slave support.",
+          "Robust automation infrastructure: CI workflows, publishing scripts with retry/error handling (E-IS-002–E-IS-004), and comprehensive README with architecture diagrams and badges.",
+          "Leverages Rust’s safety guarantees—ownership model, fearless concurrency, zero-cost abstractions—for high-throughput, low-overhead messaging (E-RD-006, E-RD-007).",
+          "Full protocol compatibility with Apache RocketMQ ensures interoperability while enabling Rust-native performance and reliability improvements."
+        ],
+        "risks": [
+          "Single-point-of-failure in maintenance: nearly all commits, PRs, and issue resolutions are authored by @mxsm, posing sustainability risks.",
+          "Pre-1.0 versioning (latest v0.8.0) suggests potential API instability or incomplete feature maturity, especially for newer components like proxy mode.",
+          "Limited external contribution despite open governance docs (CODE_OF_CONDUCT.md, CONTRIBUTING.md), indicating possible barriers to community adoption or review."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "skeptic",
+        "summary": "While RocketMQ-Rust presents itself as a production-ready, high-performance reimplementation of Apache RocketMQ in Rust, critical scrutiny reveals unresolved concerns around maintenance sustainability, version maturity, and actual production validation—especially given its pre-1.0 status and near-total reliance on a single maintainer.",
+        "highlights": [
+          "Despite claims of being 'production ready' [E-RD-007], the project remains at v0.8.0—pre-1.0—suggesting APIs and core features (e.g., proxy mode [E-RL-001]) may still be unstable or unproven at scale.",
+          "All recent releases (v0.6.0–v0.8.0) and enhancement issues are authored almost exclusively by @mxsm [E-RL-001, E-RL-002, E-RL-003, E-IS-001–E-IS-004], indicating a severe bus factor risk and lack of peer review.",
+          "The README emphasizes memory safety and performance [E-RD-006, E-RD-007], but provides no benchmarks, third-party audits, or real-world adoption evidence to substantiate these claims beyond self-reported assertions."
+        ],
+        "risks": [
+          "Overstated readiness: labeling the project 'production ready' without 1.0 stability guarantees or external validation could mislead adopters into deploying immature infrastructure.",
+          "Extreme maintainer concentration: with one individual driving nearly all development, any disruption to their involvement would halt progress and leave users unsupported.",
+          "Feature bloat without proven utility: additions like dashboard and proxy mode [E-RL-001] increase surface area but lack evidence of testing, documentation depth, or user feedback."
+        ],
+        "evidence_ids": [
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"RocketMQ-Rust\",\n    \"one_sentence\": \"A high-performance, reliable, and feature-rich unofficial Rust implementation of Apache RocketMQ, designed to bring enterprise-grade message middleware to the Rust ecosystem.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users interact with a distributed message queue system by producing and consuming messages through Rust-native clients, while operators manage brokers, nameservers, proxies, and dashboards—all built on Rust’s memory safety and concurrency guarantees.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Dashboard Overview\",\n      \"purpose\": \"Provide operators with real-time visibility into cluster health, message throughput, and component status.\",\n      \"primary_actions\": [\n        \"View broker metrics\",\n        \"Monitor proxy mode status\",\n        \"Access controller mode configuration\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"publish_message\",\n      \"purpose\": \"Send a message to a specified topic using the RocketMQ-Rust client with full protocol compatibility.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"start_proxy_mode\",\n      \"purpose\": \"Launch the proxy mode component introduced in v0.8.0 to enable flexible routing and protocol translation.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"run_controller_mode\",\n      \"purpose\": \"Initialize the controller mode added in v0.7.0 for managing cluster coordination without relying on ZooKeeper.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"message_queue\",\n        \"fields\": [\n          {\n            \"name\": \"topic\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"body\",\n            \"type\": \"bytes\"\n          },\n          {\n            \"name\": \"timestamp\",\n            \"type\": \"u64\"\n          }\n        ]\n      },\n      {\n     "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "mxsm/rocketmq-rust",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 9,
+        "engineer": 10,
+        "skeptic": 9,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=165",
+    "[deduper] candidates_total=5 new=1 skipped=4",
+    "[repo_card_builder] mxsm/rocketmq-rust evidence total=16 readme=8 issue=4 release=3 root_files=1",
+    "[repo_card_builder] built=1 readme_ok=1/1 evidence_total=16 gaps=0",
+    "[llm_spec_generator] mxsm/rocketmq-rust canonical spec ok (iter=1) -> specs/2026-03-28/mxsm__rocketmq-rust.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-28T04:56:11.867Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:11.888Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260328T045611Z"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:11.888Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:11.891Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:12.344Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:12.344Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:12.769Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:12.769Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:13.098Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:13.098Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:13.436Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:13.436Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:13.754Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:13.754Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:14.113Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:14.113Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:14.505Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:14.505Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:14.840Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:14.840Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.248Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.248Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.600Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.603Z",
+      "run_id": "20260328T045611Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 165
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.604Z",
+      "run_id": "20260328T045611Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 1,
+        "skipped": 4,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.607Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-28T04:56:15.607Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mxsm__rocketmq-rust/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.608Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mxsm__rocketmq-rust/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.610Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mxsm__rocketmq-rust/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.611Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mxsm__rocketmq-rust/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.961Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 18192,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.961Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.961Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.961Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 354
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.962Z",
+      "run_id": "20260328T045611Z",
+      "node": "repo_card_builder",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 16,
+        "readme": 8,
+        "issues": 4,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.966Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 16,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 4,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:15.966Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 16,
+        "evidence_selected": 16,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:30.845Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1587,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:56:48.140Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1955,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:57:09.542Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2188,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:57:28.064Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1786,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.478Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4863,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.491Z",
+      "run_id": "20260328T045611Z",
+      "node": "llm_spec_generator",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.492Z",
+      "run_id": "20260328T045611Z",
+      "node": "artifacts",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-28/mxsm__rocketmq-rust.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.493Z",
+      "run_id": "20260328T045611Z",
+      "node": "artifacts",
+      "repo": "mxsm/rocketmq-rust",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-28/mxsm__rocketmq-rust.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.496Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 1,
+        "attempts_used_hist": {
+          "0": 1,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.496Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1774673771868,
+        "llmCallsTotal": 5,
+        "llmCallsPerRepo": {
+          "mxsm/rocketmq-rust": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 1,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.496Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-28T04:58:07.496Z",
+      "run_id": "20260328T045611Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 1,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-28",
+    "evidence_dir": "evidence/2026-03-28"
+  }
+}

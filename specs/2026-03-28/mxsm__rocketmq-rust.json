@@ -1,0 +1,117 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "RocketMQ-Rust",
+    "one_liner": "A high-performance, reliable, and feature-rich unofficial Rust implementation of Apache RocketMQ, designed to bring enterprise-grade message middleware to the Rust ecosystem."
+  },
+  "screens": [
+    {
+      "name": "Dashboard Overview",
+      "purpose": "Provide operators with real-time visibility into cluster health, message throughput, and component status.",
+      "primary_actions": [
+        "Access controller mode configuration",
+        "Monitor proxy mode status",
+        "View broker metrics"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "publish_message",
+      "purpose": "Send a message to a specified topic using the RocketMQ-Rust client with full protocol compatibility.",
+      "async": true,
+      "input": {
+        "address": "string",
+        "broker_id": "string",
+        "mode": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_controller_mode",
+      "purpose": "Initialize the controller mode added in v0.7.0 for managing cluster coordination without relying on ZooKeeper.",
+      "async": true,
+      "input": {
+        "address": "string",
+        "broker_id": "string",
+        "mode": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_proxy_mode",
+      "purpose": "Launch the proxy mode component introduced in v0.8.0 to enable flexible routing and protocol translation.",
+      "async": true,
+      "input": {
+        "address": "string",
+        "broker_id": "string",
+        "mode": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "broker_metadata",
+        "columns": [
+          {
+            "name": "address",
+            "type": "TEXT"
+          },
+          {
+            "name": "broker_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "mode",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "message_queue",
+        "columns": [
+          {
+            "name": "body",
+            "type": "BLOB"
+          },
+          {
+            "name": "timestamp",
+            "type": "INTEGER"
+          },
+          {
+            "name": "topic",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic message production and consumption using async Rust",
+    "week 1: Integrate RocketMQResult error handling pattern from recent PRs",
+    "week 1: Set up modular crate structure mirroring rocketmq-broker, rocketmq-client, and rocketmq-namesrv",
+    "week 2: Add proxy mode support as per v0.8.0 release notes",
+    "week 2: Configure CI workflows matching GitHub Actions badges",
+    "week 2: Implement dashboard UI scaffolding using provided architecture diagram"
+  ],
+  "acceptance_tests": [
+    "All components (broker, proxy, dashboard) start successfully using published crate binaries.",
+    "Controller mode initializes and maintains cluster state without external dependencies like ZooKeeper.",
+    "Proxy mode routes messages correctly between clients and brokers without data loss.",
+    "The system can produce and consume messages with full Apache RocketMQ protocol compatibility."
+  ]
+}
