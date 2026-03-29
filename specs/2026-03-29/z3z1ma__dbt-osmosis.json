@@ -1,0 +1,113 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "dbt-osmosis",
+    "one_liner": "A CLI tool that enhances dbt developer workflows through automated YAML management, documentation generation, and AI-assisted modeling."
+  },
+  "screens": [
+    {
+      "name": "Streamlit Playground",
+      "purpose": "Provide an interactive web interface to explore dbt-osmosis features without local setup.",
+      "primary_actions": [
+        "Execute LLM-based test suggestions",
+        "Preview YAML synchronization results",
+        "Run AI-assisted model generation"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate",
+      "purpose": "Automatically generate dbt model files and associated YAML documentation based on database schema.",
+      "async": true,
+      "input": {
+        "columns": "json",
+        "model_name": "string",
+        "payload": "json",
+        "yaml_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "nl",
+      "purpose": "Enable natural language queries to assist in model or test creation using LLM integration.",
+      "async": true,
+      "input": {
+        "columns": "json",
+        "model_name": "string",
+        "payload": "json",
+        "yaml_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "test-llm",
+      "purpose": "Generate dbt tests using large language models based on column semantics and data profiles.",
+      "async": true,
+      "input": {
+        "columns": "json",
+        "model_name": "string",
+        "payload": "json",
+        "yaml_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "models",
+        "columns": [
+          {
+            "name": "columns",
+            "type": "JSON"
+          },
+          {
+            "name": "model_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "yaml_path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sources",
+        "columns": [
+          {
+            "name": "database",
+            "type": "TEXT"
+          },
+          {
+            "name": "schema",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core YAML synchronization logic",
+    "week 1: Integrate with dbt catalog metadata",
+    "week 1: Set up Streamlit playground scaffolding"
+  ],
+  "acceptance_tests": [
+    "CLI successfully generates YAML files matching database schema without manual intervention.",
+    "Natural language command `nl` produces valid dbt model code from text prompts.",
+    "Streamlit app loads and allows interactive model preview without local installation."
+  ]
+}

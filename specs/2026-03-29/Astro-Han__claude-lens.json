@@ -1,0 +1,67 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "claude-lens",
+    "one_liner": "A pace-aware, single-file Bash statusline for Claude Code that shows quota usage relative to time remaining using intuitive directional indicators."
+  },
+  "screens": [
+    {
+      "name": "Statusline Display",
+      "purpose": "Show real-time, pace-aware quota utilization and contextual developer metadata in Claude Code’s status bar.",
+      "primary_actions": [
+        "Display used% for active quota windows",
+        "Render pace delta with ⇡ (overspend) or ⇣ (surplus)",
+        "Show git branch and diff statistics"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "render_statusline",
+      "purpose": "Execute the claude-lens.sh script to generate the current statusline output from Claude’s quota JSON.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "time_remaining_hours": "float",
+        "used_percent": "float",
+        "window_duration": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "quota_windows",
+        "columns": [
+          {
+            "name": "time_remaining_hours",
+            "type": "REAL"
+          },
+          {
+            "name": "used_percent",
+            "type": "REAL"
+          },
+          {
+            "name": "window_duration",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Integrate claude-lens.sh as ~/.claude/statusline.sh via curl or plugin install",
+    "week 1: Render used% and pace delta with color-coded ⇡/⇣ indicators",
+    "week 1: Validate jq dependency and JSON parsing of Claude quota input"
+  ],
+  "acceptance_tests": [
+    "Execution completes in under 15ms with ~2MB memory on Apple Silicon",
+    "Output includes git branch name and diff stats like '3f +24 -7'",
+    "When quota usage is 15% above sustainable rate, display '⇡15%' in red",
+    "When quota usage is 15% below sustainable rate, display '⇣15%' in green"
+  ]
+}

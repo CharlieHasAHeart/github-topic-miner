@@ -1,0 +1,167 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "fli",
+    "one_liner": "A Python library providing programmatic, scraping-free access to Google Flights data via reverse-engineered API interaction, with CLI and MCP server interfaces."
+  },
+  "screens": [
+    {
+      "name": "Flight Search Interface",
+      "purpose": "Enable users to configure and execute flight searches or cheapest-date queries through CLI or MCP integration.",
+      "primary_actions": [
+        "Configure cabin class, stops, airlines, and time windows",
+        "Run `search_dates` across flexible date ranges",
+        "Run `search_flights` with fixed travel dates"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "search_dates",
+      "purpose": "Find the cheapest travel dates within a specified range, supporting round-trip duration and price-based sorting.",
+      "async": true,
+      "input": {
+        "airlines": "json",
+        "cabin_class": "string",
+        "departure_window": "string",
+        "destination": "string",
+        "end_date": "string",
+        "is_round_trip": "boolean",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "search_flights",
+      "purpose": "Search for flights on specific dates with detailed filtering options including cabin class, stops, airlines, and departure time windows.",
+      "async": true,
+      "input": {
+        "airlines": "json",
+        "cabin_class": "string",
+        "departure_window": "string",
+        "destination": "string",
+        "end_date": "string",
+        "is_round_trip": "boolean",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "DateSearchParams",
+        "columns": [
+          {
+            "name": "airlines",
+            "type": "JSON"
+          },
+          {
+            "name": "cabin_class",
+            "type": "TEXT"
+          },
+          {
+            "name": "departure_window",
+            "type": "TEXT"
+          },
+          {
+            "name": "destination",
+            "type": "TEXT"
+          },
+          {
+            "name": "end_date",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_round_trip",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "max_stops",
+            "type": "TEXT"
+          },
+          {
+            "name": "origin",
+            "type": "TEXT"
+          },
+          {
+            "name": "passengers",
+            "type": "INTEGER"
+          },
+          {
+            "name": "sort_by_price",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "start_date",
+            "type": "TEXT"
+          },
+          {
+            "name": "trip_duration",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "FlightSearchParams",
+        "columns": [
+          {
+            "name": "airlines",
+            "type": "JSON"
+          },
+          {
+            "name": "cabin_class",
+            "type": "TEXT"
+          },
+          {
+            "name": "departure_date",
+            "type": "TEXT"
+          },
+          {
+            "name": "departure_window",
+            "type": "TEXT"
+          },
+          {
+            "name": "destination",
+            "type": "TEXT"
+          },
+          {
+            "name": "max_stops",
+            "type": "TEXT"
+          },
+          {
+            "name": "origin",
+            "type": "TEXT"
+          },
+          {
+            "name": "passengers",
+            "type": "INTEGER"
+          },
+          {
+            "name": "return_date",
+            "type": "TEXT"
+          },
+          {
+            "name": "sort_by",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build `search_flights` command with full parameter support",
+    "week 1: Expose MCP server endpoint at /mcp/ with HTTP streaming",
+    "week 1: Implement core reverse-engineered API client for Google Flights"
+  ],
+  "acceptance_tests": [
+    "Given a 30-day date range and round-trip flag, `search_dates` returns cheapest outbound/return date pairs within constraints.",
+    "Given valid origin, destination, and departure date, `search_flights` returns non-empty flight results sorted by CHEAPEST."
+  ]
+}

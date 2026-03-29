@@ -1,0 +1,3297 @@
+{
+  "run_id": "20260329T051400Z",
+  "generated_at": "2026-03-29T05:14:00.064Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 94,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 37,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 3,
+      "release": 7,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-03-29T05:19:24.782Z",
+    "repo_count": 169
+  },
+  "candidates": [
+    {
+      "full_name": "fastrepl/char",
+      "html_url": "https://github.com/fastrepl/char",
+      "description": "AI notepad for meetings",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8092,
+      "forks_count": 565,
+      "open_issues_count": 162,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:13:21Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "Astro-Han/claude-lens",
+      "html_url": "https://github.com/Astro-Han/claude-lens",
+      "description": "Know your quota before you hit the wall. The only pace-aware statusline for Claude Code.",
+      "topics": [
+        "bash",
+        "claude",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "statusline"
+      ],
+      "language": "Shell",
+      "stargazers_count": 65,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:13:14Z",
+      "created_at": "2026-03-18T16:45:57Z"
+    },
+    {
+      "full_name": "z3z1ma/dbt-osmosis",
+      "html_url": "https://github.com/z3z1ma/dbt-osmosis",
+      "description": "Provides automated YAML management and a streamlit workbench. Designed to optimize dev workflows.",
+      "topics": [
+        "cli",
+        "data",
+        "dbt",
+        "documentation",
+        "editor",
+        "modelling",
+        "sql",
+        "testing"
+      ],
+      "language": "Python",
+      "stargazers_count": 616,
+      "forks_count": 87,
+      "open_issues_count": 10,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:12:28Z",
+      "created_at": "2021-09-25T01:19:15Z"
+    },
+    {
+      "full_name": "punitarani/fli",
+      "html_url": "https://github.com/punitarani/fli",
+      "description": "Google Flights MCP and Python Library",
+      "topics": [
+        "api",
+        "flights-api",
+        "google-flights",
+        "google-flights-api",
+        "mcp",
+        "mcp-server"
+      ],
+      "language": "Python",
+      "stargazers_count": 400,
+      "forks_count": 56,
+      "open_issues_count": 22,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:10:45Z",
+      "created_at": "2025-01-06T05:20:05Z"
+    },
+    {
+      "full_name": "jtCodes/lyrictor",
+      "html_url": "https://github.com/jtCodes/lyrictor",
+      "description": "Desktop and browser-based creative tool for turning personal interpretations of songs into shareable visual experiences.",
+      "topics": [
+        "ai",
+        "editor",
+        "howlerjs",
+        "konvajs",
+        "lyrics",
+        "music",
+        "react",
+        "react-spectrum",
+        "song",
+        "song-lyrics",
+        "stable-diffusion",
+        "typescript",
+        "waveform",
+        "waveform-data",
+        "webapp",
+        "zustand"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 53,
+      "forks_count": 11,
+      "open_issues_count": 13,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-03-29T05:09:34Z",
+      "created_at": "2022-02-18T14:09:36Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "Astro-Han/claude-lens",
+      "html_url": "https://github.com/Astro-Han/claude-lens",
+      "description": "Know your quota before you hit the wall. The only pace-aware statusline for Claude Code.",
+      "topics": [
+        "bash",
+        "claude",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "statusline"
+      ],
+      "language": "Shell",
+      "stargazers_count": 65,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:13:14Z",
+      "created_at": "2026-03-18T16:45:57Z"
+    },
+    {
+      "full_name": "z3z1ma/dbt-osmosis",
+      "html_url": "https://github.com/z3z1ma/dbt-osmosis",
+      "description": "Provides automated YAML management and a streamlit workbench. Designed to optimize dev workflows.",
+      "topics": [
+        "cli",
+        "data",
+        "dbt",
+        "documentation",
+        "editor",
+        "modelling",
+        "sql",
+        "testing"
+      ],
+      "language": "Python",
+      "stargazers_count": 616,
+      "forks_count": 87,
+      "open_issues_count": 10,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:12:28Z",
+      "created_at": "2021-09-25T01:19:15Z"
+    },
+    {
+      "full_name": "punitarani/fli",
+      "html_url": "https://github.com/punitarani/fli",
+      "description": "Google Flights MCP and Python Library",
+      "topics": [
+        "api",
+        "flights-api",
+        "google-flights",
+        "google-flights-api",
+        "mcp",
+        "mcp-server"
+      ],
+      "language": "Python",
+      "stargazers_count": 400,
+      "forks_count": 56,
+      "open_issues_count": 22,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:10:45Z",
+      "created_at": "2025-01-06T05:20:05Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "Astro-Han/claude-lens",
+      "html_url": "https://github.com/Astro-Han/claude-lens",
+      "description": "Know your quota before you hit the wall. The only pace-aware statusline for Claude Code.",
+      "topics": [
+        "bash",
+        "claude",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "statusline"
+      ],
+      "language": "Shell",
+      "stargazers_count": 65,
+      "forks_count": 4,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:13:14Z",
+      "created_at": "2026-03-18T16:45:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Claude Lens\n\nKnow your quota before you hit the wall. A statusline for Claude Code — single Bash file, zero npm.\n\nMost statuslines show \"you used 60%.\" That number means nothing without context. 60% with 30 minutes left? Fine, the window resets soon. 60% with 4 hours left? You're about to hit the wall. claude-lens compares your usage rate to the time remaining and shows the delta. No Node.js, no npm, no lock files. Single Bash file.\n\n![claude-lens statusline demo](.github/claude-lens-demo.gif)\n\n- **⇣15%** green = you've used 15% less than expected. Headroom. Keep going.\n- **⇡15%** red = you're burning 15% faster than sustainable. Slow down.\n- **15%** / **20%** = used in the 5h and 7d windows. **3h** = resets in 3 hours.\n- Top line: model, effort, project `(branch)`, `3f +24 -7` = git diff stats\n\n## Install\n\nRequires `jq`.\n\n**Plugin (recommended):**\n\nRun in your terminal:\n\n```bash\nclaude plugin marketplace add Astro-Han/claude-lens\nclaude plugin install claude-lens\n```\n\nThen inside Claude Code, type `/claude-lens:setup`.\n\n**Manual:**\n\n```bash\ncurl -o ~/.claude/statusline.sh \\\n  https://raw.githubusercontent.com/Astro-Han/claude-lens/main/claude-lens.sh\nchmod +x ~/.claude/statusline.sh\n```\n\nAdd to `~/.claude/settings.json`:\n\n```json\n{\n  \"statusLine\": {\n    \"type\": \"command\",\n    \"command\": \"~/.claude/statusline.sh\"\n  }\n}\n```\n\nRestart Claude Code. Done.\n\nTo remove: delete the `statusLine` block from `~/.claude/settings.json`.\n\n## How It Compares\n\n|  | claude-lens | Node.js/TypeScript statuslines | Rust/Go statuslines |\n|---|---|---|---|\n| Runtime | `jq` | Node.js 18+ / npm | Compiled binary |\n| Codebase | Single file | 1000+ lines + node_modules | Compiled, not inspectable |\n| Execution | ~10ms, 3% of refresh cycle | ~90ms, 30% of refresh cycle | ~5ms (est.) |\n| Memory | ~2 MB | ~57 MB | ~3 MB (est.) |\n| Failure modes | Read-only, worst case prints \"Claude\" | Runtime dependency, package manager | Generally stable |\n| Pace tracking | Usage rate vs time remaining | Trend-only or none | None |\n\nExecution and memory measured on Apple Silicon, 300 runs, same stdin JSON. Rust/Go values are estimates.\n\nNeed themes, powerline aesthetics, or TUI config? Try [ccstatusline](https://github.com/sirmalloc/ccstatusline). The entire source of claude-lens is [one file](claude-lens.sh). Read it.\n\n## Under the Hood\n\nClaude Code polls the statusline every ~300ms:\n\n| Data | Source | Cache |\n|------|--------|-------|\n| Model, context, cost | stdin JSON (single `jq` call) | None needed |\n| Quota (5h, 7d, pace) | stdin `rate_limits` (CC >= 2.1.80) | None needed (real-time) |\n| Quota fallback | Anthropic Usage API (CC < 2.1.80) | `/tmp`, 300s TTL, async background refresh |\n| Git branch + diff | `git` commands | `/tmp`, 5s TTL |\n\nOn Claude Code >= 2.1.80, usage data comes directly from stdin. No network calls. On older versions, it falls back to the Usage API in a background subshell so the statusline never blocks.\n\n## License\n\nMIT\n",
+        "truncated": false,
+        "bytes": 2966,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.6.0",
+            "tag_name": "v0.6.0",
+            "published_at": "2026-03-27T17:14:23Z",
+            "body_excerpt": "## What's Changed\n\n- Display usage as **used%** instead of remaining% (lower = better)\n- Use ⇡/⇣ arrows for pace delta trend (⇡ = overspend, ⇣ = surplus)\n- Invert pace delta sign to match intuitive convention\n- Color constants for cleaner code\n\n**Full Changelog**: https://github.com/Astro-Han/claude-lens/compare/v0.5.0...v0.6.0"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1,
+            "title": "Add option for reporting usage, not remaining values",
+            "state": "closed",
+            "url": "https://github.com/Astro-Han/claude-lens/issues/1"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude-plugin",
+        ".github",
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "claude-lens.sh",
+        "commands",
+        "test.sh"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Know your quota before you hit the wall. A statusline for Claude Code — single Bash file, zero npm.",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 1,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Most statuslines show \"you used 60%.\" That number means nothing without context. 60% with 30 minutes left? Fine, the window resets soon. 60% with 4 hours left? You're about to hit the wall. claude-lens compares your usage rate to the time remaining and shows the delta. No Node.js, no npm, no lock files. Single Bash file.",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 2,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 3)",
+          "excerpt": "- **⇣15%** green = you've used 15% less than expected. Headroom. Keep going. - **⇡15%** red = you're burning 15% faster than sustainable. Slow down. - **15%** / **20%** = used in the 5h and 7d windows. **3h** = resets in 3 hours. - Top line: model, effort, project `(branch)`, `3f +24 -7` = git diff stats",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 3,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 4)",
+          "excerpt": "```bash claude plugin marketplace add Astro-Han/claude-lens claude plugin install claude-lens ```",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 4,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 5)",
+          "excerpt": "```bash curl -o ~/.claude/statusline.sh \\ https://raw.githubusercontent.com/Astro-Han/claude-lens/main/claude-lens.sh chmod +x ~/.claude/statusline.sh ```",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 5,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 6)",
+          "excerpt": "```json { \"statusLine\": { \"type\": \"command\", \"command\": \"~/.claude/statusline.sh\" } } ```",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 6,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| | claude-lens | Node.js/TypeScript statuslines | Rust/Go statuslines | |---|---|---|---| | Runtime | `jq` | Node.js 18+ / npm | Compiled binary | | Codebase | Single file | 1000+ lines + node_modules | Compiled, not inspectable | | Execution | ~10ms, 3% of refresh cycle | ~90ms, 30% of refresh cycle | ~5ms (est.) | | Memory | ~2 MB | ~57 MB | ~3 MB (est.) | | Failure modes | Read-only, worst case prints \"Claude\" | Runtime dependency, package manager | Generally stable | | Pace tracking | Usage rate vs time remaining | Trend-only or none | None |",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 7,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/Astro-Han/claude-lens#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Execution and memory measured on Apple Silicon, 300 runs, same stdin JSON. Rust/Go values are estimates.",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "segment": 8,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Astro-Han/claude-lens/issues/1",
+          "title": "Add option for reporting usage, not remaining values",
+          "excerpt": "Add option for reporting usage, not remaining values (state:closed)",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "number": 1
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Astro-Han/claude-lens/releases",
+          "title": "v0.6.0",
+          "excerpt": "## What's Changed - Display usage as **used%** instead of remaining% (lower = better) - Use ⇡/⇣ arrows for pace delta trend (⇡ = overspend, ⇣ = surplus) - Invert pace delta sign to match intuitive convention - Color constants for cleaner code **Full Changelog**: https://github.com/Astro-Han/claude-lens/compare/v0.5.0...v0.6.0",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "tag_name": "v0.6.0",
+            "published_at": "2026-03-27T17:14:23Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Astro-Han/claude-lens",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude-plugin, .github, .gitignore, LICENSE, README.md, claude-lens.sh, commands, test.sh",
+          "fetched_at": "2026-03-29T05:14:05.047Z",
+          "meta": {
+            "repo_full_name": "Astro-Han/claude-lens",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "z3z1ma/dbt-osmosis",
+      "html_url": "https://github.com/z3z1ma/dbt-osmosis",
+      "description": "Provides automated YAML management and a streamlit workbench. Designed to optimize dev workflows.",
+      "topics": [
+        "cli",
+        "data",
+        "dbt",
+        "documentation",
+        "editor",
+        "modelling",
+        "sql",
+        "testing"
+      ],
+      "language": "Python",
+      "stargazers_count": 616,
+      "forks_count": 87,
+      "open_issues_count": 10,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:12:28Z",
+      "created_at": "2021-09-25T01:19:15Z",
+      "readme": {
+        "fetched": true,
+        "text": "# dbt-osmosis\n\n<!--![GitHub Actions](https://github.com/z3z1ma/dbt-osmosis/actions/workflows/master.yml/badge.svg)-->\n\n![PyPI](https://img.shields.io/pypi/v/dbt-osmosis)\n[![Downloads](https://static.pepy.tech/badge/dbt-osmosis)](https://pepy.tech/project/dbt-osmosis)\n![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)\n![black](https://img.shields.io/badge/code%20style-black-000000.svg)\n[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dbt-osmosis-playground.streamlit.app/)\n\n[![Scc Count Badge](https://sloc.xyz/github/z3z1ma/dbt-osmosis/)](https://github.com/z3z1ma/dbt-osmosis/)\n[![Scc Count Badge](https://sloc.xyz/github/z3z1ma/dbt-osmosis/?category=cocomo)](https://github.com/z3z1ma/dbt-osmosis/)\n\n## New to dbt-osmosis?\n\nWe now have a spiffy [dbt-osmosis documentation site](https://z3z1ma.github.io/dbt-osmosis/)! 🎉\n\nPlease check it out for a more in-depth introduction to dbt-osmosis. 👇\n\nThe docs site is the canonical reference for the current CLI, configuration model, migration notes, and newer command families such as `generate`, `nl`, and `test-llm`.\n\n[![dbt-osmosis](/screenshots/docs_site.png)](https://z3z1ma.github.io/dbt-osmosis/)\n\n## Migrating from 0.x.x to 1.x.x?\n\nWe have a [migration guide](https://z3z1ma.github.io/dbt-osmosis/docs/migrating) to help you out. 🚀\n\n## What is dbt-osmosis?\n\nHello and welcome to the project! [dbt-osmosis](https://github.com/z3z1ma/dbt-osmosis) 🌊 serves to enhance the developer experience significantly. We do this through providing 4 core features:\n\n1. Automated schema YAML management.\n\n    1a. `dbt-osmosis yaml refactor --project-dir ... --profiles-dir ...`\n\n    > Automatically generate documentation based on upstream documented columns, organize yaml files based on configurable rules defined in dbt_project.yml, scaffold new yaml files based on the same rules, inject columns from data warehouse schema if missing in yaml and remove columns no longer present in data warehouse (organize -> document)\n\n    1b. `dbt-osmosis yaml organize --project-dir ... --profiles-dir ...`\n\n    > Organize yaml files based on configurable rules defined in dbt_project.yml, scaffold new yaml files based on the same rules (no documentation changes)\n\n    1c. `dbt-osmosis yaml document --project-dir ... --profiles-dir ...`\n\n    > Automatically generate documentation based on upstream documented columns (no reorganization)\n\n2. Workbench for dbt Jinja SQL. This workbench is powered by streamlit and the badge at the top of the readme will take you to a demo on streamlit cloud with jaffle_shop loaded (requires extra `pip install \"dbt-osmosis[workbench]\"`).\n\n    2a. `dbt-osmosis workbench --project-dir ... --profiles-dir ...`\n\n    > Spins up a streamlit app. This workbench offers similar functionality to the osmosis server + power-user combo without a reliance on VS code. Realtime compilation, query execution, pandas profiling all via copying and pasting whatever you are working on into the workbenchat your leisure. Spin it up and down as needed.\n\n____\n\n## Pre-commit\n\nYou can use dbt-osmosis as a pre-commit hook. This will run the `dbt-osmosis yaml refactor` command on your models directory before each commit. This is one way to ensure that your schema.yml files are always up to date. I would recommend reading the docs for more information on what this command does.\n\n```yaml title=\".pre-commit-config.yaml\"\nrepos:\n  - repo: https://github.com/z3z1ma/dbt-osmosis\n    rev: v1.3.0 # verify the latest version\n    hooks:\n      - id: dbt-osmosis\n        files: ^models/\n        args: [--target=prod]\n        additional_dependencies: [dbt-<adapter>]\n```\n\n___\n\n## Workbench\n\nThe workbench is a streamlit app that allows you to work on dbt models in a side-by-side editor and query tester. I've kept this portion of the README since users can jump into the streamlit hosted workbench to play around with it via the badge below. Expect the living documentation moving forward to exist at the [dbt-osmosis documentation site](https://z3z1ma.github.io/dbt-osmosis/).\n\nI also expect there is some untapped value in the workbench that is only pending some time from myself. I've seen a path to a truly novel development experience and look forward to exploring it.\n\nDemo the workbench 👇\n\n[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dbt-osmosis-playground.streamlit.app/)\n\n```sh\n# NOTE this requires the workbench extra as you can see\npip install \"dbt-osmosis[workbench]\"\n\n# Command to start server\ndbt-osmosis workbench\n```\n\nPress \"r\" to reload the workbench at any time.\n\n✔️ dbt Editor with instant dbt compilation side-by-side or pivoted\n\n✔️ Full control over model and workbench theme, light and dark mode\n\n✔️ Query Tester, test the model you are working on for instant feedback\n\n✔️ Data Profiler (leverages pandas-profiling)\n\n**Editor**\n\nThe editor is able to compile models with control+enter or dynamically as you type. Its speedy! You can choose any target defined in your profiles yml for compilation and execution.\n\n![editor](/screenshots/osmosis_editor_main.png?raw=true \"dbt-osmosis Workbench\")\n\nYou can pivot the editor for a fuller view while workbenching some dbt SQL.\n\n![pivot](/screenshots/osmosis_editor_pivot.png?raw=true \"dbt-osmosis Pivot Layout\")\n\n**Test Query**\n\nTest dbt models as you work against whatever profile you have selected and inspect the results. This allows very fast iterative feedback loops not possible with VS Code alone.\n\n![test-model](/screenshots/osmosis_tester.png?raw=true \"dbt-osmosis Test Model\")\n\n**Profile Model Results**\n\nProfile your datasets on the fly while you develop without switching context. Allows for more refined interactive data modelling when dataset fits in memory.\n\n![profile-data](/screenshots/osmosis_profile.png?raw=true \"dbt-osmosis Profile Data\")\n\n**Useful Links and RSS Feed**\n\nSome useful links and RSS feeds at the bottom. 🤓\n\n![profile-data](/screenshots/osmosis_links.png?raw=true \"dbt-osmosis Profile Data\")\n\n___\n\n![graph](https://repobeats.axiom.co/api/embed/df37714aa5780fc79871c60e6fc623f8f8e45c35.svg \"Repobeats analytics image\")\n",
+        "truncated": false,
+        "bytes": 6222,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "",
+            "tag_name": "v1.3.0",
+            "published_at": "2026-03-25T04:05:10Z",
+            "body_excerpt": "## Changes\n\nSee the [CHANGELOG](https://github.com/z3z1ma/dbt-osmosis/blob/main/CHANGELOG.md) for a full list of changes.\n\nAutomatically detected changes:\n\n* fix: apply ruff-format to all files failing pre-commit lint (#337) @copilot-swe-agent\n* Fix trailing whitespace in writer.py failing pre-commit hooks (#336) @copilot-swe-agent\n* Fix CI regressions: YAML writer, catalog matching, sync behavior, thread-pool, and tests (#335) @z3z1ma\n* [fixes 331] update path in tutorial links (#332) @macraesdirtysocks\n* add metrics to preserved keys (#330) @EvavW\n* feat: add logic to skip empty array columns when no columns or --skip-add-source-columns (#327) @LuigiCerone\n* fix: normalize column-level meta to config.meta for dbt 1.9+ (#324) @dtaniwaki\n* fix(tests): correct mock paths and context type in test_generators (#319) @ota2000\n* feat: add Python 3.13 support and upgrade ydata-profiling (#318) @ota2000\n* Fix --check behavior when --dry-run is used (#316) @ththicn\n* fix: handle missing ColumnInfo.config attribute in dbt-core 1.10+ (#313) @nazihkalo\n* Fix Azure OpenAI support broken with openai>=1.0.0 (#310) @cwmuller\n* feat: add external YAML formatter integration (--formatter) (#323) @RicardoAGL\n* fix: case-insensitive Snowflake relation matching for catalog lookup in get_columns (#325) @Felix313\n* fix(transforms): use case-insensitive column comparison when output case settings are active (#322) @ota2000\n* make openai optional (#300) @LuigiCerone\n\n## :package: Dependencies\n\n* chore(deps): bump the npm_and_yarn group across 1 directory with 4 updates (#334) @dependabot\n* chore(deps): bump protobuf from 5.29.5 to 5.29.6 in the uv group across 1 directory (#315) @dependabot\n* chore(deps): bump lodash from 4.17.21 to 4.17.23 in /docs in the npm_and_yarn group across 1 directory (#312) @dependabot\n"
+          },
+          {
+            "name": "",
+            "tag_name": "v1.2.2",
+            "published_at": "2026-01-11T08:59:47Z",
+            "body_excerpt": "## Changes\n\nSee the [CHANGELOG](https://github.com/z3z1ma/dbt-osmosis/blob/main/CHANGELOG.md) for a full list of changes.\n\nAutomatically detected changes:\n\n* Fixes #294 (#296) @simo-cava\n"
+          },
+          {
+            "name": "",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-01-03T08:26:30Z",
+            "body_excerpt": "## Changes\n\nSee the [CHANGELOG](https://github.com/z3z1ma/dbt-osmosis/blob/main/CHANGELOG.md) for a full list of changes.\n\nAutomatically detected changes:\n\n* No changes\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 308,
+            "title": "Release 1.2.3",
+            "state": "closed",
+            "url": "https://github.com/z3z1ma/dbt-osmosis/issues/308"
+          },
+          {
+            "number": 314,
+            "title": "Bump ydata-profile dependency and add support for Python 3.13",
+            "state": "closed",
+            "url": "https://github.com/z3z1ma/dbt-osmosis/issues/314"
+          }
+        ]
+      },
+      "root_files": [
+        ".changes",
+        ".changie.yaml",
+        ".claude",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".loom",
+        ".memos",
+        ".pre-commit-config.yaml",
+        ".pre-commit-hooks.yaml",
+        ".specify",
+        ".streamlit",
+        ".tickets",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "Taskfile.yml",
+        "config.toml",
+        "demo_duckdb",
+        "docs",
+        "pyproject.toml",
+        "screenshots",
+        "specs",
+        "src",
+        "tests",
+        "uv.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<!--![GitHub Actions](https://github.com/z3z1ma/dbt-osmosis/actions/workflows/master.yml/badge.svg)-->",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 2)",
+          "excerpt": "![PyPI](https://img.shields.io/pypi/v/dbt-osmosis) [![Downloads](https://static.pepy.tech/badge/dbt-osmosis)](https://pepy.tech/project/dbt-osmosis) ![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg) ![black](https://img.shields.io/badge/code%20style-black-000000.svg) [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dbt-osmosis-playground.streamlit.app/)",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![Scc Count Badge](https://sloc.xyz/github/z3z1ma/dbt-osmosis/)](https://github.com/z3z1ma/dbt-osmosis/) [![Scc Count Badge](https://sloc.xyz/github/z3z1ma/dbt-osmosis/?category=cocomo)](https://github.com/z3z1ma/dbt-osmosis/)",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 4)",
+          "excerpt": "We now have a spiffy [dbt-osmosis documentation site](https://z3z1ma.github.io/dbt-osmosis/)! 🎉",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 5)",
+          "excerpt": "The docs site is the canonical reference for the current CLI, configuration model, migration notes, and newer command families such as `generate`, `nl`, and `test-llm`.",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 6)",
+          "excerpt": "[![dbt-osmosis](/screenshots/docs_site.png)](https://z3z1ma.github.io/dbt-osmosis/)",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 7)",
+          "excerpt": "We have a [migration guide](https://z3z1ma.github.io/dbt-osmosis/docs/migrating) to help you out. 🚀",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Hello and welcome to the project! [dbt-osmosis](https://github.com/z3z1ma/dbt-osmosis) 🌊 serves to enhance the developer experience significantly. We do this through providing 4 core features:",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis/issues/308",
+          "title": "Release 1.2.3",
+          "excerpt": "Release 1.2.3 (state:closed)",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "number": 308
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis/issues/314",
+          "title": "Bump ydata-profile dependency and add support for Python 3.13",
+          "excerpt": "Bump ydata-profile dependency and add support for Python 3.13 (state:closed)",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "number": 314
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis/releases",
+          "title": "v1.3.0",
+          "excerpt": "## Changes See the [CHANGELOG](https://github.com/z3z1ma/dbt-osmosis/blob/main/CHANGELOG.md) for a full list of changes. Automatically detected changes: * fix: apply ruff-format to all files failing pre-commit lint (#337) @copilot-swe-agent * Fix trailing whitespace in writer.py failing pre-commit hooks (#336) @copilot-swe-agent * Fix CI regressions: YAML writer, catalog matching, sync behavior, thread-pool, and tests (#335) @z3z1ma * [fixes 331] update path in tutorial links (#332) @macraesdirtysocks * add metrics to preserved keys (#330) @EvavW * feat: add logic to skip empty array columns when no columns or --skip-add-source-columns (#327) @LuigiCerone * fix: normalize column-level meta to config.meta for dbt 1.9+ (#324) @dtaniwaki * fix(tests): correct mock paths and context type in test_generators (#319) @ota2000 * feat: add Python 3.13 support and upgrade ydata-profiling (#318) @ota2000 * Fix --check behavior when --dry-run is used (#316) @ththicn * fix: handle missing ColumnInfo.config attribute in dbt-core 1.10+ (#313) @nazihkalo * Fix Azure OpenAI support broken with openai>=1.0.0 (#310) @cwmuller * feat: add external YAML formatter integration (--formatter) (#323) @Ricar…",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "tag_name": "v1.3.0",
+            "published_at": "2026-03-25T04:05:10Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis/releases",
+          "title": "v1.2.2",
+          "excerpt": "## Changes See the [CHANGELOG](https://github.com/z3z1ma/dbt-osmosis/blob/main/CHANGELOG.md) for a full list of changes. Automatically detected changes: * Fixes #294 (#296) @simo-cava",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "tag_name": "v1.2.2",
+            "published_at": "2026-01-11T08:59:47Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis/releases",
+          "title": "v1.2.1",
+          "excerpt": "## Changes See the [CHANGELOG](https://github.com/z3z1ma/dbt-osmosis/blob/main/CHANGELOG.md) for a full list of changes. Automatically detected changes: * No changes",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-01-03T08:26:30Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/z3z1ma/dbt-osmosis",
+          "title": "ROOT_FILES",
+          "excerpt": ".changes, .changie.yaml, .claude, .gitattributes, .github, .gitignore, .loom, .memos, .pre-commit-config.yaml, .pre-commit-hooks.yaml, .specify, .streamlit, .tickets, AGENTS.md, CHANGELOG.md, CLAUDE.md, LICENSE, README.md, Taskfile.yml, config.toml, demo_duckdb, docs, pyproject.toml, screenshots, specs, src, tests, uv.lock",
+          "fetched_at": "2026-03-29T05:14:05.156Z",
+          "meta": {
+            "repo_full_name": "z3z1ma/dbt-osmosis",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "punitarani/fli",
+      "html_url": "https://github.com/punitarani/fli",
+      "description": "Google Flights MCP and Python Library",
+      "topics": [
+        "api",
+        "flights-api",
+        "google-flights",
+        "google-flights-api",
+        "mcp",
+        "mcp-server"
+      ],
+      "language": "Python",
+      "stargazers_count": 400,
+      "forks_count": 56,
+      "open_issues_count": 22,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-03-29T05:10:45Z",
+      "created_at": "2025-01-06T05:20:05Z",
+      "readme": {
+        "fetched": true,
+        "text": "# 🛫 Fli - Flight Search MCP Server and Library\n\nA powerful Python library that provides programmatic access to Google Flights data with an elegant CLI interface. Search\nflights, find the best deals, and filter results with ease.\n\n> 🚀 **What makes `fli` special?**\n> Unlike other flight search libraries that rely on web scraping, Fli directly interacts with Google Flights' API\n> through reverse engineering.\n> This means:\n>\n> * **Fast**: Direct API access means faster, more reliable results\n> * **Zero Scraping**: No HTML parsing, no browser automation, just pure API interaction\n> * **Reliable**: Less prone to breaking from UI changes\n> * **Modular**: Extensible architecture for easy customization and integration\n\n## MCP Server\n\n```bash\npipx install flights\n\n# Run the MCP server on STDIO\nfli-mcp\n\n# Run the MCP server over HTTP (streamable)\nfli-mcp-http  # serves at http://127.0.0.1:8000/mcp/\n```\n\n![MCP Demo](https://github.com/punitarani/fli/blob/main/data/mcp-demo.gif)\n\n### Connecting to Claude Desktop\n\n```json\n{\n  \"mcpServers\": {\n    \"fli\": {\n      \"command\": \"/Users/<user>/.local/bin/fli-mcp\"\n    }\n  }\n}\n```\n\n> **Note**: Replace `<user>` with your actual username.\n> You can also find the path to the MCP server by running `which fli-mcp` in your terminal.\n\n### MCP Tools Available\n\nThe MCP server provides two main tools:\n\n| Tool                 | Description                                                 |\n|----------------------|-------------------------------------------------------------|\n| **`search_flights`** | Search for flights on a specific date with detailed filters |\n| **`search_dates`**   | Find the cheapest travel dates across a flexible date range |\n\n#### `search_flights` Parameters\n\n| Parameter          | Type   | Description                                         |\n|--------------------|--------|-----------------------------------------------------|\n| `origin`           | string | Departure airport IATA code (e.g., 'JFK')           |\n| `destination`      | string | Arrival airport IATA code (e.g., 'LHR')             |\n| `departure_date`   | string | Travel date in YYYY-MM-DD format                    |\n| `return_date`      | string | Return date for round trips (optional)              |\n| `cabin_class`      | string | ECONOMY, PREMIUM_ECONOMY, BUSINESS, or FIRST        |\n| `max_stops`        | string | ANY, NON_STOP, ONE_STOP, or TWO_PLUS_STOPS          |\n| `departure_window` | string | Time window in 'HH-HH' format (e.g., '6-20')        |\n| `airlines`         | list   | Filter by airline codes (e.g., ['BA', 'AA'])        |\n| `sort_by`          | string | CHEAPEST, DURATION, DEPARTURE_TIME, or ARRIVAL_TIME |\n| `passengers`       | int    | Number of adult passengers                          |\n\n#### `search_dates` Parameters\n\n| Parameter          | Type   | Description                                  |\n|--------------------|--------|----------------------------------------------|\n| `origin`           | string | Departure airport IATA code (e.g., 'JFK')    |\n| `destination`      | string | Arrival airport IATA code (e.g., 'LHR')      |\n| `start_date`       | string | Start of date range in YYYY-MM-DD format     |\n| `end_date`         | string | End of date range in YYYY-MM-DD format       |\n| `trip_duration`    | int    | Trip duration in days (for round-trips)      |\n| `is_round_trip`    | bool   | Whether to search for round-trip flights     |\n| `cabin_class`      | string | ECONOMY, PREMIUM_ECONOMY, BUSINESS, or FIRST |\n| `max_stops`        | string | ANY, NON_STOP, ONE_STOP, or TWO_PLUS_STOPS   |\n| `departure_window` | string | Time window in 'HH-HH' format (e.g., '6-20') |\n| `airlines`         | list   | Filter by airline codes (e.g., ['BA', 'AA']) |\n| `sort_by_price`    | bool   | Sort results by price (lowest first)         |\n| `passengers`       | int    | Number of adult passengers                   |\n\n## Quick Start\n\n```bash\npip install flights\n```\n\n```bash\n# Install using pipx (recommended for CLI)\npipx install flights\n\n# Get started with CLI\nfli --help\n```\n\n![CLI Demo](https://github.com/punitarani/fli/blob/main/data/cli-demo.png)\n\n## Features\n\n* 🔍 **Powerful Search**\n    * One-way flight searches\n    * Flexible departure times\n    * Multi-airline support\n    * Cabin class selection\n    * Stop preferences\n    * Custom result sorting\n\n* 💺 **Cabin Classes**\n    * Economy\n    * Premium Economy\n    * Business\n    * First\n\n* 🎯 **Smart Sorting**\n    * Price\n    * Duration\n    * Departure Time\n    * Arrival Time\n\n* 🛡️ **Built-in Protection**\n    * Rate limiting\n    * Automatic retries\n    * Comprehensive error handling\n    * Input validation\n\n## CLI Usage\n\n### Search for Flights\n\n```bash\n# Basic flight search\nfli flights JFK LHR 2025-10-25\n\n# Advanced search with filters\nfli flights JFK LHR 2025-10-25 \\\n    --time 6-20 \\             # Departure time window (6 AM - 8 PM)\n    --airlines BA KL \\        # Airlines (British Airways, KLM)\n    --class BUSINESS \\        # Cabin class\n    --stops NON_STOP \\        # Non-stop flights only\n    --sort DURATION           # Sort by duration\n```\n\n> ⚠️ **Experimental**\n> `--format json` is experimental. The JSON schema may change while the machine-readable CLI contract settles.\n>\n> ```bash\n> # Return machine-readable flight results\n> fli flights JFK LHR 2025-10-25 --format json\n> ```\n\n### Find Cheapest Dates\n\n```bash\n# Basic date search\nfli dates JFK LHR\n\n# Advanced search with date range\nfli dates JFK LHR \\\n    --from 2025-01-01 \\\n    --to 2025-02-01 \\\n    --monday --friday      # Only Mondays and Fridays\n```\n\n> ⚠️ **Experimental**\n> `--format json` is experimental for date searches as well.\n>\n> ```bash\n> # Return machine-readable date search results\n> fli dates JFK LHR --from 2025-01-01 --to 2025-02-01 --format json\n> ```\n\n### CLI Options\n\n#### Flights Command (`fli flights`)\n\n| Option           | Description           | Example                |\n|------------------|-----------------------|------------------------|\n| `--time, -t`     | Departure time window | `6-20`                 |\n| `--airlines, -a` | Airline IATA codes    | `BA KL`                |\n| `--class, -c`    | Cabin class           | `ECONOMY`, `BUSINESS`  |\n| `--stops, -s`    | Maximum stops         | `NON_STOP`, `ONE_STOP` |\n| `--sort, -o`     | Sort results by       | `CHEAPEST`, `DURATION` |\n| `--format`       | Output format         | `text`, `json`         |\n\n#### Dates Command (`fli dates`)\n\n| Option        | Description   | Example                |\n|---------------|---------------|------------------------|\n| `--from`      | Start date    | `2025-01-01`           |\n| `--to`        | End date      | `2025-02-01`           |\n| `--class, -c` | Cabin class   | `ECONOMY`, `BUSINESS`  |\n| `--stops, -s` | Maximum stops | `NON_STOP`, `ONE_STOP` |\n| `--[day]`     | Day filters   | `--monday`, `--friday` |\n| `--format`    | Output format | `text`, `json`         |\n\n## MCP Server Integration\n\nFli includes a Model Context Protocol (MCP) server that allows AI assistants like Claude to search for flights directly.\nThis enables natural language flight search through conversation.\n\n### Running the MCP Server\n\n```bash\n# Run the MCP server on STDIO\nfli-mcp\n\n# Or with uv (for development)\nuv run fli-mcp\n\n# Or with make (for development)\nmake mcp\n\n# Run the MCP server over HTTP (streamable)\nfli-mcp-http  # serves at http://127.0.0.1:8000/mcp/\n```\n\n### Claude Desktop Configuration\n\nTo use the flight search capabilities in Claude Desktop, add this configuration to your `claude_desktop_config.json`:\n\n**Location**: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)\n\n```json\n{\n  \"mcpServers\": {\n    \"flight-search\": {\n      \"command\": \"fli-mcp\",\n      \"args\": []\n    }\n  }\n}\n```\n\nAfter adding this configuration:\n\n1. Restart Claude Desktop\n2. You can now ask Claude to search for flights naturally:\n    * \"Find flights from JFK to LAX on December 25th\"\n    * \"What are the cheapest dates to fly from NYC to London in January?\"\n    * \"Search for business class flights from SFO to NRT with no stops\"\n\n## Python API Usage\n\n### Basic Search Example\n\n```python\nfrom datetime import datetime, timedelta\nfrom fli.models import (\n    Airport,\n    PassengerInfo,\n    SeatType,\n    MaxStops,\n    SortBy,\n    FlightSearchFilters,\n    FlightSegment\n)\nfrom fli.search import SearchFlights\n\n# Create search filters\nfilters = FlightSearchFilters(\n    passenger_info=PassengerInfo(adults=1),\n    flight_segments=[\n        FlightSegment(\n            departure_airport=[[Airport.JFK, 0]],\n            arrival_airport=[[Airport.LAX, 0]],\n            travel_date=(datetime.now() + timedelta(days=30)).strftime(\"%Y-%m-%d\"),\n        )\n    ],\n    seat_type=SeatType.ECONOMY,\n    stops=MaxStops.NON_STOP,\n    sort_by=SortBy.CHEAPEST,\n)\n\n# Search flights\nsearch = SearchFlights()\nflights = search.search(filters)\n\n# Process results\nfor flight in flights:\n    print(f\"💰 Price: ${flight.price}\")\n    print(f\"⏱️ Duration: {flight.duration} minutes\")\n    print(f\"✈️ Stops: {flight.stops}\")\n\n    for leg in flight.legs:\n        print(f\"\\n🛫 Flight: {leg.airline.value} {leg.flight_number}\")\n        print(f\"📍 From: {leg.departure_airport.value} at {leg.departure_datetime}\")\n        print(f\"📍 To: {leg.arrival_airport.value} at {leg.arrival_datetime}\")\n```\n\n### Running Examples\n\nWe provide 11 comprehensive examples in the `examples/` directory that demonstrate various use cases:\n\n```bash\n# Run examples with uv (recommended)\nuv run python examples/basic_one_way_search.py\nuv run python examples/round_trip_search.py\nuv run python examples/date_range_search.py\n\n# Or install dependencies first, then run directly\npip install pydantic curl_cffi httpx\npython examples/basic_one_way_search.py\n```\n\n**Available Examples:**\n\n* `basic_one_way_search.py` - Simple one-way flight search\n* `round_trip_search.py` - Round-trip flight booking\n* `date_range_search.py` - Find cheapest dates\n* `complex_flight_search.py` - Advanced filtering and multi-passenger\n* `time_restrictions_search.py` - Time-based filtering\n* `date_search_with_preferences.py` - Weekend filtering\n* `price_tracking.py` - Price monitoring over time\n* `error_handling_with_retries.py` - Robust error handling\n* `result_processing.py` - Data analysis with pandas\n* `complex_round_trip_validation.py` - Advanced round-trip with validation\n* `advanced_date_search_validation.py` - Complex date search with filtering\n\n> 💡 **Tip**: Examples include automatic dependency checking and will show helpful installation instructions if\n> dependencies are missing.\n\n## Examples\n\nFor comprehensive examples demonstrating all features, see the [`examples/`](examples/) directory:\n\n```bash\n# Quick test - run a simple example\nuv run python examples/basic_one_way_search.py\n\n# Run all examples to explore different features\nuv run python examples/round_trip_search.py\nuv run python examples/complex_flight_search.py\nuv run python examples/price_tracking.py\n```\n\n**Example Categories:**\n\n* **Basic Usage**: One-way, round-trip, date searches\n* **Advanced Filtering**: Time restrictions, airlines, seat classes\n* **Data Analysis**: Price tracking, result processing with pandas\n* **Error Handling**: Retry logic, robust error management\n* **Complex Scenarios**: Multi-passenger, validation, business rules\n\nEach example is self-contained and includes automatic dependency checking with helpful installation instructions.\n\n## Development\n\n```bash\n# Clone the repository\ngit clone https://github.com/punitarani/fli.git\ncd fli\n\n# Install dependencies with uv\nuv sync --all-extras\n\n# Run tests\nuv run pytest\n\n# Run linting\nuv run ruff check .\nuv run ruff format .\n\n# Build documentation\nuv run mkdocs serve\n\n# Or use the Makefile for common tasks\nmake install-all  # Install all dependencies\nmake test         # Run tests\nmake lint         # Check code style\nmake format       # Format code\n```\n\n### Docker Development\n\n```bash\n# Build the devcontainer\ndocker build -t fli-dev -f .devcontainer/Dockerfile .\n\n# Ru",
+        "truncated": true,
+        "bytes": 12686,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.7.0",
+            "tag_name": "v0.7.0",
+            "published_at": "2025-12-23T05:56:16Z",
+            "body_excerpt": "* Enhance MCP Server Functionality and CLI Improvements\r\n\r\nThis commit introduces significant updates to the MCP server and CLI for flight search:\r\n\r\n- **MCP Server Enhancements**:\r\n  - Added `search_dates` tool for finding cheapest travel dates.\r\n  - Improved parameter handling in `FlightSearchParams` and `DateSearchParams` for better clarity and usability.\r\n  - Refactored server to streamline request handling and improve error messaging.\r\n\r\n- **CLI Updates**:\r\n  - Updated command options to reflect new parameter names and improve user experience.\r\n  - Enhanced validation and parsing utilities for better error handling.\r\n  - Improved documentation and examples for MCP server integration.\r\n\r\n- **Core Utilities**:\r\n  - Introduced shared parsing and building utilities to reduce code duplication between CLI and MCP.\r\n\r\nThese changes aim to enhance the overall functionality and user experience of the flight search tools.\r\n\r\n* Refactor CLI Commands and Enhance Flight Search Functionality\r\n\r\nThis commit updates the CLI commands for flight searches, replacing the previous `search` and `cheap` commands with `flights` and `dates`. Key changes include:\r\n\r\n- **CLI Command Updates**:\r\n  - Renamed commands to better reflect their functionality.\r\n  - Updated documentation and examples to align with new command names.\r\n\r\n- **New Command Implementations**:\r\n  - Introduced `dates.py` for searching the cheapest travel dates.\r\n  - Implemented `flights.py` for searching specific flights with enhanced filtering options.\r\n\r\n- **Testing Enhancements**:\r\n  - Added comprehensive tests for both new commands to ensure functionality and reliability.\r\n\r\nThese changes aim to improve user experience and streamline the flight search process.\r\n\r\n* Bump Package Version to 0.7.0\r\n\r\n* Format\r\n\r\n* Add plotext dependency and integrate sparkline chart in date results display\r\n\r\nThis commit introduces the `plotext` library as a new dependency for rendering sparkline charts. The `display_date_results` func"
+          },
+          {
+            "name": "v0.6.1",
+            "tag_name": "v0.6.1",
+            "published_at": "2025-12-22T19:43:18Z",
+            "body_excerpt": "## What's Changed\r\n* Fix advanced date search docs by @punitarani in https://github.com/punitarani/fli/pull/12\r\n* ci(deps): bump actions/upload-pages-artifact from 3 to 4 by @dependabot[bot] in https://github.com/punitarani/fli/pull/7\r\n* ci(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/punitarani/fli/pull/6\r\n* ci(deps): bump actions/download-artifact from 4 to 5 by @dependabot[bot] in https://github.com/punitarani/fli/pull/5\r\n* refactor(tests): replace hardcoded dates with dynamic future date generation by @punitarani in https://github.com/punitarani/fli/pull/25\r\n* Add Z0 Airlines by @punitarani in https://github.com/punitarani/fli/pull/24\r\n* Fix IndexError in Flight Parsing by @punitarani in https://github.com/punitarani/fli/pull/26\r\n* ci(deps): bump astral-sh/setup-uv from 3 to 7 by @dependabot[bot] in https://github.com/punitarani/fli/pull/13\r\n* ci(deps): bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/punitarani/fli/pull/20\r\n* ci(deps): bump actions/upload-artifact from 4 to 6 by @dependabot[bot] in https://github.com/punitarani/fli/pull/21\r\n* ci(deps): bump actions/download-artifact from 5 to 7 by @dependabot[bot] in https://github.com/punitarani/fli/pull/22\r\n* ci(deps): bump actions/cache from 4 to 5 by @dependabot[bot] in https://github.com/punitarani/fli/pull/23\r\n* MCP Quality Updates by @punitarani in https://github.com/punitarani/fli/pull/17\r\n\r\n## New Contributors\r\n* @dependabot[bot] made their first contribution in https://github.com/punitarani/fli/pull/7\r\n\r\n**Full Changelog**: https://github.com/punitarani/fli/compare/v0.6.0...v0.6.1"
+          },
+          {
+            "name": "v0.6.0",
+            "tag_name": "v0.6.0",
+            "published_at": "2025-09-23T16:11:46Z",
+            "body_excerpt": "## What's Changed\r\n* Add Examples and Update Docs by @punitarani in https://github.com/punitarani/fli/pull/9\r\n* Extend support for python 3.10+ by @punitarani in https://github.com/punitarani/fli/pull/10\r\n\r\n\r\n**Full Changelog**: https://github.com/punitarani/fli/compare/v0.5.0...v0.6.0"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".actrc",
+        ".devcontainer",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "LICENSE.txt",
+        "Makefile",
+        "README.md",
+        "data",
+        "docs",
+        "examples",
+        "fli",
+        "mkdocs.yml",
+        "pyproject.toml",
+        "pytest.ini",
+        "railway.toml",
+        "scripts",
+        "skills",
+        "tests",
+        "tox.ini",
+        "uv.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 1)",
+          "excerpt": "A powerful Python library that provides programmatic access to Google Flights data with an elegant CLI interface. Search flights, find the best deals, and filter results with ease.",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 2)",
+          "excerpt": "> 🚀 **What makes `fli` special?** > Unlike other flight search libraries that rely on web scraping, Fli directly interacts with Google Flights' API > through reverse engineering. > This means: > > * **Fast**: Direct API access means faster, more reliable results > * **Zero Scraping**: No HTML parsing, no browser automation, just pure API interaction > * **Reliable**: Less prone to breaking from UI changes > * **Modular**: Extensible architecture for easy customization and integration",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 3)",
+          "excerpt": "# Run the MCP server over HTTP (streamable) fli-mcp-http # serves at http://127.0.0.1:8000/mcp/ ```",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 4)",
+          "excerpt": "```json { \"mcpServers\": { \"fli\": { \"command\": \"/Users/<user>/.local/bin/fli-mcp\" } } } ```",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 5)",
+          "excerpt": "> **Note**: Replace `<user>` with your actual username. > You can also find the path to the MCP server by running `which fli-mcp` in your terminal.",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 6)",
+          "excerpt": "| Tool | Description | |----------------------|-------------------------------------------------------------| | **`search_flights`** | Search for flights on a specific date with detailed filters | | **`search_dates`** | Find the cheapest travel dates across a flexible date range |",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| Parameter | Type | Description | |--------------------|--------|-----------------------------------------------------| | `origin` | string | Departure airport IATA code (e.g., 'JFK') | | `destination` | string | Arrival airport IATA code (e.g., 'LHR') | | `departure_date` | string | Travel date in YYYY-MM-DD format | | `return_date` | string | Return date for round trips (optional) | | `cabin_class` | string | ECONOMY, PREMIUM_ECONOMY, BUSINESS, or FIRST | | `max_stops` | string | ANY, NON_STOP, ONE_STOP, or TWO_PLUS_STOPS | | `departure_window` | string | Time window in 'HH-HH' format (e.g., '6-20') | | `airlines` | list | Filter by airline codes (e.g., ['BA', 'AA']) | | `sort_by` | string | CHEAPEST, DURATION, DEPARTURE_TIME, or ARRIVAL_TIME | | `passengers` | int | Number of adult passengers |",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/punitarani/fli#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Parameter | Type | Description | |--------------------|--------|----------------------------------------------| | `origin` | string | Departure airport IATA code (e.g., 'JFK') | | `destination` | string | Arrival airport IATA code (e.g., 'LHR') | | `start_date` | string | Start of date range in YYYY-MM-DD format | | `end_date` | string | End of date range in YYYY-MM-DD format | | `trip_duration` | int | Trip duration in days (for round-trips) | | `is_round_trip` | bool | Whether to search for round-trip flights | | `cabin_class` | string | ECONOMY, PREMIUM_ECONOMY, BUSINESS, or FIRST | | `max_stops` | string | ANY, NON_STOP, ONE_STOP, or TWO_PLUS_STOPS | | `departure_window` | string | Time window in 'HH-HH' format (e.g., '6-20') | | `airlines` | list | Filter by airline codes (e.g., ['BA', 'AA']) | | `sort_by_price` | bool | Sort results by price (lowest first) | | `passengers` | int | Number of adult passengers |",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/punitarani/fli/releases",
+          "title": "v0.7.0",
+          "excerpt": "* Enhance MCP Server Functionality and CLI Improvements This commit introduces significant updates to the MCP server and CLI for flight search: - **MCP Server Enhancements**: - Added `search_dates` tool for finding cheapest travel dates. - Improved parameter handling in `FlightSearchParams` and `DateSearchParams` for better clarity and usability. - Refactored server to streamline request handling and improve error messaging. - **CLI Updates**: - Updated command options to reflect new parameter names and improve user experience. - Enhanced validation and parsing utilities for better error handling. - Improved documentation and examples for MCP server integration. - **Core Utilities**: - Introduced shared parsing and building utilities to reduce code duplication between CLI and MCP. These changes aim to enhance the overall functionality and user experience of the flight search tools. * Refactor CLI Commands and Enhance Flight Search Functionality This commit updates the CLI commands for flight searches, replacing the previous `search` and `cheap` commands with `flights` and `dates`. Key changes include: - **CLI Command Updates**: - Renamed commands to better reflect their functional…",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "tag_name": "v0.7.0",
+            "published_at": "2025-12-23T05:56:16Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/punitarani/fli/releases",
+          "title": "v0.6.1",
+          "excerpt": "## What's Changed * Fix advanced date search docs by @punitarani in https://github.com/punitarani/fli/pull/12 * ci(deps): bump actions/upload-pages-artifact from 3 to 4 by @dependabot[bot] in https://github.com/punitarani/fli/pull/7 * ci(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/punitarani/fli/pull/6 * ci(deps): bump actions/download-artifact from 4 to 5 by @dependabot[bot] in https://github.com/punitarani/fli/pull/5 * refactor(tests): replace hardcoded dates with dynamic future date generation by @punitarani in https://github.com/punitarani/fli/pull/25 * Add Z0 Airlines by @punitarani in https://github.com/punitarani/fli/pull/24 * Fix IndexError in Flight Parsing by @punitarani in https://github.com/punitarani/fli/pull/26 * ci(deps): bump astral-sh/setup-uv from 3 to 7 by @dependabot[bot] in https://github.com/punitarani/fli/pull/13 * ci(deps): bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/punitarani/fli/pull/20 * ci(deps): bump actions/upload-artifact from 4 to 6 by @dependabot[bot] in https://github.com/punitarani/fli/pull/21 * ci(deps): bump actions/download-artifact from 5 to 7 by @dependabot[bot] in https…",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "tag_name": "v0.6.1",
+            "published_at": "2025-12-22T19:43:18Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/punitarani/fli/releases",
+          "title": "v0.6.0",
+          "excerpt": "## What's Changed * Add Examples and Update Docs by @punitarani in https://github.com/punitarani/fli/pull/9 * Extend support for python 3.10+ by @punitarani in https://github.com/punitarani/fli/pull/10 **Full Changelog**: https://github.com/punitarani/fli/compare/v0.5.0...v0.6.0",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "tag_name": "v0.6.0",
+            "published_at": "2025-09-23T16:11:46Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/punitarani/fli",
+          "title": "ROOT_FILES",
+          "excerpt": ".actrc, .devcontainer, .dockerignore, .github, .gitignore, AGENTS.md, CLAUDE.md, LICENSE.txt, Makefile, README.md, data, docs, examples, fli, mkdocs.yml, pyproject.toml, pytest.ini, railway.toml, scripts, skills, tests, tox.ini, uv.lock",
+          "fetched_at": "2026-03-29T05:14:05.073Z",
+          "meta": {
+            "repo_full_name": "punitarani/fli",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "Astro-Han/claude-lens",
+      "evidence_count": 11,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 1,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 1
+    },
+    {
+      "full_name": "z3z1ma/dbt-osmosis",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "punitarani/fli",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 0,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "Astro-Han/claude-lens",
+      "ok": true,
+      "spec_path": "specs/2026-03-29/Astro-Han__claude-lens.json"
+    },
+    {
+      "repo": "z3z1ma/dbt-osmosis",
+      "ok": true,
+      "spec_path": "specs/2026-03-29/z3z1ma__dbt-osmosis.json"
+    },
+    {
+      "repo": "punitarani/fli",
+      "ok": true,
+      "spec_path": "specs/2026-03-29/punitarani__fli.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "Astro-Han/claude-lens",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-29/Astro-Han__claude-lens.json"
+    },
+    {
+      "repo": "z3z1ma/dbt-osmosis",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-29/z3z1ma__dbt-osmosis.json"
+    },
+    {
+      "repo": "punitarani/fli",
+      "ok": true,
+      "evidence_path": "evidence/2026-03-29/punitarani__fli.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "Astro-Han/claude-lens",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-29/Astro-Han__claude-lens.json"
+      ]
+    },
+    {
+      "repo": "z3z1ma/dbt-osmosis",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-29/z3z1ma__dbt-osmosis.json"
+      ]
+    },
+    {
+      "repo": "punitarani/fli",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-03-29/punitarani__fli.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-03-29T05:14:24.933Z",
+      "run_id": "20260329T051400Z",
+      "repo": "Astro-Han/claude-lens",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e2dd35fc37b487b7848d41d19a64f0c81e2c7b359557bbfaeddf8b8f61830e5f",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 5441
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19772,
+      "prompt_chars": 5441,
+      "completion_chars": 1383
+    },
+    {
+      "ts": "2026-03-29T05:14:40.342Z",
+      "run_id": "20260329T051400Z",
+      "repo": "Astro-Han/claude-lens",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "90986e003272a5e3ba06eedec2fdccf1cf0271f6dd6ad7fd353c309d98121e63",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 7036
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15408,
+      "prompt_chars": 7036,
+      "completion_chars": 1752
+    },
+    {
+      "ts": "2026-03-29T05:14:59.120Z",
+      "run_id": "20260329T051400Z",
+      "repo": "Astro-Han/claude-lens",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c2111c45c71b2fc90a1e9cf7518e1552affc7a8e618209396040e8ed0718ec31",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 8984
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18778,
+      "prompt_chars": 8984,
+      "completion_chars": 1828
+    },
+    {
+      "ts": "2026-03-29T05:15:20.411Z",
+      "run_id": "20260329T051400Z",
+      "repo": "Astro-Han/claude-lens",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b0dac7a01412e2541ea2064b82990cdb74e0c8acfaba8b00128681d22529df9f",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 11017
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21291,
+      "prompt_chars": 11017,
+      "completion_chars": 1524
+    },
+    {
+      "ts": "2026-03-29T05:15:51.024Z",
+      "run_id": "20260329T051400Z",
+      "repo": "Astro-Han/claude-lens",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1909555bcaae8ac946f0cbc28cdc27c4ed962b0299dd19d8abc4b7dba13834a1",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 15365
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 30612,
+      "prompt_chars": 15365,
+      "completion_chars": 3134
+    },
+    {
+      "ts": "2026-03-29T05:16:06.249Z",
+      "run_id": "20260329T051400Z",
+      "repo": "z3z1ma/dbt-osmosis",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c8eb7deafcba39912a93d6185a2f660ddaf040175b5ad1c7bb89357a6b0e8a64",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 6756
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15210,
+      "prompt_chars": 6756,
+      "completion_chars": 1313
+    },
+    {
+      "ts": "2026-03-29T05:16:22.833Z",
+      "run_id": "20260329T051400Z",
+      "repo": "z3z1ma/dbt-osmosis",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ac8c4385863eec12283090d2858991e39b95ce8bbf1ba4069ecd51528bfd7cad",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 8261
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16583,
+      "prompt_chars": 8261,
+      "completion_chars": 1524
+    },
+    {
+      "ts": "2026-03-29T05:16:40.260Z",
+      "run_id": "20260329T051400Z",
+      "repo": "z3z1ma/dbt-osmosis",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "295c311d2fd577187643258f11f491ff331bba851dd791a2631cd2090bbeb6f7",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 9969
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17427,
+      "prompt_chars": 9969,
+      "completion_chars": 1694
+    },
+    {
+      "ts": "2026-03-29T05:16:59.593Z",
+      "run_id": "20260329T051400Z",
+      "repo": "z3z1ma/dbt-osmosis",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5e14d1aaa7d53953b586e97f90658948213074c4ae3f7395f8b353e9e9d2bc12",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 11844
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19333,
+      "prompt_chars": 11844,
+      "completion_chars": 1686
+    },
+    {
+      "ts": "2026-03-29T05:17:30.741Z",
+      "run_id": "20260329T051400Z",
+      "repo": "z3z1ma/dbt-osmosis",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "33a631992feac818e3bb4071c8c0e8283f61604aba2765d857136f3666409783",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 16374
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 31147,
+      "prompt_chars": 16374,
+      "completion_chars": 3804
+    },
+    {
+      "ts": "2026-03-29T05:17:46.678Z",
+      "run_id": "20260329T051400Z",
+      "repo": "punitarani/fli",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b2dce40ae3ed650c1668bc4097341f252c381d2390b76c0b14c92c77e78f6f77",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8511
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15933,
+      "prompt_chars": 8511,
+      "completion_chars": 1653
+    },
+    {
+      "ts": "2026-03-29T05:18:04.201Z",
+      "run_id": "20260329T051400Z",
+      "repo": "punitarani/fli",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "0d259d3f059263fd45eb4ad7eb00ff141efbf3ebf67c7d7e72b73c8b8bcabc12",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10372
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17522,
+      "prompt_chars": 10372,
+      "completion_chars": 2011
+    },
+    {
+      "ts": "2026-03-29T05:18:21.355Z",
+      "run_id": "20260329T051400Z",
+      "repo": "punitarani/fli",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "76a1374861d93fe2d763f7d92a167c49f35a235bddc828b5ef9d5065156ab240",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 12583
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17153,
+      "prompt_chars": 12583,
+      "completion_chars": 1962
+    },
+    {
+      "ts": "2026-03-29T05:18:43.395Z",
+      "run_id": "20260329T051400Z",
+      "repo": "punitarani/fli",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "43d061b45b6c64f2d733e9361791ab850aefa74aa50e3435624498d858eb02e1",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 14742
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 22039,
+      "prompt_chars": 14742,
+      "completion_chars": 1993
+    },
+    {
+      "ts": "2026-03-29T05:19:24.780Z",
+      "run_id": "20260329T051400Z",
+      "repo": "punitarani/fli",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6c554dc849fe2b87b9048ed904856a5fdc254511cd9fa54e600ba6608b4cea7f",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 19565
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 41385,
+      "prompt_chars": 19565,
+      "completion_chars": 5223
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "Astro-Han/claude-lens",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "z3z1ma/dbt-osmosis",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "punitarani/fli",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "Astro-Han/claude-lens",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 11,
+      "evidence_total_final": 11,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "z3z1ma/dbt-osmosis",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "punitarani/fli",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1774761240071,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "Astro-Han/claude-lens": 5,
+      "z3z1ma/dbt-osmosis": 5,
+      "punitarani/fli": 5
+    },
+    "tokensApproxTotal": 49831,
+    "tokensApproxPerRepo": {
+      "Astro-Han/claude-lens": 14367,
+      "z3z1ma/dbt-osmosis": 15809,
+      "punitarani/fli": 19655
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "Astro-Han/claude-lens": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "scout",
+        "summary": "claude-lens is a lightweight, Bash-based statusline plugin for Claude Code that provides pace-aware quota monitoring by comparing usage rate against time remaining. It avoids heavy dependencies like Node.js, offering faster execution and lower memory use.",
+        "highlights": [
+          "Single Bash file with no npm or Node.js dependencies [ID:E-RD-001][ID:E-RD-002]",
+          "Displays intuitive pace delta using ⇡/⇣ arrows to indicate overspending or surplus relative to quota window [ID:E-RD-003][ID:E-RL-001]",
+          "Switched from showing remaining% to used% for clearer interpretation (lower = better) [ID:E-RL-001]",
+          "Significantly lighter runtime footprint: ~10ms execution and ~2MB memory vs ~90ms and ~57MB for Node.js alternatives [ID:E-RD-007]",
+          "Easy installation via curl or Claude plugin marketplace [ID:E-RD-004][ID:E-RD-005]"
+        ],
+        "risks": [
+          "Limited issue history—only one closed issue suggests minimal community feedback or testing [ID:E-IS-001]",
+          "Relies on jq as an external dependency without explicit fallback or error handling mentioned [ID:E-RD-007]",
+          "Performance claims for Rust/Go alternatives are estimated, not measured [ID:E-RD-008]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RL-001",
+          "E-RD-007",
+          "E-RD-004",
+          "E-RD-005",
+          "E-IS-001",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "inventor",
+        "summary": "claude-lens introduces a novel, pace-aware quota monitoring system for Claude Code users by combining real-time usage rate with time-remaining context in a minimal Bash implementation. It replaces ambiguous percentage displays with intuitive directional indicators (⇡/⇣) and shifts focus from 'remaining' to 'used' quota to better guide user behavior.",
+        "highlights": [
+          "Invents a pace-delta visualization (⇡/⇣ + %) that correlates usage rate with time left in quota window, offering actionable insight beyond static percentages [ID:E-RD-002][ID:E-RD-003]",
+          "Pioneers a 'used% = lower is better' mental model for quota tracking, inverted from conventional 'remaining%' approaches [ID:E-RL-001]",
+          "Achieves full functionality in a single Bash file using only jq, avoiding heavy runtimes while maintaining sub-10ms execution [ID:E-RD-001][ID:E-RD-007]",
+          "Integrates git diff stats and branch context directly into the statusline for holistic developer awareness [ID:E-RD-003]",
+          "Designed specifically as a native Claude plugin with simple installation via marketplace or curl [ID:E-RD-004][ID:E-RD-005]"
+        ],
+        "risks": [
+          "The pace-aware model assumes uniform usage patterns; bursty or irregular coding sessions may reduce accuracy of delta predictions [ID:E-RD-002]",
+          "Tight coupling to Claude’s internal quota structure—if Anthropic changes window durations or API format, the tool may break silently [ID:E-RD-002][ID:E-RD-003]",
+          "No evidence of adaptive logic for multiple concurrent projects or shared quotas across teams [ID:E-RD-003]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RL-001",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "engineer",
+        "summary": "claude-lens is a lightweight, single-file Bash statusline for Claude Code that efficiently computes and displays pace-aware quota usage using jq, with minimal runtime overhead and clear visual indicators for usage trends.",
+        "highlights": [
+          "Implemented as a single Bash script (claude-lens.sh) with no npm or Node.js dependencies, reducing complexity and attack surface [ID:E-RF-001][ID:E-RD-001]",
+          "Uses intuitive ⇡/⇣ arrows and used% metrics to convey whether the user is overspending or underutilizing their quota relative to time remaining [ID:E-RD-003][ID:E-RL-001]",
+          "Optimized for performance: ~10ms execution and ~2MB memory footprint, significantly lighter than Node.js alternatives [ID:E-RD-007]",
+          "Installs via simple curl command or Claude plugin marketplace, integrating cleanly into ~/.claude/statusline.sh [ID:E-RD-005][ID:E-RD-004]",
+          "Includes git context (branch, diff stats) and model/effort metadata in output for holistic developer awareness [ID:E-RD-003]"
+        ],
+        "risks": [
+          "Relies on jq as an undeclared external dependency; failure to resolve jq could cause silent fallback or broken output [ID:E-RD-007]",
+          "No visible error handling or input validation in the described architecture—malformed Claude quota JSON may crash or misrender [ID:E-RD-006][ID:E-RD-007]",
+          "Tightly coupled to Anthropic’s current quota window semantics (e.g., 5h/7d); changes upstream could invalidate pace calculations without warning [ID:E-RD-002][ID:E-RD-003]",
+          "Lack of test coverage visibility—only a test.sh file exists with no CI or assertion details provided [ID:E-RF-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "skeptic",
+        "summary": "claude-lens presents an elegant, lightweight solution for quota monitoring, but its claims rest on unverified assumptions about usage patterns, dependency reliability, and upstream API stability—with minimal evidence of real-world validation or failure resilience.",
+        "highlights": [
+          "Claims of 'pace-aware' insight depend entirely on linear extrapolation of usage, which may mislead during bursty or irregular coding sessions [ID:E-RD-002]",
+          "Performance advantages over Node.js are real (~10ms vs ~90ms), but comparisons to Rust/Go are speculative and labeled as estimates [ID:E-RD-007][ID:E-RD-008]",
+          "Switch from 'remaining%' to 'used%' improves interpretability, but only if users understand the inverted mental model—no usability testing cited [ID:E-RL-001]"
+        ],
+        "risks": [
+          "Silent failure likely if jq is missing or Claude’s JSON output format changes—no error handling described [ID:E-RD-007][ID:E-RD-006]",
+          "Only one closed issue and no open issues suggest lack of active use or stress-testing in diverse environments [ID:E-IS-001]",
+          "Tight coupling to Anthropic’s undocumented quota window logic (e.g., 5h/7d resets) creates fragility against backend changes [ID:E-RD-002][ID:E-RD-003]",
+          "No evidence of input sanitization or robustness against malformed or missing quota data from Claude [ID:E-RD-007]"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"claude-lens\",\n    \"one_sentence\": \"A pace-aware, single-file Bash statusline for Claude Code that shows quota usage relative to time remaining using intuitive directional indicators.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Parse Claude's quota JSON input, compute usage rate against time remaining in active windows (e.g., 5h, 7d), and render a compact statusline showing used%, pace delta (⇡/⇣), model, effort, branch, and git diff stats.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Statusline Display\",\n      \"purpose\": \"Show real-time, pace-aware quota utilization and contextual developer metadata in Claude Code’s status bar.\",\n      \"primary_actions\": [\n        \"Display used% for active quota windows\",\n        \"Render pace delta with ⇡ (overspend) or ⇣ (surplus)\",\n        \"Show git branch and diff statistics\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"render_statusline\",\n      \"purpose\": \"Execute the claude-lens.sh script to generate the current statusline output from Claude’s quota JSON.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"quota_windows\",\n        \"fields\": [\n          {\n            \"name\": \"window_duration\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"used_percent\",\n            \"type\": \"number\"\n          },\n          {\n            \"name\": \"time_remaining_hours\",\n            \"type\": \"number\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Integrate claude-lens.sh as ~/.claude/statusline.sh via curl or plugin install\",\n          \"Validate jq dependency and JSON parsing of Claude quota input\",\n          \"Render used% and pace delta with color-coded ⇡/⇣ indicators\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"When quota usage is 15% below sustainable rate, display '⇣15%' in green\",\n    "
+      }
+    },
+    "z3z1ma/dbt-osmosis": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "dbt-osmosis is an active Python-based CLI tool that enhances dbt developer workflows through automated YAML management, documentation generation, and a Streamlit workbench. It maintains regular releases, supports modern Python versions (including 3.13), and provides comprehensive documentation via a dedicated site.",
+        "highlights": [
+          "Project provides a dedicated documentation site (https://z3z1ma.github.io/dbt-osmosis/) as the canonical reference for CLI, configuration, and new features like `generate`, `nl`, and `test-llm`.",
+          "Recent releases (v1.3.0, v1.2.2) include active maintenance, CI fixes, Python 3.13 support, and dependency updates.",
+          "Includes a public Streamlit playground app for interactive use.",
+          "Uses modern tooling: pre-commit hooks, Ruff formatting, uv.lock, and structured changelog management."
+        ],
+        "risks": [
+          "Very recent release activity (latest push in 2026 per metadata—likely a typo or future-dated commit) may indicate unstable or rapidly evolving interfaces.",
+          "Low number of open issues (10) but also low recent issue volume; could signal reduced community engagement or underreporting."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RL-001",
+          "E-IS-002",
+          "E-RD-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "dbt-osmosis introduces novel automation for dbt workflows by unifying YAML management, documentation generation, and AI-assisted modeling through CLI commands like `generate`, `nl`, and `test-llm`, supported by a Streamlit-based interactive workbench.",
+        "highlights": [
+          "Introduces unique command families (`generate`, `nl`, `test-llm`) for AI-enhanced or automated dbt model and test creation, as documented in the canonical docs site.",
+          "Provides an integrated Streamlit playground (https://dbt-osmosis-playground.streamlit.app/) enabling interactive exploration of features without local setup.",
+          "Automates YAML maintenance and column-level metadata synchronization, reducing manual drift between models and documentation.",
+          "Supports forward-looking Python compatibility (including 3.13) and modern tooling (Ruff, pre-commit, uv), indicating intentional architectural evolution."
+        ],
+        "risks": [
+          "Emerging features like `nl` and `test-llm` may rely on external LLM services or unstable APIs not clearly documented, posing integration or reproducibility risks.",
+          "Heavy automation of YAML and metadata could lead to unexpected overwrites or loss of custom configurations if conflict resolution isn't robust.",
+          "Innovation pace (evidenced by frequent fixes in v1.3.0) may outstrip documentation clarity, especially for new command families."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RD-004",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "dbt-osmosis is a well-maintained Python CLI tool that enhances dbt workflows through automated YAML management, documentation generation, and AI-assisted modeling features. It uses modern development practices including pre-commit hooks, Ruff formatting, and uv for dependency management, and supports Python 3.13. The project provides a dedicated documentation site and a Streamlit playground for interactive use.",
+        "highlights": [
+          "Project enforces code quality via pre-commit hooks and Ruff formatting, as evidenced by recent fixes in v1.3.0 addressing linting and CI regressions.",
+          "Supports Python 3.13 and upgrades key dependencies like ydata-profiling, indicating active maintenance and compatibility with modern Python ecosystems.",
+          "Structured release process with changelog automation and semantic versioning, demonstrated by detailed release notes in v1.3.0.",
+          "Core functionality includes robust YAML synchronization, column-level metadata handling, and new CLI commands (`generate`, `nl`, `test-llm`) documented on an official site."
+        ],
+        "risks": [
+          "Recent rapid iteration (e.g., multiple fixes in v1.3.0 for CI, YAML writer, and thread-pool behavior) suggests potential instability in core components despite active maintenance.",
+          "Automated YAML and metadata updates may overwrite custom configurations if conflict resolution or user safeguards are insufficiently implemented.",
+          "Future-dated repository push timestamp (2026) raises concerns about metadata reliability or CI/CD pipeline anomalies."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-IS-002",
+          "E-RF-001",
+          "E-RD-005",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "While dbt-osmosis presents itself as a well-maintained and innovative tool for dbt workflow automation, several inconsistencies and overstatements in its presentation raise concerns about stability, transparency, and actual utility.",
+        "highlights": [
+          "The repository claims a 'canonical' documentation site, yet the README still serves as the primary entry point—undermining the supposed centrality of the docs site.",
+          "Release notes for v1.2.1 state 'No changes', which is unusual and suggests either poor release hygiene or placeholder tagging.",
+          "Despite showcasing a Streamlit playground badge, there's no evidence in the provided data that the app is actively maintained or integrated into the core testing pipeline.",
+          "The project touts Python 3.13 support, but this appears driven by a single closed issue and may not reflect thorough compatibility validation."
+        ],
+        "risks": [
+          "Overreliance on automated release notes (e.g., 'Automatically detected changes') may mask insufficient manual review or meaningful changelog curation.",
+          "The presence of numerous modern tooling badges (Ruff, pre-commit, uv) could be superficial if not consistently enforced—as hinted by repeated CI and linting fixes in v1.3.0.",
+          "Future-dated push timestamp (2026) in repo metadata casts doubt on the reliability of activity signals and version timelines.",
+          "Low open issue count (10) combined with minimal recent issue creation might indicate waning community interest rather than project maturity."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RL-003",
+          "E-RD-002",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"dbt-osmosis\",\n    \"one_sentence\": \"A CLI tool that enhances dbt developer workflows through automated YAML management, documentation generation, and AI-assisted modeling.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users run CLI commands like `generate`, `nl`, and `test-llm` to automate dbt model documentation, YAML synchronization, and test creation, supported by a Streamlit workbench for interactive exploration.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Streamlit Playground\",\n      \"purpose\": \"Provide an interactive web interface to explore dbt-osmosis features without local setup.\",\n      \"primary_actions\": [\n        \"Run AI-assisted model generation\",\n        \"Preview YAML synchronization results\",\n        \"Execute LLM-based test suggestions\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"generate\",\n      \"purpose\": \"Automatically generate dbt model files and associated YAML documentation based on database schema.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"nl\",\n      \"purpose\": \"Enable natural language queries to assist in model or test creation using LLM integration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"test-llm\",\n      \"purpose\": \"Generate dbt tests using large language models based on column semantics and data profiles.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"models\",\n        \"fields\": [\n          {\n            \"name\": \"model_name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"yaml_path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"columns\",\n            \"type\": \"array\"\n          }\n        ]\n      },\n      {\n        \"name\": \"sources\",\n        \"fields\": [\n          {\n            \"name\": \"source_name\",\n            \"type\": \"string\"\n          },\n          {\n   "
+      }
+    },
+    "punitarani/fli": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "The repository 'punitarani/fli' is a Python library that provides programmatic access to Google Flights data via reverse-engineered API interaction rather than web scraping. It offers both CLI and MCP (Model Context Protocol) server interfaces for flight search and date optimization, with recent enhancements focused on modularity, usability, and reliability.",
+        "highlights": [
+          "Uses direct reverse-engineered API access to Google Flights—avoiding scraping or browser automation [ID:E-RD-002].",
+          "Provides two core tools: `search_flights` (fixed-date searches) and `search_dates` (flexible cheapest-date searches) [ID:E-RD-006].",
+          "Exposes an MCP server over HTTP at http://127.0.0.1:8000/mcp/ for integration with AI agents [ID:E-RD-003].",
+          "Recent v0.7.0 release significantly improved MCP server functionality, CLI UX, and shared utilities [ID:E-RL-001].",
+          "Well-documented parameters for flight queries including cabin class, stops, airlines, time windows, and sorting [ID:E-RD-007, ID:E-RD-008]."
+        ],
+        "risks": [
+          "Reliance on reverse-engineered Google Flights API may lead to instability if Google changes its internal endpoints or authentication mechanisms.",
+          "Limited evidence of automated testing or CI robustness beyond dependency updates and minor test refactors [ID:E-RL-002].",
+          "No public issue tracker activity (0 open issues) despite 400 stars—could indicate low community engagement or lack of transparency."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "`fli` is an inventive Python library that reverse-engineers Google Flights' internal API to deliver fast, scraping-free flight search capabilities through both CLI and MCP server interfaces. It introduces novel tooling like `search_dates` for flexible cheapest-date discovery and `search_flights` for detailed fixed-date queries, all wrapped in a modular architecture designed for AI agent integration.",
+        "highlights": [
+          "Invents a non-scraping approach to Google Flights data by reverse-engineering its private API, enabling faster and more stable access than traditional web scraping [ID:E-RD-002].",
+          "Introduces two distinct, well-parameterized tools: `search_flights` for precise travel queries and `search_dates` for price-optimized date range exploration [ID:E-RD-006, ID:E-RD-008].",
+          "Pioneers MCP (Model Context Protocol) server support for flight search, allowing seamless integration with AI agents via HTTP at /mcp/ [ID:E-RD-003, ID:E-RD-004].",
+          "Demonstrates architectural innovation through shared parsing/building utilities that reduce duplication between CLI and MCP layers [ID:E-RL-001].",
+          "Offers rich filtering options—including cabin class, stop limits, airline codes, and time windows—uncommon in open-source flight tools [ID:E-RD-007, ID:E-RD-008]."
+        ],
+        "risks": [
+          "The core invention relies on undocumented, reverse-engineered API endpoints that could be altered or blocked by Google without notice, jeopardizing long-term viability.",
+          "Lack of evidence for comprehensive test coverage or resilience mechanisms against API changes increases fragility despite claimed reliability [ID:E-RL-002].",
+          "Innovation may be difficult to sustain or extend due to limited community contribution signals (0 open issues despite 400 stars) and sole maintainer activity."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "`fli` is a Python library engineered to access Google Flights data through reverse-engineered API calls, avoiding web scraping. It provides a modular CLI and an MCP server for AI agent integration, with well-defined tools (`search_flights`, `search_dates`) and rich query parameters. Recent updates (v0.7.0) improved server architecture, CLI usability, and code reuse via shared utilities.",
+        "highlights": [
+          "Engineered for direct API interaction with Google Flights—bypassing HTML parsing or browser automation for speed and reliability [ID:E-RD-002].",
+          "Implements two robust, parameter-rich tools: `search_flights` for fixed-date queries and `search_dates` for flexible cheapest-date searches [ID:E-RD-006, ID:E-RD-007, ID:E-RD-008].",
+          "Exposes an MCP server over HTTP at /mcp/ (default port 8000), enabling seamless integration with AI agents [ID:E-RD-003, ID:E-RD-004].",
+          "v0.7.0 refactored core logic into shared parsing/building utilities, reducing duplication between CLI and MCP layers and improving maintainability [ID:E-RL-001].",
+          "Supports advanced filtering including cabin class, stop limits, airline codes, departure time windows, and passenger counts [ID:E-RD-007, ID:E-RD-008]."
+        ],
+        "risks": [
+          "Heavy reliance on reverse-engineered, undocumented Google Flights endpoints creates inherent fragility—if Google changes its internal API, the library may break without warning.",
+          "Limited evidence of comprehensive test coverage; recent test improvements only address date generation and parsing edge cases, not full integration resilience [ID:E-RL-002].",
+          "Despite 400 stars, absence of open issues and sole maintainer activity suggest potential bottlenecks in bug response, security patching, or feature evolution."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "`fli` claims to offer reliable, scraping-free access to Google Flights data via reverse-engineered API calls, but its core premise is inherently fragile and legally ambiguous. Despite polished documentation and recent architectural improvements, the project lacks evidence of robust testing, community scrutiny, or sustainability beyond a single maintainer.",
+        "highlights": [
+          "Claims of 'direct API interaction' rely on reverse engineering an undocumented, private Google Flights interface—making reliability claims dubious given Google’s history of blocking such access [ID:E-RD-002].",
+          "Despite 400 stars, there are zero open issues and all recent contributions come from a single author, suggesting low real-world adoption or suppressed feedback [ID:E-RL-002, ID:E-RL-003].",
+          "The MCP server and CLI tools are well-documented, but examples use hardcoded local paths (e.g., `/Users/<user>/.local/bin/fli-mcp`), raising portability and usability concerns [ID:E-RD-004, ID:E-RD-005].",
+          "Recent fixes address minor parsing bugs and date logic, but no evidence exists of integration tests validating end-to-end API compatibility or resilience to Google-side changes [ID:E-RL-002]."
+        ],
+        "risks": [
+          "Reverse-engineering Google Flights’ internal API likely violates Google’s Terms of Service, exposing users to legal or technical disruption without recourse.",
+          "Absence of public issue tracking and sole-maintainer development model creates high bus factor and delayed response to inevitable API breakages.",
+          "Documentation emphasizes speed and reliability, yet provides no benchmarks, uptime metrics, or failure recovery mechanisms—key omissions for production use.",
+          "Hardcoded paths and lack of containerization or cross-platform validation in examples suggest limited testing outside the author’s environment."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"fli\",\n    \"one_sentence\": \"A Python library providing programmatic, scraping-free access to Google Flights data via reverse-engineered API interaction, with CLI and MCP server interfaces.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User invokes flight search tools (`search_flights` or `search_dates`) via CLI or MCP server; the system constructs API requests using rich parameters (origin, destination, dates, cabin class, etc.), sends them to Google Flights' internal endpoints, and returns structured flight or date-price results.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Flight Search Interface\",\n      \"purpose\": \"Enable users to configure and execute flight searches or cheapest-date queries through CLI or MCP integration.\",\n      \"primary_actions\": [\n        \"Run `search_flights` with fixed travel dates\",\n        \"Run `search_dates` across flexible date ranges\",\n        \"Configure cabin class, stops, airlines, and time windows\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"search_flights\",\n      \"purpose\": \"Search for flights on specific dates with detailed filtering options including cabin class, stops, airlines, and departure time windows.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"search_dates\",\n      \"purpose\": \"Find the cheapest travel dates within a specified range, supporting round-trip duration and price-based sorting.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"FlightSearchParams\",\n        \"fields\": [\n          {\n            \"name\": \"origin\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"destination\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"departure_date\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"return_date\",\n            \"type\": \"string\"\n          },\n          {\n        "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "Astro-Han/claude-lens",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 7,
+        "engineer": 9,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "z3z1ma/dbt-osmosis",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 6,
+        "inventor": 5,
+        "engineer": 5,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "punitarani/fli",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 8,
+        "engineer": 8,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=4",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=94 kept=5 limit=5",
+    "[deduper] existing_index_repos=166",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] Astro-Han/claude-lens evidence total=11 readme=8 issue=1 release=1 root_files=1",
+    "[repo_card_builder] punitarani/fli evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] z3z1ma/dbt-osmosis evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=37 gaps=0",
+    "[llm_spec_generator] Astro-Han/claude-lens canonical spec ok (iter=1) -> specs/2026-03-29/Astro-Han__claude-lens.json",
+    "[llm_spec_generator] z3z1ma/dbt-osmosis canonical spec ok (iter=1) -> specs/2026-03-29/z3z1ma__dbt-osmosis.json",
+    "[llm_spec_generator] punitarani/fli canonical spec ok (iter=1) -> specs/2026-03-29/punitarani__fli.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-03-29T05:14:00.071Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:00.092Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260329T051400Z"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:00.092Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:00.096Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:00.737Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:00.738Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:01.197Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:01.197Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:01.658Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:01.658Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:02.034Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:02.034Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:02.441Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:02.441Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:02.903Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:02.903Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:03.344Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:03.344Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:03.716Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:03.716Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.634Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.637Z",
+      "run_id": "20260329T051400Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 166
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.638Z",
+      "run_id": "20260329T051400Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.641Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-29T05:14:04.641Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Astro-Han__claude-lens/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.642Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Astro-Han__claude-lens/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.644Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Astro-Han__claude-lens/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.646Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Astro-Han__claude-lens/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.647Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-29T05:14:04.647Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "z3z1ma__dbt-osmosis/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.648Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "z3z1ma__dbt-osmosis/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.650Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "z3z1ma__dbt-osmosis/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.651Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "z3z1ma__dbt-osmosis/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.653Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-03-29T05:14:04.653Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "punitarani__fli/readme.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.654Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "punitarani__fli/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.657Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "punitarani__fli/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:04.658Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "punitarani__fli/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.047Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2966,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.047Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.047Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.047Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 406
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.048Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 11,
+        "readme": 8,
+        "issues": 1,
+        "releases": 1,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.073Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12686,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.073Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.073Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.073Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 420
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.074Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 6222,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 509
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.156Z",
+      "run_id": "20260329T051400Z",
+      "node": "repo_card_builder",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.160Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 11,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 1,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:05.160Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 11,
+        "evidence_selected": 11,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:24.933Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1383,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:40.342Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1752,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:14:59.120Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1828,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:20.411Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1524,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:51.024Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3134,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:51.038Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:51.039Z",
+      "run_id": "20260329T051400Z",
+      "node": "artifacts",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-29/Astro-Han__claude-lens.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:51.039Z",
+      "run_id": "20260329T051400Z",
+      "node": "artifacts",
+      "repo": "Astro-Han/claude-lens",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-29/Astro-Han__claude-lens.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:51.039Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-29T05:15:51.039Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:16:06.249Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1313,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:16:22.833Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1524,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:16:40.260Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1694,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:16:59.593Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1686,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:30.741Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3804,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:30.743Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:30.744Z",
+      "run_id": "20260329T051400Z",
+      "node": "artifacts",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-29/z3z1ma__dbt-osmosis.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:30.744Z",
+      "run_id": "20260329T051400Z",
+      "node": "artifacts",
+      "repo": "z3z1ma/dbt-osmosis",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-29/z3z1ma__dbt-osmosis.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:30.745Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:30.745Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-03-29T05:17:46.678Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1653,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:18:04.201Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2011,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:18:21.355Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1962,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:18:43.395Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1993,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.780Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5223,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.782Z",
+      "run_id": "20260329T051400Z",
+      "node": "llm_spec_generator",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.782Z",
+      "run_id": "20260329T051400Z",
+      "node": "artifacts",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-03-29/punitarani__fli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.782Z",
+      "run_id": "20260329T051400Z",
+      "node": "artifacts",
+      "repo": "punitarani/fli",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-03-29/punitarani__fli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.786Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.786Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1774761240071,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "Astro-Han/claude-lens": 5,
+          "z3z1ma/dbt-osmosis": 5,
+          "punitarani/fli": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.786Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-03-29T05:19:24.786Z",
+      "run_id": "20260329T051400Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-03-29",
+    "evidence_dir": "evidence/2026-03-29"
+  }
+}
