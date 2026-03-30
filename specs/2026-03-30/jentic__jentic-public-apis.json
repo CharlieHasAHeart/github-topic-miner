@@ -1,0 +1,97 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Jentic Public APIs",
+    "one_liner": "A communal, AI-native catalog of global API and workflow knowledge built on OpenAPI and Arazzo standards."
+  },
+  "screens": [
+    {
+      "name": "API Catalog Dashboard",
+      "purpose": "Display the curated list of APIs and associated workflows available for AI agent consumption.",
+      "primary_actions": [
+        "Browse APIs by category",
+        "Contribute new API specs",
+        "View workflow examples"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_arazzo_workflow",
+      "purpose": "Use generative AI to create a multi-API Arazzo workflow based on existing specifications.",
+      "async": true,
+      "input": {
+        "openapi_version": "string",
+        "payload": "json",
+        "source_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "import_openapi_spec",
+      "purpose": "Automatically ingest and validate an external OpenAPI specification into the repository.",
+      "async": true,
+      "input": {
+        "openapi_version": "string",
+        "payload": "json",
+        "source_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "apis",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "openapi_version",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workflows",
+        "columns": [
+          {
+            "name": "arazzo_spec",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "related_apis",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Generate initial batch of Arazzo workflows using AI",
+    "week 1: Implement automated OpenAPI ingestion pipeline",
+    "week 1: Set up repository structure per STRUCTURE.md"
+  ],
+  "acceptance_tests": [
+    "AI-generated yepcode.io specification passes basic structural validation.",
+    "An Arazzo workflow combining zestfuldata.com and zenrows.com is generated and stored.",
+    "An OpenAPI spec from zipcodeapi.com is successfully imported and validated.",
+    "Community contributor submits a PR adding yeti-switch.org API via Discord-guided process."
+  ]
+}

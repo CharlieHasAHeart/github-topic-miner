@@ -1,0 +1,273 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Moku",
+    "one_liner": "A fast, minimal manga reader frontend for Suwayomi-Server built with Tauri and Svelte."
+  },
+  "screens": [
+    {
+      "name": "Discover",
+      "purpose": "Browse and install extensions from Suwayomi sources to expand manga availability.",
+      "primary_actions": [
+        "Install/uninstall extension",
+        "Search extensions",
+        "Update extension"
+      ]
+    },
+    {
+      "name": "Library",
+      "purpose": "Display manga organized into user-defined or synced Suwayomi categories (folders) with sorting and filtering options.",
+      "primary_actions": [
+        "Enter multi-select mode",
+        "Open manga preview",
+        "Switch folder tabs"
+      ]
+    },
+    {
+      "name": "Reader",
+      "purpose": "Render manga pages with configurable layout (single page, long strip), zoom, fit modes, and navigation controls.",
+      "primary_actions": [
+        "Adjust reading direction (LTR/RTL)",
+        "Navigate to next/previous page or chapter",
+        "Toggle immersive bar mode"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure app behavior including server connection, themes, security, and Discord Rich Presence.",
+      "primary_actions": [
+        "Configure basic auth or app lock",
+        "Set theme or import custom theme",
+        "Toggle Discord RPC"
+      ]
+    },
+    {
+      "name": "Tracker",
+      "purpose": "Sync reading progress with external tracking services like AniList, MyAnimeList, and Kitsu.",
+      "primary_actions": [
+        "Link tracker account",
+        "Update progress manually",
+        "View tracked titles"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_folder_sort_filter",
+      "purpose": "Apply per-folder sorting (e.g., by unread count, A–Z) and filtering (e.g., by publication status).",
+      "async": true,
+      "input": {
+        "chapter_number": "float",
+        "downloaded": "boolean",
+        "file_path": "string",
+        "fix_ids": "json?",
+        "is_read": "boolean",
+        "manga_id": "string"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "authenticate_basic_auth",
+      "purpose": "Handle basic authentication when connecting to password-protected Suwayomi instances.",
+      "async": true,
+      "input": {
+        "chapter_number": "float",
+        "downloaded": "boolean",
+        "is_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "launch_suwayomi_server",
+      "purpose": "Optionally start the bundled Suwayomi-Server in the background on app launch.",
+      "async": true,
+      "input": {
+        "chapter_number": "float",
+        "downloaded": "boolean",
+        "is_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "move_manga_selection",
+      "purpose": "Move multiple selected manga items between folders using multi-select mode.",
+      "async": true,
+      "input": {
+        "chapter_number": "float",
+        "downloaded": "boolean",
+        "is_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "toggle_discord_rpc",
+      "purpose": "Enable or disable Discord Rich Presence showing current manga and chapter status.",
+      "async": true,
+      "input": {
+        "chapter_number": "float",
+        "downloaded": "boolean",
+        "is_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "chapter",
+        "columns": [
+          {
+            "name": "chapter_number",
+            "type": "REAL"
+          },
+          {
+            "name": "downloaded",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_read",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "manga_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "folder",
+        "columns": [
+          {
+            "name": "filter_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "sort_order",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "manga",
+        "columns": [
+          {
+            "name": "folder_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_read_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "unread_count",
+            "type": "REAL"
+          }
+        ]
+      },
+      {
+        "name": "theme",
+        "columns": [
+          {
+            "name": "css_rules",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tracker_sync",
+        "columns": [
+          {
+            "name": "external_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "manga_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "progress",
+            "type": "REAL"
+          },
+          {
+            "name": "service",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add reader screen with page navigation and fit modes",
+    "week 1: Implement basic manga list view with folder tabs",
+    "week 1: Integrate Tauri with Suwayomi GraphQL API for library fetching",
+    "week 2: Add settings screen with theme selector",
+    "week 2: Enable per-folder sorting and filtering logic",
+    "week 2: Implement multi-select manga management",
+    "week 3: Add basic auth support for remote servers",
+    "week 3: Implement tracker sync UI stubs",
+    "week 3: Integrate Discord Rich Presence command",
+    "week 4: Add app lock and proxy configuration",
+    "week 4: Build theme editor with import/export",
+    "week 4: Write acceptance tests for core reading flow"
+  ],
+  "acceptance_tests": [
+    "Basic auth credentials are accepted and allow connection to a secured Suwayomi instance.",
+    "Multi-select mode allows moving 5 manga items from 'Reading' to 'Completed' folder in one action.",
+    "RTL reader correctly advances one page at a time when pressing right arrow key.",
+    "User can enable Discord Rich Presence and see current manga title and chapter in Discord status.",
+    "User can independently sort one folder by 'unread chapters' while another remains sorted by 'A–Z'."
+  ]
+}

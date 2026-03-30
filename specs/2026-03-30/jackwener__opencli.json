@@ -1,0 +1,76 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OpenCLI",
+    "one_liner": "A universal CLI hub that transforms any website, Electron app, or local tool into a standardized command-line interface for AI agents and developers."
+  },
+  "screens": [
+    {
+      "name": "CLI Hub Interface",
+      "purpose": "Provide a terminal-based entry point for executing commands across websites, Electron apps, and local tools with seamless session reuse and AI agent integration.",
+      "primary_actions": [
+        "Execute registered external CLIs (e.g., gh, docker) with auto-install",
+        "Invoke AI discovery commands like `explore`, `synthesize`, and `cascade`",
+        "Run built-in site adapters (e.g., Twitter, Spotify, 小红书)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Enumerate available tools and adapters for AI agent discovery via `opencli list`.",
+      "async": true,
+      "input": {
+        "binary_path": "string",
+        "limit": "int?",
+        "name": "string",
+        "offset": "int?",
+        "query": "string?"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user data or media from supported platforms (e.g., download Twitter/X content).",
+      "async": true,
+      "input": {
+        "binary_path": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "registered_clis",
+        "columns": [
+          {
+            "name": "binary_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add `opencli register` and auto-install logic for external CLIs",
+    "week 1: Implement core adapter loader for .ts/.yaml files",
+    "week 1: Integrate Chrome session reuse with anti-detection patches"
+  ],
+  "acceptance_tests": [
+    "Confirm `opencli list` returns all built-in and registered commands for AI agent consumption.",
+    "Verify `opencli twitter download` succeeds without authentication errors (currently failing per open issue)."
+  ]
+}

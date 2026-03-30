@@ -1,0 +1,152 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "pinact",
+    "one_liner": "A CLI tool to pin GitHub Actions and reusable workflows to immutable commit hashes for improved security and reliability."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide command-line access to pin, update, verify, and review GitHub Actions and reusable workflows.",
+      "primary_actions": [
+        "Create pull request reviews with pinned versions",
+        "Generate diff output for version changes",
+        "Run pinning operation on workflow files"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "create_review",
+      "purpose": "Generate a pull request review comment showing changes made by pinning.",
+      "async": false,
+      "input": {
+        "ignore_actions": "json",
+        "payload": "json",
+        "version_separator": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "pin_versions",
+      "purpose": "Pin GitHub Actions and reusable workflows in workflow files to their latest commit hashes.",
+      "async": false,
+      "input": {
+        "ignore_actions": "json",
+        "payload": "json",
+        "version_separator": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_diff_check",
+      "purpose": "Run pinact in diff mode with check flag to validate without modifying files.",
+      "async": false,
+      "input": {
+        "ignore_actions": "json",
+        "payload": "json",
+        "version_separator": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "update_versions",
+      "purpose": "Update already-pinned actions to newer versions based on configuration.",
+      "async": false,
+      "input": {
+        "ignore_actions": "json",
+        "payload": "json",
+        "version_separator": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "verify_annotations",
+      "purpose": "Check that version annotations in workflow files match the actual pinned commits.",
+      "async": false,
+      "input": {
+        "ignore_actions": "json",
+        "payload": "json",
+        "version_separator": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "configuration",
+        "columns": [
+          {
+            "name": "ignore_actions",
+            "type": "JSON"
+          },
+          {
+            "name": "version_separator",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "pinned_actions",
+        "columns": [
+          {
+            "name": "action_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "annotation",
+            "type": "TEXT"
+          },
+          {
+            "name": "current_tag",
+            "type": "TEXT"
+          },
+          {
+            "name": "pinned_commit",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workflow_files",
+        "columns": [
+          {
+            "name": "actions",
+            "type": "JSON"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for reusable workflows",
+    "week 1: Implement core pinning logic for GitHub Actions",
+    "week 1: Integrate diff generation and verification modes"
+  ],
+  "acceptance_tests": [
+    "Configuration options such as version separator must be respected from both config file and CLI flags.",
+    "Integration with ghtkn must allow secure token usage when enabled via environment variable.",
+    "Running `pinact run --diff --check` should display appropriate log levels and error messages when validation fails.",
+    "The tool must correctly replace action tags like `actions/checkout@v3` with commit hashes and retain version annotations (e.g., `# v3.5.1`)."
+  ]
+}
