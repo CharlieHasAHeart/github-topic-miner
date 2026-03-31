@@ -1,0 +1,69 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GitHub Stats Visualizer",
+    "one_liner": "Generates theme-aware SVG statistics images for GitHub profiles using GitHub Actions, including data from private repositories via user-provided tokens."
+  },
+  "screens": [
+    {
+      "name": "Statistics Dashboard",
+      "purpose": "Display generated overview and language statistics images that adapt to GitHub's light/dark mode.",
+      "primary_actions": [
+        "Access profile README with embedded stats",
+        "View theme-responsive statistics images"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_stats_images",
+      "purpose": "Trigger regeneration of statistics images via GitHub Actions workflow using Python scripts.",
+      "async": true,
+      "input": {
+        "languages_used": "json",
+        "payload": "json",
+        "repo_count": "int",
+        "total_contributions": "int",
+        "user_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "github_statistics",
+        "columns": [
+          {
+            "name": "languages_used",
+            "type": "JSON"
+          },
+          {
+            "name": "repo_count",
+            "type": "INTEGER"
+          },
+          {
+            "name": "total_contributions",
+            "type": "INTEGER"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure access to private repositories via user token",
+    "week 1: Implement SVG template rendering with theme-specific image tags",
+    "week 1: Set up GitHub Actions workflow to run Python stats generator"
+  ],
+  "acceptance_tests": [
+    "Generated images display correctly in both GitHub light and dark modes using #gh-light-mode-only and #gh-dark-mode-only URL fragments.",
+    "Statistics include contributions from private repositories when sufficient token permissions are granted."
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "SJMCL",
+    "one_liner": "A cross-platform Minecraft launcher with advanced instance management, modpack installation from CurseForge/Modrinth, multi-account support, and plugin extensibility."
+  },
+  "screens": [
+    {
+      "name": "Account Manager",
+      "purpose": "Manage multiple Minecraft accounts using Microsoft login or third-party Yggdrasil-compatible authentication.",
+      "primary_actions": [
+        "Add custom Yggdrasil account",
+        "Add Microsoft account",
+        "Remove account",
+        "Switch active account"
+      ]
+    },
+    {
+      "name": "Application Settings",
+      "purpose": "Configure global launcher behavior including download paths, JVM arguments, language, and plugin settings.",
+      "primary_actions": [
+        "Adjust JVM memory allocation",
+        "Change download directory",
+        "Set UI language",
+        "Toggle plugin system"
+      ]
+    },
+    {
+      "name": "Instance Dashboard",
+      "purpose": "Display and manage all Minecraft instances with quick access to launch, edit settings, and view associated resources.",
+      "primary_actions": [
+        "Create new instance",
+        "Delete instance",
+        "Edit instance settings",
+        "Launch instance"
+      ]
+    },
+    {
+      "name": "Mod & Resource Manager",
+      "purpose": "Browse, install, update, and remove mods, resource packs, shaders, and modpacks from integrated sources.",
+      "primary_actions": [
+        "Import local mod file",
+        "Install mod from CurseForge/Modrinth",
+        "Remove selected mod",
+        "Update all mods"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "authenticate_account",
+      "purpose": "Performs OAuth-based authentication for Microsoft or Yggdrasil-compatible accounts.",
+      "async": true,
+      "input": {
+        "auth_type": "string",
+        "credentials": "json"
+      },
+      "output": {
+        "profile": "json",
+        "token": "string"
+      }
+    },
+    {
+      "name": "copy_game_logs",
+      "purpose": "Retrieves and copies full game log output without data loss during large selections.",
+      "async": true,
+      "input": {
+        "end_line": "float",
+        "instance_id": "string",
+        "start_line": "float"
+      },
+      "output": {
+        "log_content": "string"
+      }
+    },
+    {
+      "name": "download_modpack",
+      "purpose": "Downloads and unpacks a modpack from CurseForge or Modrinth into a new or existing instance.",
+      "async": true,
+      "input": {
+        "modpack_id": "string",
+        "source": "string",
+        "target_instance": "string"
+      },
+      "output": {
+        "instance_path": "string",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "install_mod_loader",
+      "purpose": "Installs a specified mod loader (e.g., Forge, Fabric) into a given Minecraft instance.",
+      "async": true,
+      "input": {
+        "instance_id": "string",
+        "loader_type": "string",
+        "loader_version": "string"
+      },
+      "output": {
+        "error_message": "string",
+        "success": "boolean"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "accounts",
+        "columns": [
+          {
+            "name": "access_token",
+            "type": "TEXT"
+          },
+          {
+            "name": "auth_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "refresh_token",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "instances",
+        "columns": [
+          {
+            "name": "game_version",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "loader_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "loader_version",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "root_path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "mods",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "instance_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define Rust command interface for instance operations",
+    "week 1: Implement core Tauri + Next.js shell with basic window management",
+    "week 1: Set up instance listing screen with mock data",
+    "week 2: Add mod loader installation workflow",
+    "week 2: Implement basic Microsoft account login flow",
+    "week 2: Integrate real instance CRUD logic with filesystem",
+    "week 3: Add log viewer with copy-safe buffer handling",
+    "week 3: Build mod/resource manager UI",
+    "week 3: Connect to CurseForge API for modpack discovery",
+    "week 4: Add Yggdrasil-compatible auth support",
+    "week 4: Stabilize mod loader installer state machine",
+    "week 4: Write end-to-end acceptance tests for core flows"
+  ],
+  "acceptance_tests": [
+    "Copying 10,000+ lines from game log preserves all content without row loss",
+    "Nightly build warning appears only for non-stable releases in UI",
+    "Optifine installation completes reliably through defined state transitions",
+    "User can successfully install the FarmingTales modpack without mod loader failure"
+  ]
+}

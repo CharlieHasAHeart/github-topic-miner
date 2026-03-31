@@ -1,0 +1,76 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Warframe Items API",
+    "one_liner": "A comprehensive JavaScript library that provides up-to-date Warframe item data sourced directly from official mobile API endpoints, enriched with drop rates, patch logs, rivens, and in-game identifiers."
+  },
+  "screens": [
+    {
+      "name": "Item Browser",
+      "purpose": "Display and search through the complete collection of Warframe items with their enriched metadata.",
+      "primary_actions": [
+        "Check tradability and riven compatibility",
+        "Search items by name or in-game path",
+        "View drop rates and patch logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a Warframe item's enriched data to local storage or database.",
+      "async": true,
+      "input": {
+        "dropRates": "json",
+        "patchlogs": "json",
+        "payload": "json",
+        "rivens": "json",
+        "tradable": "boolean",
+        "uniqueName": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "dropRates",
+            "type": "JSON"
+          },
+          {
+            "name": "patchlogs",
+            "type": "JSON"
+          },
+          {
+            "name": "rivens",
+            "type": "JSON"
+          },
+          {
+            "name": "tradable",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "uniqueName",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement enrichment pipeline for drop rates and patch logs",
+    "week 1: Integrate official Warframe mobile API endpoints",
+    "week 1: Set up automated release triggers on game updates"
+  ],
+  "acceptance_tests": [
+    "Confirm Windows NTFS filesystem does not block git operations during local development",
+    "Validate that all craftable items include productCategory inside components",
+    "Verify new items are added within 24 hours of a Warframe game update"
+  ]
+}

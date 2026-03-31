@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AutoParams",
+    "one_liner": "AutoParams is a JUnit 5 extension for automatic test data generation in Java and Kotlin, inspired by AutoFixture."
+  },
+  "screens": [
+    {
+      "name": "Test Parameter Injection",
+      "purpose": "Display how AutoParams eliminates manual test data setup by auto-generating and injecting parameter values into JUnit 5 test methods.",
+      "primary_actions": [
+        "Annotate test method with @AutoParams",
+        "Define test parameters to be auto-generated",
+        "Run test with automatically populated inputs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a configured test object using the Design API with fixed or dynamic property values.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "priceAmount": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "TestObjects",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "priceAmount",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for @Freeze to share object references across parameters",
+    "week 1: Enable automatic injection of generated parameters into test methods",
+    "week 1: Implement @AutoParams annotation support for basic types"
+  ],
+  "acceptance_tests": [
+    "Given a Product class with id, name, and priceAmount fields, when configured via Design.of().set().supply(), then instantiate() returns an object with specified fixed and dynamic values.",
+    "Given a test method annotated with @AutoParams, when it declares int parameters, then they are automatically populated with generated integers."
+  ]
+}
