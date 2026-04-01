@@ -1,0 +1,136 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "React Redux Boilerplate",
+    "one_liner": "A production-ready, batteries-included starter template for building long-lived React 19 applications with Redux Toolkit 2, vertical slice architecture, and full CI/CD automation."
+  },
+  "screens": [
+    {
+      "name": "Development Dashboard",
+      "purpose": "Serve as the primary entry point for local development with hot module replacement.",
+      "primary_actions": [
+        "Start dev server",
+        "Trigger HMR updates",
+        "View application UI"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "pnpm_build",
+      "purpose": "Perform type-checking and produce a production build in dist/.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "payload": "json",
+        "script_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "pnpm_check",
+      "purpose": "Run Biome lint/format checks and TypeScript type checking.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "payload": "json",
+        "script_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "pnpm_dev",
+      "purpose": "Start development server with HMR at http://localhost:5173.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "payload": "json",
+        "script_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "pnpm_e2e_local",
+      "purpose": "Execute end-to-end tests using Cucumber and Playwright against a running dev server.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "payload": "json",
+        "script_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "pnpm_test",
+      "purpose": "Run unit and integration tests using Vitest.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "payload": "json",
+        "script_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "commands",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "script_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "dependencies",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Confirm test suite execution",
+    "week 1: Initialize project from boilerplate",
+    "week 1: Validate release automation config",
+    "week 1: Verify dev server startup"
+  ],
+  "acceptance_tests": [
+    "Given a fresh clone, when I run pnpm install and pnpm dev, then the app serves at localhost:5173 without errors.",
+    "When I make a commit following Conventional Commits, then semantic-release generates correct version and changelog on push.",
+    "When I run pnpm e2e:local, then Cucumber executes Playwright E2E scenarios against the dev server.",
+    "When I run pnpm test, then all unit and integration tests pass with coverage reported."
+  ]
+}

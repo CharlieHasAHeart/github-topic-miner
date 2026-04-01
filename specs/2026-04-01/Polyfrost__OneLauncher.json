@@ -1,0 +1,108 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OneLauncher",
+    "one_liner": "A Tauri-based monorepo for Minecraft launchers (OneLauncher and OneClient) with shared Rust/TypeScript core logic, supporting mod loaders like Fabric and Forge."
+  },
+  "screens": [
+    {
+      "name": "Main Launcher Screen",
+      "purpose": "Display available Minecraft installations, allow launching, and provide access to mod management and settings.",
+      "primary_actions": [
+        "Access settings",
+        "Launch selected Minecraft instance",
+        "Open mod manager"
+      ]
+    },
+    {
+      "name": "Onboarding Flow",
+      "purpose": "Guide new users through initial setup, including version selection and migration from older clients.",
+      "primary_actions": [
+        "Complete setup",
+        "Migrate existing installations",
+        "Select Minecraft version"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "migrate_installation",
+      "purpose": "Handle migration of legacy Minecraft installations to the new 26.x versioning scheme with updated loader support.",
+      "async": true,
+      "input": {
+        "loader_type": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user-modified items such as mod configurations or installation metadata to the SQLite database.",
+      "async": true,
+      "input": {
+        "loader_type": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "installations",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "loader_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "mods",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "installation_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create main screen UI with Tanstack Router navigation",
+    "week 1: Implement basic SQLite schema for installations and mods",
+    "week 1: Set up Tauri + React scaffold with shared core",
+    "week 2: Add mod drag-and-drop handler (frontend)",
+    "week 2: Implement installation launch command",
+    "week 2: Integrate Sea ORM for Rust-DB communication"
+  ],
+  "acceptance_tests": [
+    "Dragging a mod file into OneClient adds it to the active installation without overwriting unrelated files.",
+    "During onboarding, existing clusters are automatically detected and offered for migration.",
+    "On Linux with Wayland, OneClient starts without crashing."
+  ]
+}
