@@ -1,0 +1,139 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jsonargparse",
+    "one_liner": "Minimal effort CLIs derived from type hints and parse from command line, config files and environment variables"
+  },
+  "screens": [
+    {
+      "name": "CLI Configuration Interface",
+      "purpose": "Allow users to define and run configurable Python applications via command-line interfaces generated from type-annotated functions or classes.",
+      "primary_actions": [
+        "Generate CLI from typed function using auto_cli()",
+        "Parse and merge arguments from CLI, config files, and environment variables",
+        "Register class/function parameters with parser"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "add_class_arguments",
+      "purpose": "Register all parameters of a class constructor as CLI arguments, enabling dependency injection and configuration.",
+      "async": false,
+      "input": {
+        "argument_name": "string",
+        "payload": "json",
+        "source": "string",
+        "type_hint": "string",
+        "value": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "add_function_arguments",
+      "purpose": "Register all parameters of a given function as CLI arguments using type hints and docstrings.",
+      "async": false,
+      "input": {
+        "argument_name": "string",
+        "payload": "json",
+        "source": "string",
+        "type_hint": "string",
+        "value": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "auto_cli",
+      "purpose": "Automatically generate and run a command-line interface from a type-hinted Python function with zero boilerplate.",
+      "async": false,
+      "input": {
+        "argument_name": "string",
+        "payload": "json",
+        "source": "string",
+        "type_hint": "string",
+        "value": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "instantiate_classes",
+      "purpose": "Instantiate classes based on parsed configuration, supporting nested structures and dependency resolution.",
+      "async": false,
+      "input": {
+        "argument_name": "string",
+        "payload": "json",
+        "source": "string",
+        "type_hint": "string",
+        "value": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ArgumentConfig",
+        "columns": [
+          {
+            "name": "argument_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          },
+          {
+            "name": "type_hint",
+            "type": "TEXT"
+          },
+          {
+            "name": "value",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "ParsedConfiguration",
+        "columns": [
+          {
+            "name": "function_or_class",
+            "type": "TEXT"
+          },
+          {
+            "name": "instantiated_object",
+            "type": "TEXT"
+          },
+          {
+            "name": "resolved_args",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add class and function argument registration",
+    "week 1: Enable auto_cli() for minimal-function CLI generation",
+    "week 1: Implement core ArgumentParser extension with action='config'",
+    "week 1: Integrate config file loading (YAML/JSON/TOML)",
+    "week 1: Support Union and Literal types in argument parsing"
+  ],
+  "acceptance_tests": [
+    "A user can define a function with type-hinted parameters and run it via auto_cli() without writing any argument-parsing code.",
+    "Classes registered via add_class_arguments() are instantiated with correct dependencies after parse_args().",
+    "Complex types like Union[int, Literal['off']] are parsed and validated correctly from CLI input.",
+    "The parser correctly merges values from command-line arguments, a YAML config file, and environment variables according to precedence rules."
+  ]
+}

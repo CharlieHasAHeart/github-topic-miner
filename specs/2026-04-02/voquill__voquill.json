@@ -1,0 +1,230 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Voquill",
+    "one_liner": "An open-source, cross-platform AI voice typing app that enables dictation into any desktop application with local or cloud transcription, AI text cleanup, and personal glossary sync."
+  },
+  "screens": [
+    {
+      "name": "Chats",
+      "purpose": "Engage in voice-driven conversational interactions with AI assistants.",
+      "primary_actions": [
+        "Send voice message",
+        "Start chat",
+        "View history"
+      ]
+    },
+    {
+      "name": "Dictionary",
+      "purpose": "Add custom terms and replacement rules so Voquill always spells recurring names and phrases correctly.",
+      "primary_actions": [
+        "Add term",
+        "Edit rule",
+        "Sync glossary"
+      ]
+    },
+    {
+      "name": "History",
+      "purpose": "Browse and replay past transcriptions with full audio playback.",
+      "primary_actions": [
+        "Edit transcript",
+        "Paste elsewhere",
+        "Replay audio"
+      ]
+    },
+    {
+      "name": "Home",
+      "purpose": "Display user streaks, words per minute, and recent transcriptions at a glance.",
+      "primary_actions": [
+        "Start new dictation",
+        "View recent transcripts"
+      ]
+    },
+    {
+      "name": "Providers",
+      "purpose": "Configure transcription and post-processing by bringing your own API key or selecting local Whisper.",
+      "primary_actions": [
+        "Add provider",
+        "Select model",
+        "Test connection"
+      ]
+    },
+    {
+      "name": "Writing Styles",
+      "purpose": "Switch between tones like Polished, Verbatim, and Chat to control how voice sounds on the page.",
+      "primary_actions": [
+        "Preview output",
+        "Select style"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "connect_air_dictation",
+      "purpose": "Pair mobile device as remote microphone for desktop dictation (alpha feature).",
+      "async": true,
+      "input": {
+        "context": "string",
+        "endpoint": "string",
+        "replacement": "string",
+        "term": "string",
+        "timeout_ms": "int?"
+      },
+      "output": {
+        "connected": "boolean",
+        "connected_at": "timestamp",
+        "endpoint": "string"
+      }
+    },
+    {
+      "name": "paste_globally",
+      "purpose": "Inject cleaned transcription into active application via system-wide paste shortcut, working even over full-screen apps.",
+      "async": true,
+      "input": {
+        "context": "string",
+        "payload": "json",
+        "replacement": "string",
+        "term": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_local_transcription",
+      "purpose": "Initiate speech-to-text processing using local Whisper engine with optional GPU acceleration.",
+      "async": true,
+      "input": {
+        "context": "string",
+        "payload": "json",
+        "replacement": "string",
+        "term": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_glossary",
+      "purpose": "Apply personal dictionary terms and replacement rules during post-processing to ensure accurate transcription.",
+      "async": true,
+      "input": {
+        "context": "string",
+        "payload": "json",
+        "replacement": "string",
+        "term": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "glossary_terms",
+        "columns": [
+          {
+            "name": "context",
+            "type": "TEXT"
+          },
+          {
+            "name": "replacement",
+            "type": "TEXT"
+          },
+          {
+            "name": "term",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_local",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "transcriptions",
+        "columns": [
+          {
+            "name": "audio_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "cleaned_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "raw_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "style",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "writing_styles",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "prompt_template",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add global paste functionality on macOS and Windows",
+    "week 1: Implement basic overlay UI with recording toggle",
+    "week 1: Integrate local Whisper transcription pipeline",
+    "week 1: Set up Turborepo with Tauri desktop shell",
+    "week 2: Build home screen with recent transcripts",
+    "week 2: Create dictionary management UI",
+    "week 2: Implement AI text cleanup with filler word removal",
+    "week 2: Support provider switching (local vs cloud)",
+    "week 3: Add Linux Wayland support and global keybinding",
+    "week 3: Add writing styles selector (Polished/Verbatim/Chat)",
+    "week 3: Enable transcription history with playback",
+    "week 3: Implement audio dimming during recording"
+  ],
+  "acceptance_tests": [
+    "Air Dictation pairs mobile device and streams audio to desktop for transcription (alpha).",
+    "On Linux under Wayland, global paste shortcut works after configuring custom keybinding.",
+    "Recording activation chime plays reliably regardless of transcription engine (local or cloud).",
+    "User can start dictation via hotkey, speak, and paste cleaned text into any app—even over full-screen macOS windows.",
+    "When using local Whisper, transcription respects personal dictionary terms and applies selected writing style."
+  ]
+}
