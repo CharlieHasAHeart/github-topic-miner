@@ -1,0 +1,98 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "SolonCode",
+    "one_liner": "An open-source Java-based coding agent supporting team/sub-agent coordination, CLI-first interaction, and multi-platform deployment (CLI, desktop, web)."
+  },
+  "screens": [
+    {
+      "name": "CLI Console Interface",
+      "purpose": "Primary user interaction point for invoking SolonCode commands and viewing agent output.",
+      "primary_actions": [
+        "Interrupt or terminate agent execution",
+        "Run soloncode command in any workspace directory",
+        "View real-time agent reasoning and code edits"
+      ]
+    },
+    {
+      "name": "Configuration Management",
+      "purpose": "Manage SolonCode settings including LLM model selection and runtime behavior.",
+      "primary_actions": [
+        "Edit config.yml to set chatModel",
+        "Enable/disable skill indexing",
+        "Locate logs and runtime files under ~/.soloncode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "configure_model",
+      "purpose": "Update the chatModel configuration in config.yml to switch LLM providers or models.",
+      "async": false,
+      "input": {
+        "chatModel": "string",
+        "payload": "json",
+        "workspacePath": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_soloncode",
+      "purpose": "Execute the SolonCode agent in the current working directory with configured LLM and skills.",
+      "async": true,
+      "input": {
+        "chatModel": "string",
+        "payload": "json",
+        "workspacePath": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config",
+        "columns": [
+          {
+            "name": "chatModel",
+            "type": "TEXT"
+          },
+          {
+            "name": "workspacePath",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "skills",
+        "columns": [
+          {
+            "name": "enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "skillName",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core CLI command parsing and execution",
+    "week 1: Integrate basic LLM communication with config-driven model selection",
+    "week 1: Support automatic skill indexing from workspace"
+  ],
+  "acceptance_tests": [
+    "Agent successfully loads skills from the current workspace and communicates with the configured LLM endpoint.",
+    "Configuration file is auto-created under ~/.soloncode/config.yml if missing, and model changes take effect immediately.",
+    "Sub-agent mechanism is invoked for delegated tasks without requiring explicit initialization.",
+    "User can install SolonCode via one-line script on macOS/Linux and run 'soloncode' from any directory."
+  ]
+}

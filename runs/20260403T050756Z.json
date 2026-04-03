@@ -1,0 +1,3610 @@
+{
+  "run_id": "20260403T050756Z",
+  "generated_at": "2026-04-03T05:07:56.083Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 93,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 48,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 15,
+      "release": 6,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-03T05:12:20.180Z",
+    "repo_count": 185
+  },
+  "candidates": [
+    {
+      "full_name": "weapp-vite/weapp-vite",
+      "html_url": "https://github.com/weapp-vite/weapp-vite",
+      "description": "weapp-vite 把现代化的 web 开发方式，带入传统的小程序开发吧！",
+      "topics": [
+        "mini",
+        "miniprogram",
+        "vite",
+        "weapp",
+        "wechat"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 303,
+      "forks_count": 18,
+      "open_issues_count": 9,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:50Z",
+      "created_at": "2024-09-18T16:21:53Z"
+    },
+    {
+      "full_name": "AnalyseDeCircuit/oxideterm",
+      "html_url": "https://github.com/AnalyseDeCircuit/oxideterm",
+      "description": "All-in-one terminal workspace — local shells, SSH, SFTP, remote IDE, AI agent, and file manager in a single native binary. Built with Tauri 2 and pure Rust SSH (no OpenSSL). Smart reconnect, MCP, RAG, plugins, 30+ themes, 11 languages.",
+      "topics": [
+        "agent",
+        "bring-your-own-key",
+        "filemanager",
+        "launchpad",
+        "mcp",
+        "rag",
+        "react",
+        "redb",
+        "russh",
+        "rust",
+        "sftp",
+        "ssh-client",
+        "tauri",
+        "terminal",
+        "terminal-emulator",
+        "terminal-emulators",
+        "tool-calling",
+        "typescript",
+        "wslg",
+        "xterm-js"
+      ],
+      "language": "Rust",
+      "stargazers_count": 64,
+      "forks_count": 2,
+      "open_issues_count": 2,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:46Z",
+      "created_at": "2026-01-21T07:30:14Z"
+    },
+    {
+      "full_name": "opensolon/soloncode",
+      "html_url": "https://github.com/opensolon/soloncode",
+      "description": "Java impl version of \"Claude Code\".",
+      "topics": [
+        "claude-code",
+        "cli",
+        "cli-app",
+        "java",
+        "opencode",
+        "solon",
+        "solon-ai"
+      ],
+      "language": "Java",
+      "stargazers_count": 62,
+      "forks_count": 11,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:00Z",
+      "created_at": "2026-02-10T07:31:57Z"
+    },
+    {
+      "full_name": "PipedreamHQ/pipedream",
+      "html_url": "https://github.com/PipedreamHQ/pipedream",
+      "description": "Connect APIs, remarkably fast.  Free for developers.",
+      "topics": [
+        "apis",
+        "automation",
+        "bash",
+        "cli",
+        "data-flow",
+        "event-sourcing",
+        "eventsourcing",
+        "golang",
+        "integration-flow",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-development-platform",
+        "nodejs",
+        "python",
+        "serverless",
+        "typescript",
+        "workflow",
+        "workflows"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 11222,
+      "forks_count": 5624,
+      "open_issues_count": 4425,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-04-03T05:06:01Z",
+      "created_at": "2020-01-22T00:28:31Z"
+    },
+    {
+      "full_name": "swiftlang/swift-testing",
+      "html_url": "https://github.com/swiftlang/swift-testing",
+      "description": "A modern, expressive testing package for Swift",
+      "topics": [
+        "software-quality",
+        "swift",
+        "swift-macros",
+        "testing",
+        "unit-testing"
+      ],
+      "language": "Swift",
+      "stargazers_count": 2118,
+      "forks_count": 146,
+      "open_issues_count": 122,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:04:57Z",
+      "created_at": "2022-12-19T23:51:30Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "AnalyseDeCircuit/oxideterm",
+      "html_url": "https://github.com/AnalyseDeCircuit/oxideterm",
+      "description": "All-in-one terminal workspace — local shells, SSH, SFTP, remote IDE, AI agent, and file manager in a single native binary. Built with Tauri 2 and pure Rust SSH (no OpenSSL). Smart reconnect, MCP, RAG, plugins, 30+ themes, 11 languages.",
+      "topics": [
+        "agent",
+        "bring-your-own-key",
+        "filemanager",
+        "launchpad",
+        "mcp",
+        "rag",
+        "react",
+        "redb",
+        "russh",
+        "rust",
+        "sftp",
+        "ssh-client",
+        "tauri",
+        "terminal",
+        "terminal-emulator",
+        "terminal-emulators",
+        "tool-calling",
+        "typescript",
+        "wslg",
+        "xterm-js"
+      ],
+      "language": "Rust",
+      "stargazers_count": 64,
+      "forks_count": 2,
+      "open_issues_count": 2,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:46Z",
+      "created_at": "2026-01-21T07:30:14Z"
+    },
+    {
+      "full_name": "opensolon/soloncode",
+      "html_url": "https://github.com/opensolon/soloncode",
+      "description": "Java impl version of \"Claude Code\".",
+      "topics": [
+        "claude-code",
+        "cli",
+        "cli-app",
+        "java",
+        "opencode",
+        "solon",
+        "solon-ai"
+      ],
+      "language": "Java",
+      "stargazers_count": 62,
+      "forks_count": 11,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:00Z",
+      "created_at": "2026-02-10T07:31:57Z"
+    },
+    {
+      "full_name": "PipedreamHQ/pipedream",
+      "html_url": "https://github.com/PipedreamHQ/pipedream",
+      "description": "Connect APIs, remarkably fast.  Free for developers.",
+      "topics": [
+        "apis",
+        "automation",
+        "bash",
+        "cli",
+        "data-flow",
+        "event-sourcing",
+        "eventsourcing",
+        "golang",
+        "integration-flow",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-development-platform",
+        "nodejs",
+        "python",
+        "serverless",
+        "typescript",
+        "workflow",
+        "workflows"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 11222,
+      "forks_count": 5624,
+      "open_issues_count": 4425,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-04-03T05:06:01Z",
+      "created_at": "2020-01-22T00:28:31Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "AnalyseDeCircuit/oxideterm",
+      "html_url": "https://github.com/AnalyseDeCircuit/oxideterm",
+      "description": "All-in-one terminal workspace — local shells, SSH, SFTP, remote IDE, AI agent, and file manager in a single native binary. Built with Tauri 2 and pure Rust SSH (no OpenSSL). Smart reconnect, MCP, RAG, plugins, 30+ themes, 11 languages.",
+      "topics": [
+        "agent",
+        "bring-your-own-key",
+        "filemanager",
+        "launchpad",
+        "mcp",
+        "rag",
+        "react",
+        "redb",
+        "russh",
+        "rust",
+        "sftp",
+        "ssh-client",
+        "tauri",
+        "terminal",
+        "terminal-emulator",
+        "terminal-emulators",
+        "tool-calling",
+        "typescript",
+        "wslg",
+        "xterm-js"
+      ],
+      "language": "Rust",
+      "stargazers_count": 64,
+      "forks_count": 2,
+      "open_issues_count": 2,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:46Z",
+      "created_at": "2026-01-21T07:30:14Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src=\"src-tauri/icons/icon.ico\" alt=\"OxideTerm\" width=\"128\" height=\"128\">\n</p>\n\n<h1 align=\"center\">⚡ OxideTerm</h1>\n\n<p align=\"center\">\n  <a href=\"https://github.com/AnalyseDeCircuit/oxideterm/stargazers\">\n    <img src=\"https://img.shields.io/github/stars/AnalyseDeCircuit/oxideterm?style=social\" alt=\"GitHub stars\">\n  </a>\n  <br>\n  <em>If you like OxideTerm, please consider giving it a star on GitHub! ⭐️</em>\n</p>\n\n\n<p align=\"center\">\n  <strong>Zero Electron. Zero OpenSSL. Pure Rust SSH.</strong>\n  <br>\n  <em>One native binary — local shells, SSH, SFTP, remote IDE, AI, port forwarding, plugins, 30+ themes, 11 languages.</em>\n</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/version-1.0.5-blue\" alt=\"Version\">\n  <img src=\"https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue\" alt=\"Platform\">\n  <img src=\"https://img.shields.io/badge/license-GPL--3.0-blue\" alt=\"License\">\n  <img src=\"https://img.shields.io/badge/rust-1.75+-orange\" alt=\"Rust\">\n  <img src=\"https://img.shields.io/badge/tauri-2.0-purple\" alt=\"Tauri\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/AnalyseDeCircuit/oxideterm/releases/latest\">\n    <img src=\"https://img.shields.io/github/v/release/AnalyseDeCircuit/oxideterm?label=Download%20Latest&style=for-the-badge&color=brightgreen\" alt=\"Download Latest Release\">\n  </a>\n</p>\n\n<p align=\"center\">\n  🌐 <strong><a href=\"https://oxideterm.app\">oxideterm.app</a></strong> — Documentation & website\n</p>\n\n<p align=\"center\">\n  <a href=\"README.md\">English</a> | <a href=\"docs/readme/README.zh-Hans.md\">简体中文</a> | <a href=\"docs/readme/README.zh-Hant.md\">繁體中文</a> | <a href=\"docs/readme/README.ja.md\">日本語</a> | <a href=\"docs/readme/README.ko.md\">한국어</a> | <a href=\"docs/readme/README.fr.md\">Français</a> | <a href=\"docs/readme/README.de.md\">Deutsch</a> | <a href=\"docs/readme/README.es.md\">Español</a> | <a href=\"docs/readme/README.it.md\">Italiano</a> | <a href=\"docs/readme/README.pt-BR.md\">Português</a> | <a href=\"docs/readme/README.vi.md\">Tiếng Việt</a>\n</p>\n\n> [!NOTE]\n> **License Change:** Starting from v1.0.0, OxideTerm has changed its license from **PolyForm Noncommercial 1.0.0** to **GPL-3.0 (GNU General Public License v3.0)**. This means OxideTerm is now fully open source — you are free to use, modify, and distribute it under the terms of the GPL-3.0 license. See the [LICENSE](LICENSE) file for details.\n\n---\n\n<div align=\"center\">\n\nhttps://github.com/user-attachments/assets/4ba033aa-94b5-4ed4-980c-5c3f9f21db7e\n\n*🤖 OxideSens AI — \"Open a local terminal and run echo hello, world!\"*\n\n</div>\n\n---\n\n## Why OxideTerm?\n\n| Pain Point | OxideTerm's Answer |\n|---|---|\n| SSH clients that can't do local shells | **Hybrid engine**: local PTY (zsh/bash/fish/pwsh/WSL2) + remote SSH in one window |\n| Reconnect = lose everything | **Grace Period reconnect**: probes old connection 30s before killing it — your vim/htop/yazi survive |\n| Remote file editing needs VS Code Remote | **Built-in IDE**: CodeMirror 6 over SFTP with 30+ languages, optional ~1 MB remote agent on Linux |\n| No SSH connection reuse | **Multiplexing**: terminal, SFTP, forwards, IDE share one SSH connection via reference-counted pool |\n| SSH libraries depend on OpenSSL | **russh 0.54**: pure Rust SSH compiled against `ring` — zero C dependencies |\n| 100+ MB Electron apps | **Tauri 2.0**: native Rust backend, 25–40 MB binary |\n| AI locked to one provider | **OxideSens**: 40+ tools, MCP protocol, RAG knowledge base — works with OpenAI/Ollama/DeepSeek/any compatible API |\n\n---\n\n## Screenshots\n\n<table>\n<tr>\n<td align=\"center\"><strong>SSH Terminal + OxideSens AI</strong><br/><br/><img src=\"docs/screenshots/terminal/SSHTERMINAL.png\" alt=\"SSH Terminal with OxideSens AI sidebar\" /></td>\n<td align=\"center\"><strong>SFTP File Manager</strong><br/><br/><img src=\"docs/screenshots/sftp/sftp.png\" alt=\"SFTP dual-pane file manager with transfer queue\" /></td>\n</tr>\n<tr>\n<td align=\"center\"><strong>Built-in IDE (CodeMirror 6)</strong><br/><br/><img src=\"docs/screenshots/miniIDE/miniide.png\" alt=\"Built-in IDE mode with CodeMirror 6 editor\" /></td>\n<td align=\"center\"><strong>Smart Port Forwarding</strong><br/><br/><img src=\"docs/screenshots/PORTFORWARD/PORTFORWARD.png\" alt=\"Smart port forwarding with auto-detection\" /></td>\n</tr>\n</table>\n\n---\n\n## Feature Overview\n\n| Category | Features |\n|---|---|\n| **Terminal** | Local PTY (zsh/bash/fish/pwsh/WSL2), SSH remote, split panes, broadcast input, session recording/playback (asciicast v2), WebGL rendering, 30+ themes + custom editor, command palette (`⌘K`), zen mode |\n| **SSH & Auth** | Connection pooling & multiplexing, ProxyJump (unlimited hops) with topology graph, auto-reconnect with Grace Period. Auth: password, SSH key (RSA/Ed25519/ECDSA), SSH Agent, certificates, keyboard-interactive 2FA, Known Hosts TOFU |\n| **SFTP** | Dual-pane browser, drag-and-drop, smart preview (images/video/audio/code/PDF/hex/fonts), transfer queue with progress & ETA, bookmarks, archive extraction |\n| **IDE Mode** | CodeMirror 6 with 30+ languages, file tree + Git status, multi-tab, conflict resolution, integrated terminal. Optional remote agent for Linux (10+ architectures) |\n| **Port Forwarding** | Local (-L), Remote (-R), Dynamic SOCKS5 (-D), lock-free message-passing I/O, auto-restore on reconnect, death reporting, idle timeout |\n| **AI (OxideSens)** | Inline panel (`⌘I`) + sidebar chat, terminal buffer capture (single/all panes), multi-source context (IDE/SFTP/Git), 40+ autonomous tools, MCP server integration, RAG knowledge base (BM25 + vector hybrid search), streaming SSE |\n| **Plugins** | Runtime ESM loading, 8 API namespaces, 24 UI Kit components, frozen API + Proxy ACL, circuit breaker, auto-disable on errors |\n| **CLI** | `oxt` companion: JSON-RPC 2.0 over Unix Socket / Named Pipe, `status`/`list`/`ping`, human + JSON output |\n| **Security** | .oxide encrypted export (ChaCha20-Poly1305 + Argon2id 256 MB), OS keychain, Touch ID (macOS), host key TOFU, `zeroize` memory clearing |\n| **i18n** | 11 languages: EN, 简体中文, 繁體中文, 日本語, 한국어, FR, DE, ES, IT, PT-BR, VI |\n\n---\n\n## Under the Hood\n\n### Architecture — Dual-Plane Communication\n\nOxideTerm separates terminal data from control commands into two independent planes:\n\n```\n┌─────────────────────────────────────┐\n│        Frontend (React 19)          │\n│  xterm.js 6 (WebGL) + 18 stores    │\n└──────────┬──────────────┬───────────┘\n           │ Tauri IPC    │ WebSocket (binary)\n           │ (JSON)       │ per-session port\n┌──────────▼──────────────▼───────────┐\n│         Backend (Rust)              │\n│  NodeRouter → SshConnectionRegistry │\n│  Wire Protocol v1                   │\n│  [Type:1][Length:4][Payload:n]       │\n└─────────────────────────────────────┘\n```\n\n- **Data plane (WebSocket)**: each SSH session gets its own WebSocket port. Terminal bytes flow as binary frames with a Type-Length-Payload header — no JSON serialization, no Base64 encoding, zero overhead in the hot path.\n- **Control plane (Tauri IPC)**: connection management, SFTP ops, forwarding, config — structured JSON, but off the critical path.\n- **Node-first addressing**: the frontend never touches `sessionId` or `connectionId`. Everything is addressed by `nodeId`, resolved atomically server-side by the `NodeRouter`. SSH reconnect changes the underlying `connectionId` — but SFTP, IDE, and forwards are completely unaffected.\n\n### 🔩 Pure Rust SSH — russh 0.54\n\nThe entire SSH stack is **russh 0.54** compiled against the **`ring`** crypto backend:\n\n- **Zero C/OpenSSL dependencies** — the full crypto stack is Rust. No more \"which OpenSSL version?\" debugging.\n- Full SSH2 protocol: key exchange, channels, SFTP subsystem, port forwarding\n- ChaCha20-Poly1305 and AES-GCM cipher suites, Ed25519/RSA/ECDSA keys\n- Custom **`AgentSigner`**: wraps system SSH Agent and satisfies russh's `Signer` trait, solving RPITIT `Send` bound issues in russh 0.54 by cloning `&PublicKey` to an owned value before crossing `.await`\n\n```rust\npub struct AgentSigner { /* wraps system SSH Agent */ }\nimpl Signer for AgentSigner { /* challenge-response via Agent IPC */ }\n```\n\n- **Platform support**: Unix (`SSH_AUTH_SOCK`), Windows (`\\\\.\\pipe\\openssh-ssh-agent`)\n- **Proxy chains**: each hop independently uses Agent auth\n- **Reconnect**: `AuthMethod::Agent` replayed automatically\n\n### 🔄 Smart Reconnect with Grace Period\n\nMost SSH clients kill everything on disconnect and start fresh. OxideTerm's reconnect orchestrator takes a fundamentally different approach:\n\n1. **Detect** WebSocket heartbeat timeout (300s, tuned for macOS App Nap and JS timer throttling)\n2. **Snapshot** full state: terminal panes, in-flight SFTP transfers, active port forwards, open IDE files\n3. **Intelligent probing**: `visibilitychange` + `online` events trigger proactive SSH keepalive (~2s detection vs 15-30s passive timeout)\n4. **Grace Period** (30s): probe the old SSH connection via keepalive — if it recovers (e.g., WiFi AP switch), your TUI apps (vim, htop, yazi) survive completely untouched\n5. If recovery fails → new SSH connection → auto-restore forwards → resume SFTP transfers → reopen IDE files\n\nPipeline: `queued → snapshot → grace-period → ssh-connect → await-terminal → restore-forwards → resume-transfers → restore-ide → verify → done`\n\nAll logic runs through a dedicated `ReconnectOrchestratorStore` — zero reconnect code scattered in hooks or components.\n\n### 🛡️ SSH Connection Pool\n\nReference-counted `SshConnectionRegistry` backed by `DashMap` for lock-free concurrent access:\n\n- **One connection, many consumers**: terminal, SFTP, port forwards, and IDE share a single physical SSH connection — no redundant TCP handshakes\n- **State machine per connection**: `connecting → active → idle → link_down → reconnecting`\n- **Lifecycle management**: configurable idle timeout (5m / 15m / 30m / 1h / never), 15s keepalive interval, heartbeat failure detection\n- **WsBridge heartbeat**: 30s interval, 5 min timeout — tolerates macOS App Nap and browser JS throttling\n- **Cascade propagation**: jump host failure → all downstream nodes automatically marked `link_down` with status sync\n- **Idle disconnect**: emits `connection_status_changed` to frontend (not just internal `node:state`), preventing UI desync\n\n### 🤖 OxideSens AI\n\nPrivacy-first AI assistant with dual interaction modes:\n\n- **Inline panel** (`⌘I`): quick terminal commands, output injected via bracketed paste\n- **Sidebar chat**: persistent conversations with full history\n- **Context capture**: Terminal Registry gathers buffer from active pane or all split panes simultaneously; auto-injects IDE files, SFTP paths, and Git status\n- **40+ autonomous tools**: file operations, process management, network diagnostics, TUI app interaction, text processing — the AI invokes these without manual triggering\n- **MCP support**: connect external [Model Context Protocol](https://modelcontextprotocol.io) servers (stdio & SSE) for third-party tool integration\n- **RAG Knowledge Base** (v0.20): import Markdown/TXT documents into scoped collections (global or per-connection). Hybrid search fuses BM25 keyword index + vector cosine similarity via Reciprocal Rank Fusion. Markdown-aware chunking preserves heading hierarchy. CJK bigram tokenizer for Chinese/Japanese/Korean.\n- **Providers**: OpenAI, Ollama, DeepSeek, OneAPI, or any `/v1/chat/completions` endpoint\n- **Security**: API keys stored in OS keychain; on macOS, key reads gated behind **Touch ID** via `LAContext` — no entitlements or code-signing required, cached after first auth per session\n\n### 💻 IDE Mode — Remote Editing\n\nCodeMirror 6 editor operating over SFTP — no server-side installation required by default:\n\n- **File tree**: lazy-loaded directories with Git status indicators (modified/untracked/added)\n- **30+ language modes**: 16 native CodeMirror + legacy modes via `@codemirror/legacy-modes`\n- **Conflict resolution**: optimistic mtime locking — detects remote changes before overwriting\n- **Event-driven Git**: aut",
+        "truncated": true,
+        "bytes": 21479,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "OxideTerm v1.0.4",
+            "tag_name": "v1.0.4",
+            "published_at": "2026-04-02T18:12:21Z",
+            "body_excerpt": "<!-- Release notes generated using configuration in .github/release.yml at v1.0.4 -->\n\n\n\n**Full Changelog**: https://github.com/AnalyseDeCircuit/oxideterm/compare/v1.0.3...v1.0.4\n\n\n---\n\n<details><summary>📦 Installation Tips / 安装提示</summary>\n\n#### macOS\n\nDownloaded `.dmg` files are quarantined by Gatekeeper. Run in Terminal:\n下载的 `.dmg` 文件会被 Gatekeeper 隔离，请在终端执行：\n\n```bash\nxattr -cr ~/Downloads/OxideTerm_*.dmg\n# or after install / 或安装后\nxattr -cr /Applications/OxideTerm.app\n```\n\n#### Windows\n\nIf SmartScreen warns, click **More info → Run anyway**.\n若 SmartScreen 弹出警告，点击 **更多信息 → 仍要运行**。\n\n#### Linux\n\n```bash\n# AppImage\nchmod +x OxideTerm_*.AppImage && ./OxideTerm_*.AppImage\n# Debian/Ubuntu\nsudo dpkg -i oxideterm_*.deb && sudo apt-get install -f\n```\n\n</details>\n\n[Documentation](https://oxideterm.com) · [Report Issues](https://github.com/AnalyseDeCircuit/OxideTerm/issues) · [Changelog](https://github.com/AnalyseDeCircuit/OxideTerm/tree/main/docs/changelog)"
+          },
+          {
+            "name": "OxideTerm v1.0.3",
+            "tag_name": "v1.0.3",
+            "published_at": "2026-04-02T14:19:10Z",
+            "body_excerpt": "<!-- Release notes generated using configuration in .github/release.yml at v1.0.3 -->\n\n\n## New Contributors\n* @dependabot[bot] made their first contribution in https://github.com/AnalyseDeCircuit/oxideterm/pull/3\n\n**Full Changelog**: https://github.com/AnalyseDeCircuit/oxideterm/compare/v1.0.2...v1.0.3\n\n\n---\n\n<details><summary>📦 Installation Tips / 安装提示</summary>\n\n#### macOS\n\nDownloaded `.dmg` files are quarantined by Gatekeeper. Run in Terminal:\n下载的 `.dmg` 文件会被 Gatekeeper 隔离，请在终端执行：\n\n```bash\nxattr -cr ~/Downloads/OxideTerm_*.dmg\n# or after install / 或安装后\nxattr -cr /Applications/OxideTerm.app\n```\n\n#### Windows\n\nIf SmartScreen warns, click **More info → Run anyway**.\n若 SmartScreen 弹出警告，点击 **更多信息 → 仍要运行**。\n\n#### Linux\n\n```bash\n# AppImage\nchmod +x OxideTerm_*.AppImage && ./OxideTerm_*.AppImage\n# Debian/Ubuntu\nsudo dpkg -i oxideterm_*.deb && sudo apt-get install -f\n```\n\n</details>\n\n[Documentation](https://oxideterm.com) · [Report Issues](https://github.com/AnalyseDeCircuit/OxideTerm/issues) · [Changelog](https://github.com/AnalyseDeCircuit/OxideTerm/tree/main/docs/changelog)"
+          },
+          {
+            "name": "OxideTerm v1.0.2",
+            "tag_name": "v1.0.2",
+            "published_at": "2026-04-01T12:36:56Z",
+            "body_excerpt": "<!-- Release notes generated using configuration in .github/release.yml at v1.0.2 -->\n\n\n\n**Full Changelog**: https://github.com/AnalyseDeCircuit/oxideterm/compare/v1.0.1...v1.0.2\n\n\n---\n\n<details><summary>📦 Installation Tips / 安装提示</summary>\n\n#### macOS\n\nDownloaded `.dmg` files are quarantined by Gatekeeper. Run in Terminal:\n下载的 `.dmg` 文件会被 Gatekeeper 隔离，请在终端执行：\n\n```bash\nxattr -cr ~/Downloads/OxideTerm_*.dmg\n# or after install / 或安装后\nxattr -cr /Applications/OxideTerm.app\n```\n\n#### Windows\n\nIf SmartScreen warns, click **More info → Run anyway**.\n若 SmartScreen 弹出警告，点击 **更多信息 → 仍要运行**。\n\n#### Linux\n\n```bash\n# AppImage\nchmod +x OxideTerm_*.AppImage && ./OxideTerm_*.AppImage\n# Debian/Ubuntu\nsudo dpkg -i oxideterm_*.deb && sudo apt-get install -f\n```\n\n</details>\n\n[Documentation](https://oxideterm.com) · [Report Issues](https://github.com/AnalyseDeCircuit/OxideTerm/issues) · [Changelog](https://github.com/AnalyseDeCircuit/OxideTerm/tree/main/docs/changelog)"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 20,
+            "title": "1.0.4 创建Session 报错：modals.new_connection.connect_failed",
+            "state": "open",
+            "url": "https://github.com/AnalyseDeCircuit/oxideterm/issues/20"
+          },
+          {
+            "number": 19,
+            "title": "地址栏希望可以支持手动输入",
+            "state": "open",
+            "url": "https://github.com/AnalyseDeCircuit/oxideterm/issues/19"
+          }
+        ]
+      },
+      "root_files": [
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "PLUGIN_DEVELOPMENT.md",
+        "README.md",
+        "README.old.md",
+        "SECURITY.md",
+        "agent",
+        "agents",
+        "cli",
+        "docs",
+        "index.html",
+        "package.json",
+        "plugin-api.d.ts",
+        "pnpm-lock.yaml",
+        "postcss.config.js",
+        "public",
+        "scripts",
+        "src-tauri",
+        "src",
+        "tailwind.config.js",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src=\"src-tauri/icons/icon.ico\" alt=\"OxideTerm\" width=\"128\" height=\"128\"> </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/AnalyseDeCircuit/oxideterm/stargazers\"> <img src=\"https://img.shields.io/github/stars/AnalyseDeCircuit/oxideterm?style=social\" alt=\"GitHub stars\"> </a> <br> <em>If you like OxideTerm, please consider giving it a star on GitHub! ⭐️</em> </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <strong>Zero Electron. Zero OpenSSL. Pure Rust SSH.</strong> <br> <em>One native binary — local shells, SSH, SFTP, remote IDE, AI, port forwarding, plugins, 30+ themes, 11 languages.</em> </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <img src=\"https://img.shields.io/badge/version-1.0.5-blue\" alt=\"Version\"> <img src=\"https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue\" alt=\"Platform\"> <img src=\"https://img.shields.io/badge/license-GPL--3.0-blue\" alt=\"License\"> <img src=\"https://img.shields.io/badge/rust-1.75+-orange\" alt=\"Rust\"> <img src=\"https://img.shields.io/badge/tauri-2.0-purple\" alt=\"Tauri\"> </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/AnalyseDeCircuit/oxideterm/releases/latest\"> <img src=\"https://img.shields.io/github/v/release/AnalyseDeCircuit/oxideterm?label=Download%20Latest&style=for-the-badge&color=brightgreen\" alt=\"Download Latest Release\"> </a> </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<p align=\"center\"> 🌐 <strong><a href=\"https://oxideterm.app\">oxideterm.app</a></strong> — Documentation & website </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<p align=\"center\"> <a href=\"README.md\">English</a> | <a href=\"docs/readme/README.zh-Hans.md\">简体中文</a> | <a href=\"docs/readme/README.zh-Hant.md\">繁體中文</a> | <a href=\"docs/readme/README.ja.md\">日本語</a> | <a href=\"docs/readme/README.ko.md\">한국어</a> | <a href=\"docs/readme/README.fr.md\">Français</a> | <a href=\"docs/readme/README.de.md\">Deutsch</a> | <a href=\"docs/readme/README.es.md\">Español</a> | <a href=\"docs/readme/README.it.md\">Italiano</a> | <a href=\"docs/readme/README.pt-BR.md\">Português</a> | <a href=\"docs/readme/README.vi.md\">Tiếng Việt</a> </p>",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm#readme",
+          "title": "README (segment 8)",
+          "excerpt": "> [!NOTE] > **License Change:** Starting from v1.0.0, OxideTerm has changed its license from **PolyForm Noncommercial 1.0.0** to **GPL-3.0 (GNU General Public License v3.0)**. This means OxideTerm is now fully open source — you are free to use, modify, and distribute it under the terms of the GPL-3.0 license. See the [LICENSE](LICENSE) file for details.",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm/issues/20",
+          "title": "1.0.4 创建Session 报错：modals.new_connection.connect_failed",
+          "excerpt": "1.0.4 创建Session 报错：modals.new_connection.connect_failed (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "number": 20
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm/issues/19",
+          "title": "地址栏希望可以支持手动输入",
+          "excerpt": "地址栏希望可以支持手动输入 (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "number": 19
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm/releases",
+          "title": "v1.0.4",
+          "excerpt": "<!-- Release notes generated using configuration in .github/release.yml at v1.0.4 --> **Full Changelog**: https://github.com/AnalyseDeCircuit/oxideterm/compare/v1.0.3...v1.0.4 --- <details><summary>📦 Installation Tips / 安装提示</summary> #### macOS Downloaded `.dmg` files are quarantined by Gatekeeper. Run in Terminal: 下载的 `.dmg` 文件会被 Gatekeeper 隔离，请在终端执行： ```bash xattr -cr ~/Downloads/OxideTerm_*.dmg # or after install / 或安装后 xattr -cr /Applications/OxideTerm.app ``` #### Windows If SmartScreen warns, click **More info → Run anyway**. 若 SmartScreen 弹出警告，点击 **更多信息 → 仍要运行**。 #### Linux ```bash # AppImage chmod +x OxideTerm_*.AppImage && ./OxideTerm_*.AppImage # Debian/Ubuntu sudo dpkg -i oxideterm_*.deb && sudo apt-get install -f ``` </details> [Documentation](https://oxideterm.com) · [Report Issues](https://github.com/AnalyseDeCircuit/OxideTerm/issues) · [Changelog](https://github.com/AnalyseDeCircuit/OxideTerm/tree/main/docs/changelog)",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "tag_name": "v1.0.4",
+            "published_at": "2026-04-02T18:12:21Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm/releases",
+          "title": "v1.0.3",
+          "excerpt": "<!-- Release notes generated using configuration in .github/release.yml at v1.0.3 --> ## New Contributors * @dependabot[bot] made their first contribution in https://github.com/AnalyseDeCircuit/oxideterm/pull/3 **Full Changelog**: https://github.com/AnalyseDeCircuit/oxideterm/compare/v1.0.2...v1.0.3 --- <details><summary>📦 Installation Tips / 安装提示</summary> #### macOS Downloaded `.dmg` files are quarantined by Gatekeeper. Run in Terminal: 下载的 `.dmg` 文件会被 Gatekeeper 隔离，请在终端执行： ```bash xattr -cr ~/Downloads/OxideTerm_*.dmg # or after install / 或安装后 xattr -cr /Applications/OxideTerm.app ``` #### Windows If SmartScreen warns, click **More info → Run anyway**. 若 SmartScreen 弹出警告，点击 **更多信息 → 仍要运行**。 #### Linux ```bash # AppImage chmod +x OxideTerm_*.AppImage && ./OxideTerm_*.AppImage # Debian/Ubuntu sudo dpkg -i oxideterm_*.deb && sudo apt-get install -f ``` </details> [Documentation](https://oxideterm.com) · [Report Issues](https://github.com/AnalyseDeCircuit/OxideTerm/issues) · [Changelog](https://github.com/AnalyseDeCircuit/OxideTerm/tree/main/docs/changelog)",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "tag_name": "v1.0.3",
+            "published_at": "2026-04-02T14:19:10Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm/releases",
+          "title": "v1.0.2",
+          "excerpt": "<!-- Release notes generated using configuration in .github/release.yml at v1.0.2 --> **Full Changelog**: https://github.com/AnalyseDeCircuit/oxideterm/compare/v1.0.1...v1.0.2 --- <details><summary>📦 Installation Tips / 安装提示</summary> #### macOS Downloaded `.dmg` files are quarantined by Gatekeeper. Run in Terminal: 下载的 `.dmg` 文件会被 Gatekeeper 隔离，请在终端执行： ```bash xattr -cr ~/Downloads/OxideTerm_*.dmg # or after install / 或安装后 xattr -cr /Applications/OxideTerm.app ``` #### Windows If SmartScreen warns, click **More info → Run anyway**. 若 SmartScreen 弹出警告，点击 **更多信息 → 仍要运行**。 #### Linux ```bash # AppImage chmod +x OxideTerm_*.AppImage && ./OxideTerm_*.AppImage # Debian/Ubuntu sudo dpkg -i oxideterm_*.deb && sudo apt-get install -f ``` </details> [Documentation](https://oxideterm.com) · [Report Issues](https://github.com/AnalyseDeCircuit/OxideTerm/issues) · [Changelog](https://github.com/AnalyseDeCircuit/OxideTerm/tree/main/docs/changelog)",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "tag_name": "v1.0.2",
+            "published_at": "2026-04-01T12:36:56Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/AnalyseDeCircuit/oxideterm",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .gitattributes, .github, .gitignore, CONTRIBUTING.md, LICENSE, PLUGIN_DEVELOPMENT.md, README.md, README.old.md, SECURITY.md, agent, agents, cli, docs, index.html, package.json, plugin-api.d.ts, pnpm-lock.yaml, postcss.config.js, public, scripts, src-tauri, src, tailwind.config.js, tsconfig.json, tsconfig.node.json, vite.config.ts, vitest.config.ts",
+          "fetched_at": "2026-04-03T05:08:00.681Z",
+          "meta": {
+            "repo_full_name": "AnalyseDeCircuit/oxideterm",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "opensolon/soloncode",
+      "html_url": "https://github.com/opensolon/soloncode",
+      "description": "Java impl version of \"Claude Code\".",
+      "topics": [
+        "claude-code",
+        "cli",
+        "cli-app",
+        "java",
+        "opencode",
+        "solon",
+        "solon-ai"
+      ],
+      "language": "Java",
+      "stargazers_count": 62,
+      "forks_count": 11,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-03T05:07:00Z",
+      "created_at": "2026-02-10T07:31:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n<h1>SolonCode</h1>\n<p>An open-source coding agent built with <a href=\"https://github.com/opensolon/solon-ai\">Solon AI</a> and Java (supports Java8 to Java26 runtime environments)</p>\n<p>Latest Version: v2026.4.5</p>\n<img width=\"600\" src=\"SHOW.png\" />\n</div>\n\n<div align=\"center\">\n\n[中文](README.zh.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Italiano](README.it.md)\n\n[Русский](README.ru.md) | [العربية](README.ar.md) | [Português (BR)](README.br.md) | [ไทย](README.th.md) | [Tiếng Việt](README.vi.md) | [Polski](README.pl.md)\n\n[বাংলা](README.bn.md) | [Bosanski](README.bs.md) | [Dansk](README.da.md) | [Ελληνικά](README.gr.md) | [Norsk](README.no.md) | [Türkçe](README.tr.md) | [Українська](README.uk.md)\n\n</div>\n\n\n## Installation and Configuration\n\nInstallation:\n\n```bash\n# Mac / Linux:\ncurl -fsSL https://solon.noear.org/soloncode/setup.sh | bash\n\n# Windows (PowerShell):\nirm https://solon.noear.org/soloncode/setup.ps1 | iex\n```\n\nConfiguration (must be modified after installation):\n\n* Installation directory: `~/soloncode/bin/`\n* Locate the `~/solnocode/bin/config.yml` configuration file and modify the `chatModel` configuration (primarily)\n* For `chatModel` configuration options, refer to: [Model Configuration and Request Options](https://solon.noear.org/article/1087)\n\n## Running\n\nRun the `soloncode` command from any directory in the console (i.e., your workspace).\n\n```bash\ndemo@MacBook-Pro ~ % soloncode\nSolonCode v2026.4.5\n/Users/noear\nTips: (esc) interrupt | '/exit': quit | '/resume': resume | '/clear': reset\n\nUser\n> \n```\n\nFeature Testing (try the following tasks, from simple to complex):\n\n* `你好`\n* `用网络分析下 ai mcp 协议，然后生成个 ppt` // It's recommended to install some skills in advance\n* `帮我设计一个 agent team（设计案存为 demo-dis.md），开发一个 solon + java17 的经典权限管理系统（demo-web），前端用 vue3，界面要简洁好看`\n\n\n## Documentation\n\nFor more configuration details, please visit our [Official Documentation](https://solon.noear.org/article/soloncode).\n\n## Contributing\n\nIf you're interested in contributing code, please read the [Contributing Docs](https://solon.noear.org/article/623) before submitting a PR.\n\n## Developing Based on SolonCode\n\nIf you use \"soloncode\" in your project name (e.g., \"soloncode-dashboard\" or \"soloncode-app\"), please indicate in the README that the project is not officially developed by the OpenSolon team and has no affiliation.\n\n## FAQ: What's the difference from Claude Code and OpenCode?\n\nThey are functionally similar, with key differences:\n\n* Built with Java, 100% open-source.\n* Pure Chinese prompt-driven development and construction.\n* Provider-agnostic. Requires model configuration. Model iteration will narrow gaps and reduce costs, making provider-agnostic approach important.\n* Focused on terminal command-line interface (CLI), running via system commands.\n* Supports Web, ACP protocol for remote communication.",
+        "truncated": false,
+        "bytes": 3130,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Solon Code CLI v2026.4.5",
+            "tag_name": "v2026.4.5",
+            "published_at": "2026-04-01T06:31:38Z",
+            "body_excerpt": "* 添加 soloncode-cli pid 打印\r\n* 添加 soloncode-cli skillhub 自动索引\r\n* 优化 soloncode-cli edit 失败时的提示细节\r\n* 优化 java21+ 环境，去除启动时的 System.load() 警告\r\n* 调整 soloncode-cli 日志输出位置到 `.soloncode` 下面（这样，不会产生多余的目录）\r\n* 调整 soloncode-cli TODO 机制，主代理用文件模式（避免开发时冲突，或产生文件太多），次代理用内存模式。次代理定位偏临时性\r\n* 调整 soloncode-core CLAUDE.md 文件位置到 `.soloncode` 下面（这样，不会产生多余的文件）"
+          },
+          {
+            "name": "Solon Code CLI v2026.4.1",
+            "tag_name": "v2026.4.1",
+            "published_at": "2026-03-28T15:30:30Z",
+            "body_excerpt": "* 完成 soloncode-cli 命令化改造（重要）\r\n* 添加 soloncode-code AgentRuntime.createSubagent 方法\r\n* 优化 soloncode-code cwd 动态传递\r\n* 优化 soloncode-code 引入工具网关，解决 mcp 过多时的问题\r\n* 优化 soloncode-web ReActChunk 输出(token 与 sec)\r\n* 调整 soloncode-core 进一步简化代码（合并一部分类）\r\n* 调整 soloncode-cli 取消 init 初始化命令（改为自动了）\r\n* 调整 `solon.code.cli` 配置节，更名为 `soloncode`\r\n* 修复 soloncode-cli 缩放窗口时，User 提示词会多次渲染的问题"
+          },
+          {
+            "name": "Solon Code CLI v2026.3.26",
+            "tag_name": "v2026.3.26",
+            "published_at": "2026-03-26T03:50:25Z",
+            "body_excerpt": "* 添加 工作区 skills 目录自动索引\r\n* 优化 explore.md 和 TaskSkill\r\n* 优化 cli 打印添加执行秒数（方便看）\r\n* 移除 ApplyPatchTool，LuceneSkill （减少工具上下文，工件包缩小为：27MB）\r\n* 调整 子代理模式改为弱模式（不再强模式使用，否则会让简单的体务变复杂）\r\n* 调整 子代理增加 code skill 支持"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 5,
+            "title": "[任务] 给 soloncode 加 team agent 机制",
+            "state": "closed",
+            "url": "https://github.com/opensolon/soloncode/issues/5"
+          },
+          {
+            "number": 3,
+            "title": "[任务] 添加 solonbot-sdk（soloncode 内核） 浏览器的调度能力",
+            "state": "closed",
+            "url": "https://github.com/opensolon/soloncode/issues/3"
+          },
+          {
+            "number": 4,
+            "title": "[任务] 给 soloncode 加 sub agent 机制",
+            "state": "closed",
+            "url": "https://github.com/opensolon/soloncode/issues/4"
+          },
+          {
+            "number": 6,
+            "title": "[任务] 让 soloncode 成控制台的命令",
+            "state": "closed",
+            "url": "https://github.com/opensolon/soloncode/issues/6"
+          },
+          {
+            "number": 7,
+            "title": "[任务] 给 soloncode 添加 web 界面（启用新模块：soloncode-web）",
+            "state": "open",
+            "url": "https://github.com/opensolon/soloncode/issues/7"
+          },
+          {
+            "number": 2,
+            "title": "应用案例（或经验分享）收集（助力 SolonCode 发现）",
+            "state": "open",
+            "url": "https://github.com/opensolon/soloncode/issues/2"
+          },
+          {
+            "number": 1,
+            "title": "PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+            "state": "open",
+            "url": "https://github.com/opensolon/soloncode/issues/1"
+          }
+        ]
+      },
+      "root_files": [
+        ".gitignore",
+        "AGENT_TEAMS.md",
+        "LICENSE",
+        "README.ar.md",
+        "README.bn.md",
+        "README.br.md",
+        "README.bs.md",
+        "README.da.md",
+        "README.de.md",
+        "README.es.md",
+        "README.fr.md",
+        "README.gr.md",
+        "README.it.md",
+        "README.ja.md",
+        "README.ko.md",
+        "README.md",
+        "README.no.md",
+        "README.pl.md",
+        "README.ru.md",
+        "README.th.md",
+        "README.tr.md",
+        "README.uk.md",
+        "README.vi.md",
+        "README.zh.md",
+        "README.zht.md",
+        "SHOW.png",
+        "UPDATE_LOG.md",
+        "package-lock.json",
+        "pom.xml",
+        "solonclaw",
+        "soloncode-cli",
+        "soloncode-core",
+        "soloncode-desktop",
+        "soloncode-parent",
+        "soloncode-web"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <h1>SolonCode</h1> <p>An open-source coding agent built with <a href=\"https://github.com/opensolon/solon-ai\">Solon AI</a> and Java (supports Java8 to Java26 runtime environments)</p> <p>Latest Version: v2026.4.5</p> <img width=\"600\" src=\"SHOW.png\" /> </div>",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 1,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[中文](README.zh.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Italiano](README.it.md)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 2,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[Русский](README.ru.md) | [العربية](README.ar.md) | [Português (BR)](README.br.md) | [ไทย](README.th.md) | [Tiếng Việt](README.vi.md) | [Polski](README.pl.md)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 3,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[বাংলা](README.bn.md) | [Bosanski](README.bs.md) | [Dansk](README.da.md) | [Ελληνικά](README.gr.md) | [Norsk](README.no.md) | [Türkçe](README.tr.md) | [Українська](README.uk.md)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 4,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 5)",
+          "excerpt": "```bash # Mac / Linux: curl -fsSL https://solon.noear.org/soloncode/setup.sh | bash",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 5,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 6)",
+          "excerpt": "# Windows (PowerShell): irm https://solon.noear.org/soloncode/setup.ps1 | iex ```",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 6,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 7)",
+          "excerpt": "* Installation directory: `~/soloncode/bin/` * Locate the `~/solnocode/bin/config.yml` configuration file and modify the `chatModel` configuration (primarily) * For `chatModel` configuration options, refer to: [Model Configuration and Request Options](https://solon.noear.org/article/1087)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 7,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/opensolon/soloncode#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Run the `soloncode` command from any directory in the console (i.e., your workspace).",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "segment": 8,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/5",
+          "title": "[任务] 给 soloncode 加 team agent 机制",
+          "excerpt": "[任务] 给 soloncode 加 team agent 机制 (state:closed)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 5
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/3",
+          "title": "[任务] 添加 solonbot-sdk（soloncode 内核） 浏览器的调度能力",
+          "excerpt": "[任务] 添加 solonbot-sdk（soloncode 内核） 浏览器的调度能力 (state:closed)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 3
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/4",
+          "title": "[任务] 给 soloncode 加 sub agent 机制",
+          "excerpt": "[任务] 给 soloncode 加 sub agent 机制 (state:closed)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 4
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/6",
+          "title": "[任务] 让 soloncode 成控制台的命令",
+          "excerpt": "[任务] 让 soloncode 成控制台的命令 (state:closed)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 6
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/7",
+          "title": "[任务] 给 soloncode 添加 web 界面（启用新模块：soloncode-web）",
+          "excerpt": "[任务] 给 soloncode 添加 web 界面（启用新模块：soloncode-web） (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 7
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/2",
+          "title": "应用案例（或经验分享）收集（助力 SolonCode 发现）",
+          "excerpt": "应用案例（或经验分享）收集（助力 SolonCode 发现） (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 2
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/opensolon/soloncode/issues/1",
+          "title": "PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+          "excerpt": "PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "number": 1
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/opensolon/soloncode/releases",
+          "title": "v2026.4.5",
+          "excerpt": "* 添加 soloncode-cli pid 打印 * 添加 soloncode-cli skillhub 自动索引 * 优化 soloncode-cli edit 失败时的提示细节 * 优化 java21+ 环境，去除启动时的 System.load() 警告 * 调整 soloncode-cli 日志输出位置到 `.soloncode` 下面（这样，不会产生多余的目录） * 调整 soloncode-cli TODO 机制，主代理用文件模式（避免开发时冲突，或产生文件太多），次代理用内存模式。次代理定位偏临时性 * 调整 soloncode-core CLAUDE.md 文件位置到 `.soloncode` 下面（这样，不会产生多余的文件）",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "tag_name": "v2026.4.5",
+            "published_at": "2026-04-01T06:31:38Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/opensolon/soloncode/releases",
+          "title": "v2026.4.1",
+          "excerpt": "* 完成 soloncode-cli 命令化改造（重要） * 添加 soloncode-code AgentRuntime.createSubagent 方法 * 优化 soloncode-code cwd 动态传递 * 优化 soloncode-code 引入工具网关，解决 mcp 过多时的问题 * 优化 soloncode-web ReActChunk 输出(token 与 sec) * 调整 soloncode-core 进一步简化代码（合并一部分类） * 调整 soloncode-cli 取消 init 初始化命令（改为自动了） * 调整 `solon.code.cli` 配置节，更名为 `soloncode` * 修复 soloncode-cli 缩放窗口时，User 提示词会多次渲染的问题",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "tag_name": "v2026.4.1",
+            "published_at": "2026-03-28T15:30:30Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/opensolon/soloncode/releases",
+          "title": "v2026.3.26",
+          "excerpt": "* 添加 工作区 skills 目录自动索引 * 优化 explore.md 和 TaskSkill * 优化 cli 打印添加执行秒数（方便看） * 移除 ApplyPatchTool，LuceneSkill （减少工具上下文，工件包缩小为：27MB） * 调整 子代理模式改为弱模式（不再强模式使用，否则会让简单的体务变复杂） * 调整 子代理增加 code skill 支持",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "tag_name": "v2026.3.26",
+            "published_at": "2026-03-26T03:50:25Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/opensolon/soloncode",
+          "title": "ROOT_FILES",
+          "excerpt": ".gitignore, AGENT_TEAMS.md, LICENSE, README.ar.md, README.bn.md, README.br.md, README.bs.md, README.da.md, README.de.md, README.es.md, README.fr.md, README.gr.md, README.it.md, README.ja.md, README.ko.md, README.md, README.no.md, README.pl.md, README.ru.md, README.th.md, README.tr.md, README.uk.md, README.vi.md, README.zh.md, README.zht.md, SHOW.png, UPDATE_LOG.md, package-lock.json, pom.xml, solonclaw, soloncode-cli, soloncode-core, soloncode-desktop, soloncode-parent, soloncode-web",
+          "fetched_at": "2026-04-03T05:08:00.829Z",
+          "meta": {
+            "repo_full_name": "opensolon/soloncode",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "PipedreamHQ/pipedream",
+      "html_url": "https://github.com/PipedreamHQ/pipedream",
+      "description": "Connect APIs, remarkably fast.  Free for developers.",
+      "topics": [
+        "apis",
+        "automation",
+        "bash",
+        "cli",
+        "data-flow",
+        "event-sourcing",
+        "eventsourcing",
+        "golang",
+        "integration-flow",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-development-platform",
+        "nodejs",
+        "python",
+        "serverless",
+        "typescript",
+        "workflow",
+        "workflows"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 11222,
+      "forks_count": 5624,
+      "open_issues_count": 4425,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-04-03T05:06:01Z",
+      "created_at": "2020-01-22T00:28:31Z",
+      "readme": {
+        "fetched": true,
+        "text": "![pipedream](https://i.ibb.co/LPhXtH1/logo.png)\n\n<p align=\"center\">\n  <a href=\"https://pipedream.com/community\"><img src=\"https://img.shields.io/badge/discourse-forum-brightgreen.svg?style=flat-square&link=https%3A%2F%2Fpipedream.com%2Fcommunity)](https://pipedream.com/community\"></a>\n  <a href=\"https://pipedream.com/support\"><img src=\"https://img.shields.io/badge/-Join%20us%20on%20Slack-green?logo=slack&logoColor=34d28B&labelColor=150d11&color=34d28B&logoWidth=18&link=https%3A%2F%2Fpipedream.com%2Fsupport&link=https%3A%2F%2Fpipedream.com%2Fsupport)](https://pipedream.com/support\"></a>\n  <a href=\"https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fpublish.twitter.com%2F%3FbuttonType%3DFollowButton%26query%3Dhttps%253A%252F%252Ftwitter.com%252Fpipedream%26widget%3DButton&ref_src=twsrc%5Etfw&region=follow_link&screen_name=pipedream&tw_p=followbutton\"><img src=\"https://img.shields.io/twitter/follow/pipedream?label=Follow%20%40pipedream&style=social\"></a>\n  <a href=\"https://wellfound.com/company/pipedreamhq/jobs\"><img src=\"https://img.shields.io/badge/%F0%9F%91%8B%F0%9F%8F%BC%20We're%20hiring!-Join%20us-brightgreen\"></a>\n</p>\n\nPipedream is an integration platform for developers.\n\nPipedream provides a free, hosted platform for connecting apps and developing event-driven automations. The platform has over 1,000 fully-integrated applications, so you can use pre-built components to quickly send messages to Slack, add a new row to Google Sheets, and more. You can also run any Node.js, Python, Golang, or Bash code when you need custom logic. Pipedream has demonstrated SOC 2 compliance and can provide a SOC 2 Type 2 report upon request (please email support@pipedream.com).\n\n<p align=\"center\">\n  <br />\n  <img src=\"./images/hero2.png\" width=\"800px\" alt=\"HTTP trigger + step selection menu\" >\n  <br />\n</p>\n\nThis repo contains:\n\n- [The code for all pre-built integration components](https://github.com/PipedreamHQ/pipedream/tree/master/components)\n- [The product roadmap](https://github.com/PipedreamHQ/pipedream/issues)\n- [The Pipedream docs](https://github.com/PipedreamHQ/pipedream/tree/master/docs)\n- And other source code related to Pipedream.\n\nThis `README` explains the key features of the platform and how to get started.\n\nTo get support, please visit [https://pipedream.com/support](https://pipedream.com/support).\n\n## Key Features\n\n- [Workflows](#workflows) - Workflows run automations. Workflows are sequences of steps - pre-built actions or custom [Node.js](https://pipedream.com/docs/code/nodejs/), [Python](https://pipedream.com/docs/code/python/), [Golang](https://pipedream.com/docs/code/go/), or [Bash](https://pipedream.com/docs/code/bash/) code - triggered by an event (HTTP request, timer, when a new row is added to a Google Sheets, and more).\n- [Event Sources](#event-sources) - Sources trigger workflows. They emit events from services like GitHub, Slack, Airtable, RSS and [more](https://pipedream.com/apps). When you want to run a workflow when an event happens in any third-party app, you're using an event source.\n- [Actions](#actions) - Actions are pre-built code steps that you can use in a workflow to perform common operations across Pipedream's 1,000+ API integrations. For example, you can use actions to send email, add a row to a Google Sheet, [and more](https://pipedream.com/apps).\n- [Custom code](#code) - Most integrations require custom logic. Code is often the best way to express that logic, so Pipedream allows you to run any [Node.js](https://pipedream.com/docs/code/nodejs/), [Python](https://pipedream.com/docs/code/python/), [Golang](https://pipedream.com/docs/code/go/), or [Bash](https://pipedream.com/docs/code/bash/) code. You can import any package from the languages' package managers, connect to any Pipedream connected app, and more. Pipedream is \"low-code\" in the best way: you can use pre-built components when you're performing common actions, but you can write custom code when you need to.\n- [Destinations](#destinations) - Deliver events asynchronously to common destinations like Amazon S3, Snowflake, HTTP and email.\n- [Free](#pricing) - No fees for individual developers (see [limits](https://docs.pipedream.com/limits/))\n\n## Demo\n\nClick the image below to watch a brief demo on YouTube.\n\n<p align=\"center\">\n  <br />\n  <a href=\"https://bit.ly/3ytGgyR\">\n    <img src=\"./images/demo.png\" width=\"800px\" alt=\"Pipedream demo static image\" />\n  </a>\n</p>\n\n### Workflows\n\nWorkflows are sequences of linear [steps](https://pipedream.com/docs/workflows/steps) triggered by an event (like an HTTP request, or when a new row is added to a Google sheet). You can quickly develop complex automations using workflows and connect to any of our 1,000+ integrated apps.\n\n[See our workflow quickstart](https://pipedream.com/docs/quickstart/) to get started.\n\n### Event Sources\n\n[Event Sources](https://pipedream.com/docs/sources/) watch for new data from services like GitHub, Slack, Airtable, RSS and [more](https://pipedream.com/apps). When a source finds a new event, it emits it, triggering any linked workflows.\n\nYou can also consume events emitted by sources using [Pipedream's REST API](https://pipedream.com/docs/api/rest/) or a private, real-time [SSE stream](https://pipedream.com/docs/api/sse/).\n\nWhen a pre-built source doesn't exist for your use case, [you can build your own](https://pipedream.com/docs/components/quickstart/nodejs/sources/). Here is the simplest event source: it exposes an HTTP endpoint you can send any request to, and prints the contents of the request when invoked:\n\n```javascript\nexport default {\n  name: \"http\",\n  version: \"0.0.1\",\n  props: {\n    http: \"$.interface.http\",\n  },\n  run(event) {\n    console.log(event); // event contains the method, payload, etc.\n  },\n};\n```\n\n<a href=\"https://pipedream.com/sources/new?app=http\"><img src=\"https://i.ibb.co/m0bBsSL/deploy-clean.png\" height=\"35\"></a>\n\nYou can find the code for all pre-built sources in [the `components` directory](https://github.com/PipedreamHQ/pipedream/tree/master/components). If you find a bug or want to contribute a feature, [see our contribution guide](https://pipedream.com/docs/components/guidelines/#process).\n\n### Actions\n\n[Actions](https://pipedream.com/docs/components/actions/) are pre-built code steps that you can use in a workflow to perform common operations across Pipedream's 500+ API integrations. For example, you can use actions to send email, add a row to a Google Sheet, [and more](https://pipedream.com/apps).\n\nYou can [create your own actions](https://pipedream.com/docs/components/quickstart/nodejs/actions/), which you can re-use across workflows. You can also [publish actions to the entire Pipedream community](https://pipedream.com/docs/components/guidelines/), making them available for anyone to use.\n\nHere's an action that accepts a `name` as input and prints it to the workflow's logs:\n\n```javascript\nexport default {\n  name: \"Action Demo\",\n  description: \"This is a demo action\",\n  key: \"action_demo\",\n  version: \"0.0.1\",\n  type: \"action\",\n  props: {\n    name: {\n      type: \"string\",\n      label: \"Name\",\n    },\n  },\n  async run() {\n    return `hello ${this.name}!`;\n  },\n};\n```\n\nYou can find the code for all pre-built actions in [the `components` directory](https://github.com/PipedreamHQ/pipedream/tree/master/components). If you find a bug or want to contribute a feature, [see our contribution guide](https://pipedream.com/docs/components/guidelines/#process).\n\n### Custom code\n\nMost integrations require custom logic. Code is often the best way to express that logic, so Pipedream allows you to run custom code in a workflow using:\n\n<table align=\"center\">\n  <tr>\n    <td>\n      <a href=\"https://pipedream.com/docs/code/nodejs/\">\n        <img alt=\"Node.js\" src=\"https://res.cloudinary.com/pipedreamin/image/upload/v1646761316/docs/icons/icons8-nodejs_aax6wn.svg\" width=\"100\">\n      </a>\n    </td>\n    <td>\n      <a href=\"https://pipedream.com/docs/code/python/\">\n        <img alt=\"Python\" src=\"https://res.cloudinary.com/pipedreamin/image/upload/v1647356607/docs/icons/python-logo-generic_k3o5w2.svg\" width=\"100\">\n      </a>\n    </td>\n  </tr>\n  </tr>\n    <td>\n      <a href=\"https://pipedream.com/docs/code/go/\">\n        <img alt=\"Go\" src=\"https://res.cloudinary.com/pipedreamin/image/upload/v1646763751/docs/icons/Go-Logo_Blue_zhkchv.svg\" width=\"100\">\n      </a>\n    </td>\n    <td>\n      <a href=\"https://pipedream.com/docs/code/bash/\">\n        <img alt=\"Bash\" src=\"https://res.cloudinary.com/pipedreamin/image/upload/v1647356698/docs/icons/full_colored_dark_1_-svg_vyfnv7.svg\" width=\"100\">\n      </a>\n    </td>\n  </tr>\n</table>\n\nYou can import any package from the languages' package managers by declaring the imports directly in code. Pipedream will parse and download the necessary dependencies.\n\n```javascript\n// Node.js\nimport axios from \"axios\";\n```\n\n```python\n# Python\nimport pandas as pd\n```\n\n```golang\n// Go\nimport (\n    \"fmt\"\n    pd \"github.com/PipedreamHQ/pipedream-go\"\n)\n```\n\nYou can also [connect to any Pipedream connected app in custom code steps](https://pipedream.com/docs/code/nodejs/auth/). For example, you can connect your Slack account and send a message to a channel:\n\n```javascript\nimport { WebClient } from \"@slack/web-api\";\n\nexport default defineComponent({\n  props: {\n    // This creates a connection called \"slack\" that connects a Slack account.\n    slack: {\n      type: \"app\",\n      app: \"slack\",\n    },\n  },\n  async run({ steps, $ }) {\n    const web = new WebClient(this.slack.$auth.oauth_access_token);\n\n    return await web.chat.postMessage({\n      text: \"Hello, world!\",\n      channel: \"#general\",\n    });\n  },\n});\n```\n\n### Destinations\n\n[Destinations](https://pipedream.com/docs/destinations/), like actions, abstract the connection, batching, and delivery logic required to send events to services like Amazon S3, or targets like HTTP and email.\n\nFor example, sending data to an Amazon S3 bucket is as simple as calling `$send.s3()`:\n\n```javascript\n$send.s3({\n  bucket: \"your-bucket-here\",\n  prefix: \"your-prefix/\",\n  payload: event.body,\n});\n```\n\nPipedream supports the following destinations:\n\n- [Amazon S3](https://docs.pipedream.com/destinations/s3/)\n- [Snowflake](https://docs.pipedream.com/destinations/snowflake/)\n- [HTTP](https://docs.pipedream.com/destinations/http/)\n- [Email](https://docs.pipedream.com/destinations/email/)\n- [SSE](https://docs.pipedream.com/destinations/sse/)\n\n## Contributors\n\nThank you to everyone who has contributed to the Pipedream codebase. We appreciate you!\n\n<a href=\"https://github.com/PipedreamHQ/pipedream/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=PipedreamHQ/pipedream\" />\n</a>\n\n## Pricing\n\nPipedream has a [generous free tier](https://pipedream.com/docs/pricing/#developer-tier). You can run sources and workflows for free within the limits of the free tier. If you hit these limits, you can upgrade to one of our [paid tiers](https://pipedream.com/docs/pricing/).\n\n## Limits\n\nThe Pipedream platform imposes some runtime limits on sources and workflows. [Read more about those in our docs](https://pipedream.com/docs/limits/).\n\n## Found a Bug? Have a Feature to suggest?\n\nBefore adding an issue, please search the [existing issues](https://github.com/PipedreamHQ/pipedream/issues) or [reach out to our team](https://pipedream.com/support/) to see if a similar request already exists.\n\nIf an issue exists, please [add a reaction](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github) or add a comment detailing your specific use case.\n\nIf an issue _doesn't_ yet exist and you need to create one, please [use the issue templates](https://github.com/PipedreamHQ/pipedream/issues/new/choose).\n\n## Security\n\nYou can read about our platform security and privacy [here](https://pipedream.com/docs/privacy-and-security/).\n\nIf you'd like to report a suspected vulnerability or security issue, or have any questions about the securi",
+        "truncated": true,
+        "bytes": 12082,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 20499,
+            "title": "[ACTION] Enhancement on Trello Create Card Action",
+            "state": "open",
+            "url": "https://github.com/PipedreamHQ/pipedream/issues/20499"
+          },
+          {
+            "number": 20386,
+            "title": "[ACTION] Apollo Oauth feature parity with the API key version",
+            "state": "open",
+            "url": "https://github.com/PipedreamHQ/pipedream/issues/20386"
+          },
+          {
+            "number": 20498,
+            "title": "[Components] claap",
+            "state": "open",
+            "url": "https://github.com/PipedreamHQ/pipedream/issues/20498"
+          },
+          {
+            "number": 20461,
+            "title": "Google Contacts — include email in contact option labels",
+            "state": "closed",
+            "url": "https://github.com/PipedreamHQ/pipedream/issues/20461"
+          },
+          {
+            "number": 20497,
+            "title": "[ACTION]",
+            "state": "open",
+            "url": "https://github.com/PipedreamHQ/pipedream/issues/20497"
+          },
+          {
+            "number": 20433,
+            "title": "[APP] TruGrid SecureRDP Integration",
+            "state": "open",
+            "url": "https://github.com/PipedreamHQ/pipedream/issues/20433"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".gitpod.Dockerfile",
+        ".gitpod.yml",
+        ".husky",
+        ".npmignore",
+        ".npmrc",
+        ".spellcheck.yml",
+        ".tool-versions",
+        ".wordlist.txt",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "_config.yml",
+        "components",
+        "docs-v2",
+        "eslint.config.mjs",
+        "glama.json",
+        "helpers",
+        "images",
+        "jest.config.js",
+        "modelcontextprotocol",
+        "package.json",
+        "packages",
+        "platform",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "scripts",
+        "sources",
+        "types"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://pipedream.com/community\"><img src=\"https://img.shields.io/badge/discourse-forum-brightgreen.svg?style=flat-square&link=https%3A%2F%2Fpipedream.com%2Fcommunity)](https://pipedream.com/community\"></a> <a href=\"https://pipedream.com/support\"><img src=\"https://img.shields.io/badge/-Join%20us%20on%20Slack-green?logo=slack&logoColor=34d28B&labelColor=150d11&color=34d28B&logoWidth=18&link=https%3A%2F%2Fpipedream.com%2Fsupport&link=https%3A%2F%2Fpipedream.com%2Fsupport)](https://pipedream.com/support\"></a> <a href=\"https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fpublish.twitter.com%2F%3FbuttonType%3DFollowButton%26query%3Dhttps%253A%252F%252Ftwitter.com%252Fpipedream%26widget%3DButton&ref_src=twsrc%5Etfw&region=follow_link&screen_name=pipedream&tw_p=followbutton\"><img src=\"https://img.shields.io/twitter/follow/pipedream?label=Follow%20%40pipedream&style=social\"></a> <a href=\"https://wellfound.com/company/pipedreamhq/jobs\"><img src=\"https://img.shields.io/badge/%F0%9F%91%8B%F0%9F%8F%BC%20We're%20hiring!-Join%20us-brightgreen\"></a> </p>",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 1,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Pipedream provides a free, hosted platform for connecting apps and developing event-driven automations. The platform has over 1,000 fully-integrated applications, so you can use pre-built components to quickly send messages to Slack, add a new row to Google Sheets, and more. You can also run any Node.js, Python, Golang, or Bash code when you need custom logic. Pipedream has demonstrated SOC 2 compliance and can provide a SOC 2 Type 2 report upon request (please email support@pipedream.com).",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 2,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <br /> <img src=\"./images/hero2.png\" width=\"800px\" alt=\"HTTP trigger + step selection menu\" > <br /> </p>",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 3,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- [The code for all pre-built integration components](https://github.com/PipedreamHQ/pipedream/tree/master/components) - [The product roadmap](https://github.com/PipedreamHQ/pipedream/issues) - [The Pipedream docs](https://github.com/PipedreamHQ/pipedream/tree/master/docs) - And other source code related to Pipedream.",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 4,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 5)",
+          "excerpt": "To get support, please visit [https://pipedream.com/support](https://pipedream.com/support).",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 5,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- [Workflows](#workflows) - Workflows run automations. Workflows are sequences of steps - pre-built actions or custom [Node.js](https://pipedream.com/docs/code/nodejs/), [Python](https://pipedream.com/docs/code/python/), [Golang](https://pipedream.com/docs/code/go/), or [Bash](https://pipedream.com/docs/code/bash/) code - triggered by an event (HTTP request, timer, when a new row is added to a Google Sheets, and more). - [Event Sources](#event-sources) - Sources trigger workflows. They emit events from services like GitHub, Slack, Airtable, RSS and [more](https://pipedream.com/apps). When you want to run a workflow when an event happens in any third-party app, you're using an event source. - [Actions](#actions) - Actions are pre-built code steps that you can use in a workflow to perform common operations across Pipedream's 1,000+ API integrations. For example, you can use actions to send email, add a row to a Google Sheet, [and more](https://pipedream.com/apps). - [Custom code](#code) - Most integrations require custom logic. Code is often the best way to express that logic, so Pipedream allows you to run any [Node.js](https://pipedream.com/docs/code/nodejs/), [Python](https://pip…",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 6,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<p align=\"center\"> <br /> <a href=\"https://bit.ly/3ytGgyR\"> <img src=\"./images/demo.png\" width=\"800px\" alt=\"Pipedream demo static image\" /> </a> </p>",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 7,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/PipedreamHQ/pipedream#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Workflows are sequences of linear [steps](https://pipedream.com/docs/workflows/steps) triggered by an event (like an HTTP request, or when a new row is added to a Google sheet). You can quickly develop complex automations using workflows and connect to any of our 1,000+ integrated apps.",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "segment": 8,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/PipedreamHQ/pipedream/issues/20499",
+          "title": "[ACTION] Enhancement on Trello Create Card Action",
+          "excerpt": "[ACTION] Enhancement on Trello Create Card Action (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "number": 20499
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/PipedreamHQ/pipedream/issues/20386",
+          "title": "[ACTION] Apollo Oauth feature parity with the API key version",
+          "excerpt": "[ACTION] Apollo Oauth feature parity with the API key version (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "number": 20386
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/PipedreamHQ/pipedream/issues/20498",
+          "title": "[Components] claap",
+          "excerpt": "[Components] claap (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "number": 20498
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/PipedreamHQ/pipedream/issues/20461",
+          "title": "Google Contacts — include email in contact option labels",
+          "excerpt": "Google Contacts — include email in contact option labels (state:closed)",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "number": 20461
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/PipedreamHQ/pipedream/issues/20497",
+          "title": "[ACTION]",
+          "excerpt": "[ACTION] (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "number": 20497
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/PipedreamHQ/pipedream/issues/20433",
+          "title": "[APP] TruGrid SecureRDP Integration",
+          "excerpt": "[APP] TruGrid SecureRDP Integration (state:open)",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "number": 20433
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/PipedreamHQ/pipedream",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .gitpod.Dockerfile, .gitpod.yml, .husky, .npmignore, .npmrc, .spellcheck.yml, .tool-versions, .wordlist.txt, CONTRIBUTING.md, LICENSE, README.md, SECURITY.md, _config.yml, components, docs-v2, eslint.config.mjs, glama.json, helpers, images, jest.config.js, modelcontextprotocol, package.json, packages, platform, pnpm-lock.yaml, pnpm-workspace.yaml, scripts, sources, types",
+          "fetched_at": "2026-04-03T05:08:00.778Z",
+          "meta": {
+            "repo_full_name": "PipedreamHQ/pipedream",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "AnalyseDeCircuit/oxideterm",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "opensolon/soloncode",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 3
+    },
+    {
+      "full_name": "PipedreamHQ/pipedream",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 6,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 6,
+      "releases_count": 0
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "ok": true,
+      "spec_path": "specs/2026-04-03/AnalyseDeCircuit__oxideterm.json"
+    },
+    {
+      "repo": "opensolon/soloncode",
+      "ok": true,
+      "spec_path": "specs/2026-04-03/opensolon__soloncode.json"
+    },
+    {
+      "repo": "PipedreamHQ/pipedream",
+      "ok": true,
+      "spec_path": "specs/2026-04-03/PipedreamHQ__pipedream.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-03/AnalyseDeCircuit__oxideterm.json"
+    },
+    {
+      "repo": "opensolon/soloncode",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-03/opensolon__soloncode.json"
+    },
+    {
+      "repo": "PipedreamHQ/pipedream",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-03/PipedreamHQ__pipedream.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-03/AnalyseDeCircuit__oxideterm.json"
+      ]
+    },
+    {
+      "repo": "opensolon/soloncode",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-03/opensolon__soloncode.json"
+      ]
+    },
+    {
+      "repo": "PipedreamHQ/pipedream",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-03/PipedreamHQ__pipedream.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-03T05:08:18.011Z",
+      "run_id": "20260403T050756Z",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8ecac871a5a597263bed06bd32f6af2e8cd8277ab76440a950308d1a532c57b4",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 9718
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17177,
+      "prompt_chars": 9718,
+      "completion_chars": 1825
+    },
+    {
+      "ts": "2026-04-03T05:08:29.001Z",
+      "run_id": "20260403T050756Z",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "eaffa442debb3010faa877521cf68764c898b97fc343aaa2ca5fe58019e5f30f",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 11755
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10989,
+      "prompt_chars": 11755,
+      "completion_chars": 1371
+    },
+    {
+      "ts": "2026-04-03T05:08:44.311Z",
+      "run_id": "20260403T050756Z",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "39f9b4db25cdb5346018fbd093b36854aa3f38baacd2fd52ab237252927ae8f9",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 13314
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15309,
+      "prompt_chars": 13314,
+      "completion_chars": 1853
+    },
+    {
+      "ts": "2026-04-03T05:08:58.115Z",
+      "run_id": "20260403T050756Z",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f929a71834c4e2fd0c7da14c16cb73e059d047a8b81bcab13c1e7e8082789d6d",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 15368
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13804,
+      "prompt_chars": 15368,
+      "completion_chars": 1501
+    },
+    {
+      "ts": "2026-04-03T05:09:39.826Z",
+      "run_id": "20260403T050756Z",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "edaa744c4bf39af15eb2a4e40b003d654ad2c2a90594edcaa2e3b384774eb290",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 19725
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 41709,
+      "prompt_chars": 19725,
+      "completion_chars": 5390
+    },
+    {
+      "ts": "2026-04-03T05:09:54.159Z",
+      "run_id": "20260403T050756Z",
+      "repo": "opensolon/soloncode",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "451194faf1cf944c2d54c67bbec00714d8092e06cc7a887ba34e9fe62894d9c8",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 7751
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14317,
+      "prompt_chars": 7751,
+      "completion_chars": 1449
+    },
+    {
+      "ts": "2026-04-03T05:10:07.076Z",
+      "run_id": "20260403T050756Z",
+      "repo": "opensolon/soloncode",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d2345e370941a6484404789c7144b1eeeb842c981d5f01933d9a5abb9a27f7f0",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 9360
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12917,
+      "prompt_chars": 9360,
+      "completion_chars": 1808
+    },
+    {
+      "ts": "2026-04-03T05:10:22.607Z",
+      "run_id": "20260403T050756Z",
+      "repo": "opensolon/soloncode",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2ee8693be5d84df3f0b011214e048707dfe4e7b445318571773f53e688cd07f9",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 11364
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15531,
+      "prompt_chars": 11364,
+      "completion_chars": 1950
+    },
+    {
+      "ts": "2026-04-03T05:10:35.927Z",
+      "run_id": "20260403T050756Z",
+      "repo": "opensolon/soloncode",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "13f4576eee2c958d70cc744c4c15de44c5a94a5d26a75f537d43781f1a24d5f9",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 13511
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13320,
+      "prompt_chars": 13511,
+      "completion_chars": 1598
+    },
+    {
+      "ts": "2026-04-03T05:11:08.779Z",
+      "run_id": "20260403T050756Z",
+      "repo": "opensolon/soloncode",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "df892cb4b839a8046b724d0da4c1fe118de88502c0c1e0210e28532685a00fea",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 17977
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 32852,
+      "prompt_chars": 17977,
+      "completion_chars": 4175
+    },
+    {
+      "ts": "2026-04-03T05:11:19.987Z",
+      "run_id": "20260403T050756Z",
+      "repo": "PipedreamHQ/pipedream",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2baa4302e62a217364e36c4e27d2d6dd5094efe1d092b7f7677405b5e767c0ec",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 8228
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11205,
+      "prompt_chars": 8228,
+      "completion_chars": 1325
+    },
+    {
+      "ts": "2026-04-03T05:11:32.906Z",
+      "run_id": "20260403T050756Z",
+      "repo": "PipedreamHQ/pipedream",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "088c98f4760110ec0bb07ee23580029a7b7a09daa996518f045febf8f2c4e620",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 9769
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12919,
+      "prompt_chars": 9769,
+      "completion_chars": 1435
+    },
+    {
+      "ts": "2026-04-03T05:11:45.450Z",
+      "run_id": "20260403T050756Z",
+      "repo": "PipedreamHQ/pipedream",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8b0de2d4792705e617db1ed2e6602e19a3045264ea6d693899a15392dcb6f4af",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 11404
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12544,
+      "prompt_chars": 11404,
+      "completion_chars": 1705
+    },
+    {
+      "ts": "2026-04-03T05:11:56.885Z",
+      "run_id": "20260403T050756Z",
+      "repo": "PipedreamHQ/pipedream",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ebe0a5157153ba4bd18e7700d9d3ce34f714185da4a3d3eeb11af5eb3b251ab8",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 13310
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11434,
+      "prompt_chars": 13310,
+      "completion_chars": 1435
+    },
+    {
+      "ts": "2026-04-03T05:12:20.178Z",
+      "run_id": "20260403T050756Z",
+      "repo": "PipedreamHQ/pipedream",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "34e72d16ac89ea2b61b378bfab8ccefd1c819d3a99a55d11043955715563fe94",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 17537
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 23292,
+      "prompt_chars": 17537,
+      "completion_chars": 2728
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "opensolon/soloncode",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "PipedreamHQ/pipedream",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "opensolon/soloncode",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "PipedreamHQ/pipedream",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1775192876092,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "AnalyseDeCircuit/oxideterm": 5,
+      "opensolon/soloncode": 5,
+      "PipedreamHQ/pipedream": 5
+    },
+    "tokensApproxTotal": 55416,
+    "tokensApproxPerRepo": {
+      "AnalyseDeCircuit/oxideterm": 20457,
+      "opensolon/soloncode": 17737,
+      "PipedreamHQ/pipedream": 17222
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "AnalyseDeCircuit/oxideterm": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "OxideTerm is a modern, all-in-one terminal workspace built with Rust and Tauri 2, emphasizing security (pure Rust SSH, no OpenSSL), cross-platform support, and rich features like AI agents, SFTP, remote IDE, and multi-language UI. It recently transitioned to GPL-3.0, becoming fully open source. The project shows active maintenance with recent releases and clear installation guidance, though it has a small contributor base and a couple of unresolved user-reported issues.",
+        "highlights": [
+          "Built with pure Rust SSH (no OpenSSL) and Tauri 2, resulting in a single native binary for macOS, Windows, and Linux.",
+          "Offers an extensive feature set: local/remote shells, SFTP, file manager, AI agent, RAG, MCP, plugins, 30+ themes, and 11 language translations.",
+          "Recently relicensed under GPL-3.0 (since v1.0.0), making it fully open source and freely redistributable.",
+          "Provides detailed, platform-specific installation instructions across all recent releases, addressing OS-specific security warnings (Gatekeeper, SmartScreen).",
+          "Actively maintained with version 1.0.5 referenced in README and three recent releases (v1.0.2–v1.0.4)."
+        ],
+        "risks": [
+          "Open issues indicate functional problems: session creation failure (E-IS-001) and lack of manual address input (E-IS-002), potentially affecting usability.",
+          "Very limited community engagement: only 64 stars, 2 forks, and minimal external contributions (e.g., only @dependabot[bot] noted as new contributor).",
+          "Heavy reliance on a single maintainer/team; absence of diverse contributors may impact long-term sustainability."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "OxideTerm is a novel all-in-one terminal workspace that replaces traditional Electron-based terminals with a native Rust/Tauri stack, integrating SSH, SFTP, AI agents, RAG, and remote IDE capabilities into a single binary without OpenSSL dependencies.",
+        "highlights": [
+          "Invents a unified terminal environment combining local shell, SSH/SFTP, file management, AI agent, and remote IDE features in one application.",
+          "Uses pure Rust SSH implementation (russh) instead of OpenSSL, enhancing security and reducing dependencies.",
+          "Embeds advanced AI capabilities like RAG and MCP with tool-calling support, unusual for terminal emulators.",
+          "Delivers cross-platform native binaries via Tauri 2, avoiding Electron entirely.",
+          "Supports extensive customization with 30+ themes and 11 languages out of the box."
+        ],
+        "risks": [
+          "Core functionality issues reported (e.g., session creation failure) may indicate instability in the invented architecture.",
+          "High feature density could lead to complexity bloat or maintenance challenges without broader contributor involvement.",
+          "Reliance on emerging Rust ecosystem components (e.g., redb, russh) may introduce unanticipated limitations or bugs."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-008",
+          "E-IS-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "OxideTerm is a cross-platform terminal workspace built with Rust and Tauri 2, featuring a pure Rust SSH implementation (no OpenSSL), AI integration (RAG/MCP), SFTP, remote IDE, and extensive theming/localization. It ships as a single native binary and is licensed under GPL-3.0. Recent releases include platform-specific installation workarounds, but open issues reveal functional gaps in session creation and address input.",
+        "highlights": [
+          "Built with Tauri 2 and pure Rust SSH (russh), eliminating Electron and OpenSSL dependencies for a lightweight, secure native binary across macOS, Windows, and Linux.",
+          "Integrates advanced features uncommon in terminals: AI agent with RAG/MCP, remote IDE, file manager, SFTP, and plugin system—all in one application.",
+          "Actively maintained with clear release notes and consistent installation guidance addressing OS-specific security mechanisms (Gatekeeper, SmartScreen).",
+          "Fully open source under GPL-3.0 since v1.0.0, enabling modification and redistribution.",
+          "Supports 30+ themes and 11 languages, with documentation and README localized across multiple regions."
+        ],
+        "risks": [
+          "Critical usability issues remain unresolved: session creation fails in v1.0.4 (E-IS-001) and the address bar lacks manual input support (E-IS-002), hindering core SSH workflow.",
+          "Minimal community involvement (64 stars, 2 forks, only bot contributor noted) suggests limited external validation or resilience to maintainer attrition.",
+          "Heavy feature scope (AI, IDE, SFTP, plugins) in early versions may strain stability and testing coverage, especially with a small team."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "OxideTerm presents an ambitious all-in-one terminal workspace with bold claims of security and feature richness, but evidence reveals unresolved functional flaws, minimal community traction, and potential overpromising relative to its maturity and maintenance capacity.",
+        "highlights": [
+          "Claims 'Zero Electron. Zero OpenSSL. Pure Rust SSH' yet offers no verifiable proof of security audits or comparative benchmarks [E-RD-003].",
+          "Despite touting advanced AI features (RAG, MCP), there is no public documentation or code evidence demonstrating their implementation depth or reliability [E-RF-001].",
+          "README prominently displays version 1.0.5 [E-RD-004], but latest published release is only v1.0.4 [E-RL-001], suggesting misleading versioning or incomplete releases."
+        ],
+        "risks": [
+          "Critical session creation failure in v1.0.4 remains unaddressed [E-IS-001], undermining core SSH functionality despite marketing as a secure terminal solution.",
+          "Extremely low community engagement (64 stars, 2 forks, no human external contributors) raises doubts about real-world validation and long-term viability [E-RL-002].",
+          "Users must bypass OS security warnings (Gatekeeper, SmartScreen) on every install [E-RL-001], indicating poor notarization or distribution practices inconsistent with claimed professionalism."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RF-001",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"OxideTerm\",\n    \"one_sentence\": \"All-in-one terminal workspace — local shells, SSH, SFTP, remote IDE, AI agent, and file manager in a single native binary.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User launches OxideTerm, creates or reconnects to SSH/local sessions via a unified interface, interacts with terminals, file systems, and AI agents, and manages connections through a modal-driven workflow.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Terminal Workspace\",\n      \"purpose\": \"Hosts active terminal sessions, file browser, and AI agent interactions in a tabbed layout.\",\n      \"primary_actions\": [\n        \"Open new session\",\n        \"Switch between tabs\",\n        \"Access file manager\",\n        \"Invoke AI agent\"\n      ]\n    },\n    {\n      \"id\": \"new_connection_modal\",\n      \"name\": \"New Connection Modal\",\n      \"purpose\": \"Allows user to configure and initiate SSH or local shell sessions.\",\n      \"primary_actions\": [\n        \"Enter connection details\",\n        \"Select protocol (SSH/local)\",\n        \"Save connection profile\",\n        \"Connect\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"create_session\",\n      \"purpose\": \"Initiates a new terminal session (local or SSH) based on user-provided configuration.\",\n      \"async\": true,\n      \"input\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"host\": { \"type\": \"string\" },\n          \"port\": { \"type\": \"integer\" },\n          \"username\": { \"type\": \"string\" },\n          \"auth_method\": { \"type\": \"string\" }\n        }\n      },\n      \"output\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"session_id\": { \"type\": \"string\" },\n          \"status\": { \"type\": \"string\" }\n        }\n      }\n    },\n    {\n      \"name\": \"save_connection_profile\",\n      \"purpose\": \"Persists connection settings for future reuse.\",\n      \"async\": true,\n      \"input\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": { \"type\": \"string\" },\n     "
+      }
+    },
+    "opensolon/soloncode": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "scout",
+        "summary": "SolonCode is a Java-based open-source coding agent supporting multi-language documentation, CLI and web interfaces, and a modular architecture with team/sub-agent capabilities. It emphasizes ease of installation, runtime flexibility (Java 8–26), and active development focused on agent orchestration and developer experience.",
+        "highlights": [
+          "Multi-language README support across 20+ languages indicates strong internationalization focus.",
+          "Modular monorepo structure with distinct components: CLI, desktop, web, and core SDK.",
+          "Recent releases show active development of agent hierarchy (team/sub-agent) and CLI ergonomics.",
+          "Simple one-line installers for macOS/Linux and Windows streamline onboarding.",
+          "Configuration centralized under ~/.soloncode with model customization via config.yml."
+        ],
+        "risks": [
+          "Open issue regarding TLS certificate validation (PKIX error) may impact secure API connectivity.",
+          "Web interface (soloncode-web) remains incomplete (open task), limiting UI accessibility.",
+          "Heavy reliance on external model endpoints without clear fallback or offline mode."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "inventor",
+        "summary": "SolonCode is an inventive Java-based coding agent that extends the 'Claude Code' concept with a modular, multi-agent architecture supporting team and sub-agent coordination, CLI-first interaction, and cross-platform deployment. It introduces novel runtime abstractions for skill composition, dynamic tool gating, and localized configuration, while maintaining broad Java version compatibility.",
+        "highlights": [
+          "Introduces a hierarchical agent system with team and sub-agent mechanisms for task decomposition and collaboration (evidenced by closed tasks and release notes).",
+          "Implements a skill-centric runtime with automatic workspace indexing and dynamic tool loading, reducing context overhead by removing unused tools like ApplyPatchTool.",
+          "Features a unified CLI experience with auto-initialization, PID tracking, and adaptive logging under ~/.soloncode, enhancing reproducibility and user control.",
+          "Supports seamless model switching via config.yml and external documentation, enabling flexible LLM integration without code changes.",
+          "Adopts a monorepo with clear module boundaries (core, cli, web, desktop), facilitating incremental innovation and independent evolution of interfaces."
+        ],
+        "risks": [
+          "Sub-agent behavior shifted to 'weak mode' to avoid overcomplication, which may limit robustness in complex multi-agent workflows.",
+          "Dependence on external model endpoints without offline or local fallback could hinder usability in restricted environments.",
+          "TLS certificate validation issue (PKIX error) remains unresolved, posing a security risk for API-dependent features."
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-007",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "engineer",
+        "summary": "SolonCode is a Java-based coding agent with a modular architecture, featuring CLI, desktop, and web interfaces, and supporting team/sub-agent coordination. It emphasizes developer ergonomics through streamlined installation, runtime flexibility (Java 8–26), and skill-based task execution, while actively evolving its agent orchestration model.",
+        "highlights": [
+          "Modular monorepo structure cleanly separates concerns into soloncode-core, -cli, -desktop, and -web modules, enabling independent development and testing.",
+          "CLI tooling is mature and user-friendly, with auto-initialization, PID tracking, localized logging under ~/.soloncode, and cross-platform one-line installers.",
+          "Agent system supports hierarchical delegation via team and sub-agent mechanisms, with recent refinements favoring 'weak mode' sub-agents for simplicity and reduced overhead.",
+          "Skill management is dynamic: workspace skills are auto-indexed, and unused tools (e.g., ApplyPatchTool) were removed to minimize context size and improve performance.",
+          "Configuration is centralized in config.yml with clear documentation for LLM model selection, enabling easy integration with external providers."
+        ],
+        "risks": [
+          "An unresolved TLS certificate validation issue (PKIX error) may prevent secure communication with model or tool endpoints in restricted network environments.",
+          "The web interface (soloncode-web) remains incomplete (open task), limiting accessibility for users preferring GUI over CLI.",
+          "Sub-agent logic shifted to 'weak mode' to avoid complexity, which could reduce reliability in scenarios requiring strict task delegation or state isolation."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "skeptic",
+        "summary": "SolonCode presents an ambitious Java-based coding agent with multi-agent orchestration and cross-platform support, but key claims about functionality, stability, and security lack sufficient validation or remain incomplete.",
+        "highlights": [
+          "Despite claiming broad Java runtime support (Java 8–26), there is no evidence of CI/CD testing across these versions, raising doubts about actual compatibility.",
+          "The project advertises a 'team agent' and 'sub agent' mechanism, yet recent changes explicitly weakened sub-agent behavior to avoid complexity—suggesting the architecture may not robustly handle real-world collaborative coding tasks.",
+          "Installation relies on remote shell scripts from solon.noear.org without checksum verification or signed releases, introducing potential supply-chain risks."
+        ],
+        "risks": [
+          "An open, unresolved TLS certificate validation error (PKIX path building failed) indicates fundamental issues with secure outbound communication, undermining trust in API-dependent features like LLM integration.",
+          "The web interface (soloncode-web) remains an open task with no working implementation, contradicting any implication of a fully functional multi-interface product.",
+          "Release notes emphasize removing tools (e.g., ApplyPatchTool) and simplifying code, which may reflect feature instability rather than intentional minimalism."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RD-005",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"SolonCode\",\n    \"one_sentence\": \"An open-source Java-based coding agent supporting team/sub-agent coordination, CLI-first interaction, and multi-platform deployment (CLI, desktop, web).\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User invokes soloncode via CLI in a workspace; the agent loads skills from the local context, interacts with an external LLM via configurable endpoints, delegates tasks to sub-agents or team agents as needed, and outputs results or edits directly in the workspace.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Console Interface\",\n      \"purpose\": \"Primary user interaction point for invoking SolonCode commands and viewing agent output.\",\n      \"primary_actions\": [\n        \"Run soloncode command in any workspace directory\",\n        \"View real-time agent reasoning and code edits\",\n        \"Interrupt or terminate agent execution\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Configuration Management\",\n      \"purpose\": \"Manage SolonCode settings including LLM model selection and runtime behavior.\",\n      \"primary_actions\": [\n        \"Edit config.yml to set chatModel\",\n        \"Locate logs and runtime files under ~/.soloncode\",\n        \"Enable/disable skill indexing\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"run_soloncode\",\n      \"purpose\": \"Execute the SolonCode agent in the current working directory with configured LLM and skills.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"configure_model\",\n      \"purpose\": \"Update the chatModel configuration in config.yml to switch LLM providers or models.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"config\",\n        \"fields\": [\n          {\n            \"name\": \"chatModel\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"workspacePath\",\n            \"type\": \"string\"\n          }\n "
+      }
+    },
+    "PipedreamHQ/pipedream": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "Pipedream is an open-source, event-driven automation platform supporting 1,000+ app integrations with custom code (Node.js, Python, Go, Bash). It emphasizes developer-friendly workflows, SOC 2 compliance, and active community engagement. The repository shows high activity with thousands of stars and forks, but also a large number of open issues.",
+        "highlights": [
+          "Platform supports 1,000+ pre-built app integrations and custom code execution in multiple languages.",
+          "SOC 2 Type 2 compliant with report available on request.",
+          "Active community channels (Slack, Discourse) and clear support pathways.",
+          "Core concepts well-documented: Workflows, Event Sources, and Actions.",
+          "Source code for all integration components is publicly available in the repo."
+        ],
+        "risks": [
+          "Very high number of open issues (4,425) may indicate scalability or maintenance challenges.",
+          "Recent issue activity suggests ongoing gaps in feature parity and component completeness.",
+          "No GitHub releases despite mature functionality, potentially affecting production adoption clarity."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RD-001",
+          "E-RD-004",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "Pipedream enables rapid invention of event-driven automations by combining a vast library of pre-built app integrations with flexible custom code steps in Node.js, Python, Go, or Bash. Its open-source model invites community contribution to integration components, while SOC 2 compliance supports secure deployment.",
+        "highlights": [
+          "Developers can invent complex, multi-app automations without infrastructure management using 1,000+ pre-built actions and triggers.",
+          "Custom logic injection via four programming languages allows novel workflow behaviors beyond standard integrations.",
+          "Public availability of all integration component source code (in /components) lowers barrier to innovation and extension.",
+          "Event-source architecture enables reactive automation patterns triggered by real-time changes in external services."
+        ],
+        "risks": [
+          "High volume of open issues (4,425) may slow adoption of new integration ideas due to unresolved bugs or missing features.",
+          "Lack of formal GitHub releases complicates versioned innovation or dependency management for contributors.",
+          "Feature parity gaps (e.g., Apollo OAuth vs API key) suggest inconsistent extensibility across integrations."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RD-004",
+          "E-IS-002",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "Pipedream is an event-driven automation platform built with a modular, open-source architecture that supports 1,000+ app integrations and custom code in Node.js, Python, Go, and Bash. The codebase is organized into components, sources, and platform logic, with clear documentation and SOC 2 compliance. However, the high volume of open issues and lack of GitHub releases may impact maintainability and production readiness.",
+        "highlights": [
+          "Source code for all integration components is publicly available under /components, enabling inspection and extension.",
+          "Supports custom logic in four languages within workflows, offering flexibility beyond pre-built actions.",
+          "Repository structure includes dedicated directories for platform logic, sources, and shared helpers, indicating modular design.",
+          "SOC 2 Type 2 compliance documented in README enhances trust for enterprise use cases.",
+          "Active issue tracking for new apps (e.g., TruGrid SecureRDP) and action enhancements shows ongoing engineering investment."
+        ],
+        "risks": [
+          "4,425 open issues suggest potential technical debt or scaling challenges in component maintenance.",
+          "No tagged GitHub releases despite mature functionality complicates versioning and dependency management.",
+          "Feature parity gaps (e.g., Apollo OAuth vs API key) indicate inconsistent implementation across integrations.",
+          "Heavy reliance on external services for triggers/actions may introduce fragility if APIs change without notice."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RF-001",
+          "E-IS-002",
+          "E-IS-006",
+          "E-IS-001",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "While Pipedream presents itself as a mature, secure, and highly integrated automation platform, several red flags undermine confidence in its stability, completeness, and long-term maintainability—particularly the overwhelming number of open issues, lack of formal releases, and inconsistent feature implementation across integrations.",
+        "highlights": [
+          "Claims of SOC 2 Type 2 compliance are credible but require manual verification via email, limiting transparency.",
+          "The repository advertises 1,000+ integrations, yet numerous open issues reveal missing features or parity gaps (e.g., Apollo OAuth vs API key).",
+          "All integration code is open-source, which supports auditability, but the absence of GitHub releases makes it unclear what constitutes a stable version."
+        ],
+        "risks": [
+          "With 4,425 open issues—including vague or incomplete ones like '[ACTION]' (E-IS-005)—the project may be overwhelmed or under-resourced, risking stagnation.",
+          "No tagged releases despite years of development and high star count suggests ad-hoc deployment practices, raising concerns for production reliability.",
+          "Feature inconsistencies (e.g., E-IS-002) indicate that not all integrations are equally robust, potentially leading to unpredictable behavior in automations."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-IS-002",
+          "E-IS-005",
+          "E-RF-001",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Pipedream\",\n    \"one_sentence\": \"An open-source, event-driven automation platform that connects 1,000+ apps with custom code in Node.js, Python, Go, or Bash.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users build workflows triggered by events from third-party services (event sources), then chain pre-built actions or custom code steps to automate tasks across integrated applications.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Workflow Builder\",\n      \"purpose\": \"Design and manage event-driven automations by selecting triggers and sequencing actions or custom code steps.\",\n      \"primary_actions\": [\n        \"Add trigger\",\n        \"Add action\",\n        \"Insert custom code step\",\n        \"Deploy workflow\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a workflow configuration including its trigger, steps, and metadata.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"workflows\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"trigger_source\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"steps\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"created_at\",\n            \"type\": \"timestamp\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement HTTP trigger support\",\n          \"Add basic action library for Slack and Google Sheets\",\n          \"Enable Node.js custom code step execution\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can create a workflow triggered by an HTTP request and send a message to Slack.\",\n    \"User can add a custom Python step that processes incoming event data.\"\n  ],\n  \"open_questions\": [\n    \"How are secrets and API keys securely mana"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 5,
+        "engineer": 9,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "opensolon/soloncode",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 7,
+        "engineer": 12,
+        "skeptic": 9,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "PipedreamHQ/pipedream",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 9,
+        "engineer": 8,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=3",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=93 kept=5 limit=5",
+    "[deduper] existing_index_repos=182",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] AnalyseDeCircuit/oxideterm evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] PipedreamHQ/pipedream evidence total=15 readme=8 issue=6 release=0 root_files=1",
+    "[repo_card_builder] opensolon/soloncode evidence total=19 readme=8 issue=7 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=48 gaps=0",
+    "[llm_spec_generator] AnalyseDeCircuit/oxideterm canonical spec ok (iter=1) -> specs/2026-04-03/AnalyseDeCircuit__oxideterm.json",
+    "[llm_spec_generator] opensolon/soloncode canonical spec ok (iter=1) -> specs/2026-04-03/opensolon__soloncode.json",
+    "[llm_spec_generator] PipedreamHQ/pipedream canonical spec ok (iter=1) -> specs/2026-04-03/PipedreamHQ__pipedream.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-03T05:07:56.091Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:56.118Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260403T050756Z"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:56.118Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:56.122Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:56.663Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:56.663Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:57.102Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:57.102Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:57.442Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:57.442Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:57.822Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:57.822Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:58.356Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:58.356Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:58.831Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:58.831Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:59.314Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:59.314Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:59.572Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:59.572Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:59.945Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:07:59.945Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.342Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.346Z",
+      "run_id": "20260403T050756Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 182
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.382Z",
+      "run_id": "20260403T050756Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.386Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-03T05:08:00.386Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AnalyseDeCircuit__oxideterm/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.387Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AnalyseDeCircuit__oxideterm/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.389Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AnalyseDeCircuit__oxideterm/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.391Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AnalyseDeCircuit__oxideterm/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.392Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-03T05:08:00.392Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "opensolon__soloncode/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.393Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "opensolon__soloncode/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.395Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "opensolon__soloncode/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.396Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "opensolon__soloncode/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.399Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-03T05:08:00.399Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "PipedreamHQ__pipedream/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.400Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "PipedreamHQ__pipedream/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.401Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "PipedreamHQ__pipedream/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.403Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "PipedreamHQ__pipedream/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.681Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 21479,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.681Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.681Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.681Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 295
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.682Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.778Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12082,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.778Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.778Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 6
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.778Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 379
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.779Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 6,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.829Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3130,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.829Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.829Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.829Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 437
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.829Z",
+      "run_id": "20260403T050756Z",
+      "node": "repo_card_builder",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.833Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:00.833Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:18.011Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1825,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:29.001Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1371,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:44.311Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1853,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:08:58.115Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1501,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:39.826Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5390,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:39.839Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:39.841Z",
+      "run_id": "20260403T050756Z",
+      "node": "artifacts",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-03/AnalyseDeCircuit__oxideterm.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:39.841Z",
+      "run_id": "20260403T050756Z",
+      "node": "artifacts",
+      "repo": "AnalyseDeCircuit/oxideterm",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-03/AnalyseDeCircuit__oxideterm.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:39.842Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:39.842Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:09:54.159Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1449,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:10:07.076Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1808,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:10:22.607Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1950,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:10:35.927Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1598,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:08.779Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4175,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:08.781Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:08.782Z",
+      "run_id": "20260403T050756Z",
+      "node": "artifacts",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-03/opensolon__soloncode.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:08.782Z",
+      "run_id": "20260403T050756Z",
+      "node": "artifacts",
+      "repo": "opensolon/soloncode",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-03/opensolon__soloncode.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:08.782Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 6,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:08.782Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:19.987Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1325,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:32.906Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1435,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:45.450Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1705,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:11:56.885Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1435,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.178Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2728,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.179Z",
+      "run_id": "20260403T050756Z",
+      "node": "llm_spec_generator",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.180Z",
+      "run_id": "20260403T050756Z",
+      "node": "artifacts",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-03/PipedreamHQ__pipedream.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.180Z",
+      "run_id": "20260403T050756Z",
+      "node": "artifacts",
+      "repo": "PipedreamHQ/pipedream",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-03/PipedreamHQ__pipedream.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.184Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.184Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1775192876092,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "AnalyseDeCircuit/oxideterm": 5,
+          "opensolon/soloncode": 5,
+          "PipedreamHQ/pipedream": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.184Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-03T05:12:20.184Z",
+      "run_id": "20260403T050756Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-03",
+    "evidence_dir": "evidence/2026-04-03"
+  }
+}

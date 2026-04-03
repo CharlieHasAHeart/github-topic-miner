@@ -1,0 +1,70 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Pipedream",
+    "one_liner": "An open-source, event-driven automation platform that connects 1,000+ apps with custom code in Node.js, Python, Go, or Bash."
+  },
+  "screens": [
+    {
+      "name": "Workflow Builder",
+      "purpose": "Design and manage event-driven automations by selecting triggers and sequencing actions or custom code steps.",
+      "primary_actions": [
+        "Add action",
+        "Add trigger",
+        "Deploy workflow",
+        "Insert custom code step"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a workflow configuration including its trigger, steps, and metadata.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "payload": "json",
+        "steps": "json",
+        "trigger_source": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "workflows",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "steps",
+            "type": "JSON"
+          },
+          {
+            "name": "trigger_source",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic action library for Slack and Google Sheets",
+    "week 1: Enable Node.js custom code step execution",
+    "week 1: Implement HTTP trigger support"
+  ],
+  "acceptance_tests": [
+    "User can add a custom Python step that processes incoming event data.",
+    "User can create a workflow triggered by an HTTP request and send a message to Slack."
+  ]
+}

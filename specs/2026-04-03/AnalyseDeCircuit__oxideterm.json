@@ -1,0 +1,127 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OxideTerm",
+    "one_liner": "All-in-one terminal workspace — local shells, SSH, SFTP, remote IDE, AI agent, and file manager in a single native binary."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal Workspace",
+      "purpose": "Hosts active terminal sessions, file browser, and AI agent interactions in a tabbed layout.",
+      "primary_actions": [
+        "Access file manager",
+        "Invoke AI agent",
+        "Open new session",
+        "Switch between tabs"
+      ]
+    },
+    {
+      "name": "New Connection Modal",
+      "purpose": "Allows user to configure and initiate SSH or local shell sessions.",
+      "primary_actions": [
+        "Connect",
+        "Enter connection details",
+        "Save connection profile",
+        "Select protocol (SSH/local)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "create_session",
+      "purpose": "Initiates a new terminal session (local or SSH) based on user-provided configuration.",
+      "async": true,
+      "input": {
+        "properties": "json",
+        "type": "json"
+      },
+      "output": {
+        "properties": "json",
+        "type": "json"
+      }
+    },
+    {
+      "name": "save_connection_profile",
+      "purpose": "Persists connection settings for future reuse.",
+      "async": true,
+      "input": {
+        "properties": "json",
+        "type": "json"
+      },
+      "output": {
+        "properties": "json",
+        "type": "json"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "connection_profiles",
+        "columns": [
+          {
+            "name": "host",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "port",
+            "type": "INTEGER"
+          },
+          {
+            "name": "protocol",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "profile_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "started_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic session persistence",
+    "week 1: Build new connection modal UI",
+    "week 1: Implement core terminal rendering with xterm-js",
+    "week 1: Integrate russh for SSH connectivity",
+    "week 2: Add connection profile saving/loading",
+    "week 2: Enable AI agent integration stub",
+    "week 2: Implement SFTP file browser",
+    "week 2: Support theme switching"
+  ],
+  "acceptance_tests": [
+    "After a failed connection attempt, error is clearly displayed and user can retry without app crash.",
+    "Application runs as a single native binary on macOS, Windows, and Linux without requiring OpenSSL or Electron.",
+    "Saved connection profiles persist across application restarts.",
+    "User can manually input SSH connection details in the address bar or modal and successfully establish a session."
+  ]
+}
