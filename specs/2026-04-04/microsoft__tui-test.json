@@ -1,0 +1,128 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "TUI Test",
+    "one_liner": "An end-to-end terminal testing framework for CLI and TUI experiences that provides fast, reliable, and isolated tests across macOS, Linux, and Windows with support for a wide range of shells."
+  },
+  "screens": [
+    {
+      "name": "Test Runner Interface",
+      "purpose": "Execute and manage terminal-based end-to-end tests with real-time feedback and debugging capabilities.",
+      "primary_actions": [
+        "Capture terminal snapshot",
+        "Configure shell and platform target",
+        "Run test suite",
+        "View stdout/stderr traces"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "capture_snapshot",
+      "purpose": "Generate a detailed terminal state snapshot for assertion or debugging purposes.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platform": "string",
+        "pty_handle": "string",
+        "shell": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_test",
+      "purpose": "Launch an isolated terminal context, execute a sequence of interactions, and return test results including exit code and captured output.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platform": "string",
+        "pty_handle": "string",
+        "shell": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "wait_for_render",
+      "purpose": "Pause execution until the terminal has rendered expected content, leveraging auto-wait logic.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platform": "string",
+        "pty_handle": "string",
+        "shell": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "terminal_contexts",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "platform",
+            "type": "TEXT"
+          },
+          {
+            "name": "pty_handle",
+            "type": "TEXT"
+          },
+          {
+            "name": "shell",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "test_runs",
+        "columns": [
+          {
+            "name": "exit_code",
+            "type": "INTEGER"
+          },
+          {
+            "name": "snapshot_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "stderr",
+            "type": "TEXT"
+          },
+          {
+            "name": "stdout",
+            "type": "TEXT"
+          },
+          {
+            "name": "test_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add auto-wait mechanism for terminal readiness and render cycles",
+    "week 1: Enable snapshot capture and comparison",
+    "week 1: Implement core terminal context creation with xterm.js headless mode",
+    "week 1: Support basic interaction commands (type, enter, wait)"
+  ],
+  "acceptance_tests": [
+    "A test can launch a bash terminal on Linux, run 'echo hello', and assert that 'hello' appears in the output.",
+    "Each test runs in full isolation with its own PTY and terminal emulator instance, confirmed by parallel execution without interference.",
+    "Terminal snapshots include full state (cursor position, colors, buffer) and can be serialized for debugging.",
+    "The framework automatically waits for the terminal to be ready before sending input, eliminating manual sleep calls."
+  ]
+}

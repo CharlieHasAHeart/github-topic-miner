@@ -1,0 +1,77 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Developer Portfolio Website",
+    "one_liner": "A modern, responsive developer portfolio showcasing skills, projects, and career journey with dynamic GitHub integration and interactive UI elements."
+  },
+  "screens": [
+    {
+      "name": "Main Portfolio Screen",
+      "purpose": "Display the developer's personal brand, career timeline, technical skills, certifications, blog highlights, and project portfolio with live GitHub data.",
+      "primary_actions": [
+        "Navigate to project live demo",
+        "Scroll through career timeline",
+        "Toggle dark/light mode",
+        "View GitHub repository"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_github_projects",
+      "purpose": "Fetch live project data from GitHub API using configured credentials.",
+      "async": true,
+      "input": {
+        "demo_url": "string",
+        "description": "string",
+        "payload": "json",
+        "repo_url": "string",
+        "tech_stack": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "demo_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "repo_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "tech_stack",
+            "type": "JSON"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add dark/light mode toggle",
+    "week 1: Configure Tailwind CSS and shadcn/ui",
+    "week 1: Implement responsive layout for all screen sizes",
+    "week 1: Set up Vite + React + TypeScript base"
+  ],
+  "acceptance_tests": [
+    "GitHub project data appears dynamically when valid VITE_GITHUB_TOKEN and VITE_GITHUB_USERNAME are provided.",
+    "The site loads correctly on a 320px wide mobile device."
+  ]
+}

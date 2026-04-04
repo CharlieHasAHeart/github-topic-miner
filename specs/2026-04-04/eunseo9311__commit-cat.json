@@ -1,0 +1,196 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CommitCat",
+    "one_liner": "A cross-platform desktop pet that tracks developer activity like Git commits, IDE usage, and focus sessions, rewarding progress with pixel-art animations, XP, and AI chat."
+  },
+  "screens": [
+    {
+      "name": "Desktop Pet",
+      "purpose": "Display an interactive pixel-art cat that responds to developer activity and provides visual feedback.",
+      "primary_actions": [
+        "Click to trigger speech bubble reactions",
+        "Double-click to open Claude AI chat",
+        "Drag to reposition on screen",
+        "Right-click to access context menu (Today summary, Settings)"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure watched repositories, cat appearance, timer durations, API keys, and view XP progress.",
+      "primary_actions": [
+        "Enter Anthropic API key for AI chat",
+        "Select cat color (orange/brown/white)",
+        "Set Pomodoro timer durations",
+        "Toggle watched repos"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "detect_ide_activity",
+      "purpose": "Monitor running IDE processes (VS Code, JetBrains, Xcode) to determine active coding sessions.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "is_sleeping": "boolean",
+        "payload": "json",
+        "position_x": "float",
+        "position_y": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_github_events",
+      "purpose": "Poll GitHub for PR merges, stars, and other events to notify the user and grant XP.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "is_sleeping": "boolean",
+        "payload": "json",
+        "position_x": "float",
+        "position_y": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "send_claude_message",
+      "purpose": "Forward user input to Anthropic's Claude API and return response for AI chat feature.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "is_sleeping": "boolean",
+        "payload": "json",
+        "position_x": "float",
+        "position_y": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_pomodoro_timer",
+      "purpose": "Initiate a focus session with configurable duration and break intervals.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "is_sleeping": "boolean",
+        "payload": "json",
+        "position_x": "float",
+        "position_y": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "track_git_commit",
+      "purpose": "Detect and record local Git commits to trigger cat reactions and award XP.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "is_sleeping": "boolean",
+        "payload": "json",
+        "position_x": "float",
+        "position_y": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cat_state",
+        "columns": [
+          {
+            "name": "color",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_sleeping",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "position_x",
+            "type": "REAL"
+          },
+          {
+            "name": "position_y",
+            "type": "REAL"
+          }
+        ]
+      },
+      {
+        "name": "progress",
+        "columns": [
+          {
+            "name": "current_xp",
+            "type": "INTEGER"
+          },
+          {
+            "name": "last_active",
+            "type": "DATETIME"
+          },
+          {
+            "name": "level",
+            "type": "INTEGER"
+          },
+          {
+            "name": "streak_days",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "user_activity",
+        "columns": [
+          {
+            "name": "event_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "repo_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          },
+          {
+            "name": "xp_earned",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic Git commit detection and reaction animation",
+    "week 1: Implement draggable, click-through desktop cat with idle/sleep states",
+    "week 1: Integrate system tray icon with streak tooltip",
+    "week 2: Add Pomodoro timer with start/pause controls",
+    "week 2: Build settings panel for repo watching and cat color selection",
+    "week 2: Implement XP and level system tied to commit frequency",
+    "week 3: Develop VS Code and JetBrains plugin integration for coding time tracking",
+    "week 3: Implement fullscreen-aware auto-hide behavior",
+    "week 3: Integrate Claude AI chat via double-click"
+  ],
+  "acceptance_tests": [
+    "After making a Git commit in a watched repo, the cat displays a celebration animation and speech bubble.",
+    "Double-clicking the cat opens a chat window that sends messages to Claude API and displays responses.",
+    "During a Pomodoro focus session, the cat remains awake and shows a focused expression; after completion, XP is awarded.",
+    "On macOS Apple Silicon, user can install via .dmg and bypass security warning using xattr command.",
+    "Right-clicking shows 'Today' option that displays timeline of commits, coding time, and XP earned."
+  ]
+}

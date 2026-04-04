@@ -1,0 +1,79 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Supermemory",
+    "one_liner": "State-of-the-art memory and context engine for AI that automatically learns from conversations, extracts facts, builds user profiles, and delivers the right context at the right time."
+  },
+  "screens": [
+    {
+      "name": "Memory Dashboard",
+      "purpose": "Display user profile, recent memory items, and connected data sources with search and filtering capabilities.",
+      "primary_actions": [
+        "Manage connected accounts (Google, Notion, etc.)",
+        "Search hybrid memory (RAG + personal context)",
+        "View user profile summary"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Ingest and store a new memory item with automatic fact extraction, contradiction handling, and temporal metadata.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "expires_at": "timestamp",
+        "extracted_facts": "json",
+        "payload": "json",
+        "source": "string",
+        "user_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "memory_items",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "expires_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "extracted_facts",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build hybrid search endpoint combining RAG and user memory",
+    "week 1: Implement core memory ingestion pipeline with fact extraction",
+    "week 1: Integrate OAuth connector framework for Google/Notion"
+  ],
+  "acceptance_tests": [
+    "MCP OAuth flow completes successfully without HTTP 500 errors during connector setup.",
+    "System returns personalized context within 60ms for a user query involving both knowledge base and conversation history."
+  ]
+}
