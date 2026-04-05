@@ -1,0 +1,249 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AQBot",
+    "one_liner": "A lightweight, high-performance cross-platform AI dialogue client and local AI gateway supporting multi-LLM providers, conversation branching, RAG, MCP protocol, and built-in API server."
+  },
+  "screens": [
+    {
+      "name": "Local AI Gateway Dashboard",
+      "purpose": "Monitor and manage the built-in API gateway including usage stats, request logs, SSL settings, and client configurations.",
+      "primary_actions": [
+        "Download client config templates",
+        "Generate/revoke API keys",
+        "Inspect request logs",
+        "View token usage by key/provider"
+      ]
+    },
+    {
+      "name": "Main Chat Interface",
+      "purpose": "Primary workspace for conducting AI conversations with support for message versioning, branching, context management, and rich output rendering (code, math, diagrams).",
+      "primary_actions": [
+        "Attach context (files, search, knowledge)",
+        "Create conversation branch",
+        "Send message",
+        "Switch message version",
+        "Toggle artifact panel"
+      ]
+    },
+    {
+      "name": "Settings & Providers",
+      "purpose": "Configure LLM providers, API keys, model parameters, system presets, and gateway settings.",
+      "primary_actions": [
+        "Add/edit provider",
+        "Configure gateway access keys",
+        "Manage API keys",
+        "Set global temperature/top-p",
+        "Toggle multi-language UI"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "compress_conversation",
+      "purpose": "Apply automatic summarization to reduce conversation length while preserving key information for context window efficiency.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "is_archived": "boolean",
+        "is_pinned": "boolean",
+        "payload": "json",
+        "title": "string",
+        "updated_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_models_list",
+      "purpose": "Retrieve available models from a configured LLM provider via its API.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "is_archived": "boolean",
+        "is_pinned": "boolean",
+        "payload": "json",
+        "title": "string",
+        "updated_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_conversation",
+      "purpose": "Persist current conversation state including messages, branches, versions, and context attachments to local storage.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "is_archived": "boolean",
+        "is_pinned": "boolean",
+        "payload": "json",
+        "title": "string",
+        "updated_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "validate_api_key",
+      "purpose": "Verify API key validity for a given LLM provider by making a test request to its endpoint.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "is_archived": "boolean",
+        "is_pinned": "boolean",
+        "payload": "json",
+        "title": "string",
+        "updated_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "conversations",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_archived",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "is_pinned",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "updated_at",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "gateway_keys",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_active",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "key_hash",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "messages",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "conversation_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_thinking",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "model_used",
+            "type": "TEXT"
+          },
+          {
+            "name": "parent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "role",
+            "type": "TEXT"
+          },
+          {
+            "name": "version_index",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "api_keys",
+            "type": "JSON"
+          },
+          {
+            "name": "base_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add local storage for conversations and messages",
+    "week 1: Implement core Tauri app shell with main chat screen",
+    "week 1: Integrate basic OpenAI-compatible API calling with streaming",
+    "week 1: Support single-provider configuration in settings",
+    "week 2: Add Monaco editor for code blocks and diff preview",
+    "week 2: Build basic gateway server exposing OpenAI-compatible endpoint",
+    "week 2: Enable multi-provider support with key rotation",
+    "week 2: Implement message versioning and branching UI",
+    "week 3: Add usage tracking and request logging for gateway",
+    "week 3: Implement MCP protocol over stdio with tool execution panel",
+    "week 3: Integrate RAG with local document upload and indexing",
+    "week 3: Support Mermaid and D2 diagram rendering"
+  ],
+  "acceptance_tests": [
+    "Creating a conversation branch from any message node preserves full context and allows independent continuation.",
+    "Gateway-generated API key can be used by external CLI tools (e.g., curl) to query local AQBot endpoint.",
+    "Long model responses (>10k tokens) render fully without blank areas or truncation.",
+    "Non-OpenAI models (e.g., Claude) successfully perform web search without returning OpenAI-specific errors.",
+    "User can switch between OpenAI, Claude, and Gemini providers and send messages without crash.",
+    "Window does not minimize when external screenshot shortcuts (e.g., Feishu) are triggered."
+  ]
+}

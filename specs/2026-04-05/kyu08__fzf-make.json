@@ -1,0 +1,112 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "fzf-make",
+    "one_liner": "A command line tool that executes commands using fuzzy finder with preview window for make, npm, pnpm, yarn, just and task."
+  },
+  "screens": [
+    {
+      "name": "Command Selection Screen",
+      "purpose": "Display list of available commands from detected task runners with fuzzy search and live preview of command details.",
+      "primary_actions": [
+        "Copy selected command to clipboard",
+        "Open argument input popup",
+        "Repeat last executed command",
+        "Select and execute command"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "copy_command_to_clipboard",
+      "purpose": "Copy the currently selected command string to the system clipboard using Ctrl+Y keybinding.",
+      "async": true,
+      "input": {
+        "command": "string",
+        "payload": "json",
+        "runner_type": "string",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "execute_selected_command",
+      "purpose": "Execute the user-selected command from the fuzzy finder interface, optionally with additional arguments provided via popup.",
+      "async": true,
+      "input": {
+        "command": "string",
+        "payload": "json",
+        "runner_type": "string",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "repeat_last_command",
+      "purpose": "Re-execute the most recently run command when invoked with `--repeat` flag.",
+      "async": true,
+      "input": {
+        "command": "string",
+        "payload": "json",
+        "runner_type": "string",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "command_history",
+        "columns": [
+          {
+            "name": "command",
+            "type": "TEXT"
+          },
+          {
+            "name": "runner_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "supported_runners",
+        "columns": [
+          {
+            "name": "manifest_file",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add preview window showing command definition",
+    "week 1: Implement core fuzzy selection TUI with Ratatui",
+    "week 1: Integrate parsing for make and npm scripts",
+    "week 1: Support basic execution without arguments"
+  ],
+  "acceptance_tests": [
+    "npm workspace scripts are collected and displayed when running in an npm workspace (v8.16+).",
+    "Tool correctly handles complex Makefile constructs like $(eval $(shell ...)) without hanging.",
+    "User can copy selected npm script command to clipboard using Ctrl+Y.",
+    "User can select and execute a make target from a Makefile using fuzzy search with preview."
+  ]
+}

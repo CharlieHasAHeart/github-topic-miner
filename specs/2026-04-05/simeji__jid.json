@@ -1,0 +1,135 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jid",
+    "one_liner": "An interactive CLI tool for exploring JSON with real-time filtering, auto-completion, and JMESPath support."
+  },
+  "screens": [
+    {
+      "name": "Interactive JSON Explorer",
+      "purpose": "Display JSON structure and live query results with real-time key highlighting and suggestion prompts.",
+      "primary_actions": [
+        "Cycle through field candidates with Tab",
+        "Execute or refine queries with Enter",
+        "Type dot-path or JMESPath queries"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_query",
+      "purpose": "Parse and apply a dot-path or JMESPath query to the current JSON document and return filtered results.",
+      "async": false,
+      "input": {
+        "exit_on_enter": "boolean",
+        "keybindings": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "highlight_key",
+      "purpose": "Highlight the JSON key corresponding to the current query segment in the terminal view.",
+      "async": false,
+      "input": {
+        "exit_on_enter": "boolean",
+        "keybindings": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "load_history",
+      "purpose": "Load persistent query history from disk with deduplication and limit enforcement.",
+      "async": false,
+      "input": {
+        "exit_on_enter": "boolean",
+        "keybindings": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_history",
+      "purpose": "Persist executed queries to history file with configurable retention.",
+      "async": false,
+      "input": {
+        "exit_on_enter": "boolean",
+        "keybindings": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "suggest_fields",
+      "purpose": "Provide auto-completion candidates based on current query context and JSON structure.",
+      "async": false,
+      "input": {
+        "exit_on_enter": "boolean",
+        "keybindings": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config",
+        "columns": [
+          {
+            "name": "exit_on_enter",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "keybindings",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "query_history",
+        "columns": [
+          {
+            "name": "query_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic tab-based field suggestion system",
+    "week 1: Build terminal rendering loop with real-time key highlighting",
+    "week 1: Implement core JSON parsing and dot-path query engine",
+    "week 2: Add TOML-based configuration loading",
+    "week 2: Implement persistent query history with deduplication",
+    "week 2: Integrate JMESPath support with function templates"
+  ],
+  "acceptance_tests": [
+    "Configurable keybindings and exit_on_enter option are respected.",
+    "JMESPath functions appear as suggestions with auto-filled argument templates.",
+    "Query history persists across sessions and respects 1000-entry limit.",
+    "Tab key cycles through valid field candidates at current nesting level.",
+    "User can type a dot-path query and see matching JSON keys highlighted in real time."
+  ]
+}

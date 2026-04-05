@@ -1,0 +1,123 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Koharu",
+    "one_liner": "An ML-powered manga translation tool that automates text detection, OCR, inpainting, and LLM-driven translation with a focus on local execution and user privacy."
+  },
+  "screens": [
+    {
+      "name": "Main Workspace",
+      "purpose": "Primary canvas for viewing and editing translated manga pages with interactive tools for zooming, panning, and deleting text blocks.",
+      "primary_actions": [
+        "Delete selected text block",
+        "Export as image or PSD",
+        "Load manga page",
+        "Translate page"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure translation backends, model preferences, and export options.",
+      "primary_actions": [
+        "Adjust inpainting sensitivity",
+        "Select LLM provider (local/remote)",
+        "Set output format preferences"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "export_psd",
+      "purpose": "Exports the current page as a layered Photoshop PSD file with editable text layers.",
+      "async": true,
+      "input": {
+        "image_path": "string",
+        "payload": "json",
+        "translated_text_blocks": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_project",
+      "purpose": "Persists the current translation state for later editing.",
+      "async": true,
+      "input": {
+        "image_path": "string",
+        "payload": "json",
+        "translated_text_blocks": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "translate_page",
+      "purpose": "Orchestrates the full manga translation pipeline including detection, OCR, inpainting, and LLM translation.",
+      "async": true,
+      "input": {
+        "image_path": "string",
+        "payload": "json",
+        "translated_text_blocks": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "pages",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "image_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "translated_text_blocks",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "translation_config",
+        "columns": [
+          {
+            "name": "llm_backend",
+            "type": "TEXT"
+          },
+          {
+            "name": "target_language",
+            "type": "TEXT"
+          },
+          {
+            "name": "use_remote",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add local LLM support via candle/llama.cpp",
+    "week 1: Implement core Rust pipeline: detection → OCR → inpainting → translation",
+    "week 1: Integrate Tauri GUI with basic canvas interaction",
+    "week 2: Add remote LLM fallback option",
+    "week 2: Enable PSD export with editable text layers",
+    "week 2: Implement HTTP API for automation"
+  ],
+  "acceptance_tests": [
+    "Application successfully translates a manga page using local models without sending data externally.",
+    "Exported PSD contains editable text layers matching detected regions.",
+    "User can delete a text block using the Del key and pan/zoom with Ctrl+drag and Ctrl+mouse wheel."
+  ]
+}
