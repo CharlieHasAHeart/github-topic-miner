@@ -1,0 +1,100 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Vite",
+    "one_liner": "A next-generation frontend build tool that provides instant dev server start, lightning-fast HMR, and optimized production builds via Rollup."
+  },
+  "screens": [
+    {
+      "name": "Dev Server Dashboard",
+      "purpose": "Display real-time status of the Vite development server including module graph, HMR updates, and error overlays.",
+      "primary_actions": [
+        "Start Dev Server",
+        "Trigger HMR Update",
+        "View Build Output"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_production_bundle",
+      "purpose": "Bundle the application using Rollup with pre-configured optimizations for production deployment.",
+      "async": true,
+      "input": {
+        "entry_point": "string",
+        "out_dir": "string",
+        "payload": "json",
+        "plugins": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_dev_server",
+      "purpose": "Initialize and run the Vite development server with native ES module support and HMR.",
+      "async": true,
+      "input": {
+        "entry_point": "string",
+        "out_dir": "string",
+        "payload": "json",
+        "plugins": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "build_config",
+        "columns": [
+          {
+            "name": "entry_point",
+            "type": "TEXT"
+          },
+          {
+            "name": "out_dir",
+            "type": "TEXT"
+          },
+          {
+            "name": "plugins",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "module_graph",
+        "columns": [
+          {
+            "name": "imports",
+            "type": "JSON"
+          },
+          {
+            "name": "is_cjs_interop",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "module_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add plugin interface scaffolding",
+    "week 1: Implement native ES module dev server with basic HMR",
+    "week 1: Integrate Rollup-based production build pipeline"
+  ],
+  "acceptance_tests": [
+    "CJS interop assignments are correctly hoisted to avoid TDZ errors during module evaluation.",
+    "Fast Refresh works reliably in pnpm-managed React projects without $RefreshSig$ undefined errors.",
+    "HMR updates propagate to the browser in under 50ms without full page reload.",
+    "Production build outputs minified, tree-shaken static assets compatible with modern browsers.",
+    "The dev server starts within 200ms on a cold boot with a minimal React app."
+  ]
+}

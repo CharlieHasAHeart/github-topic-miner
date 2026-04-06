@@ -1,0 +1,97 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Comet",
+    "one_liner": "Local-first note-taking app with end-to-end encrypted sync via Nostr and encrypted blob storage via Blossom."
+  },
+  "screens": [
+    {
+      "name": "Note Editor",
+      "purpose": "Primary interface for creating, editing, and managing encrypted notes with local-first persistence.",
+      "primary_actions": [
+        "Attach encrypted blobs",
+        "Create new note",
+        "Edit existing note",
+        "Sync note via Nostr"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a note to the per-account SQLite database with encryption metadata.",
+      "async": true,
+      "input": {
+        "active": "boolean",
+        "npub": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "seed_account",
+      "purpose": "Initialize a deterministic account using a fixed NSEC from .env for testing or onboarding.",
+      "async": true,
+      "input": {
+        "active": "boolean",
+        "npub": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "accounts",
+        "columns": [
+          {
+            "name": "active",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "npub",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "notes",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "INTEGER"
+          },
+          {
+            "name": "encrypted",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement local SQLite storage with per-account databases",
+    "week 1: Integrate Just-based dev and seed workflows",
+    "week 1: Set up Turborepo monorepo with app, relay, and Blossom workspaces"
+  ],
+  "acceptance_tests": [
+    "Gutter clicks in editor are clamped to valid boundaries to prevent UI errors.",
+    "Newly created note editor receives immediate focus after creation.",
+    "User can run `just app-seed` to create a seeded account with fixture notes."
+  ]
+}

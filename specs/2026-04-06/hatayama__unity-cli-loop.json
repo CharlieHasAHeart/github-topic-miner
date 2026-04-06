@@ -1,0 +1,293 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Unity CLI Loop",
+    "one_liner": "Your Unity project's AI autopilot. Compile, test, debug, repeat—until it just works."
+  },
+  "screens": [
+    {
+      "name": "Unity Editor Integration",
+      "purpose": "Enable AI-driven control of Unity Editor operations including compilation, testing, scene manipulation, and UI inspection.",
+      "primary_actions": [
+        "compile",
+        "execute-menu-item",
+        "run-tests",
+        "screenshot",
+        "simulate-keyboard",
+        "simulate-mouse-ui"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "clear-console",
+      "purpose": "Clear Unity console to maintain clean log state during autonomous loops.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "compile",
+      "purpose": "Trigger Unity project compilation from CLI for AI-driven build loops.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "execute-dynamic-code",
+      "purpose": "Run dynamically generated C# code in Unity Editor or PlayMode for flexible AI-driven modifications.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "execute-menu-item",
+      "purpose": "Invoke Unity Editor menu items programmatically to enable AI control over editor workflows.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "get-logs",
+      "purpose": "Fetch Unity console logs for AI analysis and debugging.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "record-input",
+      "purpose": "Record user input sequences for later replay in automated testing scenarios.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "replay-input",
+      "purpose": "Replay previously recorded input sequences to validate consistent game behavior.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run-tests",
+      "purpose": "Execute Unity Test Runner via CLI to enable autonomous test validation.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "screenshot",
+      "purpose": "Capture Unity window screenshots for AI-based UI verification and layout refinement.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "simulate-keyboard",
+      "purpose": "Simulate keyboard input during PlayMode for comprehensive input automation.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "simulate-mouse-input",
+      "purpose": "Simulate raw mouse input in PlayMode for game interaction automation.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "simulate-mouse-ui",
+      "purpose": "Simulate mouse interactions with Unity UI elements during PlayMode for automated testing.",
+      "async": true,
+      "input": {
+        "current_task": "string",
+        "payload": "json",
+        "session_id": "string",
+        "started_at": "timestamp",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ai_session",
+        "columns": [
+          {
+            "name": "current_task",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "started_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "input_recording",
+        "columns": [
+          {
+            "name": "duration_ms",
+            "type": "INTEGER"
+          },
+          {
+            "name": "events",
+            "type": "JSON"
+          },
+          {
+            "name": "recording_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "unity_project_state",
+        "columns": [
+          {
+            "name": "console_logs",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_compiled_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "project_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "test_results",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement execute-menu-item and screenshot for basic editor control",
+    "week 1: Integrate core CLI commands: compile, run-tests, get-logs, clear-console",
+    "week 1: Set up PlayMode input simulation: mouse, keyboard, recording/replay",
+    "week 2: Add dynamic code execution capability for flexible AI interventions",
+    "week 2: Build session state tracking and project state persistence",
+    "week 2: Validate autonomous loop with sample Unity project"
+  ],
+  "acceptance_tests": [
+    "AI agent can trigger full compile-test-debug cycle without human intervention",
+    "PlayMode input simulation accurately reproduces recorded user interactions",
+    "Screenshot tool captures UI state for external AI analysis",
+    "System recovers from MCP server exit and stale port conflicts automatically",
+    "Unity Editor menu items can be invoked via CLI to perform scene operations"
+  ]
+}
