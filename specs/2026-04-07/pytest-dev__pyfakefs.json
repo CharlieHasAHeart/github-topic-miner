@@ -1,0 +1,62 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "pyfakefs",
+    "one_liner": "Provides a fake file system that mocks the Python file system modules."
+  },
+  "screens": [
+    {
+      "name": "Fake Filesystem Test Interface",
+      "purpose": "Allows developers to run tests against an in-memory fake filesystem that mimics real OS behavior.",
+      "primary_actions": [
+        "Initialize fake filesystem per test",
+        "Map real files into fake filesystem",
+        "Pause/resume filesystem patching"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Simulates saving a file in the fake filesystem (mapped to internal write operations).",
+      "async": true,
+      "input": {
+        "content": "json",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "fake_files",
+        "columns": [
+          {
+            "name": "content",
+            "type": "BLOB"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core in-memory filesystem structure",
+    "week 1: Integrate with pytest via fixture",
+    "week 1: Support basic file read/write operations"
+  ],
+  "acceptance_tests": [
+    "File seeking returns correct offset after sequential reads",
+    "os.path.realpath works correctly on Windows with fake paths",
+    "secrets.randbelow does not fail under PyPy when pyfakefs is active",
+    "VCCode unittest runner executes tests without compatibility errors"
+  ]
+}

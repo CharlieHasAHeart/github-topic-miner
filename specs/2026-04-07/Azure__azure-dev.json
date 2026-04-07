@@ -1,0 +1,114 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Azure Developer CLI (azd)",
+    "one_liner": "A developer-centric CLI to build, deploy, and operate Azure applications—especially AI agents—with opinionated templates and built-in Azure best practices."
+  },
+  "screens": [
+    {
+      "name": "Project Dashboard",
+      "purpose": "Orchestrate the end-to-end workflow from code to cloud using guided actions aligned with Azure best practices.",
+      "primary_actions": [
+        "Deploy application",
+        "Initialize project from template",
+        "Invoke AI agent",
+        "Provision Azure infrastructure"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "invoke_ai_agent",
+      "purpose": "Send arbitrary input to an AI agent via the /invocations API endpoint.",
+      "async": true,
+      "input": {
+        "agent_name": "string",
+        "hosted": "boolean",
+        "invocation_endpoint": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "provision_infra",
+      "purpose": "Execute infrastructure provisioning with support for per-layer hooks defined in azure.yaml.",
+      "async": true,
+      "input": {
+        "agent_name": "string",
+        "hosted": "boolean",
+        "invocation_endpoint": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_hooks",
+      "purpose": "Execute targeted hooks during deployment or provisioning, optionally scoped to a specific layer.",
+      "async": true,
+      "input": {
+        "agent_name": "string",
+        "hosted": "boolean",
+        "invocation_endpoint": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ai_agent_config",
+        "columns": [
+          {
+            "name": "agent_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "hosted",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "invocation_endpoint",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "azure_project",
+        "columns": [
+          {
+            "name": "environment_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "template_source",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic AI agent invocation command",
+    "week 1: Implement core CLI scaffolding with non-interactive mode support",
+    "week 1: Integrate azure.yaml parsing with layered hook execution"
+  ],
+  "acceptance_tests": [
+    "User can initialize a new project using 'azd init' and successfully deploy it to Azure without requiring data seeding workarounds.",
+    "User can invoke an AI agent using 'azd ai agent invoke' with arbitrary input passed through the /invocations API.",
+    "User can run 'azd provision' with per-layer hooks that execute in correct order without manual intervention."
+  ]
+}
