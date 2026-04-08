@@ -1,0 +1,86 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Google Photos Deduper",
+    "one_liner": "A Chrome extension that finds and removes duplicate photos from your Google Photos library using local image embeddings."
+  },
+  "screens": [
+    {
+      "name": "Deduper Dashboard",
+      "purpose": "Display duplicate photo groups and allow user to select which copies to delete.",
+      "primary_actions": [
+        "Move to Trash",
+        "Review Duplicates",
+        "Scan Library"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "move_to_trash",
+      "purpose": "Remove selected duplicate photos from the user's Google Photos library by interacting with the web interface via GPTK.",
+      "async": true,
+      "input": {
+        "duplicate_group_id": "string",
+        "embedding": "json",
+        "payload": "json",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "scan_library",
+      "purpose": "Fetch user's Google Photos media items and compute local MediaPipe embeddings to detect visual duplicates.",
+      "async": true,
+      "input": {
+        "duplicate_group_id": "string",
+        "embedding": "json",
+        "payload": "json",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "media_items",
+        "columns": [
+          {
+            "name": "duplicate_group_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "embedding",
+            "type": "BLOB"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build UI for duplicate review and selection",
+    "week 1: Implement Google Photos Toolkit (GPTK) interaction layer",
+    "week 1: Integrate MediaPipe for local image embedding generation"
+  ],
+  "acceptance_tests": [
+    "Extension successfully scans Google Photos library without 403 Forbidden errors",
+    "Installation via unpacked Chrome extension works as documented",
+    "TensorFlow/MediaPipe duplicate detection runs without runtime errors",
+    "User can review duplicate groups and move selected items to trash"
+  ]
+}

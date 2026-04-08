@@ -1,0 +1,3597 @@
+{
+  "run_id": "20260408T051404Z",
+  "generated_at": "2026-04-08T05:14:04.640Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 92,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 49,
+    "evidence_by_type": {
+      "readme": 20,
+      "issue": 19,
+      "release": 7,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-08T05:18:53.598Z",
+    "repo_count": 202
+  },
+  "candidates": [
+    {
+      "full_name": "fastrepl/char",
+      "html_url": "https://github.com/fastrepl/char",
+      "description": "AI notepad for meetings",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8152,
+      "forks_count": 581,
+      "open_issues_count": 166,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:12:10Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development",
+        "integration-framework",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-platform",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "n8n",
+        "no-code",
+        "self-hosted",
+        "typescript",
+        "workflow",
+        "workflow-automation"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 182914,
+      "forks_count": 56586,
+      "open_issues_count": 1504,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-04-08T05:12:07Z",
+      "created_at": "2019-06-22T09:24:21Z"
+    },
+    {
+      "full_name": "anig1scur/tocify",
+      "html_url": "https://github.com/anig1scur/tocify",
+      "description": "Add or edit PDF bookmarks / Table of Contents online - 快速给 PDF 添加目录 / 书签",
+      "topics": [
+        "bookmarks",
+        "creative-tools",
+        "pdf",
+        "table-of-contents",
+        "webapp"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 234,
+      "forks_count": 4,
+      "open_issues_count": 3,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:11:13Z",
+      "created_at": "2025-01-23T04:38:47Z"
+    },
+    {
+      "full_name": "yvgude/lean-ctx",
+      "html_url": "https://github.com/yvgude/lean-ctx",
+      "description": "Hybrid Context Optimizer — Shell Hook + MCP Server. Reduces LLM token consumption by 89-99%. Single Rust binary, zero dependencies.",
+      "topics": [
+        "agentic-coding",
+        "ai",
+        "claude-code",
+        "cli",
+        "compression",
+        "context-compression",
+        "copilot",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "open-source",
+        "rust",
+        "token-optimization",
+        "tokens"
+      ],
+      "language": "Rust",
+      "stargazers_count": 487,
+      "forks_count": 63,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:10:46Z",
+      "created_at": "2026-03-23T19:48:59Z"
+    },
+    {
+      "full_name": "mtalcott/google-photos-deduper",
+      "html_url": "https://github.com/mtalcott/google-photos-deduper",
+      "description": "Locally run web app and Chrome extension to remove duplicates from Google Photos",
+      "topics": [
+        "chrome-extension",
+        "crxjs",
+        "docker-compose",
+        "google-photos",
+        "google-photos-api",
+        "image-embeddings",
+        "mediapipe",
+        "mui",
+        "python",
+        "react",
+        "typescript",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 304,
+      "forks_count": 25,
+      "open_issues_count": 21,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:10:44Z",
+      "created_at": "2021-04-05T04:48:03Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "anig1scur/tocify",
+      "html_url": "https://github.com/anig1scur/tocify",
+      "description": "Add or edit PDF bookmarks / Table of Contents online - 快速给 PDF 添加目录 / 书签",
+      "topics": [
+        "bookmarks",
+        "creative-tools",
+        "pdf",
+        "table-of-contents",
+        "webapp"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 234,
+      "forks_count": 4,
+      "open_issues_count": 3,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:11:13Z",
+      "created_at": "2025-01-23T04:38:47Z"
+    },
+    {
+      "full_name": "yvgude/lean-ctx",
+      "html_url": "https://github.com/yvgude/lean-ctx",
+      "description": "Hybrid Context Optimizer — Shell Hook + MCP Server. Reduces LLM token consumption by 89-99%. Single Rust binary, zero dependencies.",
+      "topics": [
+        "agentic-coding",
+        "ai",
+        "claude-code",
+        "cli",
+        "compression",
+        "context-compression",
+        "copilot",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "open-source",
+        "rust",
+        "token-optimization",
+        "tokens"
+      ],
+      "language": "Rust",
+      "stargazers_count": 487,
+      "forks_count": 63,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:10:46Z",
+      "created_at": "2026-03-23T19:48:59Z"
+    },
+    {
+      "full_name": "mtalcott/google-photos-deduper",
+      "html_url": "https://github.com/mtalcott/google-photos-deduper",
+      "description": "Locally run web app and Chrome extension to remove duplicates from Google Photos",
+      "topics": [
+        "chrome-extension",
+        "crxjs",
+        "docker-compose",
+        "google-photos",
+        "google-photos-api",
+        "image-embeddings",
+        "mediapipe",
+        "mui",
+        "python",
+        "react",
+        "typescript",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 304,
+      "forks_count": 25,
+      "open_issues_count": 21,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:10:44Z",
+      "created_at": "2021-04-05T04:48:03Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "anig1scur/tocify",
+      "html_url": "https://github.com/anig1scur/tocify",
+      "description": "Add or edit PDF bookmarks / Table of Contents online - 快速给 PDF 添加目录 / 书签",
+      "topics": [
+        "bookmarks",
+        "creative-tools",
+        "pdf",
+        "table-of-contents",
+        "webapp"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 234,
+      "forks_count": 4,
+      "open_issues_count": 3,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:11:13Z",
+      "created_at": "2025-01-23T04:38:47Z",
+      "readme": {
+        "fetched": true,
+        "text": "<h1>\n  Tocify\n  <img src=\"https://raw.githubusercontent.com/anig1scur/tocify/refs/heads/main/static/favicon.svg\" width=\"36\" />\n</h1>\n\nTocify is a free, online and open-source web application to add, edit, or generate Table of Contents (ToCs) / bookmarks for PDFs. It uses AI to parse scanned directory images or raw text into structured outlines, and creates clickable bookmarks & printable TOC pages for PDFs in cross platforms.\n\n</div>\n\n\n## Usage\n\n\n<https://github.com/user-attachments/assets/48e09103-f3a8-4d13-afeb-d11b5c8ade44>\n\n---\n\n### 1. Basic\n\n<img src=\"./screenshots/basic.png\" alt=\"Basic\" width=\"100%\"/>\n\n### 2. Format text\n\n<img src=\"./screenshots/text.gif\" alt=\"Format text\" width=\"100%\"/>\n\n### 3. Edit style\n\n<img src=\"./screenshots/style.png\" alt=\"Edit style\" width=\"100%\"/>\n\n\n## Support me\n\nYou can support me by Alipay (scan QR code below) or [ko-fi](https://ko-fi.com/aerisz):\n\n![](./screenshots/support.webp)\n",
+        "truncated": false,
+        "bytes": 928,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Tocify v1.2.3",
+            "tag_name": "v1.2.3",
+            "published_at": "2026-03-06T00:36:59Z",
+            "body_excerpt": "## v1.2.3 更新\r\n\r\n1. 修复书签跳转异常的 Bug https://github.com/anig1scur/tocify/issues/43\r\n2. 重构渲染与缓存逻辑，提升大文件查看流畅度。\r\n3. 偏移 modal 支持手动跳过无关或错误的匹配项。\r\n\r\n## v1.2.3 Update Notes\r\n\r\n\r\n1. Refactored rendering pipeline and caching logic for reduced memory footprint and smoother viewing experience.\r\n2. Support for manually skipping irrelevant or incorrect items during the AI generation process.\r\n3. Resolved issues where clicking bookmarks resulted in failed navigation, encoding artifacts, or opening local directories."
+          },
+          {
+            "name": "Tocify v1.2.2",
+            "tag_name": "v1.2.2",
+            "published_at": "2026-02-13T20:12:46Z",
+            "body_excerpt": "**注意，此版本有 bug ，如需客户端使用请前往下载 v1.2.1 ，或直接使用网页版**\r\n\r\n### v1.2.2 Updates\r\n\r\n- Support Page Labels: https://github.com/anig1scur/tocify/pull/38  @LeapSurge thanks!\r\n- Custom Font Settings: Added support for customizing the font family used in the Table of Contents.\r\n- Web Worker Optimization: Moved PDF processing to a Web Worker to prevent UI freezing during large file operations.\r\n\r\n### v1.2.2 更新\r\n\r\n- 支持页面标签 (Page Labels):  https://github.com/anig1scur/tocify/pull/38  @LeapSurge 感谢！\r\n- 自定义字体设置: 支持自定义目录 (ToC) 的字体设置\r\n- Web Worker 优化: 将 PDF 处理逻辑移至 Web Worker，避免大文件操作时界面卡顿。\r\n\r\n### Bring Your Own API Keys\r\n\r\n1. Gemini\r\n   - https://aistudio.google.com/app/apikey\r\n2. Qwen\r\n    - https://bailian.console.aliyun.com/?tab=model#/api-key\r\n6. Doubao\r\n    - https://www.volcengine.com/docs/82379/1541594?lang=zh\r\n3. Zhipu\r\n    - https://open.bigmodel.cn/usercenter/apikeys\r\n"
+          },
+          {
+            "name": "Tocify v1.2.1",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-01-28T01:23:48Z",
+            "body_excerpt": "# v1.2.1\r\n\r\n## ✨ Features / 新功能\r\n1. Batch section add (+5/+10) / 批量添加章节 #32 \r\n2. Arrow key navigation / 方向键导航输入框 \r\n3. TOC path display & quick jump / 显示目录路径和快速跳转\r\n\r\n## ⚡ Performance / 性能优化\r\n1. Memory cleanup & faster preview / 修复内存泄漏  #33 \r\n\r\n---\r\n\r\n\r\n### Bring Your Own API Keys\r\n\r\n1. Gemini\r\n   - https://aistudio.google.com/app/apikey\r\n2. Qwen\r\n    - https://bailian.console.aliyun.com/?tab=model#/api-key\r\n6. Doubao\r\n    - https://www.volcengine.com/docs/82379/1541594?lang=zh\r\n3. Zhipu\r\n    - https://open.bigmodel.cn/usercenter/apikeys\r\n\r\n---\r\n\r\n### Choose your version\r\n\r\n\r\nFor Your Computer |  Download\r\n-- | --\r\nMac (M1 / M2 / M3) | _aarch64.dmg\r\nMac (Intel Chip) | _x64.dmg\r\nWindows | _x64-setup.exe\r\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 50,
+            "title": "增加一个目录项批量选择",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/50"
+          },
+          {
+            "number": 49,
+            "title": "选择 Doubao (豆包) 模型时错误地调用了 Gemini 接口导致 `fetch failed`",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/49"
+          },
+          {
+            "number": 47,
+            "title": "将识别页数限制解除或扩大",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/47"
+          },
+          {
+            "number": 46,
+            "title": "正文前页面罗马数字页码",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/46"
+          },
+          {
+            "number": 45,
+            "title": "针对一些双列目录的pdf ，识别的页码存在乱序",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/45"
+          },
+          {
+            "number": 44,
+            "title": "[功能]: 请求增加一键展开/收起所有目录功能",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/44"
+          },
+          {
+            "number": 43,
+            "title": "目录跳转错误问题",
+            "state": "closed",
+            "url": "https://github.com/anig1scur/tocify/issues/43"
+          }
+        ]
+      },
+      "root_files": [
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".npmrc",
+        "LICENSE",
+        "README.md",
+        "package.json",
+        "patches",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "postcss.config.js",
+        "screenshots",
+        "src",
+        "static",
+        "svelte.config.js",
+        "tailwind.config.ts",
+        "tsconfig.json",
+        "vite.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/anig1scur/tocify#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<h1> Tocify <img src=\"https://raw.githubusercontent.com/anig1scur/tocify/refs/heads/main/static/favicon.svg\" width=\"36\" /> </h1>",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "segment": 1,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/anig1scur/tocify#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Tocify is a free, online and open-source web application to add, edit, or generate Table of Contents (ToCs) / bookmarks for PDFs. It uses AI to parse scanned directory images or raw text into structured outlines, and creates clickable bookmarks & printable TOC pages for PDFs in cross platforms.",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "segment": 2,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/anig1scur/tocify#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<https://github.com/user-attachments/assets/48e09103-f3a8-4d13-afeb-d11b5c8ade44>",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "segment": 3,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/anig1scur/tocify#readme",
+          "title": "README (segment 4)",
+          "excerpt": "You can support me by Alipay (scan QR code below) or [ko-fi](https://ko-fi.com/aerisz):",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "segment": 4,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/50",
+          "title": "增加一个目录项批量选择",
+          "excerpt": "增加一个目录项批量选择 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 50
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/49",
+          "title": "选择 Doubao (豆包) 模型时错误地调用了 Gemini 接口导致 `fetch failed`",
+          "excerpt": "选择 Doubao (豆包) 模型时错误地调用了 Gemini 接口导致 `fetch failed` (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 49
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/47",
+          "title": "将识别页数限制解除或扩大",
+          "excerpt": "将识别页数限制解除或扩大 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 47
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/46",
+          "title": "正文前页面罗马数字页码",
+          "excerpt": "正文前页面罗马数字页码 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 46
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/45",
+          "title": "针对一些双列目录的pdf ，识别的页码存在乱序",
+          "excerpt": "针对一些双列目录的pdf ，识别的页码存在乱序 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 45
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/44",
+          "title": "[功能]: 请求增加一键展开/收起所有目录功能",
+          "excerpt": "[功能]: 请求增加一键展开/收起所有目录功能 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 44
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/anig1scur/tocify/issues/43",
+          "title": "目录跳转错误问题",
+          "excerpt": "目录跳转错误问题 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "number": 43
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/anig1scur/tocify/releases",
+          "title": "v1.2.3",
+          "excerpt": "## v1.2.3 更新 1. 修复书签跳转异常的 Bug https://github.com/anig1scur/tocify/issues/43 2. 重构渲染与缓存逻辑，提升大文件查看流畅度。 3. 偏移 modal 支持手动跳过无关或错误的匹配项。 ## v1.2.3 Update Notes 1. Refactored rendering pipeline and caching logic for reduced memory footprint and smoother viewing experience. 2. Support for manually skipping irrelevant or incorrect items during the AI generation process. 3. Resolved issues where clicking bookmarks resulted in failed navigation, encoding artifacts, or opening local directories.",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "tag_name": "v1.2.3",
+            "published_at": "2026-03-06T00:36:59Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/anig1scur/tocify/releases",
+          "title": "v1.2.2",
+          "excerpt": "**注意，此版本有 bug ，如需客户端使用请前往下载 v1.2.1 ，或直接使用网页版** ### v1.2.2 Updates - Support Page Labels: https://github.com/anig1scur/tocify/pull/38 @LeapSurge thanks! - Custom Font Settings: Added support for customizing the font family used in the Table of Contents. - Web Worker Optimization: Moved PDF processing to a Web Worker to prevent UI freezing during large file operations. ### v1.2.2 更新 - 支持页面标签 (Page Labels): https://github.com/anig1scur/tocify/pull/38 @LeapSurge 感谢！ - 自定义字体设置: 支持自定义目录 (ToC) 的字体设置 - Web Worker 优化: 将 PDF 处理逻辑移至 Web Worker，避免大文件操作时界面卡顿。 ### Bring Your Own API Keys 1. Gemini - https://aistudio.google.com/app/apikey 2. Qwen - https://bailian.console.aliyun.com/?tab=model#/api-key 6. Doubao - https://www.volcengine.com/docs/82379/1541594?lang=zh 3. Zhipu - https://open.bigmodel.cn/usercenter/apikeys",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "tag_name": "v1.2.2",
+            "published_at": "2026-02-13T20:12:46Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/anig1scur/tocify/releases",
+          "title": "v1.2.1",
+          "excerpt": "# v1.2.1 ## ✨ Features / 新功能 1. Batch section add (+5/+10) / 批量添加章节 #32 2. Arrow key navigation / 方向键导航输入框 3. TOC path display & quick jump / 显示目录路径和快速跳转 ## ⚡ Performance / 性能优化 1. Memory cleanup & faster preview / 修复内存泄漏 #33 --- ### Bring Your Own API Keys 1. Gemini - https://aistudio.google.com/app/apikey 2. Qwen - https://bailian.console.aliyun.com/?tab=model#/api-key 6. Doubao - https://www.volcengine.com/docs/82379/1541594?lang=zh 3. Zhipu - https://open.bigmodel.cn/usercenter/apikeys --- ### Choose your version For Your Computer | Download -- | -- Mac (M1 / M2 / M3) | _aarch64.dmg Mac (Intel Chip) | _x64.dmg Windows | _x64-setup.exe",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-01-28T01:23:48Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/anig1scur/tocify",
+          "title": "ROOT_FILES",
+          "excerpt": ".gitattributes, .github, .gitignore, .npmrc, LICENSE, README.md, package.json, patches, pnpm-lock.yaml, pnpm-workspace.yaml, postcss.config.js, screenshots, src, static, svelte.config.js, tailwind.config.ts, tsconfig.json, vite.config.ts",
+          "fetched_at": "2026-04-08T05:14:09.446Z",
+          "meta": {
+            "repo_full_name": "anig1scur/tocify",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "yvgude/lean-ctx",
+      "html_url": "https://github.com/yvgude/lean-ctx",
+      "description": "Hybrid Context Optimizer — Shell Hook + MCP Server. Reduces LLM token consumption by 89-99%. Single Rust binary, zero dependencies.",
+      "topics": [
+        "agentic-coding",
+        "ai",
+        "claude-code",
+        "cli",
+        "compression",
+        "context-compression",
+        "copilot",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "open-source",
+        "rust",
+        "token-optimization",
+        "tokens"
+      ],
+      "language": "Rust",
+      "stargazers_count": 487,
+      "forks_count": 63,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:10:46Z",
+      "created_at": "2026-03-23T19:48:59Z",
+      "readme": {
+        "fetched": true,
+        "text": "```\n  ██╗     ███████╗ █████╗ ███╗   ██╗     ██████╗████████╗██╗  ██╗\n  ██║     ██╔════╝██╔══██╗████╗  ██║    ██╔════╝╚══██╔══╝╚██╗██╔╝\n  ██║     █████╗  ███████║██╔██╗ ██║    ██║        ██║    ╚███╔╝ \n  ██║     ██╔══╝  ██╔══██║██║╚██╗██║    ██║        ██║    ██╔██╗ \n  ███████╗███████╗██║  ██║██║ ╚████║    ╚██████╗   ██║   ██╔╝ ██╗\n  ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝     ╚═════╝   ╚═╝   ╚═╝  ╚═╝\n             The Intelligence Layer for AI Coding\n```\n\n<h3 align=\"center\">The Intelligence Layer for AI Coding</h3>\n\n<p align=\"center\">\n  <strong>Shell Hook + Context Server · 28 tools · 90+ patterns · Single Rust binary</strong>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/yvgude/lean-ctx/actions/workflows/ci.yml\"><img src=\"https://github.com/yvgude/lean-ctx/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://github.com/yvgude/lean-ctx/actions/workflows/security-check.yml\"><img src=\"https://github.com/yvgude/lean-ctx/actions/workflows/security-check.yml/badge.svg\" alt=\"Security\"></a>\n  <a href=\"https://crates.io/crates/lean-ctx\"><img src=\"https://img.shields.io/crates/v/lean-ctx?color=%23e6522c\" alt=\"crates.io\"></a>\n  <a href=\"https://crates.io/crates/lean-ctx\"><img src=\"https://img.shields.io/crates/d/lean-ctx?color=%23e6522c\" alt=\"Downloads\"></a>\n  <a href=\"https://www.npmjs.com/package/lean-ctx-bin\"><img src=\"https://img.shields.io/npm/v/lean-ctx-bin?label=npm&color=%23cb3837\" alt=\"npm\"></a>\n  <a href=\"https://www.npmjs.com/package/pi-lean-ctx\"><img src=\"https://img.shields.io/npm/v/pi-lean-ctx?label=pi-lean-ctx&color=%23cb3837\" alt=\"pi-lean-ctx\"></a>\n  <a href=\"https://aur.archlinux.org/packages/lean-ctx\"><img src=\"https://img.shields.io/aur/version/lean-ctx?color=%231793d1\" alt=\"AUR\"></a>\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/License-MIT-blue.svg\" alt=\"License\"></a>\n  <a href=\"https://discord.gg/pTHkG9Hew9\"><img src=\"https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white\" alt=\"Discord\"></a>\n  <a href=\"https://x.com/leanctx\"><img src=\"https://img.shields.io/badge/𝕏-Follow-000000?logo=x&logoColor=white\" alt=\"X/Twitter\"></a>\n  <img src=\"https://img.shields.io/badge/Telemetry-Zero-brightgreen?logo=shield&logoColor=white\" alt=\"Zero Telemetry\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https://leanctx.com\">Website</a> ·\n  <a href=\"#-get-started-60-seconds\">Install</a> ·\n  <a href=\"#-how-it-works\">How It Works</a> ·\n  <a href=\"#-28-intelligent-tools\">Tools</a> ·\n  <a href=\"#-shell-hook-patterns-90\">Patterns</a> ·\n  <a href=\"CHANGELOG.md\">Changelog</a> ·\n  <a href=\"https://discord.gg/pTHkG9Hew9\">Discord</a>\n</p>\n\n---\n\n<br>\n\n> **lean-ctx** reduces LLM token consumption by **up to 99%** through three complementary strategies in a single binary — making AI coding faster, cheaper, and more effective.\n\n<br>\n\n## ⚡ What It Does\n\n```\n  Without lean-ctx:                              With lean-ctx:\n\n  LLM ──\"read auth.ts\"──▶ Editor ──▶ File       LLM ──\"ctx_read auth.ts\"──▶ lean-ctx ──▶ File\n    ▲                                  │           ▲                           │            │\n    │      ~2,000 tokens (full file)   │           │   ~13 tokens (cached)     │ cache+hash │\n    └──────────────────────────────────┘           └────── (compressed) ───────┴────────────┘\n\n  LLM ──\"git status\"──▶  Shell  ──▶  git        LLM ──\"git status\"──▶  lean-ctx  ──▶  git\n    ▲                                 │            ▲                       │              │\n    │     ~800 tokens (raw output)    │            │   ~150 tokens         │ compress     │\n    └─────────────────────────────────┘            └────── (filtered) ─────┴──────────────┘\n```\n\n| Strategy | How | Impact |\n|:---|:---|:---|\n| **Shell Hook** | Transparently compresses CLI output (90+ patterns) before it reaches the LLM | **60-95%** savings |\n| **Context Server** | 28 MCP tools for cached reads, mode selection, deltas, dedup, memory, multi-agent sharing | **74-99%** savings |\n| **AI Tool Hooks** | One-command integration via `lean-ctx init --agent <tool>` | Works everywhere |\n\n<br>\n\n## 🎯 Token Savings — Real Numbers\n\n| Operation | Freq | Without | With lean-ctx | Saved |\n|:---|:---:|---:|---:|:---:|\n| File reads (cached) | 15× | 30,000 | 195 | **99%** |\n| File reads (map mode) | 10× | 20,000 | 2,000 | **90%** |\n| ls / find | 8× | 6,400 | 1,280 | **80%** |\n| git status/log/diff | 10× | 8,000 | 2,400 | **70%** |\n| grep / rg | 5× | 8,000 | 2,400 | **70%** |\n| cargo/npm build | 5× | 5,000 | 1,000 | **80%** |\n| Test runners | 4× | 10,000 | 1,000 | **90%** |\n| curl (JSON) | 3× | 1,500 | 165 | **89%** |\n| docker ps/build | 3× | 900 | 180 | **80%** |\n| **Session total** | | **~89,800** | **~10,620** | **88%** |\n\n> Based on typical Cursor/Claude Code sessions with medium TypeScript/Rust projects. Cached re-reads cost ~13 tokens.\n\n<br>\n\n## 🚀 Get Started (60 seconds)\n\n```bash\n# 1. Install (pick one)\ncurl -fsSL https://leanctx.com/install.sh | sh     # universal, no Rust needed\nbrew tap yvgude/lean-ctx && brew install lean-ctx    # macOS / Linux\nnpm install -g lean-ctx-bin                          # Node.js\ncargo install lean-ctx                               # Rust\n\n# 2. Setup (auto-configures shell + ALL detected editors)\nlean-ctx setup\n\n# 3. Verify\nlean-ctx doctor\n```\n\n<details>\n<summary><strong>Troubleshooting</strong></summary>\n\n| Problem | Fix |\n|:---|:---|\n| Commands broken? | Run `lean-ctx-off` (fixes current session) |\n| Permanent fix? | Run `lean-ctx uninstall` (removes all hooks) |\n| Binary missing? | Aliases auto-fallback to original commands (safe) |\n| Manual fix? | Edit `~/.zshrc`, remove the `lean-ctx shell hook` block |\n| Preview changes? | `lean-ctx init --global --dry-run` |\n| Diagnose? | `lean-ctx doctor` |\n\nlean-ctx creates a backup of your shell config before modifying it (`~/.zshrc.lean-ctx.bak`).\n\n</details>\n\n<details>\n<summary><strong>Supported editors (auto-detected by <code>lean-ctx setup</code>)</strong></summary>\n\n| Editor | Method | Status |\n|:---|:---|:---:|\n| **Cursor** | MCP + hooks + rules | ✅ Auto |\n| **Claude Code** | MCP + PreToolUse hooks + rules | ✅ Auto |\n| **GitHub Copilot** | MCP | ✅ Auto |\n| **Windsurf** | MCP + rules | ✅ Auto |\n| **VS Code** | MCP + rules | ✅ Auto |\n| **Zed** | Context Server (settings.json) | ✅ Auto |\n| **Codex CLI** | config.toml + AGENTS.md | ✅ Auto |\n| **Gemini CLI** | MCP + hooks + rules | ✅ Auto |\n| **OpenCode** | MCP + rules | ✅ Auto |\n| **Pi** | pi-lean-ctx npm package | ✅ Auto |\n| **Qwen Code** | MCP + rules | ✅ Auto |\n| **Trae** | MCP + rules | ✅ Auto |\n| **Amazon Q Developer** | MCP + rules | ✅ Auto |\n| **JetBrains IDEs** | MCP + rules | ✅ Auto |\n| **Google Antigravity** | MCP + rules | ✅ Auto |\n| **Cline / Roo Code** | MCP + rules | ✅ Auto |\n| **Aider** | Shell hook + rules | ✅ Auto |\n| **Amp** | Shell hook + rules | ✅ Auto |\n| **AWS Kiro** | MCP + rules | ✅ Auto |\n| **Continue** | MCP + rules | ✅ Auto |\n| **Crush** | MCP + rules | ✅ Auto |\n\n</details>\n\n<br>\n\n## 🧠 Three Intelligence Protocols\n\n<table>\n<tr>\n<td width=\"33%\">\n\n### CEP\n**Cognitive Efficiency Protocol**\n\nAdaptive LLM communication with compliance scoring (0-100), task complexity classification, quality scoring, auto-validation pipeline.\n\n*Measurable efficiency gains*\n\n</td>\n<td width=\"33%\">\n\n### CCP\n**Context Continuity Protocol**\n\nCross-session memory that persists tasks, findings, decisions across chats. LITM-aware positioning for optimal attention placement.\n\n*-99.2% cold-start tokens*\n\n</td>\n<td width=\"33%\">\n\n### TDD\n**Token Dense Dialect**\n\nSymbol shorthand (`λ` `§` `∂` `τ` `ε`) and ROI-based identifier mapping for compact LLM communication.\n\n*8-25% extra savings*\n\n</td>\n</tr>\n</table>\n\n<br>\n\n## 🛠 28 Intelligent Tools\n\n### Core\n\n| Tool | Purpose | Savings |\n|:---|:---|:---:|\n| `ctx_read` | File reads — 7 modes + `lines:N-M`, caching, `fresh=true` | 74-99% |\n| `ctx_multi_read` | Multiple file reads in one round trip | 74-99% |\n| `ctx_tree` | Directory listings (ls, find, Glob) | 34-60% |\n| `ctx_shell` | Shell commands with 90+ compression patterns | 60-90% |\n| `ctx_search` | Code search (Grep) | 50-80% |\n| `ctx_compress` | Context checkpoint for long conversations | 90-99% |\n\n### Intelligence\n\n| Tool | What it does |\n|:---|:---|\n| `ctx_smart_read` | Adaptive mode — auto-picks full/map/signatures/diff based on file type and cache |\n| `ctx_delta` | Incremental updates — only sends changed hunks via Myers diff |\n| `ctx_dedup` | Cross-file deduplication — finds shared imports and boilerplate |\n| `ctx_fill` | Priority-based context filling — maximizes info within a token budget |\n| `ctx_intent` | Semantic intent detection — classifies queries and auto-loads files |\n| `ctx_response` | Response compression — removes filler, applies TDD |\n| `ctx_context` | Multi-turn session overview — tracks what the LLM already knows |\n| `ctx_graph` | Project intelligence graph — dependency analysis + related file discovery |\n| `ctx_discover` | Shell history analysis — finds missed compression opportunities |\n| `ctx_edit` | Search-and-replace file editing — works without native Read/Edit tools |\n| `ctx_overview` | Task-relevant project map — use at session start |\n| `ctx_preload` | Proactive context loader — caches task-relevant files, returns compact summary |\n| `ctx_semantic_search` | BM25 code search by meaning — finds symbols and patterns across the project |\n\n### Memory & Multi-Agent\n\n| Tool | What it does |\n|:---|:---|\n| `ctx_session` | Cross-session memory — persist task, findings, decisions across chats |\n| `ctx_knowledge` | Persistent project knowledge — remember facts, recall by query/category |\n| `ctx_agent` | Multi-agent coordination — register, post/read scratchpad, handoff tasks, sync status |\n| `ctx_share` | Multi-agent context sharing — push/pull cached file contexts between agents |\n| `ctx_wrapped` | Shareable savings report — \"Spotify Wrapped\" for your tokens |\n\n### Analysis\n\n| Tool | What it does |\n|:---|:---|\n| `ctx_benchmark` | Single-file or project-wide benchmark with preservation scores |\n| `ctx_metrics` | Session statistics with USD cost estimates |\n| `ctx_analyze` | Shannon entropy analysis + mode recommendation |\n| `ctx_cache` | Cache management: status, clear, invalidate |\n\n### Integrations\n\n| Package | What it provides |\n|:---|:---|\n| **VS Code Extension** (`packages/vscode-lean-ctx`) | Status bar token savings, one-click setup, MCP auto-config |\n| **Chrome Extension** (`packages/chrome-lean-ctx`) | Auto-compress pastes in ChatGPT, Claude, Gemini via native messaging |\n\n<br>\n\n## 📖 ctx_read Modes\n\n| Mode | When to use | Token cost |\n|:---|:---|:---|\n| `full` | Files you will edit (cached re-reads ≈ 13 tokens) | 100% first, ~0% cached |\n| `map` | Understanding a file — deps + exports + API | ~5-15% |\n| `signatures` | API surface with more detail than map | ~10-20% |\n| `diff` | Re-reading files that changed | changed lines only |\n| `aggressive` | Large files with boilerplate | ~30-50% |\n| `entropy` | Repetitive patterns (Shannon + Jaccard filtering) | ~20-40% |\n| `lines:N-M` | Specific ranges (e.g. `lines:10-50,80-90`) | proportional |\n\n<br>\n\n## 🔌 Shell Hook Patterns (90+)\n\nPattern-based compression for **90+ commands** across **34 categories**:\n\n<details>\n<summary><strong>View all 34 categories</strong></summary>\n\n| Category | Commands | Savings |\n|:---|:---|:---:|\n| **Git** (19) | status, log, diff, add, commit, push, pull, fetch, clone, branch, checkout, switch, merge, stash, tag, reset, remote, blame, cherry-pick | 70-95% |\n| **Docker** (10) | build, ps, images, logs, compose ps/up/down, exec, network, volume, inspect | 70-90% |\n| **npm/pnpm/yarn** (6) | install, test, run, list, outdated, audit | 70-90% |\n| **Cargo** (3) | build, test, clippy | 80% |\n| **GitHub CLI** (9) | pr list/view/create/merge, issue list/view/create, run list/view | 60-80% |\n| **Kubernetes** (8) | get pods/services/deployments, logs, describe, apply, delete, exec, top, rollout | 60-85% |\n| **Python** (7) | pip install/list/outdated/uninstall/check, ruff check/for",
+        "truncated": true,
+        "bytes": 27909,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.21.0",
+            "tag_name": "v2.21.0",
+            "published_at": "2026-04-08T04:44:55Z",
+            "body_excerpt": "\n### Binary File Passthrough, Disabled Tools, Community Contributions\n\n#### Fixed — Hook Blocks Image Viewing (#67)\n- **Binary file passthrough** — Hook redirect now detects binary files (images, PDFs, archives, fonts, videos, compiled files) by extension and passes them through to the native Read tool. Previously, the hook would deny all `read_file` calls when lean-ctx was running, which blocked AI agents from viewing screenshots and images.\n- Updated both Rust `handle_redirect()` and all bash hook scripts (Claude, Cursor, Gemini CLI) with the same binary extension check.\n\n#### Added — Disabled Tools Config (#66, @DustinReynoldsPE)\n- **`disabled_tools`** config field — Exclude unused tools from the MCP tool list to reduce token overhead from tool definitions. Configure via `~/.lean-ctx/config.toml` or `LEAN_CTX_DISABLED_TOOLS` env var (comma-separated).\n- Example: `disabled_tools = [\"ctx_benchmark\", \"ctx_metrics\", \"ctx_analyze\", \"ctx_wrapped\"]`\n- 10 new tests covering parsing, TOML deserialization, and filtering logic.\n\n#### Closed — Cache Hits Documentation (#65)\n- Clarified that file caching requires MCP server mode (`ctx_read`), not shell hook mode (`lean-ctx -c`). Shell hooks compress command output only; the MCP server provides file caching with ~13 token re-reads.\n\n#### Upgrade\n```bash\ncargo install lean-ctx          # or\nnpm update -g lean-ctx-bin      # or\nbrew upgrade lean-ctx\n```\n\n**Full Changelog**: https://github.com/yvgude/lean-ctx/compare/v2.21.0...v2.21.0"
+          },
+          {
+            "name": "v2.20.0",
+            "tag_name": "v2.20.0",
+            "published_at": "2026-04-07T20:52:41Z",
+            "body_excerpt": "\n### Sandbox Execution, Progressive Throttling, Compaction Recovery\n\n#### Added — Sandbox Code Execution\n- **`ctx_execute`** — New MCP tool that runs code in 11 languages (JavaScript, TypeScript, Python, Shell, Ruby, Go, Rust, PHP, Perl, R, Elixir) in an isolated subprocess. Only stdout enters the context window — raw data never leaves the sandbox. Supports `action=batch` for multiple scripts in one call, and `action=file` to process files in sandbox with auto-detected language.\n- **Smart truncation** — Large outputs (>32 KB) are truncated with head (60%) + tail (40%) preservation, keeping both setup context and error messages visible.\n- **`LEAN_CTX_SANDBOX=1` env** — Set in all sandbox processes for detection by user code.\n- **Timeout support** — Default 30s, configurable per-call.\n\n#### Added — Progressive Throttling (Loop Detection)\n- **Automatic agent loop detection** — Tracks tool call fingerprints within a 5-minute sliding window. Calls 1-3: normal. Calls 4-8: reduced results + warning. Calls 9-12: stronger warning. Calls 13+: blocked with suggestion to use `ctx_batch_execute` or vary approach.\n- **Deterministic fingerprinting** — JSON args are canonicalized (key-sorted) before hashing, so `{path: \"a\", mode: \"b\"}` and `{mode: \"b\", path: \"a\"}` are treated as the same call.\n- **Per-tool tracking** — Different tools with different args are tracked independently.\n\n#### Added — Compaction Recovery\n- **`ctx_session(action=snapshot)`** — Builds a priority-tiered XML snapshot (~2 KB max) of the current session state including task, modified files, decisions, findings, progress, test results, and stats. Saved to `~/.lean-ctx/sessions/{id}_snapshot.txt`.\n- **`ctx_session(action=restore)`** — Rebuilds session state from the most recent compaction snapshot. When the context window fills up and the agent compacts, the snapshot allows seamless continuation.\n- **Priority tiers** — Task and files (P1) are always included. Decisions and findings (P2) next. Tests, next steps, a"
+          },
+          {
+            "name": "v2.19.2",
+            "tag_name": "v2.19.2",
+            "published_at": "2026-04-07T19:39:38Z",
+            "body_excerpt": "\n### Fixed\n- **Gemini CLI hook schema** — Fixed \"Discarding invalid hook definition for BeforeTool\" error. Hook definitions now include the required `\"type\": \"command\"` field and nested `\"hooks\"` array structure expected by the Gemini CLI validator. Existing configs without `\"type\"` are automatically migrated. (#63)\n- **Remote dashboard auth** — Fixed dashboard returning `{\"error\":\"unauthorized\"}` when accessed remotely via browser. Auth is now only enforced on `/api/*` endpoints. HTML pages load freely, with the bearer token automatically injected into API calls. Browser URL with `?token=` query parameter is printed on startup for easy remote access. (#64)\n\n#### Upgrade\n```bash\ncargo install lean-ctx          # or\nnpm update -g lean-ctx-bin      # or\nbrew upgrade lean-ctx\n```\n\n**Full Changelog**: https://github.com/yvgude/lean-ctx/compare/v2.19.2...v2.19.2"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 67,
+            "title": "feat: lean-ctx hook is blocking image viewing",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/67"
+          },
+          {
+            "number": 65,
+            "title": "pi-lean-ctx: `read` tool calls are not cached, zero cache hits",
+            "state": "open",
+            "url": "https://github.com/yvgude/lean-ctx/issues/65"
+          },
+          {
+            "number": 64,
+            "title": "bug: Remote dashboard access returns unauthorized when binding to 0.0.0.0",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/64"
+          },
+          {
+            "number": 63,
+            "title": "bug: Discarding invalid hook definition for BeforeTool on Windows",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/63"
+          },
+          {
+            "number": 61,
+            "title": "feat: Add Crush support",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/61"
+          },
+          {
+            "number": 50,
+            "title": "bug: lean-ctx MCP return error and stop working.",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/50"
+          },
+          {
+            "number": 60,
+            "title": "Feature: path exclusion for hook redirect (PreToolUse)",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/60"
+          },
+          {
+            "number": 49,
+            "title": "bug:",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/49"
+          },
+          {
+            "number": 59,
+            "title": "Reposition as Intelligence Layer — Beyond Compression",
+            "state": "closed",
+            "url": "https://github.com/yvgude/lean-ctx/issues/59"
+          }
+        ]
+      },
+      "root_files": [
+        ".githooks",
+        ".github-ignore",
+        ".github",
+        ".gitignore",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "DEPLOY_CHECKLIST.md",
+        "LICENSE",
+        "Makefile",
+        "README.md",
+        "SECURITY.md",
+        "VISION.md",
+        "aur",
+        "bin",
+        "install.sh",
+        "packages",
+        "rust",
+        "skills"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 1)",
+          "excerpt": "``` ██╗ ███████╗ █████╗ ███╗ ██╗ ██████╗████████╗██╗ ██╗ ██║ ██╔════╝██╔══██╗████╗ ██║ ██╔════╝╚══██╔══╝╚██╗██╔╝ ██║ █████╗ ███████║██╔██╗ ██║ ██║ ██║ ╚███╔╝ ██║ ██╔══╝ ██╔══██║██║╚██╗██║ ██║ ██║ ██╔██╗ ███████╗███████╗██║ ██║██║ ╚████║ ╚██████╗ ██║ ██╔╝ ██╗ ╚══════╝╚══════╝╚═╝ ╚═╝╚═╝ ╚═══╝ ╚═════╝ ╚═╝ ╚═╝ ╚═╝ The Intelligence Layer for AI Coding ```",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <strong>Shell Hook + Context Server · 28 tools · 90+ patterns · Single Rust binary</strong> </p>",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/yvgude/lean-ctx/actions/workflows/ci.yml\"><img src=\"https://github.com/yvgude/lean-ctx/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a> <a href=\"https://github.com/yvgude/lean-ctx/actions/workflows/security-check.yml\"><img src=\"https://github.com/yvgude/lean-ctx/actions/workflows/security-check.yml/badge.svg\" alt=\"Security\"></a> <a href=\"https://crates.io/crates/lean-ctx\"><img src=\"https://img.shields.io/crates/v/lean-ctx?color=%23e6522c\" alt=\"crates.io\"></a> <a href=\"https://crates.io/crates/lean-ctx\"><img src=\"https://img.shields.io/crates/d/lean-ctx?color=%23e6522c\" alt=\"Downloads\"></a> <a href=\"https://www.npmjs.com/package/lean-ctx-bin\"><img src=\"https://img.shields.io/npm/v/lean-ctx-bin?label=npm&color=%23cb3837\" alt=\"npm\"></a> <a href=\"https://www.npmjs.com/package/pi-lean-ctx\"><img src=\"https://img.shields.io/npm/v/pi-lean-ctx?label=pi-lean-ctx&color=%23cb3837\" alt=\"pi-lean-ctx\"></a> <a href=\"https://aur.archlinux.org/packages/lean-ctx\"><img src=\"https://img.shields.io/aur/version/lean-ctx?color=%231793d1\" alt=\"AUR\"></a> <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/License-MIT-blue.svg\" alt=\"License\"></a> <a href=…",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://leanctx.com\">Website</a> · <a href=\"#-get-started-60-seconds\">Install</a> · <a href=\"#-how-it-works\">How It Works</a> · <a href=\"#-28-intelligent-tools\">Tools</a> · <a href=\"#-shell-hook-patterns-90\">Patterns</a> · <a href=\"CHANGELOG.md\">Changelog</a> · <a href=\"https://discord.gg/pTHkG9Hew9\">Discord</a> </p>",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 5)",
+          "excerpt": "> **lean-ctx** reduces LLM token consumption by **up to 99%** through three complementary strategies in a single binary — making AI coding faster, cheaper, and more effective.",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 6)",
+          "excerpt": "LLM ──\"read auth.ts\"──▶ Editor ──▶ File LLM ──\"ctx_read auth.ts\"──▶ lean-ctx ──▶ File ▲ │ ▲ │ │ │ ~2,000 tokens (full file) │ │ ~13 tokens (cached) │ cache+hash │ └──────────────────────────────────┘ └────── (compressed) ───────┴────────────┘",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 7)",
+          "excerpt": "LLM ──\"git status\"──▶ Shell ──▶ git LLM ──\"git status\"──▶ lean-ctx ──▶ git ▲ │ ▲ │ │ │ ~800 tokens (raw output) │ │ ~150 tokens │ compress │ └─────────────────────────────────┘ └────── (filtered) ─────┴──────────────┘ ```",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/yvgude/lean-ctx#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Strategy | How | Impact | |:---|:---|:---| | **Shell Hook** | Transparently compresses CLI output (90+ patterns) before it reaches the LLM | **60-95%** savings | | **Context Server** | 28 MCP tools for cached reads, mode selection, deltas, dedup, memory, multi-agent sharing | **74-99%** savings | | **AI Tool Hooks** | One-command integration via `lean-ctx init --agent <tool>` | Works everywhere |",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/67",
+          "title": "feat: lean-ctx hook is blocking image viewing",
+          "excerpt": "feat: lean-ctx hook is blocking image viewing (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 67
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/65",
+          "title": "pi-lean-ctx: `read` tool calls are not cached, zero cache hits",
+          "excerpt": "pi-lean-ctx: `read` tool calls are not cached, zero cache hits (state:open)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 65
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/64",
+          "title": "bug: Remote dashboard access returns unauthorized when binding to 0.0.0.0",
+          "excerpt": "bug: Remote dashboard access returns unauthorized when binding to 0.0.0.0 (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 64
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/63",
+          "title": "bug: Discarding invalid hook definition for BeforeTool on Windows",
+          "excerpt": "bug: Discarding invalid hook definition for BeforeTool on Windows (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 63
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/61",
+          "title": "feat: Add Crush support",
+          "excerpt": "feat: Add Crush support (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 61
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/50",
+          "title": "bug: lean-ctx MCP return error and stop working.",
+          "excerpt": "bug: lean-ctx MCP return error and stop working. (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 50
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/60",
+          "title": "Feature: path exclusion for hook redirect (PreToolUse)",
+          "excerpt": "Feature: path exclusion for hook redirect (PreToolUse) (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 60
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/49",
+          "title": "bug:",
+          "excerpt": "bug: (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 49
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/yvgude/lean-ctx/issues/59",
+          "title": "Reposition as Intelligence Layer — Beyond Compression",
+          "excerpt": "Reposition as Intelligence Layer — Beyond Compression (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "number": 59
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/yvgude/lean-ctx/releases",
+          "title": "v2.21.0",
+          "excerpt": "### Binary File Passthrough, Disabled Tools, Community Contributions #### Fixed — Hook Blocks Image Viewing (#67) - **Binary file passthrough** — Hook redirect now detects binary files (images, PDFs, archives, fonts, videos, compiled files) by extension and passes them through to the native Read tool. Previously, the hook would deny all `read_file` calls when lean-ctx was running, which blocked AI agents from viewing screenshots and images. - Updated both Rust `handle_redirect()` and all bash hook scripts (Claude, Cursor, Gemini CLI) with the same binary extension check. #### Added — Disabled Tools Config (#66, @DustinReynoldsPE) - **`disabled_tools`** config field — Exclude unused tools from the MCP tool list to reduce token overhead from tool definitions. Configure via `~/.lean-ctx/config.toml` or `LEAN_CTX_DISABLED_TOOLS` env var (comma-separated). - Example: `disabled_tools = [\"ctx_benchmark\", \"ctx_metrics\", \"ctx_analyze\", \"ctx_wrapped\"]` - 10 new tests covering parsing, TOML deserialization, and filtering logic. #### Closed — Cache Hits Documentation (#65) - Clarified that file caching requires MCP server mode (`ctx_read`), not shell hook mode (`lean-ctx -c`). Shell hooks com…",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "tag_name": "v2.21.0",
+            "published_at": "2026-04-08T04:44:55Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/yvgude/lean-ctx/releases",
+          "title": "v2.20.0",
+          "excerpt": "### Sandbox Execution, Progressive Throttling, Compaction Recovery #### Added — Sandbox Code Execution - **`ctx_execute`** — New MCP tool that runs code in 11 languages (JavaScript, TypeScript, Python, Shell, Ruby, Go, Rust, PHP, Perl, R, Elixir) in an isolated subprocess. Only stdout enters the context window — raw data never leaves the sandbox. Supports `action=batch` for multiple scripts in one call, and `action=file` to process files in sandbox with auto-detected language. - **Smart truncation** — Large outputs (>32 KB) are truncated with head (60%) + tail (40%) preservation, keeping both setup context and error messages visible. - **`LEAN_CTX_SANDBOX=1` env** — Set in all sandbox processes for detection by user code. - **Timeout support** — Default 30s, configurable per-call. #### Added — Progressive Throttling (Loop Detection) - **Automatic agent loop detection** — Tracks tool call fingerprints within a 5-minute sliding window. Calls 1-3: normal. Calls 4-8: reduced results + warning. Calls 9-12: stronger warning. Calls 13+: blocked with suggestion to use `ctx_batch_execute` or vary approach. - **Deterministic fingerprinting** — JSON args are canonicalized (key-sorted) before…",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "tag_name": "v2.20.0",
+            "published_at": "2026-04-07T20:52:41Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/yvgude/lean-ctx/releases",
+          "title": "v2.19.2",
+          "excerpt": "### Fixed - **Gemini CLI hook schema** — Fixed \"Discarding invalid hook definition for BeforeTool\" error. Hook definitions now include the required `\"type\": \"command\"` field and nested `\"hooks\"` array structure expected by the Gemini CLI validator. Existing configs without `\"type\"` are automatically migrated. (#63) - **Remote dashboard auth** — Fixed dashboard returning `{\"error\":\"unauthorized\"}` when accessed remotely via browser. Auth is now only enforced on `/api/*` endpoints. HTML pages load freely, with the bearer token automatically injected into API calls. Browser URL with `?token=` query parameter is printed on startup for easy remote access. (#64) #### Upgrade ```bash cargo install lean-ctx # or npm update -g lean-ctx-bin # or brew upgrade lean-ctx ``` **Full Changelog**: https://github.com/yvgude/lean-ctx/compare/v2.19.2...v2.19.2",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "tag_name": "v2.19.2",
+            "published_at": "2026-04-07T19:39:38Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/yvgude/lean-ctx",
+          "title": "ROOT_FILES",
+          "excerpt": ".githooks, .github-ignore, .github, .gitignore, CHANGELOG.md, CONTRIBUTING.md, DEPLOY_CHECKLIST.md, LICENSE, Makefile, README.md, SECURITY.md, VISION.md, aur, bin, install.sh, packages, rust, skills",
+          "fetched_at": "2026-04-08T05:14:09.432Z",
+          "meta": {
+            "repo_full_name": "yvgude/lean-ctx",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "mtalcott/google-photos-deduper",
+      "html_url": "https://github.com/mtalcott/google-photos-deduper",
+      "description": "Locally run web app and Chrome extension to remove duplicates from Google Photos",
+      "topics": [
+        "chrome-extension",
+        "crxjs",
+        "docker-compose",
+        "google-photos",
+        "google-photos-api",
+        "image-embeddings",
+        "mediapipe",
+        "mui",
+        "python",
+        "react",
+        "typescript",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 304,
+      "forks_count": 25,
+      "open_issues_count": 21,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-08T05:10:44Z",
+      "created_at": "2021-04-05T04:48:03Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Google Photos Deduper\n\n[![CI Badge](https://github.com/mtalcott/google-photos-deduper/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mtalcott/google-photos-deduper/actions/workflows/ci.yml?query=branch%3Amain)\n\nA Chrome extension that finds and removes duplicate photos from your Google Photos library.\n\nBuilt with [Plasmo](https://plasmo.com/), [MediaPipe](https://developers.google.com/mediapipe), [React](https://react.dev/), and [MUI](https://mui.com/). Uses [Google Photos Toolkit (GPTK)](https://github.com/xob0t/Google-Photos-Toolkit) to access your library via Google Photos' web interface.\n\n<!--\n## Demo\n\n[![Demo](https://google-photos-deduper-public.s3.amazonaws.com/demo-l.gif)](https://youtu.be/QDUGKgQOa7o)\n-->\n\n## Install\n\n**[⬇ Download latest release](https://github.com/mtalcott/google-photos-deduper/releases/latest/download/google-photos-deduper.zip)**\n\n1. Unzip to a permanent folder (don't delete it — Chrome needs it to stay there)\n2. Open `chrome://extensions` → enable **Developer mode** (toggle, top-right)\n3. Click **Load unpacked** → select the unzipped folder\n4. Pin the extension icon in your toolbar for easy access\n\n## Usage\n\n1. Open Google Photos in Chrome with the extension installed\n2. Click the extension icon → **Open Deduper**\n3. Click **Scan Library** - the extension fetches your media items and uses MediaPipe image embeddings locally to find visually identical photos\n4. Review the duplicate groups, select which to keep, and click **Move to Trash**\n\nNo OAuth setup. No Google Cloud project. No data leaves your browser.\n\n## Development\n\n### Setup\n\n**Prerequisites:** Google Chrome, Node.js 20+\n\n```bash\ngit clone https://github.com/mtalcott/google-photos-deduper.git\ncd google-photos-deduper\ngit submodule update --init --recursive\nnpm install\nnpm run build  # builds into build/chrome-mv3-dev/\n```\n\nLoad in Chrome: `chrome://extensions` → enable **Developer mode** → **Load unpacked** → select `build/chrome-mv3-dev/`.\n\n### Commands\n\n```bash\n# Start the Plasmo dev server (rebuilds on file changes)\nnpm run dev\n\n# Run unit and integration tests\nnpm test\n\n# Run full E2E tests (requires Chrome with remote debugging — see below)\nnpm run test:e2e\n```\n\n### Full E2E Tests\n\nFull E2E tests connect to a running Chrome instance via the [Chrome DevTools Protocol (CDP)](https://chromedevtools.github.io/devtools-protocol/). Start Chrome with remote debugging before running:\n\n**macOS:**\n```bash\n\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" \\\n  --remote-debugging-port=9222 \\\n  --user-data-dir=\"$HOME/chrome-debug\"\n```\n\n**[WSL](https://learn.microsoft.com/en-us/windows/wsl/):**\n```bash\n\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\" \\\n  --remote-debugging-port=9222 \\\n  --user-data-dir=\"C:\\Users\\<you>\\Chrome Profiles\\chrome-debug\"\n```\n\nThen run: `npm run test:e2e`\n\n## Motivation\n\nGoogle deprecated the Photos Library API's write access in 2025, and duplicate detection has never been a built-in Google Photos feature. This extension uses GPTK — an open-source wrapper around Google Photos' undocumented web API — to access your library without OAuth, and runs MediaPipe's MobileNet V3 image embedder locally to find visually identical photos.\n\n## Support\n\nFound a bug or have a feature request? [Open an issue](https://github.com/mtalcott/google-photos-deduper/issues/new/choose).\n\nHave questions? [Post on the discussions page](https://github.com/mtalcott/google-photos-deduper/discussions).\n\n## Say Thanks\n\nIf you found this project useful, give it a star!\n",
+        "truncated": false,
+        "bytes": 3573,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.0.0",
+            "tag_name": "v2.0.0",
+            "published_at": "2026-04-08T05:11:30Z",
+            "body_excerpt": "## What's Changed\n* Add mongo for database tests by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/4\n* Add python code coverage to Github Action by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/5\n* Improve instructions for creating credentials by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/10\n* Use docker to build chrome extension by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/11\n* Daily quota improvements by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/16\n* Cancel active task by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/17\n* Allow canceling current deletion task from chrome extension by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/18\n* Fail main task on failure of any subtask by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/32\n* Skip invalid images by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/33\n* Fix KeyError: storageFilename by deleting mediaItems from collection if unable to download image by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/36\n* Map flask container port to 5001 on host because 5000 is used by MacOS by @tomch3ng in https://github.com/mtalcott/google-photos-deduper/pull/48\n* Handle new `photos.fife.usercontent.google.com` url for user content by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/49\n* Remove display of image size by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/50\n* Rename source manifest.json by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/52\n* Fix renamed install package to pip-install by @alvarolobato in https://github.com/mtalcott/google-photos-deduper/pull/60\n* Fix Chrome extension loading by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/67\n* Actually fix chrome extension loading by @mtalcott in https://github.com/mtal"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 44,
+            "title": "403 Client Error: Forbidden for url: https://photoslibrary.googleapis.com/v1/mediaItems?pageSize=100",
+            "state": "open",
+            "url": "https://github.com/mtalcott/google-photos-deduper/issues/44"
+          },
+          {
+            "number": 91,
+            "title": "Dedupe Fails with Tensorflow Error",
+            "state": "open",
+            "url": "https://github.com/mtalcott/google-photos-deduper/issues/91"
+          },
+          {
+            "number": 90,
+            "title": "Error while installing requirements",
+            "state": "closed",
+            "url": "https://github.com/mtalcott/google-photos-deduper/issues/90"
+          }
+        ]
+      },
+      "root_files": [
+        ".dockerignore",
+        ".env.test",
+        ".github",
+        ".gitignore",
+        ".gitmodules",
+        ".nvmrc",
+        ".prettierrc",
+        ".prettierrc.mjs",
+        ".pytest.ini",
+        ".python-version",
+        ".vscode",
+        "CLAUDE.md",
+        "Google-Photos-Toolkit",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "background",
+        "components",
+        "contents",
+        "lib",
+        "package-lock.json",
+        "package.json",
+        "playwright.config.ts",
+        "playwright.e2e.config.ts",
+        "pnpm-lock.yaml",
+        "popup.tsx",
+        "scripts",
+        "tabs",
+        "test-results",
+        "tests",
+        "tools",
+        "tsconfig.json",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![CI Badge](https://github.com/mtalcott/google-photos-deduper/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mtalcott/google-photos-deduper/actions/workflows/ci.yml?query=branch%3Amain)",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 2)",
+          "excerpt": "A Chrome extension that finds and removes duplicate photos from your Google Photos library.",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Built with [Plasmo](https://plasmo.com/), [MediaPipe](https://developers.google.com/mediapipe), [React](https://react.dev/), and [MUI](https://mui.com/). Uses [Google Photos Toolkit (GPTK)](https://github.com/xob0t/Google-Photos-Toolkit) to access your library via Google Photos' web interface.",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[![Demo](https://google-photos-deduper-public.s3.amazonaws.com/demo-l.gif)](https://youtu.be/QDUGKgQOa7o) -->",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 5)",
+          "excerpt": "**[⬇ Download latest release](https://github.com/mtalcott/google-photos-deduper/releases/latest/download/google-photos-deduper.zip)**",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 6)",
+          "excerpt": "1. Unzip to a permanent folder (don't delete it — Chrome needs it to stay there) 2. Open `chrome://extensions` → enable **Developer mode** (toggle, top-right) 3. Click **Load unpacked** → select the unzipped folder 4. Pin the extension icon in your toolbar for easy access",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 7)",
+          "excerpt": "1. Open Google Photos in Chrome with the extension installed 2. Click the extension icon → **Open Deduper** 3. Click **Scan Library** - the extension fetches your media items and uses MediaPipe image embeddings locally to find visually identical photos 4. Review the duplicate groups, select which to keep, and click **Move to Trash**",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper#readme",
+          "title": "README (segment 8)",
+          "excerpt": "```bash git clone https://github.com/mtalcott/google-photos-deduper.git cd google-photos-deduper git submodule update --init --recursive npm install npm run build # builds into build/chrome-mv3-dev/ ```",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper/issues/44",
+          "title": "403 Client Error: Forbidden for url: https://photoslibrary.googleapis.com/v1/mediaItems?pageSize=100",
+          "excerpt": "403 Client Error: Forbidden for url: https://photoslibrary.googleapis.com/v1/mediaItems?pageSize=100 (state:open)",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "number": 44
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper/issues/91",
+          "title": "Dedupe Fails with Tensorflow Error",
+          "excerpt": "Dedupe Fails with Tensorflow Error (state:open)",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "number": 91
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper/issues/90",
+          "title": "Error while installing requirements",
+          "excerpt": "Error while installing requirements (state:closed)",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "number": 90
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper/releases",
+          "title": "v2.0.0",
+          "excerpt": "## What's Changed * Add mongo for database tests by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/4 * Add python code coverage to Github Action by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/5 * Improve instructions for creating credentials by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/10 * Use docker to build chrome extension by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/11 * Daily quota improvements by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/16 * Cancel active task by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/17 * Allow canceling current deletion task from chrome extension by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/18 * Fail main task on failure of any subtask by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/32 * Skip invalid images by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/33 * Fix KeyError: storageFilename by deleting mediaItems from collection if unable to download image by @mtalcott in https://github.com/mtalcott/google-photos-deduper/pull/36 * Map f…",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "tag_name": "v2.0.0",
+            "published_at": "2026-04-08T05:11:30Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/mtalcott/google-photos-deduper",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerignore, .env.test, .github, .gitignore, .gitmodules, .nvmrc, .prettierrc, .prettierrc.mjs, .pytest.ini, .python-version, .vscode, CLAUDE.md, Google-Photos-Toolkit, LICENSE, README.md, assets, background, components, contents, lib, package-lock.json, package.json, playwright.config.ts, playwright.e2e.config.ts, pnpm-lock.yaml, popup.tsx, scripts, tabs, test-results, tests, tools, tsconfig.json, vitest.config.ts",
+          "fetched_at": "2026-04-08T05:14:09.402Z",
+          "meta": {
+            "repo_full_name": "mtalcott/google-photos-deduper",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "anig1scur/tocify",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 4,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 3
+    },
+    {
+      "full_name": "yvgude/lean-ctx",
+      "evidence_count": 21,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 9,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 9,
+      "releases_count": 3
+    },
+    {
+      "full_name": "mtalcott/google-photos-deduper",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 1,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 1
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "anig1scur/tocify",
+      "ok": true,
+      "spec_path": "specs/2026-04-08/anig1scur__tocify.json"
+    },
+    {
+      "repo": "yvgude/lean-ctx",
+      "ok": true,
+      "spec_path": "specs/2026-04-08/yvgude__lean-ctx.json"
+    },
+    {
+      "repo": "mtalcott/google-photos-deduper",
+      "ok": true,
+      "spec_path": "specs/2026-04-08/mtalcott__google-photos-deduper.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "anig1scur/tocify",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-08/anig1scur__tocify.json"
+    },
+    {
+      "repo": "yvgude/lean-ctx",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-08/yvgude__lean-ctx.json"
+    },
+    {
+      "repo": "mtalcott/google-photos-deduper",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-08/mtalcott__google-photos-deduper.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "anig1scur/tocify",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-08/anig1scur__tocify.json"
+      ]
+    },
+    {
+      "repo": "yvgude/lean-ctx",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-08/yvgude__lean-ctx.json"
+      ]
+    },
+    {
+      "repo": "mtalcott/google-photos-deduper",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-08/mtalcott__google-photos-deduper.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-08T05:14:21.674Z",
+      "run_id": "20260408T051404Z",
+      "repo": "anig1scur/tocify",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "945512ffeaed18739c4197bf0de204a31b5bc5ed398f55f472844926918842a1",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 6758
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12224,
+      "prompt_chars": 6758,
+      "completion_chars": 1250
+    },
+    {
+      "ts": "2026-04-08T05:14:33.305Z",
+      "run_id": "20260408T051404Z",
+      "repo": "anig1scur/tocify",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e8bb31aa4bb8d130ca9b93c150bf9300ee6d7002ae82f7937e4b5e7a65c0b7ee",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 8208
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11630,
+      "prompt_chars": 8208,
+      "completion_chars": 1500
+    },
+    {
+      "ts": "2026-04-08T05:14:46.968Z",
+      "run_id": "20260408T051404Z",
+      "repo": "anig1scur/tocify",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "aae7c2f1f5ab25067c048b7c0915288ebe9bffff3ccbd1e99a011a46b11da111",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 9900
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13663,
+      "prompt_chars": 9900,
+      "completion_chars": 1503
+    },
+    {
+      "ts": "2026-04-08T05:14:59.777Z",
+      "run_id": "20260408T051404Z",
+      "repo": "anig1scur/tocify",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ec60e07065c96376d7999f25fdcfc0fea7991cf309b51bf7e0bbe0da4aca60d3",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 11596
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12809,
+      "prompt_chars": 11596,
+      "completion_chars": 1641
+    },
+    {
+      "ts": "2026-04-08T05:15:37.065Z",
+      "run_id": "20260408T051404Z",
+      "repo": "anig1scur/tocify",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7fe504efac3c1a8fd0e397445fb295d301a9435f6dfb6e1f12a2b5bdab8e9aec",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 16101
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 37287,
+      "prompt_chars": 16101,
+      "completion_chars": 4711
+    },
+    {
+      "ts": "2026-04-08T05:15:54.095Z",
+      "run_id": "20260408T051404Z",
+      "repo": "yvgude/lean-ctx",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a169243849dd63cd60eb4712cacae25d4b85e8fd45a1241ba8d91324efb69424",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 11381
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17013,
+      "prompt_chars": 11381,
+      "completion_chars": 1956
+    },
+    {
+      "ts": "2026-04-08T05:16:11.621Z",
+      "run_id": "20260408T051404Z",
+      "repo": "yvgude/lean-ctx",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "45137d1923d4b0f3def0e33c69da2bb90114587cf0a4a7c48268f471af363456",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 13497
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17526,
+      "prompt_chars": 13497,
+      "completion_chars": 2136
+    },
+    {
+      "ts": "2026-04-08T05:16:30.569Z",
+      "run_id": "20260408T051404Z",
+      "repo": "yvgude/lean-ctx",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b710933cf8acc4aa7a8891ec7aaa817a5c43b3b03ffdd8b528cf2e74ef17fc89",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 15829
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18947,
+      "prompt_chars": 15829,
+      "completion_chars": 2180
+    },
+    {
+      "ts": "2026-04-08T05:16:46.857Z",
+      "run_id": "20260408T051404Z",
+      "repo": "yvgude/lean-ctx",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "268a471a17ad0b3a4682514f68e45799b52fa747987f0a402ef5f72dd790d979",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 18210
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16287,
+      "prompt_chars": 18210,
+      "completion_chars": 1881
+    },
+    {
+      "ts": "2026-04-08T05:17:26.856Z",
+      "run_id": "20260408T051404Z",
+      "repo": "yvgude/lean-ctx",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "0daf3feab53b0a151a69c1cf313e31b6fbe85028803bbd07bd354eced89a8978",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 22969
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 39999,
+      "prompt_chars": 22969,
+      "completion_chars": 4902
+    },
+    {
+      "ts": "2026-04-08T05:17:40.995Z",
+      "run_id": "20260408T051404Z",
+      "repo": "mtalcott/google-photos-deduper",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d509212580b4117687ee95281fba2c6cb2733d54d389a595ae19ce3f48a91b92",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 7064
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14135,
+      "prompt_chars": 7064,
+      "completion_chars": 1549
+    },
+    {
+      "ts": "2026-04-08T05:17:55.819Z",
+      "run_id": "20260408T051404Z",
+      "repo": "mtalcott/google-photos-deduper",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "985f97902daae2b11b6875dda7101dd4755461a319cad58385f7b4e177f6ddf7",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 8825
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14823,
+      "prompt_chars": 8825,
+      "completion_chars": 1862
+    },
+    {
+      "ts": "2026-04-08T05:18:10.384Z",
+      "run_id": "20260408T051404Z",
+      "repo": "mtalcott/google-photos-deduper",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "0b7cf77ef58fe5704d38257fcd9a388e36f837d307a8c6b59eab60c0de36d788",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10883
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14565,
+      "prompt_chars": 10883,
+      "completion_chars": 1779
+    },
+    {
+      "ts": "2026-04-08T05:18:25.455Z",
+      "run_id": "20260408T051404Z",
+      "repo": "mtalcott/google-photos-deduper",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "33dcf1de9002506c895056a27cdb41c882d831e00e0cdca0c0da9b2106925a27",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 12855
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15071,
+      "prompt_chars": 12855,
+      "completion_chars": 1829
+    },
+    {
+      "ts": "2026-04-08T05:18:53.596Z",
+      "run_id": "20260408T051404Z",
+      "repo": "mtalcott/google-photos-deduper",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f5518f4bf59a38e6fb48d55fb7967cbef67da4997adf5785fd760a643540c343",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 17570
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 28140,
+      "prompt_chars": 17570,
+      "completion_chars": 3409
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "anig1scur/tocify",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "yvgude/lean-ctx",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "mtalcott/google-photos-deduper",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "anig1scur/tocify",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "yvgude/lean-ctx",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 21,
+      "evidence_total_final": 21,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "mtalcott/google-photos-deduper",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1775625244648,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "anig1scur/tocify": 5,
+      "yvgude/lean-ctx": 5,
+      "mtalcott/google-photos-deduper": 5
+    },
+    "tokensApproxTotal": 56439,
+    "tokensApproxPerRepo": {
+      "anig1scur/tocify": 15793,
+      "yvgude/lean-ctx": 23738,
+      "mtalcott/google-photos-deduper": 16908
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "anig1scur/tocify": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "Tocify is an open-source web application that uses AI to generate and edit PDF tables of contents/bookmarks, supporting multiple LLM providers via user-provided API keys. It offers both web and desktop versions, with active development focused on usability, performance, and PDF handling accuracy.",
+        "highlights": [
+          "AI-powered parsing of scanned or text-based PDFs into structured, clickable ToCs",
+          "Support for multiple LLM backends (Gemini, Qwen, Doubao, Zhipu) with BYO API key model",
+          "Recent releases include critical fixes for bookmark navigation, memory optimization, and Web Worker offloading for large files",
+          "Active issue resolution around page numbering, multi-column layouts, and batch operations"
+        ],
+        "risks": [
+          "Misconfiguration risk: past bug incorrectly routed Doubao requests to Gemini API (E-IS-002)",
+          "Known limitations in handling complex PDF structures (e.g., Roman numerals, dual-column ToCs) despite recent fixes",
+          "v1.2.2 release contained a critical bug requiring users to downgrade or use web version (E-RL-002)"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "Tocify is an inventive web application that leverages AI to transform raw or scanned PDF content into structured, interactive tables of contents with clickable bookmarks, supporting customizable LLM backends and cross-platform desktop deployment.",
+        "highlights": [
+          "Innovative use of multiple AI models (Gemini, Qwen, Doubao, Zhipu) via user-provided API keys to parse diverse PDF formats into editable ToCs",
+          "Unique combination of client-side PDF processing in Web Workers and AI-driven outline generation for privacy-preserving, offline-capable operation",
+          "Creative UX features like batch section addition, manual skip during AI matching, and path-based quick navigation enhance productivity",
+          "Support for complex document conventions such as page labels and Roman numeral front matter shows attention to real-world publishing standards"
+        ],
+        "risks": [
+          "Architectural coupling between AI provider selection and API routing led to a misdispatch bug (Doubao → Gemini), indicating fragile integration logic",
+          "Handling of multi-column or non-standard layouts remains error-prone despite fixes, suggesting limitations in the underlying parsing abstraction",
+          "Desktop builds occasionally ship with critical bugs (e.g., v1.2.2), risking user trust in local deployments versus web version"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "Tocify is a JavaScript-based web application that enables AI-assisted generation and editing of PDF tables of contents and bookmarks, with support for multiple LLM backends via user-provided API keys and client-side PDF processing using Web Workers.",
+        "highlights": [
+          "Client-side architecture leverages Web Workers for PDF parsing to avoid UI freezes during large file operations (E-RL-002)",
+          "Supports multiple AI providers (Gemini, Qwen, Doubao, Zhipu) with BYO API key model, though integration logic has shown fragility (E-IS-002, E-RL-003)",
+          "Recent engineering efforts focus on memory optimization, bookmark navigation reliability, and handling complex page numbering schemes (E-RL-001, E-IS-004, E-IS-007)",
+          "Codebase uses modern tooling: Svelte, Tailwind CSS, TypeScript, Vite, and pnpm monorepo setup (E-RF-001)"
+        ],
+        "risks": [
+          "API routing logic between LLM providers is error-prone, as evidenced by Doubao requests incorrectly dispatched to Gemini endpoint (E-IS-002)",
+          "v1.2.2 shipped with a critical bug requiring users to downgrade or use the web version, indicating insufficient release validation (E-RL-002)",
+          "Persistent issues with dual-column PDF layouts and page number parsing suggest limitations in the document analysis pipeline (E-IS-005, E-IS-004)"
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "Tocify claims to use AI to generate structured PDF tables of contents, but evidence reveals recurring accuracy issues with page numbering, layout parsing, and fragile AI integration—raising doubts about its reliability for real-world documents.",
+        "highlights": [
+          "Persistent failures in handling common PDF complexities: Roman numeral front matter (E-IS-004), dual-column ToCs with scrambled page numbers (E-IS-005), and bookmark navigation errors (E-IS-007, E-RL-001)",
+          "AI backend integration is error-prone: selecting Doubao triggered calls to Gemini API, causing outright failures (E-IS-002)",
+          "A recent release (v1.2.2) shipped with a critical bug, forcing users to downgrade or avoid the desktop app entirely (E-RL-002)",
+          "Despite 'AI parsing' claims, core functionality still requires manual correction (e.g., skipping bad matches, batch edits), suggesting limited automation"
+        ],
+        "risks": [
+          "Users may waste time correcting AI-generated ToCs that misalign pages or misinterpret structure, especially in academic or technical PDFs with non-standard layouts",
+          "Dependence on user-provided API keys across multiple LLM providers increases configuration complexity and failure surface without clear fallbacks",
+          "Desktop builds lack stability guarantees—shipping broken versions undermines trust in offline/local usage",
+          "No evidence of automated tests or validation for PDF parsing accuracy; fixes appear reactive rather than preventive"
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Tocify\",\n    \"one_sentence\": \"Tocify is a free, online and open-source web application to add, edit, or generate Table of Contents (ToCs) / bookmarks for PDFs using AI.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User uploads a PDF, selects an AI model (via provided API key), and Tocify parses scanned or text-based content into a structured, editable outline; user can then adjust, batch-edit, or manually correct the ToC before exporting clickable bookmarks or printable TOC pages.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Editor\",\n      \"purpose\": \"Display PDF preview alongside editable table of contents with AI-generated structure.\",\n      \"primary_actions\": [\n        \"Upload PDF\",\n        \"Generate ToC with AI\",\n        \"Edit ToC items\",\n        \"Batch add sections\",\n        \"Quick jump via path\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings\",\n      \"purpose\": \"Configure AI provider, API keys, font, and page label preferences.\",\n      \"primary_actions\": [\n        \"Select LLM provider\",\n        \"Enter API key\",\n        \"Set custom font\",\n        \"Enable page labels\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a single ToC entry with title, page number, and nesting level.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"list_items\",\n      \"purpose\": \"Retrieve all ToC entries for current document in hierarchical order.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"skip_ai_match\",\n      \"purpose\": \"Allow user to skip irrelevant or incorrect AI-suggested ToC items during generation.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"toc_entries\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"title\","
+      }
+    },
+    "yvgude/lean-ctx": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "scout",
+        "summary": "lean-ctx is a Rust-based hybrid context optimizer that reduces LLM token usage by up to 99% via shell hooks, an MCP context server with 28 tools, and AI tool integrations. It transparently compresses CLI output, caches file reads, and supports sandboxed code execution. Recent releases fixed critical bugs like image blocking and remote dashboard auth, while adding features like disabled tools config and Crush shell support.",
+        "highlights": [
+          "Reduces LLM token consumption by 60–99% using three strategies: Shell Hook (90+ patterns), Context Server (28 MCP tools), and AI Tool Hooks.",
+          "Single Rust binary with zero dependencies; available via Cargo, npm, and AUR; integrates with Cursor, Claude, Gemini CLI, and others.",
+          "v2.21.0 introduced binary file passthrough to fix image/PDF viewing blocked by hook, and added `disabled_tools` config to reduce tool definition overhead.",
+          "v2.20.0 added sandboxed code execution in 11 languages with smart truncation, timeout control, and loop detection via progressive throttling.",
+          "Active maintenance: only 1 open issue out of 9 total; recent fixes address Windows hook errors, caching gaps, and remote dashboard access."
+        ],
+        "risks": [
+          "Open issue indicates `read` tool calls are not cached (zero cache hits), undermining core token-saving promise ([ID:E-IS-002]).",
+          "Historical bugs show instability in hook systems (e.g., blocking images, invalid hook definitions on Windows) that could disrupt agent workflows.",
+          "Reliance on shell hooks and MCP integration creates surface area for compatibility issues across editors, shells, and AI platforms."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "inventor",
+        "summary": "lean-ctx is an intelligence layer for AI coding that drastically reduces LLM token consumption through a hybrid architecture combining shell hooks, a context-aware MCP server, and sandboxed tool execution—all in a single Rust binary. It introduces novel mechanisms like binary file passthrough, progressive throttling for loop detection, and configurable tool disabling to optimize agent interactions.",
+        "highlights": [
+          "Invents a three-pronged token optimization strategy: Shell Hook (90+ CLI output patterns), Context Server (28 cached/intelligent tools), and AI Tool Hooks for seamless editor integration ([ID:E-RD-008]).",
+          "Introduces binary file passthrough in v2.21.0 to solve AI image/PDF viewing blockage by detecting extensions and bypassing hook interception ([ID:E-RL-001]).",
+          "Pioneers sandboxed code execution in 11 languages via `ctx_execute`, with smart truncation, timeout control, and environment signaling—keeping raw outputs out of context windows ([ID:E-RL-002]).",
+          "Adds `disabled_tools` configuration to prune unused MCP tools, reducing prompt token overhead—a unique approach to dynamic toolset minimization ([ID:E-RL-001]).",
+          "Implements progressive throttling to detect and mitigate agent loops automatically, enhancing reliability during repetitive or recursive tool usage ([ID:E-RL-002])."
+        ],
+        "risks": [
+          "Core caching mechanism may be broken: open issue reports zero cache hits for `read` tool calls, directly undermining the 74–99% token savings claim ([ID:E-IS-002]).",
+          "Hook-based architecture has shown fragility—past bugs blocked image viewing and failed on Windows due to schema mismatches, risking disruption in diverse dev environments ([ID:E-IS-001], [ID:E-IS-004], [ID:E-RL-003]).",
+          "Sandboxed execution, while innovative, introduces complexity; errors in isolation or language detection could lead to silent failures or security gaps if not rigorously maintained ([ID:E-RL-002])."
+        ],
+        "evidence_ids": [
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-001",
+          "E-IS-004",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "engineer",
+        "summary": "lean-ctx is a Rust-based hybrid context optimizer that reduces LLM token usage by up to 99% through shell hooks, an MCP server with 28 intelligent tools, and sandboxed execution. It integrates tightly with AI coding agents via CLI hooks and provides caching, compression, and security features—but faces a critical open issue where file reads aren't cached, undermining its core value proposition.",
+        "highlights": [
+          "Implements three complementary token-saving strategies: Shell Hook (90+ CLI output patterns), Context Server (28 cached MCP tools), and AI Tool Hooks for seamless editor integration ([ID:E-RD-008]).",
+          "v2.21.0 fixed image/PDF viewing by adding binary file passthrough in hooks—detecting extensions and bypassing interception to allow native read access ([ID:E-RL-001]).",
+          "v2.20.0 introduced `ctx_execute`, a sandboxed MCP tool supporting 11 languages with smart truncation, timeout control, and environment signaling to prevent raw outputs from bloating context ([ID:E-RL-002]).",
+          "Offers configurable `disabled_tools` to reduce prompt overhead by excluding unused MCP tools—addressing token efficiency at the tool-definition level ([ID:E-RL-001]).",
+          "Maintains strong CI/CD hygiene with automated workflows (CI, security checks) and multi-platform distribution (Cargo, npm, AUR) ([ID:E-RD-003], [ID:E-RF-001])."
+        ],
+        "risks": [
+          "Critical caching flaw: open issue confirms `read` tool calls yield zero cache hits, directly invalidating the claimed 74–99% token savings for file access ([ID:E-IS-002]).",
+          "Hook system has exhibited instability—blocking images ([ID:E-IS-001]), failing on Windows due to schema errors ([ID:E-IS-004]), and requiring repeated fixes ([ID:E-RL-003])—posing integration risks across environments.",
+          "Sandboxed execution, while powerful, adds complexity; undetected failures in language detection or process isolation could lead to incorrect outputs or security exposure ([ID:E-RL-002])."
+        ],
+        "evidence_ids": [
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-001",
+          "E-IS-004",
+          "E-RL-003",
+          "E-RD-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "skeptic",
+        "summary": "lean-ctx promises drastic LLM token savings through caching and compression, but a critical open issue reveals its core `read` tool caching is non-functional—undermining its primary value proposition. Past bugs show recurring instability in hook mechanisms, and marketing claims of '99% savings' appear unsubstantiated by real-world reliability.",
+        "highlights": [
+          "Claims up to 99% token reduction via caching and compression ([ID:E-RD-005], [ID:E-RD-008]), yet an open issue confirms zero cache hits for `read` tool calls—the very mechanism enabling those savings ([ID:E-IS-002]).",
+          "Required emergency fixes for basic functionality: v2.21.0 patched image/PDF viewing that was completely blocked by the hook system ([ID:E-RL-001], [ID:E-IS-001]).",
+          "Hook definitions failed on Windows due to schema errors, indicating insufficient cross-platform validation ([ID:E-IS-004], [ID:E-RL-003]).",
+          "Remote dashboard access was broken (returning 'unauthorized') until v2.19.2, suggesting inadequate testing of common deployment scenarios ([ID:E-IS-003], [ID:E-RL-003])."
+        ],
+        "risks": [
+          "The central promise of token savings is likely unfulfilled in practice: if file reads aren't cached ([ID:E-IS-002]), the claimed 74–99% reduction collapses for one of its main use cases.",
+          "Architectural reliance on fragile shell/MCP hooks creates repeated failure modes—blocking images, breaking on Windows, disrupting agent workflows—raising doubts about robustness in diverse environments.",
+          "Marketing emphasizes extreme compression ratios without transparent benchmarks; actual savings may be far lower given unresolved caching flaws and partial CLI pattern coverage."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-001",
+          "E-RL-001",
+          "E-IS-004",
+          "E-RL-003",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"lean-ctx\",\n    \"one_sentence\": \"Hybrid Context Optimizer — Shell Hook + MCP Server that reduces LLM token consumption by 89-99% via caching, compression, and intelligent tooling in a single Rust binary.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"AI agents issue file read or CLI commands; lean-ctx intercepts via shell hooks or MCP tools, applies caching (for reads), pattern-based compression (for CLI output), or sandboxed execution (for code), then returns minimized responses to drastically reduce tokens sent to the LLM.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Dashboard\",\n      \"purpose\": \"Monitor active context optimizations, view cached files, and manage tool configurations.\",\n      \"primary_actions\": [\n        \"View cached file reads\",\n        \"Toggle disabled tools\",\n        \"Access remote dashboard securely\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"ctx_read\",\n      \"purpose\": \"Cached file reading with hash-based deduplication to minimize token usage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ctx_execute\",\n      \"purpose\": \"Sandboxed code execution in 11 languages with smart truncation and timeout control.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"handle_redirect\",\n      \"purpose\": \"Intercept and conditionally bypass file reads for binary types (images, PDFs, etc.) to prevent blocking AI image viewing.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"cached_reads\",\n        \"fields\": [\n          {\n            \"name\": \"file_path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content_hash\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"compressed_tokens\",\n            \"type\": \"integer\"\n          }\n        ]\n      },\n      {\n        \"name\": \"disabled_tools\",\n        \"fi"
+      }
+    },
+    "mtalcott/google-photos-deduper": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "The repository implements a Chrome extension for deduplicating Google Photos using local image embeddings via MediaPipe, built with Plasmo, React, and TypeScript. It relies on the Google Photos web interface through an external toolkit rather than the official API.",
+        "highlights": [
+          "Chrome extension that runs duplicate detection locally using MediaPipe image embeddings [ID:E-RD-002][ID:E-RD-007]",
+          "Built with modern web stack: Plasmo, React, MUI, and TypeScript [ID:E-RD-003]",
+          "Uses Google Photos Toolkit (GPTK) to interact with Google Photos via web interface, not official API [ID:E-RD-003]",
+          "Provides clear installation and usage instructions, including developer-mode loading [ID:E-RD-006][ID:E-RD-007]",
+          "Includes CI badge and recent release (v2.0.0) with active development history [ID:E-RD-001][ID:E-RL-001]"
+        ],
+        "risks": [
+          "Open issue reporting 403 Forbidden errors when accessing Google Photos media items, suggesting possible authentication or quota issues [ID:E-IS-001]",
+          "Open issue with TensorFlow error during deduplication, indicating potential instability in core functionality [ID:E-IS-002]",
+          "Reliance on unofficial Google Photos Toolkit may break if Google changes its web interface [ID:E-RD-003]",
+          "Limited release history (only one release) despite non-trivial feature set [ID:E-RL-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "The repository introduces a novel approach to Google Photos deduplication by performing local visual comparison via MediaPipe embeddings within a Chrome extension, avoiding server-side processing and leveraging the browser environment for privacy-preserving duplicate detection.",
+        "highlights": [
+          "Invents a client-side deduplication workflow using MediaPipe image embeddings computed directly in the browser to identify visually identical photos without uploading data [ID:E-RD-007]",
+          "Integrates Google Photos Toolkit (GPTK) as a reverse-engineered bridge to access user libraries through the web UI, circumventing reliance on Google's official API [ID:E-RD-003]",
+          "Combines Plasmo framework with React and MUI to deliver a polished, installable Chrome extension that operates entirely locally [ID:E-RD-003]",
+          "Enables user-controlled review and selective deletion of duplicates with explicit 'Move to Trash' action, preserving user agency [ID:E-RD-007]",
+          "Uses Docker and GitHub Actions for reproducible builds and testing, including MongoDB integration for database tests [ID:E-RL-001][ID:E-RF-001]"
+        ],
+        "risks": [
+          "Core deduplication logic depends on TensorFlow/MediaPipe in-browser execution, which is failing in some environments per open issue [ID:E-IS-002]",
+          "Access to Google Photos via unofficial toolkit (GPTK) creates fragility—any frontend changes by Google could break functionality [ID:E-RD-003]",
+          "403 Forbidden errors suggest authentication or quota limitations when fetching media items, threatening reliability [ID:E-IS-001]",
+          "Local-only architecture prevents cross-device sync of deduplication state or progress tracking [ID:E-RD-007]"
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "The repository implements a Chrome extension for local deduplication of Google Photos using MediaPipe embeddings, built with Plasmo, React, and TypeScript. It avoids the official API by leveraging an external toolkit (GPTK) to interact with Google Photos via the web interface, enabling privacy-preserving duplicate detection directly in the browser.",
+        "highlights": [
+          "Uses MediaPipe to compute image embeddings locally in the browser for visual duplicate detection without server-side processing [ID:E-RD-007]",
+          "Built on modern stack: Plasmo (for Chrome extensions), React, MUI, and TypeScript with Vite [ID:E-RD-003]",
+          "Relies on Google Photos Toolkit (GPTK)—an unofficial, reverse-engineered client—to access media via Google Photos web UI instead of official API [ID:E-RD-003]",
+          "Provides clear user workflow: scan library, review duplicates, and move selected items to trash [ID:E-RD-007]",
+          "Includes Docker-based build process and GitHub Actions CI with code coverage and MongoDB integration for testing [ID:E-RL-001][ID:E-RF-001]"
+        ],
+        "risks": [
+          "Open 403 Forbidden errors when fetching media items suggest authentication or quota issues with Google Photos access [ID:E-IS-001]",
+          "TensorFlow-related runtime failures during deduplication indicate instability in core image comparison logic [ID:E-IS-002]",
+          "Dependency on GPTK introduces fragility—if Google changes its web interface, the extension may break unexpectedly [ID:E-RD-003]",
+          "Only one official release despite active development, raising concerns about stability and versioning discipline [ID:E-RL-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "The repository promises local, privacy-preserving deduplication of Google Photos via a Chrome extension, but suffers from unresolved technical failures, fragile dependencies, and questionable reliability given its reliance on reverse-engineered access methods and lack of robust release history.",
+        "highlights": [
+          "Claims to perform local duplicate detection using MediaPipe embeddings in-browser, avoiding server uploads [ID:E-RD-007]",
+          "Uses unofficial Google Photos Toolkit (GPTK) to scrape the web UI instead of using Google’s official API, bypassing supported integration paths [ID:E-RD-003]",
+          "Provides installation instructions for loading as an unpacked Chrome extension, targeting technically savvy users [ID:E-RD-006]",
+          "Includes CI automation and Docker-based builds, suggesting some engineering rigor [ID:E-RD-001][ID:E-RL-001]"
+        ],
+        "risks": [
+          "Open 403 Forbidden errors indicate fundamental issues with accessing Google Photos data, possibly due to broken authentication or quota limits [ID:E-IS-001]",
+          "Core deduplication fails with TensorFlow errors in user environments, undermining the primary functionality [ID:E-IS-002]",
+          "Heavy reliance on GPTK—a third-party, reverse-engineered tool—makes the extension vulnerable to breaking changes in Google Photos’ frontend [ID:E-RD-003]",
+          "Only one official release despite active development and known critical bugs, suggesting insufficient testing or stability [ID:E-RL-001]",
+          "No evidence of end-to-end tests covering real-world Google Photos interaction; MongoDB usage appears limited to internal tests [ID:E-RL-001][ID:E-RF-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Google Photos Deduper\",\n    \"one_sentence\": \"A Chrome extension that finds and removes duplicate photos from your Google Photos library using local image embeddings.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User opens the extension in Chrome while on Google Photos, clicks 'Scan Library' to fetch media items, reviews visually identical duplicate groups identified via MediaPipe embeddings computed locally, selects which items to keep, and moves others to trash.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Deduper Dashboard\",\n      \"purpose\": \"Display duplicate photo groups and allow user to select which copies to delete.\",\n      \"primary_actions\": [\n        \"Scan Library\",\n        \"Review Duplicates\",\n        \"Move to Trash\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"scan_library\",\n      \"purpose\": \"Fetch user's Google Photos media items and compute local MediaPipe embeddings to detect visual duplicates.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"move_to_trash\",\n      \"purpose\": \"Remove selected duplicate photos from the user's Google Photos library by interacting with the web interface via GPTK.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"media_items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"embedding\",\n            \"type\": \"bytes\"\n          },\n          {\n            \"name\": \"url\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"duplicate_group_id\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Integrate MediaPipe for local image embedding generation\",\n          \"Implement Google Photos Toolkit (GPTK) interaction layer\",\n          \"Build UI f"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "anig1scur/tocify",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 7,
+        "inventor": 7,
+        "engineer": 8,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "yvgude/lean-ctx",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 7,
+        "engineer": 9,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "mtalcott/google-photos-deduper",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 6,
+        "engineer": 6,
+        "skeptic": 8,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=2",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=92 kept=5 limit=5",
+    "[deduper] existing_index_repos=199",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] mtalcott/google-photos-deduper evidence total=13 readme=8 issue=3 release=1 root_files=1",
+    "[repo_card_builder] yvgude/lean-ctx evidence total=21 readme=8 issue=9 release=3 root_files=1",
+    "[repo_card_builder] anig1scur/tocify evidence total=15 readme=4 issue=7 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=49 gaps=0",
+    "[llm_spec_generator] anig1scur/tocify canonical spec ok (iter=1) -> specs/2026-04-08/anig1scur__tocify.json",
+    "[llm_spec_generator] yvgude/lean-ctx canonical spec ok (iter=1) -> specs/2026-04-08/yvgude__lean-ctx.json",
+    "[llm_spec_generator] mtalcott/google-photos-deduper canonical spec ok (iter=1) -> specs/2026-04-08/mtalcott__google-photos-deduper.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-08T05:14:04.647Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:04.670Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260408T051404Z"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:04.670Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:04.674Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:05.219Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:05.219Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:05.671Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:05.671Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:06.075Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:06.075Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:06.503Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:06.503Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:06.933Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:06.933Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:07.450Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:07.450Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:07.883Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:07.883Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:08.213Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:08.213Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:08.553Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:08.553Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.065Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.069Z",
+      "run_id": "20260408T051404Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 199
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.070Z",
+      "run_id": "20260408T051404Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.072Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-08T05:14:09.073Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "anig1scur__tocify/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.073Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "anig1scur__tocify/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.076Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "anig1scur__tocify/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.077Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "anig1scur__tocify/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.078Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-08T05:14:09.078Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yvgude__lean-ctx/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.080Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yvgude__lean-ctx/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.081Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yvgude__lean-ctx/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.082Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yvgude__lean-ctx/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.084Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-08T05:14:09.084Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mtalcott__google-photos-deduper/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.085Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mtalcott__google-photos-deduper/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.086Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mtalcott__google-photos-deduper/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.088Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "mtalcott__google-photos-deduper/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.402Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3573,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.402Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.402Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.402Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 318
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.404Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 3,
+        "releases": 1,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.432Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 27909,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.432Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.432Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 9
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.432Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 354
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.432Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 21,
+        "readme": 8,
+        "issues": 9,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.446Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 928,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.446Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.446Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.446Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 374
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.446Z",
+      "run_id": "20260408T051404Z",
+      "node": "repo_card_builder",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 4,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.450Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 4,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:09.450Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:21.674Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1250,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:33.305Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1500,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:46.968Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1503,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:14:59.777Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1641,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:37.065Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4711,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:37.079Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:37.080Z",
+      "run_id": "20260408T051404Z",
+      "node": "artifacts",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-08/anig1scur__tocify.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:37.081Z",
+      "run_id": "20260408T051404Z",
+      "node": "artifacts",
+      "repo": "anig1scur/tocify",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-08/anig1scur__tocify.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:37.081Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 21,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 9,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:37.081Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 21,
+        "evidence_selected": 21,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:15:54.095Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1956,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:16:11.621Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2136,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:16:30.569Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2180,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:16:46.857Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1881,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:26.856Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4902,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:26.858Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:26.858Z",
+      "run_id": "20260408T051404Z",
+      "node": "artifacts",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-08/yvgude__lean-ctx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:26.859Z",
+      "run_id": "20260408T051404Z",
+      "node": "artifacts",
+      "repo": "yvgude/lean-ctx",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-08/yvgude__lean-ctx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:26.859Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 1,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:26.859Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:40.995Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1549,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:17:55.819Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1862,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:10.384Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1779,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:25.455Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1829,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.596Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3409,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.598Z",
+      "run_id": "20260408T051404Z",
+      "node": "llm_spec_generator",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.598Z",
+      "run_id": "20260408T051404Z",
+      "node": "artifacts",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-08/mtalcott__google-photos-deduper.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.598Z",
+      "run_id": "20260408T051404Z",
+      "node": "artifacts",
+      "repo": "mtalcott/google-photos-deduper",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-08/mtalcott__google-photos-deduper.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.602Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.602Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1775625244648,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "anig1scur/tocify": 5,
+          "yvgude/lean-ctx": 5,
+          "mtalcott/google-photos-deduper": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.602Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-08T05:18:53.602Z",
+      "run_id": "20260408T051404Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-08",
+    "evidence_dir": "evidence/2026-04-08"
+  }
+}

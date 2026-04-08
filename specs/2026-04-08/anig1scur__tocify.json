@@ -1,0 +1,137 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Tocify",
+    "one_liner": "Tocify is a free, online and open-source web application to add, edit, or generate Table of Contents (ToCs) / bookmarks for PDFs using AI."
+  },
+  "screens": [
+    {
+      "name": "Main Editor",
+      "purpose": "Display PDF preview alongside editable table of contents with AI-generated structure.",
+      "primary_actions": [
+        "Batch add sections",
+        "Edit ToC items",
+        "Generate ToC with AI",
+        "Quick jump via path",
+        "Upload PDF"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure AI provider, API keys, font, and page label preferences.",
+      "primary_actions": [
+        "Enable page labels",
+        "Enter API key",
+        "Select LLM provider",
+        "Set custom font"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve all ToC entries for current document in hierarchical order.",
+      "async": true,
+      "input": {
+        "file_name": "string",
+        "has_page_labels": "boolean",
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "total_pages": "float"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist a single ToC entry with title, page number, and nesting level.",
+      "async": true,
+      "input": {
+        "file_name": "string",
+        "has_page_labels": "boolean",
+        "payload": "json",
+        "total_pages": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "skip_ai_match",
+      "purpose": "Allow user to skip irrelevant or incorrect AI-suggested ToC items during generation.",
+      "async": true,
+      "input": {
+        "file_name": "string",
+        "has_page_labels": "boolean",
+        "payload": "json",
+        "total_pages": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "pdf_metadata",
+        "columns": [
+          {
+            "name": "file_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "has_page_labels",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "total_pages",
+            "type": "REAL"
+          }
+        ]
+      },
+      {
+        "name": "toc_entries",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "level",
+            "type": "REAL"
+          },
+          {
+            "name": "page_number",
+            "type": "REAL"
+          },
+          {
+            "name": "parent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic ToC editing UI",
+    "week 1: Implement PDF upload and preview",
+    "week 1: Integrate Web Worker for client-side parsing",
+    "week 1: Support one AI provider (Gemini) with BYO key"
+  ],
+  "acceptance_tests": [
+    "Application must handle Roman numeral front matter (e.g., 'iii') and map it correctly to physical page numbers.",
+    "Bookmarks generated from ToC must navigate correctly to intended pages without opening local directories or showing encoding artifacts.",
+    "For dual-column directory PDFs, extracted page numbers must appear in correct sequential order.",
+    "When user selects Doubao as AI provider, system must call Doubao API—not Gemini—and succeed without fetch failure."
+  ]
+}

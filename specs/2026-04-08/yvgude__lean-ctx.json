@@ -1,0 +1,127 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "lean-ctx",
+    "one_liner": "Hybrid Context Optimizer — Shell Hook + MCP Server that reduces LLM token consumption by 89-99% via caching, compression, and intelligent tooling in a single Rust binary."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Monitor active context optimizations, view cached files, and manage tool configurations.",
+      "primary_actions": [
+        "Access remote dashboard securely",
+        "Toggle disabled tools",
+        "View cached file reads"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "ctx_execute",
+      "purpose": "Sandboxed code execution in 11 languages with smart truncation and timeout control.",
+      "async": true,
+      "input": {
+        "compressed_tokens": "int",
+        "content_hash": "string",
+        "file_path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ctx_read",
+      "purpose": "Cached file reading with hash-based deduplication to minimize token usage.",
+      "async": true,
+      "input": {
+        "compressed_tokens": "int",
+        "content_hash": "string",
+        "file_path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "handle_redirect",
+      "purpose": "Intercept and conditionally bypass file reads for binary types (images, PDFs, etc.) to prevent blocking AI image viewing.",
+      "async": false,
+      "input": {
+        "compressed_tokens": "int",
+        "content_hash": "string",
+        "file_path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cached_reads",
+        "columns": [
+          {
+            "name": "compressed_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "content_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "disabled_tools",
+        "columns": [
+          {
+            "name": "disabled_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "tool_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sandbox_executions",
+        "columns": [
+          {
+            "name": "language",
+            "type": "TEXT"
+          },
+          {
+            "name": "stdout_size",
+            "type": "INTEGER"
+          },
+          {
+            "name": "truncated",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add configurable disabled_tools support in config.toml and env var",
+    "week 1: Fix remote dashboard auth to allow HTML access while protecting API endpoints",
+    "week 1: Implement binary file passthrough in hook redirect logic"
+  ],
+  "acceptance_tests": [
+    "Binary files (e.g., .png, .pdf) are passed through to native Read tool without interception when lean-ctx hook is active.",
+    "ctx_execute runs Python/JS/Rust scripts in isolated subprocesses and returns only stdout with head+tail preservation on large outputs.",
+    "Remote browser access to dashboard loads HTML freely and injects bearer token into /api/* calls automatically.",
+    "Setting LEAN_CTX_DISABLED_TOOLS excludes specified tools from MCP list, reducing prompt token overhead."
+  ]
+}
