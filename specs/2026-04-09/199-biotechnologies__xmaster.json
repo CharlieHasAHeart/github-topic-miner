@@ -1,0 +1,154 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "XMaster",
+    "one_liner": "A terminal-based X/Twitter client for developers and AI agents that unifies official API, web fallbacks, and xAI search into structured workflows."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal Interface",
+      "purpose": "Serve as the primary interaction point for all XMaster commands via CLI.",
+      "primary_actions": [
+        "analyze",
+        "dm",
+        "like",
+        "post",
+        "reply",
+        "retweet",
+        "schedule",
+        "search"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "analyze",
+      "purpose": "Retrieve engagement metrics and insights (limited by premium access).",
+      "async": true,
+      "input": {
+        "content_snapshot": "string",
+        "payload": "json",
+        "tweet_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "post",
+      "purpose": "Publish a new tweet using official API or session fallback with pre-flight analysis.",
+      "async": true,
+      "input": {
+        "content_snapshot": "string",
+        "payload": "json",
+        "tweet_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "reply",
+      "purpose": "Post a reply to a tweet, optionally with engagement scoring and logging.",
+      "async": true,
+      "input": {
+        "content_snapshot": "string",
+        "payload": "json",
+        "tweet_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "schedule",
+      "purpose": "Locally schedule future posts with persistent storage.",
+      "async": true,
+      "input": {
+        "content_snapshot": "string",
+        "payload": "json",
+        "tweet_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "search",
+      "purpose": "Query X content via official API or xAI/Grok search.",
+      "async": true,
+      "input": {
+        "content_snapshot": "string",
+        "payload": "json",
+        "tweet_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "bookmarks_archive",
+        "columns": [
+          {
+            "name": "content_snapshot",
+            "type": "TEXT"
+          },
+          {
+            "name": "tweet_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "reply_outcomes",
+        "columns": [
+          {
+            "name": "profile_clicks",
+            "type": "INTEGER"
+          },
+          {
+            "name": "quotes",
+            "type": "INTEGER"
+          },
+          {
+            "name": "target_user_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "scheduled_posts",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "scheduled_at",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add structured JSON output mode for AI agents",
+    "week 1: Build reply_outcomes table with extended metrics",
+    "week 1: Implement core post/reply commands with dual API/fallback support",
+    "week 1: Integrate local scheduling with file-based persistence"
+  ],
+  "acceptance_tests": [
+    "All commands must output valid JSON when --json flag is used",
+    "Command 'reply' must log outcome even if get_tweet() fails temporarily",
+    "Error responses must include x-transaction-id for traceability",
+    "Parallel test runs must not race on environment variables"
+  ]
+}

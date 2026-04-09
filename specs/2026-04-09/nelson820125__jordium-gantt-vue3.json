@@ -1,0 +1,82 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jordium-gantt-vue3",
+    "one_liner": "A modern Vue 3 Gantt chart component library with built-in resource view and resource planning capabilities for project management, task scheduling, and resource allocation."
+  },
+  "screens": [
+    {
+      "name": "Gantt Chart View",
+      "purpose": "Display and interact with task timelines and resource allocations in unified task or resource views.",
+      "primary_actions": [
+        "Drag and resize task bars",
+        "Edit tasks via double-click or context menu",
+        "Switch between task and resource views",
+        "Zoom time scale (hourly to yearly)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist updated task or resource assignment data after user interaction.",
+      "async": true,
+      "input": {
+        "end": "timestamp",
+        "payload": "json",
+        "progress": "float",
+        "resourceId": "string",
+        "start": "timestamp",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "tasks",
+        "columns": [
+          {
+            "name": "end",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "progress",
+            "type": "REAL"
+          },
+          {
+            "name": "resourceId",
+            "type": "TEXT"
+          },
+          {
+            "name": "start",
+            "type": "DATETIME"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add task drag-and-resize interactions",
+    "week 1: Implement core Gantt timeline rendering with virtual scrolling",
+    "week 1: Integrate basic resource assignment mapping"
+  ],
+  "acceptance_tests": [
+    "Hourly view must support precise taskbar dragging without calculation errors",
+    "Milestone tooltips must not display placeholder text like '1111111111'",
+    "PDF export must render non-ASCII characters correctly without garbled text",
+    "Switching from task view to resource view must preserve correct date range and today marker position"
+  ]
+}

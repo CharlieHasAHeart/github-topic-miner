@@ -1,0 +1,76 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AwesomeAssertions",
+    "one_liner": "A community-controlled fork of FluentAssertions that preserves open licensing while adding modern .NET support and enhanced assertion capabilities."
+  },
+  "screens": [
+    {
+      "name": "Assertion Builder",
+      "purpose": "Allows developers to construct and execute fluent assertions against test subjects.",
+      "primary_actions": [
+        "Assert equality with tolerance",
+        "Check string patterns",
+        "Validate collection contents",
+        "Verify object graph equivalence"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist assertion configuration or test result metadata for debugging or reporting.",
+      "async": true,
+      "input": {
+        "actual_value": "json",
+        "expected_value": "json",
+        "payload": "json",
+        "subject_type": "string",
+        "tolerance": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "assertions",
+        "columns": [
+          {
+            "name": "actual_value",
+            "type": "JSON"
+          },
+          {
+            "name": "expected_value",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "subject_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "tolerance",
+            "type": "REAL"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for numerical approximate equality",
+    "week 1: Configure CI pipeline with GitHub Actions and coverage reporting",
+    "week 1: Implement core fluent assertion API compatible with FluentAssertions v7.x",
+    "week 1: Integrate with MSTest V4 and NUnit test runners"
+  ],
+  "acceptance_tests": [
+    "Given a collection of floating-point numbers, when asserting approximate equality with tolerance 0.01, then the test passes if all elements are within tolerance.",
+    "Given a test project using FluentAssertions 7.0.0, when applying the Renovate replacement rule, then the build succeeds and all existing assertions behave identically."
+  ]
+}
