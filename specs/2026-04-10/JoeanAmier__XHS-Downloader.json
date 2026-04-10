@@ -1,0 +1,83 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "XHS-Downloader",
+    "one_liner": "A tool for extracting and downloading Xiaohongshu (RedNote) content via CLI, HTTP API (MCP), and browser userscript."
+  },
+  "screens": [
+    {
+      "name": "Main Interface",
+      "purpose": "Orchestrate link input, metadata fetching, and file downloading across CLI, server, or userscript modes.",
+      "primary_actions": [
+        "Configure download preferences (e.g., image selection, video quality)",
+        "Dispatch download tasks to local or remote instance",
+        "Submit Xiaohongshu links for processing"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist downloaded Xiaohongshu content and associated metadata to local storage with configurable organization.",
+      "async": true,
+      "input": {
+        "author": "string",
+        "download_path": "string",
+        "payload": "json",
+        "post_time": "timestamp",
+        "work_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ExploreData",
+        "columns": [
+          {
+            "name": "author",
+            "type": "TEXT"
+          },
+          {
+            "name": "download_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "post_time",
+            "type": "DATETIME"
+          },
+          {
+            "name": "work_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "ExploreID",
+        "columns": [
+          {
+            "name": "downloaded_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "work_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core link parsing and metadata fetching from Xiaohongshu",
+    "week 1: Integrate basic throttling and proxy support",
+    "week 1: Set up SQLite storage for download records and work metadata"
+  ],
+  "acceptance_tests": [
+    "Metadata for downloaded works is correctly stored in ExploreData.db with author and post time.",
+    "System successfully downloads a Xiaohongshu video with user-specified quality preference via MCP API."
+  ]
+}

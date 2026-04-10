@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "iocraft",
+    "one_liner": "A Rust crate for building beautiful, artisanally crafted CLIs, TUIs, and text-based IO with a React-inspired declarative syntax."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal View",
+      "purpose": "Render the primary user interface composed of styled, bordered, and layout-managed text elements.",
+      "primary_actions": [
+        "Apply styling and borders",
+        "Declare UI structure using `element!` macro",
+        "Render to terminal or log output"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "render_ui",
+      "purpose": "Render a declaratively defined terminal UI to stdout using the iocraft engine.",
+      "async": false,
+      "input": {
+        "content": "string",
+        "payload": "json",
+        "style": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ui_elements",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "style",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic 'Hello, world!' view with border and color",
+    "week 1: Set up iocraft dependency",
+    "week 1: Verify cross-platform rendering on Unix and Windows"
+  ],
+  "acceptance_tests": [
+    "The application renders a bordered, colored 'Hello, world!' message in the terminal without ANSI escape code interference.",
+    "UI layout adapts correctly using flexbox principles as provided by Taffy integration."
+  ]
+}

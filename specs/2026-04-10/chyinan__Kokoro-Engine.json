@@ -1,0 +1,149 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Kokoro Engine",
+    "one_liner": "Open-source immersive character engine for desktop AI companions."
+  },
+  "screens": [
+    {
+      "name": "Main Chat Interface",
+      "purpose": "Primary interaction surface for conversing with the AI companion, displaying chat history, Live2D avatar, and pending action approvals.",
+      "primary_actions": [
+        "Approve/deny tool execution",
+        "Cancel ongoing turn",
+        "Initiate voice input",
+        "Send text message"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure engine behavior, model preferences, MODs, and system options with tab persistence across sessions.",
+      "primary_actions": [
+        "Adjust privacy settings",
+        "Configure TTS/STT",
+        "Manage MODs",
+        "Switch language"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "cancel_turn",
+      "purpose": "Cancel the current AI processing turn at defined pipeline checkpoints.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "payload": "json",
+        "summary": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "execute_tool_action",
+      "purpose": "Execute a staged tool action with canonical identity, audit logging, and user approval trace.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "payload": "json",
+        "summary": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "load_mod_manifest",
+      "purpose": "Load and validate MOD manifest with declarative capabilities declaration.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "payload": "json",
+        "summary": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "conversations",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "summary",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "mod_capabilities",
+        "columns": [
+          {
+            "name": "declared_capability",
+            "type": "TEXT"
+          },
+          {
+            "name": "enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "mod_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tools_audit_log",
+        "columns": [
+          {
+            "name": "approval_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "canonical_identity",
+            "type": "TEXT"
+          },
+          {
+            "name": "executed_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "tool_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic MOD loading with manifest validation",
+    "week 1: Implement core chat pipeline with turn-level cancellation",
+    "week 1: Integrate Live2D cue system with unified profiles",
+    "week 1: Set up SQLite storage for local-first data persistence",
+    "week 2: Add centralized Hook Runtime for chat/tools/MODs",
+    "week 2: Add multilingual support for core UI strings",
+    "week 2: Enable TTS lifecycle hooks and Edge TTS integration",
+    "week 2: Implement staged tool action policy with approval UI"
+  ],
+  "acceptance_tests": [
+    "Conversation summaries are generated and stored locally after each session.",
+    "MODs declare capabilities in manifest; engine enforces permissions at runtime.",
+    "Settings tab selection persists across application restarts.",
+    "Tool execution requires explicit user approval; denied tools are logged with canonical identity and do not run.",
+    "User can cancel an ongoing AI turn before completion, and the system halts all associated actions (TTS, tool calls)."
+  ]
+}
