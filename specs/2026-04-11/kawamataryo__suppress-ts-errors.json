@@ -1,0 +1,75 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "suppress-ts-errors",
+    "one_liner": "CLI tool to automatically insert @ts-expect-error or @ts-ignore comments to suppress TypeScript type errors in .ts, .tsx, and Vue SFC <script> blocks."
+  },
+  "screens": [
+    {
+      "name": "CLI Execution Interface",
+      "purpose": "Allows users to run the suppression command with configurable options such as comment type, tsconfig path, error code inclusion, and glob patterns.",
+      "primary_actions": [
+        "Choose comment type (@ts-expect-error or @ts-ignore)",
+        "Enable error code annotation",
+        "Execute suppression with default settings",
+        "Specify custom tsconfig path",
+        "Target files via glob pattern"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "suppress_errors",
+      "purpose": "Analyzes TypeScript diagnostics and injects suppression comments into source files based on user configuration.",
+      "async": true,
+      "input": {
+        "comment_type": "string",
+        "custom_message": "string",
+        "error_code": "string",
+        "file_path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "suppression_targets",
+        "columns": [
+          {
+            "name": "comment_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "custom_message",
+            "type": "TEXT"
+          },
+          {
+            "name": "error_code",
+            "type": "TEXT"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for @ts-expect-error and @ts-ignore insertion",
+    "week 1: Enable tsconfig.json path configuration",
+    "week 1: Implement core diagnostic parsing from tsc",
+    "week 1: Support .ts and .tsx file processing"
+  ],
+  "acceptance_tests": [
+    "Tool includes TS error codes in comments when --error-code is enabled.",
+    "Tool processes .vue files and suppresses errors only in <script> sections, ignoring <template>.",
+    "Tool respects --comment-type flag to switch between @ts-expect-error and @ts-ignore.",
+    "Tool successfully inserts @ts-expect-error comments in .ts files when run with default settings."
+  ]
+}

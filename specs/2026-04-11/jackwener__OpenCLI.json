@@ -1,0 +1,149 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OpenCLI",
+    "one_liner": "Turn websites, browser sessions, Electron apps, and local tools into deterministic interfaces for humans and AI agents."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide command-line access to built-in and user-generated adapters for websites, Electron apps, and local binaries.",
+      "primary_actions": [
+        "Execute site-specific CLI commands (e.g., hackernews top)",
+        "Launch browser automation session",
+        "List available commands"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "browser",
+      "purpose": "Give AI agents direct browser control: click, type, extract, screenshot — any interaction, fully scriptable.",
+      "async": true,
+      "input": {
+        "command_name": "string",
+        "payload": "json",
+        "source_type": "string",
+        "target_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "cascade",
+      "purpose": "Find authentication strategies and workflow sequences during adapter synthesis.",
+      "async": true,
+      "input": {
+        "command_name": "string",
+        "payload": "json",
+        "source_type": "string",
+        "target_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "explore",
+      "purpose": "Discover APIs and behaviors from live browser sessions to inform adapter generation.",
+      "async": true,
+      "input": {
+        "command_name": "string",
+        "payload": "json",
+        "source_type": "string",
+        "target_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list",
+      "purpose": "Enumerate all available CLI commands and adapters.",
+      "async": false,
+      "input": {
+        "command_name": "string",
+        "payload": "json",
+        "source_type": "string",
+        "target_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "synthesize",
+      "purpose": "Generate verified adapters from real browser behavior using structured contracts.",
+      "async": true,
+      "input": {
+        "command_name": "string",
+        "payload": "json",
+        "source_type": "string",
+        "target_url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "adapters",
+        "columns": [
+          {
+            "name": "command_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "target_url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "authenticated",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "browser_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_used",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core `browser` command primitives (click, type, extract)",
+    "week 1: Integrate Browser Bridge extension with daemon",
+    "week 1: Support loading of built-in adapters for major sites (Bilibili, Twitter/X, Reddit)"
+  ],
+  "acceptance_tests": [
+    "AI agent can use `opencli browser` to navigate to a page, click an element, and extract text.",
+    "Anti-detection measures prevent detection by basic bot fingerprinting scripts.",
+    "Generated adapter from `explore` + `synthesize` produces deterministic CLI output on repeat runs.",
+    "Running `opencli hackernews top --limit 5` returns structured results without browser launch.",
+    "User can install the unpacked extension and run `opencli list` successfully."
+  ]
+}

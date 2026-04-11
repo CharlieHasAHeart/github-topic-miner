@@ -1,0 +1,80 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Free LLM API Keys",
+    "one_liner": "A public repository distributing short-lived, no-registration API keys for 90+ LLM models including GPT-5.4, Claude, DeepSeek, Gemini, and Grok."
+  },
+  "screens": [
+    {
+      "name": "Key Listing Screen",
+      "purpose": "Display available free API keys with model compatibility, budget status, and expiration information.",
+      "primary_actions": [
+        "Copy API key to clipboard",
+        "Refresh to view newly rotated keys",
+        "Verify key validity via one-click checker"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a verified working API key locally for temporary reuse.",
+      "async": true,
+      "input": {
+        "budget_usd": "float",
+        "endpoint_url": "string",
+        "expires_at": "timestamp",
+        "key_id": "string",
+        "model_name": "string",
+        "payload": "json",
+        "provider": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "api_keys",
+        "columns": [
+          {
+            "name": "budget_usd",
+            "type": "REAL"
+          },
+          {
+            "name": "endpoint_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "expires_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "key_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "model_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add multilingual support based on available README translations",
+    "week 1: Implement one-click key verification endpoint integration",
+    "week 1: Parse and display rotating API keys from README table"
+  ],
+  "acceptance_tests": [
+    "System displays last update time and indicates if keys are likely exhausted.",
+    "User can copy an API key from the main screen and use it with an OpenAI SDK-compatible tool."
+  ]
+}

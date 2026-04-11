@@ -1,0 +1,153 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ThinkUtils",
+    "one_liner": "A powerful native desktop app for ThinkPad users on Linux that enables fine-grained control over fan speeds, CPU performance, battery health, and system monitoring through a secure, modern Tauri-based interface."
+  },
+  "screens": [
+    {
+      "name": "Fan Control",
+      "purpose": "Enable precise management of ThinkPad cooling system with multiple modes and custom fan curve editing based on temperature sensors.",
+      "primary_actions": [
+        "Adjust manual fan speed level (0–7)",
+        "Edit custom temperature-to-speed fan curve",
+        "Switch fan mode (Auto, Manual, Maximum)",
+        "View live CPU/GPU/battery temperatures and fan RPM"
+      ]
+    },
+    {
+      "name": "Home Dashboard",
+      "purpose": "Provide real-time system monitoring and quick access to essential hardware controls including power profiles, CPU governor, turbo boost, and battery thresholds.",
+      "primary_actions": [
+        "Navigate to Fan Control screen",
+        "Switch power profile (Power Saver, Balanced, Performance)",
+        "Toggle CPU turbo boost",
+        "View current battery charge limit"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "set_cpu_governor",
+      "purpose": "Change CPU frequency scaling policy (e.g., powersave, performance) via system interfaces with appropriate permissions.",
+      "async": true,
+      "input": {
+        "governor": "string"
+      },
+      "output": {
+        "applied_governor": "string",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "set_fan_mode",
+      "purpose": "Securely set fan control mode (auto/manual/maximum) using pkexec to gain temporary root privileges without running the entire app as root.",
+      "async": true,
+      "input": {
+        "mode": "string",
+        "speed_level": "float"
+      },
+      "output": {
+        "message": "string",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "toggle_turbo_boost",
+      "purpose": "Enable or disable CPU turbo frequencies by writing to kernel interfaces, secured via privilege delegation.",
+      "async": true,
+      "input": {
+        "enabled": "boolean"
+      },
+      "output": {
+        "success": "boolean",
+        "turbo_state": "boolean"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "fan_configurations",
+        "columns": [
+          {
+            "name": "custom_curve",
+            "type": "JSON"
+          },
+          {
+            "name": "mode",
+            "type": "TEXT"
+          },
+          {
+            "name": "speed_level",
+            "type": "REAL"
+          }
+        ]
+      },
+      {
+        "name": "power_profiles",
+        "columns": [
+          {
+            "name": "battery_threshold_max",
+            "type": "REAL"
+          },
+          {
+            "name": "battery_threshold_min",
+            "type": "REAL"
+          },
+          {
+            "name": "cpu_governor",
+            "type": "TEXT"
+          },
+          {
+            "name": "profile_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "turbo_enabled",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "system_sensors",
+        "columns": [
+          {
+            "name": "component_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "label",
+            "type": "TEXT"
+          },
+          {
+            "name": "sensor_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "temperature_celsius",
+            "type": "REAL"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build secure command bridge for pkexec-based fan control",
+    "week 1: Implement core Tauri shell with Home Dashboard UI",
+    "week 1: Integrate real-time sensor reading from /sys/class/hwmon",
+    "week 2: Add CPU governor switching functionality",
+    "week 2: Create basic fan mode selector (Auto/Manual/Max)",
+    "week 2: Implement turbo boost toggle with state persistence",
+    "week 3: Add battery threshold display from kernel interfaces",
+    "week 3: Develop visual fan curve editor with temperature mapping",
+    "week 3: Test installation flows across .deb, .rpm, and AppImage"
+  ],
+  "acceptance_tests": [
+    "App installs cleanly via APT repository on Debian-based system using provided setup script.",
+    "App launches successfully on X11-based Ubuntu 22.04 and displays real-time CPU temperature and fan speed.",
+    "CPU governor changes from 'powersave' to 'performance' and is verified by reading /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor.",
+    "Turbo boost toggle disables turbo; confirmed by checking /sys/devices/system/cpu/intel_pstate/no_turbo value.",
+    "User can switch fan mode to Manual and set speed level 5; system confirms execution via pkexec and updates RPM reading within 2 seconds."
+  ]
+}
