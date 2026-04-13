@@ -1,0 +1,58 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "RSSBox",
+    "one_liner": "A self-hosted web application that generates RSS feeds for platforms lacking native support by using APIs or scraping."
+  },
+  "screens": [
+    {
+      "name": "Feed Generator",
+      "purpose": "Accept user input URLs and generate corresponding RSS feeds.",
+      "primary_actions": [
+        "Enter platform URL",
+        "View generated RSS feed"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_rss_feed",
+      "purpose": "Fetch content from a given platform URL and return an RSS feed.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platform": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "rss_feeds",
+        "columns": [
+          {
+            "name": "platform",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add Docker deployment support",
+    "week 1: Implement core feed generation for Instagram and SoundCloud"
+  ],
+  "acceptance_tests": [
+    "Given a SoundCloud track URL, the system returns a working RSS feed without HTTP 422 errors.",
+    "Given an Instagram post URL, the system returns a valid RSS feed with media enclosure."
+  ]
+}

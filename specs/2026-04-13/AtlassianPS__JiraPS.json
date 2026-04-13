@@ -1,0 +1,106 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "JiraPS",
+    "one_liner": "A PowerShell module to interact with Atlassian Jira via REST APIs, supporting both Cloud (v3) and Data Center/Server deployments with adaptive behavior."
+  },
+  "screens": [
+    {
+      "name": "PowerShell Console",
+      "purpose": "Primary interface for executing JiraPS commands and managing Jira resources via PowerShell syntax.",
+      "primary_actions": [
+        "Authenticate session",
+        "Configure Jira server",
+        "Convert between ADF and Markdown",
+        "Invoke issue transitions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "ConvertFrom-AtlassianDocumentFormat",
+      "purpose": "Converts Atlassian Document Format (ADF) objects from Jira Cloud v3 into Markdown; passes plain strings from Data Center unchanged.",
+      "async": false,
+      "input": {
+        "json_fixture": "string",
+        "markdown_fixture": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ConvertTo-AtlassianDocumentFormat",
+      "purpose": "Converts Markdown input into Atlassian Document Format (ADF) for writing descriptions and comments on Jira Cloud v3.",
+      "async": false,
+      "input": {
+        "json_fixture": "string",
+        "markdown_fixture": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "Invoke-JiraMethod",
+      "purpose": "Executes low-level REST requests to Jira with automatic pagination, rate-limit handling, and Cloud/Data Center adaptation.",
+      "async": false,
+      "input": {
+        "json_fixture": "string",
+        "markdown_fixture": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "New-JiraSession",
+      "purpose": "Establishes an authenticated session with Jira using credentials or custom headers, enabling subsequent API calls.",
+      "async": false,
+      "input": {
+        "json_fixture": "string",
+        "markdown_fixture": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "adf.sample",
+        "columns": [
+          {
+            "name": "json_fixture",
+            "type": "TEXT"
+          },
+          {
+            "name": "markdown_fixture",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add server configuration via Set-JiraConfigServer",
+    "week 1: Implement core authentication flow with New-JiraSession",
+    "week 1: Integrate Invoke-JiraMethod with rate-limit retry logic",
+    "week 1: Support basic issue retrieval and transition"
+  ],
+  "acceptance_tests": [
+    "ConvertTo-AtlassianDocumentFormat correctly transforms Markdown headings, lists, and tables into valid ADF",
+    "Invoke-JiraMethod automatically retries on HTTP 429 with exponential backoff and respects Retry-After header",
+    "Module auto-detects Jira Cloud vs Data Center and routes API calls appropriately without user intervention",
+    "User can authenticate to Jira Cloud using New-JiraSession with credentials and successfully call Get-JiraIssue"
+  ]
+}

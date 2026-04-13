@@ -1,0 +1,3584 @@
+{
+  "run_id": "20260413T054517Z",
+  "generated_at": "2026-04-13T05:45:17.581Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 49,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 13,
+      "release": 9,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-13T05:49:41.763Z",
+    "repo_count": 216
+  },
+  "candidates": [
+    {
+      "full_name": "stefansundin/rssbox",
+      "html_url": "https://github.com/stefansundin/rssbox",
+      "description": ":newspaper: I consume the world via RSS feeds, and this is my attempt to keep it that way.",
+      "topics": [
+        "atom-feed",
+        "dailymotion",
+        "elasticbeanstalk",
+        "imgur",
+        "mixcloud",
+        "rss-feed",
+        "soundcloud",
+        "twitch",
+        "vimeo",
+        "webapp",
+        "youtube"
+      ],
+      "language": "Ruby",
+      "stargazers_count": 806,
+      "forks_count": 68,
+      "open_issues_count": 10,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-04-13T05:45:07Z",
+      "created_at": "2015-05-25T02:15:45Z"
+    },
+    {
+      "full_name": "tamagui/tamagui",
+      "html_url": "https://github.com/tamagui/tamagui",
+      "description": "Style React fast with 100% parity on React Native, an optional UI kit, and optimizing compiler.",
+      "topics": [
+        "atomic-css",
+        "css-in-js",
+        "optimizing-compiler",
+        "react",
+        "react-native",
+        "react-native-web",
+        "tailwind",
+        "typescript",
+        "ui",
+        "ui-components",
+        "vite",
+        "webpack"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 13882,
+      "forks_count": 590,
+      "open_issues_count": 84,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-13T05:44:43Z",
+      "created_at": "2020-10-16T21:19:51Z"
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen IDE for building with coding agents",
+      "topics": [
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 852,
+      "forks_count": 44,
+      "open_issues_count": 39,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-13T05:44:10Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    },
+    {
+      "full_name": "AtlassianPS/JiraPS",
+      "html_url": "https://github.com/AtlassianPS/JiraPS",
+      "description": "PowerShell module to interact with Atlassian JIRA",
+      "topics": [
+        "api",
+        "atlassian",
+        "atlassianps",
+        "jira",
+        "powershell",
+        "powershell-gallery",
+        "rest",
+        "windows-powershell"
+      ],
+      "language": "PowerShell",
+      "stargazers_count": 349,
+      "forks_count": 142,
+      "open_issues_count": 160,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-04-13T05:42:30Z",
+      "created_at": "2015-07-08T19:47:00Z"
+    },
+    {
+      "full_name": "tonhowtf/omniget",
+      "html_url": "https://github.com/tonhowtf/omniget",
+      "description": " Desktop app to download videos, courses. YouTube, Instagram, TikTok, Bilibili (哔哩哔哩), Douyin (抖音), 小红书, 快手, 优酷, Hotmart, Udemy, Kiwify, Telegram, and 1000+ more via yt-dlp. Download torrents and send files between devices over P2P.",
+      "topics": [
+        "bilibili-downloader",
+        "course-downloader",
+        "desktop-app",
+        "download-manager",
+        "downloader",
+        "hotmart-downloader",
+        "instagram-downloader",
+        "media-downloader",
+        "open-source",
+        "reddit-downloader",
+        "rust",
+        "svelte",
+        "tauri",
+        "tiktok-downloader",
+        "twitter-downloader",
+        "udemy",
+        "udemy-downloader",
+        "video-downloader",
+        "youtube-downloader",
+        "yt-dlp"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1373,
+      "forks_count": 59,
+      "open_issues_count": 0,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-13T05:40:33Z",
+      "created_at": "2026-02-11T22:44:56Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "stefansundin/rssbox",
+      "html_url": "https://github.com/stefansundin/rssbox",
+      "description": ":newspaper: I consume the world via RSS feeds, and this is my attempt to keep it that way.",
+      "topics": [
+        "atom-feed",
+        "dailymotion",
+        "elasticbeanstalk",
+        "imgur",
+        "mixcloud",
+        "rss-feed",
+        "soundcloud",
+        "twitch",
+        "vimeo",
+        "webapp",
+        "youtube"
+      ],
+      "language": "Ruby",
+      "stargazers_count": 806,
+      "forks_count": 68,
+      "open_issues_count": 10,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-04-13T05:45:07Z",
+      "created_at": "2015-05-25T02:15:45Z"
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen IDE for building with coding agents",
+      "topics": [
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 852,
+      "forks_count": 44,
+      "open_issues_count": 39,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-13T05:44:10Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    },
+    {
+      "full_name": "AtlassianPS/JiraPS",
+      "html_url": "https://github.com/AtlassianPS/JiraPS",
+      "description": "PowerShell module to interact with Atlassian JIRA",
+      "topics": [
+        "api",
+        "atlassian",
+        "atlassianps",
+        "jira",
+        "powershell",
+        "powershell-gallery",
+        "rest",
+        "windows-powershell"
+      ],
+      "language": "PowerShell",
+      "stargazers_count": 349,
+      "forks_count": 142,
+      "open_issues_count": 160,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-04-13T05:42:30Z",
+      "created_at": "2015-07-08T19:47:00Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "stefansundin/rssbox",
+      "html_url": "https://github.com/stefansundin/rssbox",
+      "description": ":newspaper: I consume the world via RSS feeds, and this is my attempt to keep it that way.",
+      "topics": [
+        "atom-feed",
+        "dailymotion",
+        "elasticbeanstalk",
+        "imgur",
+        "mixcloud",
+        "rss-feed",
+        "soundcloud",
+        "twitch",
+        "vimeo",
+        "webapp",
+        "youtube"
+      ],
+      "language": "Ruby",
+      "stargazers_count": 806,
+      "forks_count": 68,
+      "open_issues_count": 10,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-04-13T05:45:07Z",
+      "created_at": "2015-05-25T02:15:45Z",
+      "readme": {
+        "fetched": true,
+        "text": "# RSS Box\n\nThis app uses the API of other websites and gives you an RSS feed in return. Quick and simple.\n\nList of public RSS Box instances: https://github.com/stefansundin/rssbox/discussions/64\n\nTo open `vlc://` links, see [vlc-protocol](https://github.com/stefansundin/vlc-protocol).\n\n## Roll your own\n\nTo deploy to Elastic Beanstalk, see [.ebextensions/README.md](.ebextensions/README.md).\n\nTo deploy to Kubernetes, see [kubernetes/README.md](kubernetes/README.md).\n\nA Docker image is available on [Docker Hub](https://hub.docker.com/r/stefansundin/rssbox) and [Amazon ECR](https://gallery.ecr.aws/stefansundin/rssbox).\n\n**Note:** Redis is an optional dependency! It is only used for the URL resolution feature.\n\n### Configuration\n\nYou need to get API keys for the respective services and populate the environment variables, e.g. by using an [.env](.env.example) file.\n\nA couple of services do not have official APIs, or do not require API keys, so they will work without any keys.\n\nThese services do not require API keys: Instagram, Mixcloud, Speedrun, Dailymotion.\n\n#### YouTube\n\nGo to the [Google Developer Console](https://console.developers.google.com/), create a project and a server key. Copy the server key. Enable \"YouTube Data API v3\" in the project.\n\n#### Vimeo\n\nGo to the [Vimeo developer website](https://developer.vimeo.com/apps) and create an app. Then create a personal access token.\n\n#### Instagram\n\n> [!WARNING]\n> The Instagram integration is not being maintained and may not work very well at all. You may be wasting your time.\n\n#### Facebook\n\nFacebook was supported in the past, but I have been unable to obtain API access since they locked it down in 2018. Maybe we can rebuild it some day, but using scraping techniques or something. [Discuss here.](https://github.com/stefansundin/rssbox/issues/5)\n\n#### SoundCloud\n\nGo to the [SoundCloud developer website](https://soundcloud.com/you/apps). You need to open a support ticket to create an app. Copy your client id and secret.\n\n#### Twitch\n\nGo to your [Twitch settings](https://www.twitch.tv/settings/connections) and create an app. Copy your client id.\n\nTo download Twitch videos, you also need to configure a separate client id.\n\n#### Imgur\n\nGo to the [Imgur settings](https://imgur.com/account/settings/apps) and create an app. Copy your client id.\n",
+        "truncated": false,
+        "bytes": 2326,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "fly/v51",
+            "tag_name": "fly/v51",
+            "published_at": "2026-04-13T05:45:11Z",
+            "body_excerpt": "Deploy b187ab3\n\nDiff: https://github.com/stefansundin/rssbox/compare/fly/v50...fly/v51\n- [Update Instagram URL extraction since links to posts now include the username.](https://github.com/stefansundin/rssbox/commit/b187ab398091cba9d2e21360cb8040351611dda7)"
+          },
+          {
+            "name": "fly/v50",
+            "tag_name": "fly/v50",
+            "published_at": "2026-04-13T05:20:14Z",
+            "body_excerpt": "Deploy 209021f\n\nDiff: https://github.com/stefansundin/rssbox/compare/fly/v49...fly/v50\n- [Ruby 4.0.2 and update gems.](https://github.com/stefansundin/rssbox/commit/fe630e22ba37d812a951e5d72689b516f426025e)\n- [Instagram user lookups by username is broken. Looks like the search function requires you to be logged in now, bummer. Looking up users using a post seems to work fine still, so just point users to the alternative for now.](https://github.com/stefansundin/rssbox/commit/209021fc225f1cf3b9e7753dbd222dc6addbd1a1)"
+          },
+          {
+            "name": "fly/v49",
+            "tag_name": "fly/v49",
+            "published_at": "2026-01-19T01:37:39Z",
+            "body_excerpt": "Deploy 9f189f2\n\nDiff: https://github.com/stefansundin/rssbox/compare/fly/v49...fly/v49\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 77,
+            "title": "SOCI support",
+            "state": "open",
+            "url": "https://github.com/stefansundin/rssbox/issues/77"
+          },
+          {
+            "number": 50,
+            "title": "SoundCloud Suggest",
+            "state": "closed",
+            "url": "https://github.com/stefansundin/rssbox/issues/50"
+          },
+          {
+            "number": 72,
+            "title": "Soundcloud 422 error ",
+            "state": "closed",
+            "url": "https://github.com/stefansundin/rssbox/issues/72"
+          },
+          {
+            "number": 67,
+            "title": "Runtime issue on Synology",
+            "state": "closed",
+            "url": "https://github.com/stefansundin/rssbox/issues/67"
+          },
+          {
+            "number": 18,
+            "title": "Quora feeds?",
+            "state": "closed",
+            "url": "https://github.com/stefansundin/rssbox/issues/18"
+          },
+          {
+            "number": 31,
+            "title": "Instagram Photo no found",
+            "state": "closed",
+            "url": "https://github.com/stefansundin/rssbox/issues/31"
+          },
+          {
+            "number": 8,
+            "title": "Media file on Instagram RSS",
+            "state": "closed",
+            "url": "https://github.com/stefansundin/rssbox/issues/8"
+          }
+        ]
+      },
+      "root_files": [
+        ".dockerenv.example",
+        ".dockerignore",
+        ".ebextensions",
+        ".env.example",
+        ".gitignore",
+        ".irbrc",
+        ".platform",
+        ".ruby-version",
+        "Caddyfile",
+        "Dockerfile",
+        "Gemfile",
+        "Gemfile.lock",
+        "LICENSE",
+        "Procfile",
+        "README.md",
+        "Rakefile",
+        "app.rb",
+        "app",
+        "bin",
+        "config.ru",
+        "config",
+        "docker-compose.yml",
+        "fly.toml",
+        "kubernetes",
+        "lib",
+        "log",
+        "prometheus.yml",
+        "public",
+        "tmp",
+        "views"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 1)",
+          "excerpt": "This app uses the API of other websites and gives you an RSS feed in return. Quick and simple.",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 1,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 2)",
+          "excerpt": "List of public RSS Box instances: https://github.com/stefansundin/rssbox/discussions/64",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 2,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 3)",
+          "excerpt": "To open `vlc://` links, see [vlc-protocol](https://github.com/stefansundin/vlc-protocol).",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 3,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 4)",
+          "excerpt": "To deploy to Elastic Beanstalk, see [.ebextensions/README.md](.ebextensions/README.md).",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 4,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 5)",
+          "excerpt": "A Docker image is available on [Docker Hub](https://hub.docker.com/r/stefansundin/rssbox) and [Amazon ECR](https://gallery.ecr.aws/stefansundin/rssbox).",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 5,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**Note:** Redis is an optional dependency! It is only used for the URL resolution feature.",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 6,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 7)",
+          "excerpt": "You need to get API keys for the respective services and populate the environment variables, e.g. by using an [.env](.env.example) file.",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 7,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/stefansundin/rssbox#readme",
+          "title": "README (segment 8)",
+          "excerpt": "A couple of services do not have official APIs, or do not require API keys, so they will work without any keys.",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "segment": 8,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/77",
+          "title": "SOCI support",
+          "excerpt": "SOCI support (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 77
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/50",
+          "title": "SoundCloud Suggest",
+          "excerpt": "SoundCloud Suggest (state:closed)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 50
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/72",
+          "title": "Soundcloud 422 error ",
+          "excerpt": "Soundcloud 422 error (state:closed)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 72
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/67",
+          "title": "Runtime issue on Synology",
+          "excerpt": "Runtime issue on Synology (state:closed)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 67
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/18",
+          "title": "Quora feeds?",
+          "excerpt": "Quora feeds? (state:closed)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 18
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/31",
+          "title": "Instagram Photo no found",
+          "excerpt": "Instagram Photo no found (state:closed)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 31
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/stefansundin/rssbox/issues/8",
+          "title": "Media file on Instagram RSS",
+          "excerpt": "Media file on Instagram RSS (state:closed)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "number": 8
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/stefansundin/rssbox/releases",
+          "title": "fly/v51",
+          "excerpt": "Deploy b187ab3 Diff: https://github.com/stefansundin/rssbox/compare/fly/v50...fly/v51 - [Update Instagram URL extraction since links to posts now include the username.](https://github.com/stefansundin/rssbox/commit/b187ab398091cba9d2e21360cb8040351611dda7)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "tag_name": "fly/v51",
+            "published_at": "2026-04-13T05:45:11Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/stefansundin/rssbox/releases",
+          "title": "fly/v50",
+          "excerpt": "Deploy 209021f Diff: https://github.com/stefansundin/rssbox/compare/fly/v49...fly/v50 - [Ruby 4.0.2 and update gems.](https://github.com/stefansundin/rssbox/commit/fe630e22ba37d812a951e5d72689b516f426025e) - [Instagram user lookups by username is broken. Looks like the search function requires you to be logged in now, bummer. Looking up users using a post seems to work fine still, so just point users to the alternative for now.](https://github.com/stefansundin/rssbox/commit/209021fc225f1cf3b9e7753dbd222dc6addbd1a1)",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "tag_name": "fly/v50",
+            "published_at": "2026-04-13T05:20:14Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/stefansundin/rssbox/releases",
+          "title": "fly/v49",
+          "excerpt": "Deploy 9f189f2 Diff: https://github.com/stefansundin/rssbox/compare/fly/v49...fly/v49",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "tag_name": "fly/v49",
+            "published_at": "2026-01-19T01:37:39Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/stefansundin/rssbox",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerenv.example, .dockerignore, .ebextensions, .env.example, .gitignore, .irbrc, .platform, .ruby-version, Caddyfile, Dockerfile, Gemfile, Gemfile.lock, LICENSE, Procfile, README.md, Rakefile, app.rb, app, bin, config.ru, config, docker-compose.yml, fly.toml, kubernetes, lib, log, prometheus.yml, public, tmp, views",
+          "fetched_at": "2026-04-13T05:45:22.919Z",
+          "meta": {
+            "repo_full_name": "stefansundin/rssbox",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen IDE for building with coding agents",
+      "topics": [
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 852,
+      "forks_count": 44,
+      "open_issues_count": 39,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-13T05:44:10Z",
+      "created_at": "2026-03-17T03:28:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://onOrca.dev\"><img src=\"resources/build/icon.png\" alt=\"Orca\" width=\"128\" /></a>\n</p>\n\n<h1 align=\"center\">Orca</h1>\n\n<p align=\"center\">\n  <a href=\"https://github.com/stablyai/orca/stargazers\"><img src=\"https://img.shields.io/github/stars/stablyai/orca?style=flat-square&color=black\" alt=\"GitHub stars\" /></a>\n  <img src=\"https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-black?style=flat-square\" alt=\"Supported Platforms\" />\n  <img src=\"https://img.shields.io/badge/ships-150+-black?style=flat-square\" alt=\"Ships\" />\n  <a href=\"https://discord.gg/fzjDKHxv8Q\"><img src=\"https://img.shields.io/badge/Discord-Join-black?style=flat-square&logo=discord&logoColor=white\" alt=\"Discord\" /></a>\n  <a href=\"https://x.com/orca_build\"><img src=\"https://img.shields.io/twitter/follow/orca_build?style=social\" alt=\"Follow on X\" /></a>\n</p>\n\n<p align=\"center\">\n  <strong>The AI Orchestrator for 100x builders.</strong><br/>\n  Run Claude Code, Codex, or OpenCode side-by-side across repos — each in its own worktree, tracked in one place.<br/>\n  Available for <strong>macOS, Windows, and Linux</strong>.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://onOrca.dev\"><strong>Download at onOrca.dev</strong></a>\n</p>\n\n<p align=\"center\">\n  <img src=\"docs/assets/file-drag.gif\" alt=\"Orca Screenshot\" width=\"800\" />\n</p>\n\n## Supported Agents\n\nOrca supports any CLI agent (_not just this list_).\n\n<p>\n  <a href=\"https://docs.anthropic.com/claude/docs/claude-code\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=anthropic.com&sz=64\" width=\"16\" valign=\"middle\" /> Claude Code</kbd></a> &nbsp;\n  <a href=\"https://github.com/openai/codex\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=openai.com&sz=64\" width=\"16\" valign=\"middle\" /> Codex</kbd></a> &nbsp;\n  <a href=\"https://github.com/google-gemini/gemini-cli\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64\" width=\"16\" valign=\"middle\" /> Gemini</kbd></a> &nbsp;\n  <a href=\"https://pi.dev\"><kbd><img src=\"https://pi.dev/favicon.svg\" width=\"16\" valign=\"middle\" /> Pi</kbd></a> &nbsp;\n  <a href=\"https://hermes-agent.nousresearch.com/docs/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=nousresearch.com&sz=64\" width=\"16\" valign=\"middle\" /> Hermes Agent</kbd></a> &nbsp;\n  <a href=\"https://opencode.ai/docs/cli/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=opencode.ai&sz=64\" width=\"16\" valign=\"middle\" /> OpenCode</kbd></a> &nbsp;\n  <a href=\"https://block.github.io/goose/docs/quickstart/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=goose-docs.ai&sz=64\" width=\"16\" valign=\"middle\" /> Goose</kbd></a> &nbsp;\n  <a href=\"https://ampcode.com/manual#install\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=ampcode.com&sz=64\" width=\"16\" valign=\"middle\" /> Amp</kbd></a> &nbsp;\n  <a href=\"https://docs.augmentcode.com/cli/overview\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=augmentcode.com&sz=64\" width=\"16\" valign=\"middle\" /> Auggie</kbd></a> &nbsp;\n  <a href=\"https://github.com/charmbracelet/crush\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=charm.sh&sz=64\" width=\"16\" valign=\"middle\" /> Charm</kbd></a> &nbsp;\n  <a href=\"https://docs.cline.bot/cline-cli/overview\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=cline.bot&sz=64\" width=\"16\" valign=\"middle\" /> Cline</kbd></a> &nbsp;\n  <a href=\"https://www.codebuff.com/docs/help/quick-start\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=codebuff.com&sz=64\" width=\"16\" valign=\"middle\" /> Codebuff</kbd></a> &nbsp;\n  <a href=\"https://docs.continue.dev/guides/cli\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=continue.dev&sz=64\" width=\"16\" valign=\"middle\" /> Continue</kbd></a> &nbsp;\n  <a href=\"https://cursor.com/cli\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=cursor.com&sz=64\" width=\"16\" valign=\"middle\" /> Cursor</kbd></a> &nbsp;\n  <a href=\"https://docs.factory.ai/cli/getting-started/quickstart\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=factory.ai&sz=64\" width=\"16\" valign=\"middle\" /> Droid</kbd></a> &nbsp;\n  <a href=\"https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=github.com&sz=64\" width=\"16\" valign=\"middle\" /> GitHub Copilot</kbd></a> &nbsp;\n  <a href=\"https://kilo.ai/docs/cli\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=kilo.ai&sz=64\" width=\"16\" valign=\"middle\" /> Kilocode</kbd></a> &nbsp;\n  <a href=\"https://www.kimi.com/code/docs/en/kimi-cli/guides/getting-started.html\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=moonshot.cn&sz=64\" width=\"16\" valign=\"middle\" /> Kimi</kbd></a> &nbsp;\n  <a href=\"https://kiro.dev/docs/cli/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=kiro.dev&sz=64\" width=\"16\" valign=\"middle\" /> Kiro</kbd></a> &nbsp;\n  <a href=\"https://github.com/mistralai/mistral-vibe\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=mistral.ai&sz=64\" width=\"16\" valign=\"middle\" /> Mistral Vibe</kbd></a> &nbsp;\n  <a href=\"https://github.com/QwenLM/qwen-code\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=qwenlm.github.io&sz=64\" width=\"16\" valign=\"middle\" /> Qwen Code</kbd></a> &nbsp;\n  <a href=\"https://support.atlassian.com/rovo/docs/install-and-run-rovo-dev-cli-on-your-device/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=atlassian.com&sz=64\" width=\"16\" valign=\"middle\" /> Rovo Dev</kbd></a>\n</p>\n\n---\n\n## Features\n\n- **No login required** — Bring your own Claude Code or Codex subscription.\n- **Worktree-native** — Every feature gets its own worktree. No stashing, no branch juggling. Spin up and switch instantly.\n- **Multi-agent terminals** — Run multiple AI agents side-by-side in tabs and panes. See which ones are active at a glance.\n- **Built-in source control** — Review AI-generated diffs, make quick edits, and commit without leaving Orca.\n- **GitHub integration** — PRs, issues, and Actions checks linked to each worktree automatically.\n- **Notifications** — Know when an agent finishes or needs attention. Mark threads unread to come back later.\n\n---\n\n## Install\n\n- **[Download from onOrca.dev](https://onOrca.dev)**\n- Or download the latest binaries via the **[GitHub Releases page](https://github.com/stablyai/orca/releases)**.\n\n---\n\n## [New] Hot Swap Codex Accounts\n\n**Multiple Codex accounts? Switch in one click.**\n\nIf you run multiple Codex accounts to get the best token deal, Orca lets you hot-swap between them instantly — no re-login, no config files. Just pick an account and keep building.\n\n<p align=\"center\">\n  <img src=\"docs/assets/codex-account-switcher.gif\" alt=\"Orca Codex Account Switcher — hot swap between multiple Codex accounts\" width=\"800\" />\n</p>\n\n---\n\n## [New] Per Worktree Browser &amp; Design Mode\n\n**See your app. Click any element. Drop it into the chat.**\n\nOrca ships with a built-in browser right inside your worktree. Preview your app as you build, then switch to Design Mode — click any UI element and it lands directly in your AI chat as context. No screenshots, no copy-pasting selectors. Just point at what you want to change and tell the agent what to do.\n\n<p align=\"center\">\n  <img src=\"docs/assets/orca-design-mode.gif\" alt=\"Orca Design Mode — click any UI element and drop it into the chat\" width=\"800\" />\n</p>\n\n---\n\n## [New] Introducing the Orca CLI\n\n**Agent orchestration from your terminal.**\n\nLet your AI agent control your IDE. Use AI to add repos to your IDE, spin up worktrees, and update the current worktree's comment with meaningful progress checkpoints directly from the terminal. Ships with the Orca IDE (install under Settings).\n\n```bash\nnpx skills add https://github.com/stablyai/orca --skill orca-cli\n```\n\n---\n\n## Community &amp; Support\n\n- **Discord:** Join the community on **[Discord](https://discord.gg/fzjDKHxv8Q)**.\n- **Twitter / X:** Follow **[@orca_build](https://x.com/orca_build)** for updates and announcements.\n- **Feedback &amp; Ideas:** We ship fast. Missing something? [Request a new feature](https://github.com/stablyai/orca/issues).\n- **Show Support:** Star this repo to follow along with our daily ships.\n\n---\n\n## Developing\n\nWant to contribute or run locally? See our [CONTRIBUTING.md](CONTRIBUTING.md) guide.",
+        "truncated": false,
+        "bytes": 8313,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.1.23",
+            "tag_name": "v1.1.23",
+            "published_at": "2026-04-12T23:07:51Z",
+            "body_excerpt": "## What's Changed\n* Fix active agent display: hide separator when empty, add quick-hide by @AmethystLiang in https://github.com/stablyai/orca/pull/555\n* fix: reapply terminal shortcuts firing in wrong worktree by @brennanb2025 in https://github.com/stablyai/orca/pull/554\n* Promote primary worktree to top when searching by repo name by @AmethystLiang in https://github.com/stablyai/orca/pull/557\n\n\n**Full Changelog**: https://github.com/stablyai/orca/compare/v1.1.22...v1.1.23"
+          },
+          {
+            "name": "v1.1.22",
+            "tag_name": "v1.1.22",
+            "published_at": "2026-04-12T22:39:55Z",
+            "body_excerpt": "## What's Changed\n* fix: preserve terminal scroll position when splitting panes by @Jinwoo-H in https://github.com/stablyai/orca/pull/543\n* fix: Cmd+X in rich markdown editor deletes only the current line by @AmethystLiang in https://github.com/stablyai/orca/pull/545\n* Revert \"fix: terminal shortcuts firing in wrong worktree\" by @brennanb2025 in https://github.com/stablyai/orca/pull/546\n* Revert \"fix: preserve terminal sessions when switching worktrees\" by @brennanb2025 in https://github.com/stablyai/orca/pull/547\n* Revert \"Start new worktrees with a terminal by default\" by @brennanb2025 in https://github.com/stablyai/orca/pull/549\n* Improve auto-updater changelog fallback and dismiss bypass by @AmethystLiang in https://github.com/stablyai/orca/pull/550\n* Revert \"Split-screen tab groups with canonical group/item model\" by @brennanb2025 in https://github.com/stablyai/orca/pull/551\n\n\n**Full Changelog**: https://github.com/stablyai/orca/compare/v1.1.21...v1.1.22"
+          },
+          {
+            "name": "v1.1.21",
+            "tag_name": "v1.1.21",
+            "published_at": "2026-04-12T20:34:07Z",
+            "body_excerpt": "## What's Changed\n* Start new worktrees with a terminal by default by @Jinwoo-H in https://github.com/stablyai/orca/pull/539\n* fix: preserve terminal sessions when switching worktrees by @heyramzi in https://github.com/stablyai/orca/pull/535\n* Add worktree creation to Cmd+J palette by @Jinwoo-H in https://github.com/stablyai/orca/pull/541\n* fix: terminal shortcuts firing in wrong worktree by @Jinwoo-H in https://github.com/stablyai/orca/pull/542\n\n\n**Full Changelog**: https://github.com/stablyai/orca/compare/v1.1.19...v1.1.21"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 574,
+            "title": "PDF preview panel is too short and hard to navigate",
+            "state": "open",
+            "url": "https://github.com/stablyai/orca/issues/574"
+          },
+          {
+            "number": 560,
+            "title": "Right-click should paste in terminal instead of opening context menu (Windows)",
+            "state": "open",
+            "url": "https://github.com/stablyai/orca/issues/560"
+          },
+          {
+            "number": 568,
+            "title": "The browser tab gets reloaded each time when I switch back into a worktree",
+            "state": "open",
+            "url": "https://github.com/stablyai/orca/issues/568"
+          }
+        ]
+      },
+      "root_files": [
+        ".agents",
+        ".claude",
+        ".editorconfig",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".npmrc",
+        ".oxfmtrc.json",
+        ".oxlintrc.json",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "components.json",
+        "config",
+        "dev-app-update.yml",
+        "docs",
+        "electron.vite.config.ts",
+        "package.json",
+        "pnpm-lock.yaml",
+        "resources",
+        "skills-lock.json",
+        "skills",
+        "src",
+        "tsconfig.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://onOrca.dev\"><img src=\"resources/build/icon.png\" alt=\"Orca\" width=\"128\" /></a> </p>",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/stablyai/orca/stargazers\"><img src=\"https://img.shields.io/github/stars/stablyai/orca?style=flat-square&color=black\" alt=\"GitHub stars\" /></a> <img src=\"https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-black?style=flat-square\" alt=\"Supported Platforms\" /> <img src=\"https://img.shields.io/badge/ships-150+-black?style=flat-square\" alt=\"Ships\" /> <a href=\"https://discord.gg/fzjDKHxv8Q\"><img src=\"https://img.shields.io/badge/Discord-Join-black?style=flat-square&logo=discord&logoColor=white\" alt=\"Discord\" /></a> <a href=\"https://x.com/orca_build\"><img src=\"https://img.shields.io/twitter/follow/orca_build?style=social\" alt=\"Follow on X\" /></a> </p>",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <strong>The AI Orchestrator for 100x builders.</strong><br/> Run Claude Code, Codex, or OpenCode side-by-side across repos — each in its own worktree, tracked in one place.<br/> Available for <strong>macOS, Windows, and Linux</strong>. </p>",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://onOrca.dev\"><strong>Download at onOrca.dev</strong></a> </p>",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> <img src=\"docs/assets/file-drag.gif\" alt=\"Orca Screenshot\" width=\"800\" /> </p>",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<p> <a href=\"https://docs.anthropic.com/claude/docs/claude-code\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=anthropic.com&sz=64\" width=\"16\" valign=\"middle\" /> Claude Code</kbd></a> &nbsp; <a href=\"https://github.com/openai/codex\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=openai.com&sz=64\" width=\"16\" valign=\"middle\" /> Codex</kbd></a> &nbsp; <a href=\"https://github.com/google-gemini/gemini-cli\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64\" width=\"16\" valign=\"middle\" /> Gemini</kbd></a> &nbsp; <a href=\"https://pi.dev\"><kbd><img src=\"https://pi.dev/favicon.svg\" width=\"16\" valign=\"middle\" /> Pi</kbd></a> &nbsp; <a href=\"https://hermes-agent.nousresearch.com/docs/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=nousresearch.com&sz=64\" width=\"16\" valign=\"middle\" /> Hermes Agent</kbd></a> &nbsp; <a href=\"https://opencode.ai/docs/cli/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=opencode.ai&sz=64\" width=\"16\" valign=\"middle\" /> OpenCode</kbd></a> &nbsp; <a href=\"https://block.github.io/goose/docs/quickstart/\"><kbd><img src=\"https://www.google.com/s2/favicons?domain=goose-docs.ai&sz=64\" width=\"16\" valign…",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **No login required** — Bring your own Claude Code or Codex subscription. - **Worktree-native** — Every feature gets its own worktree. No stashing, no branch juggling. Spin up and switch instantly. - **Multi-agent terminals** — Run multiple AI agents side-by-side in tabs and panes. See which ones are active at a glance. - **Built-in source control** — Review AI-generated diffs, make quick edits, and commit without leaving Orca. - **GitHub integration** — PRs, issues, and Actions checks linked to each worktree automatically. - **Notifications** — Know when an agent finishes or needs attention. Mark threads unread to come back later.",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/stablyai/orca#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- **[Download from onOrca.dev](https://onOrca.dev)** - Or download the latest binaries via the **[GitHub Releases page](https://github.com/stablyai/orca/releases)**.",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/stablyai/orca/issues/574",
+          "title": "PDF preview panel is too short and hard to navigate",
+          "excerpt": "PDF preview panel is too short and hard to navigate (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "number": 574
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/stablyai/orca/issues/560",
+          "title": "Right-click should paste in terminal instead of opening context menu (Windows)",
+          "excerpt": "Right-click should paste in terminal instead of opening context menu (Windows) (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "number": 560
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/stablyai/orca/issues/568",
+          "title": "The browser tab gets reloaded each time when I switch back into a worktree",
+          "excerpt": "The browser tab gets reloaded each time when I switch back into a worktree (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "number": 568
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/stablyai/orca/releases",
+          "title": "v1.1.23",
+          "excerpt": "## What's Changed * Fix active agent display: hide separator when empty, add quick-hide by @AmethystLiang in https://github.com/stablyai/orca/pull/555 * fix: reapply terminal shortcuts firing in wrong worktree by @brennanb2025 in https://github.com/stablyai/orca/pull/554 * Promote primary worktree to top when searching by repo name by @AmethystLiang in https://github.com/stablyai/orca/pull/557 **Full Changelog**: https://github.com/stablyai/orca/compare/v1.1.22...v1.1.23",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "tag_name": "v1.1.23",
+            "published_at": "2026-04-12T23:07:51Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/stablyai/orca/releases",
+          "title": "v1.1.22",
+          "excerpt": "## What's Changed * fix: preserve terminal scroll position when splitting panes by @Jinwoo-H in https://github.com/stablyai/orca/pull/543 * fix: Cmd+X in rich markdown editor deletes only the current line by @AmethystLiang in https://github.com/stablyai/orca/pull/545 * Revert \"fix: terminal shortcuts firing in wrong worktree\" by @brennanb2025 in https://github.com/stablyai/orca/pull/546 * Revert \"fix: preserve terminal sessions when switching worktrees\" by @brennanb2025 in https://github.com/stablyai/orca/pull/547 * Revert \"Start new worktrees with a terminal by default\" by @brennanb2025 in https://github.com/stablyai/orca/pull/549 * Improve auto-updater changelog fallback and dismiss bypass by @AmethystLiang in https://github.com/stablyai/orca/pull/550 * Revert \"Split-screen tab groups with canonical group/item model\" by @brennanb2025 in https://github.com/stablyai/orca/pull/551 **Full Changelog**: https://github.com/stablyai/orca/compare/v1.1.21...v1.1.22",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "tag_name": "v1.1.22",
+            "published_at": "2026-04-12T22:39:55Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/stablyai/orca/releases",
+          "title": "v1.1.21",
+          "excerpt": "## What's Changed * Start new worktrees with a terminal by default by @Jinwoo-H in https://github.com/stablyai/orca/pull/539 * fix: preserve terminal sessions when switching worktrees by @heyramzi in https://github.com/stablyai/orca/pull/535 * Add worktree creation to Cmd+J palette by @Jinwoo-H in https://github.com/stablyai/orca/pull/541 * fix: terminal shortcuts firing in wrong worktree by @Jinwoo-H in https://github.com/stablyai/orca/pull/542 **Full Changelog**: https://github.com/stablyai/orca/compare/v1.1.19...v1.1.21",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "tag_name": "v1.1.21",
+            "published_at": "2026-04-12T20:34:07Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/stablyai/orca",
+          "title": "ROOT_FILES",
+          "excerpt": ".agents, .claude, .editorconfig, .github, .gitignore, .husky, .npmrc, .oxfmtrc.json, .oxlintrc.json, AGENTS.md, CLAUDE.md, CONTRIBUTING.md, LICENSE, README.md, components.json, config, dev-app-update.yml, docs, electron.vite.config.ts, package.json, pnpm-lock.yaml, resources, skills-lock.json, skills, src, tsconfig.json",
+          "fetched_at": "2026-04-13T05:45:22.653Z",
+          "meta": {
+            "repo_full_name": "stablyai/orca",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "AtlassianPS/JiraPS",
+      "html_url": "https://github.com/AtlassianPS/JiraPS",
+      "description": "PowerShell module to interact with Atlassian JIRA",
+      "topics": [
+        "api",
+        "atlassian",
+        "atlassianps",
+        "jira",
+        "powershell",
+        "powershell-gallery",
+        "rest",
+        "windows-powershell"
+      ],
+      "language": "PowerShell",
+      "stargazers_count": 349,
+      "forks_count": 142,
+      "open_issues_count": 160,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-04-13T05:42:30Z",
+      "created_at": "2015-07-08T19:47:00Z",
+      "readme": {
+        "fetched": true,
+        "text": "---\nlayout: module\npermalink: /module/JiraPS/\n---\n# [JiraPS](https://atlassianps.org/module/JiraPS)\n\n[![GitHub release](https://img.shields.io/github/release/AtlassianPS/JiraPS.svg?style=for-the-badge)](https://github.com/AtlassianPS/JiraPS/releases/latest)\n[![Build Status](https://img.shields.io/github/actions/workflow/status/AtlassianPS/JiraPS/build_and_test.yml?style=for-the-badge)](https://github.com/AtlassianPS/JiraPS/actions/workflows/build_and_test.yml)\n[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/JiraPS.svg?style=for-the-badge)](https://www.powershellgallery.com/packages/JiraPS)\n![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)\n\nJiraPS is a Windows PowerShell module to interact with Atlassian [JIRA] via a REST API, while maintaining a consistent PowerShell look and feel.\n\nJoin the conversation on [![SlackLogo][] AtlassianPS.Slack.com](https://atlassianps.org/slack)\n\n[SlackLogo]: https://atlassianps.org/assets/img/Slack_Mark_Web_28x28.png\n<!--more-->\n\n---\n\n## Instructions\n\n### Installation\n\nInstall JiraPS from the [PowerShell Gallery]! `Install-Module` requires PowerShellGet (included in PS v5, or download for v3/v4 via the gallery link)\n\n```powershell\n# One time only install:\nInstall-Module JiraPS -Scope CurrentUser\n\n# Check for updates occasionally:\nUpdate-Module JiraPS\n```\n\n### Usage\n\n```powershell\n# To use each session:\nImport-Module JiraPS\nSet-JiraConfigServer 'https://YourCloud.atlassian.net'\nNew-JiraSession -Credential $cred\n```\n\nYou can find the full documentation on our [homepage](https://atlassianps.org/docs/JiraPS) and in the console.\n\n```powershell\n# Review the help at any time!\nGet-Help about_JiraPS\nGet-Command -Module JiraPS\nGet-Help Get-JiraIssue -Full # or any other command\n```\n\nFor more information on how to use JiraPS, check out the [Documentation](https://atlassianps.org/docs/JiraPS/).\n\n### Contribute\n\nWant to contribute to AtlassianPS? Great!\nWe appreciate [everyone](https://atlassianps.org/#people) who invests their time to make our modules the best they can be.\n\nCheck out our guidelines on [Contributing] to our modules and documentation.\n\n#### DevContainer\n\nThis repository offers a [\"devcontainer\"](https://containers.dev/) setup.\n\n> **What are Development Containers?**\n> A development container (or dev container for short) allows you to use\n> a container as a full-featured development environment.\n> It can be used to run an application, to separate tools, libraries,\n> or runtimes needed for working with a codebase,\n> and to aid in continuous integration and testing.\n\nYou can use the devcontainer to spin up a fine tuned development environment with\neverything you need for working on this project.\n\nThe easiest way for using DevContainers is with [VS Code](https://code.visualstudio.com/),\nits extension `ms-vscode-remote.remote-containers`,\nand [docker](https://docs.docker.com/engine/install/).\nWhen opening the repository in VS Code, it will recommend the installation of the extension.\nAnd once installed, you will be prompted to \"Reopen in Container\".\n\n## Tested on\n\n* Windows Powershell v3\n* Windows Powershell v4\n* Windows Powershell v5.1\n* Powershell Core (latest) on Windows\n* Powershell Core (latest) on Ubuntu\n* Powershell Core (latest) on MacOS\n\n## Acknowledgements\n\n* Thanks to [replicaJunction] for getting this module on its feet\n* Thanks to everyone ([Our Contributors](https://atlassianps.org/#people)) that helped with this module\n\n## Useful links\n\n* [Source Code]\n* [Latest Release]\n* [Submit an Issue]\n* [Contributing]\n* How you can help us: [List of Issues](https://github.com/AtlassianPS/JiraPS/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs)\n\n## Disclaimer\n\nHopefully this is obvious, but:\n\n> This is an open source project (under the [MIT license]), and all contributors are volunteers. All commands are executed at your own risk. Please have good backups before you start, because you can delete a lot of stuff if you're not careful.\n\n<!-- reference-style links -->\n  [JIRA]: https://www.atlassian.com/software/jira\n  [PowerShell Gallery]: https://www.powershellgallery.com/\n  [Source Code]: https://github.com/AtlassianPS/JiraPS\n  [Latest Release]: https://github.com/AtlassianPS/JiraPS/releases/latest\n  [Submit an Issue]: https://github.com/AtlassianPS/JiraPS/issues/new\n  [replicaJunction]: https://github.com/replicaJunction\n  [MIT license]: https://github.com/AtlassianPS/JiraPS/blob/master/LICENSE\n  [Contributing]: http://atlassianps.org/docs/Contributing\n",
+        "truncated": false,
+        "bytes": 4521,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.16.0-beta2",
+            "tag_name": "v2.16.0-beta2",
+            "published_at": "2026-04-12T21:27:07Z",
+            "body_excerpt": "## 🚀 Added\n\n- Added `ConvertFrom-AtlassianDocumentFormat` public function (alias `ConvertFrom-ADF`) — converts ADF objects (Jira Cloud v3) to Markdown; plain strings (Data Center) are passed through unchanged. Supports headings, bold/italic/strikethrough/code/links, bullet/ordered/task lists, tables, code fences, blockquotes, panels, mentions, emoji, and date nodes\r\n- Added `ConvertTo-AtlassianDocumentFormat` public function (alias `ConvertTo-ADF`) — converts Markdown to ADF for writing descriptions and comments on Jira Cloud v3. Supports all symmetric constructs: headings, inline marks, fenced code blocks, blockquotes, tables, task/bullet/ordered lists, block images\r\n- Added `Tests/Fixtures/adf.sample.json` + `Tests/Fixtures/adf.sample.md` — reference fixtures covering every ADF node type, used by unit tests\r\n- Added nested list support (2 levels) for both `ConvertTo-ADF` and `ConvertFrom-ADF` — indented bullet/ordered lists are now parsed and rendered correctly\r\n- Added combined inline mark support (`***bold italic***`, `**_nested_**`, `_**reverse**_`) — produces ADF text nodes with multiple marks\r\n- Added hard break support — trailing double-spaces in Markdown are converted to `hardBreak` ADF nodes and back\n\n## 🔧 Fixed\n\n- Fixed `ConvertTo-JiraComment` and `ConvertTo-JiraIssue` to pass `Body` and `Description` through `ConvertFrom-AtlassianDocumentFormat` — Jira Cloud API v3 returns ADF objects instead of plain strings; without conversion, fields contained raw `PSCustomObject` data instead of readable text\r\n- Fixed table separator regex in `ConvertTo-ADF` to handle compact separators without spaces (`|---|---|`)\r\n- Fixed `inlineCard` rendering in `ConvertFrom-ADF` to produce `<url>` instead of redundant `[url](url)`\r\n- Enforced UTF-8 with BOM across all PowerShell files for PS v5 compatibility (#574)"
+          },
+          {
+            "name": "v2.16.0-beta",
+            "tag_name": "v2.16.0-beta",
+            "published_at": "2026-04-06T18:02:40Z",
+            "body_excerpt": "## 🚀 Added\n\n- Added Jira Cloud vs Data Center compatibility guidance for Copilot code review (#568, [@lipkau])\r\n- Added `-Force` parameter to `Get-JiraServerInformation` to bypass the server info cache\r\n- Added `Test-JiraCloudServer` private function — thin boolean wrapper around `Get-JiraServerInformation` for clean deployment type checks\r\n- Added `Invoke-PaginatedRequest` private function — extracts pagination from `Invoke-JiraMethod` and adds token-based pagination support for API v3\r\n- Added HTTP 429 rate limit handling in `Test-ServerResponse` with automatic retry via recursion in `Invoke-JiraMethod` (respects `Retry-After` header, exponential backoff)\r\n- Added Jira Cloud compatibility — the module now auto-detects Cloud vs Data Center/Server via `Get-JiraServerInformation` and adapts API calls accordingly\r\n- Added `-AccountId` parameter to `Get-JiraUser` for Cloud's account-based user lookup\r\n- Added Cloud deployment test contexts across test files to cover both Server and Cloud code paths\r\n- Added \"Jira Cloud vs Data Center\" section to the authentication documentation\n\n## ⚙️ Changed\n\n- Modernized test infrastructure and standardized helper utilities (#549, [@copilot])\r\n- Removed redundant `-Scope It` from all test assertions (#562, [@lipkau])\r\n- Simplified `Should -Invoke` assertions in attachment tests (#563, [@lipkau])\r\n- Added `-ExpectedMessage` to all bare `Should -Throw` assertions (#564, [@lipkau])\r\n- Used `-ErrorVariable` to inspect non-terminating error in `Remove-JiraIssue` test (#565, [@lipkau])\r\n- Bumped `actions/upload-artifact` from 6 to 7 (#557)\r\n- Bumped `actions/download-artifact` from 7 to 8 (#559)\r\n- Bumped `dawidd6/action-download-artifact` from 12 to 19 (#560, #561)\r\n- `Get-JiraServerInformation` now caches its result in module scope; subsequent calls return cached data (cleared on `Set-JiraConfigServer` or with `-Force`)\r\n- `ConvertTo-JiraServerInfo` defaults `DeploymentType` to `Server` when the field is absent (old Jira Server versions"
+          },
+          {
+            "name": "v2.15",
+            "tag_name": "v2.15",
+            "published_at": "2025-12-30T22:52:33Z",
+            "body_excerpt": "## 2.15 - 2025-12-30\r\n\r\n### Added\r\n\r\n- Added `-Components` to `New-JiraIssue`. This will be a comma-separated list of Component IDs. (#483, [@micheleliberman])\r\n- Added `Get-JiraIssueWorklog` (#451, [@asherber])\r\n- Allow `New-JiraSession` to be called without `-Credential` so to use `-Header` (#439, [@pwshmatt])\r\n\r\n### Changed\r\n\r\n- Improved `-Transition` behavior in `Invoke-JiraIssueTransition` (#416, [@Rufus125])\r\n- Updated Pester to v5 (#543, [@SrBlackVoid])\r\n\r\n### Fixed\r\n\r\n- Fixed example and improved documentation on `-Properties` hashtable for `Set-JiraUser` (#509, [@jschlackman])\r\n- Fixed `Get-JiraIssueCreateMetadata` to conform with Atlassian's API changes ([documentation](https://confluence.atlassian.com/jiracore/createmeta-rest-endpoint-to-be-removed-975040986.html)) (#488, [@robertmbaker])\r\n- Removed `reporter` from `New-JiraIssue` when project is \"next-gen\" (#407, [@LaurentGoderre])\r\n- Fixed `-ErrorAction` in `Add-JiraGroupMember` (#426, [@spascoe])\r\n- Fixed copy/paste error in test files for `Get-JiraIssue` (#427, [@borislol])\r\n- Fixed JSON conversion in `Invoke-JiraIssueTransition` (#417, [@Rufus125])\r\n- Fixed type in `Invoke-JiraIssueTransition` (#417, [@Rufus125])"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 567,
+            "title": "Refactor: Remove `InModuleScope` wrapper from public function tests",
+            "state": "open",
+            "url": "https://github.com/AtlassianPS/JiraPS/issues/567"
+          },
+          {
+            "number": 544,
+            "title": "Invoke-JiraMethod: Client must be authenticated to access this resource.",
+            "state": "open",
+            "url": "https://github.com/AtlassianPS/JiraPS/issues/544"
+          },
+          {
+            "number": 552,
+            "title": "Invoke-JiraMethod : The user could not be authenticated.",
+            "state": "open",
+            "url": "https://github.com/AtlassianPS/JiraPS/issues/552"
+          }
+        ]
+      },
+      "root_files": [
+        ".devcontainer",
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".spelling",
+        ".vscode",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CODEOWNERS",
+        "CONTRIBUTING.md",
+        "JiraPS.build.ps1",
+        "JiraPS",
+        "LICENSE",
+        "PSScriptAnalyzerSettings.psd1",
+        "README.md",
+        "Tests",
+        "Tools",
+        "docs"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 1)",
+          "excerpt": "--- layout: module permalink: /module/JiraPS/ --- # [JiraPS](https://atlassianps.org/module/JiraPS)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 1,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![GitHub release](https://img.shields.io/github/release/AtlassianPS/JiraPS.svg?style=for-the-badge)](https://github.com/AtlassianPS/JiraPS/releases/latest) [![Build Status](https://img.shields.io/github/actions/workflow/status/AtlassianPS/JiraPS/build_and_test.yml?style=for-the-badge)](https://github.com/AtlassianPS/JiraPS/actions/workflows/build_and_test.yml) [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/JiraPS.svg?style=for-the-badge)](https://www.powershellgallery.com/packages/JiraPS) ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 2,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 3)",
+          "excerpt": "JiraPS is a Windows PowerShell module to interact with Atlassian [JIRA] via a REST API, while maintaining a consistent PowerShell look and feel.",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 3,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Join the conversation on [![SlackLogo][] AtlassianPS.Slack.com](https://atlassianps.org/slack)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 4,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[SlackLogo]: https://atlassianps.org/assets/img/Slack_Mark_Web_28x28.png <!--more-->",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 5,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Install JiraPS from the [PowerShell Gallery]! `Install-Module` requires PowerShellGet (included in PS v5, or download for v3/v4 via the gallery link)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 6,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```powershell # To use each session: Import-Module JiraPS Set-JiraConfigServer 'https://YourCloud.atlassian.net' New-JiraSession -Credential $cred ```",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 7,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/AtlassianPS/JiraPS#readme",
+          "title": "README (segment 8)",
+          "excerpt": "You can find the full documentation on our [homepage](https://atlassianps.org/docs/JiraPS) and in the console.",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "segment": 8,
+            "language": "PowerShell"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/AtlassianPS/JiraPS/issues/567",
+          "title": "Refactor: Remove `InModuleScope` wrapper from public function tests",
+          "excerpt": "Refactor: Remove `InModuleScope` wrapper from public function tests (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "number": 567
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/AtlassianPS/JiraPS/issues/544",
+          "title": "Invoke-JiraMethod: Client must be authenticated to access this resource.",
+          "excerpt": "Invoke-JiraMethod: Client must be authenticated to access this resource. (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "number": 544
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/AtlassianPS/JiraPS/issues/552",
+          "title": "Invoke-JiraMethod : The user could not be authenticated.",
+          "excerpt": "Invoke-JiraMethod : The user could not be authenticated. (state:open)",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "number": 552
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/AtlassianPS/JiraPS/releases",
+          "title": "v2.16.0-beta2",
+          "excerpt": "## 🚀 Added - Added `ConvertFrom-AtlassianDocumentFormat` public function (alias `ConvertFrom-ADF`) — converts ADF objects (Jira Cloud v3) to Markdown; plain strings (Data Center) are passed through unchanged. Supports headings, bold/italic/strikethrough/code/links, bullet/ordered/task lists, tables, code fences, blockquotes, panels, mentions, emoji, and date nodes - Added `ConvertTo-AtlassianDocumentFormat` public function (alias `ConvertTo-ADF`) — converts Markdown to ADF for writing descriptions and comments on Jira Cloud v3. Supports all symmetric constructs: headings, inline marks, fenced code blocks, blockquotes, tables, task/bullet/ordered lists, block images - Added `Tests/Fixtures/adf.sample.json` + `Tests/Fixtures/adf.sample.md` — reference fixtures covering every ADF node type, used by unit tests - Added nested list support (2 levels) for both `ConvertTo-ADF` and `ConvertFrom-ADF` — indented bullet/ordered lists are now parsed and rendered correctly - Added combined inline mark support (`***bold italic***`, `**_nested_**`, `_**reverse**_`) — produces ADF text nodes with multiple marks - Added hard break support — trailing double-spaces in Markdown are converted to `hard…",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "tag_name": "v2.16.0-beta2",
+            "published_at": "2026-04-12T21:27:07Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/AtlassianPS/JiraPS/releases",
+          "title": "v2.16.0-beta",
+          "excerpt": "## 🚀 Added - Added Jira Cloud vs Data Center compatibility guidance for Copilot code review (#568, [@lipkau]) - Added `-Force` parameter to `Get-JiraServerInformation` to bypass the server info cache - Added `Test-JiraCloudServer` private function — thin boolean wrapper around `Get-JiraServerInformation` for clean deployment type checks - Added `Invoke-PaginatedRequest` private function — extracts pagination from `Invoke-JiraMethod` and adds token-based pagination support for API v3 - Added HTTP 429 rate limit handling in `Test-ServerResponse` with automatic retry via recursion in `Invoke-JiraMethod` (respects `Retry-After` header, exponential backoff) - Added Jira Cloud compatibility — the module now auto-detects Cloud vs Data Center/Server via `Get-JiraServerInformation` and adapts API calls accordingly - Added `-AccountId` parameter to `Get-JiraUser` for Cloud's account-based user lookup - Added Cloud deployment test contexts across test files to cover both Server and Cloud code paths - Added \"Jira Cloud vs Data Center\" section to the authentication documentation ## ⚙️ Changed - Modernized test infrastructure and standardized helper utilities (#549, [@copilot]) - Removed redun…",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "tag_name": "v2.16.0-beta",
+            "published_at": "2026-04-06T18:02:40Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/AtlassianPS/JiraPS/releases",
+          "title": "v2.15",
+          "excerpt": "## 2.15 - 2025-12-30 ### Added - Added `-Components` to `New-JiraIssue`. This will be a comma-separated list of Component IDs. (#483, [@micheleliberman]) - Added `Get-JiraIssueWorklog` (#451, [@asherber]) - Allow `New-JiraSession` to be called without `-Credential` so to use `-Header` (#439, [@pwshmatt]) ### Changed - Improved `-Transition` behavior in `Invoke-JiraIssueTransition` (#416, [@Rufus125]) - Updated Pester to v5 (#543, [@SrBlackVoid]) ### Fixed - Fixed example and improved documentation on `-Properties` hashtable for `Set-JiraUser` (#509, [@jschlackman]) - Fixed `Get-JiraIssueCreateMetadata` to conform with Atlassian's API changes ([documentation](https://confluence.atlassian.com/jiracore/createmeta-rest-endpoint-to-be-removed-975040986.html)) (#488, [@robertmbaker]) - Removed `reporter` from `New-JiraIssue` when project is \"next-gen\" (#407, [@LaurentGoderre]) - Fixed `-ErrorAction` in `Add-JiraGroupMember` (#426, [@spascoe]) - Fixed copy/paste error in test files for `Get-JiraIssue` (#427, [@borislol]) - Fixed JSON conversion in `Invoke-JiraIssueTransition` (#417, [@Rufus125]) - Fixed type in `Invoke-JiraIssueTransition` (#417, [@Rufus125])",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "tag_name": "v2.15",
+            "published_at": "2025-12-30T22:52:33Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/AtlassianPS/JiraPS",
+          "title": "ROOT_FILES",
+          "excerpt": ".devcontainer, .editorconfig, .gitattributes, .github, .gitignore, .spelling, .vscode, AGENTS.md, CHANGELOG.md, CODEOWNERS, CONTRIBUTING.md, JiraPS.build.ps1, JiraPS, LICENSE, PSScriptAnalyzerSettings.psd1, README.md, Tests, Tools, docs",
+          "fetched_at": "2026-04-13T05:45:22.720Z",
+          "meta": {
+            "repo_full_name": "AtlassianPS/JiraPS",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "stefansundin/rssbox",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 3
+    },
+    {
+      "full_name": "stablyai/orca",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 3
+    },
+    {
+      "full_name": "AtlassianPS/JiraPS",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "stefansundin/rssbox",
+      "ok": true,
+      "spec_path": "specs/2026-04-13/stefansundin__rssbox.json"
+    },
+    {
+      "repo": "stablyai/orca",
+      "ok": true,
+      "spec_path": "specs/2026-04-13/stablyai__orca.json"
+    },
+    {
+      "repo": "AtlassianPS/JiraPS",
+      "ok": true,
+      "spec_path": "specs/2026-04-13/AtlassianPS__JiraPS.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "stefansundin/rssbox",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-13/stefansundin__rssbox.json"
+    },
+    {
+      "repo": "stablyai/orca",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-13/stablyai__orca.json"
+    },
+    {
+      "repo": "AtlassianPS/JiraPS",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-13/AtlassianPS__JiraPS.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "stefansundin/rssbox",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-13/stefansundin__rssbox.json"
+      ]
+    },
+    {
+      "repo": "stablyai/orca",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-13/stablyai__orca.json"
+      ]
+    },
+    {
+      "repo": "AtlassianPS/JiraPS",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-13/AtlassianPS__JiraPS.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-13T05:45:38.188Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stefansundin/rssbox",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "586c041c8226f2b554d8b644f207e70c60d69a99e995d49c2d4d198763eb2f9f",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 6806
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15264,
+      "prompt_chars": 6806,
+      "completion_chars": 1467
+    },
+    {
+      "ts": "2026-04-13T05:45:53.886Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stefansundin/rssbox",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2ca188b0b2a7e5e3c771057ba291c29816e6a527e1639f79fb10dfe812f629ea",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 8485
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15697,
+      "prompt_chars": 8485,
+      "completion_chars": 1750
+    },
+    {
+      "ts": "2026-04-13T05:46:07.116Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stefansundin/rssbox",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "017811d3d6b1d00092f5de5a7821d1e3832063391a9940733db023c56695156e",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 10443
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13230,
+      "prompt_chars": 10443,
+      "completion_chars": 1699
+    },
+    {
+      "ts": "2026-04-13T05:46:22.843Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stefansundin/rssbox",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "11c908a57a06606961f91396624759f21581cc2e98ae1af220d43d04d4bad4a0",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 12343
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15726,
+      "prompt_chars": 12343,
+      "completion_chars": 1614
+    },
+    {
+      "ts": "2026-04-13T05:46:44.204Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stefansundin/rssbox",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f0397b48b6ff820488713d1e6514575324265624c4fbfac3ffa47e76eab688a6",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 16817
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21360,
+      "prompt_chars": 16817,
+      "completion_chars": 2380
+    },
+    {
+      "ts": "2026-04-13T05:46:57.668Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stablyai/orca",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fc183d716e5f4477dfe536cabaee93529bca5d13b601ce478d39747eb1002bde",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 9471
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13450,
+      "prompt_chars": 9471,
+      "completion_chars": 1418
+    },
+    {
+      "ts": "2026-04-13T05:47:11.434Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stablyai/orca",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fccee25984f86973ee6a63092b80ae89fa7de1519be8b9c468b778b249814578",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 11105
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13765,
+      "prompt_chars": 11105,
+      "completion_chars": 1768
+    },
+    {
+      "ts": "2026-04-13T05:47:31.289Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stablyai/orca",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e64f70e40be554f6915abfebd18a855c3200aeede91a5b5be7b24410e6da5179",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 13077
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19855,
+      "prompt_chars": 13077,
+      "completion_chars": 2140
+    },
+    {
+      "ts": "2026-04-13T05:47:46.569Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stablyai/orca",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7d11cf4cf59c2a1d5edf3b647e7ce3cac7cc69737041b282122028f95cf47af3",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 15426
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15279,
+      "prompt_chars": 15426,
+      "completion_chars": 1766
+    },
+    {
+      "ts": "2026-04-13T05:48:16.037Z",
+      "run_id": "20260413T054517Z",
+      "repo": "stablyai/orca",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c8ba2ad5b77b4ed99ec4aa5405ffab41afa3ec597a8ee54e2ebd03bcdb2d264e",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 20048
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 29466,
+      "prompt_chars": 20048,
+      "completion_chars": 3610
+    },
+    {
+      "ts": "2026-04-13T05:48:29.615Z",
+      "run_id": "20260413T054517Z",
+      "repo": "AtlassianPS/JiraPS",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9a44ccf5b45fd63c717f8106eafda3a3eb33876579d7334f74d56199e4c2d470",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 8541
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13574,
+      "prompt_chars": 8541,
+      "completion_chars": 1440
+    },
+    {
+      "ts": "2026-04-13T05:48:43.424Z",
+      "run_id": "20260413T054517Z",
+      "repo": "AtlassianPS/JiraPS",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e34ba1e882d50976728a46d2c13284c38a615efb6e1ee92eb0a0bc1009baa7bb",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 10189
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13808,
+      "prompt_chars": 10189,
+      "completion_chars": 1671
+    },
+    {
+      "ts": "2026-04-13T05:48:56.228Z",
+      "run_id": "20260413T054517Z",
+      "repo": "AtlassianPS/JiraPS",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "34967195dc83cbadabf3e1f52fc3bb8097fc32180565372b75750b5d6d79b9f8",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 12056
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12804,
+      "prompt_chars": 12056,
+      "completion_chars": 1675
+    },
+    {
+      "ts": "2026-04-13T05:49:07.322Z",
+      "run_id": "20260413T054517Z",
+      "repo": "AtlassianPS/JiraPS",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fa24e88242b8e3b854c80b795984f6fe2d383e9442c3ffd0af1163642447eacf",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 13924
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11093,
+      "prompt_chars": 13924,
+      "completion_chars": 1459
+    },
+    {
+      "ts": "2026-04-13T05:49:41.760Z",
+      "run_id": "20260413T054517Z",
+      "repo": "AtlassianPS/JiraPS",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b436db8c82b4a739cc5c946c64c3128677b70fc57824d98c367aecf516615c50",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 18205
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 34438,
+      "prompt_chars": 18205,
+      "completion_chars": 4312
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "stefansundin/rssbox",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "stablyai/orca",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "AtlassianPS/JiraPS",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "stefansundin/rssbox",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "stablyai/orca",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "AtlassianPS/JiraPS",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1776059117589,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "stefansundin/rssbox": 5,
+      "stablyai/orca": 5,
+      "AtlassianPS/JiraPS": 5
+    },
+    "tokensApproxTotal": 54284,
+    "tokensApproxPerRepo": {
+      "stefansundin/rssbox": 15954,
+      "stablyai/orca": 19960,
+      "AtlassianPS/JiraPS": 18370
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "stefansundin/rssbox": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "scout",
+        "summary": "RSSBox is a Ruby-based web application that generates RSS feeds by scraping or using APIs from various media platforms like Instagram, SoundCloud, YouTube, and others. It supports deployment via Docker, Elastic Beanstalk, and Fly.io, and optionally uses Redis for URL resolution. The project is actively maintained with recent updates addressing platform-specific API changes.",
+        "highlights": [
+          "Generates RSS feeds for platforms lacking native support (e.g., Instagram, SoundCloud).",
+          "Offers multiple deployment options including Docker, Elastic Beanstalk, and Fly.io.",
+          "Uses optional Redis for URL resolution; most services work without API keys, but some require them.",
+          "Maintains public instance list for users who don’t want to self-host."
+        ],
+        "risks": [
+          "Reliance on unofficial APIs or scraping makes the app vulnerable to upstream changes (e.g., Instagram login requirement breaking username lookups).",
+          "Closed issues indicate recurring problems with specific platforms (e.g., Instagram media, SoundCloud errors), suggesting fragility in feed generation logic.",
+          "Limited release history (only 3 releases) despite active issue tracking may indicate inconsistent versioning or deployment practices."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-003",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "inventor",
+        "summary": "RSSBox invents a novel approach to preserving RSS feed access for modern web platforms by combining API integration, web scraping, and user-configurable deployment, effectively bridging the gap between legacy feed readers and contemporary content ecosystems.",
+        "highlights": [
+          "Creates RSS feeds for platforms that have deprecated or never offered native RSS support (e.g., Instagram, SoundCloud, Quora), enabling continued consumption via traditional readers.",
+          "Introduces a flexible, self-hosted architecture with optional Redis caching for URL resolution, allowing lightweight operation while supporting complex feed generation logic.",
+          "Leverages environment-driven configuration to toggle service-specific features, accommodating both key-based APIs and keyless scraping in a unified framework.",
+          "Provides ready-to-deploy artifacts via Docker Hub, Amazon ECR, and platform-specific configs (Fly.io, Elastic Beanstalk), lowering adoption barriers."
+        ],
+        "risks": [
+          "Core functionality depends on reverse-engineered or unofficial access methods that can break without notice due to platform changes (e.g., Instagram now requiring login for user search).",
+          "Inconsistent reliability across services—closed issues reveal repeated failures in media extraction (Instagram) and HTTP errors (SoundCloud)—indicating fragile parsing logic.",
+          "Limited abstraction between feed generators and upstream sources increases maintenance burden as each platform evolves independently."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "engineer",
+        "summary": "RSSBox is a Ruby web application that reverse-engineers or integrates with third-party APIs to generate RSS feeds for platforms lacking native support. It is designed for easy deployment via Docker, Elastic Beanstalk, or Fly.io, uses optional Redis for URL resolution, and relies on environment variables for API keys where needed. Recent updates show active maintenance responding to breaking changes in upstream services like Instagram.",
+        "highlights": [
+          "Supports feed generation for multiple platforms (Instagram, SoundCloud, YouTube, etc.) using a mix of official APIs and scraping.",
+          "Offers flexible deployment options including Docker images (on Docker Hub and ECR), Elastic Beanstalk config, and Fly.io integration.",
+          "Uses minimal dependencies—Redis is optional and only used for URL resolution; many services work without API keys.",
+          "Actively maintained with recent commits addressing platform-specific breakages (e.g., Instagram post URL format changes)."
+        ],
+        "risks": [
+          "Heavy reliance on non-public or unstable APIs makes the system fragile—e.g., Instagram now requires login for user search, breaking username-based lookups.",
+          "Recurring issues with media extraction (Instagram) and HTTP errors (SoundCloud) suggest brittle parsing logic that may require frequent patching.",
+          "Lack of abstraction between feed generators and source platforms increases long-term maintenance overhead as each service evolves independently."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-003",
+          "E-IS-006",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "skeptic",
+        "summary": "RSSBox presents itself as a convenient tool for generating RSS feeds from modern platforms, but its heavy dependence on fragile, unofficial access methods and recurring platform-specific failures raises serious doubts about its long-term reliability and maintainability.",
+        "highlights": [
+          "Claims of simplicity mask underlying fragility: services like Instagram repeatedly break due to upstream changes (e.g., login requirements for user search), requiring reactive patches rather than robust design.",
+          "Public instance list exists, but no uptime or reliability metrics are provided, leaving users exposed to potential outages or unmaintained deployments.",
+          "Many core features rely on scraping or reverse-engineered APIs, which violate terms of service of major platforms and risk sudden, unrecoverable failure."
+        ],
+        "risks": [
+          "The project’s viability hinges on constant vigilance against breaking changes from third-party platforms—evidence shows repeated regressions in Instagram and SoundCloud support despite active maintenance.",
+          "Optional Redis dependency and environment-based configuration create hidden complexity; users may unknowingly deploy incomplete or non-functional instances if documentation is overlooked.",
+          "Closed issues often reflect workarounds rather than fixes (e.g., directing users to alternative URL formats when username lookups fail), suggesting technical debt accumulation."
+        ],
+        "evidence_ids": [
+          "E-RL-002",
+          "E-IS-003",
+          "E-IS-006",
+          "E-IS-007",
+          "E-RD-002",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"RSSBox\",\n    \"one_sentence\": \"A self-hosted web application that generates RSS feeds for platforms lacking native support by using APIs or scraping.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User provides a URL to a supported platform (e.g., Instagram post, SoundCloud track); RSSBox fetches content via official API or scraping, then returns a valid RSS feed.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Feed Generator\",\n      \"purpose\": \"Accept user input URLs and generate corresponding RSS feeds.\",\n      \"primary_actions\": [\n        \"Enter platform URL\",\n        \"View generated RSS feed\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"generate_rss_feed\",\n      \"purpose\": \"Fetch content from a given platform URL and return an RSS feed.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"rss_feeds\",\n        \"fields\": [\n          {\n            \"name\": \"url\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"platform\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core feed generation for Instagram and SoundCloud\",\n          \"Add Docker deployment support\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Given an Instagram post URL, the system returns a valid RSS feed with media enclosure.\",\n    \"Given a SoundCloud track URL, the system returns a working RSS feed without HTTP 422 errors.\"\n  ],\n  \"open_questions\": [\n    \"How to handle platforms that require login for data access?\",\n    \"What fallback mechanisms exist when scraping fails?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 3,\n    \"complexity_control\": 3,\n    \"debuggability\": 3,\n    \"demo_value\": 3\n  },\n  \"overall_recommendation\": \"go\",\n  \"citations\": {\n    \"app\": [\n      \"E-RD-001\"\n    ],\n"
+      }
+    },
+    "stablyai/orca": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "Orca is a cross-platform IDE designed for orchestrating multiple AI coding agents (e.g., Claude Code, Codex) across isolated Git worktrees. It emphasizes no-login local usage, built-in source control, and terminal-based multi-agent workflows. Recent releases focus on terminal/worktree stability, though several UX issues remain open.",
+        "highlights": [
+          "Supports macOS, Windows, and Linux with binaries available via onOrca.dev and GitHub Releases",
+          "Enables side-by-side execution of multiple AI agents (Claude Code, Codex, Gemini, etc.) in dedicated worktrees",
+          "No login required—users bring their own AI subscriptions",
+          "Features built-in source control, GitHub integration, and multi-pane terminals",
+          "Active recent patching focused on terminal behavior and worktree switching"
+        ],
+        "risks": [
+          "Open UX issues around PDF preview usability, browser tab reloads on worktree switch, and inconsistent right-click behavior in Windows terminal",
+          "Recent releases include multiple reverts (e.g., v1.1.22), suggesting instability in feature rollout",
+          "Heavy reliance on external AI services (Claude, Codex, etc.) may limit offline or subscription-free utility"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "Orca introduces a novel IDE architecture that orchestrates multiple AI coding agents within isolated Git worktrees, enabling parallel development without branch conflicts. It integrates terminals, source control, and GitHub workflows natively, while requiring no authentication by leveraging user-provided AI subscriptions.",
+        "highlights": [
+          "Pioneers worktree-native AI agent orchestration—each feature or task runs in its own Git worktree, eliminating stashing and branch switching overhead",
+          "Supports concurrent execution of diverse AI agents (Claude Code, Codex, Gemini, Pi, Hermes) with dedicated terminals and visual activity indicators",
+          "Delivers a login-free, cross-platform desktop experience (macOS/Windows/Linux) focused on local control and subscription portability",
+          "Embeds source control and GitHub integration directly into the agent workflow, allowing diff review, editing, and committing without context switching",
+          "Recent releases show iterative refinement of terminal/worktree synchronization, indicating active investment in core interaction stability"
+        ],
+        "risks": [
+          "Frequent reverts in recent releases (e.g., v1.1.22) suggest architectural instability in terminal and worktree session management",
+          "Open UX issues—such as PDF preview truncation, unwanted browser reloads on worktree switch, and non-standard right-click behavior—undermine polish and usability",
+          "Tight coupling to external AI platforms may limit functionality for users without active subscriptions or during service outages"
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "Orca is a TypeScript-based desktop IDE built with Electron that enables parallel orchestration of multiple AI coding agents across isolated Git worktrees. It provides integrated terminals, source control, and GitHub features without requiring user authentication, relying instead on user-provided AI subscriptions. The codebase shows active development focused on terminal/worktree synchronization, though recent releases include multiple reverts indicating instability in core session management.",
+        "highlights": [
+          "Built with Electron and TypeScript, as evidenced by root files like electron.vite.config.ts and tsconfig.json [ID:E-RF-001]",
+          "Implements worktree-native architecture where each AI agent runs in an isolated Git worktree, avoiding branch conflicts [ID:E-RD-007]",
+          "Supports concurrent terminals for multiple agents (Claude Code, Codex, Gemini, etc.) with visual activity indicators [ID:E-RD-006], [ID:E-RD-007]",
+          "Recent patches target critical terminal behaviors: preserving scroll position, fixing shortcut scope, and maintaining sessions across worktree switches [ID:E-RL-001], [ID:E-RL-003]",
+          "Distributes prebuilt binaries for macOS, Windows, and Linux via onOrca.dev and GitHub Releases [ID:E-RD-002], [ID:E-RD-008]"
+        ],
+        "risks": [
+          "Release v1.1.22 reverted at least five significant changes—including terminal session persistence and default terminal initialization—suggesting fragile state management in worktree/terminal integration [ID:E-RL-002]",
+          "Open issues indicate unresolved UX flaws: PDF preview panel too short [ID:E-IS-001], browser tab reloads on worktree switch [ID:E-IS-003], and non-standard right-click paste behavior on Windows [ID:E-IS-002]",
+          "Heavy dependency on external AI services (Claude, Codex, etc.) means core functionality is unavailable without active third-party subscriptions [ID:E-RD-006], [ID:E-RD-007]"
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-007",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RD-002",
+          "E-RD-008",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "Orca promises a revolutionary AI agent orchestration IDE but shows signs of overpromising and underdelivering, with unstable releases, unresolved UX flaws, and heavy dependence on external AI services that may not be accessible to all users.",
+        "highlights": [
+          "Claims '100x builder' productivity with multi-agent worktrees, yet recent releases include multiple reverts of core terminal and session features, indicating shaky foundations [ID:E-RL-002]",
+          "Advertises seamless cross-platform support, but open issues reveal platform-specific bugs like broken right-click paste on Windows [ID:E-IS-002] and disruptive browser reloads during workflow [ID:E-IS-003]",
+          "Promotes 'no login required' as a privacy advantage, but this shifts burden to users to maintain active subscriptions with third parties (Claude, Codex, etc.), limiting real accessibility [ID:E-RD-007]"
+        ],
+        "risks": [
+          "The repeated reverting of features in v1.1.22—such as terminal session persistence and default terminal initialization—suggests the architecture lacks robust state management, raising doubts about reliability for serious development [ID:E-RL-002]",
+          "Critical usability issues remain unaddressed: PDF previews are too short to be useful [ID:E-IS-001], and worktree switching triggers full browser tab reloads, disrupting flow [ID:E-IS-003]",
+          "Marketing emphasizes support for numerous AI agents (Claude, Codex, Gemini, Pi, etc.), but without clear documentation or fallbacks, users without access to these paid services gain little from the core value proposition [ID:E-RD-006], [ID:E-RD-007]"
+        ],
+        "evidence_ids": [
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RD-007",
+          "E-IS-001",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Orca\",\n    \"one_sentence\": \"Orca is a cross-platform IDE that orchestrates multiple AI coding agents across isolated Git worktrees, enabling parallel development without branch conflicts.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User creates or switches to a worktree, runs one or more AI agents (e.g., Claude Code, Codex) in dedicated terminals, reviews and edits AI-generated code with built-in source control, and commits changes—all without leaving the app or managing branches manually.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Worktree Dashboard\",\n      \"purpose\": \"Displays active worktrees with associated AI agents, terminals, and GitHub context; enables switching, editing, and monitoring agent activity.\",\n      \"primary_actions\": [\n        \"Create new worktree\",\n        \"Switch between worktrees\",\n        \"Run AI agent in terminal\",\n        \"Review and commit diffs\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"switch_worktree\",\n      \"purpose\": \"Switches the active worktree context while preserving terminal sessions and UI state.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"run_ai_agent\",\n      \"purpose\": \"Launches a specified AI agent (e.g., Claude Code, Codex) in a new terminal pane within the current worktree.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"worktrees\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"repo_path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"active_agents\",\n            \"type\": \"array<string>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"agents\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"subscription_required\",\n            "
+      }
+    },
+    "AtlassianPS/JiraPS": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "JiraPS is an active PowerShell module for interacting with Atlassian Jira via REST APIs, supporting both Cloud and Data Center deployments. It offers robust functionality including ADF/Markdown conversion, session management, and pagination, with recent enhancements focused on Cloud compatibility and rate-limit handling. However, open authentication-related issues and test refactoring needs suggest areas of technical debt.",
+        "highlights": [
+          "Supports both Jira Cloud (v3 API) and Data Center/Server with auto-detection and adaptive behavior",
+          "Provides bidirectional conversion between Atlassian Document Format (ADF) and Markdown",
+          "Includes automatic HTTP 429 rate-limit handling with exponential backoff and retry logic",
+          "Actively maintained with recent beta releases adding significant Cloud-focused features",
+          "Available on PowerShell Gallery with clear installation and usage instructions"
+        ],
+        "risks": [
+          "Multiple open issues related to authentication failures in Invoke-JiraMethod may impact reliability",
+          "Public function tests still use InModuleScope wrapper, indicating outdated testing patterns",
+          "High number of open issues (160) relative to recent activity may signal maintenance challenges"
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "JiraPS is a PowerShell module that enables interaction with Atlassian Jira through REST APIs, featuring adaptive support for both Jira Cloud (v3) and Data Center/Server environments. It introduces novel utilities for bidirectional conversion between Atlassian Document Format (ADF) and Markdown, automatic rate-limit handling, and session-based authentication workflows.",
+        "highlights": [
+          "Introduces ConvertFrom-AtlassianDocumentFormat and ConvertTo-AtlassianDocumentFormat functions for seamless ADF-Markdown interoperability, supporting rich formatting constructs like tables, lists, code blocks, and mentions",
+          "Implements automatic detection of Jira deployment type (Cloud vs Data Center) to adapt API behavior dynamically",
+          "Adds token-based pagination and HTTP 429 retry logic with exponential backoff in core request handling",
+          "Enables header-based authentication via New-JiraSession, expanding beyond traditional credential-only flows",
+          "Provides reference fixtures (adf.sample.json/.md) covering all ADF node types to support robust unit testing"
+        ],
+        "risks": [
+          "Authentication instability persists across multiple open issues involving Invoke-JiraMethod, potentially undermining session reliability",
+          "Test architecture relies on deprecated InModuleScope patterns, which may hinder maintainability and test clarity",
+          "Rapid addition of Cloud-specific features may outpace documentation or compatibility validation for mixed-environment users"
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001",
+          "E-RD-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "JiraPS is a mature PowerShell module that provides REST API integration with Atlassian Jira, supporting both Cloud (v3) and Data Center/Server deployments through adaptive detection and API routing. It includes robust features like ADF-Markdown conversion, automatic rate-limit handling, and flexible session authentication, but suffers from unresolved authentication reliability issues and outdated test patterns.",
+        "highlights": [
+          "Auto-detects Jira Cloud vs Data Center/Server and adapts API calls accordingly using Get-JiraServerInformation and Test-JiraCloudServer",
+          "Implements resilient HTTP request logic with token-based pagination and automatic retry on 429 responses using exponential backoff",
+          "Offers full round-trip conversion between Atlassian Document Format (ADF) and Markdown via ConvertTo-ADF and ConvertFrom-ADF",
+          "Supports header-based authentication in New-JiraSession, enabling modern auth flows beyond basic credentials",
+          "Includes comprehensive test fixtures (adf.sample.json/.md) covering all ADF node types for reliable unit testing"
+        ],
+        "risks": [
+          "Persistent authentication failures in Invoke-JiraMethod (issues #544, #552) indicate instability in core request handling",
+          "Public function tests still wrapped in InModuleScope (issue #567), reflecting legacy Pester patterns that reduce test isolation and clarity",
+          "High open issue count (160) relative to recent release cadence may signal scalability or maintenance bottlenecks"
+        ],
+        "evidence_ids": [
+          "E-RL-002",
+          "E-RL-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001",
+          "E-RD-007",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "While JiraPS presents itself as a robust and actively maintained PowerShell module with advanced features like ADF-Markdown conversion and Cloud/Data Center auto-detection, its reliability is undermined by persistent authentication failures, outdated testing practices, and a high volume of unresolved issues that suggest deeper architectural or maintenance problems.",
+        "highlights": [
+          "Claims of Jira Cloud compatibility are contradicted by multiple open issues where core functions like Invoke-JiraMethod fail to authenticate reliably",
+          "Recent beta releases tout sophisticated features (e.g., rate-limit handling, ADF conversion), yet fundamental session management remains unstable",
+          "The module advertises modern PowerShell practices but still uses deprecated InModuleScope in public tests, indicating inconsistent engineering standards"
+        ],
+        "risks": [
+          "Authentication instability in Invoke-JiraMethod (#544, #552) may render the entire module unusable in production Cloud environments despite claimed support",
+          "Heavy reliance on undocumented or fragile auto-detection logic for Cloud vs Data Center could lead to silent API misbehavior",
+          "High open issue count (160) alongside active feature development suggests technical debt is accumulating faster than it’s being resolved"
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001",
+          "E-RL-002",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"JiraPS\",\n    \"one_sentence\": \"A PowerShell module to interact with Atlassian Jira via REST APIs, supporting both Cloud (v3) and Data Center/Server deployments with adaptive behavior.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User authenticates via New-JiraSession, configures server with Set-JiraConfigServer, then invokes Jira operations through PowerShell cmdlets that auto-adapt to deployment type (Cloud vs Data Center), handle pagination, and manage rate limits.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"PowerShell Console\",\n      \"purpose\": \"Primary interface for executing JiraPS commands and managing Jira resources via PowerShell syntax.\",\n      \"primary_actions\": [\n        \"Authenticate session\",\n        \"Configure Jira server\",\n        \"Invoke issue transitions\",\n        \"Convert between ADF and Markdown\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"ConvertFrom-AtlassianDocumentFormat\",\n      \"purpose\": \"Converts Atlassian Document Format (ADF) objects from Jira Cloud v3 into Markdown; passes plain strings from Data Center unchanged.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"ConvertTo-AtlassianDocumentFormat\",\n      \"purpose\": \"Converts Markdown input into Atlassian Document Format (ADF) for writing descriptions and comments on Jira Cloud v3.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"New-JiraSession\",\n      \"purpose\": \"Establishes an authenticated session with Jira using credentials or custom headers, enabling subsequent API calls.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"Invoke-JiraMethod\",\n      \"purpose\": \"Executes low-level REST requests to Jira with automatic pagination, rate-limit handling, and Cloud/Data Center adaptation.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\":"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "stefansundin/rssbox",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 11,
+        "engineer": 10,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "stablyai/orca",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 9,
+        "engineer": 11,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "AtlassianPS/JiraPS",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 7,
+        "engineer": 7,
+        "skeptic": 5,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=213",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] stablyai/orca evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] AtlassianPS/JiraPS evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] stefansundin/rssbox evidence total=19 readme=8 issue=7 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=49 gaps=0",
+    "[llm_spec_generator] stefansundin/rssbox canonical spec ok (iter=1) -> specs/2026-04-13/stefansundin__rssbox.json",
+    "[llm_spec_generator] stablyai/orca canonical spec ok (iter=1) -> specs/2026-04-13/stablyai__orca.json",
+    "[llm_spec_generator] AtlassianPS/JiraPS canonical spec ok (iter=1) -> specs/2026-04-13/AtlassianPS__JiraPS.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-13T05:45:17.589Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:17.608Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260413T054517Z"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:17.608Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:17.612Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:18.182Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:18.182Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:18.637Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:18.637Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:19.101Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:19.101Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:19.536Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:19.536Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:19.978Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:19.978Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:20.508Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:20.508Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:21.030Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:21.030Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:21.295Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:21.295Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:21.710Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:21.710Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.183Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.187Z",
+      "run_id": "20260413T054517Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 213
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.188Z",
+      "run_id": "20260413T054517Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.191Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-13T05:45:22.191Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stefansundin__rssbox/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.192Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stefansundin__rssbox/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.193Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stefansundin__rssbox/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.195Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stefansundin__rssbox/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.197Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-13T05:45:22.197Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stablyai__orca/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.198Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stablyai__orca/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.199Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stablyai__orca/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.201Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "stablyai__orca/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.202Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-13T05:45:22.202Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AtlassianPS__JiraPS/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.205Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AtlassianPS__JiraPS/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.206Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AtlassianPS__JiraPS/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.208Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "AtlassianPS__JiraPS/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.653Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 8313,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.653Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.653Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.653Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 456
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.654Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.720Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 4521,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.720Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.720Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.720Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 518
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.721Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.919Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2326,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.919Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.919Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.919Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 728
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.919Z",
+      "run_id": "20260413T054517Z",
+      "node": "repo_card_builder",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.923Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:22.923Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:38.188Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1467,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:45:53.886Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1750,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:07.116Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1699,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:22.843Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1614,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:44.204Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2380,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:44.216Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:44.218Z",
+      "run_id": "20260413T054517Z",
+      "node": "artifacts",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-13/stefansundin__rssbox.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:44.218Z",
+      "run_id": "20260413T054517Z",
+      "node": "artifacts",
+      "repo": "stefansundin/rssbox",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-13/stefansundin__rssbox.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:44.218Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:44.218Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:46:57.668Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1418,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:47:11.434Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1768,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:47:31.289Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2140,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:47:46.569Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1766,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:16.037Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3610,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:16.039Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:16.040Z",
+      "run_id": "20260413T054517Z",
+      "node": "artifacts",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-13/stablyai__orca.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:16.040Z",
+      "run_id": "20260413T054517Z",
+      "node": "artifacts",
+      "repo": "stablyai/orca",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-13/stablyai__orca.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:16.041Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:16.041Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:29.615Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1440,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:43.424Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1671,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:48:56.228Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1675,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:07.322Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1459,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.760Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4312,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.761Z",
+      "run_id": "20260413T054517Z",
+      "node": "llm_spec_generator",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.762Z",
+      "run_id": "20260413T054517Z",
+      "node": "artifacts",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-13/AtlassianPS__JiraPS.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.763Z",
+      "run_id": "20260413T054517Z",
+      "node": "artifacts",
+      "repo": "AtlassianPS/JiraPS",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-13/AtlassianPS__JiraPS.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.766Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.766Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1776059117589,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "stefansundin/rssbox": 5,
+          "stablyai/orca": 5,
+          "AtlassianPS/JiraPS": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.766Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-13T05:49:41.766Z",
+      "run_id": "20260413T054517Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-13",
+    "evidence_dir": "evidence/2026-04-13"
+  }
+}

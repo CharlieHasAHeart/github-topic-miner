@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Orca",
+    "one_liner": "Orca is a cross-platform IDE that orchestrates multiple AI coding agents across isolated Git worktrees, enabling parallel development without branch conflicts."
+  },
+  "screens": [
+    {
+      "name": "Main Worktree Dashboard",
+      "purpose": "Displays active worktrees with associated AI agents, terminals, and GitHub context; enables switching, editing, and monitoring agent activity.",
+      "primary_actions": [
+        "Create new worktree",
+        "Review and commit diffs",
+        "Run AI agent in terminal",
+        "Switch between worktrees"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_ai_agent",
+      "purpose": "Launches a specified AI agent (e.g., Claude Code, Codex) in a new terminal pane within the current worktree.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "subscription_required": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "switch_worktree",
+      "purpose": "Switches the active worktree context while preserving terminal sessions and UI state.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "subscription_required": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "subscription_required",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "worktrees",
+        "columns": [
+          {
+            "name": "active_agents",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "repo_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic diff viewer and commit interface",
+    "week 1: Implement worktree isolation with Git",
+    "week 1: Integrate multi-pane terminal supporting agent execution"
+  ],
+  "acceptance_tests": [
+    "PDF preview panel displays sufficient vertical space for navigation.",
+    "Right-click in Windows terminal pastes clipboard content instead of opening context menu.",
+    "When user switches worktrees, browser tabs do not reload unnecessarily."
+  ]
+}
