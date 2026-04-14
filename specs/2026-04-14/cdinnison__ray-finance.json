@@ -1,0 +1,122 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Ray Finance",
+    "one_liner": "An open-source AI financial advisor that learns your situation and gets smarter every conversation."
+  },
+  "screens": [
+    {
+      "name": "Chat Interface",
+      "purpose": "Primary interaction surface where users converse with Ray, receive financial briefings, and issue commands.",
+      "primary_actions": [
+        "Access demo mode",
+        "Add manual asset",
+        "Send message",
+        "View financial briefing"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "ray_add",
+      "purpose": "Add manual assets like homes, cars, or crypto holdings to the user's financial profile.",
+      "async": false,
+      "input": {
+        "account_type": "string",
+        "balance": "string",
+        "institution_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "ray_demo",
+      "purpose": "Launch Ray in demo mode with realistic fake financial data for testing without bank connections.",
+      "async": false,
+      "input": {
+        "account_type": "string",
+        "balance": "string",
+        "institution_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "accounts",
+        "columns": [
+          {
+            "name": "account_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "balance",
+            "type": "TEXT"
+          },
+          {
+            "name": "institution_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "behavior_scores",
+        "columns": [
+          {
+            "name": "achievements",
+            "type": "TEXT"
+          },
+          {
+            "name": "date",
+            "type": "DATETIME"
+          },
+          {
+            "name": "score",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "user_profile",
+        "columns": [
+          {
+            "name": "family",
+            "type": "TEXT"
+          },
+          {
+            "name": "goals",
+            "type": "TEXT"
+          },
+          {
+            "name": "income",
+            "type": "TEXT"
+          },
+          {
+            "name": "strategy",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build CLI chat interface with line editing support",
+    "week 1: Enable PII masking before AI processing",
+    "week 1: Implement encrypted SQLite storage with AES-256",
+    "week 1: Integrate Plaid for bank account linking"
+  ],
+  "acceptance_tests": [
+    "Behavior score updates correctly after zero-spend days or budget adherence.",
+    "PII such as account numbers is scrubbed before any data is sent to the AI model.",
+    "User can run `ray demo` and interact with realistic fake financial data without connecting real accounts.",
+    "User receives a personalized financial briefing on startup that includes family, goals, and recent spending."
+  ]
+}

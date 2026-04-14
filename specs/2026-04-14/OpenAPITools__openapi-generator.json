@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OpenAPI Generator",
+    "one_liner": "A tool that generates API clients, servers, and documentation from OpenAPI specifications."
+  },
+  "screens": [
+    {
+      "name": "Generator Dashboard",
+      "purpose": "Configure and run code generation from an OpenAPI spec.",
+      "primary_actions": [
+        "Generate code",
+        "Select target generator",
+        "Upload OpenAPI spec"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_code",
+      "purpose": "Generate client/server code from an OpenAPI spec using a specified generator.",
+      "async": true,
+      "input": {
+        "language": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "generators",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for uint32/uint64 type mapping",
+    "week 1: Implement basic Rust axum generator",
+    "week 1: Integrate core OpenAPI parsing logic"
+  ],
+  "acceptance_tests": [
+    "C# GenericHost templates consistently handle nullability in OptionProperty.mustache and JsonConverter.mustache.",
+    "Generated code from untrusted specs is sandboxed or requires explicit user review.",
+    "Generated Rust axum models correctly use u32/u64 for format: uint32/uint64 instead of i32.",
+    "Java inheritance does not cause field name clashes between parent and subclass declarations."
+  ]
+}
