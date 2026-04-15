@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GitHub Webhooks .NET Processor",
+    "one_liner": "A .NET library for efficiently handling GitHub webhook events with integrations for ASP.NET Core and Azure Functions."
+  },
+  "screens": [
+    {
+      "name": "Webhook Event Handler Setup",
+      "purpose": "Configure and implement custom logic for processing specific GitHub webhook events such as pull requests or issues.",
+      "primary_actions": [
+        "Map GitHub webhook endpoint",
+        "Override ProcessPullRequestWebhookAsync",
+        "Register custom processor in DI container"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist processed webhook event data (not directly implemented; illustrative command based on issue-reported performance concerns).",
+      "async": true,
+      "input": {
+        "action": "string",
+        "event_payload": "string",
+        "headers": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "WebhookEvents",
+        "columns": [
+          {
+            "name": "action",
+            "type": "TEXT"
+          },
+          {
+            "name": "event_payload",
+            "type": "TEXT"
+          },
+          {
+            "name": "headers",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure endpoint path and secret validation",
+    "week 1: Implement MyWebhookEventProcessor subclass",
+    "week 1: Integrate Octokit.Webhooks.AspNetCore package"
+  ],
+  "acceptance_tests": [
+    "Confirms PullRequestEvent is deserialized and dispatched to ProcessPullRequestWebhookAsync without double-parsing.",
+    "Validates that webhook signature verification correctly rejects tampered payloads."
+  ]
+}

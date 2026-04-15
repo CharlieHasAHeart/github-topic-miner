@@ -1,0 +1,120 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Summarize",
+    "one_liner": "Fast summaries from URLs, files, and media via CLI and browser extensions with AI-powered, media-aware processing."
+  },
+  "screens": [
+    {
+      "name": "Chrome Side Panel / Firefox Sidebar",
+      "purpose": "Display streaming AI summary for the current tab or uploaded media/file, with chat history and model controls.",
+      "primary_actions": [
+        "Chat with streaming agent",
+        "Summarize current page",
+        "Upload local file or video",
+        "View slide cards with OCR"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "summarize_daemon_install",
+      "purpose": "Install and configure the local daemon with token authentication for secure localhost communication with browser extension.",
+      "async": true,
+      "input": {
+        "messages": "json",
+        "model_used": "string",
+        "payload": "json",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "summarize_refresh_free",
+      "purpose": "Configure free-tier model access via OpenRouter using OPENROUTER_API_KEY and optionally set as default.",
+      "async": true,
+      "input": {
+        "messages": "json",
+        "model_used": "string",
+        "payload": "json",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "summarize_slides",
+      "purpose": "Extract timestamped slide cards with OCR from local video files or YouTube URLs.",
+      "async": true,
+      "input": {
+        "messages": "json",
+        "model_used": "string",
+        "payload": "json",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "chat_history",
+        "columns": [
+          {
+            "name": "messages",
+            "type": "JSON"
+          },
+          {
+            "name": "model_used",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "media_summaries",
+        "columns": [
+          {
+            "name": "slides",
+            "type": "JSON"
+          },
+          {
+            "name": "source_url_or_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "summary_markdown",
+            "type": "TEXT"
+          },
+          {
+            "name": "transcript",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build localhost daemon with token auth",
+    "week 1: Create Chrome Side Panel UI with streaming output",
+    "week 1: Implement core CLI with URL/media ingestion",
+    "week 1: Integrate first LLM backend (e.g., OpenAI-compatible)"
+  ],
+  "acceptance_tests": [
+    "After installing the extension and daemon with a token, the Side Panel successfully communicates with the localhost service without exposing it to external networks.",
+    "Given a local video file, running `summarize slides <file>` produces timestamped OCR-enhanced slide cards routed through the shared slide-aware flow.",
+    "Given a YouTube URL, the system extracts published transcript, falls back to Groq/AssemblyAI if needed, generates slide cards with OCR, and returns a streaming Markdown summary.",
+    "When navigating between URLs in the same tab, chat history remains isolated per URL (note: currently failing per E-IS-001)."
+  ]
+}

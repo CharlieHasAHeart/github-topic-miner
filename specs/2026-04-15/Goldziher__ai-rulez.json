@@ -1,0 +1,167 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ai-rulez",
+    "one_liner": "Directory-based AI governance for 18+ tools that generates synchronized, native configurations from a single source of truth."
+  },
+  "screens": [
+    {
+      "name": "AI Governance Dashboard",
+      "purpose": "Central interface to manage unified AI rules, skills, agents, and commands across all supported tools.",
+      "primary_actions": [
+        "Configure profiles for team-specific rule sets",
+        "Generate configs with npx ai-rulez generate",
+        "Initialize project with npx ai-rulez init"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_profile",
+      "purpose": "Select and merge domains according to a named profile (e.g., backend, frontend) during config generation.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "fix_ids": "json?",
+        "prompt": "string",
+        "tools": "json"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "generate_configs",
+      "purpose": "Generate native configuration files for all enabled AI tools based on .ai-rulez/ definitions, applying profile and include resolution.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "prompt": "string",
+        "tools": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "resolve_includes",
+      "purpose": "Fetch and integrate remote rule sets from git repositories into the local domain resolution pipeline.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "prompt": "string",
+        "tools": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "prompt",
+            "type": "TEXT"
+          },
+          {
+            "name": "tools",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "commands",
+        "columns": [
+          {
+            "name": "implementation",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "includes",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "ref",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "profiles",
+        "columns": [
+          {
+            "name": "domains",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "rules",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "targets",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "skills",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "priority",
+            "type": "INTEGER"
+          },
+          {
+            "name": "user_invocable",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add profile resolution logic to select domain subsets during generation",
+    "week 1: Build generator registry supporting at least Claude and Cursor presets with correct frontmatter placement",
+    "week 1: Implement core directory parser for .ai-rulez/rules/, .ai-rulez/skills/, .ai-rulez/agents/, .ai-rulez/commands/",
+    "week 1: Integrate remote include resolver with fail-fast validation"
+  ],
+  "acceptance_tests": [
+    "Given a .github/copilot-instructions.md output, then .gitignore contains only the file path—not the entire .github/ directory.",
+    "Given a Claude skill definition, when generating SKILL.md, then YAML frontmatter appears before any HTML comment header.",
+    "Given a profile 'backend' with domains [backend, database], when generating, then only rules/skills from those domains are included.",
+    "Given an include referencing a remote repo, when generating configs, then included domains are resolved and merged before profile-specific domains (fix for E-IS-001)."
+  ]
+}
