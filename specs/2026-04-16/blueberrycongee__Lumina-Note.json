@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Lumina Note",
+    "one_liner": "A local-first, AI-enhanced Markdown note-taking desktop application that keeps your data on-device while enabling knowledge graph features and optional AI augmentation."
+  },
+  "screens": [
+    {
+      "name": "Main Editor",
+      "purpose": "Compose, preview, and link Markdown notes with access to AI assistant modes.",
+      "primary_actions": [
+        "Create new note",
+        "Edit existing note",
+        "Navigate via WikiLinks",
+        "Trigger AI assistant (Chat/Agent/Codex)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a note or metadata change to the local vault.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "created_at": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "notes",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic editor with live preview",
+    "week 1: Implement local Markdown file storage",
+    "week 1: Set up Tauri + React scaffold"
+  ],
+  "acceptance_tests": [
+    "AI assistant modes are accessible only when explicitly enabled by the user.",
+    "User can create and save a Markdown note that persists after app restart."
+  ]
+}

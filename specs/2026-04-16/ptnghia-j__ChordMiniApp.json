@@ -1,0 +1,187 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ChordMiniApp",
+    "one_liner": "An open-source music analysis web application for chord recognition, beat tracking, guitar/piano visualization, lyrics synchronization, and experimental melody transcription."
+  },
+  "screens": [
+    {
+      "name": "Beat & Chord Analysis",
+      "purpose": "Display chord progression grid synchronized with beat detection, including Roman numeral analysis, key modulation signals, simplified notation, and song segmentation overlays.",
+      "primary_actions": [
+        "Adjust chord simplification",
+        "Toggle Roman numerals",
+        "View song segments (verse/chorus/etc.)"
+      ]
+    },
+    {
+      "name": "Guitar Chords",
+      "purpose": "Show interactive guitar chord diagrams with accurate fingering from @tombatossals/chords-db, supporting capo adjustment, label modes, and slash-chord matching.",
+      "primary_actions": [
+        "Change capo position",
+        "Navigate chord positions",
+        "Switch label mode (shape/sound)"
+      ]
+    },
+    {
+      "name": "Homepage",
+      "purpose": "Provide entry point for YouTube search, URL input, and access to recent videos with clean, intuitive interface.",
+      "primary_actions": [
+        "Access recent videos",
+        "Enter video URL",
+        "Search YouTube"
+      ]
+    },
+    {
+      "name": "Melody Transcription",
+      "purpose": "Provide experimental melody-to-sheet-music transcription with synchronized note rendering.",
+      "primary_actions": [
+        "Toggle sheet music display",
+        "View transcribed melody"
+      ]
+    },
+    {
+      "name": "Piano Visualizer",
+      "purpose": "Render real-time falling MIDI notes on an 88-key piano roll synchronized to chord playback, with scrolling chord strip and MIDI export capability.",
+      "primary_actions": [
+        "Export MIDI file",
+        "Play/pause chord playback",
+        "Select instrument soundfont"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "detect_beats_and_chords",
+      "purpose": "Run Madmom-based beat detection and harmonic analysis on uploaded audio or YouTube video to produce synchronized chord grid and structural segmentation.",
+      "async": true,
+      "input": {
+        "capo_position": "int",
+        "chord_symbol": "string",
+        "diagram_data": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "export_midi",
+      "purpose": "Generate and download a Standard MIDI Type 1 file containing instrument-specific voicing of detected chord progressions.",
+      "async": true,
+      "input": {
+        "capo_position": "int",
+        "chord_symbol": "string",
+        "diagram_data": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_guitar_diagrams",
+      "purpose": "Retrieve accurate guitar chord shapes from @tombatossals/chords-db based on detected harmony, supporting inversions and capo adjustments.",
+      "async": true,
+      "input": {
+        "capo_position": "int",
+        "chord_symbol": "string",
+        "diagram_data": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "guitar_chords",
+        "columns": [
+          {
+            "name": "capo_position",
+            "type": "INTEGER"
+          },
+          {
+            "name": "chord_symbol",
+            "type": "TEXT"
+          },
+          {
+            "name": "diagram_data",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "midi_exports",
+        "columns": [
+          {
+            "name": "file_blob",
+            "type": "BLOB"
+          },
+          {
+            "name": "instrument_voicing",
+            "type": "TEXT"
+          },
+          {
+            "name": "song_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "songs",
+        "columns": [
+          {
+            "name": "beats",
+            "type": "JSON"
+          },
+          {
+            "name": "chord_progression",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "segments",
+            "type": "JSON"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "youtube_url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic chord grid UI with playback sync",
+    "week 1: Implement core YouTube/audio ingestion pipeline",
+    "week 1: Integrate Madmom beat detection and chord recognition",
+    "week 2: Add guitar diagram integration using @tombatossals/chords-db",
+    "week 2: Enable chord simplification and enharmonic correction",
+    "week 2: Implement Roman numeral analysis toggle",
+    "week 3: Add MIDI export with instrument-specific voicing",
+    "week 3: Develop piano visualizer with falling notes and keyboard highlighting",
+    "week 3: Implement song segmentation overlay (intro/verse/chorus)",
+    "week 4: Add loop playback functionality",
+    "week 4: Refine UI/UX across all tabs with Zustand state management",
+    "week 4: Stabilize CI/CD pipeline to resolve deployment failures"
+  ],
+  "acceptance_tests": [
+    "Guitar chord diagrams update accurately when capo position is changed and reflect slash chords when available in database.",
+    "MIDI export produces a valid Standard MIDI Type 1 file that imports correctly into major DAWs with proper instrument voicing.",
+    "Production deployment succeeds without errors across three consecutive commits.",
+    "User can input a YouTube URL and receive a synchronized chord progression grid with beat markers within 10 seconds."
+  ]
+}

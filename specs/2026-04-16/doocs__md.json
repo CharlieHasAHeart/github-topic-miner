@@ -1,0 +1,62 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "WeChat Markdown Editor",
+    "one_liner": "A highly streamlined Markdown editor that instantly renders documents into clean, publication-ready WeChat rich text with AI-assisted writing, extended syntax, and multi-platform deployment."
+  },
+  "screens": [
+    {
+      "name": "Editor & Preview",
+      "purpose": "Primary workspace for composing Markdown and viewing real-time WeChat-style rendering with AI sidebar support.",
+      "primary_actions": [
+        "Edit Markdown content",
+        "Insert images via supported图床",
+        "Invoke AI assistant",
+        "Preview rendered output",
+        "Save or export document"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist current document state as a local draft or exported file.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "last_modified": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "drafts",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_modified",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add local draft persistence",
+    "week 1: Implement core Markdown-to-WeChat renderer",
+    "week 1: Integrate basic AI assistant with one provider"
+  ],
+  "acceptance_tests": [
+    "AI assistant responds to prompts using document context and generates relevant content.",
+    "User can type Markdown and see live WeChat-formatted preview."
+  ]
+}

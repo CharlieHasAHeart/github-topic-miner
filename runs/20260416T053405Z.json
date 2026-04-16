@@ -1,0 +1,3608 @@
+{
+  "run_id": "20260416T053405Z",
+  "generated_at": "2026-04-16T05:34:05.091Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 47,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 11,
+      "release": 9,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-16T05:39:00.733Z",
+    "repo_count": 224
+  },
+  "candidates": [
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 629,
+      "forks_count": 172,
+      "open_issues_count": 1270,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:32:38Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    },
+    {
+      "full_name": "blueberrycongee/Lumina-Note",
+      "html_url": "https://github.com/blueberrycongee/Lumina-Note",
+      "description": "Lumina Note - A modern Markdown note-taking app with live preview, bidirectional links, and AI assistant",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "desktop-app",
+        "knowledge-graph",
+        "local-first",
+        "markdown",
+        "note-taking",
+        "own-your-data",
+        "pdf-reader",
+        "rag",
+        "react",
+        "rust",
+        "second-brain",
+        "semantic-search",
+        "tauri",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 845,
+      "forks_count": 87,
+      "open_issues_count": 17,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:32:23Z",
+      "created_at": "2025-11-28T12:34:30Z"
+    },
+    {
+      "full_name": "doocs/md",
+      "html_url": "https://github.com/doocs/md",
+      "description": "✍ WeChat Markdown Editor | 一款高度简洁的微信 Markdown 编辑器：支持 Markdown 语法、自定义主题样式、内容管理、多图床、AI 助手等特性",
+      "topics": [
+        "ai-bot",
+        "doocs",
+        "editor",
+        "llm",
+        "markdown",
+        "markdown-editor",
+        "tailwindcss",
+        "vite",
+        "vue",
+        "vue3",
+        "wechat",
+        "weixin"
+      ],
+      "language": "Vue",
+      "stargazers_count": 12290,
+      "forks_count": 2097,
+      "open_issues_count": 37,
+      "license_spdx_id": "WTFPL",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:31:43Z",
+      "created_at": "2019-11-01T09:14:36Z"
+    },
+    {
+      "full_name": "Youwes09/Moku",
+      "html_url": "https://github.com/Youwes09/Moku",
+      "description": "Manga reader frontend for Suwayomi-Server",
+      "topics": [
+        "manga",
+        "manga-downloader",
+        "manga-reader",
+        "suwayomi",
+        "svelte5",
+        "tauri"
+      ],
+      "language": "Svelte",
+      "stargazers_count": 74,
+      "forks_count": 3,
+      "open_issues_count": 7,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:29:49Z",
+      "created_at": "2026-02-21T05:34:48Z"
+    },
+    {
+      "full_name": "ptnghia-j/ChordMiniApp",
+      "html_url": "https://github.com/ptnghia-j/ChordMiniApp",
+      "description": "Music Analysis, Chord Recognition, Beat Tracking, Guitar Diagrams, Piano Visualizer, Lyrics Transcription Application, context-aware LLM inference for analysis from uploaded audio and YouTube video",
+      "topics": [
+        "ace",
+        "acr",
+        "beat-tracking",
+        "chord-progressions",
+        "chord-recognition",
+        "experiment",
+        "hacktoberfest",
+        "llm-tools",
+        "mir",
+        "music",
+        "pitch-shift",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 255,
+      "forks_count": 33,
+      "open_issues_count": 16,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:29:42Z",
+      "created_at": "2025-04-28T09:57:24Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "blueberrycongee/Lumina-Note",
+      "html_url": "https://github.com/blueberrycongee/Lumina-Note",
+      "description": "Lumina Note - A modern Markdown note-taking app with live preview, bidirectional links, and AI assistant",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "desktop-app",
+        "knowledge-graph",
+        "local-first",
+        "markdown",
+        "note-taking",
+        "own-your-data",
+        "pdf-reader",
+        "rag",
+        "react",
+        "rust",
+        "second-brain",
+        "semantic-search",
+        "tauri",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 845,
+      "forks_count": 87,
+      "open_issues_count": 17,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:32:23Z",
+      "created_at": "2025-11-28T12:34:30Z"
+    },
+    {
+      "full_name": "doocs/md",
+      "html_url": "https://github.com/doocs/md",
+      "description": "✍ WeChat Markdown Editor | 一款高度简洁的微信 Markdown 编辑器：支持 Markdown 语法、自定义主题样式、内容管理、多图床、AI 助手等特性",
+      "topics": [
+        "ai-bot",
+        "doocs",
+        "editor",
+        "llm",
+        "markdown",
+        "markdown-editor",
+        "tailwindcss",
+        "vite",
+        "vue",
+        "vue3",
+        "wechat",
+        "weixin"
+      ],
+      "language": "Vue",
+      "stargazers_count": 12290,
+      "forks_count": 2097,
+      "open_issues_count": 37,
+      "license_spdx_id": "WTFPL",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:31:43Z",
+      "created_at": "2019-11-01T09:14:36Z"
+    },
+    {
+      "full_name": "ptnghia-j/ChordMiniApp",
+      "html_url": "https://github.com/ptnghia-j/ChordMiniApp",
+      "description": "Music Analysis, Chord Recognition, Beat Tracking, Guitar Diagrams, Piano Visualizer, Lyrics Transcription Application, context-aware LLM inference for analysis from uploaded audio and YouTube video",
+      "topics": [
+        "ace",
+        "acr",
+        "beat-tracking",
+        "chord-progressions",
+        "chord-recognition",
+        "experiment",
+        "hacktoberfest",
+        "llm-tools",
+        "mir",
+        "music",
+        "pitch-shift",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 255,
+      "forks_count": 33,
+      "open_issues_count": 16,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:29:42Z",
+      "created_at": "2025-04-28T09:57:24Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "blueberrycongee/Lumina-Note",
+      "html_url": "https://github.com/blueberrycongee/Lumina-Note",
+      "description": "Lumina Note - A modern Markdown note-taking app with live preview, bidirectional links, and AI assistant",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "desktop-app",
+        "knowledge-graph",
+        "local-first",
+        "markdown",
+        "note-taking",
+        "own-your-data",
+        "pdf-reader",
+        "rag",
+        "react",
+        "rust",
+        "second-brain",
+        "semantic-search",
+        "tauri",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 845,
+      "forks_count": 87,
+      "open_issues_count": 17,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:32:23Z",
+      "created_at": "2025-11-28T12:34:30Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n<img src=\"src-tauri/icons/128x128.png\" alt=\"Lumina Note Logo\" width=\"120\" height=\"120\" />\n\n# Lumina Note\n\n**Local-first AI note-taking app**\n\nYour notes stay on your device. Lumina Note helps you write, connect, search, and refine knowledge with AI while keeping data ownership in your hands.\n\n[![GitHub Release](https://img.shields.io/github/v/release/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/releases)\n[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE)\n[![Tauri](https://img.shields.io/badge/Tauri-v2-24C8DB?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app/)\n\n[![CI](https://img.shields.io/github/actions/workflow/status/blueberrycongee/Lumina-Note/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/blueberrycongee/Lumina-Note/actions/workflows/ci.yml)\n[![Security Audit](https://img.shields.io/github/actions/workflow/status/blueberrycongee/Lumina-Note/security-audit.yml?branch=main&style=flat-square&label=Security%20Audit)](https://github.com/blueberrycongee/Lumina-Note/actions/workflows/security-audit.yml)\n[![Downloads](https://img.shields.io/github/downloads/blueberrycongee/Lumina-Note/total?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/releases)\n[![Last Commit](https://img.shields.io/github/last-commit/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/commits/main)\n[![GitHub Stars](https://img.shields.io/github/stars/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/stargazers)\n[![Commit Activity](https://img.shields.io/github/commit-activity/m/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/commits/main)\n![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-lightgrey?style=flat-square)\n\n**Language**: English (default) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-TW.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md) · [Français](./README.fr.md) · [Deutsch](./README.de.md) · [Italiano](./README.it.md) · [Português (Brasil)](./README.pt-BR.md) · [Русский](./README.ru.md)\n\n</div>\n\n---\n\n<h2 align=\"center\">Why Lumina Note</h2>\n\n- **Local-first by design**: your vault is local, and you decide what gets sent to model providers.\n- **Knowledge-centered workflow**: Markdown editing, WikiLinks, graph view, and AI retrieval work as one system.\n- **AI that can actually act**: Chat, Agent, and Codex mode support real editing, planning, and automation tasks.\n\n---\n\n<h2 align=\"center\">Download</h2>\n\n<div align=\"center\">\n\nGet the latest build from [Releases](https://github.com/blueberrycongee/Lumina-Note/releases):\n\n| Platform | Package |\n|----------|---------|\n| Windows | `.msi` / `.exe` |\n| macOS (Intel) | `x64.dmg` |\n| macOS (Apple Silicon) | `aarch64.dmg` |\n\n</div>\n\n---\n\n<h2 align=\"center\">Screenshots</h2>\n\n<p align=\"center\">\n  <img src=\"docs/screenshots/ai-agent.png\" alt=\"AI Agent\" width=\"800\" />\n</p>\n\n<p align=\"center\">\n  <img src=\"docs/screenshots/knowledge-graph.png\" alt=\"Knowledge Graph\" width=\"800\" />\n</p>\n\n<p align=\"center\">\n  <img src=\"docs/screenshots/editor-latex.png\" alt=\"Editor\" width=\"800\" />\n</p>\n\n---\n\n<h2 align=\"center\">Features</h2>\n\n<h3 align=\"center\">AI workspace</h3>\n\n- Modes: `Chat` / `Agent` / `Codex` (embedded VS Code extension in the sidebar)\n- Multi-provider support: OpenAI / Anthropic (Claude) / DeepSeek / Gemini / Moonshot / Groq / OpenRouter / Ollama\n- Simple purpose-based model routing: `Main Model` / `Chat Model` / `Complex Task Model`\n- Orchestrated agent runtime for heavier tasks, with a fast path for simpler requests\n- Local semantic retrieval (RAG) from your vault\n\n<h3 align=\"center\">Editor and knowledge graph</h3>\n\n- Markdown source / live preview / reading modes\n- Bidirectional links with `[[WikiLinks]]`\n- LaTeX, Mermaid, and code highlighting\n- Graph visualization for relationships across notes\n\n<h3 align=\"center\">Reading and capture</h3>\n\n- Built-in PDF reader with highlight, underline, and annotations\n- Save annotation output as Markdown\n- Send selected content directly into AI context\n\n<h3 align=\"center\">Extra capabilities</h3>\n\n- Bilibili video notes with danmaku timestamp sync\n- Real-time voice input\n- Database views (table / kanban)\n- WebDAV sync\n- Flashcard review\n- 15 themes\n- External OpenClaw workspace attachment with memory/plan/artifact affordances, filtered views, and bridge notes\n\n<h3 align=\"center\">Plugin ecosystem (Developer Preview)</h3>\n\n- Load plugins from workspace / user / built-in directories\n- Runtime permission model for plugin capabilities\n- Slash command extension API\n- Developer guide: `docs/plugin-ecosystem.md`\n\n---\n\n<h2 align=\"center\">Quick Start</h2>\n\n1. Install Lumina Note from Releases.\n2. Choose a local folder as your vault on first launch.\n3. Configure a model provider and API key in the AI panel, then optionally set `Main` / `Chat` / `Complex Task` models in Dynamic Routing.\n4. Create your first note and start linking with `[[WikiLinks]]`.\n\n---\n\n<h2 align=\"center\">Guides</h2>\n\n<h3 align=\"center\">Recommended user guides</h3>\n\n- English: `docs/user-flow.md`\n- 简体中文: `docs/user-flow.zh-CN.md`\n- 日本語: `docs/user-flow.ja.md`\n- OpenClaw workspace integration: `docs/openclaw-workspace-integration.md`\n\n<h3 align=\"center\">Self-hosted relay (cross-network mobile access)</h3>\n\n- English: `docs/self-host.md`\n- 简体中文: `docs/self-host.zh-CN.md`\n\n---\n\n<h2 align=\"center\">Build from Source</h2>\n\nRequirements:\n\n- Node.js 20+ (recommended 20.11.1)\n- Rust 1.70+\n\n```bash\ngit clone https://github.com/blueberrycongee/Lumina-Note.git\ncd Lumina-Note\nnpm install\nnpm run tauri dev\n```\n\n---\n\n<h2 align=\"center\">Tech Stack</h2>\n\n- Framework: Tauri v2 (Rust + WebView)\n- Frontend: React 18, TypeScript, Tailwind CSS\n- Editor: CodeMirror 6\n- State: Zustand\n- Vector storage: SQLite\n\n---\n\n<h2 align=\"center\">Open Source Components</h2>\n\n- Editor core: [codemirror-live-markdown](https://github.com/blueberrycongee/codemirror-live-markdown)\n- Rust orchestration runtime: [forge](https://github.com/blueberrycongee/forge)\n\n---\n\n<h2 align=\"center\">Contributors</h2>\n\n<a href=\"https://github.com/blueberrycongee/Lumina-Note/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=blueberrycongee/Lumina-Note\" />\n</a>\n\n---\n\n<h2 align=\"center\">License</h2>\n\n[Apache License 2.0](LICENSE)\n\n---\n\n<h2 align=\"center\">Star History</h2>\n\n[![Star History Chart](https://api.star-history.com/svg?repos=blueberrycongee/Lumina-Note&type=Date)](https://star-history.com/#blueberrycongee/Lumina-Note&Date)\n",
+        "truncated": false,
+        "bytes": 6752,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Lumina Note v1.0.17",
+            "tag_name": "v1.0.17",
+            "published_at": "2026-03-16T17:51:43Z",
+            "body_excerpt": "See the assets to download and install this version."
+          },
+          {
+            "name": "Lumina Note v1.0.16",
+            "tag_name": "v1.0.16",
+            "published_at": "2026-03-14T21:33:24Z",
+            "body_excerpt": "See the assets to download and install this version."
+          },
+          {
+            "name": "Lumina Note v1.0.14",
+            "tag_name": "v1.0.14",
+            "published_at": "2026-03-13T15:01:47Z",
+            "body_excerpt": "See the assets to download and install this version."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".dockerignore",
+        ".editorconfig",
+        ".env.example",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "INTERACTION-EFFECTS-GUIDE.md",
+        "LICENSE",
+        "README.de.md",
+        "README.en.md",
+        "README.es.md",
+        "README.fr.md",
+        "README.it.md",
+        "README.ja.md",
+        "README.ko.md",
+        "README.md",
+        "README.pt-BR.md",
+        "README.ru.md",
+        "README.zh-CN.md",
+        "README.zh-TW.md",
+        "deploy",
+        "doc-tools-version.txt",
+        "doc",
+        "docker-compose.hosted.yml",
+        "docker-compose.selfhost.yml",
+        "docs",
+        "e2e",
+        "electron.vite.config.ts",
+        "electron",
+        "index.html",
+        "mobile",
+        "node-runtime-version.txt",
+        "package-lock.json",
+        "package.json",
+        "packages",
+        "postcss.config.js",
+        "public",
+        "scripts",
+        "server",
+        "src-tauri",
+        "src",
+        "tailwind.config.js",
+        "tests",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts",
+        "vitest.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<img src=\"src-tauri/icons/128x128.png\" alt=\"Lumina Note Logo\" width=\"120\" height=\"120\" />",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Your notes stay on your device. Lumina Note helps you write, connect, search, and refine knowledge with AI while keeping data ownership in your hands.",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![GitHub Release](https://img.shields.io/github/v/release/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/releases) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE) [![Tauri](https://img.shields.io/badge/Tauri-v2-24C8DB?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app/)",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[![CI](https://img.shields.io/github/actions/workflow/status/blueberrycongee/Lumina-Note/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/blueberrycongee/Lumina-Note/actions/workflows/ci.yml) [![Security Audit](https://img.shields.io/github/actions/workflow/status/blueberrycongee/Lumina-Note/security-audit.yml?branch=main&style=flat-square&label=Security%20Audit)](https://github.com/blueberrycongee/Lumina-Note/actions/workflows/security-audit.yml) [![Downloads](https://img.shields.io/github/downloads/blueberrycongee/Lumina-Note/total?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/releases) [![Last Commit](https://img.shields.io/github/last-commit/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/commits/main) [![GitHub Stars](https://img.shields.io/github/stars/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/stargazers) [![Commit Activity](https://img.shields.io/github/commit-activity/m/blueberrycongee/Lumina-Note?style=flat-square)](https://github.com/blueberrycongee/Lumina-Note/commits/main) ![Platform](https://img.shields.io/badge/platform-Windows%20…",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 5)",
+          "excerpt": "**Language**: English (default) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-TW.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md) · [Français](./README.fr.md) · [Deutsch](./README.de.md) · [Italiano](./README.it.md) · [Português (Brasil)](./README.pt-BR.md) · [Русский](./README.ru.md)",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- **Local-first by design**: your vault is local, and you decide what gets sent to model providers. - **Knowledge-centered workflow**: Markdown editing, WikiLinks, graph view, and AI retrieval work as one system. - **AI that can actually act**: Chat, Agent, and Codex mode support real editing, planning, and automation tasks.",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Get the latest build from [Releases](https://github.com/blueberrycongee/Lumina-Note/releases):",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note#readme",
+          "title": "README (segment 8)",
+          "excerpt": "| Platform | Package | |----------|---------| | Windows | `.msi` / `.exe` | | macOS (Intel) | `x64.dmg` | | macOS (Apple Silicon) | `aarch64.dmg` |",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note/releases",
+          "title": "v1.0.17",
+          "excerpt": "See the assets to download and install this version.",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "tag_name": "v1.0.17",
+            "published_at": "2026-03-16T17:51:43Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note/releases",
+          "title": "v1.0.16",
+          "excerpt": "See the assets to download and install this version.",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "tag_name": "v1.0.16",
+            "published_at": "2026-03-14T21:33:24Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note/releases",
+          "title": "v1.0.14",
+          "excerpt": "See the assets to download and install this version.",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "tag_name": "v1.0.14",
+            "published_at": "2026-03-13T15:01:47Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/blueberrycongee/Lumina-Note",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerignore, .editorconfig, .env.example, .gitattributes, .github, .gitignore, AGENTS.md, CHANGELOG.md, INTERACTION-EFFECTS-GUIDE.md, LICENSE, README.de.md, README.en.md, README.es.md, README.fr.md, README.it.md, README.ja.md, README.ko.md, README.md, README.pt-BR.md, README.ru.md, README.zh-CN.md, README.zh-TW.md, deploy, doc-tools-version.txt, doc, docker-compose.hosted.yml, docker-compose.selfhost.yml, docs, e2e, electron.vite.config.ts, electron, index.html, mobile, node-runtime-version.txt, package-lock.json, package.json, packages, postcss.config.js, public, scripts, server, src-tauri, src, tailwind.config.js, tests, tsconfig.json, tsconfig.node.json, vite.config.ts, vitest.config.ts",
+          "fetched_at": "2026-04-16T05:34:09.490Z",
+          "meta": {
+            "repo_full_name": "blueberrycongee/Lumina-Note",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "doocs/md",
+      "html_url": "https://github.com/doocs/md",
+      "description": "✍ WeChat Markdown Editor | 一款高度简洁的微信 Markdown 编辑器：支持 Markdown 语法、自定义主题样式、内容管理、多图床、AI 助手等特性",
+      "topics": [
+        "ai-bot",
+        "doocs",
+        "editor",
+        "llm",
+        "markdown",
+        "markdown-editor",
+        "tailwindcss",
+        "vite",
+        "vue",
+        "vue3",
+        "wechat",
+        "weixin"
+      ],
+      "language": "Vue",
+      "stargazers_count": 12290,
+      "forks_count": 2097,
+      "open_issues_count": 37,
+      "license_spdx_id": "WTFPL",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:31:43Z",
+      "created_at": "2019-11-01T09:14:36Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n[![doocs-md](https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/logo-2.png)](https://github.com/doocs/md)\n\n</div>\n\n<h1 align=\"center\">微信 Markdown 编辑器</h1>\n\n<div align=\"center\">\n\n[![status](https://img.shields.io/github/actions/workflow/status/doocs/md/deploy.yml?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md/actions) [![node](https://img.shields.io/badge/node-%3E%3D22-42cc23?style=flat-square&labelColor=564341)](https://nodejs.org/en/about/previous-releases) [![pr](https://img.shields.io/badge/prs-welcome-42cc23?style=flat-square&labelColor=564341)](https://github.com/doocs/md/pulls) [![stars](https://img.shields.io/github/stars/doocs/md?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md/stargazers) [![forks](https://img.shields.io/github/forks/doocs/md?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md)<br> [![release](https://img.shields.io/github/v/release/doocs/md?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md/releases) [![npm](https://img.shields.io/npm/v/@doocs/md-cli?style=flat-square&labelColor=564341&color=42cc23)](https://www.npmjs.com/package/@doocs/md-cli) [![docker](https://img.shields.io/badge/docker-latest-42cc23?style=flat-square&labelColor=564341)](https://hub.docker.com/r/doocs/md)\n\n</div>\n\n## 📝 项目介绍\n\n**Markdown 文档自动即时渲染为微信图文**，让你不再为微信内容排版而发愁！只要你会基本的 Markdown 语法（现在有了 AI，你甚至不需要会 Markdown），就能做出一篇样式简洁而又美观大方的微信图文。\n\n**如果这个项目对你有帮助，请给我们点个 Star ⭐️**，我们会持续更新和维护！\n\n## 🌐 在线编辑器地址\n\n[https://md.doocs.org](https://md.doocs.org)\n\n> **推荐使用 Chrome 浏览器**，效果最佳。\n\n## 🤔 为何开发这款编辑器\n\n现有的开源微信 Markdown 编辑器样式繁杂，排版过程中往往需要额外调整，影响使用效率。为了解决这一问题，我们打造了一款更加**简洁、优雅**的编辑器，提供更流畅的排版体验。\n\n欢迎各位朋友随时提交 PR，让这款微信 Markdown 编辑器变得更好！如果你有新的想法，也欢迎在 [💬 Discussions 讨论区](https://github.com/doocs/md/discussions)反馈。\n\n## ✨ 功能特性\n\n### 🎨 核心功能\n\n- ✅ **完整 Markdown 支持** - 支持所有基础语法、数学公式\n- ✅ **图表渲染** - 支持 Mermaid 图表和 [GFM 警告块](https://github.com/orgs/community/discussions/16925)\n- ✅ **PlantUML 支持** - 强大的 UML 图表渲染\n- ✅ **Ruby 注音扩展** - 支持 `[文字]{注音}`、`[文字]^(注音)` 格式，支持多种分隔符\n\n### 🎯 编辑体验\n\n- ✅ **代码高亮** - 丰富的代码块高亮主题，提升代码可读性\n- ✅ **自定义样式** - 允许自定义主题色和 CSS 样式，灵活定制展示效果\n- ✅ **草稿保存** - 内置本地内容管理功能，支持草稿自动保存\n\n### 🚀 高级功能\n\n- ✅ **多图床支持** - 提供多种图床选择，便捷的图片上传功能\n- ✅ **文件管理** - 便捷的文件导入、导出功能，提升工作效率\n- ✅ **AI 集成** - 集成主流 AI 模型（DeepSeek、OpenAI、通义千问、腾讯混元、火山方舟、302.AI 等），智能辅助内容创作\n\n## 🖼️ 支持的图床服务\n\n| #   | 图床                                                   | 使用时是否需要配置                                                         | 备注                                                                                                                   |\n| --- | ------------------------------------------------------ | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |\n| 1   | 默认                                                   | 否                                                                         | -                                                                                                                      |\n| 2   | [GitHub](https://github.com)                           | 配置 `Repo`、`Token` 参数                                                  | [如何获取 GitHub token？](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |\n| 3   | [阿里云](https://www.aliyun.com/product/oss)           | 配置 `AccessKey ID`、`AccessKey Secret`、`Bucket`、`Region` 参数           | [如何使用阿里云 OSS？](https://help.aliyun.com/document_detail/31883.html)                                             |\n| 4   | [腾讯云](https://cloud.tencent.com/act/pro/cos)        | 配置 `SecretId`、`SecretKey`、`Bucket`、`Region` 参数                      | [如何使用腾讯云 COS？](https://cloud.tencent.com/document/product/436/38484)                                           |\n| 5   | [七牛云](https://www.qiniu.com/products/kodo)          | 配置 `AccessKey`、`SecretKey`、`Bucket`、`Domain`、`Region` 参数           | [如何使用七牛云 Kodo？](https://developer.qiniu.com/kodo)                                                              |\n| 6   | [MinIO](https://min.io/)                               | 配置 `Endpoint`、`Port`、`UseSSL`、`Bucket`、`AccessKey`、`SecretKey` 参数 | [如何使用 MinIO？](http://docs.minio.org.cn/docs/master/)                                                              |\n| 7   | [S3 协议](https://aws.amazon.com/s3/)                  | 配置 `Endpoint`、`Region`、`Bucket`、`AccessKey`、`SecretKey` 参数         | 支持 AWS S3、Oracle、DigitalOcean 等兼容 S3 的存储服务                                                                 |\n| 8   | [公众号](https://mp.weixin.qq.com/)                    | 配置 `appID`、`appsecret`、`代理域名` 参数                                 | [如何使用公众号图床？](https://md-pages.doocs.org/tutorial)                                                            |\n| 9   | [Cloudflare R2](https://developers.cloudflare.com/r2/) | 配置 `AccountId`、`AccessKey`、`SecretKey`、`Bucket`、`Domain` 参数        | [如何使用 S3 API 操作 R2？](https://developers.cloudflare.com/r2/api/s3/api/)                                          |\n| 10  | [又拍云](https://www.upyun.com/)                       | 配置 `Bucket`、`Operator`、`Password`、`Domain` 参数                       | [如何使用 又拍云？](https://help.upyun.com/)                                                                           |\n| 11  | [Telegram](https://core.telegram.org/api)              | 配置 `Bot Token`、`Chat ID` 参数                                           | [如何使用 Telegram 图床？](https://github.com/doocs/md/blob/main/docs/telegram-usage.md)                               |\n| 12  | [Cloudinary](https://cloudinary.com/)                  | 配置 `Cloud Name`、`API Key`、`API Secret` 参数                            | [如何使用 Cloudinary？](https://cloudinary.com/documentation/upload_images)                                            |\n| 13  | 自定义上传                                             | 是                                                                         | [如何自定义上传？](/docs/custom-upload.md)                                                                             |\n\n## 🎬 产品演示\n\n<div align=\"center\">\n\n|                                      🎨 主题切换                                      |                                      🖼️ 图片上传                                      |\n| :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |\n| ![demo1](https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/demo1.gif) | ![demo2](https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/demo2.gif) |\n\n|                                      📝 样式扩展                                      |                                      🤖 一键排版                                      |\n| :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |\n| ![demo3](https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/demo3.gif) | ![demo4](https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/demo4.gif) |\n\n</div>\n\n## 🛠️ 开发与部署\n\n```sh\n# 安装 node 版本\nnvm i && nvm use\n\n# 安装依赖\npnpm i\n\n# 启动开发模式\npnpm web dev\n# 访问 http://localhost:5173/md/\n\n# 部署在 /md 目录\npnpm web build\n\n# 部署在根目录\npnpm web build:h5-netlify\n\n# Chrome 插件启动及调试\npnpm web ext:dev\n# 访问 chrome://extensions/ 打开开发者模式，加载已解压的扩展程序，选择 apps/web/.output/chrome-mv3-dev 目录\n\n# Chrome 插件打包\npnpm web ext:zip\n\n# Firefox 扩展打包(how to build Firefox addon)\npnpm web firefox:zip # output zip file at in apps/web/.output/md-{version}-firefox.zip\n\n# uTools 插件打包\npnpm utools:package # output zip file at apps/utools/release/md-utools-v{version}.zip\n\n# cloudflare workers\npnpm web wrangler:dev # cloudflare workers dev 模式\npnpm web wrangler:deploy # cloudflare workers 部署命令\n```\n\n## 🚀 快速搭建私有服务\n\n### 📦 方式 1. 使用 npm cli\n\n通过我们的 npm cli 你可以轻易搭建属于自己的微信 Markdown 编辑器。\n\n```sh\n# 安装\nnpm i -g @doocs/md-cli\n\n# 启动\nmd-cli\n\n# 访问\nopen http://127.0.0.1:8800\n\n# 启动并指定端口\nmd-cli port=8899\n\n# 访问\nopen http://127.0.0.1:8899\n```\n\nmd-cli 支持以下命令行参数：\n\n- `port` 指定端口号，默认 8800，如果被占用会随机使用一个新端口。\n- `spaceId` dcloud 服务空间配置\n- `clientSecret` dcloud 服务空间配置\n\n### 🐳 方式 2. 使用 Docker 镜像\n\n如果你是 Docker 用户，也可以直接使用一条命令，启动**完全属于你的、私有化运行的实例**。\n\n```sh\ndocker run -d -p 8080:80 doocs/md:latest\n```\n\n容器运行起来之后，打开浏览器，访问 http://localhost:8080 即可。\n\n关于本项目 Docker 镜像的更多详细信息，可以关注 https://github.com/doocs/docker-md\n\n## 👥 谁在使用\n\n请查看 [📋 USERS.md](USERS.md) 文件，了解使用本项目的公众号。\n\n## 🤝 贡献指南\n\n我们欢迎任何形式的贡献！请查看 [📖 CONTRIBUTING.md](./CONTRIBUTING.md) 获取提交 PR、Issue 的流程与规范。\n\n## ☕ 支持我们\n\n如果本项目对你有所帮助，可以通过以下方式支持我们的持续开发。\n\n<table style=\"margin: 0 auto\">\n  <tbody>\n    <tr>\n      <td align=\"center\" style=\"width: 260px\">\n        <img\n          src=\"https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/support1.jpg\"\n          alt=\"support1\"\n          style=\"width: 200px\"\n        /><br />\n      </td>\n      <td align=\"center\" style=\"width: 260px\">\n        <img\n          src=\"https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/support2.jpg\"\n          alt=\"support2\"\n          style=\"width: 200px\"\n        /><br />\n      </td>\n    </tr>\n  </tbody>\n</table>\n\n## 💬 反馈与交流\n\n如果你在使用过程中遇到问题，或者有好的建议，欢迎在 [🐛 Issues](https://github.com/doocs/md/issues) 中反馈。你也可以加入我们的交流群，和我们一起讨论，若群二维码失效，请添加好友，备注 `md`，我们会拉你进群。\n\n<table style=\"margin: 0 auto\">\n  <tbody>\n    <tr>\n      <td align=\"center\" style=\"width: 260px\">\n        <img\n          src=\"https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/doocs-md-wechat-group.jpg\"\n          alt=\"doocs-md-wechat-group\"\n          style=\"width: 200px\"\n        /><br />\n      </td>\n      <td align=\"center\" style=\"width: 260px\">\n        <img\n          src=\"https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/wechat-ylb.jpg\"\n          alt=\"wechat-ylb\"\n          style=\"width: 200px\"\n        /><br />\n      </td>\n    </tr>\n  </tbody>\n</table>\n",
+        "truncated": false,
+        "bytes": 12415,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.1.0",
+            "tag_name": "v2.1.0",
+            "published_at": "2025-10-17T14:08:04Z",
+            "body_excerpt": "# 微信 Markdown 编辑器 v2.1.0 发布🎈\n\n[![github](https://badgen.net/badge/>>/GitHub/cyan)](https://github.com/doocs/md/releases) [![gitee](https://badgen.net/badge/>>/Gitee/cyan)](https://gitee.com/doocs/md/releases) [![gitcode](https://badgen.net/badge/>>/GitCode/cyan)](https://gitcode.com/doocs/md/releases)\n\n> Markdown 文档自动即时渲染为微信图文，让你不再为微信内容排版而发愁！\n\n\n### ✨ 新特性\n\n- **AI 助手侧边栏 & 文生图**：新增独立的 AI 助手侧边栏，支持智能对话、文本生成与 AI 图像生成功能，让创作更高效便捷。  \n- **PlantUML & Ruby 语法支持**：支持 PlantUML 图表渲染和 Ruby 文本标注（注音符号），扩展图表与多语言表达能力。  \n- **图片压缩 & 上传进度条**：上传图片时自动压缩并显示进度条，优化存储空间与用户体验。  \n- **移动端适配增强**：进一步优化移动端显示与交互体验，支持更流畅的移动端创作。\n\n### 🏗️ 架构与部署\n\n- **CodeMirror 升级至 v6**：编辑器核心组件全面升级，提升性能与稳定性。\n- **Vite 升级至 v7**：构建工具全面升级，显著提升构建速度与开发体验。  \n- **pnpm Monorepo 重构**：项目重构为 pnpm monorepo 架构，提升代码组织与维护效率。  \n- **Cloudflare Workers 部署**：支持 Cloudflare Workers 部署与自动化 CI/CD，增强全球访问性能。  \n\n### 👏 贡献者\n\n感谢以下贡献者的杰出贡献：\n\n@yanglbme @YangFong @zeevenn @honwhy @xxxxxxxjy @lihuacai168 @simonzhangs 等\n\n> 感谢所有贡献者的努力！🚀  \n> **doocs/md** 将持续为打造更流畅、更强大的 Markdown 创作体验不断前行！"
+          },
+          {
+            "name": "v2.0.4",
+            "tag_name": "v2.0.4",
+            "published_at": "2025-06-19T23:08:04Z",
+            "body_excerpt": "# 微信 Markdown 编辑器 v2.0.4 发布🎈\n\n[![github](https://badgen.net/badge/>>/GitHub/cyan)](https://github.com/doocs/md/releases) [![gitee](https://badgen.net/badge/>>/Gitee/cyan)](https://gitee.com/doocs/md/releases) [![gitcode](https://badgen.net/badge/>>/GitCode/cyan)](https://gitcode.com/doocs/md/releases)\n\n> Markdown 文档自动即时渲染为微信图文，让你不再为微信内容排版而发愁！\n\n\n### ✨ 新特性\n\n- **编辑器搜索与替换**：编辑器新增搜索和替换快捷键，提升文本编辑效率。  \n- **标题快捷键支持**：新增 `Ctrl/Cmd + 1~6` 快捷键，可快速插入对应级别的 Markdown 标题。\n- **VSCode 插件初步集成**：开始支持 VSCode 插件，为桌面端用户提供另一种创作体验。  \n- **浏览器插件扩展 SitePanel 支持**：浏览器插件支持 SitePanel 集成，增强页面侧边栏能力。\n\n### 🛠 功能优化与问题修复\n\n- **重置问题修复**：修复重置编辑器文档时未正确清空的问题。  \n- **XSS 漏洞修复**：修复潜在的跨站脚本攻击问题，提升系统安全性。  \n- **Docker 镜像问题修复**：解决构建与运行中的镜像异常问题，增强部署稳定性。\n\n### 👏 贡献者\n\n感谢以下贡献者的杰出贡献：\n\n@syhxzzz @yanglbme @YangFong @honwhy @bygsn @lurenyang418 等\n更强大的 Markdown 创作体验不断前行！\n\n> 感谢所有贡献者的努力！🚀  \n> **doocs/md** 将持续为打造更流畅、更强大的 Markdown 创作体验不断前行！"
+          },
+          {
+            "name": "v2.0.3",
+            "tag_name": "v2.0.3",
+            "published_at": "2025-05-25T12:40:55Z",
+            "body_excerpt": "# 微信 Markdown 编辑器 v2.0.3 发布🎈\n\n[![github](https://badgen.net/badge/>>/GitHub/cyan)](https://github.com/doocs/md/releases) [![gitee](https://badgen.net/badge/>>/Gitee/cyan)](https://gitee.com/doocs/md/releases) [![gitcode](https://badgen.net/badge/>>/GitCode/cyan)](https://gitcode.com/doocs/md/releases)\n\n> Markdown 文档自动即时渲染为微信图文，让你不再为微信内容排版而发愁！\n\n\n### ✨ 新特性\n\n- **AI 引用全文 & 快捷指令**：AI 现在可直接引用整篇文档并支持自定义快捷指令，编辑器与 AI 能力深度融合，提升交互效率。  \n- **一键清空文档**：新增“清空”按钮，支持一键删除全部内容，快速重置编辑环境。  \n- **公众号名片插入**：支持在 Markdown 中便捷插入公众号名片，丰富文章展示形式。  \n- **Telegram & Cloudinary 图床**：新增 Telegram、Cloudinary 图床选项，进一步扩充多图床生态。  \n\n### 🛠 功能优化与问题修复\n\n- **AI Prompt 优化**：改进提示词生成策略，使 AI 回答更精准、上下文衔接更自然。  \n- **文件名修复**：解决保存与导出时偶发的文件名错误问题。  \n- **行内公式样式优化**：调整行内公式渲染样式，提升可读性与排版一致性。  \n- **编辑器快捷键优化**：重新梳理常用快捷键映射，操作更顺手。  \n\n### 👏 贡献者\n\n@yanglbme @syhxzzz @YangFong @Nefelibata-Zhu @biggerboy @SiZV200 @XAihan @zzydannyer @quiet-river  \n\n> 感谢所有贡献者的努力！🚀  \n> **doocs/md** 将持续为打造更流畅、更强大的 Markdown 创作体验不断前行！"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1457,
+            "title": "知乎现在有导入 md 功能了",
+            "state": "open",
+            "url": "https://github.com/doocs/md/issues/1457"
+          },
+          {
+            "number": 1325,
+            "title": "[建议] 为 md-cli 添加 Markdown 渲染 API，支持 n8n 等自动化工具集成",
+            "state": "open",
+            "url": "https://github.com/doocs/md/issues/1325"
+          }
+        ]
+      },
+      "root_files": [
+        ".editorconfig",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".npmrc",
+        ".nvmrc",
+        ".vscode",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "USERS.md",
+        "apps",
+        "docker",
+        "docs",
+        "eslint.config.mjs",
+        "package.json",
+        "packages",
+        "patches",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "public",
+        "scripts",
+        "tsconfig.json",
+        "zbpack.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![doocs-md](https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/logo-2.png)](https://github.com/doocs/md)",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 1,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![status](https://img.shields.io/github/actions/workflow/status/doocs/md/deploy.yml?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md/actions) [![node](https://img.shields.io/badge/node-%3E%3D22-42cc23?style=flat-square&labelColor=564341)](https://nodejs.org/en/about/previous-releases) [![pr](https://img.shields.io/badge/prs-welcome-42cc23?style=flat-square&labelColor=564341)](https://github.com/doocs/md/pulls) [![stars](https://img.shields.io/github/stars/doocs/md?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md/stargazers) [![forks](https://img.shields.io/github/forks/doocs/md?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md)<br> [![release](https://img.shields.io/github/v/release/doocs/md?style=flat-square&labelColor=564341&color=42cc23)](https://github.com/doocs/md/releases) [![npm](https://img.shields.io/npm/v/@doocs/md-cli?style=flat-square&labelColor=564341&color=42cc23)](https://www.npmjs.com/package/@doocs/md-cli) [![docker](https://img.shields.io/badge/docker-latest-42cc23?style=flat-square&labelColor=564341)](https://hub.docker.com/r/doocs/md)",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 2,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 3)",
+          "excerpt": "**Markdown 文档自动即时渲染为微信图文**，让你不再为微信内容排版而发愁！只要你会基本的 Markdown 语法（现在有了 AI，你甚至不需要会 Markdown），就能做出一篇样式简洁而又美观大方的微信图文。",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 3,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 4)",
+          "excerpt": "现有的开源微信 Markdown 编辑器样式繁杂，排版过程中往往需要额外调整，影响使用效率。为了解决这一问题，我们打造了一款更加**简洁、优雅**的编辑器，提供更流畅的排版体验。",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 4,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 5)",
+          "excerpt": "欢迎各位朋友随时提交 PR，让这款微信 Markdown 编辑器变得更好！如果你有新的想法，也欢迎在 [💬 Discussions 讨论区](https://github.com/doocs/md/discussions)反馈。",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 5,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- ✅ **完整 Markdown 支持** - 支持所有基础语法、数学公式 - ✅ **图表渲染** - 支持 Mermaid 图表和 [GFM 警告块](https://github.com/orgs/community/discussions/16925) - ✅ **PlantUML 支持** - 强大的 UML 图表渲染 - ✅ **Ruby 注音扩展** - 支持 `[文字]{注音}`、`[文字]^(注音)` 格式，支持多种分隔符",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 6,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- ✅ **代码高亮** - 丰富的代码块高亮主题，提升代码可读性 - ✅ **自定义样式** - 允许自定义主题色和 CSS 样式，灵活定制展示效果 - ✅ **草稿保存** - 内置本地内容管理功能，支持草稿自动保存",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 7,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/doocs/md#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- ✅ **多图床支持** - 提供多种图床选择，便捷的图片上传功能 - ✅ **文件管理** - 便捷的文件导入、导出功能，提升工作效率 - ✅ **AI 集成** - 集成主流 AI 模型（DeepSeek、OpenAI、通义千问、腾讯混元、火山方舟、302.AI 等），智能辅助内容创作",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "segment": 8,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/doocs/md/issues/1457",
+          "title": "知乎现在有导入 md 功能了",
+          "excerpt": "知乎现在有导入 md 功能了 (state:open)",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "number": 1457
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/doocs/md/issues/1325",
+          "title": "[建议] 为 md-cli 添加 Markdown 渲染 API，支持 n8n 等自动化工具集成",
+          "excerpt": "[建议] 为 md-cli 添加 Markdown 渲染 API，支持 n8n 等自动化工具集成 (state:open)",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "number": 1325
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/doocs/md/releases",
+          "title": "v2.1.0",
+          "excerpt": "# 微信 Markdown 编辑器 v2.1.0 发布🎈 [![github](https://badgen.net/badge/>>/GitHub/cyan)](https://github.com/doocs/md/releases) [![gitee](https://badgen.net/badge/>>/Gitee/cyan)](https://gitee.com/doocs/md/releases) [![gitcode](https://badgen.net/badge/>>/GitCode/cyan)](https://gitcode.com/doocs/md/releases) > Markdown 文档自动即时渲染为微信图文，让你不再为微信内容排版而发愁！ ### ✨ 新特性 - **AI 助手侧边栏 & 文生图**：新增独立的 AI 助手侧边栏，支持智能对话、文本生成与 AI 图像生成功能，让创作更高效便捷。 - **PlantUML & Ruby 语法支持**：支持 PlantUML 图表渲染和 Ruby 文本标注（注音符号），扩展图表与多语言表达能力。 - **图片压缩 & 上传进度条**：上传图片时自动压缩并显示进度条，优化存储空间与用户体验。 - **移动端适配增强**：进一步优化移动端显示与交互体验，支持更流畅的移动端创作。 ### 🏗️ 架构与部署 - **CodeMirror 升级至 v6**：编辑器核心组件全面升级，提升性能与稳定性。 - **Vite 升级至 v7**：构建工具全面升级，显著提升构建速度与开发体验。 - **pnpm Monorepo 重构**：项目重构为 pnpm monorepo 架构，提升代码组织与维护效率。 - **Cloudflare Workers 部署**：支持 Cloudflare Workers 部署与自动化 CI/CD，增强全球访问性能。 ### 👏 贡献者 感谢以下贡献者的杰出贡献： @yanglbme @YangFong @zeevenn @honwhy @xxxxxxxjy @lihuacai168 @simonzhangs 等 > 感谢所有贡献者的努力！🚀 > **doocs/md** 将持续为打造更流畅、更强大的 Markdown 创作体验不断前行！",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "tag_name": "v2.1.0",
+            "published_at": "2025-10-17T14:08:04Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/doocs/md/releases",
+          "title": "v2.0.4",
+          "excerpt": "# 微信 Markdown 编辑器 v2.0.4 发布🎈 [![github](https://badgen.net/badge/>>/GitHub/cyan)](https://github.com/doocs/md/releases) [![gitee](https://badgen.net/badge/>>/Gitee/cyan)](https://gitee.com/doocs/md/releases) [![gitcode](https://badgen.net/badge/>>/GitCode/cyan)](https://gitcode.com/doocs/md/releases) > Markdown 文档自动即时渲染为微信图文，让你不再为微信内容排版而发愁！ ### ✨ 新特性 - **编辑器搜索与替换**：编辑器新增搜索和替换快捷键，提升文本编辑效率。 - **标题快捷键支持**：新增 `Ctrl/Cmd + 1~6` 快捷键，可快速插入对应级别的 Markdown 标题。 - **VSCode 插件初步集成**：开始支持 VSCode 插件，为桌面端用户提供另一种创作体验。 - **浏览器插件扩展 SitePanel 支持**：浏览器插件支持 SitePanel 集成，增强页面侧边栏能力。 ### 🛠 功能优化与问题修复 - **重置问题修复**：修复重置编辑器文档时未正确清空的问题。 - **XSS 漏洞修复**：修复潜在的跨站脚本攻击问题，提升系统安全性。 - **Docker 镜像问题修复**：解决构建与运行中的镜像异常问题，增强部署稳定性。 ### 👏 贡献者 感谢以下贡献者的杰出贡献： @syhxzzz @yanglbme @YangFong @honwhy @bygsn @lurenyang418 等 更强大的 Markdown 创作体验不断前行！ > 感谢所有贡献者的努力！🚀 > **doocs/md** 将持续为打造更流畅、更强大的 Markdown 创作体验不断前行！",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "tag_name": "v2.0.4",
+            "published_at": "2025-06-19T23:08:04Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/doocs/md/releases",
+          "title": "v2.0.3",
+          "excerpt": "# 微信 Markdown 编辑器 v2.0.3 发布🎈 [![github](https://badgen.net/badge/>>/GitHub/cyan)](https://github.com/doocs/md/releases) [![gitee](https://badgen.net/badge/>>/Gitee/cyan)](https://gitee.com/doocs/md/releases) [![gitcode](https://badgen.net/badge/>>/GitCode/cyan)](https://gitcode.com/doocs/md/releases) > Markdown 文档自动即时渲染为微信图文，让你不再为微信内容排版而发愁！ ### ✨ 新特性 - **AI 引用全文 & 快捷指令**：AI 现在可直接引用整篇文档并支持自定义快捷指令，编辑器与 AI 能力深度融合，提升交互效率。 - **一键清空文档**：新增“清空”按钮，支持一键删除全部内容，快速重置编辑环境。 - **公众号名片插入**：支持在 Markdown 中便捷插入公众号名片，丰富文章展示形式。 - **Telegram & Cloudinary 图床**：新增 Telegram、Cloudinary 图床选项，进一步扩充多图床生态。 ### 🛠 功能优化与问题修复 - **AI Prompt 优化**：改进提示词生成策略，使 AI 回答更精准、上下文衔接更自然。 - **文件名修复**：解决保存与导出时偶发的文件名错误问题。 - **行内公式样式优化**：调整行内公式渲染样式，提升可读性与排版一致性。 - **编辑器快捷键优化**：重新梳理常用快捷键映射，操作更顺手。 ### 👏 贡献者 @yanglbme @syhxzzz @YangFong @Nefelibata-Zhu @biggerboy @SiZV200 @XAihan @zzydannyer @quiet-river > 感谢所有贡献者的努力！🚀 > **doocs/md** 将持续为打造更流畅、更强大的 Markdown 创作体验不断前行！",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "tag_name": "v2.0.3",
+            "published_at": "2025-05-25T12:40:55Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/doocs/md",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .github, .gitignore, .husky, .npmrc, .nvmrc, .vscode, CHANGELOG.md, CONTRIBUTING.md, LICENSE, README.md, USERS.md, apps, docker, docs, eslint.config.mjs, package.json, packages, patches, pnpm-lock.yaml, pnpm-workspace.yaml, public, scripts, tsconfig.json, zbpack.json",
+          "fetched_at": "2026-04-16T05:34:09.650Z",
+          "meta": {
+            "repo_full_name": "doocs/md",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "ptnghia-j/ChordMiniApp",
+      "html_url": "https://github.com/ptnghia-j/ChordMiniApp",
+      "description": "Music Analysis, Chord Recognition, Beat Tracking, Guitar Diagrams, Piano Visualizer, Lyrics Transcription Application, context-aware LLM inference for analysis from uploaded audio and YouTube video",
+      "topics": [
+        "ace",
+        "acr",
+        "beat-tracking",
+        "chord-progressions",
+        "chord-recognition",
+        "experiment",
+        "hacktoberfest",
+        "llm-tools",
+        "mir",
+        "music",
+        "pitch-shift",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 255,
+      "forks_count": 33,
+      "open_issues_count": 16,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-16T05:29:42Z",
+      "created_at": "2025-04-28T09:57:24Z",
+      "readme": {
+        "fetched": true,
+        "text": "# ChordMini\n\nOpen-source music analysis tool for chord recognition, beat tracking, piano visualizer, guitar diagrams, lyrics synchronization, and experimental melody transcription.\n\n\n## Features Overview\n\n### 🏠 Homepage Interface\n![ChordMini Homepage Light](public/homepage.png)\n![ChordMini Homepage Dark](public/homepage_dark.png)\n\nClean, intuitive interface for YouTube search, URL input, and recent video access.\n\n### 🎵 Beat & Chord Analysis\n![Beat Chord Grid](public/beatchord_grid.png)\n![Beat Chord with segmentation](public/beatchord_grid_seg.png)\n![Beat Chord Grid with Lyrics](public/beatchord_grid_lyrics.png)\n\nChord progression visualization with synchronized beat detection and grid layout with add-on features: Roman Numeral Analysis, Key Modulation Signals, Simplified Chord Notation, Enhanced Chord Correction, and **song segmentation overlays** for structural sections like intro, verse, chorus, bridge, and outro.\n\n### 🎵 Guitar Diagrams\n\n![Guitar Diagrams](public/guitar_diagrams.png)\n\nInteractive guitar chord diagrams with **accurate fingering patterns** from the official @tombatossals/chords-db database, featuring multiple chord positions, synchronized beat grid integration, and exact slash-chord matching when the database includes a dedicated inversion shape.\n\n### 🎹 Piano Visualizer \n![Piano Visualizer](public/piano_visualizer.png)\n\nReal-time piano roll visualization with falling MIDI notes synchronized to chord playback. Features a scrolling chord strip, interactive keyboard highlighting, smoother playback-synced rendering, segmentation-aware dynamics shaping, and **MIDI file export** for importing chord progressions into any DAW.\n\n### 🎻 Experimental Melody Transcription\n![Melody](public/melody.png)\n![Sheet Music](public/sheet.png)\n\nSheet Sage can optionally add an estimated melodic line on top of the Piano Visualizer, with separate playback, caching, and MIDI export support. This feature is still experimental: inference is slower than the main beat/chord pipeline, and note timing or accuracy may be limited.\n\n###  🎤 Lead Sheet with AI Assistant\n![Lead Sheet with AI](public/leadsheet.png)\n\nSynchronized lyrics transcription with AI chatbot for contextual music analysis and translation support.\n\n---\n\n## 🚀 Quick Setup\n\n### Prerequisites\n- **Node.js 20.9+** and **npm 10+**\n- **Python 3.10.x** (3.10.16 recommended for the backend)\n- **Docker** (recommended for the standalone Sheet Sage melody service)\n- **Git LFS** (for SongFormer checkpoints)\n- **Firebase account** (free tier)\n- **Gemini API** (free tier)\n\n### Setup Steps\n\n1. **Clone and install**\n   Clone with submodules in one command (for fresh clones)\n   ```bash\n   git lfs install\n   git clone --recursive https://github.com/ptnghia-j/ChordMiniApp.git\n   cd ChordMiniApp\n   git lfs pull\n   npm install\n   ```\n\n   #### If you already cloned the repo before SongFormer was added\n   ```bash\n   git pull\n   git lfs pull\n   ```\n\n#### Verify that `git lfs pull` completed\n> [!NOTE]\n> `git lfs pull` downloads the large SongFormer model files referenced by this repo, including the checkpoint binaries stored as Git LFS objects.\n\n#### Verify that submodules are populated\n```bash\nls -la python_backend/models/Beat-Transformer/\nls -la python_backend/models/Chord-CNN-LSTM/\nls -la python_backend/models/ChordMini/\n```\n\n> [!NOTE]\n> If chord recognition encounters an issue with FluidSynth, install it for MIDI synthesis.\n>\n> ```bash\n> # --- Windows ---\n> choco install fluidsynth\n>\n> # --- macOS ---\n> brew install fluidsynth\n>\n> # --- Linux (Debian/Ubuntu-based) ---\n> sudo apt update\n> sudo apt install fluidsynth\n> ```\n\n2. **Environment setup**\n   ```bash\n   cp .env.example .env.local\n   ```\n\n   Edit `.env.local`.\n\n   Required for local frontend + main Python backend:\n   ```bash\n   PYTHON_API_URL=http://localhost:5001\n   NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key\n   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com\n   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id\n   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com\n   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id\n   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id\n   ```\n\n   Optional feature backends and feature keys:\n   ```bash\n   LOCAL_SONGFORMER_API_URL=http://localhost:8080\n   LOCAL_SHEETSAGE_API_URL=http://localhost:8082\n   NEXT_PUBLIC_YOUTUBE_API_KEY=your_youtube_api_key\n   MUSIC_AI_API_KEY=your_music_ai_key\n   GEMINI_API_KEY=your_gemini_api_key\n   GENIUS_API_KEY=your_genius_api_key\n   ```\n   After bucket CORS is configured for your production domain, you can also enable direct Firebase/GCS audio redirects with:\n   ```bash\n   AUDIO_PROXY_FIREBASE_REDIRECT_ENABLED=true\n   ```\n   `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID` is optional and only needed if you want Firebase Analytics.\n\n> [!IMPORTANT]\n> Native Windows backend installs are not currently reliable because `spleeter` and `madmom` still pull in conflicting or outdated dependencies. On Windows x86_64, prefer WSL2/Ubuntu for local development, or build the Docker images locally for `linux/amd64` instead of relying on the published Docker Hub tags.\n> If you are not testing Beat-Transformer, you can skip installing `spleeter` for now. It is only required by the current Beat-Transformer source-separation path. A newer compatible source-separation package will be considered in a future update.\n\n3. **Start Python backend** (Terminal 1)\n   ```bash\n   cd python_backend\n   python -m venv myenv\n   source myenv/bin/activate  # On Windows: myenv\\Scripts\\activate\n   pip install --upgrade pip setuptools wheel\n   pip install \"Cython>=0.29.0\" numpy==1.26.4\n   pip install git+https://github.com/CPJKU/madmom\n   pip install -r requirements.txt\n   python app.py\n   ```\n\n   If `pip install -r requirements.txt` fails with `ResolutionImpossible` errors involving `spleeter`, `librosa`, `httpx`, or `llvmlite`, use WSL2/Ubuntu or Docker for the backend rather than continuing with a native Windows install.\n\n   If you are not testing Beat-Transformer, you can skip `spleeter` during install:\n   ```bash\n   grep -v '^spleeter==' requirements.txt | grep -v '^typer==' > requirements_nospleeter.txt\n   pip install --no-cache-dir -r requirements_nospleeter.txt\n   ```\n   Beat-Transformer testing requires `spleeter`.\n\n   If you still need Beat-Transformer and want the more relaxed install chain used by the Dockerfile, install `spleeter` and `typer` after the main requirements with `--no-deps`:\n   ```bash\n   grep -v '^spleeter==' requirements.txt | grep -v '^typer==' > requirements_nospleeter.txt\n   pip install --no-cache-dir -r requirements_nospleeter.txt\n   pip install --no-cache-dir --no-deps typer==0.9.0\n   pip install --no-cache-dir --no-deps spleeter==2.3.2\n   ```\n\n4. **Start frontend** (Terminal 2)\n   ```bash\n   npm run dev\n   ```\n\n5. **Optional: start the SongFormer segmentation backend** (Terminal 3)\n   ```bash\n   cd SongFormer\n   docker build -t songformer-backend:local .\n   docker run --rm -p 8080:8080 songformer-backend:local\n   ```\n   The app will use this service for song segmentation. For the standalone service setup, Python workflow, and deployment notes, see [SongFormer/README.md](SongFormer/README.md).\n\n6. **Optional: start the experimental Sheet Sage melody backend** (Terminal 4)\n   ```bash\n   cd sheetsage\n   docker build --platform=linux/amd64 -t sheetsage-backend:local .\n   docker run --rm --platform=linux/amd64 -p 8082:8082 -v \"$(pwd)/cache:/app/cache\" sheetsage-backend:local\n   ```\n   For the standalone service image, Cloud Run deployment commands, and asset notes, see [sheetsage/README.md](sheetsage/README.md).\n\n7. **Open application**\n\n   Visit [http://localhost:3000](http://localhost:3000)\n\n---\n\n## 🐳 Docker Deployment (Recommended for Production)\n\n### Prerequisites\n- Docker and Docker Compose installed ([Get Docker](https://docs.docker.com/get-docker/))\n- Firebase account with API keys configured\n\n### Quick Start\n\n1. **Download configuration files**\n   ```bash\n   curl -O https://raw.githubusercontent.com/ptnghia-j/ChordMiniApp/main/docker-compose.prod.yml\n   curl -O https://raw.githubusercontent.com/ptnghia-j/ChordMiniApp/main/.env.docker.example\n   ```\n\n2. **Configure environment**\n   ```bash\n   cp .env.docker.example .env.docker\n   # Edit .env.docker with your API keys (see API Keys Setup section below)\n   ```\n\n3. **Start the application**\n   ```bash\n   docker compose -f docker-compose.prod.yml --env-file .env.docker up -d\n   ```\n\n4. **Access the application**\n\n   Visit [http://localhost:3000](http://localhost:3000)\n\n5. **Stop the application**\n   ```bash\n   docker compose -f docker-compose.prod.yml down\n   ```\n\n> [!NOTE]\n> If you have Docker Compose V1 installed, use `docker-compose` (with hyphen) instead of `docker compose` (with space).\n\n> [!IMPORTANT]\n> The currently pinned Docker Hub images in [docker-compose.prod.yml](docker-compose.prod.yml) (`ptnghia/chordmini-frontend:v0.5.3` and `ptnghia/chordmini-backend:v0.5.3`) are published as `linux/arm64` images. They will not pull on Windows/x86_64 or other `amd64` hosts. On Windows/x86_64, build local `linux/amd64` images instead:\n>\n> ```bash\n> docker buildx build --platform linux/amd64 -f Dockerfile -t chordmini-frontend:local . --load\n> docker buildx build --platform linux/amd64 -f python_backend/Dockerfile -t chordmini-backend:local python_backend --load\n> ```\n>\n> Then update `docker-compose.prod.yml` to use `chordmini-frontend:local` and `chordmini-backend:local`.\n\n\n### Docker Desktop GUI (Alternative)\n\nIf you prefer using Docker Desktop GUI:\n1. Open Docker Desktop\n2. Go to \"Images\" tab and search for `ptnghia/chordmini-frontend` and `ptnghia/chordmini-backend`\n3. Pull both images\n4. Use the \"Containers\" tab to manage running containers\n\n### Required Environment Variables\n\nEdit `.env.docker` with these required values:\n- `NEXT_PUBLIC_FIREBASE_API_KEY` - Firebase API key\n- `NEXT_PUBLIC_FIREBASE_PROJECT_ID` - Firebase project ID\n- `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` - Firebase storage bucket\n- `NEXT_PUBLIC_YOUTUBE_API_KEY` - YouTube Data API v3 key\n- `MUSIC_AI_API_KEY` - Music.AI API key\n- `GEMINI_API_KEY` - Google Gemini API key\n- `GENIUS_API_KEY` - Genius API key\n\nSee the API Keys Setup section below for detailed instructions on obtaining these keys.\n\n---\n\n## 📋 Detailed Setup Instructions\n\n### Firebase Setup\n\n1. **Create Firebase project**\n   - Visit [Firebase Console](https://console.firebase.google.com/)\n   - Click \"Create a project\"\n   - Follow the setup wizard\n\n2. **Enable Firestore Database**\n   - Go to \"Firestore Database\" in the sidebar\n   - Click \"Create database\"\n   - Choose \"Start in test mode\" for development\n\n3. **Get Firebase configuration**\n   - Go to Project Settings (gear icon)\n   - Scroll down to \"Your apps\"\n   - Click \"Add app\" → Web app\n   - Copy the configuration values to your `.env.local`\n\n4. **Create Firestore collections**\n\n   The app uses the following Firestore collections. They are created **automatically** on first write (no manual creation required):\n   - `transcriptions` — Beat and chord analysis results (docId: `${videoId}_${beatModel}_${chordModel}`)\n   - `translations` — Lyrics translation cache (docId: cacheKey based on content hash)\n   - `lyrics` — Music.ai transcription results (docId: `videoId`)\n   - `keyDetections` — Musical key analysis cache (docId: cacheKey)\n   - `segmentationJobs` — Async SongFormer segmentation jobs and persisted results (docId: `seg_<timestamp>_<uuid>`)\n   - `melody` — Experimental Sheet Sage melody transcription cache (docId: `videoId`)\n\n5. **Enable Anonymous Authentication**\n   - In Firebase Console: Authentication → Sign-in method → enable Anonymous\n\n6. **Configure Firebase Storage**\n   - Set environment variable: `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com`\n   - Note: Cloud Storage for Firebase can be used without a paid plan in some setups, but Firebase states that projects using the default `*.appspot.com` bucket must upgrade to the Blaze plan by **February 2, 20",
+        "truncated": true,
+        "bytes": 21445,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.5.4",
+            "tag_name": "v0.5.4",
+            "published_at": "2026-03-08T09:41:37Z",
+            "body_excerpt": "## Description\r\n- Real instrument soundfonts for chord playback (Acoustic Grand Piano, Acoustic Guitar, Violin)\r\n- Loop Playback to loop specific sections of songs\r\n- Migrated from Context API to Zustand for all state management\r\n- Madmom set as the default beat detection model \r\n- Various UI enhancements (Homepage, typography, guitar diagrams, ...)\r\n- Capability to change capo position and label mode (shape/sound) for guitar chord diagrams\r\n- Piano Visualizer tab with Multi-instrument visualization — falling notes canvas with 88-key piano keyboard and real-time note highlighting\r\n- MIDI export — download chord progressions as Standard MIDI Type 1 files with instrument-specific voicing"
+          },
+          {
+            "name": "v0.4.5",
+            "tag_name": "v0.4.5",
+            "published_at": "2025-09-30T08:22:08Z",
+            "body_excerpt": "## Description\r\n- Roman Numeral Analysis (Beta): Added chord notation display below chord labels to support music theory analysis.\r\n- Roman Numeral Analysis in Guitar Chords Tab: Integrated Roman numeral functionality directly into the Guitar Chords tab.\r\n- Audio Mixer: Enabled synchronized chord playback alongside video, with beat-aligned chord sounds for improved practice and analysis.\r\n- UI Improvements: Centralized the utility dock with a new toggle button for easier access.\r\n- Performance Improvements: Migrated toggle handling to UI context provider, reducing unnecessary re-renders and improving responsiveness."
+          },
+          {
+            "name": "v0.3.5",
+            "tag_name": "v0.3.5",
+            "published_at": "2025-07-27T18:10:44Z",
+            "body_excerpt": "1. Chord simplification toggle added\r\n2. FIX: Replaced hardcoded chord database with official @tombatossals/chords-db database for guitar chord diagrams\r\n3. FIX: Beat Detection skipping optimal shift alignment due to first beat detected at or near 0 seconds\r\n4. Minor fixes: Enharmonic Correction Optimization (O(n^2) -> O(n)), miscellaneous UI fixes"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 187,
+            "title": "🚨 Production Deployment Failed - 802895f",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/187"
+          },
+          {
+            "number": 184,
+            "title": "🚨 Production Deployment Failed - 3c44ace",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/184"
+          },
+          {
+            "number": 183,
+            "title": "🚨 Production Deployment Failed - 5e4a86f",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/183"
+          },
+          {
+            "number": 182,
+            "title": "🚨 Production Deployment Failed - 71dfbfa",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/182"
+          },
+          {
+            "number": 179,
+            "title": "🚨 Production Deployment Failed - e0dfd1a",
+            "state": "open",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/179"
+          },
+          {
+            "number": 181,
+            "title": "🚨 Production Deployment Failed - 9f047cc",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/181"
+          },
+          {
+            "number": 180,
+            "title": "🚨 Production Deployment Failed - 7101c98",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/180"
+          },
+          {
+            "number": 173,
+            "title": "Sheet Music",
+            "state": "open",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/173"
+          },
+          {
+            "number": 178,
+            "title": "Music generation model and feedback loop",
+            "state": "closed",
+            "url": "https://github.com/ptnghia-j/ChordMiniApp/issues/178"
+          }
+        ]
+      },
+      "root_files": [
+        ".browserslistrc",
+        ".dockerignore",
+        ".env.docker.example",
+        ".env.example",
+        ".eslintrc.json",
+        ".firebaserc",
+        ".gcloudignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".gitmodules",
+        ".npmrc",
+        ".vercelignore",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "LICENSE",
+        "README.md",
+        "SongFormer",
+        "docker-compose.prod.yml",
+        "docker",
+        "docs",
+        "eslint.config.mjs",
+        "firebase-audio-cors.production.json",
+        "firebase",
+        "jest.config.js",
+        "jest.setup.js",
+        "next.config.js",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.js",
+        "postcss.config.mjs",
+        "public",
+        "python_backend",
+        "scripts",
+        "sheetsage",
+        "src",
+        "tailwind.config.js",
+        "tsconfig.json",
+        "tsconfig.test.json",
+        "vercel.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Open-source music analysis tool for chord recognition, beat tracking, piano visualizer, guitar diagrams, lyrics synchronization, and experimental melody transcription.",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 2)",
+          "excerpt": "### 🏠 Homepage Interface ![ChordMini Homepage Light](public/homepage.png) ![ChordMini Homepage Dark](public/homepage_dark.png)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Clean, intuitive interface for YouTube search, URL input, and recent video access.",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 4)",
+          "excerpt": "### 🎵 Beat & Chord Analysis ![Beat Chord Grid](public/beatchord_grid.png) ![Beat Chord with segmentation](public/beatchord_grid_seg.png) ![Beat Chord Grid with Lyrics](public/beatchord_grid_lyrics.png)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Chord progression visualization with synchronized beat detection and grid layout with add-on features: Roman Numeral Analysis, Key Modulation Signals, Simplified Chord Notation, Enhanced Chord Correction, and **song segmentation overlays** for structural sections like intro, verse, chorus, bridge, and outro.",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Interactive guitar chord diagrams with **accurate fingering patterns** from the official @tombatossals/chords-db database, featuring multiple chord positions, synchronized beat grid integration, and exact slash-chord matching when the database includes a dedicated inversion shape.",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Real-time piano roll visualization with falling MIDI notes synchronized to chord playback. Features a scrolling chord strip, interactive keyboard highlighting, smoother playback-synced rendering, segmentation-aware dynamics shaping, and **MIDI file export** for importing chord progressions into any DAW.",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp#readme",
+          "title": "README (segment 8)",
+          "excerpt": "### 🎻 Experimental Melody Transcription ![Melody](public/melody.png) ![Sheet Music](public/sheet.png)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/187",
+          "title": "🚨 Production Deployment Failed - 802895f",
+          "excerpt": "🚨 Production Deployment Failed - 802895f (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 187
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/184",
+          "title": "🚨 Production Deployment Failed - 3c44ace",
+          "excerpt": "🚨 Production Deployment Failed - 3c44ace (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 184
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/183",
+          "title": "🚨 Production Deployment Failed - 5e4a86f",
+          "excerpt": "🚨 Production Deployment Failed - 5e4a86f (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 183
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/182",
+          "title": "🚨 Production Deployment Failed - 71dfbfa",
+          "excerpt": "🚨 Production Deployment Failed - 71dfbfa (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 182
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/179",
+          "title": "🚨 Production Deployment Failed - e0dfd1a",
+          "excerpt": "🚨 Production Deployment Failed - e0dfd1a (state:open)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 179
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/181",
+          "title": "🚨 Production Deployment Failed - 9f047cc",
+          "excerpt": "🚨 Production Deployment Failed - 9f047cc (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 181
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/180",
+          "title": "🚨 Production Deployment Failed - 7101c98",
+          "excerpt": "🚨 Production Deployment Failed - 7101c98 (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 180
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/173",
+          "title": "Sheet Music",
+          "excerpt": "Sheet Music (state:open)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 173
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/issues/178",
+          "title": "Music generation model and feedback loop",
+          "excerpt": "Music generation model and feedback loop (state:closed)",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "number": 178
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/releases",
+          "title": "v0.5.4",
+          "excerpt": "## Description - Real instrument soundfonts for chord playback (Acoustic Grand Piano, Acoustic Guitar, Violin) - Loop Playback to loop specific sections of songs - Migrated from Context API to Zustand for all state management - Madmom set as the default beat detection model - Various UI enhancements (Homepage, typography, guitar diagrams, ...) - Capability to change capo position and label mode (shape/sound) for guitar chord diagrams - Piano Visualizer tab with Multi-instrument visualization — falling notes canvas with 88-key piano keyboard and real-time note highlighting - MIDI export — download chord progressions as Standard MIDI Type 1 files with instrument-specific voicing",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "tag_name": "v0.5.4",
+            "published_at": "2026-03-08T09:41:37Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/releases",
+          "title": "v0.4.5",
+          "excerpt": "## Description - Roman Numeral Analysis (Beta): Added chord notation display below chord labels to support music theory analysis. - Roman Numeral Analysis in Guitar Chords Tab: Integrated Roman numeral functionality directly into the Guitar Chords tab. - Audio Mixer: Enabled synchronized chord playback alongside video, with beat-aligned chord sounds for improved practice and analysis. - UI Improvements: Centralized the utility dock with a new toggle button for easier access. - Performance Improvements: Migrated toggle handling to UI context provider, reducing unnecessary re-renders and improving responsiveness.",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "tag_name": "v0.4.5",
+            "published_at": "2025-09-30T08:22:08Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp/releases",
+          "title": "v0.3.5",
+          "excerpt": "1. Chord simplification toggle added 2. FIX: Replaced hardcoded chord database with official @tombatossals/chords-db database for guitar chord diagrams 3. FIX: Beat Detection skipping optimal shift alignment due to first beat detected at or near 0 seconds 4. Minor fixes: Enharmonic Correction Optimization (O(n^2) -> O(n)), miscellaneous UI fixes",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "tag_name": "v0.3.5",
+            "published_at": "2025-07-27T18:10:44Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/ptnghia-j/ChordMiniApp",
+          "title": "ROOT_FILES",
+          "excerpt": ".browserslistrc, .dockerignore, .env.docker.example, .env.example, .eslintrc.json, .firebaserc, .gcloudignore, .gitattributes, .github, .gitignore, .gitmodules, .npmrc, .vercelignore, CONTRIBUTING.md, Dockerfile, LICENSE, README.md, SongFormer, docker-compose.prod.yml, docker, docs, eslint.config.mjs, firebase-audio-cors.production.json, firebase, jest.config.js, jest.setup.js, next.config.js, package-lock.json, package.json, postcss.config.js, postcss.config.mjs, public, python_backend, scripts, sheetsage, src, tailwind.config.js, tsconfig.json, tsconfig.test.json, vercel.json",
+          "fetched_at": "2026-04-16T05:34:09.444Z",
+          "meta": {
+            "repo_full_name": "ptnghia-j/ChordMiniApp",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "blueberrycongee/Lumina-Note",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "doocs/md",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "ptnghia-j/ChordMiniApp",
+      "evidence_count": 21,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 9,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 9,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "blueberrycongee/Lumina-Note",
+      "ok": true,
+      "spec_path": "specs/2026-04-16/blueberrycongee__Lumina-Note.json"
+    },
+    {
+      "repo": "doocs/md",
+      "ok": true,
+      "spec_path": "specs/2026-04-16/doocs__md.json"
+    },
+    {
+      "repo": "ptnghia-j/ChordMiniApp",
+      "ok": true,
+      "spec_path": "specs/2026-04-16/ptnghia-j__ChordMiniApp.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "blueberrycongee/Lumina-Note",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-16/blueberrycongee__Lumina-Note.json"
+    },
+    {
+      "repo": "doocs/md",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-16/doocs__md.json"
+    },
+    {
+      "repo": "ptnghia-j/ChordMiniApp",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-16/ptnghia-j__ChordMiniApp.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "blueberrycongee/Lumina-Note",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-16/blueberrycongee__Lumina-Note.json"
+      ]
+    },
+    {
+      "repo": "doocs/md",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-16/doocs__md.json"
+      ]
+    },
+    {
+      "repo": "ptnghia-j/ChordMiniApp",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 5,
+          "cited": 5
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-16/ptnghia-j__ChordMiniApp.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-16T05:34:25.527Z",
+      "run_id": "20260416T053405Z",
+      "repo": "blueberrycongee/Lumina-Note",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "be690b76afce70f58234a460dcaab21fe67a90ba3995aa3d730a04e404d6bf7c",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 6906
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15874,
+      "prompt_chars": 6906,
+      "completion_chars": 1378
+    },
+    {
+      "ts": "2026-04-16T05:34:39.490Z",
+      "run_id": "20260416T053405Z",
+      "repo": "blueberrycongee/Lumina-Note",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9ac49908f73eba3265371aeea4764ddc40b085aa92edc28ab6afbff547071454",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 8500
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13963,
+      "prompt_chars": 8500,
+      "completion_chars": 1543
+    },
+    {
+      "ts": "2026-04-16T05:34:54.162Z",
+      "run_id": "20260416T053405Z",
+      "repo": "blueberrycongee/Lumina-Note",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "cc65f8ef4b7a8f80cc7a574cc070595186315072365217d320e8747b0e6be2d5",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10235
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14671,
+      "prompt_chars": 10235,
+      "completion_chars": 1491
+    },
+    {
+      "ts": "2026-04-16T05:35:08.631Z",
+      "run_id": "20260416T053405Z",
+      "repo": "blueberrycongee/Lumina-Note",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "eb662591b8c6025945c969af473be4f52be096ad0d96b98eafb56bac13cc7af9",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 11923
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14468,
+      "prompt_chars": 11923,
+      "completion_chars": 1451
+    },
+    {
+      "ts": "2026-04-16T05:35:30.451Z",
+      "run_id": "20260416T053405Z",
+      "repo": "blueberrycongee/Lumina-Note",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "18b6bf80545246749d39bd71b7a8693b2ee0f541f35546b48773213f62871104",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 16204
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21820,
+      "prompt_chars": 16204,
+      "completion_chars": 2620
+    },
+    {
+      "ts": "2026-04-16T05:35:49.304Z",
+      "run_id": "20260416T053405Z",
+      "repo": "doocs/md",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "cdaeae00ecb87afeaff9af9946637f750d5d437863a9e8c7b6a296ad73a0f1b0",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 8427
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18842,
+      "prompt_chars": 8427,
+      "completion_chars": 1896
+    },
+    {
+      "ts": "2026-04-16T05:36:09.499Z",
+      "run_id": "20260416T053405Z",
+      "repo": "doocs/md",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "306ec467c64c9ffb38f9a109721679e1a88d5992cbe27d4e55f7ba9d1ca98af2",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 10535
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 20194,
+      "prompt_chars": 10535,
+      "completion_chars": 2388
+    },
+    {
+      "ts": "2026-04-16T05:36:29.318Z",
+      "run_id": "20260416T053405Z",
+      "repo": "doocs/md",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9ad957d525cd4041dd95f5578c22ac7558bd33a922cace1b22fed76d08d60d01",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 13127
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19819,
+      "prompt_chars": 13127,
+      "completion_chars": 2009
+    },
+    {
+      "ts": "2026-04-16T05:36:46.472Z",
+      "run_id": "20260416T053405Z",
+      "repo": "doocs/md",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "30acab4e40bb01877c17f62ba4c77c31b2fdba6950af8ff16a00062586655b99",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 15341
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17153,
+      "prompt_chars": 15341,
+      "completion_chars": 1950
+    },
+    {
+      "ts": "2026-04-16T05:37:11.381Z",
+      "run_id": "20260416T053405Z",
+      "repo": "doocs/md",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "13dbc4d8e24d696712879a63d3312b003feadfdc9272338b8394e9c8dace3184",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 20125
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 24908,
+      "prompt_chars": 20125,
+      "completion_chars": 2876
+    },
+    {
+      "ts": "2026-04-16T05:37:26.171Z",
+      "run_id": "20260416T053405Z",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "58fd1c708b426b42c0f3631eff1955ca4c9ec4d318e0d95b605a03973d03e2bf",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 9519
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14787,
+      "prompt_chars": 9519,
+      "completion_chars": 1867
+    },
+    {
+      "ts": "2026-04-16T05:37:38.871Z",
+      "run_id": "20260416T053405Z",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "78a0868bea97356c0670ee78cdb0b3da33b224662751531818b468a4db9ed196",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 11526
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12700,
+      "prompt_chars": 11526,
+      "completion_chars": 1797
+    },
+    {
+      "ts": "2026-04-16T05:37:53.375Z",
+      "run_id": "20260416T053405Z",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e3d2c0fc8037761c188fd9989287553f1af67e58482caf258e7f5a111334e71d",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 13519
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14503,
+      "prompt_chars": 13519,
+      "completion_chars": 1946
+    },
+    {
+      "ts": "2026-04-16T05:38:04.442Z",
+      "run_id": "20260416T053405Z",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a990bc364111e6ff4c06405d69e7e56298010bbb3300cd3bcd6a41dde4933d41",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 15678
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11066,
+      "prompt_chars": 15678,
+      "completion_chars": 1566
+    },
+    {
+      "ts": "2026-04-16T05:39:00.730Z",
+      "run_id": "20260416T053405Z",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "17b7e911d2a8de8fc0298568f0940a02277e8f06945a74ac90eb21c22d384714",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 20118
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 56287,
+      "prompt_chars": 20118,
+      "completion_chars": 7687
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "blueberrycongee/Lumina-Note",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "doocs/md",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "ptnghia-j/ChordMiniApp",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "blueberrycongee/Lumina-Note",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "doocs/md",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "ptnghia-j/ChordMiniApp",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 21,
+      "evidence_total_final": 21,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1776317645100,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "blueberrycongee/Lumina-Note": 5,
+      "doocs/md": 5,
+      "ptnghia-j/ChordMiniApp": 5
+    },
+    "tokensApproxTotal": 56542,
+    "tokensApproxPerRepo": {
+      "blueberrycongee/Lumina-Note": 15564,
+      "doocs/md": 19670,
+      "ptnghia-j/ChordMiniApp": 21308
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "blueberrycongee/Lumina-Note": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "Lumina Note is a local-first, AI-enhanced Markdown note-taking desktop application built with Tauri (Rust + TypeScript), emphasizing user data ownership, knowledge graph features, and multilingual support. It offers downloadable binaries across major platforms and integrates CI/CD and security auditing.",
+        "highlights": [
+          "Local-first design ensures notes remain on-device with user-controlled AI interactions [ID:E-RD-002][ID:E-RD-006].",
+          "Rich feature set including Markdown editing, WikiLinks, graph view, and AI agent modes for automation [ID:E-RD-006].",
+          "Actively maintained with recent releases (v1.0.17) and automated CI/security workflows [ID:E-RL-001][ID:E-RD-004].",
+          "Broad internationalization with READMEs in 11 languages [ID:E-RD-005].",
+          "Cross-platform desktop distribution via .msi, .exe, and .dmg packages [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Limited release history (only 3 tagged releases) may indicate early maturity despite active development [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "High feature scope (AI agents, RAG, PDF reader, etc.) could impact stability or maintenance burden."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "Lumina Note introduces a novel integration of local-first data architecture with AI agent capabilities in a desktop note-taking app, combining Markdown-based knowledge management, bidirectional linking, and on-device ownership with optional AI augmentation.",
+        "highlights": [
+          "Pioneers a 'local-first by design' paradigm where user data never leaves the device unless explicitly permitted, aligning AI utility with privacy [ID:E-RD-002][ID:E-RD-006].",
+          "Unifies traditional Zettelkasten-inspired features (WikiLinks, graph view) with active AI modes (Chat, Agent, Codex) that perform real editing and automation tasks [ID:E-RD-006].",
+          "Delivers a cross-platform desktop experience via Tauri (Rust + TypeScript), enabling native performance while maintaining web-like development flexibility [ID:E-RD-003].",
+          "Supports multilingual accessibility with 11 localized READMEs, indicating intentional global usability from inception [ID:E-RD-005]."
+        ],
+        "risks": [
+          "Ambitious convergence of AI agents, RAG, PDF reading, and knowledge graph features may strain architectural coherence or introduce unanticipated complexity [ID:E-RF-001].",
+          "Limited release cadence (only three versions: v1.0.14–v1.0.17) suggests the core invention is still stabilizing despite advanced feature claims [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "Lumina Note is a Tauri-based desktop application built with TypeScript and Rust, implementing a local-first architecture with integrated AI features. It supports cross-platform deployment, automated CI/security workflows, and a modular codebase structure evident from root files and documentation.",
+        "highlights": [
+          "Built with Tauri (v2), combining Rust backend and TypeScript frontend for performant, secure desktop apps [ID:E-RD-003].",
+          "Local-first design ensures data remains on-device; AI interactions are user-controlled [ID:E-RD-002][ID:E-RD-006].",
+          "Cross-platform binaries (.msi, .exe, .dmg) provided via GitHub Releases for Windows and macOS (Intel/Apple Silicon) [ID:E-RD-008][ID:E-RL-001].",
+          "Project structure includes dedicated directories for electron, mobile, server, src-tauri, and e2e tests, indicating layered architecture [ID:E-RF-001].",
+          "Automated CI and security audit workflows are active and visible in badges [ID:E-RD-004]."
+        ],
+        "risks": [
+          "Limited release history (only v1.0.14 to v1.0.17) may indicate immaturity despite complex feature set [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Broad scope (AI agents, RAG, PDF reader, knowledge graph) could complicate maintenance or introduce integration debt [ID:E-RF-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "Lumina Note presents an ambitious local-first AI note-taking app, but its claims of advanced AI capabilities and data privacy lack verifiable implementation details or third-party validation.",
+        "highlights": [
+          "Claims 'AI that can actually act' with Agent and Codex modes, yet no evidence shows how these features work or whether they truly operate locally [ID:E-RD-006].",
+          "Asserts user-controlled data sharing with model providers, but provides no technical proof of on-device processing or audit logs [ID:E-RD-002][ID:E-RD-006].",
+          "Boasts active CI and security audits via badges, but the actual audit results or test coverage are not disclosed [ID:E-RD-004]."
+        ],
+        "risks": [
+          "Overpromising on AI functionality (agents, RAG, automation) without open evidence of robustness or limitations may mislead users about reliability [ID:E-RD-006][ID:E-RF-001].",
+          "Only three releases (v1.0.14–v1.0.17) suggest the project is still in early stages, raising concerns about stability despite marketing-ready documentation [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Heavy reliance on external AI providers contradicts 'local-first' ethos unless strict opt-in and offline modes are guaranteed—unverified by provided evidence [ID:E-RD-002][ID:E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Lumina Note\",\n    \"one_sentence\": \"A local-first, AI-enhanced Markdown note-taking desktop application that keeps your data on-device while enabling knowledge graph features and optional AI augmentation.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User writes and links Markdown notes locally; optionally uses AI in Chat, Agent, or Codex mode to retrieve, edit, or automate tasks while retaining full control over data sharing.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Editor\",\n      \"purpose\": \"Compose, preview, and link Markdown notes with access to AI assistant modes.\",\n      \"primary_actions\": [\n        \"Create new note\",\n        \"Edit existing note\",\n        \"Trigger AI assistant (Chat/Agent/Codex)\",\n        \"Navigate via WikiLinks\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a note or metadata change to the local vault.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"notes\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"text\"\n          },\n          {\n            \"name\": \"created_at\",\n            \"type\": \"timestamp\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up Tauri + React scaffold\",\n          \"Implement local Markdown file storage\",\n          \"Add basic editor with live preview\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can create and save a Markdown note that persists after app restart.\",\n    \"AI assistant modes are accessible only when explicitly enabled by the user.\"\n  ],\n  \"open_questions\": [\n    \"How are AI provider credentials managed without compromising local-first guarantees?\",\n    \"What offline capabilities exist when AI features are disa"
+      }
+    },
+    "doocs/md": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "The doocs/md repository is an actively maintained, feature-rich Markdown editor tailored for WeChat content creation, with strong community engagement, modern tooling (Vite, Vue 3, pnpm monorepo), and deep AI integration. It emphasizes simplicity, real-time rendering, and extensibility through plugins, APIs, and multi-platform deployments.",
+        "highlights": [
+          "Core value proposition: Instantly renders Markdown into clean WeChat-compatible rich text, eliminating manual formatting hassles [ID:E-RD-003].",
+          "Extensive feature set including full Markdown support, Mermaid/PlantUML diagrams, Ruby annotations, code highlighting, custom CSS, and multi-image hosting [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008].",
+          "Deep AI integration with multiple models (OpenAI, DeepSeek, Qwen, etc.) and advanced capabilities like document-wide referencing and image generation [ID:E-RD-008][ID:E-RL-003].",
+          "Modern architecture: Upgraded to CodeMirror v6, Vite v7, and restructured as a pnpm monorepo; supports Cloudflare Workers deployment [ID:E-RL-001].",
+          "Active development and community: Frequent releases (v2.0.3, v2.0.4, v2.1.0), open PRs welcome, and contributor recognition [ID:E-RD-005][ID:E-RL-001][ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "risks": [
+          "Potential security exposure from past XSS vulnerability, though patched in v2.0.4—requires ongoing vigilance in sanitization [ID:E-RL-002].",
+          "Feature scope expansion (AI, CLI API, VSCode plugin) may increase maintenance complexity and surface area for bugs [ID:E-IS-002][ID:E-RL-002].",
+          "External dependency on multiple AI providers and image hosts could introduce reliability or compatibility risks [ID:E-RD-008]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-005",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "The doocs/md repository invents a specialized, AI-augmented Markdown editor that transforms plain text into publication-ready WeChat articles, combining real-time rendering, extensible syntax (PlantUML, Ruby annotations), multi-platform deployment, and deep LLM integration to solve the pain point of manual social media formatting.",
+        "highlights": [
+          "Invents a purpose-built Markdown-to-WeChat renderer that eliminates manual styling by converting standard or extended Markdown directly into clean, platform-compliant rich text [ID:E-RD-003][ID:E-RD-004].",
+          "Pioneers integrated AI co-creation within a Markdown editor via a dedicated sidebar supporting multi-model inference (OpenAI, Qwen, etc.), document-aware prompting, and AI-generated images—turning writing into an interactive dialogue [ID:E-RD-008][ID:E-RL-001][ID:E-RL-003].",
+          "Extends Markdown with domain-specific syntax like Ruby注音 ([文字]{注音}) and PlantUML, enabling richer expression for educational or technical content without breaking compatibility [ID:E-RD-006][ID:E-RL-001].",
+          "Architects a modern, scalable codebase using pnpm monorepo, Vite v7, and CodeMirror v6, while enabling edge deployment via Cloudflare Workers—blending developer ergonomics with global performance [ID:E-RL-001][ID:E-RF-001].",
+          "Enables ecosystem expansion through planned CLI APIs for automation tools (e.g., n8n) and integrations like VSCode plugins, suggesting a vision beyond a standalone web app toward a composable content creation platform [ID:E-IS-002][ID:E-RL-002]."
+        ],
+        "risks": [
+          "Over-reliance on external AI providers and image hosts may fragment user experience if services degrade or change APIs, undermining the editor’s reliability as a unified tool [ID:E-RD-008].",
+          "Rapid feature accretion (AI, diagrams, custom CSS, multi-deployment) could dilute the core simplicity promise, increasing cognitive load despite the 'minimalist' branding [ID:E-RD-004][ID:E-RL-001].",
+          "Security remains critical: past XSS vulnerabilities indicate that rich rendering and user-generated content require constant sanitization vigilance, especially with dynamic AI output injection [ID:E-RL-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "The doocs/md repository implements a modern, AI-enhanced Markdown editor optimized for WeChat publishing, built with Vue 3, Vite 7, and CodeMirror 6 in a pnpm monorepo architecture. It supports rich features like PlantUML, Ruby annotations, multi-image hosting, and deep LLM integration, while maintaining active CI/CD via GitHub Actions and Cloudflare Workers deployment.",
+        "highlights": [
+          "Built on a modern stack: Vue 3, Vite v7, CodeMirror v6, and pnpm monorepo structure for maintainability and performance [ID:E-RL-001][ID:E-RF-001].",
+          "Comprehensive Markdown support including Mermaid, PlantUML, Ruby注音 syntax, math formulas, and custom CSS theming [ID:E-RD-006][ID:E-RD-007].",
+          "Integrated AI assistant sidebar with multi-model support (OpenAI, Qwen, etc.), document-aware prompting, and image generation [ID:E-RD-008][ID:E-RL-001][ID:E-RL-003].",
+          "Robust deployment pipeline: GitHub Actions CI, Docker support, and Cloudflare Workers for global edge delivery [ID:E-RD-002][ID:E-RL-001][ID:E-RL-002].",
+          "Active contribution model with clear contributor recognition, open PRs encouraged, and frequent feature releases [ID:E-RD-005][ID:E-RL-001][ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "risks": [
+          "Past XSS vulnerability (patched in v2.0.4) indicates ongoing risk in rendering user-generated or AI-injected content—requires strict input/output sanitization [ID:E-RL-002].",
+          "Expanding feature set (AI, CLI API, VSCode plugin) increases architectural complexity and potential surface for regressions or integration bugs [ID:E-IS-002][ID:E-RL-002].",
+          "Dependency on multiple external services (AI providers, image hosts like Telegram/Cloudinary) introduces reliability and maintenance overhead if APIs change or degrade [ID:E-RD-008][ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "While doocs/md presents an impressive array of features and active development, its ambitious scope—especially deep AI integration, multi-provider dependencies, and rapid feature expansion—raises concerns about long-term maintainability, security, and whether it truly delivers on its promise of simplicity.",
+        "highlights": [
+          "Claims of 'simplicity' [ID:E-RD-004] clash with a growing feature set including AI sidebars, PlantUML, Ruby注音, custom CSS, and multi-image hosting—potentially overwhelming casual users despite the minimalist branding.",
+          "Heavy reliance on external AI providers (OpenAI, Qwen, etc.) and image hosts (Telegram, Cloudinary) [ID:E-RD-008][ID:E-RL-003] creates fragility: service outages, API changes, or cost shifts could break core functionality without warning.",
+          "Past XSS vulnerability [ID:E-RL-002] highlights inherent risks in rendering user- and AI-generated content; as features grow, so does the attack surface, demanding constant sanitization vigilance that may lag behind innovation."
+        ],
+        "risks": [
+          "The project’s rapid pace (v2.0.3 → v2.1.0 in quick succession) and expanding scope (VSCode plugin, CLI API [ID:E-IS-002], Cloudflare Workers [ID:E-RL-001]) may lead to technical debt or inconsistent UX if not rigorously managed.",
+          "AI integration is touted as a key differentiator [ID:E-RD-008], but without clear boundaries or fallbacks, users may face unpredictable output quality or privacy concerns when content is routed through third-party LLMs.",
+          "Despite claims of solving WeChat formatting pain [ID:E-RD-003], the emergence of native Markdown import on platforms like Zhihu [ID:E-IS-001] questions the long-term necessity of specialized tools unless they offer irreplaceable value."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-008",
+          "E-RL-003",
+          "E-RL-002",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RD-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"WeChat Markdown Editor\",\n    \"one_sentence\": \"A highly streamlined Markdown editor that instantly renders documents into clean, publication-ready WeChat rich text with AI-assisted writing, extended syntax, and multi-platform deployment.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User writes or imports Markdown content, which is instantly rendered into WeChat-compatible rich text; they can enhance it with AI assistance, diagrams, custom styles, and media before exporting or publishing.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Editor & Preview\",\n      \"purpose\": \"Primary workspace for composing Markdown and viewing real-time WeChat-style rendering with AI sidebar support.\",\n      \"primary_actions\": [\n        \"Edit Markdown content\",\n        \"Preview rendered output\",\n        \"Invoke AI assistant\",\n        \"Insert images via supported图床\",\n        \"Save or export document\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist current document state as a local draft or exported file.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"drafts\",\n        \"fields\": [\n          {\n            \"name\": \"content\",\n            \"type\": \"text\"\n          },\n          {\n            \"name\": \"last_modified\",\n            \"type\": \"timestamp\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core Markdown-to-WeChat renderer\",\n          \"Integrate basic AI assistant with one provider\",\n          \"Add local draft persistence\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can type Markdown and see live WeChat-formatted preview.\",\n    \"AI assistant responds to prompts using document context and generates relevant content.\"\n  ],\n  \"open_questions\": [\n    \"How to handle authentication for multiple AI providers securely"
+      }
+    },
+    "ptnghia-j/ChordMiniApp": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "scout",
+        "summary": "ChordMiniApp is an open-source, feature-rich web application for music analysis with capabilities in chord recognition, beat tracking, guitar/piano visualization, lyrics sync, and experimental melody transcription. It demonstrates active development with recent releases adding MIDI export, Zustand state management, and real instrument soundfonts. However, repeated production deployment failures indicate significant CI/CD or infrastructure instability.",
+        "highlights": [
+          "Comprehensive music analysis suite: chord recognition, beat tracking, Roman numeral analysis, key modulation signals, and song segmentation overlays.",
+          "Rich visualizations including interactive guitar diagrams (using @tombatossals/chords-db), piano roll with falling notes, and synchronized lyrics.",
+          "Advanced features like MIDI export, loop playback, capo adjustment, multi-instrument soundfonts, and experimental melody-to-sheet-music transcription.",
+          "Recent architectural improvements: migration from Context API to Zustand, performance optimizations, and enhanced UI/UX across tabs."
+        ],
+        "risks": [
+          "Persistent production deployment failures across multiple commits (at least 7 instances), suggesting unreliable release pipeline or environment configuration.",
+          "Open issue regarding sheet music functionality may indicate incomplete or unstable implementation of melody transcription features.",
+          "Heavy reliance on external services (YouTube, Firebase, Docker) without clear fallbacks or offline support mentioned."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "inventor",
+        "summary": "ChordMiniApp integrates cutting-edge music information retrieval (MIR) techniques with intuitive visual interfaces to deliver a novel, all-in-one platform for real-time harmonic and rhythmic analysis of audio and video content. Its inventive combination of chord recognition, beat-aligned piano rolls, guitar diagrams from authoritative databases, Roman numeral theory overlays, and experimental melody-to-sheet transcription represents a significant synthesis of academic MIR models and practical musician tools.",
+        "highlights": [
+          "Invents a unified interface that synchronizes chord progressions, beat grids, lyrics, and structural song segments (verse/chorus) into a single interactive timeline.",
+          "Pioneers the integration of official @tombatossals/chords-db with real-time slash-chord matching and capo-adjustable guitar diagrams directly tied to detected harmony.",
+          "Introduces MIDI export with instrument-specific voicing derived from analyzed chords—enabling direct DAW import for composition or arrangement workflows.",
+          "Combines Madmom-based beat tracking with experimental melody transcription and sheet music rendering, bridging audio analysis and symbolic notation in a web-native tool."
+        ],
+        "risks": [
+          "Frequent production deployment failures suggest the inventive complexity may outpace robustness in CI/CD infrastructure, risking user access to new features.",
+          "Experimental melody transcription and sheet music features remain unstable (open issue), indicating potential gaps between prototype innovation and production-ready reliability."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-003",
+          "E-IS-005",
+          "E-IS-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "engineer",
+        "summary": "ChordMiniApp is a sophisticated TypeScript-based web application leveraging modern MIR libraries and frontend architecture to deliver real-time music analysis features. It demonstrates strong engineering in state management (Zustand migration), performance optimization, and modular feature design across guitar, piano, and beat/chord visualization layers. However, recurring production deployment failures point to critical gaps in CI/CD reliability or environment configuration that undermine release stability.",
+        "highlights": [
+          "Migrated from React Context API to Zustand for global state management, reducing re-renders and improving responsiveness.",
+          "Integrated authoritative @tombatossals/chords-db for accurate, capo-adjustable guitar diagrams with slash-chord support.",
+          "Implemented MIDI export with instrument-specific voicing derived from harmonic analysis, enabling DAW interoperability.",
+          "Optimized core algorithms: enharmonic correction improved from O(n²) to O(n), and beat detection alignment fixed for edge cases near t=0.",
+          "Architected multi-environment support via Docker, Firebase, and Vercel config files, indicating scalable deployment intent."
+        ],
+        "risks": [
+          "At least seven documented production deployment failures (including one still open) suggest unstable CI/CD pipeline or misconfigured build environments.",
+          "Heavy dependency on external services (YouTube, Firebase, Docker) without evident fallback mechanisms or offline capability increases operational fragility.",
+          "Experimental features like melody transcription and sheet music remain incomplete (open issue), risking technical debt if integrated prematurely."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "skeptic",
+        "summary": "Despite impressive feature claims and active development, ChordMiniApp exhibits serious reliability concerns due to persistent production deployment failures, incomplete core features, and potential overstatement of capabilities like melody transcription and real-time analysis accuracy.",
+        "highlights": [
+          "Repeated production deployment failures across multiple commits (at least 7 documented instances) undermine confidence in release stability and operational maturity.",
+          "Experimental melody transcription and sheet music features remain unpolished, with an open issue indicating they may not function reliably for end users.",
+          "Claims of 'accurate fingering patterns' and 'exact slash-chord matching' rely on external databases but lack evidence of validation against real-world musical diversity or edge cases."
+        ],
+        "risks": [
+          "Users may encounter broken deployments or missing functionality despite marketing-like README descriptions, leading to poor trust and adoption.",
+          "Overreliance on experimental MIR models (e.g., Madmom, custom transcription) without clear accuracy metrics or fallback mechanisms risks misleading musicians expecting professional-grade results.",
+          "The gap between ambitious feature announcements in releases and unresolved deployment/feature issues suggests possible prioritization of novelty over robustness."
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-008",
+          "E-RD-006",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"ChordMiniApp\",\n    \"one_sentence\": \"An open-source music analysis web application for chord recognition, beat tracking, guitar/piano visualization, lyrics synchronization, and experimental melody transcription.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User inputs a YouTube URL or audio file, the system performs real-time harmonic and rhythmic analysis, then displays synchronized chord progressions, beat grids, structural song segments, interactive guitar diagrams, piano visualizations, and optional melody transcription.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Homepage\",\n      \"purpose\": \"Provide entry point for YouTube search, URL input, and access to recent videos with clean, intuitive interface.\",\n      \"primary_actions\": [\n        \"Search YouTube\",\n        \"Enter video URL\",\n        \"Access recent videos\"\n      ]\n    },\n    {\n      \"id\": \"beat_chord_analysis\",\n      \"name\": \"Beat & Chord Analysis\",\n      \"purpose\": \"Display chord progression grid synchronized with beat detection, including Roman numeral analysis, key modulation signals, simplified notation, and song segmentation overlays.\",\n      \"primary_actions\": [\n        \"Toggle Roman numerals\",\n        \"Adjust chord simplification\",\n        \"View song segments (verse/chorus/etc.)\"\n      ]\n    },\n    {\n      \"id\": \"guitar_diagrams\",\n      \"name\": \"Guitar Chords\",\n      \"purpose\": \"Show interactive guitar chord diagrams with accurate fingering from @tombatossals/chords-db, supporting capo adjustment, label modes, and slash-chord matching.\",\n      \"primary_actions\": [\n        \"Change capo position\",\n        \"Switch label mode (shape/sound)\",\n        \"Navigate chord positions\"\n      ]\n    },\n    {\n      \"id\": \"piano_visualizer\",\n      \"name\": \"Piano Visualizer\",\n      \"purpose\": \"Render real-time falling MIDI notes on an 88-key piano roll synchronized to chord playback, with scrolling chord strip and MIDI export capability.\",\n      \"primary_actions\": [\n        \"P"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "blueberrycongee/Lumina-Note",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 8,
+        "engineer": 9,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "doocs/md",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 9,
+        "engineer": 10,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "ptnghia-j/ChordMiniApp",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 9,
+        "engineer": 12,
+        "skeptic": 8,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=221",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] ptnghia-j/ChordMiniApp evidence total=21 readme=8 issue=9 release=3 root_files=1",
+    "[repo_card_builder] blueberrycongee/Lumina-Note evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] doocs/md evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=47 gaps=0",
+    "[llm_spec_generator] blueberrycongee/Lumina-Note canonical spec ok (iter=1) -> specs/2026-04-16/blueberrycongee__Lumina-Note.json",
+    "[llm_spec_generator] doocs/md canonical spec ok (iter=1) -> specs/2026-04-16/doocs__md.json",
+    "[llm_spec_generator] ptnghia-j/ChordMiniApp canonical spec ok (iter=1) -> specs/2026-04-16/ptnghia-j__ChordMiniApp.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-16T05:34:05.100Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:05.116Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260416T053405Z"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:05.116Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:05.119Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:05.633Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:05.633Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:06.126Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:06.126Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:06.519Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:06.519Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:06.897Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:06.897Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:07.328Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:07.328Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:07.678Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:07.678Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:08.076Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:08.076Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:08.274Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:08.274Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:08.709Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:08.709Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.079Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.082Z",
+      "run_id": "20260416T053405Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 221
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.083Z",
+      "run_id": "20260416T053405Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.085Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-16T05:34:09.085Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "blueberrycongee__Lumina-Note/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.085Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "blueberrycongee__Lumina-Note/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.087Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "blueberrycongee__Lumina-Note/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.088Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "blueberrycongee__Lumina-Note/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.089Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-16T05:34:09.089Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "doocs__md/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.090Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "doocs__md/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.091Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "doocs__md/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.093Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "doocs__md/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.094Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-16T05:34:09.094Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ptnghia-j__ChordMiniApp/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.095Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ptnghia-j__ChordMiniApp/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.097Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ptnghia-j__ChordMiniApp/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.098Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "ptnghia-j__ChordMiniApp/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.444Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 21445,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.444Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.444Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 9
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.444Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 350
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.445Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 21,
+        "readme": 8,
+        "issues": 9,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.490Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 6752,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.490Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.490Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.490Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 405
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.490Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.650Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12415,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.650Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.650Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.650Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 561
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.650Z",
+      "run_id": "20260416T053405Z",
+      "node": "repo_card_builder",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.653Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:09.653Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:25.527Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1378,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:39.490Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1543,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:34:54.162Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1491,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:08.631Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1451,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:30.451Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2620,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:30.461Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:30.462Z",
+      "run_id": "20260416T053405Z",
+      "node": "artifacts",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-16/blueberrycongee__Lumina-Note.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:30.462Z",
+      "run_id": "20260416T053405Z",
+      "node": "artifacts",
+      "repo": "blueberrycongee/Lumina-Note",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-16/blueberrycongee__Lumina-Note.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:30.462Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:30.462Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:35:49.304Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1896,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:36:09.499Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2388,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:36:29.318Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2009,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:36:46.472Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1950,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:11.381Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2876,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:11.382Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:11.382Z",
+      "run_id": "20260416T053405Z",
+      "node": "artifacts",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-16/doocs__md.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:11.383Z",
+      "run_id": "20260416T053405Z",
+      "node": "artifacts",
+      "repo": "doocs/md",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-16/doocs__md.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:11.383Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 21,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 9,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:11.383Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 21,
+        "evidence_selected": 21,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:26.171Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1867,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:38.871Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1797,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:37:53.375Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1946,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:38:04.442Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1566,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.730Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 7687,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.732Z",
+      "run_id": "20260416T053405Z",
+      "node": "llm_spec_generator",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.733Z",
+      "run_id": "20260416T053405Z",
+      "node": "artifacts",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-16/ptnghia-j__ChordMiniApp.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.733Z",
+      "run_id": "20260416T053405Z",
+      "node": "artifacts",
+      "repo": "ptnghia-j/ChordMiniApp",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-16/ptnghia-j__ChordMiniApp.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.736Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.736Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1776317645100,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "blueberrycongee/Lumina-Note": 5,
+          "doocs/md": 5,
+          "ptnghia-j/ChordMiniApp": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.736Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-16T05:39:00.736Z",
+      "run_id": "20260416T053405Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-16",
+    "evidence_dir": "evidence/2026-04-16"
+  }
+}
