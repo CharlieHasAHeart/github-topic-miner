@@ -1,0 +1,221 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "winapp CLI",
+    "one_liner": "A unified command-line interface for Windows app development that abstracts packaging, identity, manifests, certificates, and SDK integration across diverse frameworks like Electron, .NET, CMake, and Rust."
+  },
+  "screens": [
+    {
+      "name": "CLI Terminal Interface",
+      "purpose": "Provide a command-driven interface for executing Windows app development workflows including initialization, packaging, certificate management, manifest updates, and Store integration.",
+      "primary_actions": [
+        "Generate and inspect signing certificates",
+        "Initialize new projects with package identity",
+        "Invoke Microsoft Store developer commands",
+        "Package apps into MSIX format with signing",
+        "Update app manifests and assets (including SVG support)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "certGenerate",
+      "purpose": "Generate a self-signed PFX certificate for development and testing purposes.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "certInfo",
+      "purpose": "Display detailed information about a PFX certificate including subject, issuer, and validity period.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "createExternalCatalog",
+      "purpose": "Create an external catalog for asset management during packaging or deployment.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "init",
+      "purpose": "Initialize a project with package identity and basic configuration for Windows app development without full packaging.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "manifestUpdateAssets",
+      "purpose": "Update application assets in the manifest, supporting SVG input converted to required bitmap formats.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "packageApp",
+      "purpose": "Create an MSIX package from the project with optional signing and Store readiness checks.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "store",
+      "purpose": "Execute Microsoft Store developer CLI commands through an integrated subcommand.",
+      "async": false,
+      "input": {
+        "issuer": "string",
+        "path": "string",
+        "payload": "json",
+        "subject": "string",
+        "valid_from": "timestamp",
+        "valid_to": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "certificates",
+        "columns": [
+          {
+            "name": "issuer",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "subject",
+            "type": "TEXT"
+          },
+          {
+            "name": "valid_from",
+            "type": "DATETIME"
+          },
+          {
+            "name": "valid_to",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "packages",
+        "columns": [
+          {
+            "name": "output_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "signed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "store_ready",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "framework",
+            "type": "TEXT"
+          },
+          {
+            "name": "identity",
+            "type": "TEXT"
+          },
+          {
+            "name": "manifest_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add certGenerate and certInfo for local certificate lifecycle",
+    "week 1: Implement core init and packageApp commands with basic MSIX generation",
+    "week 1: Support manifest asset updates with PNG/JPG only (defer SVG)",
+    "week 2: Add createExternalCatalog for advanced packaging scenarios",
+    "week 2: Enable manifest placeholders and qualified names support",
+    "week 2: Integrate store subcommand for basic Store CLI passthrough",
+    "week 3: Add SVG-to-bitmap conversion in manifestUpdateAssets",
+    "week 3: Auto-generate typed npm exports for all commands",
+    "week 3: Validate .NET and Electron project compatibility"
+  ],
+  "acceptance_tests": [
+    "Given a .NET project, when I run 'winapp package-app', then a signed MSIX is produced and marked store-ready.",
+    "Given a dev.pfx certificate, when I run 'winapp cert info dev.pfx --password test', then subject and validity are displayed.",
+    "Given a new Electron project, when I run 'winapp init', then package identity is added without full packaging.",
+    "Given an app icon.svg, when I run 'winapp manifest update-assets --icon icon.svg', then required bitmap assets are generated."
+  ]
+}

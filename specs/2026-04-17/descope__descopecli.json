@@ -1,0 +1,133 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Descope CLI",
+    "one_liner": "A command line tool for managing your Descope project"
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Entry point for executing Descope management commands",
+      "primary_actions": [
+        "Export and import project snapshots",
+        "Manage users, tenants, and access keys",
+        "Search and display audit logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "audit_logs",
+      "purpose": "Search and display audit logs for projects",
+      "async": false,
+      "input": {
+        "key_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "json_output",
+      "purpose": "Supports JSON output for easy integration into scripts and CI/CD workflows",
+      "async": false,
+      "input": {
+        "key_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "manage_entities",
+      "purpose": "Create and modify project entities such as users, tenants and access keys",
+      "async": false,
+      "input": {
+        "key_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "snapshot_workflow",
+      "purpose": "Manage project settings and configurations using snapshots that can be exported, validated and imported into other projects",
+      "async": false,
+      "input": {
+        "key_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "access_keys",
+        "columns": [
+          {
+            "name": "key_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "audit_logs",
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "snapshots",
+        "columns": [
+          {
+            "name": "snapshot_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tenants",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "users",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add snapshot export/import functionality",
+    "week 1: Ensure JSON output support for all commands",
+    "week 1: Implement core entity management commands (users, tenants, access keys)",
+    "week 1: Integrate audit log search capability"
+  ],
+  "acceptance_tests": [
+    "Confirm that project configurations can be exported as snapshots and imported into another project",
+    "Ensure all commands support structured JSON output for CI/CD integration",
+    "Validate that audit logs are searchable and displayed correctly",
+    "Verify that users, tenants, and access keys can be created and modified via CLI commands"
+  ]
+}

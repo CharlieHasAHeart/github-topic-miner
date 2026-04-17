@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Storybook",
+    "one_liner": "A frontend workshop for building UI components and pages in isolation."
+  },
+  "screens": [
+    {
+      "name": "Component Workshop",
+      "purpose": "Display and interact with UI components in isolation with controls, documentation, and testing feedback.",
+      "primary_actions": [
+        "Adjust props via controls",
+        "Navigate between components",
+        "Run tests and view statuses",
+        "View component stories"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist component state or configuration changes to disk.",
+      "async": true,
+      "input": {
+        "framework": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "components",
+        "columns": [
+          {
+            "name": "framework",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add prop controls panel",
+    "week 1: Implement basic story navigation",
+    "week 1: Initialize isolated component rendering environment"
+  ],
+  "acceptance_tests": [
+    "User can modify boolean props and see live updates in the preview.",
+    "User can view a React component in isolation with default props."
+  ]
+}

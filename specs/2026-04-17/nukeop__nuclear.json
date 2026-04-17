@@ -1,0 +1,110 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Nuclear",
+    "one_liner": "A free, open-source music player without ads or tracking that streams music from any source, supports playlists, theming, plugins, and AI control via MCP."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Main interface for browsing, searching, and playing music with access to playlists, plugins, and settings.",
+      "primary_actions": [
+        "Access playlists",
+        "Manage queue",
+        "Play tracks",
+        "Search albums",
+        "Search artists"
+      ]
+    },
+    {
+      "name": "Preferences",
+      "purpose": "Configure player behavior, themes, plugins, and language preferences.",
+      "primary_actions": [
+        "Change theme",
+        "Configure playback",
+        "Manage plugins",
+        "Set language"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve list of saved items such as favorites or playlist contents.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "title": "string",
+        "type": "string"
+      },
+      "output": {
+        "items": "json",
+        "ok": "boolean",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Save a track, album, or artist to favorites or a playlist.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "title": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "favorites",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "playlists",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "tracks",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for saving favorites",
+    "week 1: Build basic dashboard UI with queue management",
+    "week 1: Implement core music search and streaming functionality"
+  ],
+  "acceptance_tests": [
+    "On macOS, after installation, user can launch app without terminal intervention (quarantine bypass resolved).",
+    "User can search for an artist and view biography, discography, and similar artists."
+  ]
+}
