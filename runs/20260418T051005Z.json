@@ -1,0 +1,4068 @@
+{
+  "run_id": "20260418T051005Z",
+  "generated_at": "2026-04-18T05:10:05.464Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 90,
+    "candidates_kept": 5,
+    "candidates_deduped": 1,
+    "new_candidates": 4,
+    "repo_cards_built": 4,
+    "gaps_count": 0,
+    "specs_attempted": 4,
+    "specs_succeeded": 4,
+    "specs_failed": 0,
+    "evidence_validated": 4,
+    "evidence_valid_ok": 4,
+    "evidence_valid_failed": 0,
+    "evidence_written": 4,
+    "evidence_write_failed": 0,
+    "evidence_total": 39,
+    "evidence_by_type": {
+      "readme": 23,
+      "issue": 5,
+      "release": 7,
+      "root_files": 4
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-18T05:15:48.695Z",
+    "repo_count": 232
+  },
+  "candidates": [
+    {
+      "full_name": "yangzongzhuan/RuoYi-Vue3",
+      "html_url": "https://github.com/yangzongzhuan/RuoYi-Vue3",
+      "description": ":tada: (RuoYi)官方仓库 基于SpringBoot，Spring Security，JWT，Vue3 & Vite、Element Plus 的前后端分离权限管理系统",
+      "topics": [
+        "admin",
+        "element-plus",
+        "element-ui",
+        "vite",
+        "vite2",
+        "vue",
+        "vue-admin",
+        "vue-element-admin",
+        "vue-router",
+        "vue3",
+        "vue3-admin"
+      ],
+      "language": "Vue",
+      "stargazers_count": 6517,
+      "forks_count": 2442,
+      "open_issues_count": 5,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-04-18T05:09:45Z",
+      "created_at": "2021-11-29T12:39:57Z"
+    },
+    {
+      "full_name": "DevExpress/devextreme-cli",
+      "html_url": "https://github.com/DevExpress/devextreme-cli",
+      "description": "A command-line interface for DevExtreme",
+      "topics": [
+        "cli",
+        "devexpress",
+        "devextreme",
+        "devextreme-angular",
+        "devextreme-cli",
+        "theme-builder"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 51,
+      "forks_count": 30,
+      "open_issues_count": 6,
+      "license_spdx_id": null,
+      "default_branch": "master",
+      "pushed_at": "2026-04-18T05:08:54Z",
+      "created_at": "2018-08-16T13:25:48Z"
+    },
+    {
+      "full_name": "santifer/cv-santiago",
+      "html_url": "https://github.com/santifer/cv-santiago",
+      "description": "Interactive CV with AI chat integration. Built with React 19, TypeScript, Claude API. Chat with my AI avatar about my experience.",
+      "topics": [
+        "ai",
+        "chatbot",
+        "claude",
+        "langfuse",
+        "llm",
+        "llmops",
+        "observability",
+        "portfolio",
+        "react",
+        "tailwindcss",
+        "typescript",
+        "vercel",
+        "vite"
+      ],
+      "language": "HTML",
+      "stargazers_count": 365,
+      "forks_count": 148,
+      "open_issues_count": 2,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:37Z",
+      "created_at": "2026-01-23T18:38:48Z"
+    },
+    {
+      "full_name": "moollaza/repo-remover",
+      "html_url": "https://github.com/moollaza/repo-remover",
+      "description": "A web app that helps you archive and delete old/unused repos, quickly and easily.",
+      "topics": [
+        "fathom-analytics",
+        "github",
+        "github-management",
+        "react",
+        "react-router",
+        "repo-management",
+        "repository-archive",
+        "repository-archiver",
+        "repository-deleter",
+        "shadcn",
+        "shadcn-ui",
+        "tailwindcss",
+        "vite",
+        "vitest"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 377,
+      "forks_count": 75,
+      "open_issues_count": 2,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:08Z",
+      "created_at": "2019-01-19T03:11:38Z"
+    },
+    {
+      "full_name": "superset-sh/superset",
+      "html_url": "https://github.com/superset-sh/superset",
+      "description": "Code Editor for the AI Agents Era - Run an army of Claude Code, Codex, etc. on your machine",
+      "topics": [
+        "agentic-ai",
+        "ai-agents",
+        "claude-code",
+        "cli",
+        "codex",
+        "coding-agents",
+        "cursor-agent",
+        "desktop-app",
+        "developer-tools",
+        "electron",
+        "git-worktree",
+        "llm",
+        "mcp",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "terminal",
+        "tui",
+        "vibe-coding",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 9754,
+      "forks_count": 796,
+      "open_issues_count": 853,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:03Z",
+      "created_at": "2025-10-21T09:16:51Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "yangzongzhuan/RuoYi-Vue3",
+      "html_url": "https://github.com/yangzongzhuan/RuoYi-Vue3",
+      "description": ":tada: (RuoYi)官方仓库 基于SpringBoot，Spring Security，JWT，Vue3 & Vite、Element Plus 的前后端分离权限管理系统",
+      "topics": [
+        "admin",
+        "element-plus",
+        "element-ui",
+        "vite",
+        "vite2",
+        "vue",
+        "vue-admin",
+        "vue-element-admin",
+        "vue-router",
+        "vue3",
+        "vue3-admin"
+      ],
+      "language": "Vue",
+      "stargazers_count": 6517,
+      "forks_count": 2442,
+      "open_issues_count": 5,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-04-18T05:09:45Z",
+      "created_at": "2021-11-29T12:39:57Z"
+    },
+    {
+      "full_name": "DevExpress/devextreme-cli",
+      "html_url": "https://github.com/DevExpress/devextreme-cli",
+      "description": "A command-line interface for DevExtreme",
+      "topics": [
+        "cli",
+        "devexpress",
+        "devextreme",
+        "devextreme-angular",
+        "devextreme-cli",
+        "theme-builder"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 51,
+      "forks_count": 30,
+      "open_issues_count": 6,
+      "license_spdx_id": null,
+      "default_branch": "master",
+      "pushed_at": "2026-04-18T05:08:54Z",
+      "created_at": "2018-08-16T13:25:48Z"
+    },
+    {
+      "full_name": "santifer/cv-santiago",
+      "html_url": "https://github.com/santifer/cv-santiago",
+      "description": "Interactive CV with AI chat integration. Built with React 19, TypeScript, Claude API. Chat with my AI avatar about my experience.",
+      "topics": [
+        "ai",
+        "chatbot",
+        "claude",
+        "langfuse",
+        "llm",
+        "llmops",
+        "observability",
+        "portfolio",
+        "react",
+        "tailwindcss",
+        "typescript",
+        "vercel",
+        "vite"
+      ],
+      "language": "HTML",
+      "stargazers_count": 365,
+      "forks_count": 148,
+      "open_issues_count": 2,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:37Z",
+      "created_at": "2026-01-23T18:38:48Z"
+    },
+    {
+      "full_name": "moollaza/repo-remover",
+      "html_url": "https://github.com/moollaza/repo-remover",
+      "description": "A web app that helps you archive and delete old/unused repos, quickly and easily.",
+      "topics": [
+        "fathom-analytics",
+        "github",
+        "github-management",
+        "react",
+        "react-router",
+        "repo-management",
+        "repository-archive",
+        "repository-archiver",
+        "repository-deleter",
+        "shadcn",
+        "shadcn-ui",
+        "tailwindcss",
+        "vite",
+        "vitest"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 377,
+      "forks_count": 75,
+      "open_issues_count": 2,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:08Z",
+      "created_at": "2019-01-19T03:11:38Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "yangzongzhuan/RuoYi-Vue3",
+      "html_url": "https://github.com/yangzongzhuan/RuoYi-Vue3",
+      "description": ":tada: (RuoYi)官方仓库 基于SpringBoot，Spring Security，JWT，Vue3 & Vite、Element Plus 的前后端分离权限管理系统",
+      "topics": [
+        "admin",
+        "element-plus",
+        "element-ui",
+        "vite",
+        "vite2",
+        "vue",
+        "vue-admin",
+        "vue-element-admin",
+        "vue-router",
+        "vue3",
+        "vue3-admin"
+      ],
+      "language": "Vue",
+      "stargazers_count": 6517,
+      "forks_count": 2442,
+      "open_issues_count": 5,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-04-18T05:09:45Z",
+      "created_at": "2021-11-29T12:39:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\r\n\t<img alt=\"logo\" src=\"https://oscimg.oschina.net/oscnet/up-d3d0a9303e11d522a06cd263f3079027715.png\">\r\n</p>\r\n<h1 align=\"center\" style=\"margin: 30px 0 30px; font-weight: bold;\">RuoYi v3.9.2</h1>\r\n<h4 align=\"center\">基于SpringBoot+Vue3前后端分离的Java快速开发框架</h4>\r\n<p align=\"center\">\r\n\t<a href=\"https://gitee.com/y_project/RuoYi-Vue/stargazers\"><img src=\"https://gitee.com/y_project/RuoYi-Vue/badge/star.svg?theme=dark\"></a>\r\n\t<a href=\"https://gitee.com/y_project/RuoYi-Vue\"><img src=\"https://img.shields.io/badge/RuoYi-v3.9.2-brightgreen.svg\"></a>\r\n\t<a href=\"https://gitee.com/y_project/RuoYi-Vue/blob/master/LICENSE\"><img src=\"https://img.shields.io/github/license/mashape/apistatus.svg\"></a>\r\n</p>\r\n\r\n## 平台简介\r\n\r\n* 本仓库为前端技术栈 [Vue3](https://v3.cn.vuejs.org) + [Element Plus](https://element-plus.org/zh-CN) + [Vite](https://cn.vitejs.dev) 版本。\r\n* 配套后端代码仓库地址[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) 或 [RuoYi-Vue-fast](https://gitcode.com/yangzongzhuan/RuoYi-Vue-fast) 版本。\r\n* 阿里云折扣场：[点我进入](http://aly.ruoyi.vip)，腾讯云秒杀场：[点我进入](http://txy.ruoyi.vip)&nbsp;&nbsp;\r\n\r\n# 版本对比\r\n\r\nRuoYi-Vue 前端项目的三个主要演进版本，方便你直观对比其技术栈差异（并行开发维护）。\r\n\r\n| 项目名称      | **RuoYi-Vue** | **RuoYi-Vue3** | **RuoYi-Vue3-TypeScript**   |\r\n| :---          | :---          | :---           | :---                        |\r\n| **前端框架**  | Vue 2        | Vue 3          | Vue 3                       |\r\n| **脚本语言**  | JavaScript   | JavaScript     | TypeScript                  |\r\n| **构建工具**  | Vue CLI      | Vite           | Vite                        |\r\n| **UI 组件库** | Element UI   | Element Plus   | Element Plus                |\r\n| **状态管理**  | Vuex         | Pinia          | Pinia                       |\r\n| **路由管理**  | Vue Router 3 | Vue Router 4   | Vue Router 4                |\r\n| **核心特点**  | 1. 技术栈经典稳定<br>2. 社区资料丰富<br>3. 当前维护重心已转移 | 1. 现代前端技术栈<br>2. 开发体验与性能更优<br>3. 官方主推的活跃版本 | 1. 类型加持，减少沟通成本<br>2. 开发时有提示，效率更高<br>3. 多人协作企业级开发项目 |\r\n| **仓库地址**  | [RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) | [RuoYi-Vue3](https://gitcode.com/yangzongzhuan/RuoYi-Vue3) | [RuoYi-Vue3-TypeScript](https://gitcode.com/yangzongzhuan/RuoYi-Vue3/tree/typescript) |\r\n\r\n## 前端运行\r\n\r\n```bash\r\n# 克隆项目\r\ngit clone https://github.com/yangzongzhuan/RuoYi-Vue3.git\r\n\r\n# 进入项目目录\r\ncd RuoYi-Vue3\r\n\r\n# 安装依赖\r\nyarn --registry=https://registry.npmmirror.com\r\n\r\n# 启动服务\r\nyarn dev\r\n\r\n# 构建测试环境 yarn build:stage\r\n# 构建生产环境 yarn build:prod\r\n# 前端访问地址 http://localhost:80\r\n```\r\n\r\n## 内置功能\r\n\r\n1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。\r\n2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。\r\n3.  岗位管理：配置系统用户所属担任职务。\r\n4.  菜单管理：配置系统菜单，操作权限，按钮权限标识等。\r\n5.  角色管理：角色菜单权限分配、设置角色按机构进行数据范围权限划分。\r\n6.  字典管理：对系统中经常使用的一些较为固定的数据进行维护。\r\n7.  参数管理：对系统动态配置常用参数。\r\n8.  通知公告：系统通知公告信息发布维护。\r\n9.  操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。\r\n10. 登录日志：系统登录日志记录查询包含登录异常。\r\n11. 在线用户：当前系统中活跃用户状态监控。\r\n12. 定时任务：在线（添加、修改、删除)任务调度包含执行结果日志。\r\n13. 代码生成：前后端代码的生成（java、html、xml、sql）支持CRUD下载 。\r\n14. 系统接口：根据业务代码自动生成相关的api接口文档。\r\n15. 服务监控：监视当前系统CPU、内存、磁盘、堆栈等相关信息。\r\n16. 缓存监控：对系统的缓存信息查询，命令统计等。\r\n17. 在线构建器：拖动表单元素生成相应的HTML代码。\r\n18. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。\r\n\r\n## 在线体验\r\n\r\n- admin/admin123  \r\n- 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。\r\n\r\n演示地址：http://vue.ruoyi.vip  \r\n文档地址：http://doc.ruoyi.vip\r\n\r\n## 演示图\r\n\r\n<table>\r\n    <tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/cd1f90be5f2684f4560c9519c0f2a232ee8.jpg\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/1cbcf0e6f257c7d3a063c0e3f2ff989e4b3.jpg\"/></td>\r\n    </tr>\r\n    <tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-8074972883b5ba0622e13246738ebba237a.png\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-9f88719cdfca9af2e58b352a20e23d43b12.png\"/></td>\r\n    </tr>\r\n    <tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-39bf2584ec3a529b0d5a3b70d15c9b37646.png\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-936ec82d1f4872e1bc980927654b6007307.png\"/></td>\r\n    </tr>\r\n\t<tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-b2d62ceb95d2dd9b3fbe157bb70d26001e9.png\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-d67451d308b7a79ad6819723396f7c3d77a.png\"/></td>\r\n    </tr>\t \r\n    <tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/5e8c387724954459291aafd5eb52b456f53.jpg\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/644e78da53c2e92a95dfda4f76e6d117c4b.jpg\"/></td>\r\n    </tr>\r\n\t<tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-8370a0d02977eebf6dbf854c8450293c937.png\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-49003ed83f60f633e7153609a53a2b644f7.png\"/></td>\r\n    </tr>\r\n\t<tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-d4fe726319ece268d4746602c39cffc0621.png\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-c195234bbcd30be6927f037a6755e6ab69c.png\"/></td>\r\n    </tr>\r\n    <tr>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg\"/></td>\r\n        <td><img src=\"https://oscimg.oschina.net/oscnet/up-5e4daac0bb59612c5038448acbcef235e3a.png\"/></td>\r\n    </tr>\r\n</table>\r\n\r\n\r\n## 若依前后端分离交流群\r\n\r\nQQ群： [![加入QQ群](https://img.shields.io/badge/已满-937441-blue.svg)](https://jq.qq.com/?_wv=1027&k=5bVB1og) [![加入QQ群](https://img.shields.io/badge/已满-887144332-blue.svg)](https://jq.qq.com/?_wv=1027&k=5eiA4DH) [![加入QQ群](https://img.shields.io/badge/已满-180251782-blue.svg)](https://jq.qq.com/?_wv=1027&k=5AxMKlC) [![加入QQ群](https://img.shields.io/badge/已满-104180207-blue.svg)](https://jq.qq.com/?_wv=1027&k=51G72yr) [![加入QQ群](https://img.shields.io/badge/已满-186866453-blue.svg)](https://jq.qq.com/?_wv=1027&k=VvjN2nvu) [![加入QQ群](https://img.shields.io/badge/已满-201396349-blue.svg)](https://jq.qq.com/?_wv=1027&k=5vYAqA05) [![加入QQ群](https://img.shields.io/badge/已满-101456076-blue.svg)](https://jq.qq.com/?_wv=1027&k=kOIINEb5) [![加入QQ群](https://img.shields.io/badge/已满-101539465-blue.svg)](https://jq.qq.com/?_wv=1027&k=UKtX5jhs) [![加入QQ群](https://img.shields.io/badge/已满-264312783-blue.svg)](https://jq.qq.com/?_wv=1027&k=EI9an8lJ) [![加入QQ群](https://img.shields.io/badge/已满-167385320-blue.svg)](https://jq.qq.com/?_wv=1027&k=SWCtLnMz) [![加入QQ群](https://img.shields.io/badge/已满-104748341-blue.svg)](https://jq.qq.com/?_wv=1027&k=96Dkdq0k) [![加入QQ群](https://img.shields.io/badge/已满-160110482-blue.svg)](https://jq.qq.com/?_wv=1027&k=0fsNiYZt) [![加入QQ群](https://img.shields.io/badge/已满-170801498-blue.svg)](https://jq.qq.com/?_wv=1027&k=7xw4xUG1) [![加入QQ群](https://img.shields.io/badge/已满-108482800-blue.svg)](https://jq.qq.com/?_wv=1027&k=eCx8eyoJ) [![加入QQ群](https://img.shields.io/badge/已满-101046199-blue.svg)](https://jq.qq.com/?_wv=1027&k=SpyH2875) [![加入QQ群](https://img.shields.io/badge/已满-136919097-blue.svg)](https://jq.qq.com/?_wv=1027&k=tKEt51dz) [![加入QQ群](https://img.shields.io/badge/已满-143961921-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vBbSb0ztbBgVtn3kJS-Q4HUNYwip89G&authKey=8irq5PhutrZmWIvsUsklBxhj57l%2F1nOZqjzigkXZVoZE451GG4JHPOqW7AW6cf0T&noverify=0&group_code=143961921) [![加入QQ群](https://img.shields.io/badge/已满-174951577-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ZFAPAbp09S2ltvwrJzp7wGlbopsc0rwi&authKey=HB2cxpxP2yspk%2Bo3WKTBfktRCccVkU26cgi5B16u0KcAYrVu7sBaE7XSEqmMdFQp&noverify=0&group_code=174951577) [![加入QQ群](https://img.shields.io/badge/已满-161281055-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Fn2aF5IHpwsy8j6VlalNJK6qbwFLFHat&authKey=uyIT%2B97x2AXj3odyXpsSpVaPMC%2Bidw0LxG5MAtEqlrcBcWJUA%2FeS43rsF1Tg7IRJ&noverify=0&group_code=161281055) [![加入QQ群](https://img.shields.io/badge/已满-138988063-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XIzkm_mV2xTsUtFxo63bmicYoDBA6Ifm&authKey=dDW%2F4qsmw3x9govoZY9w%2FoWAoC4wbHqGal%2BbqLzoS6VBarU8EBptIgPKN%2FviyC8j&noverify=0&group_code=138988063) [![加入QQ群](https://img.shields.io/badge/已满-151450850-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DkugnCg68PevlycJSKSwjhFqfIgrWWwR&authKey=pR1Pa5lPIeGF%2FFtIk6d%2FGB5qFi0EdvyErtpQXULzo03zbhopBHLWcuqdpwY241R%2F&noverify=0&group_code=151450850) [![加入QQ群](https://img.shields.io/badge/已满-224622315-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=F58bgRa-Dp-rsQJThiJqIYv8t4-lWfXh&authKey=UmUs4CVG5OPA1whvsa4uSespOvyd8%2FAr9olEGaWAfdLmfKQk%2FVBp2YU3u2xXXt76&noverify=0&group_code=224622315) [![加入QQ群](https://img.shields.io/badge/已满-287842588-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Nxb2EQ5qozWa218Wbs7zgBnjLSNk_tVT&authKey=obBKXj6SBKgrFTJZx0AqQnIYbNOvBB2kmgwWvGhzxR67RoRr84%2Bus5OadzMcdJl5&noverify=0&group_code=287842588) [![加入QQ群](https://img.shields.io/badge/已满-187944233-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=numtK1M_I4eVd2Gvg8qtbuL8JgX42qNh&authKey=giV9XWMaFZTY%2FqPlmWbkB9g3fi0Ev5CwEtT9Tgei0oUlFFCQLDp4ozWRiVIzubIm&noverify=0&group_code=187944233) [![加入QQ群](https://img.shields.io/badge/已满-228578329-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=G6r5KGCaa3pqdbUSXNIgYloyb8e0_L0D&authKey=4w8tF1eGW7%2FedWn%2FHAypQksdrML%2BDHolQSx7094Agm7Luakj9EbfPnSTxSi2T1LQ&noverify=0&group_code=228578329) [![加入QQ群](https://img.shields.io/badge/已满-191164766-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=GsOo-OLz53J8y_9TPoO6XXSGNRTgbFxA&authKey=R7Uy%2Feq%2BZsoKNqHvRKhiXpypW7DAogoWapOawUGHokJSBIBIre2%2FoiAZeZBSLuBc&noverify=0&group_code=191164766) [![加入QQ群](https://img.shields.io/badge/已满-174569686-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PmYavuzsOthVqfdAPbo4uAeIbu7Ttjgc&authKey=p52l8%2FXa4PS1JcEmS3VccKSwOPJUZ1ZfQ69MEKzbrooNUljRtlKjvsXf04bxNp3G&noverify=0&group_code=174569686) [![加入QQ群](https://img.shields.io/badge/127358632-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=M9y5NjAl44lAL_Vh2crmEehZU_PMU6KS&authKey=ZSDz8hEREWSaPuxQV3gEwqGIaGjfRNnkB4rJjf0IvXhrSUGSGwQFmBA%2Boe8HFxyl&noverify=0&group_code=127358632) 点击按钮入群。",
+        "truncated": false,
+        "bytes": 11572,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v3.9.2",
+            "tag_name": "v3.9.2",
+            "published_at": "2026-03-26T00:34:16Z",
+            "body_excerpt": "更新日志：http://doc.ruoyi.vip/ruoyi-vue/document/gxrz.html#v3-9-2"
+          },
+          {
+            "name": "v3.9.1",
+            "tag_name": "v3.9.1",
+            "published_at": "2025-12-17T17:38:19Z",
+            "body_excerpt": "更新日志：http://doc.ruoyi.vip/ruoyi-vue/document/gxrz.html#v3-9-1"
+          },
+          {
+            "name": "v3.9.0",
+            "tag_name": "v3.9.0",
+            "published_at": "2025-05-28T00:55:39Z",
+            "body_excerpt": "更新日志：http://doc.ruoyi.vip/ruoyi-vue/document/gxrz.html#v3-9-0"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1,
+            "title": "请在 https://gitee.com/y_project/RuoYi-Vue/issues 里提问",
+            "state": "open",
+            "url": "https://github.com/yangzongzhuan/RuoYi-Vue3/issues/1"
+          },
+          {
+            "number": 325,
+            "title": "需要俺咋黄 pnpm add sortablejs",
+            "state": "closed",
+            "url": "https://github.com/yangzongzhuan/RuoYi-Vue3/issues/325"
+          },
+          {
+            "number": 320,
+            "title": "package 缺少依赖包",
+            "state": "closed",
+            "url": "https://github.com/yangzongzhuan/RuoYi-Vue3/issues/320"
+          }
+        ]
+      },
+      "root_files": [
+        ".env.development",
+        ".env.production",
+        ".env.staging",
+        ".github",
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "bin",
+        "html",
+        "index.html",
+        "package.json",
+        "public",
+        "src",
+        "vite.config.js",
+        "vite"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img alt=\"logo\" src=\"https://oscimg.oschina.net/oscnet/up-d3d0a9303e11d522a06cd263f3079027715.png\"> </p> <h1 align=\"center\" style=\"margin: 30px 0 30px; font-weight: bold;\">RuoYi v3.9.2</h1> <h4 align=\"center\">基于SpringBoot+Vue3前后端分离的Java快速开发框架</h4> <p align=\"center\"> <a href=\"https://gitee.com/y_project/RuoYi-Vue/stargazers\"><img src=\"https://gitee.com/y_project/RuoYi-Vue/badge/star.svg?theme=dark\"></a> <a href=\"https://gitee.com/y_project/RuoYi-Vue\"><img src=\"https://img.shields.io/badge/RuoYi-v3.9.2-brightgreen.svg\"></a> <a href=\"https://gitee.com/y_project/RuoYi-Vue/blob/master/LICENSE\"><img src=\"https://img.shields.io/github/license/mashape/apistatus.svg\"></a> </p> ## 平台简介 * 本仓库为前端技术栈 [Vue3](https://v3.cn.vuejs.org) + [Element Plus](https://element-plus.org/zh-CN) + [Vite](https://cn.vitejs.dev) 版本。 * 配套后端代码仓库地址[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) 或 [RuoYi-Vue-fast](https://gitcode.com/yangzongzhuan/RuoYi-Vue-fast) 版本。 * 阿里云折扣场：[点我进入](http://aly.ruoyi.vip)，腾讯云秒杀场：[点我进入](http://txy.ruoyi.vip)&nbsp;&nbsp; # 版本对比 RuoYi-Vue 前端项目的三个主要演进版本，方便你直观对比其技术栈差异（并行开发维护）。 | 项目名称 | **RuoYi-Vue** | **RuoYi-Vue3** | **RuoYi-Vue3-TypeScript** | | :--- | :--- | :---…",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "segment": 1,
+            "language": "Vue"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3/issues/1",
+          "title": "请在 https://gitee.com/y_project/RuoYi-Vue/issues 里提问",
+          "excerpt": "请在 https://gitee.com/y_project/RuoYi-Vue/issues 里提问 (state:open)",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "number": 1
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3/issues/325",
+          "title": "需要俺咋黄 pnpm add sortablejs",
+          "excerpt": "需要俺咋黄 pnpm add sortablejs (state:closed)",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "number": 325
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3/issues/320",
+          "title": "package 缺少依赖包",
+          "excerpt": "package 缺少依赖包 (state:closed)",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "number": 320
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3/releases",
+          "title": "v3.9.2",
+          "excerpt": "更新日志：http://doc.ruoyi.vip/ruoyi-vue/document/gxrz.html#v3-9-2",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "tag_name": "v3.9.2",
+            "published_at": "2026-03-26T00:34:16Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3/releases",
+          "title": "v3.9.1",
+          "excerpt": "更新日志：http://doc.ruoyi.vip/ruoyi-vue/document/gxrz.html#v3-9-1",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "tag_name": "v3.9.1",
+            "published_at": "2025-12-17T17:38:19Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3/releases",
+          "title": "v3.9.0",
+          "excerpt": "更新日志：http://doc.ruoyi.vip/ruoyi-vue/document/gxrz.html#v3-9-0",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "tag_name": "v3.9.0",
+            "published_at": "2025-05-28T00:55:39Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/yangzongzhuan/RuoYi-Vue3",
+          "title": "ROOT_FILES",
+          "excerpt": ".env.development, .env.production, .env.staging, .github, .gitignore, LICENSE, README.md, bin, html, index.html, package.json, public, src, vite.config.js, vite",
+          "fetched_at": "2026-04-18T05:10:10.106Z",
+          "meta": {
+            "repo_full_name": "yangzongzhuan/RuoYi-Vue3",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "DevExpress/devextreme-cli",
+      "html_url": "https://github.com/DevExpress/devextreme-cli",
+      "description": "A command-line interface for DevExtreme",
+      "topics": [
+        "cli",
+        "devexpress",
+        "devextreme",
+        "devextreme-angular",
+        "devextreme-cli",
+        "theme-builder"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 51,
+      "forks_count": 30,
+      "open_issues_count": 6,
+      "license_spdx_id": null,
+      "default_branch": "master",
+      "pushed_at": "2026-04-18T05:08:54Z",
+      "created_at": "2018-08-16T13:25:48Z",
+      "readme": {
+        "fetched": true,
+        "text": "# DevExtreme CLI\n![App Tests](https://github.com/DevExpress/devextreme-cli/actions/workflows/applications.yml/badge.svg)\n![ThemeBuilder](https://github.com/DevExpress/devextreme-cli/actions/workflows/themebuilder.yml/badge.svg)\n![Lint](https://github.com/DevExpress/devextreme-cli/actions/workflows/lint.yml/badge.svg)\n\nDevExtreme CLI is a set of command-line tools to be used with the DevExtreme controls library.\n\n* [Documentation](https://js.devexpress.com/Documentation/Guide/Getting_Started/DevExtreme_CLI/)\n* [Changelog](CHANGELOG.md)\n\n## License ##\n\n**DevExtreme CLI is released as a MIT-licensed (free and open-source) add-on to DevExtreme.**\n\nFamiliarize yourself with the [DevExtreme License](https://js.devexpress.com/Licensing/). [Free trial is available!](http://js.devexpress.com/Buy/)\n\n## Support & Feedback ##\n\nIf you want to report a bug, request a feature, or ask a question, contact us at the [DevExpress Support Center](https://www.devexpress.com/Support/Center).\n",
+        "truncated": false,
+        "bytes": 984,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "1.2.0",
+            "tag_name": "v1.2.0",
+            "published_at": "2020-05-01T08:52:59Z",
+            "body_excerpt": "### Features\r\n- Support yarn"
+          },
+          {
+            "name": "1.2.0-beta.1",
+            "tag_name": "v1.2.0-beta.1",
+            "published_at": "2020-04-16T12:24:38Z",
+            "body_excerpt": "Authentication UI Template (React)\r\n---\r\nWe've extended our Login Form template with a new Sign Up, Reset/Change Password form template. We've also implemented corresponding client-side API so you can integrate our forms with your backend authentication API.\r\n"
+          },
+          {
+            "name": "1.1.10",
+            "tag_name": "v1.1.10",
+            "published_at": "2020-01-28T16:06:01Z",
+            "body_excerpt": null
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 488,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/DevExpress/devextreme-cli/issues/488"
+          }
+        ]
+      },
+      "root_files": [
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        "CHANGELOG.md",
+        "README.md",
+        "README_DEVELOPERS.md",
+        "SECURITY.md",
+        "apps",
+        "lerna.json",
+        "package-lock.json",
+        "package.json",
+        "packages",
+        "scripts",
+        "templates-generator"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/DevExpress/devextreme-cli#readme",
+          "title": "README (segment 1)",
+          "excerpt": "# DevExtreme CLI ![App Tests](https://github.com/DevExpress/devextreme-cli/actions/workflows/applications.yml/badge.svg) ![ThemeBuilder](https://github.com/DevExpress/devextreme-cli/actions/workflows/themebuilder.yml/badge.svg) ![Lint](https://github.com/DevExpress/devextreme-cli/actions/workflows/lint.yml/badge.svg)",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/DevExpress/devextreme-cli#readme",
+          "title": "README (segment 2)",
+          "excerpt": "DevExtreme CLI is a set of command-line tools to be used with the DevExtreme controls library.",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/DevExpress/devextreme-cli#readme",
+          "title": "README (segment 3)",
+          "excerpt": "* [Documentation](https://js.devexpress.com/Documentation/Guide/Getting_Started/DevExtreme_CLI/) * [Changelog](CHANGELOG.md)",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/DevExpress/devextreme-cli#readme",
+          "title": "README (segment 4)",
+          "excerpt": "**DevExtreme CLI is released as a MIT-licensed (free and open-source) add-on to DevExtreme.**",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/DevExpress/devextreme-cli#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Familiarize yourself with the [DevExtreme License](https://js.devexpress.com/Licensing/). [Free trial is available!](http://js.devexpress.com/Buy/)",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/DevExpress/devextreme-cli#readme",
+          "title": "README (segment 6)",
+          "excerpt": "If you want to report a bug, request a feature, or ask a question, contact us at the [DevExpress Support Center](https://www.devexpress.com/Support/Center).",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/DevExpress/devextreme-cli/issues/488",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "number": 488
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/DevExpress/devextreme-cli/releases",
+          "title": "v1.2.0",
+          "excerpt": "### Features - Support yarn",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "tag_name": "v1.2.0",
+            "published_at": "2020-05-01T08:52:59Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/DevExpress/devextreme-cli/releases",
+          "title": "v1.2.0-beta.1",
+          "excerpt": "Authentication UI Template (React) --- We've extended our Login Form template with a new Sign Up, Reset/Change Password form template. We've also implemented corresponding client-side API so you can integrate our forms with your backend authentication API.",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "tag_name": "v1.2.0-beta.1",
+            "published_at": "2020-04-16T12:24:38Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/DevExpress/devextreme-cli/releases",
+          "title": "v1.1.10",
+          "excerpt": "Release metadata available, release notes body is empty.",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "tag_name": "v1.1.10",
+            "published_at": "2020-01-28T16:06:01Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/DevExpress/devextreme-cli",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .gitattributes, .github, .gitignore, CHANGELOG.md, README.md, README_DEVELOPERS.md, SECURITY.md, apps, lerna.json, package-lock.json, package.json, packages, scripts, templates-generator",
+          "fetched_at": "2026-04-18T05:10:09.971Z",
+          "meta": {
+            "repo_full_name": "DevExpress/devextreme-cli",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "santifer/cv-santiago",
+      "html_url": "https://github.com/santifer/cv-santiago",
+      "description": "Interactive CV with AI chat integration. Built with React 19, TypeScript, Claude API. Chat with my AI avatar about my experience.",
+      "topics": [
+        "ai",
+        "chatbot",
+        "claude",
+        "langfuse",
+        "llm",
+        "llmops",
+        "observability",
+        "portfolio",
+        "react",
+        "tailwindcss",
+        "typescript",
+        "vercel",
+        "vite"
+      ],
+      "language": "HTML",
+      "stargazers_count": 365,
+      "forks_count": 148,
+      "open_issues_count": 2,
+      "license_spdx_id": null,
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:37Z",
+      "created_at": "2026-01-23T18:38:48Z",
+      "readme": {
+        "fetched": true,
+        "text": "# santifer.io\n\n**[:gb: English](#the-problem)** | **[:es: Español](#es-versión-en-español)**\n\n> Interactive portfolio with AI chatbot (text + voice), agentic RAG, 71 automated evals, LLMOps dashboard, and 6-layer prompt injection defense\n\n[![Live Demo](https://img.shields.io/badge/demo-santifer.io-blue?style=flat-square)](https://santifer.io)\n[![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-blueviolet?style=flat-square)](https://claude.ai/code)\n\n---\n\n<p align=\"center\">\n  <img src=\"docs/hero.gif\" alt=\"santifer.io in motion\" width=\"100%\" />\n</p>\n\n---\n\n## The Problem\n\nStatic CVs don't show what you can actually build. A PDF lists skills — it doesn't prove them.\n\n## The Solution\n\nA production-grade interactive portfolio that **demonstrates the skills it describes**: dual-mode AI chatbot (text + voice) with agentic RAG, full LLMOps observability with custom dashboard, 71 automated evals as CI gate, prompt versioning, and a closed-loop that generates tests from production failures.\n\n**Key Features:**\n- **AI Chatbot \"Santi\"** — Text (Claude Sonnet) + Voice (OpenAI Realtime API). Responds in first person as Santiago. Agentic RAG with hybrid search (pgvector + BM25) and Haiku reranking\n- **6-Layer Defense** — Keyword detection, canary tokens, fingerprinting, anti-extraction, online safety scoring, adversarial red team. Real-time jailbreak email alerts\n- **71 Automated Evals** — 10 categories: factual accuracy, persona, boundaries, quality, safety, language, RAG quality, multi-turn, source badges, voice quality. CI gate on every push\n- **LLMOps Dashboard** — Private `/ops` with 8 tabs: Overview, Conversations, Costs, RAG, Security, Evals, Voice, System. Real data from Langfuse + Supabase\n- **Closed Loop** — Trace → online scoring → quality < 0.7 → auto-generate test → CI gate blocks deploy\n- **Voice Mode** — OpenAI Realtime API, audio-to-audio, shared RAG pipeline, ~$0.25/session\n- **6 Published Case Studies** — Bilingual (ES/EN) with JSON-LD, prerendered HTML, cross-linked RAG, and interactive architecture diagrams\n- **Interactive Architecture Diagram** — GSAP-animated SVG with narrated audio, pan/zoom, dark mode sync. [Explore it →](https://santifer.io/self-healing-chatbot#architecture)\n- **GEO-ready** — `llms.txt`, structured data (JSON-LD), AI crawler-friendly robots.txt\n\n---\n\n## Tech Stack\n\n![React](https://img.shields.io/badge/React_19-61DAFB?style=flat&logo=react&logoColor=black)\n![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)\n![Vite](https://img.shields.io/badge/Vite_7-646CFF?style=flat&logo=vite&logoColor=white)\n![Tailwind](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)\n![Claude](https://img.shields.io/badge/Claude_Sonnet-191919?style=flat&logo=anthropic&logoColor=white)\n![OpenAI](https://img.shields.io/badge/OpenAI_Realtime-412991?style=flat&logo=openai&logoColor=white)\n![Langfuse](https://img.shields.io/badge/Langfuse-000000?style=flat&logoColor=white)\n![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white)\n![Vercel](https://img.shields.io/badge/Vercel_Edge-000000?style=flat&logo=vercel&logoColor=white)\n![Recharts](https://img.shields.io/badge/Recharts-FF6384?style=flat&logoColor=white)\n\n---\n\n## Chatbot Architecture\n\n[![Interactive Architecture Diagram](public/chatbot/diagram-thumbnail.webp)](https://santifer.io/self-healing-chatbot#architecture)\n> **[Explore the interactive diagram →](https://santifer.io/self-healing-chatbot#architecture)** 10 phases · narrated audio · zoom + pan\n\n```\nUser message → FloatingChat.tsx → api/chat.js (Vercel Edge)\n                                    ├── System prompt (Langfuse registry + fallback)\n                                    ├── Claude Sonnet (tool_use decision)\n                                    ├── Agentic RAG (if needed):\n                                    │     ├── OpenAI embeddings (text-embedding-3-small)\n                                    │     ├── Supabase pgvector (semantic) + full-text (BM25)\n                                    │     └── Claude Haiku (reranking + diversification)\n                                    ├── Claude Sonnet (streaming generation)\n                                    ├── Langfuse tracing (every span with cost)\n                                    └── waitUntil → Haiku scoring (0ms added latency)\n\nVoice mode → useVoiceMode.ts → api/voice-token.js → OpenAI Realtime WebSocket\n                                  └── api/rag-search.js (function calling for RAG)\n```\n\n### Key Files\n\n| File | Path | Description |\n|------|------|-------------|\n| Chat edge function | `api/chat.js` | Main chatbot — RAG, tracing, scoring, streaming, defense |\n| RAG pipeline | `api/_shared/rag.js` | Hybrid search, reranking, cost tracking, intent classification |\n| Prompt management | `api/_shared/prompt.js` | Langfuse prompt registry with file fallback |\n| Voice token | `api/voice-token.js` | OpenAI Realtime ephemeral token + rate limiting |\n| Voice RAG | `api/rag-search.js` | RAG search for voice mode function calling |\n| Voice trace | `api/voice-trace.js` | Voice session tracing with cost estimation |\n| Chat widget | `src/FloatingChat.tsx` | React widget — streaming SSE, quick prompts, contact CTA |\n| Voice hook | `src/useVoiceMode.ts` | WebSocket management, audio capture, transcript persistence |\n| System prompt | `chatbot-prompt.txt` | Fallback prompt (production uses Langfuse v5) |\n\n---\n\n## LLMOps Dashboard (`/ops`)\n\nPrivate, password-protected dashboard with 8 tabs showing real production data:\n\n| Tab | What it shows | Data source |\n|-----|---------------|-------------|\n| Overview | KPIs, timelines, donuts, intent distribution | Langfuse traces |\n| Conversations | Filter + list + detail with spans, cost, latency, scores | Langfuse traces + observations |\n| Costs | Breakdown per component (toolDecision/embedding/reranking/generation/voice) | `trace.metadata.cost` |\n| RAG | Activation rate, chunks per article | Langfuse tags + Supabase |\n| Security | Defense funnel, safety distribution, jailbreak list | Langfuse tags + scores |\n| Evals | Pass rates by category (embedded from real eval reports) | `evals/results/` via build |\n| Voice | Sessions, text/voice split, latency P50/P95, cost per minute | Langfuse tags |\n| System | Prompt versions, RAG document stats, model pricing | Langfuse prompts API + Supabase |\n\n### Dashboard API Layer\n\n| Endpoint | Path | Description |\n|----------|------|-------------|\n| Auth | `api/ops/auth.js` | Login (validates `OPS_DASHBOARD_SECRET`) |\n| Stats | `api/ops/stats.js` | Aggregated stats, server-side compute from traces |\n| Traces | `api/ops/traces.js` | List traces with filters (lang, mode, RAG, jailbreak) |\n| Trace detail | `api/ops/trace/[id].js` | Full trace with observations, scores, Langfuse link |\n| Evals | `api/ops/evals.js` | Eval results embedded from build |\n| Prompts | `api/ops/prompts.js` | Prompt versions from Langfuse |\n| RAG stats | `api/ops/rag-stats.js` | Document stats from Supabase |\n\n---\n\n## Evals & Testing\n\n71 automated tests across 10 categories. ~70% deterministic (contains, regex, word count), ~30% LLM-as-Judge (Haiku).\n\n| Category | Tests | Type |\n|----------|-------|------|\n| factual_accuracy | 9 | Deterministic |\n| persona_adherence | 4 | Deterministic |\n| boundary_testing | 7 | Deterministic |\n| response_quality | 7 | Mixed |\n| safety_jailbreak | 7 | Deterministic |\n| language_handling | 5 | Deterministic |\n| rag_quality | 16 | Mixed |\n| multi_turn | 5 | Mixed |\n| source_badges | 5 | Deterministic |\n| voice_quality | 6 | Mixed |\n\n---\n\n## Scripts & CLI Tools\n\nAll scripts live in `scripts/` and run via `npm run`:\n\n### Chatbot Operations\n| Command | Script | Description |\n|---------|--------|-------------|\n| `npm run evals` | `evals/runner.ts` | Run 71 automated evals |\n| `npm run adversarial` | `scripts/adversarial-test.ts` | Red team: 20+ auto-generated attacks |\n| `npm run chats` | `scripts/chats.ts` | View last 50 conversations from Langfuse |\n| `npm run chats -- --full` | `scripts/chats.ts` | Full conversations with messages |\n| `npm run chats -- --jailbreak` | `scripts/chats.ts` | Only jailbreak attempts |\n| `npm run evaluate-traces` | `scripts/evaluate-traces.ts` | Batch eval with Haiku (quality, safety, intent) |\n| `npm run diagnose:rag` | `scripts/diagnose-rag.ts` | RAG quality diagnostic — detects retrieval misses |\n\n### Prompt & RAG Management\n| Command | Script | Description |\n|---------|--------|-------------|\n| `npm run prompt:sync` | `scripts/sync-prompt-to-langfuse.ts` | Sync prompt to Langfuse (hash-based, skip if unchanged) |\n| `npm run prompt:regression` | `scripts/prompt-regression.ts` | Compare two prompt versions side by side |\n| `npm run rag:sync` | `scripts/export-chunks.ts` + `scripts/ingest-rag.ts` | Re-export articles + ingest to Supabase |\n\n### Contract & Integration Tests\n| Command | Script | Description |\n|---------|--------|-------------|\n| `npm run test:contract` | `tests/ops-contract.test.ts` | Validate trace metadata matches dashboard contract (67 tests) |\n| `npm run test:ops` | `tests/ops-dashboard.test.ts` | Test all 7 dashboard API endpoints (102 tests) |\n\n### Build Pipeline\n| Command | Script | Description |\n|---------|--------|-------------|\n| `npm run build` | (chained) | rag:sync → prompt:sync → embed-evals → reddit-stats → tsc → vite → sitemap → validate → prerender |\n| — | `scripts/embed-evals.ts` | Parse eval reports → embed in dashboard |\n| — | `scripts/generate-sitemap.ts` | Generate sitemap.xml with lastmod |\n| — | `scripts/validate-articles.ts` | SEO validation (dates, keywords, OG images) |\n| — | `scripts/validate-llms-txt.ts` | Validate llms.txt consistency |\n| — | `scripts/prerender.tsx` | SSR prerender all pages with critical CSS |\n| — | `scripts/indexnow-ping.ts` | Ping Bing/Yandex on deploy |\n\n---\n\n## Quick Start\n\n```bash\ngit clone https://github.com/santifer/cv-santiago.git\ncd cv-santiago\nnpm install\nnpm run dev\n```\n\nOpen [localhost:5173](http://localhost:5173)\n\n### Environment Variables\n\n```bash\n# Core\nANTHROPIC_API_KEY=           # Claude API (chatbot)\nOPENAI_API_KEY=              # Embeddings + Voice\n\n# RAG\nSUPABASE_URL=                # Supabase project URL\nSUPABASE_SERVICE_ROLE_KEY=   # Supabase service key\n\n# Observability\nLANGFUSE_PUBLIC_KEY=         # Langfuse tracing\nLANGFUSE_SECRET_KEY=         # Langfuse tracing\n\n# Alerts & Dashboard\nRESEND_API_KEY=              # Jailbreak email alerts\nOPS_DASHBOARD_SECRET=        # Dashboard password (/ops)\n```\n\n---\n\n## Project Structure\n\n```\nsrc/\n├── App.tsx                  # Full CV — all sections\n├── FloatingChat.tsx         # Chat widget (text mode)\n├── useVoiceMode.ts          # Voice mode hook (OpenAI Realtime)\n├── VoiceOrb.tsx             # Voice UI (orb + transcript)\n├── GlobalNav.tsx            # Navigation with breadcrumbs\n├── main.tsx                 # React Router + lazy loading\n├── i18n.ts                  # Bilingual translations\n├── articles/\n│   ├── registry.ts          # Centralized article config\n│   ├── components.tsx       # Shared article components\n│   └── json-ld.ts           # JSON-LD builder\n├── ops/                     # LLMOps Dashboard\n│   ├── OpsDashboard.tsx     # Shell + Overview tab\n│   ├── OpsAuth.tsx          # Login screen\n│   ├── types.ts             # Shared TypeScript interfaces\n│   ├── hooks/               # useOpsApi, useTraces\n│   ├── components/          # KpiCard, MetricChart, FilterBar, etc.\n│   └── tabs/                # Conversations, Costs, Security, Evals, etc.\n├── [Article].tsx             # Case study components (5 articles)\n└── [article]-i18n.ts         # Bilingual content per article\n\napi/\n├── chat.js                  # Main chatbot edge function\n├── voice-token.js           # Voice ephemeral token + rate limit\n├── voice-trace.js           # Voice session tracing\n├── rag-search.js            # RAG for voice function calling\n├── _shared/\n",
+        "truncated": true,
+        "bytes": 27738,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1,
+            "title": "Add CONTRIBUTING.md for new contributors",
+            "state": "open",
+            "url": "https://github.com/santifer/cv-santiago/issues/1"
+          }
+        ]
+      },
+      "root_files": [
+        ".env.local.example",
+        ".github",
+        ".gitignore",
+        "README.md",
+        "api",
+        "chatbot-prompt.txt",
+        "docs",
+        "eslint.config.js",
+        "evals",
+        "index.html",
+        "package-lock.json",
+        "package.json",
+        "public",
+        "scripts",
+        "src",
+        "tests",
+        "tsconfig.app.json",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vercel.json",
+        "vite.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 1)",
+          "excerpt": "> Interactive portfolio with AI chatbot (text + voice), agentic RAG, 71 automated evals, LLMOps dashboard, and 6-layer prompt injection defense",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 1,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![Live Demo](https://img.shields.io/badge/demo-santifer.io-blue?style=flat-square)](https://santifer.io) [![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-blueviolet?style=flat-square)](https://claude.ai/code)",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 2,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <img src=\"docs/hero.gif\" alt=\"santifer.io in motion\" width=\"100%\" /> </p>",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 3,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Static CVs don't show what you can actually build. A PDF lists skills — it doesn't prove them.",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 4,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 5)",
+          "excerpt": "A production-grade interactive portfolio that **demonstrates the skills it describes**: dual-mode AI chatbot (text + voice) with agentic RAG, full LLMOps observability with custom dashboard, 71 automated evals as CI gate, prompt versioning, and a closed-loop that generates tests from production failures.",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 5,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**Key Features:** - **AI Chatbot \"Santi\"** — Text (Claude Sonnet) + Voice (OpenAI Realtime API). Responds in first person as Santiago. Agentic RAG with hybrid search (pgvector + BM25) and Haiku reranking - **6-Layer Defense** — Keyword detection, canary tokens, fingerprinting, anti-extraction, online safety scoring, adversarial red team. Real-time jailbreak email alerts - **71 Automated Evals** — 10 categories: factual accuracy, persona, boundaries, quality, safety, language, RAG quality, multi-turn, source badges, voice quality. CI gate on every push - **LLMOps Dashboard** — Private `/ops` with 8 tabs: Overview, Conversations, Costs, RAG, Security, Evals, Voice, System. Real data from Langfuse + Supabase - **Closed Loop** — Trace → online scoring → quality < 0.7 → auto-generate test → CI gate blocks deploy - **Voice Mode** — OpenAI Realtime API, audio-to-audio, shared RAG pipeline, ~$0.25/session - **6 Published Case Studies** — Bilingual (ES/EN) with JSON-LD, prerendered HTML, cross-linked RAG, and interactive architecture diagrams - **Interactive Architecture Diagram** — GSAP-animated SVG with narrated audio, pan/zoom, dark mode sync. [Explore it →](https://santifer.io/self-hea…",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 6,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 7)",
+          "excerpt": "![React](https://img.shields.io/badge/React_19-61DAFB?style=flat&logo=react&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite_7-646CFF?style=flat&logo=vite&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=flat&logo=tailwindcss&logoColor=white) ![Claude](https://img.shields.io/badge/Claude_Sonnet-191919?style=flat&logo=anthropic&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI_Realtime-412991?style=flat&logo=openai&logoColor=white) ![Langfuse](https://img.shields.io/badge/Langfuse-000000?style=flat&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel_Edge-000000?style=flat&logo=vercel&logoColor=white) ![Recharts](https://img.shields.io/badge/Recharts-FF6384?style=flat&logoColor=white)",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 7,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/santifer/cv-santiago#readme",
+          "title": "README (segment 8)",
+          "excerpt": "[![Interactive Architecture Diagram](public/chatbot/diagram-thumbnail.webp)](https://santifer.io/self-healing-chatbot#architecture) > **[Explore the interactive diagram →](https://santifer.io/self-healing-chatbot#architecture)** 10 phases · narrated audio · zoom + pan",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "segment": 8,
+            "language": "HTML"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/santifer/cv-santiago/issues/1",
+          "title": "Add CONTRIBUTING.md for new contributors",
+          "excerpt": "Add CONTRIBUTING.md for new contributors (state:open)",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "number": 1
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/santifer/cv-santiago",
+          "title": "ROOT_FILES",
+          "excerpt": ".env.local.example, .github, .gitignore, README.md, api, chatbot-prompt.txt, docs, eslint.config.js, evals, index.html, package-lock.json, package.json, public, scripts, src, tests, tsconfig.app.json, tsconfig.json, tsconfig.node.json, vercel.json, vite.config.ts",
+          "fetched_at": "2026-04-18T05:10:09.869Z",
+          "meta": {
+            "repo_full_name": "santifer/cv-santiago",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "moollaza/repo-remover",
+      "html_url": "https://github.com/moollaza/repo-remover",
+      "description": "A web app that helps you archive and delete old/unused repos, quickly and easily.",
+      "topics": [
+        "fathom-analytics",
+        "github",
+        "github-management",
+        "react",
+        "react-router",
+        "repo-management",
+        "repository-archive",
+        "repository-archiver",
+        "repository-deleter",
+        "shadcn",
+        "shadcn-ui",
+        "tailwindcss",
+        "vite",
+        "vitest"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 377,
+      "forks_count": 75,
+      "open_issues_count": 2,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-18T05:08:08Z",
+      "created_at": "2019-01-19T03:11:38Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Repo Remover\n\nBulk view, archive, and delete your GitHub repositories. Zero-knowledge — everything runs in your browser.\n\n## Try it now at https://reporemover.xyz\n\n<p>\n  <img src=\"https://img.shields.io/github/license/moollaza/repo-remover.svg?style=flat-square\" />\n  <a href=\"https://reporemover.xyz\">\n    <img src=\"https://img.shields.io/website/https/reporemover.xyz.svg?style=flat-square\" >\n  </a>\n</p>\n\n## How it works\n\nRepo Remover uses a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with the GitHub API to list your repositories and make changes to them.\n\n1. Provide a Personal Access Token\n2. Select which repos to archive or delete\n3. Review and confirm your changes\n\n**Zero-knowledge architecture**: Your token never leaves your browser. No backend, no cookies, no user-identifiable data collection. All API calls are made client-side directly to GitHub.\n\n**Note**: Tokens are not stored by default. If you opt-in to \"Remember Me\", your PAT is encrypted (AES-GCM) and stored in localStorage. For optimal security, create a new token each time and delete it when done.\n\n## Run locally\n\nRequires Node.js >= 22 and [bun](https://bun.sh/).\n\n1. Clone the repository\n   ```bash\n   git clone https://github.com/moollaza/repo-remover.git\n   cd repo-remover\n   ```\n2. Install dependencies\n   ```bash\n   bun install\n   ```\n3. Start the dev server\n   ```bash\n   bun run dev\n   ```\n4. Visit http://localhost:5173\n\n### Production build\n\n```bash\nbun run build\nbun run preview\n```\n\n## Testing\n\n```bash\nbun run test:unit        # Unit tests (Vitest + RTL + MSW)\nbun run test:e2e         # E2E tests (Playwright)\nbun run test:e2e:fast    # E2E with fast-fail\nbun run test:all         # Unit + E2E\n```\n\n## Built with\n\n- [Vite](https://vitejs.dev/) + [React](https://react.dev/) + [React Router](https://reactrouter.com/) + [TypeScript](https://www.typescriptlang.org/)\n- [Tailwind CSS](https://tailwindcss.com/) v4\n- [Vitest](https://vitest.dev/) + [Playwright](https://playwright.dev/) — testing\n- [Sentry](https://sentry.io/) — privacy-first error monitoring\n- [Fathom Analytics](https://usefathom.com/ref/E83PFO) — privacy-focused analytics ([public dashboard](https://app.usefathom.com/share/ikjnvhai/repo+remover))\n- Deployed on [Cloudflare Workers](https://workers.cloudflare.com/)\n\n## Contributing\n\nContributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions and guidelines.\n\n## Security\n\nSee [SECURITY.md](SECURITY.md) for our security policy and how to report vulnerabilities.\n\n## AI-assisted development\n\nThis repo includes [Claude Code](https://claude.ai/code) configuration in `.claude/` and `CLAUDE.md`. These files help AI-assisted contributors follow project conventions. They're optional — you don't need Claude Code to contribute.\n\n## Author\n\nZaahir Moolla ([@zmoolla](https://bsky.app/profile/zmoolla.bsky.social), [zaahir.ca](https://zaahir.ca))\n\n## Star History\n\n<a href=\"https://www.star-history.com/?repos=moollaza%2Frepo-remover&type=date&legend=top-left\">\n <picture>\n   <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://api.star-history.com/chart?repos=moollaza/repo-remover&type=date&theme=dark&legend=top-left\" />\n   <source media=\"(prefers-color-scheme: light)\" srcset=\"https://api.star-history.com/chart?repos=moollaza/repo-remover&type=date&legend=top-left\" />\n   <img alt=\"Star History Chart\" src=\"https://api.star-history.com/chart?repos=moollaza/repo-remover&type=date&legend=top-left\" />\n </picture>\n</a>\n\n## License\n\n[MIT](LICENSE)\n",
+        "truncated": false,
+        "bytes": 3606,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.0.0",
+            "tag_name": "v2.0.0",
+            "published_at": "2026-04-09T05:51:29Z",
+            "body_excerpt": "Initial release of Repo Remover v2."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".claude",
+        ".env.example",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".node-version",
+        ".prettierignore",
+        ".prettierrc",
+        ".release-please-manifest.json",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "bun.lock",
+        "components.json",
+        "content",
+        "e2e",
+        "eslint.config.js",
+        "index.html",
+        "package.json",
+        "playwright.config.ts",
+        "public",
+        "release-please-config.json",
+        "scripts",
+        "src",
+        "tsconfig.app.json",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "tsconfig.test.json",
+        "vite.config.ts",
+        "vitest.config.ts",
+        "vitest.setup.ts",
+        "wrangler.jsonc"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Bulk view, archive, and delete your GitHub repositories. Zero-knowledge — everything runs in your browser.",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p> <img src=\"https://img.shields.io/github/license/moollaza/repo-remover.svg?style=flat-square\" /> <a href=\"https://reporemover.xyz\"> <img src=\"https://img.shields.io/website/https/reporemover.xyz.svg?style=flat-square\" > </a> </p>",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Repo Remover uses a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with the GitHub API to list your repositories and make changes to them.",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 4)",
+          "excerpt": "1. Provide a Personal Access Token 2. Select which repos to archive or delete 3. Review and confirm your changes",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 5)",
+          "excerpt": "**Zero-knowledge architecture**: Your token never leaves your browser. No backend, no cookies, no user-identifiable data collection. All API calls are made client-side directly to GitHub.",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**Note**: Tokens are not stored by default. If you opt-in to \"Remember Me\", your PAT is encrypted (AES-GCM) and stored in localStorage. For optimal security, create a new token each time and delete it when done.",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 7)",
+          "excerpt": "1. Clone the repository ```bash git clone https://github.com/moollaza/repo-remover.git cd repo-remover ``` 2. Install dependencies ```bash bun install ``` 3. Start the dev server ```bash bun run dev ``` 4. Visit http://localhost:5173",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/moollaza/repo-remover#readme",
+          "title": "README (segment 8)",
+          "excerpt": "```bash bun run test:unit # Unit tests (Vitest + RTL + MSW) bun run test:e2e # E2E tests (Playwright) bun run test:e2e:fast # E2E with fast-fail bun run test:all # Unit + E2E ```",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/moollaza/repo-remover/releases",
+          "title": "v2.0.0",
+          "excerpt": "Initial release of Repo Remover v2.",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "tag_name": "v2.0.0",
+            "published_at": "2026-04-09T05:51:29Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/moollaza/repo-remover",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .env.example, .github, .gitignore, .husky, .node-version, .prettierignore, .prettierrc, .release-please-manifest.json, AGENTS.md, CLAUDE.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, README.md, SECURITY.md, bun.lock, components.json, content, e2e, eslint.config.js, index.html, package.json, playwright.config.ts, public, release-please-config.json, scripts, src, tsconfig.app.json, tsconfig.json, tsconfig.node.json, tsconfig.test.json, vite.config.ts, vitest.config.ts, vitest.setup.ts, wrangler.jsonc",
+          "fetched_at": "2026-04-18T05:10:10.208Z",
+          "meta": {
+            "repo_full_name": "moollaza/repo-remover",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "yangzongzhuan/RuoYi-Vue3",
+      "evidence_count": 8,
+      "evidence_by_type": {
+        "readme": 1,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 3,
+      "releases_count": 3
+    },
+    {
+      "full_name": "DevExpress/devextreme-cli",
+      "evidence_count": 11,
+      "evidence_by_type": {
+        "readme": 6,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "santifer/cv-santiago",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 1,
+      "releases_count": 0
+    },
+    {
+      "full_name": "moollaza/repo-remover",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 1,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 1
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "ok": true,
+      "spec_path": "specs/2026-04-18/yangzongzhuan__RuoYi-Vue3.json"
+    },
+    {
+      "repo": "DevExpress/devextreme-cli",
+      "ok": true,
+      "spec_path": "specs/2026-04-18/DevExpress__devextreme-cli.json"
+    },
+    {
+      "repo": "santifer/cv-santiago",
+      "ok": true,
+      "spec_path": "specs/2026-04-18/santifer__cv-santiago.json"
+    },
+    {
+      "repo": "moollaza/repo-remover",
+      "ok": true,
+      "spec_path": "specs/2026-04-18/moollaza__repo-remover.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-18/yangzongzhuan__RuoYi-Vue3.json"
+    },
+    {
+      "repo": "DevExpress/devextreme-cli",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-18/DevExpress__devextreme-cli.json"
+    },
+    {
+      "repo": "santifer/cv-santiago",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-18/santifer__cv-santiago.json"
+    },
+    {
+      "repo": "moollaza/repo-remover",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-18/moollaza__repo-remover.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-18/yangzongzhuan__RuoYi-Vue3.json"
+      ]
+    },
+    {
+      "repo": "DevExpress/devextreme-cli",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-18/DevExpress__devextreme-cli.json"
+      ]
+    },
+    {
+      "repo": "santifer/cv-santiago",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-18/santifer__cv-santiago.json"
+      ]
+    },
+    {
+      "repo": "moollaza/repo-remover",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-18/moollaza__repo-remover.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-18T05:10:22.811Z",
+      "run_id": "20260418T051005Z",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e4906905c0c100f5e2e3c1e18fe52b9cea821eaf622de1ce01e20ce89d1c5be6",
+      "input_stats": {
+        "evidence_count": 8,
+        "approx_chars": 4254
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12599,
+      "prompt_chars": 4254,
+      "completion_chars": 1123
+    },
+    {
+      "ts": "2026-04-18T05:10:35.639Z",
+      "run_id": "20260418T051005Z",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "cb9d1ce1b363d070d6ca7af36256a16efec5586b5365b56f088554d2b63d6199",
+      "input_stats": {
+        "evidence_count": 8,
+        "approx_chars": 5576
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12828,
+      "prompt_chars": 5576,
+      "completion_chars": 1395
+    },
+    {
+      "ts": "2026-04-18T05:10:48.006Z",
+      "run_id": "20260418T051005Z",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7262b61bd3a56d376ae9aab1d69d7a5204b64532f6e8b7ca2c5ea994c86fc827",
+      "input_stats": {
+        "evidence_count": 8,
+        "approx_chars": 7162
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12367,
+      "prompt_chars": 7162,
+      "completion_chars": 1310
+    },
+    {
+      "ts": "2026-04-18T05:10:59.913Z",
+      "run_id": "20260418T051005Z",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "073af4af203ed96fe5f311f1a55e63c2372496488561ba128869a7e1c7c269be",
+      "input_stats": {
+        "evidence_count": 8,
+        "approx_chars": 8660
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11906,
+      "prompt_chars": 8660,
+      "completion_chars": 1247
+    },
+    {
+      "ts": "2026-04-18T05:11:20.856Z",
+      "run_id": "20260418T051005Z",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "07a3f65f15c75346dbcd3e357077e488a14d891caf87a932fab6b985f9659487",
+      "input_stats": {
+        "evidence_count": 8,
+        "approx_chars": 12720
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 20941,
+      "prompt_chars": 12720,
+      "completion_chars": 2511
+    },
+    {
+      "ts": "2026-04-18T05:11:36.227Z",
+      "run_id": "20260418T051005Z",
+      "repo": "DevExpress/devextreme-cli",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e024166c064ee372874904cc90f1b19ff3246c6202b40dee206ff5d23f8ea501",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 4714
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15357,
+      "prompt_chars": 4714,
+      "completion_chars": 1541
+    },
+    {
+      "ts": "2026-04-18T05:11:50.956Z",
+      "run_id": "20260418T051005Z",
+      "repo": "DevExpress/devextreme-cli",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4bab7bff8b27f1366f966995beb63e1721be07c3dd962a2b63de6ce9885d4731",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 6479
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14729,
+      "prompt_chars": 6479,
+      "completion_chars": 1655
+    },
+    {
+      "ts": "2026-04-18T05:12:05.710Z",
+      "run_id": "20260418T051005Z",
+      "repo": "DevExpress/devextreme-cli",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b3b9f63e50071be5d1ffe20b3271a8f1433b66003cfda23bff2114cd826ea66b",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 8334
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14753,
+      "prompt_chars": 8334,
+      "completion_chars": 1649
+    },
+    {
+      "ts": "2026-04-18T05:12:19.405Z",
+      "run_id": "20260418T051005Z",
+      "repo": "DevExpress/devextreme-cli",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "17096e8f7e491f382fb6438a11e487207146c8a2db0a414411032830409fd24e",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 10188
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13694,
+      "prompt_chars": 10188,
+      "completion_chars": 1736
+    },
+    {
+      "ts": "2026-04-18T05:12:49.813Z",
+      "run_id": "20260418T051005Z",
+      "repo": "DevExpress/devextreme-cli",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1eba978eb58e2e30e05f424272efdf2e2e7c0222a29a7a38a4f10fa2d6a544f1",
+      "input_stats": {
+        "evidence_count": 11,
+        "approx_chars": 14750
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 30408,
+      "prompt_chars": 14750,
+      "completion_chars": 3932
+    },
+    {
+      "ts": "2026-04-18T05:13:00.778Z",
+      "run_id": "20260418T051005Z",
+      "repo": "santifer/cv-santiago",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6bc3b6b0ae33c4cbe59a4f666e14ef65e82c8379798b1b7e69dc539ba2892a87",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 6469
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10961,
+      "prompt_chars": 6469,
+      "completion_chars": 1394
+    },
+    {
+      "ts": "2026-04-18T05:13:15.279Z",
+      "run_id": "20260418T051005Z",
+      "repo": "santifer/cv-santiago",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "beaa181df59bc72f230cf4a5e86992e9633e14b2dc62ff62226da7c63f53903e",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 8055
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14501,
+      "prompt_chars": 8055,
+      "completion_chars": 1943
+    },
+    {
+      "ts": "2026-04-18T05:13:30.097Z",
+      "run_id": "20260418T051005Z",
+      "repo": "santifer/cv-santiago",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e435902f52f3c20fd0885bef3258e1581bf7492939224d250107bed06d147f8c",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 10186
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14818,
+      "prompt_chars": 10186,
+      "completion_chars": 1923
+    },
+    {
+      "ts": "2026-04-18T05:13:44.999Z",
+      "run_id": "20260418T051005Z",
+      "repo": "santifer/cv-santiago",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bbe83d01c808d85f43d9294771557fe432997baa9dd8960cfbf3ea2ada77fc8a",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 12294
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14902,
+      "prompt_chars": 12294,
+      "completion_chars": 1796
+    },
+    {
+      "ts": "2026-04-18T05:14:29.314Z",
+      "run_id": "20260418T051005Z",
+      "repo": "santifer/cv-santiago",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ee751a9e429ff9cebca8b1dcb2c91840df3c4aa5a044a1ff6125d6c2edbff6bf",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 16882
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 44314,
+      "prompt_chars": 16882,
+      "completion_chars": 5700
+    },
+    {
+      "ts": "2026-04-18T05:14:40.160Z",
+      "run_id": "20260418T051005Z",
+      "repo": "moollaza/repo-remover",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "340883668af13c385f45c667414cfc9e9d390b0335a29c1005c0085aef5ad468",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 5267
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10843,
+      "prompt_chars": 5267,
+      "completion_chars": 1184
+    },
+    {
+      "ts": "2026-04-18T05:14:52.678Z",
+      "run_id": "20260418T051005Z",
+      "repo": "moollaza/repo-remover",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7b29ccee8d736c77da706a84e7bb99e2fae6717d3b9c5c225052e7d1a17c868c",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 6639
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12518,
+      "prompt_chars": 6639,
+      "completion_chars": 1439
+    },
+    {
+      "ts": "2026-04-18T05:15:05.889Z",
+      "run_id": "20260418T051005Z",
+      "repo": "moollaza/repo-remover",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1dfdd0e97659090c747764419e2bb29166f3d956d1d464bc1069029d4c69163e",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 8258
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13210,
+      "prompt_chars": 8258,
+      "completion_chars": 1381
+    },
+    {
+      "ts": "2026-04-18T05:15:21.577Z",
+      "run_id": "20260418T051005Z",
+      "repo": "moollaza/repo-remover",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5fedbcff28510daf1c7db1d14b34d04c68561521905b24de74719255ab03b0db",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 9824
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15688,
+      "prompt_chars": 9824,
+      "completion_chars": 1825
+    },
+    {
+      "ts": "2026-04-18T05:15:48.693Z",
+      "run_id": "20260418T051005Z",
+      "repo": "moollaza/repo-remover",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "021eccc0e58ad65ec42132293a6cbb0622b007afb43991b51b5fae071a3df9ad",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 14473
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 27115,
+      "prompt_chars": 14473,
+      "completion_chars": 3332
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "DevExpress/devextreme-cli",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "santifer/cv-santiago",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "moollaza/repo-remover",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 8,
+      "evidence_total_final": 8,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "DevExpress/devextreme-cli",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 11,
+      "evidence_total_final": 11,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "santifer/cv-santiago",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "moollaza/repo-remover",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 4,
+    "attempts_used_hist": {
+      "0": 4,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 4,
+    "success": 4
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1776489005470,
+    "llmCallsTotal": 20,
+    "llmCallsPerRepo": {
+      "yangzongzhuan/RuoYi-Vue3": 5,
+      "DevExpress/devextreme-cli": 5,
+      "santifer/cv-santiago": 5,
+      "moollaza/repo-remover": 5
+    },
+    "tokensApproxTotal": 55308,
+    "tokensApproxPerRepo": {
+      "yangzongzhuan/RuoYi-Vue3": 11491,
+      "DevExpress/devextreme-cli": 13746,
+      "santifer/cv-santiago": 16663,
+      "moollaza/repo-remover": 13408
+    },
+    "reposProcessed": 4,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "yangzongzhuan/RuoYi-Vue3": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 8,
+        "role": "scout",
+        "summary": "RuoYi-Vue3 is a mature, actively maintained frontend implementation of the RuoYi admin framework using Vue3, Element Plus, and Vite. It serves as the official frontend counterpart to a SpringBoot-based backend, with recent releases and moderate community engagement on GitHub despite primary issue tracking occurring on Gitee.",
+        "highlights": [
+          "Official Vue3 + Vite frontend for the popular RuoYi Java admin framework (v3.9.2)",
+          "Uses modern stack: Vue3, Element Plus, Vite, and JWT-based auth",
+          "Recent releases (v3.9.0 to v3.9.2) indicate active maintenance",
+          "Well-structured project root with environment configs and build setup"
+        ],
+        "risks": [
+          "Primary issue tracking and community support appear to be on Gitee, not GitHub — may limit visibility for GitHub users [ID:E-IS-001]",
+          "Past issues indicate dependency management problems (missing packages like sortablejs) [ID:E-IS-002, ID:E-IS-003]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 8,
+        "role": "inventor",
+        "summary": "RuoYi-Vue3 is a well-structured, modern frontend implementation of a Java-based admin framework, leveraging Vue3, Vite, and Element Plus to deliver a responsive and modular UI. It demonstrates clear architectural intent and aligns with current frontend best practices, though it relies on an external backend and shows signs of dependency fragility.",
+        "highlights": [
+          "Built with a modern, performant stack: Vue3 (Composition API), Vite (fast builds), and Element Plus (UI components)",
+          "Follows environment-specific configuration via .env files for development, staging, and production [ID:E-RF-001]",
+          "Tightly integrated with a SpringBoot+JWT backend, forming a complete full-stack solution [ID:E-RD-001]",
+          "Demonstrates iterative improvement through frequent patch releases (v3.9.0 → v3.9.2) [ID:E-RL-001, ID:E-RL-002, ID:E-RL-003]"
+        ],
+        "risks": [
+          "Dependency instability evidenced by missing packages like sortablejs, suggesting incomplete or inconsistent package management [ID:E-IS-002, ID:E-IS-003]",
+          "Development coordination appears fragmented across Gitee (primary) and GitHub (mirror), potentially complicating contribution and issue resolution [ID:E-IS-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 8,
+        "role": "engineer",
+        "summary": "RuoYi-Vue3 is a production-ready frontend built with Vue3, Vite, and Element Plus, designed to integrate with a SpringBoot+JWT backend. It shows solid engineering practices in structure and configuration but exhibits dependency management issues and fragmented issue tracking across platforms.",
+        "highlights": [
+          "Modern frontend stack (Vue3 + Vite + Element Plus) enables fast development and optimized builds [ID:E-RD-001]",
+          "Environment-specific configuration via .env files supports multi-stage deployment workflows [ID:E-RF-001]",
+          "Consistent patch releases (v3.9.0 to v3.9.2) reflect active maintenance and incremental improvements [ID:E-RL-001, ID:E-RL-002, ID:E-RL-003]",
+          "Clear separation of concerns as a dedicated frontend for a Java-based backend system [ID:E-RD-001]"
+        ],
+        "risks": [
+          "Missing or inconsistent dependencies (e.g., sortablejs) indicate unreliable package management or incomplete lockfiles [ID:E-IS-002, ID:E-IS-003]",
+          "GitHub issues are redirected to Gitee, reducing visibility and potentially delaying resolution for international contributors [ID:E-IS-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 8,
+        "role": "skeptic",
+        "summary": "RuoYi-Vue3 presents itself as a modern, actively maintained frontend framework, but closer scrutiny reveals concerning gaps in dependency reliability, fragmented maintenance across platforms, and a lack of transparent issue resolution on GitHub.",
+        "highlights": [
+          "Claims active development with recent releases (v3.9.0–v3.9.2) [ID:E-RL-001, ID:E-RL-002, ID:E-RL-003]",
+          "Uses contemporary tooling (Vue3, Vite, Element Plus) suggesting up-to-date practices [ID:E-RD-001]",
+          "Project structure includes environment configs and standard build files [ID:E-RF-001]"
+        ],
+        "risks": [
+          "Dependency issues persist: users report missing packages like sortablejs, indicating unreliable or incomplete dependency declarations [ID:E-IS-002, ID:E-IS-003]",
+          "GitHub is not the primary support channel—issues are redirected to Gitee, undermining GitHub’s utility for collaboration and transparency [ID:E-IS-001]",
+          "Despite high star count, only 5 open issues on GitHub may reflect suppressed or migrated feedback rather than project stability"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 8,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"RuoYi-Vue3 Admin Console\",\n    \"one_sentence\": \"A modern, responsive admin console built with Vue3, Vite, and Element Plus, serving as the official frontend for the RuoYi Java backend.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users log in via JWT-authenticated session, navigate through role-based dashboards, manage system entities (users, roles, menus), and configure application settings using a reactive Vue3 interface backed by a SpringBoot API.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Dashboard\",\n      \"purpose\": \"Display system overview, navigation menu, and quick access to core administrative functions.\",\n      \"primary_actions\": [\n        \"Navigate to user management\",\n        \"Access role permissions\",\n        \"View system logs\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist configuration or entity updates to the backend via REST API.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up Vue3 + Vite project structure with Element Plus\",\n          \"Integrate JWT authentication flow\",\n          \"Implement basic dashboard layout with sidebar navigation\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can log in and be redirected to the dashboard\",\n    \"Dashboard loads role-based menu items correctly\"\n  ],\n  \"open_questions\": [\n    \"How are environment-specific API endpoints configured?\",\n    \"What is the exact shape of the user profile returned by the backend?\"\n  ],\n  \"scores\": {\n    \"closure\": 3,\n    \"feasibility\": 3,\n    \"stack_fit\": 4,\n    \"complexity_control"
+      }
+    },
+    "DevExpress/devextreme-cli": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "scout",
+        "summary": "The DevExpress/devextreme-cli repository provides a TypeScript-based CLI tool for DevExtreme, featuring MIT licensing, CI/CD badges, and support for authentication UI templates. It includes basic project hygiene files and links to external documentation and support.",
+        "highlights": [
+          "MIT-licensed open-source CLI tool for DevExtreme [ID:E-RD-004]",
+          "Includes CI/CD workflow badges indicating active testing (App Tests, ThemeBuilder, Lint) [ID:E-RD-001]",
+          "Supports Yarn and includes React-based Authentication UI templates (Login, Sign Up, Password Reset) [ID:E-RL-001, ID:E-RL-002]",
+          "Well-structured root with standard configuration files (.editorconfig, .gitignore, SECURITY.md, etc.) [ID:E-RF-001]",
+          "Clear documentation links and support channels provided [ID:E-RD-003, ID:E-RD-006]"
+        ],
+        "risks": [
+          "Low community engagement: only 51 stars and 30 forks despite being an official DevExpress tool",
+          "Sparse release notes (e.g., v1.1.10 has empty body) may hinder user adoption or troubleshooting [ID:E-RL-003]",
+          "Open dependency dashboard issue suggests potential outdated dependencies [ID:E-IS-001]",
+          "README references DevExtreme License and paid trial, which may confuse users about actual licensing scope despite MIT claim [ID:E-RD-004, ID:E-RD-005]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "inventor",
+        "summary": "The DevExtreme CLI is an MIT-licensed command-line tool that extends the DevExtreme UI library with developer productivity features, including project scaffolding, theme customization, and authentication UI templates for React. It integrates with package managers like Yarn and provides dedicated workflows for testing and linting.",
+        "highlights": [
+          "Provides a CLI to scaffold and manage DevExtreme-based applications, enhancing developer workflow [ID:E-RD-002]",
+          "Includes ready-to-use React Authentication UI templates (Login, Sign Up, Password Reset) with client-side API for backend integration [ID:E-RL-002]",
+          "Supports Yarn as a package manager, broadening compatibility with modern JavaScript toolchains [ID:E-RL-001]",
+          "MIT-licensed open-source tool, though documentation links to DevExtreme’s commercial licensing may cause confusion [ID:E-RD-004, ID:E-RD-005]",
+          "Structured monorepo layout with clear separation of apps, packages, and scripts, supporting scalable development [ID:E-RF-001]"
+        ],
+        "risks": [
+          "Ambiguous licensing messaging: while CLI is MIT-licensed, README directs users to DevExtreme’s commercial license and trial, potentially misleading about usage rights [ID:E-RD-004, ID:E-RD-005]",
+          "Sparse release notes (e.g., v1.1.10) reduce transparency on bug fixes or internal changes [ID:E-RL-003]",
+          "Open dependency dashboard issue indicates possible outdated or unpatched dependencies [ID:E-IS-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-002",
+          "E-RL-001",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RF-001",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "engineer",
+        "summary": "The DevExtreme CLI is a TypeScript-based command-line tool that enhances DevExtreme application development with features like project scaffolding, theme building, and React authentication templates. It follows a monorepo structure, integrates CI/CD workflows, and is MIT-licensed, though licensing messaging may cause confusion due to references to DevExtreme’s commercial offerings.",
+        "highlights": [
+          "MIT-licensed CLI tool with clear separation of concerns in a monorepo layout (apps, packages, scripts) [ID:E-RF-001, ID:E-RD-004]",
+          "Includes React Authentication UI templates with client-side API for backend integration [ID:E-RL-002]",
+          "Active CI/CD pipelines for app tests, ThemeBuilder, and linting indicated by badges in README [ID:E-RD-001]",
+          "Supports Yarn as a package manager, improving compatibility with modern JS ecosystems [ID:E-RL-001]",
+          "Provides external documentation and support links for user onboarding and issue resolution [ID:E-RD-003, ID:E-RD-006]"
+        ],
+        "risks": [
+          "Ambiguous licensing guidance: MIT license for CLI coexists with links to DevExtreme’s commercial license and trial, potentially confusing users about scope [ID:E-RD-004, ID:E-RD-005]",
+          "Sparse or missing release notes (e.g., v1.1.10) reduce visibility into fixes or changes [ID:E-RL-003]",
+          "Open dependency dashboard issue suggests possible outdated dependencies requiring audit [ID:E-IS-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role": "skeptic",
+        "summary": "While the DevExtreme CLI presents itself as an MIT-licensed open-source tool with useful features like React authentication templates and Yarn support, closer inspection reveals licensing ambiguities, minimal community traction, and potential maintenance concerns due to sparse release notes and an open dependency dashboard issue.",
+        "highlights": [
+          "Claims MIT licensing [ID:E-RD-004] but simultaneously directs users to DevExtreme’s commercial license and paid trial [ID:E-RD-005], creating confusion about actual usage rights",
+          "Despite being an official DevExpress offering, the repository shows low community engagement (51 stars, 30 forks) and only 6 open issues, suggesting limited adoption or transparency",
+          "Authentication UI templates are highlighted in releases [ID:E-RL-002], yet documentation and release notes lack detail—v1.1.10 has empty release notes [ID:E-RL-003], reducing trust in stability"
+        ],
+        "risks": [
+          "Licensing ambiguity may deter enterprise or compliance-sensitive users: MIT claim contradicts prominent links to commercial licensing and trials [ID:E-RD-004, ID:E-RD-005]",
+          "Open dependency dashboard issue [ID:E-IS-001] signals possible outdated or vulnerable dependencies, with no public evidence of active remediation",
+          "Minimal release communication (e.g., empty v1.1.10 notes [ID:E-RL-003]) undermines confidence in maintenance rigor and change transparency",
+          "Heavy reliance on external DevExtreme ecosystem (commercial library) despite open-source CLI branding may limit true independence or utility for non-paying users"
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-IS-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 11,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"DevExtreme CLI\",\n    \"one_sentence\": \"A command-line interface for scaffolding, theming, and managing DevExtreme-based applications with built-in authentication UI templates.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers use the CLI to initialize projects, generate UI components (like login/signup forms), customize themes, and integrate with package managers such as Yarn, enabling rapid development of DevExtreme applications.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Command Interface\",\n      \"purpose\": \"Provide a terminal-based interface for executing DevExtreme project setup, theme building, and authentication template generation.\",\n      \"primary_actions\": [\n        \"Initialize new DevExtreme project\",\n        \"Generate authentication UI templates\",\n        \"Build custom themes\",\n        \"Run linting and tests\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"init_project\",\n      \"purpose\": \"Scaffold a new DevExtreme application with selected framework and features.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"generate_auth_ui\",\n      \"purpose\": \"Generate React-based authentication UI templates including login, sign-up, and password reset forms with client-side API integration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"build_theme\",\n      \"purpose\": \"Compile and customize DevExtreme themes using the ThemeBuilder workflow.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"projects\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"framework\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"auth_enabled\",\n            \"type\": \"boolean\"\n          }\n        ]\n      },\n      {\n        \"name\": \"themes\",\n        \"fields\": [\n"
+      }
+    },
+    "santifer/cv-santiago": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "scout",
+        "summary": "The repository presents a highly sophisticated, production-grade interactive portfolio featuring an AI chatbot with advanced capabilities like agentic RAG, multi-layered security, automated evaluations, and LLMOps observability. It demonstrates deep technical integration of modern AI/ML tooling and robust engineering practices.",
+        "highlights": [
+          "Features a dual-mode (text + voice) AI chatbot powered by Claude Sonnet and OpenAI Realtime API, responding in first person as the developer.",
+          "Implements a 6-layer prompt injection defense system with real-time jailbreak alerts.",
+          "Includes 71 automated evaluations across 10 categories, used as CI gates on every push.",
+          "Offers a full LLMOps dashboard with 8 tabs for observability, built on Langfuse and Supabase.",
+          "Demonstrates a closed-loop system that auto-generates tests from production failures when quality drops below threshold."
+        ],
+        "risks": [
+          "Lack of CONTRIBUTING.md may hinder community contributions despite open issues requesting it.",
+          "Heavy reliance on proprietary APIs (Claude, OpenAI) introduces vendor lock-in and cost volatility risks.",
+          "Complex architecture with many moving parts (RAG, evals, voice, security layers) may increase maintenance burden."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "inventor",
+        "summary": "The repository invents a novel, self-demonstrating interactive CV that transforms the traditional static resume into a live, production-grade AI system. It uniquely integrates agentic RAG, voice/text dual-mode interaction, automated test generation from failures, and multi-layered security—effectively using the portfolio itself as proof of engineering and AI/ML operational competence.",
+        "highlights": [
+          "Invents a 'self-healing' portfolio architecture where production failures automatically trigger test generation and block deploys via CI gates, creating a closed-loop quality assurance system.",
+          "Pioneers a 6-layer defense-in-depth strategy against prompt injection and jailbreaking, including canary tokens, fingerprinting, and real-time email alerts—uncommon in public portfolio projects.",
+          "Combines Claude Sonnet for text and OpenAI Realtime API for voice in a unified agentic RAG pipeline, enabling first-person conversational responses grounded in personal experience.",
+          "Introduces an LLMOps dashboard with 8 specialized tabs (e.g., Security, Voice, RAG) powered by Langfuse and Supabase, offering unprecedented observability for a personal project.",
+          "Replaces static resumes with a dynamic, eval-driven artifact: 71 automated tests across 10 dimensions serve as verifiable proof of skill rather than claims."
+        ],
+        "risks": [
+          "The invention’s complexity may limit reproducibility or adoption by others due to tight coupling with proprietary APIs (Claude, OpenAI) and custom infrastructure.",
+          "Novel security layers, while innovative, lack third-party validation or documented red-teaming results beyond internal evals.",
+          "Absence of contribution guidelines (per open issue E-IS-001) could stifle collaborative evolution of the invented system."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "engineer",
+        "summary": "The repository implements a production-grade, interactive AI portfolio with robust engineering practices, including CI-gated automated evaluations, observability via an LLMOps dashboard, and a multi-layered security architecture. It demonstrates strong system design through agentic RAG, dual-mode (text/voice) interaction, and a closed-loop test generation mechanism.",
+        "highlights": [
+          "Implements 71 automated evaluations across 10 categories (e.g., factual accuracy, safety, RAG quality) that act as CI gates on every push, enforcing quality control.",
+          "Features a closed-loop system that traces production conversations, scores quality in real time, and auto-generates regression tests when quality falls below 0.7.",
+          "Architects a 6-layer prompt injection defense combining keyword detection, canary tokens, fingerprinting, anti-extraction, online safety scoring, and adversarial red teaming—with real-time email alerts.",
+          "Integrates Langfuse and Supabase to power an 8-tab LLMOps dashboard (/ops) offering deep observability into conversations, costs, RAG performance, security events, and voice interactions.",
+          "Uses a unified agentic RAG pipeline shared between text (Claude Sonnet) and voice (OpenAI Realtime API) modes, with hybrid search (pgvector + BM25) and Haiku reranking."
+        ],
+        "risks": [
+          "Absence of CONTRIBUTING.md (per open issue E-IS-001) may impede onboarding and external contributions despite public visibility.",
+          "Tight coupling to proprietary APIs (Claude, OpenAI) creates operational risk from cost fluctuations, rate limits, or breaking changes.",
+          "High system complexity—spanning evals, voice, RAG, security layers, and observability—may increase cognitive load and maintenance overhead for future iterations."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-001",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "skeptic",
+        "summary": "While the repository claims advanced capabilities like agentic RAG, 71 automated evals, and a 6-layer security defense, many assertions lack verifiable implementation details or public validation. The absence of contribution guidelines and reliance on proprietary APIs raise concerns about reproducibility, transparency, and long-term viability.",
+        "highlights": [
+          "Claims of '71 automated evals as CI gate' are impressive but unverified—no test reports, pass/fail criteria, or integration details are publicly shown beyond README assertions.",
+          "The '6-layer prompt injection defense' sounds robust, but without red teaming results, threat model documentation, or open-source implementation of defenses, it remains speculative.",
+          "The closed-loop system that 'auto-generates tests from production failures' is innovative in theory, yet no evidence shows how test generation works or whether it reliably prevents regressions.",
+          "Heavy dependence on Claude and OpenAI APIs means core functionality isn't independently reproducible, limiting scrutiny of actual performance or cost efficiency."
+        ],
+        "risks": [
+          "Overstated technical claims may not withstand independent verification—README reads more like a marketing pitch than an engineering artifact with auditable proof.",
+          "No CONTRIBUTING.md (per E-IS-001) combined with high complexity discourages community validation, increasing risk of undetected flaws or over-engineering.",
+          "Proprietary API lock-in obscures true system behavior; users cannot assess if features like 'agentic RAG' or 'voice quality scoring' function as described without access to backend traces or eval data."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Interactive AI Portfolio\",\n    \"one_sentence\": \"A production-grade interactive portfolio featuring a dual-mode AI chatbot with agentic RAG, 6-layer security, automated evals, and LLMOps observability.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User interacts with AI avatar 'Santi' via text or voice; system retrieves relevant context using hybrid RAG, applies multi-layer defenses, generates responses grounded in personal experience, logs traces to Langfuse/Supabase, scores quality in real time, and auto-generates regression tests if quality drops below 0.7—blocking deploys via CI gate.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Portfolio Home + Chat Interface\",\n      \"purpose\": \"Showcase interactive CV and enable conversation with AI avatar in text or voice mode.\",\n      \"primary_actions\": [\n        \"Start text chat with Santi\",\n        \"Enable voice mode via OpenAI Realtime API\",\n        \"View project demos and architecture\"\n      ]\n    },\n    {\n      \"id\": \"ops\",\n      \"name\": \"LLMOps Dashboard\",\n      \"purpose\": \"Provide observability into AI system performance, security, costs, and evaluation results.\",\n      \"primary_actions\": [\n        \"Monitor live conversations\",\n        \"Review RAG retrieval quality\",\n        \"Inspect security alerts and jailbreak attempts\",\n        \"Analyze voice interaction metrics\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"generate_regression_test\",\n      \"purpose\": \"Auto-generate a new evaluation test from a production trace when online quality score falls below threshold.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"trigger_jailbreak_alert\",\n      \"purpose\": \"Send real-time email alert when prompt injection or jailbreak is detected by any of the 6 defense layers.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"conversations\",\n        \"fields\": [\n   "
+      }
+    },
+    "moollaza/repo-remover": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "scout",
+        "summary": "Repo Remover is a client-side web application that enables bulk management of GitHub repositories through a zero-knowledge architecture, using Personal Access Tokens (PATs) exclusively in the browser without backend storage.",
+        "highlights": [
+          "Zero-knowledge design: All operations occur client-side; no data leaves the user's browser [ID:E-RD-001][ID:E-RD-005].",
+          "Supports secure local token storage via AES-GCM encryption when 'Remember Me' is enabled [ID:E-RD-006].",
+          "Comprehensive test suite including unit (Vitest) and end-to-end (Playwright) tests ensures reliability [ID:E-RD-008].",
+          "Built with modern stack: TypeScript, React, Vite, TailwindCSS, and shadcn/ui [repo_profile.topics]."
+        ],
+        "risks": [
+          "Reliance on GitHub Personal Access Tokens introduces risk if users reuse tokens with excessive permissions or fail to delete them post-use [ID:E-RD-003][ID:E-RD-006].",
+          "Local storage of encrypted tokens, while opt-in, may still be vulnerable to XSS attacks if the app is compromised [ID:E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "inventor",
+        "summary": "Repo Remover is a client-side web tool that enables users to bulk archive or delete GitHub repositories using a zero-knowledge architecture, where all operations—including authentication via Personal Access Tokens—occur entirely in the browser without backend involvement.",
+        "highlights": [
+          "Zero-knowledge design ensures no user data or tokens are transmitted to or stored on external servers [ID:E-RD-001][ID:E-RD-005].",
+          "Optional encrypted local storage (AES-GCM) for PATs when 'Remember Me' is enabled enhances usability without compromising core privacy [ID:E-RD-006].",
+          "Modern frontend stack (TypeScript, React, Vite, TailwindCSS, shadcn/ui) supports a responsive and maintainable codebase [repo_profile.topics][ID:E-RF-001].",
+          "Comprehensive testing via Vitest (unit) and Playwright (E2E) ensures functional reliability and security of critical workflows [ID:E-RD-008]."
+        ],
+        "risks": [
+          "User-created Personal Access Tokens must be carefully scoped; overly permissive tokens could lead to unintended repository modifications if compromised [ID:E-RD-003][ID:E-RD-006].",
+          "Although encrypted, localStorage-based token retention remains susceptible to cross-site scripting (XSS) attacks if the application’s client-side integrity is breached [ID:E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "engineer",
+        "summary": "Repo Remover is a client-side TypeScript web application built with React, Vite, and TailwindCSS that enables bulk GitHub repository management via user-provided Personal Access Tokens (PATs), with all operations executed in-browser under a zero-knowledge architecture.",
+        "highlights": [
+          "Zero-knowledge architecture ensures PATs and user data never leave the browser; no backend or cookies are used [ID:E-RD-001][ID:E-RD-005].",
+          "Optional AES-GCM encrypted localStorage for PATs when 'Remember Me' is enabled balances usability and security [ID:E-RD-006].",
+          "Modern toolchain includes Bun, Vite, TypeScript, React, shadcn/ui, and Playwright, with comprehensive test coverage via Vitest (unit) and Playwright (E2E) [ID:E-RF-001][ID:E-RD-008].",
+          "Clear local development workflow using Bun and Vite, with documented commands for setup and testing [ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "risks": [
+          "User-provided PATs must be narrowly scoped; misuse or over-permissioning could enable destructive actions if leaked [ID:E-RD-003][ID:E-RD-006].",
+          "Encrypted token storage in localStorage remains vulnerable to XSS attacks if client-side code integrity is compromised [ID:E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "skeptic",
+        "summary": "Repo Remover claims a zero-knowledge, client-side-only architecture for managing GitHub repositories, but relies entirely on user discipline for token security and offers no technical safeguards against misuse or compromise of highly privileged credentials.",
+        "highlights": [
+          "The app requires full-repository-access Personal Access Tokens, which—despite being used client-side—can cause irreversible damage if leaked or misused [ID:E-RD-003][ID:E-RD-004].",
+          "Encrypted localStorage for tokens is opt-in but still creates a persistent attack surface; AES-GCM encryption does not mitigate risks from XSS or malicious browser extensions [ID:E-RD-006].",
+          "No evidence of runtime integrity checks, CSP headers, or subresource protections that would meaningfully defend against client-side tampering [ID:E-RF-001][ID:E-RD-005].",
+          "Testing coverage (Vitest/Playwright) validates functionality but does not address threat models involving credential theft or DOM-based attacks [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Users may unknowingly grant excessive permissions via PATs, enabling catastrophic repository loss if the token is compromised—even briefly—since all actions are irreversible [ID:E-RD-003][ID:E-RD-004].",
+          "The 'zero-knowledge' claim is technically accurate but misleading; it shifts all security burden to the user without enforcing least-privilege token usage or offering token sandboxing [ID:E-RD-005][ID:E-RD-006].",
+          "Local development instructions and test suites do not demonstrate hardened deployment practices (e.g., SRI, CSP), raising doubts about production security posture [ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Repo Remover\",\n    \"one_sentence\": \"A client-side web application that enables bulk archiving and deletion of GitHub repositories using a zero-knowledge architecture.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User provides a GitHub Personal Access Token, selects repositories to archive or delete, reviews changes, and confirms actions—all executed client-side without backend involvement.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Repository Manager\",\n      \"purpose\": \"Display user's GitHub repositories and allow selection for archival or deletion.\",\n      \"primary_actions\": [\n        \"Enter Personal Access Token\",\n        \"Load Repositories\",\n        \"Select Repositories for Action\",\n        \"Confirm Archive/Delete\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"authenticate_github\",\n      \"purpose\": \"Validate and use the provided GitHub Personal Access Token to fetch repository list.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"execute_repo_action\",\n      \"purpose\": \"Perform archive or delete operation on selected repositories via GitHub API.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"repositories\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"action\",\n            \"type\": \"enum\"\n          }\n        ]\n      },\n      {\n        \"name\": \"auth_token\",\n        \"fields\": [\n          {\n            \"name\": \"token\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"remember_me\",\n            \"type\": \"boolean\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement token input and validation screen\",\n          \""
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 8,
+        "engineer": 8,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "DevExpress/devextreme-cli",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 8,
+        "engineer": 10,
+        "skeptic": 5,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "santifer/cv-santiago",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 4,
+        "inventor": 5,
+        "engineer": 5,
+        "skeptic": 4,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "moollaza/repo-remover",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 5,
+        "inventor": 5,
+        "engineer": 7,
+        "skeptic": 7,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=0",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=90 kept=5 limit=5",
+    "[deduper] existing_index_repos=228",
+    "[deduper] candidates_total=5 new=4 skipped=1",
+    "[repo_card_builder] santifer/cv-santiago evidence total=10 readme=8 issue=1 release=0 root_files=1",
+    "[repo_card_builder] DevExpress/devextreme-cli evidence total=11 readme=6 issue=1 release=3 root_files=1",
+    "[repo_card_builder] yangzongzhuan/RuoYi-Vue3 evidence total=8 readme=1 issue=3 release=3 root_files=1",
+    "[repo_card_builder] moollaza/repo-remover evidence total=10 readme=8 issue=0 release=1 root_files=1",
+    "[repo_card_builder] built=4 readme_ok=4/4 evidence_total=39 gaps=0",
+    "[llm_spec_generator] yangzongzhuan/RuoYi-Vue3 canonical spec ok (iter=1) -> specs/2026-04-18/yangzongzhuan__RuoYi-Vue3.json",
+    "[llm_spec_generator] DevExpress/devextreme-cli canonical spec ok (iter=1) -> specs/2026-04-18/DevExpress__devextreme-cli.json",
+    "[llm_spec_generator] santifer/cv-santiago canonical spec ok (iter=1) -> specs/2026-04-18/santifer__cv-santiago.json",
+    "[llm_spec_generator] moollaza/repo-remover canonical spec ok (iter=1) -> specs/2026-04-18/moollaza__repo-remover.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-18T05:10:05.469Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:05.492Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260418T051005Z"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:05.492Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:05.496Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:06.040Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:06.040Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:06.583Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:06.583Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:06.942Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:06.943Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:07.341Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:07.341Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:07.846Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:07.846Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:08.272Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:08.272Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:08.620Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:08.620Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:08.759Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:08.759Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.530Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.533Z",
+      "run_id": "20260418T051005Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 228
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.534Z",
+      "run_id": "20260418T051005Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 4,
+        "skipped": 1,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.536Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-18T05:10:09.537Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yangzongzhuan__RuoYi-Vue3/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.537Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yangzongzhuan__RuoYi-Vue3/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.539Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yangzongzhuan__RuoYi-Vue3/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.541Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "yangzongzhuan__RuoYi-Vue3/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.542Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-18T05:10:09.542Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DevExpress__devextreme-cli/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.543Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DevExpress__devextreme-cli/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.545Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DevExpress__devextreme-cli/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.546Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DevExpress__devextreme-cli/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.548Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-18T05:10:09.548Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "santifer__cv-santiago/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.549Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "santifer__cv-santiago/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.550Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "santifer__cv-santiago/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.552Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "santifer__cv-santiago/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.869Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 27738,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.869Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.869Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.869Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 321
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.870Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 8,
+        "issues": 1,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.870Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-18T05:10:09.870Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moollaza__repo-remover/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.871Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moollaza__repo-remover/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.871Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moollaza__repo-remover/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.871Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "moollaza__repo-remover/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.971Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 984,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.971Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.971Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.971Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 429
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:09.971Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 11,
+        "readme": 6,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 11572,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 570
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.106Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 8,
+        "readme": 1,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.208Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3606,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.208Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.208Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.208Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 338
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.208Z",
+      "run_id": "20260418T051005Z",
+      "node": "repo_card_builder",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 8,
+        "issues": 0,
+        "releases": 1,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.211Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 8,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 1,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:10.212Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 8,
+        "evidence_selected": 8,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:22.811Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1123,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:35.639Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1395,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:48.006Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1310,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:10:59.913Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1247,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:20.856Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2511,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:20.868Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:20.869Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-18/yangzongzhuan__RuoYi-Vue3.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:20.870Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "yangzongzhuan/RuoYi-Vue3",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-18/yangzongzhuan__RuoYi-Vue3.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:20.870Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 11,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 6,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:20.870Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 11,
+        "evidence_selected": 11,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:36.227Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1541,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:11:50.957Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1655,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:05.710Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1649,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:19.405Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1736,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:49.813Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3932,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:49.815Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:49.816Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-18/DevExpress__devextreme-cli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:49.817Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "DevExpress/devextreme-cli",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-18/DevExpress__devextreme-cli.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:49.817Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-18T05:12:49.817Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:13:00.778Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1394,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:13:15.279Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1943,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:13:30.097Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1923,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:13:44.999Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1796,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:29.314Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5700,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:29.315Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:29.316Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-18/santifer__cv-santiago.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:29.317Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "santifer/cv-santiago",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-18/santifer__cv-santiago.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:29.317Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 1,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:29.317Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:40.160Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1184,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:14:52.678Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1439,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:05.889Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1381,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:21.577Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1825,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.693Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3332,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.695Z",
+      "run_id": "20260418T051005Z",
+      "node": "llm_spec_generator",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.695Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-18/moollaza__repo-remover.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.695Z",
+      "run_id": "20260418T051005Z",
+      "node": "artifacts",
+      "repo": "moollaza/repo-remover",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-18/moollaza__repo-remover.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.698Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 4,
+        "attempts_used_hist": {
+          "0": 4,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.699Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1776489005470,
+        "llmCallsTotal": 20,
+        "llmCallsPerRepo": {
+          "yangzongzhuan/RuoYi-Vue3": 5,
+          "DevExpress/devextreme-cli": 5,
+          "santifer/cv-santiago": 5,
+          "moollaza/repo-remover": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 4,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.699Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-18T05:15:48.699Z",
+      "run_id": "20260418T051005Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 4,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-18",
+    "evidence_dir": "evidence/2026-04-18"
+  }
+}

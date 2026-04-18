@@ -1,0 +1,107 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "DevExtreme CLI",
+    "one_liner": "A command-line interface for scaffolding, theming, and managing DevExtreme-based applications with built-in authentication UI templates."
+  },
+  "screens": [
+    {
+      "name": "CLI Command Interface",
+      "purpose": "Provide a terminal-based interface for executing DevExtreme project setup, theme building, and authentication template generation.",
+      "primary_actions": [
+        "Build custom themes",
+        "Generate authentication UI templates",
+        "Initialize new DevExtreme project",
+        "Run linting and tests"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "build_theme",
+      "purpose": "Compile and customize DevExtreme themes using the ThemeBuilder workflow.",
+      "async": true,
+      "input": {
+        "auth_enabled": "boolean",
+        "framework": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "generate_auth_ui",
+      "purpose": "Generate React-based authentication UI templates including login, sign-up, and password reset forms with client-side API integration.",
+      "async": true,
+      "input": {
+        "auth_enabled": "boolean",
+        "framework": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "init_project",
+      "purpose": "Scaffold a new DevExtreme application with selected framework and features.",
+      "async": true,
+      "input": {
+        "auth_enabled": "boolean",
+        "framework": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "auth_enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "framework",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "themes",
+        "columns": [
+          {
+            "name": "base_palette",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement project initialization command supporting React and Angular",
+    "week 1: Integrate authentication UI template generator for React",
+    "week 1: Set up theme building pipeline compatible with Yarn"
+  ],
+  "acceptance_tests": [
+    "ThemeBuilder workflow executes successfully in CI and produces valid CSS output.",
+    "User can generate a complete authentication flow (login, signup, password reset) via CLI and integrate it with a mock backend.",
+    "User can run 'devextreme init' to scaffold a new React app with DevExtreme controls."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Repo Remover",
+    "one_liner": "A client-side web application that enables bulk archiving and deletion of GitHub repositories using a zero-knowledge architecture."
+  },
+  "screens": [
+    {
+      "name": "Repository Manager",
+      "purpose": "Display user's GitHub repositories and allow selection for archival or deletion.",
+      "primary_actions": [
+        "Confirm Archive/Delete",
+        "Enter Personal Access Token",
+        "Load Repositories",
+        "Select Repositories for Action"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "authenticate_github",
+      "purpose": "Validate and use the provided GitHub Personal Access Token to fetch repository list.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "remember_me": "boolean",
+        "token": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "execute_repo_action",
+      "purpose": "Perform archive or delete operation on selected repositories via GitHub API.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "remember_me": "boolean",
+        "token": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "auth_token",
+        "columns": [
+          {
+            "name": "remember_me",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "token",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "repositories",
+        "columns": [
+          {
+            "name": "action",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add selection and action confirmation UI",
+    "week 1: Fetch and display repository list from GitHub API",
+    "week 1: Implement token input and validation screen"
+  ],
+  "acceptance_tests": [
+    "All API calls are made client-side with no data sent to external servers.",
+    "User can enter a valid GitHub PAT and load their repository list.",
+    "User can select multiple repositories and choose to archive or delete them."
+  ]
+}

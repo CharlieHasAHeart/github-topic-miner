@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "RuoYi-Vue3 Admin Console",
+    "one_liner": "A modern, responsive admin console built with Vue3, Vite, and Element Plus, serving as the official frontend for the RuoYi Java backend."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Display system overview, navigation menu, and quick access to core administrative functions.",
+      "primary_actions": [
+        "Access role permissions",
+        "Navigate to user management",
+        "View system logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist configuration or entity updates to the backend via REST API.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic dashboard layout with sidebar navigation",
+    "week 1: Integrate JWT authentication flow",
+    "week 1: Set up Vue3 + Vite project structure with Element Plus"
+  ],
+  "acceptance_tests": [
+    "Dashboard loads role-based menu items correctly",
+    "User can log in and be redirected to the dashboard"
+  ]
+}

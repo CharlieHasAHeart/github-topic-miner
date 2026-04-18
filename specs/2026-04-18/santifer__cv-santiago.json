@@ -1,0 +1,140 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Interactive AI Portfolio",
+    "one_liner": "A production-grade interactive portfolio featuring a dual-mode AI chatbot with agentic RAG, 6-layer security, automated evals, and LLMOps observability."
+  },
+  "screens": [
+    {
+      "name": "LLMOps Dashboard",
+      "purpose": "Provide observability into AI system performance, security, costs, and evaluation results.",
+      "primary_actions": [
+        "Analyze voice interaction metrics",
+        "Inspect security alerts and jailbreak attempts",
+        "Monitor live conversations",
+        "Review RAG retrieval quality"
+      ]
+    },
+    {
+      "name": "Portfolio Home + Chat Interface",
+      "purpose": "Showcase interactive CV and enable conversation with AI avatar in text or voice mode.",
+      "primary_actions": [
+        "Enable voice mode via OpenAI Realtime API",
+        "Start text chat with Santi",
+        "View project demos and architecture"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_regression_test",
+      "purpose": "Auto-generate a new evaluation test from a production trace when online quality score falls below threshold.",
+      "async": true,
+      "input": {
+        "mode": "string",
+        "payload": "json",
+        "quality_score": "float",
+        "trace_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "trigger_jailbreak_alert",
+      "purpose": "Send real-time email alert when prompt injection or jailbreak is detected by any of the 6 defense layers.",
+      "async": true,
+      "input": {
+        "mode": "string",
+        "payload": "json",
+        "quality_score": "float",
+        "trace_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "conversations",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "mode",
+            "type": "TEXT"
+          },
+          {
+            "name": "quality_score",
+            "type": "REAL"
+          },
+          {
+            "name": "trace_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "evals",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "passed",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "security_events",
+        "columns": [
+          {
+            "name": "alert_sent",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "defense_layer",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create minimal /ops dashboard with conversation log",
+    "week 1: Implement core text chat with Claude Sonnet and basic RAG",
+    "week 1: Set up Supabase + pgvector for hybrid search",
+    "week 2: Add first-layer security (keyword detection)",
+    "week 2: Integrate Langfuse tracing",
+    "week 2: Write 5 core evals for factual accuracy and persona",
+    "week 3: Add canary tokens and fingerprinting defenses",
+    "week 3: Build CI gate that runs evals on push",
+    "week 3: Implement voice mode via OpenAI Realtime API",
+    "week 4: Complete 6-layer defense stack",
+    "week 4: Deploy closed-loop test generation",
+    "week 4: Populate all 8 LLMOps dashboard tabs"
+  ],
+  "acceptance_tests": [
+    "Chatbot responds in first person as Santiago using agentic RAG grounded in real experience.",
+    "LLMOps dashboard displays live data across all 8 tabs (Overview, Conversations, Costs, RAG, Security, Evals, Voice, System).",
+    "Real-time jailbreak attempt triggers email alert within 10 seconds.",
+    "System blocks deployment if any of the 71 automated evals fail during CI.",
+    "Voice mode shares same RAG pipeline as text mode and maintains persona consistency."
+  ]
+}
