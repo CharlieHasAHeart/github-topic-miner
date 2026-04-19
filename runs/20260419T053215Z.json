@@ -1,0 +1,1583 @@
+{
+  "run_id": "20260419T053215Z",
+  "generated_at": "2026-04-19T05:32:15.628Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 90,
+    "candidates_kept": 5,
+    "candidates_deduped": 4,
+    "new_candidates": 1,
+    "repo_cards_built": 1,
+    "gaps_count": 0,
+    "specs_attempted": 1,
+    "specs_succeeded": 1,
+    "specs_failed": 0,
+    "evidence_validated": 1,
+    "evidence_valid_ok": 1,
+    "evidence_valid_failed": 0,
+    "evidence_written": 1,
+    "evidence_write_failed": 0,
+    "evidence_total": 13,
+    "evidence_by_type": {
+      "readme": 8,
+      "issue": 1,
+      "release": 3,
+      "root_files": 1
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-19T05:33:54.630Z",
+    "repo_count": 233
+  },
+  "candidates": [
+    {
+      "full_name": "srothgan/claude-code-rust",
+      "html_url": "https://github.com/srothgan/claude-code-rust",
+      "description": "A native Rust terminal interface for Claude Code",
+      "topics": [
+        "ai",
+        "claude",
+        "cli",
+        "ratatui",
+        "rust",
+        "terminal",
+        "tui"
+      ],
+      "language": "Rust",
+      "stargazers_count": 94,
+      "forks_count": 34,
+      "open_issues_count": 5,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-19T05:31:52Z",
+      "created_at": "2026-02-08T08:35:24Z"
+    },
+    {
+      "full_name": "jstrieb/github-stats",
+      "html_url": "https://github.com/jstrieb/github-stats",
+      "description": "Better GitHub statistics images for your profile, with stats from private repos too",
+      "topics": [
+        "git-scraping",
+        "github",
+        "github-actions",
+        "github-api",
+        "github-stats",
+        "profile",
+        "readme-md",
+        "readme-template",
+        "statistics",
+        "statistics-images",
+        "stats-images",
+        "visualizations"
+      ],
+      "language": "Zig",
+      "stargazers_count": 3424,
+      "forks_count": 733,
+      "open_issues_count": 17,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-04-19T05:30:59Z",
+      "created_at": "2020-08-12T20:36:46Z"
+    },
+    {
+      "full_name": "mxsm/rocketmq-rust",
+      "html_url": "https://github.com/mxsm/rocketmq-rust",
+      "description": "🚀Apache RocketMQ build in  Rust🦀. Faster, safer, and with lower memory usage. ⭐ Star to support our work❤️!",
+      "topics": [
+        "cloud-native",
+        "messaging",
+        "rocketmq",
+        "rocketmq-rust",
+        "rocketmq-rust-client",
+        "rocketmq-rust-sdk",
+        "rust",
+        "tauri"
+      ],
+      "language": "Rust",
+      "stargazers_count": 1496,
+      "forks_count": 243,
+      "open_issues_count": 35,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-19T05:30:32Z",
+      "created_at": "2023-12-13T09:39:05Z"
+    },
+    {
+      "full_name": "descope/descopecli",
+      "html_url": "https://github.com/descope/descopecli",
+      "description": "A command line utility for performing common tasks on Descope projects",
+      "topics": [
+        "authentication",
+        "authorization",
+        "cli",
+        "descope"
+      ],
+      "language": "Go",
+      "stargazers_count": 111,
+      "forks_count": 7,
+      "open_issues_count": 2,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-19T05:30:19Z",
+      "created_at": "2024-02-23T17:05:03Z"
+    },
+    {
+      "full_name": "lablup/backend.ai",
+      "html_url": "https://github.com/lablup/backend.ai",
+      "description": "Backend.AI is a streamlined, container-based computing cluster platform that hosts popular computing/ML frameworks and diverse programming languages, with pluggable heterogeneous accelerator support including CUDA GPU, ROCm GPU, Gaudi NPU, Google TPU, GraphCore IPU and other NPUs.",
+      "topics": [
+        "api",
+        "backendai",
+        "cloud-computing",
+        "containers",
+        "distributed-computing",
+        "docker",
+        "documentation",
+        "hpc",
+        "monitoring",
+        "paas",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 629,
+      "forks_count": 172,
+      "open_issues_count": 1264,
+      "license_spdx_id": "LGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-19T05:30:18Z",
+      "created_at": "2016-10-06T05:08:49Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "srothgan/claude-code-rust",
+      "html_url": "https://github.com/srothgan/claude-code-rust",
+      "description": "A native Rust terminal interface for Claude Code",
+      "topics": [
+        "ai",
+        "claude",
+        "cli",
+        "ratatui",
+        "rust",
+        "terminal",
+        "tui"
+      ],
+      "language": "Rust",
+      "stargazers_count": 94,
+      "forks_count": 34,
+      "open_issues_count": 5,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-19T05:31:52Z",
+      "created_at": "2026-02-08T08:35:24Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "srothgan/claude-code-rust",
+      "html_url": "https://github.com/srothgan/claude-code-rust",
+      "description": "A native Rust terminal interface for Claude Code",
+      "topics": [
+        "ai",
+        "claude",
+        "cli",
+        "ratatui",
+        "rust",
+        "terminal",
+        "tui"
+      ],
+      "language": "Rust",
+      "stargazers_count": 94,
+      "forks_count": 34,
+      "open_issues_count": 5,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-19T05:31:52Z",
+      "created_at": "2026-02-08T08:35:24Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Claude Code Rust\n\nA native Rust terminal interface for Claude Code. Drop-in replacement for Anthropic's stock Node.js/React Ink TUI, built for performance and a better user experience.\n\n[![npm version](https://img.shields.io/npm/v/claude-code-rust)](https://www.npmjs.com/package/claude-code-rust)\n[![npm downloads](https://img.shields.io/npm/dm/claude-code-rust)](https://www.npmjs.com/package/claude-code-rust)\n[![CI](https://github.com/srothgan/claude-code-rust/actions/workflows/ci.yml/badge.svg)](https://github.com/srothgan/claude-code-rust/actions/workflows/ci.yml)\n[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)\n[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-green.svg)](https://nodejs.org/)\n\n## About\n\nClaude Code Rust replaces the stock Claude Code terminal interface with a native Rust binary built on [Ratatui](https://ratatui.rs/). It connects to the same Claude API through a local Agent SDK bridge. Core Claude Code functionality - tool calls, file editing, terminal commands, and permissions - works unchanged.\n\n## Requisites\n\n- Node.js 18+ (for the Agent SDK bridge)\n- Existing Claude Code authentication (`~/.claude/config.json`)\n\n## Install\n\n### npm (global, recommended)\n\n```bash\nnpm install -g claude-code-rust\n```\n\nThe published package installs a `claude-rs` command and fetches the matching prebuilt release binary for your platform during install.\n\nIf `claude-rs` resolves to an older global shim, ensure your npm global bin directory comes first on `PATH` or remove the stale shim before retrying.\n\n## Usage\n\n```bash\nclaude-rs\n```\n\n## Why\n\nThe stock Claude Code TUI runs on Node.js with React Ink. This causes real problems:\n\n- **Memory**: 200-400MB baseline vs ~20-50MB for a native binary\n- **Startup**: 2-5 seconds vs under 100ms\n- **Scrollback**: Broken virtual scrolling that loses history\n- **Input latency**: Event queue delays on keystroke handling\n- **Copy/paste**: Custom implementation instead of native terminal support\n\nClaude Code Rust fixes all of these by compiling to a single native binary with direct terminal control via Crossterm.\n\n## Architecture\n\nThree-layer design:\n\n**Presentation** (Rust/Ratatui) - Single binary with an async event loop (Tokio) handling keyboard input and bridge client events concurrently. Virtual-scrolled chat history with syntax-highlighted code blocks.\n\n**Agent SDK Bridge** (stdio JSON envelopes) - Spawns `agent-sdk/dist/bridge.js` as a child process and communicates via line-delimited JSON envelopes over stdin/stdout. Bidirectional streaming for user messages, tool updates, and permission requests.\n\n**Agent Runtime** (Anthropic Agent SDK) - The TypeScript bridge drives `@anthropic-ai/claude-agent-sdk`, which manages authentication, session/query lifecycle, and tool execution.\n\n## Status\n\nThis project is pre-1.0 and under active development. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get involved.\n\n## Limitations\n\nStartup is still constrained by the upstream Claude Agent SDK runtime that this TUI wraps. The Rust interface itself is fast, but end-to-end readiness can still take noticeable time before a session is fully available. Improving that remains an active area of work.\n\n## License\n\nThis project is licensed under the [Apache License 2.0](LICENSE). Apache-2.0 was chosen to keep usage and redistribution straightforward for individual users, downstream packagers, and commercial adopters.\n\n## Disclaimer and Legal Notice\n\nThis project is not affiliated with, endorsed by, or supported by Anthropic.\n\nA quick note on where this project stands, since I know people worry about this kind of thing: claude-code-rust is a terminal UI that I wrote from scratch in Rust. It is not a fork, copy or port of the latest Claude Code source leak -- it talks to Anthropic's official [Agent SDK](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/agent-sdk) as a runtime dependency instead, the same way any other third-party tool would. No Anthropic source code was read or used as reference at any point during development.\n\nThe project uses your existing Claude Code subscription via the Agent SDK and the Agent SDK's terms allow building on top of it. Other community projects do the same. As far as I can tell, using this project is fine -- but I am a single maintainer, not a lawyer. If anything changes on Anthropic's end, I will update this section and adjust the project accordingly.\n\nThis project's source code is licensed under [Apache-2.0](LICENSE). The Agent SDK itself is proprietary and governed by [Anthropic's Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms).\n\nFor official Claude documentation, see [https://claude.ai/docs](https://claude.ai/docs).\n",
+        "truncated": false,
+        "bytes": 4795,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.11.1",
+            "tag_name": "v0.11.1",
+            "published_at": "2026-04-16T11:47:20Z",
+            "body_excerpt": "\n### Features\n\n- **Folder-local 1M context controls** (@srothgan): Add `/1m-context enable|disable|status` to persist `CLAUDE_CODE_DISABLE_1M_CONTEXT` in `.claude/settings.local.json`, preserve neighboring local env keys, surface status, and point 1M-context recovery guidance at the new folder-local fallback\n\n"
+          },
+          {
+            "name": "v0.11.0",
+            "tag_name": "v0.11.0",
+            "published_at": "2026-04-16T10:12:39Z",
+            "body_excerpt": "\n### Features\n\n- **Agent SDK 0.2.104 migration** (#135, @srothgan): Upgrade the bundled Claude Agent SDK from `0.2.74` to `0.2.104` across the published package and local bridge; extend the Rust and TypeScript wire contract for current-model snapshots, runtime session state, API retry updates, settings parse errors, terminal reasons, task metadata, prompt suggestions, and refreshed tool metadata\n- **Live session capability synchronization** (#135, @srothgan): Reconcile current model and permission-mode support against the active SDK session instead of assuming startup-time state, and keep session/runtime status aligned through connect, resume, and turn lifecycle changes\n- **Task patch updates and subagent grouping** (#135, @srothgan): Propagate incremental task patches and parent tool linkage so subagent child tool calls collapse under their root task while still surfacing focused hidden permission prompts when user input is required\n- **Welcome session snapshot and rotating tips** (#135, @srothgan): Replace the welcome model badge with a lightweight snapshot showing version, subscription, cwd, and session ID, and rotate curated startup tips across sessions\n- **Backgrounded tool state badges** (#135, @srothgan): Surface assistant-backgrounded Bash commands and backgrounded task state directly in tool cards and summaries\n\n### Fixes\n\n- **Resume ordering and runtime stability** (#135, @srothgan): Preserve resumed history turn ordering and tighten turn/session state handling so reconnects, tool updates, and completion events stay consistent\n- **External API provider auth handling** (#135, @srothgan): Respect external API providers during auth validation instead of assuming the bundled Claude auth path\n- **Permission and tool-result rendering cleanup** (#135, @srothgan): Normalize SDK permission display and tool-result metadata, hide redundant permission headers, and treat killed tool calls as terminal failures in transcript rendering\n- **Ctrl+V paste path split** (#135,"
+          },
+          {
+            "name": "v0.10.0",
+            "tag_name": "v0.10.0",
+            "published_at": "2026-04-11T05:53:43Z",
+            "body_excerpt": "\n### Features\n\n- **Clipboard image pasting** (#104, @shyal): Paste images with `Ctrl+V`, send them as PNG image blocks, and render renumbered inline `[Image #N]` badges in the draft\n- **Live git branch tracking** (#114, @srothgan): Replace `git branch --show-current` shell-outs with in-process HEAD parsing and a filesystem watcher so the footer updates while the app stays focused\n- **Terminal tab activity indicator** (#115, @srothgan): Drive the OSC 2 tab title from app state with active and idle indicators and restore the plain cwd title on shutdown\n- **Resume subcommand and startup picker** (#116, @srothgan): Replace the `--resume` flag with `claude-rs resume`, add a dedicated startup picker, and cap it to recent project sessions\n- **App-owned file index with live updates** (#117, @srothgan): Move `@` mention search to a shared file index with scan streaming, prewarm, and incremental watcher updates across cwd and gitignore changes\n\n### Fixes\n\n- **Inline turn-scoped limit notices** (#118, @srothgan): Dedup rate-limit and plan-limit notices inside the active assistant turn instead of appending duplicate trailing system rows\n- **Rename watcher convergence** (#120, @srothgan): Re-scan parent subtrees on file-index rename events, handle root-level renames, and refresh the yanked `unicode-segmentation` lockfile entry\n\n### Performance\n\n- **Structured logging and render-path optimization** (#119, @srothgan): Standardize Rust and Agent SDK diagnostics, switch to JSON rolling logs, and cut chat hot-path cost with assembled render caching and cheaper spinner frames\n\n### Documentation\n\n- **Legal notice expansion** (#113, @srothgan): Clarify the project's relationship to Claude Code, the Agent SDK, Anthropic terms, and the recent source leak\n\n### CI and Dependencies\n\n- Bump `uuid` from 1.22.0 to 1.23.0 (#106, @dependabot)\n- Bump `notify-rust` from 4.12.0 to 4.13.1 (#109, @dependabot)\n- Bump `similar` from 2.7.0 to 3.0.0 (#110, @dependabot)\n- Bump `tokio` from 1.50.0 to 1.51.0"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 140,
+            "title": "[Bug]: Ctrl-Z should suspend it (and other bad UX)",
+            "state": "open",
+            "url": "https://github.com/srothgan/claude-code-rust/issues/140"
+          }
+        ]
+      },
+      "root_files": [
+        ".cargo",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        "CHANGELOG.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "agent-sdk",
+        "bin",
+        "clippy.toml",
+        "package-lock.json",
+        "package.json",
+        "rust-toolchain.toml",
+        "rustfmt.toml",
+        "scripts",
+        "src",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 1)",
+          "excerpt": "A native Rust terminal interface for Claude Code. Drop-in replacement for Anthropic's stock Node.js/React Ink TUI, built for performance and a better user experience.",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![npm version](https://img.shields.io/npm/v/claude-code-rust)](https://www.npmjs.com/package/claude-code-rust) [![npm downloads](https://img.shields.io/npm/dm/claude-code-rust)](https://www.npmjs.com/package/claude-code-rust) [![CI](https://github.com/srothgan/claude-code-rust/actions/workflows/ci.yml/badge.svg)](https://github.com/srothgan/claude-code-rust/actions/workflows/ci.yml) [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-green.svg)](https://nodejs.org/)",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Claude Code Rust replaces the stock Claude Code terminal interface with a native Rust binary built on [Ratatui](https://ratatui.rs/). It connects to the same Claude API through a local Agent SDK bridge. Core Claude Code functionality - tool calls, file editing, terminal commands, and permissions - works unchanged.",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 4)",
+          "excerpt": "- Node.js 18+ (for the Agent SDK bridge) - Existing Claude Code authentication (`~/.claude/config.json`)",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 5)",
+          "excerpt": "The published package installs a `claude-rs` command and fetches the matching prebuilt release binary for your platform during install.",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 6)",
+          "excerpt": "If `claude-rs` resolves to an older global shim, ensure your npm global bin directory comes first on `PATH` or remove the stale shim before retrying.",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 7)",
+          "excerpt": "The stock Claude Code TUI runs on Node.js with React Ink. This causes real problems:",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/srothgan/claude-code-rust#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- **Memory**: 200-400MB baseline vs ~20-50MB for a native binary - **Startup**: 2-5 seconds vs under 100ms - **Scrollback**: Broken virtual scrolling that loses history - **Input latency**: Event queue delays on keystroke handling - **Copy/paste**: Custom implementation instead of native terminal support",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/srothgan/claude-code-rust/issues/140",
+          "title": "[Bug]: Ctrl-Z should suspend it (and other bad UX)",
+          "excerpt": "[Bug]: Ctrl-Z should suspend it (and other bad UX) (state:open)",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "number": 140
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/srothgan/claude-code-rust/releases",
+          "title": "v0.11.1",
+          "excerpt": "### Features - **Folder-local 1M context controls** (@srothgan): Add `/1m-context enable|disable|status` to persist `CLAUDE_CODE_DISABLE_1M_CONTEXT` in `.claude/settings.local.json`, preserve neighboring local env keys, surface status, and point 1M-context recovery guidance at the new folder-local fallback",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "tag_name": "v0.11.1",
+            "published_at": "2026-04-16T11:47:20Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/srothgan/claude-code-rust/releases",
+          "title": "v0.11.0",
+          "excerpt": "### Features - **Agent SDK 0.2.104 migration** (#135, @srothgan): Upgrade the bundled Claude Agent SDK from `0.2.74` to `0.2.104` across the published package and local bridge; extend the Rust and TypeScript wire contract for current-model snapshots, runtime session state, API retry updates, settings parse errors, terminal reasons, task metadata, prompt suggestions, and refreshed tool metadata - **Live session capability synchronization** (#135, @srothgan): Reconcile current model and permission-mode support against the active SDK session instead of assuming startup-time state, and keep session/runtime status aligned through connect, resume, and turn lifecycle changes - **Task patch updates and subagent grouping** (#135, @srothgan): Propagate incremental task patches and parent tool linkage so subagent child tool calls collapse under their root task while still surfacing focused hidden permission prompts when user input is required - **Welcome session snapshot and rotating tips** (#135, @srothgan): Replace the welcome model badge with a lightweight snapshot showing version, subscription, cwd, and session ID, and rotate curated startup tips across sessions - **Backgrounded tool sta…",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "tag_name": "v0.11.0",
+            "published_at": "2026-04-16T10:12:39Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/srothgan/claude-code-rust/releases",
+          "title": "v0.10.0",
+          "excerpt": "### Features - **Clipboard image pasting** (#104, @shyal): Paste images with `Ctrl+V`, send them as PNG image blocks, and render renumbered inline `[Image #N]` badges in the draft - **Live git branch tracking** (#114, @srothgan): Replace `git branch --show-current` shell-outs with in-process HEAD parsing and a filesystem watcher so the footer updates while the app stays focused - **Terminal tab activity indicator** (#115, @srothgan): Drive the OSC 2 tab title from app state with active and idle indicators and restore the plain cwd title on shutdown - **Resume subcommand and startup picker** (#116, @srothgan): Replace the `--resume` flag with `claude-rs resume`, add a dedicated startup picker, and cap it to recent project sessions - **App-owned file index with live updates** (#117, @srothgan): Move `@` mention search to a shared file index with scan streaming, prewarm, and incremental watcher updates across cwd and gitignore changes ### Fixes - **Inline turn-scoped limit notices** (#118, @srothgan): Dedup rate-limit and plan-limit notices inside the active assistant turn instead of appending duplicate trailing system rows - **Rename watcher convergence** (#120, @srothgan): Re-scan …",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "tag_name": "v0.10.0",
+            "published_at": "2026-04-11T05:53:43Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/srothgan/claude-code-rust",
+          "title": "ROOT_FILES",
+          "excerpt": ".cargo, .gitattributes, .github, .gitignore, CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Cargo.lock, Cargo.toml, LICENSE, README.md, SECURITY.md, agent-sdk, bin, clippy.toml, package-lock.json, package.json, rust-toolchain.toml, rustfmt.toml, scripts, src, tests",
+          "fetched_at": "2026-04-19T05:32:20.713Z",
+          "meta": {
+            "repo_full_name": "srothgan/claude-code-rust",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "srothgan/claude-code-rust",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "srothgan/claude-code-rust",
+      "ok": true,
+      "spec_path": "specs/2026-04-19/srothgan__claude-code-rust.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "srothgan/claude-code-rust",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-19/srothgan__claude-code-rust.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "srothgan/claude-code-rust",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-19/srothgan__claude-code-rust.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-19T05:32:33.372Z",
+      "run_id": "20260419T053215Z",
+      "repo": "srothgan/claude-code-rust",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e3d322632eebfa85ecdd165dbc748abc261901d08e9442de0daa8833d131a067",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 7845
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12654,
+      "prompt_chars": 7845,
+      "completion_chars": 1436
+    },
+    {
+      "ts": "2026-04-19T05:32:47.107Z",
+      "run_id": "20260419T053215Z",
+      "repo": "srothgan/claude-code-rust",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2a5542a97212911727318299e9d72cbb2266f8ddca61d88fe3e98c2eee9f5db9",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9489
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13734,
+      "prompt_chars": 9489,
+      "completion_chars": 1617
+    },
+    {
+      "ts": "2026-04-19T05:32:59.788Z",
+      "run_id": "20260419T053215Z",
+      "repo": "srothgan/claude-code-rust",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a4f13d273291bafe92e6f8da62fc35682f09dd6803bb66a324a46e5dc8791b2b",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11306
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12681,
+      "prompt_chars": 11306,
+      "completion_chars": 1575
+    },
+    {
+      "ts": "2026-04-19T05:33:12.413Z",
+      "run_id": "20260419T053215Z",
+      "repo": "srothgan/claude-code-rust",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "cad2ce12741f9ce9c7568f8db1a8153a5d67193d677d85b92b7cfc44d7d081c1",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13074
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12624,
+      "prompt_chars": 13074,
+      "completion_chars": 1640
+    },
+    {
+      "ts": "2026-04-19T05:33:54.615Z",
+      "run_id": "20260419T053215Z",
+      "repo": "srothgan/claude-code-rust",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ec3943c611564b52fe19f8d8a1389ac7210c87df7d26aa4e2680956144db7d4b",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 17566
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 42201,
+      "prompt_chars": 17566,
+      "completion_chars": 5397
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "srothgan/claude-code-rust",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "srothgan/claude-code-rust",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 1,
+    "attempts_used_hist": {
+      "0": 1,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 1,
+    "success": 1
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1776576735635,
+    "llmCallsTotal": 5,
+    "llmCallsPerRepo": {
+      "srothgan/claude-code-rust": 5
+    },
+    "tokensApproxTotal": 17739,
+    "tokensApproxPerRepo": {
+      "srothgan/claude-code-rust": 17739
+    },
+    "reposProcessed": 1,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "srothgan/claude-code-rust": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "The repository provides a high-performance Rust-based terminal UI for Claude Code, replacing the original Node.js/React Ink interface. It maintains compatibility with the existing Agent SDK bridge while significantly improving memory usage, startup time, and terminal UX. Recent releases show active development focused on session management, tooling enhancements, and tighter integration with the underlying SDK.",
+        "highlights": [
+          "Native Rust TUI built with Ratatui offers ~10x lower memory usage and sub-100ms startup vs stock Node.js version",
+          "Drop-in replacement that preserves all core Claude Code functionality via local Agent SDK bridge",
+          "Recent releases include advanced features like folder-local 1M context controls, clipboard image pasting, live git tracking, and improved session/task synchronization",
+          "Distributed via npm with prebuilt binaries; requires Node.js >=18 only for the Agent SDK bridge"
+        ],
+        "risks": [
+          "Open issue indicates poor handling of standard terminal signals (e.g., Ctrl-Z suspension), suggesting incomplete terminal UX parity",
+          "Reliance on external Node.js-based Agent SDK bridge introduces a non-Rust runtime dependency despite native claims"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "The repository invents a high-performance, native Rust terminal user interface for Claude Code that replaces the original Node.js/React Ink frontend while preserving full compatibility through a local Agent SDK bridge. It introduces significant performance gains and enhanced terminal-native behaviors without altering core functionality.",
+        "highlights": [
+          "Replaces stock Node.js TUI with a native Rust binary using Ratatui, achieving ~10x lower memory (20-50MB vs 200-400MB) and sub-100ms startup vs 2-5 seconds",
+          "Maintains drop-in compatibility by interfacing with the same Claude API via a local Agent SDK bridge, requiring only Node.js >=18 for that bridge component",
+          "Introduces novel terminal UX features like clipboard image pasting, live git branch tracking, OSC tab activity indicators, and app-owned file indexing with live updates",
+          "Implements folder-local 1M context controls via `.claude/settings.local.json`, enabling persistent, project-scoped configuration without global side effects"
+        ],
+        "risks": [
+          "Incomplete terminal signal handling (e.g., Ctrl-Z suspension) indicates gaps in emulating standard terminal process behavior, risking user workflow disruption",
+          "Architectural reliance on a Node.js-based Agent SDK bridge contradicts the 'native' positioning and creates a hidden runtime dependency outside Rust’s memory safety guarantees"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "The repository implements a high-performance Rust TUI for Claude Code using Ratatui, replacing the original Node.js frontend while maintaining API compatibility via a local Agent SDK bridge. It delivers significant runtime improvements and advanced terminal-native features, but retains a critical dependency on Node.js for the SDK and exhibits incomplete terminal signal handling.",
+        "highlights": [
+          "Native Rust binary reduces memory footprint to 20-50MB (vs 200-400MB) and achieves sub-100ms startup by bypassing Node.js/React Ink stack",
+          "Preserves full Claude Code functionality through a local Agent SDK bridge, requiring only Node.js >=18 as a sidecar runtime",
+          "Recent releases add sophisticated features: folder-local 1M context controls, clipboard image pasting, live git branch tracking, and app-managed file indexing with incremental updates",
+          "Distributed via npm with platform-specific prebuilt binaries; installs `claude-rs` command that fetches appropriate native executable at install time"
+        ],
+        "risks": [
+          "Open issue [ID:E-IS-001] confirms missing standard terminal behavior (Ctrl-Z suspension), indicating incomplete process lifecycle integration",
+          "Architectural reliance on external Node.js-based Agent SDK bridge undermines 'native' claims and introduces non-Rust runtime surface outside memory safety guarantees"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While the repository claims significant performance and UX improvements over the original Claude Code TUI, it relies on a Node.js-based Agent SDK bridge, undermining its 'native Rust' positioning, and exhibits unresolved terminal behavior issues that challenge its readiness for serious use.",
+        "highlights": [
+          "Claims of 'native Rust' performance are contradicted by mandatory reliance on a Node.js >=18 runtime for the Agent SDK bridge [ID:E-RD-004]",
+          "Advertised as a drop-in replacement, yet fails to handle basic terminal signals like Ctrl-Z, breaking standard Unix process control [ID:E-IS-001]",
+          "Distributed via npm with prebuilt binaries, creating potential supply-chain opacity and platform-specific reliability concerns not addressed in documentation [ID:E-RD-005]",
+          "Performance comparisons (e.g., 20-50MB vs 200-400MB memory) lack methodology or reproducible benchmarks, raising questions about real-world validity [ID:E-RD-008]"
+        ],
+        "risks": [
+          "The critical dependency on an external Node.js component introduces version skew, security vulnerabilities, and runtime instability outside Rust’s safety guarantees",
+          "Incomplete terminal integration (e.g., missing job control via Ctrl-Z) suggests superficial emulation rather than true TUI maturity, risking user frustration in production workflows",
+          "Rapid feature additions (e.g., 1M context controls, image pasting) may prioritize novelty over robustness, especially given only 94 stars and limited issue tracking"
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-IS-001",
+          "E-RD-005",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Claude Code Rust\",\n    \"one_sentence\": \"A native Rust terminal interface for Claude Code that replaces the stock Node.js/React Ink TUI with a high-performance Ratatui-based alternative while preserving full compatibility via a local Agent SDK bridge.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"The user interacts with a Claude-powered AI agent through a terminal UI that supports tool calls, file editing, terminal commands, and permissions, all mediated by a local Agent SDK bridge running on Node.js, while the Rust frontend handles rendering, input, and session state with low latency and memory footprint.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Chat Interface\",\n      \"purpose\": \"Display conversation history, AI responses, tool outputs, and draft edits with inline image badges and live git branch context in the footer.\",\n      \"primary_actions\": [\n        \"Send message\",\n        \"Paste clipboard content (including images)\",\n        \"Toggle 1M context mode\",\n        \"Resume recent session\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings Panel\",\n      \"purpose\": \"Manage folder-local configuration such as 1M context enablement and view status of local overrides.\",\n      \"primary_actions\": [\n        \"Enable/disable 1M context\",\n        \"View local settings status\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"send_message\",\n      \"purpose\": \"Transmit user input to the Claude Agent SDK bridge and render streaming responses in the TUI.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"paste_clipboard\",\n      \"purpose\": \"Handle clipboard paste events, including image data, converting images to PNG blocks and rendering inline [Image #N] badges.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"toggle_1m_context\",\n      \"purpose\": \"Persist CLAUDE_CODE_DISABLE_1M_CONTEXT setting in .claude/settings.local.json and up"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "srothgan/claude-code-rust",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 10,
+        "engineer": 9,
+        "skeptic": 4,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=0",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=90 kept=5 limit=5",
+    "[deduper] existing_index_repos=232",
+    "[deduper] candidates_total=5 new=1 skipped=4",
+    "[repo_card_builder] srothgan/claude-code-rust evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=1 readme_ok=1/1 evidence_total=13 gaps=0",
+    "[llm_spec_generator] srothgan/claude-code-rust canonical spec ok (iter=1) -> specs/2026-04-19/srothgan__claude-code-rust.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-19T05:32:15.635Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:15.658Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260419T053215Z"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:15.658Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:15.662Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:16.278Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:16.278Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:16.829Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:16.829Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:17.259Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:17.259Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:17.714Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:17.714Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:18.127Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:18.127Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:18.521Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:18.521Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:18.976Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:18.976Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:19.229Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:19.229Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:19.670Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:19.670Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.146Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.150Z",
+      "run_id": "20260419T053215Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 232
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.151Z",
+      "run_id": "20260419T053215Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 1,
+        "skipped": 4,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.154Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-19T05:32:20.154Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "srothgan__claude-code-rust/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.155Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "srothgan__claude-code-rust/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.156Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "srothgan__claude-code-rust/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.158Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "srothgan__claude-code-rust/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.713Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 4795,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.713Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.713Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.713Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 559
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.714Z",
+      "run_id": "20260419T053215Z",
+      "node": "repo_card_builder",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.717Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:20.717Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:33.372Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1436,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:47.107Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1617,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:32:59.788Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1575,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:12.413Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1640,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.615Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5397,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.628Z",
+      "run_id": "20260419T053215Z",
+      "node": "llm_spec_generator",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.630Z",
+      "run_id": "20260419T053215Z",
+      "node": "artifacts",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-19/srothgan__claude-code-rust.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.630Z",
+      "run_id": "20260419T053215Z",
+      "node": "artifacts",
+      "repo": "srothgan/claude-code-rust",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-19/srothgan__claude-code-rust.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.634Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 1,
+        "attempts_used_hist": {
+          "0": 1,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.634Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1776576735635,
+        "llmCallsTotal": 5,
+        "llmCallsPerRepo": {
+          "srothgan/claude-code-rust": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 1,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.634Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-19T05:33:54.634Z",
+      "run_id": "20260419T053215Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 1,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-19",
+    "evidence_dir": "evidence/2026-04-19"
+  }
+}

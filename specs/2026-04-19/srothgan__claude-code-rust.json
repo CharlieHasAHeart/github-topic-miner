@@ -1,0 +1,141 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Claude Code Rust",
+    "one_liner": "A native Rust terminal interface for Claude Code that replaces the stock Node.js/React Ink TUI with a high-performance Ratatui-based alternative while preserving full compatibility via a local Agent SDK bridge."
+  },
+  "screens": [
+    {
+      "name": "Main Chat Interface",
+      "purpose": "Display conversation history, AI responses, tool outputs, and draft edits with inline image badges and live git branch context in the footer.",
+      "primary_actions": [
+        "Paste clipboard content (including images)",
+        "Resume recent session",
+        "Send message",
+        "Toggle 1M context mode"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Manage folder-local configuration such as 1M context enablement and view status of local overrides.",
+      "primary_actions": [
+        "Enable/disable 1M context",
+        "View local settings status"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "paste_clipboard",
+      "purpose": "Handle clipboard paste events, including image data, converting images to PNG blocks and rendering inline [Image #N] badges.",
+      "async": true,
+      "input": {
+        "filepath": "string",
+        "last_modified": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "resume_session",
+      "purpose": "Launch the app in resume mode to pick from recent project sessions via a dedicated startup picker.",
+      "async": false,
+      "input": {
+        "filepath": "string",
+        "last_modified": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "send_message",
+      "purpose": "Transmit user input to the Claude Agent SDK bridge and render streaming responses in the TUI.",
+      "async": true,
+      "input": {
+        "filepath": "string",
+        "last_modified": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "toggle_1m_context",
+      "purpose": "Persist CLAUDE_CODE_DISABLE_1M_CONTEXT setting in .claude/settings.local.json and update UI status accordingly.",
+      "async": false,
+      "input": {
+        "filepath": "string",
+        "last_modified": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "file_index",
+        "columns": [
+          {
+            "name": "filepath",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_modified",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "local_settings",
+        "columns": [
+          {
+            "name": "disable_1m_context",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "last_active",
+            "type": "DATETIME"
+          },
+          {
+            "name": "project_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic input handling and command parsing",
+    "week 1: Implement core Ratatui rendering loop with message history",
+    "week 1: Integrate with local Agent SDK bridge over IPC",
+    "week 1: Support file editing and tool call display"
+  ],
+  "acceptance_tests": [
+    "App starts in under 100ms and uses less than 50MB memory on idle.",
+    "Enabling 1M context via /1m-context enable persists setting to .claude/settings.local.json and affects subsequent runs.",
+    "Footer displays current git branch and updates live when HEAD changes during app runtime.",
+    "Pasting an image with Ctrl+V inserts a renumbered [Image #N] badge in the draft and sends valid PNG block to API.",
+    "User can suspend the app with Ctrl-Z and resume it in the shell without crash or hang."
+  ]
+}
