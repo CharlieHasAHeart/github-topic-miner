@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Mailbox",
+    "one_liner": "A self-hosted, serverless email infrastructure on AWS that receives, stores, and serves emails via a web interface with dark/light mode support."
+  },
+  "screens": [
+    {
+      "name": "Inbox",
+      "purpose": "Display list of received emails with theme support (dark/light mode).",
+      "primary_actions": [
+        "Toggle between dark and light mode",
+        "View email details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist email metadata or content to storage (e.g., DynamoDB or S3).",
+      "async": true,
+      "input": {
+        "bucket_key": "string",
+        "message_id": "string",
+        "payload": "json",
+        "received_at": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "emails",
+        "columns": [
+          {
+            "name": "bucket_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "message_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "received_at",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure IAM permissions (refined from AdministratorAccess)",
+    "week 1: Deploy SES rule to deliver to S3 and invoke Lambda",
+    "week 1: Set up Serverless/Terraform environment variables"
+  ],
+  "acceptance_tests": [
+    "Lambda function processes email and writes metadata to DynamoDB.",
+    "System ingests email via SES and stores it in S3 bucket.",
+    "Web UI displays email list with correct theme based on user preference."
+  ]
+}

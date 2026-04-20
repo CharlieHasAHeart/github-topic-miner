@@ -1,0 +1,67 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Tekton CLI",
+    "one_liner": "A cross-platform command-line interface for interacting with Tekton CI/CD pipelines."
+  },
+  "screens": [
+    {
+      "name": "Installation Guide",
+      "purpose": "Provides platform-specific instructions for installing the tkn binary.",
+      "primary_actions": [
+        "Download Linux binary",
+        "Download macOS tarball",
+        "Download Windows zip",
+        "Extract and add to PATH"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_tkn",
+      "purpose": "Downloads and installs the appropriate tkn binary for the user's operating system.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platform": "string",
+        "url": "string",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "releases",
+        "columns": [
+          {
+            "name": "platform",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add CVE-aware version selector",
+    "week 1: Implement multi-platform binary downloader",
+    "week 1: Validate installation paths per OS"
+  ],
+  "acceptance_tests": [
+    "Patch releases addressing CVEs are correctly associated with version metadata.",
+    "User can download and install tkn on Linux using provided tarball URL.",
+    "User can download and install tkn on Windows using PowerShell script from README."
+  ]
+}

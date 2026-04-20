@@ -1,0 +1,126 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Cerul",
+    "one_liner": "The video search layer for AI agents that indexes speech, visuals, and on-screen text to enable semantic search over video content."
+  },
+  "screens": [
+    {
+      "name": "Admin Analytics Dashboard",
+      "purpose": "Monitor search performance, user engagement, and content effectiveness through impression-aware CTR metrics and leaderboards.",
+      "primary_actions": [
+        "Analyze position-based CTR",
+        "Inspect creator/content performance",
+        "Review playground feedback trends",
+        "View top queries and empty result rates"
+      ]
+    },
+    {
+      "name": "API Playground",
+      "purpose": "Enable developers to test video search queries, view results with previews, and generate client code in multiple languages.",
+      "primary_actions": [
+        "Generate SDK code snippets",
+        "Provide thumbs up/down feedback",
+        "Submit search query",
+        "View video result previews"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_code_snippet",
+      "purpose": "Produce syntax-highlighted client code for API usage in supported languages.",
+      "async": false,
+      "input": {
+        "language": "string",
+        "query": "string"
+      },
+      "output": {
+        "code": "string"
+      }
+    },
+    {
+      "name": "search_video",
+      "purpose": "Execute a multimodal semantic search over indexed video content using natural language queries.",
+      "async": true,
+      "input": {
+        "filters": "json",
+        "max_results": "float",
+        "query": "string",
+        "ranking_mode": "string"
+      },
+      "output": {
+        "query_id": "string",
+        "results": "json",
+        "results_preview": "json"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "query_logs",
+        "columns": [
+          {
+            "name": "query_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "query_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "results_preview",
+            "type": "JSON"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "retrieval_units",
+        "columns": [
+          {
+            "name": "end_time",
+            "type": "REAL"
+          },
+          {
+            "name": "short_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "start_time",
+            "type": "REAL"
+          },
+          {
+            "name": "video_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "visual_summary",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic playground UI with query input and result preview",
+    "week 1: Deploy minimal Cloudflare Worker API with /search endpoint",
+    "week 1: Implement core multimodal indexing pipeline using Gemini for visual and speech analysis",
+    "week 2: Add syntax-highlighted code generation for Python/JS/Shell/Go",
+    "week 2: Implement short_id-based redirect URLs for retrieval units",
+    "week 2: Integrate thumbs up/down feedback collection",
+    "week 3: Add collapsible advanced search parameters",
+    "week 3: Develop admin analytics dashboard with CTR and query performance views",
+    "week 3: Publish npm and PyPI client packages"
+  ],
+  "acceptance_tests": [
+    "Admin analytics correctly compute impression-aware CTR by tracking both result views and clicks per query and position.",
+    "After submitting a search, the system logs a snapshot of results in query_logs.results_preview, enabling replay and audit even if underlying video metadata changes.",
+    "Given a natural language query about visual content (e.g., 'show me videos with Python code'), the system returns video segments containing actual code visuals, not just matching transcripts.",
+    "When a developer uses the playground, they can copy generated Python code that successfully executes against the live API and returns the same results shown in the UI."
+  ]
+}
