@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Apple Music-like Lyrics",
+    "one_liner": "A lyric display component library mimicking Apple Music's iPad interface, with native DOM, React, and Vue bindings."
+  },
+  "screens": [
+    {
+      "name": "Lyric Display Screen",
+      "purpose": "Render animated, synchronized lyrics with dynamic fluid background effects matching Apple Music's aesthetic.",
+      "primary_actions": [
+        "Load lyric data",
+        "Synchronize with audio playback",
+        "Toggle framework-specific rendering (DOM/React/Vue)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist lyric configuration or state to local storage or external service.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "ttml_data": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "lyrics",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "ttml_data",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Connect to amll-ttml-db for sample data",
+    "week 1: Implement React binding wrapper",
+    "week 1: Integrate AMLL Core DOM component"
+  ],
+  "acceptance_tests": [
+    "Component renders correctly in supported browsers per documented requirements.",
+    "Lyric display synchronizes accurately with mock audio timeline using TTML input."
+  ]
+}

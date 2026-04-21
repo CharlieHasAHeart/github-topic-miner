@@ -1,0 +1,174 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "foxguard",
+    "one_liner": "A security scanner as fast as a linter, written in Rust."
+  },
+  "screens": [
+    {
+      "name": "TUI Findings View",
+      "purpose": "Interactive terminal interface for scanning, diffing, and reviewing security findings with in-app triage actions.",
+      "primary_actions": [
+        "Add to baseline or ignore rules",
+        "Mark as reviewed/todo/ignored",
+        "Navigate findings with dataflow context",
+        "Open source/sink locations",
+        "Select scan mode (Scan, Diff, Secrets)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "foxguard_diff",
+      "purpose": "Show new findings compared to a target branch.",
+      "async": true,
+      "input": {
+        "cbom_reference": "string",
+        "cnsa_2_0": "boolean",
+        "finding_id": "string",
+        "payload": "json",
+        "pqc_ready": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "foxguard_scan",
+      "purpose": "Perform fast static analysis scan with taint tracking across supported languages.",
+      "async": true,
+      "input": {
+        "cbom_reference": "string",
+        "cnsa_2_0": "boolean",
+        "finding_id": "string",
+        "payload": "json",
+        "pqc_ready": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "foxguard_tui",
+      "purpose": "Launch interactive terminal UI for local security triage with scan, diff, and secrets modes.",
+      "async": true,
+      "input": {
+        "cbom_reference": "string",
+        "cnsa_2_0": "boolean",
+        "finding_id": "string",
+        "payload": "json",
+        "pqc_ready": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "compliance_metadata",
+        "columns": [
+          {
+            "name": "cbom_reference",
+            "type": "TEXT"
+          },
+          {
+            "name": "cnsa_2_0",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "finding_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "pqc_ready",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "findings",
+        "columns": [
+          {
+            "name": "dataflow_path",
+            "type": "JSON"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "line_number",
+            "type": "INTEGER"
+          },
+          {
+            "name": "message",
+            "type": "TEXT"
+          },
+          {
+            "name": "review_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "rule_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "severity",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "rules",
+        "columns": [
+          {
+            "name": "compliance_tags",
+            "type": "JSON"
+          },
+          {
+            "name": "cwe",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "language",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build TUI scaffold with mode picker (Scan/Diff/Secrets)",
+    "week 1: Expose CNSA 2.0 and crypto metadata in findings output",
+    "week 1: Implement core taint engine with per-sanitizer-group AST traversal",
+    "week 1: Integrate Semgrep-compatible YAML rule loader",
+    "week 2: Add in-app triage actions (review, ignore, baseline)",
+    "week 2: Implement GitHub PR inline comment posting",
+    "week 2: Surface compliance metadata in TUI detail pane",
+    "week 2: Update README to reflect TUI, PQ, and CBOM features"
+  ],
+  "acceptance_tests": [
+    "`foxguard diff main` correctly identifies and displays only new findings versus the main branch.",
+    "CNSA 2.0 and post-quantum crypto metadata are visible in the TUI detail pane for relevant findings.",
+    "Findings marked as 'ignored' persist in configuration and do not reappear on subsequent scans.",
+    "GitHub PR integration posts findings as inline review comments when `--github-pr` flag is used.",
+    "User can launch `foxguard tui .` and select Scan mode to view findings with dataflow paths within 0.5 seconds on a 10k LOC repo."
+  ]
+}
