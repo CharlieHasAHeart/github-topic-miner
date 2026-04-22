@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Cast",
+    "one_liner": "Cast is a command line utility that abstracts away SaltStack for installing compatible forensic and security distributions like SIFT and REMnux."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide command-line access to install SaltStack-based distributions via built-in aliases.",
+      "primary_actions": [
+        "Install REMnux distribution",
+        "Install SIFT distribution"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_distribution",
+      "purpose": "Installs a SaltStack-based distribution by resolving an alias to its repository and executing SaltStack states.",
+      "async": true,
+      "input": {
+        "alias": "string",
+        "payload": "json",
+        "repository": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "distribution_aliases",
+        "columns": [
+          {
+            "name": "alias",
+            "type": "TEXT"
+          },
+          {
+            "name": "repository",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core CLI command to resolve and install supported distributions",
+    "week 1: Integrate SaltStack execution backend",
+    "week 1: Package as signed binary and .deb installer"
+  ],
+  "acceptance_tests": [
+    "Cast binary is available as signed release artifact for multiple architectures",
+    "Given the 'remnux' alias, Cast resolves it to 'remnux/salt-states' and initiates installation",
+    "Given the 'sift' alias, Cast resolves it to 'teamdfir/sift-saltstack' and initiates installation"
+  ]
+}

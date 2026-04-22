@@ -1,0 +1,55 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Agent Deck",
+    "one_liner": "Terminal session manager for AI coding agents. One TUI for Claude, Gemini, OpenCode, Codex, and more."
+  },
+  "screens": [
+    {
+      "name": "Main Session Dashboard",
+      "purpose": "Display and manage active AI agent sessions in a terminal-based TUI.",
+      "primary_actions": [
+        "Attach to existing session",
+        "Configure tmux isolation settings",
+        "Fork new session"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist user configuration including tmux socket settings without losing [tmux] config block.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "session_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build TUI session dashboard",
+    "week 1: Implement tmux socket isolation",
+    "week 1: Support skill-based LLM integration"
+  ],
+  "acceptance_tests": [
+    "Agent Deck preserves [tmux] config block on TUI save",
+    "Agent Deck runs sessions on separate tmux server when socket_name is set"
+  ]
+}
