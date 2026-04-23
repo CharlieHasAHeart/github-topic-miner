@@ -1,0 +1,121 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "sqz",
+    "one_liner": "Compress LLM context to save tokens and reduce costs"
+  },
+  "screens": [
+    {
+      "name": "Main Compression Interface",
+      "purpose": "Display real-time token savings and compression stats for active LLM sessions",
+      "primary_actions": [
+        "Access installation options",
+        "See deduplication references",
+        "View token reduction percentage"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "compress",
+      "purpose": "Compress LLM context by applying deduplication and lightweight referencing",
+      "async": true,
+      "input": {
+        "compressed_tokens": "int",
+        "dedup_references": "json",
+        "original_tokens": "int",
+        "payload": "json",
+        "session_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "init",
+      "purpose": "Initialize sqz configuration for supported agents and tools",
+      "async": false,
+      "input": {
+        "compressed_tokens": "int",
+        "dedup_references": "json",
+        "original_tokens": "int",
+        "payload": "json",
+        "session_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "version",
+      "purpose": "Display current version of sqz CLI",
+      "async": false,
+      "input": {
+        "compressed_tokens": "int",
+        "dedup_references": "json",
+        "original_tokens": "int",
+        "payload": "json",
+        "session_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "compressed_sessions",
+        "columns": [
+          {
+            "name": "compressed_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "dedup_references",
+            "type": "JSON"
+          },
+          {
+            "name": "original_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "file_references",
+        "columns": [
+          {
+            "name": "file_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "token_reference",
+            "type": "TEXT"
+          },
+          {
+            "name": "use_count",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add zero-config CLI interface",
+    "week 1: Implement core deduplication engine in Rust",
+    "week 1: Integrate with VS Code and Firefox extensions"
+  ],
+  "acceptance_tests": [
+    "Given repeated file reads in a session, sqz returns full content on first read and ~13-token reference on subsequent reads",
+    "Installation succeeds on Linux via install.sh and Windows via cargo or install.ps1",
+    "MCP initialize response correctly advertises non-empty tool capabilities",
+    "sqz init supports opencode.jsonc configuration format"
+  ]
+}

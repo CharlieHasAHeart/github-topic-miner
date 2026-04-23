@@ -1,0 +1,128 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "GitLab CI Dashboard",
+    "one_liner": "A self-hosted dashboard providing global visibility into GitLab CI pipelines and schedules across entire groups, with server-side caching and optional pipeline control."
+  },
+  "screens": [
+    {
+      "name": "Pipeline Overview",
+      "purpose": "Display all latest pipeline statuses, schedules, and job details within a GitLab group with filtering and search capabilities.",
+      "primary_actions": [
+        "Cancel running pipelines",
+        "Download job artifacts",
+        "Filter pipelines by status",
+        "Restart failed pipelines",
+        "Search projects within group",
+        "Start new pipelines"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_pipelines",
+      "purpose": "Retrieve and cache pipeline data from GitLab API for a given group using server-side token authentication.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "pipeline_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "trigger_pipeline_action",
+      "purpose": "Perform write operations on pipelines (restart, cancel, create) via GitLab API when configured with a read/write token.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "pipeline_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "jobs",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "pipeline_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "pipelines",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "project_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "schedules",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "next_run",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add filtering and search functionality",
+    "week 1: Build main screen UI with pipeline and schedule tables",
+    "week 1: Containerize app with Docker",
+    "week 1: Implement server-side GitLab API client with caching",
+    "week 1: Support read-only token for monitoring",
+    "week 2: Add project favorites feature",
+    "week 2: Add support for read/write token actions (restart/cancel/start)",
+    "week 2: Implement artifact download capability",
+    "week 2: Write acceptance tests for core workflows"
+  ],
+  "acceptance_tests": [
+    "Given a valid read_api token and GitLab group, the dashboard displays all latest pipeline statuses without rate limiting.",
+    "The dashboard allows filtering pipelines by status (e.g., failed) and by project name within the group.",
+    "When a user clicks 'Restart' on a failed pipeline and a read/write token is configured, the pipeline restarts successfully via GitLab API."
+  ]
+}
