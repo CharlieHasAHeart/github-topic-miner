@@ -1,0 +1,121 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Sugarcube",
+    "one_liner": "Design tokens in, CSS & components out."
+  },
+  "screens": [
+    {
+      "name": "Token Processing Dashboard",
+      "purpose": "Orchestrate token ingestion, transformation, and output generation for front-end artifacts.",
+      "primary_actions": [
+        "Generate styles from tokens",
+        "Validate token compliance",
+        "Watch for token changes"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_styles",
+      "purpose": "Process design tokens and emit CSS variables, utility classes, and components.",
+      "async": true,
+      "input": {
+        "css_variable_name": "string",
+        "payload": "json",
+        "token_id": "string",
+        "type": "string",
+        "value": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "validate_tokens",
+      "purpose": "Check design tokens for DTCG compliance and structural correctness.",
+      "async": true,
+      "input": {
+        "css_variable_name": "string",
+        "payload": "json",
+        "token_id": "string",
+        "type": "string",
+        "value": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "watch_tokens",
+      "purpose": "Monitor token files and regenerate outputs on change with HMR support via Vite plugin.",
+      "async": true,
+      "input": {
+        "css_variable_name": "string",
+        "payload": "json",
+        "token_id": "string",
+        "type": "string",
+        "value": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "design_tokens",
+        "columns": [
+          {
+            "name": "css_variable_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "token_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          },
+          {
+            "name": "value",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "generated_artifacts",
+        "columns": [
+          {
+            "name": "artifact_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "format",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Expose CLI commands for generate, validate, and watch",
+    "week 1: Generate valid CSS variables from tokens",
+    "week 1: Implement core token parsing and $root resolution logic"
+  ],
+  "acceptance_tests": [
+    "CLI generates utility classes and CUBE CSS from DTCG tokens",
+    "Given a token group with $root, output CSS variable uses base name (e.g., --blue not --blue-$root)",
+    "Token validation fails on non-DTCG structures",
+    "Vite plugin supports HMR when tokens change during development"
+  ]
+}
