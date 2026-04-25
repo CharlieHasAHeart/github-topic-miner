@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "nblm-rs",
+    "one_liner": "An unofficial NotebookLM Enterprise API client built on a Rust core, with interfaces for both the CLI and a Python SDK."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide command-line access to NotebookLM Enterprise API operations including authentication, notebook management, and diagnostics.",
+      "primary_actions": [
+        "Authenticate user via browser-based OAuth2 flow",
+        "Create and manage notebooks",
+        "Run diagnostics with Google Drive access validation"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "auth",
+      "purpose": "Manage authentication for NotebookLM Enterprise API using OAuth2 with browser flow and gcloud integration.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "resource_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "doctor",
+      "purpose": "Validate environment setup including Google Drive access and command availability with colorized output.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "resource_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "UserContent",
+        "columns": [
+          {
+            "name": "payload",
+            "type": "JSON"
+          },
+          {
+            "name": "resource_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add type-safe CLI flags for notebook creation and management",
+    "week 1: Implement OAuth2 user authentication flow with gcloud integration",
+    "week 1: Set up MkDocs documentation and CI/CD workflows"
+  ],
+  "acceptance_tests": [
+    "CLI accepts high-level flags instead of raw JSON and correctly constructs API requests with proper resource naming.",
+    "User can complete OAuth2 browser flow and cache tokens securely via gcloud integration."
+  ]
+}

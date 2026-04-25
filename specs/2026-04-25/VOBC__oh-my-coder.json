@@ -1,0 +1,101 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Oh My Coder",
+    "one_liner": "A Chinese-focused, open-source multi-agent AI coding assistant supporting 12+ domestic LLMs with full offline operation and zero-cost usage."
+  },
+  "screens": [
+    {
+      "name": "Main Interface",
+      "purpose": "Provide entry point for user to input coding tasks and view agent responses in Chinese.",
+      "primary_actions": [
+        "Access settings",
+        "Submit coding task",
+        "View agent response"
+      ]
+    },
+    {
+      "name": "Model Configuration",
+      "purpose": "Allow user to configure API keys and select among 12+ supported Chinese LLMs.",
+      "primary_actions": [
+        "Set DEEPSEEK_API_KEY",
+        "Set GLM_API_KEY",
+        "Switch active model"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "omc_config_set",
+      "purpose": "Set configuration parameters such as API keys for supported models.",
+      "async": false,
+      "input": {
+        "key": "string",
+        "value": "string"
+      },
+      "output": {
+        "status": "string"
+      }
+    },
+    {
+      "name": "omc_run",
+      "purpose": "Execute a natural language coding command using the configured LLM and agent system.",
+      "async": true,
+      "input": {
+        "command": "string"
+      },
+      "output": {
+        "result": "string"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "capabilities",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name_zh",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "models",
+        "columns": [
+          {
+            "name": "is_free",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "model_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic agent routing logic for 31-agent system",
+    "week 1: Implement core CLI with omc run and omc config set commands",
+    "week 1: Integrate GLM-4.7-Flash as default free model"
+  ],
+  "acceptance_tests": [
+    "Chinese error messages are displayed on configuration failure",
+    "System prompts for missing DEEPSEEK_API_KEY when DeepSeek model is selected",
+    "User can install via install.sh and run 'omc run \"你好\"' without errors",
+    "Web interface loads with localized Chinese labels"
+  ]
+}

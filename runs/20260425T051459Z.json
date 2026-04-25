@@ -1,0 +1,2563 @@
+{
+  "run_id": "20260425T051459Z",
+  "generated_at": "2026-04-25T05:14:59.952Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 28,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 7,
+      "release": 3,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-04-25T05:18:28.901Z",
+    "repo_count": 246
+  },
+  "candidates": [
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen IDE for building with coding agents",
+      "topics": [
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1661,
+      "forks_count": 101,
+      "open_issues_count": 81,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:14:30Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    },
+    {
+      "full_name": "fern-api/fern",
+      "html_url": "https://github.com/fern-api/fern",
+      "description": "Input OpenAPI. Output SDKs and Docs.",
+      "topics": [
+        "api",
+        "docs-as-code",
+        "docs-generator",
+        "openapi",
+        "sdk-generator"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 3593,
+      "forks_count": 305,
+      "open_issues_count": 347,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:14:01Z",
+      "created_at": "2022-04-01T17:56:54Z"
+    },
+    {
+      "full_name": "helixml/helix",
+      "html_url": "https://github.com/helixml/helix",
+      "description": "♾️ Private Agent Fleet with Spec Coding. Each agent gets their own GPU-accelerated desktop. Run Claude, Codex, Gemini and open models on a full private AI Stack ♾️",
+      "topics": [
+        "agents",
+        "api",
+        "genai",
+        "glm",
+        "golang",
+        "helm",
+        "k8s",
+        "kimi",
+        "llm",
+        "llm-agent",
+        "llm-serving",
+        "openai",
+        "openapi",
+        "qwen",
+        "rag",
+        "self-hosted",
+        "swagger",
+        "swarm"
+      ],
+      "language": "Go",
+      "stargazers_count": 760,
+      "forks_count": 73,
+      "open_issues_count": 133,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:50Z",
+      "created_at": "2023-10-17T07:11:12Z"
+    },
+    {
+      "full_name": "VOBC/oh-my-coder",
+      "html_url": "https://github.com/VOBC/oh-my-coder",
+      "description": "Multi-Agent AI Coding Assistant - 支持 DeepSeek/文心/通义 等12+国产大模型，多智能体协作编程",
+      "topics": [
+        "ai-coding",
+        "chinese",
+        "cli",
+        "code-assistant",
+        "code-review",
+        "deepseek-chat",
+        "developer-tool",
+        "developer-tools",
+        "glm",
+        "llm",
+        "multi-agent",
+        "opensource",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 66,
+      "forks_count": 10,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:35Z",
+      "created_at": "2026-04-04T03:32:17Z"
+    },
+    {
+      "full_name": "K-dash/nblm-rs",
+      "html_url": "https://github.com/K-dash/nblm-rs",
+      "description": "An unofficial NotebookLM Enterprise API client built on a Rust core, with interfaces for both the CLI and a Python SDK.",
+      "topics": [
+        "api-client",
+        "cli",
+        "gemini",
+        "google-cloud",
+        "hacktoberfest",
+        "notebooklm",
+        "python",
+        "rust"
+      ],
+      "language": "Rust",
+      "stargazers_count": 85,
+      "forks_count": 10,
+      "open_issues_count": 7,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:33Z",
+      "created_at": "2025-10-19T04:37:37Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "VOBC/oh-my-coder",
+      "html_url": "https://github.com/VOBC/oh-my-coder",
+      "description": "Multi-Agent AI Coding Assistant - 支持 DeepSeek/文心/通义 等12+国产大模型，多智能体协作编程",
+      "topics": [
+        "ai-coding",
+        "chinese",
+        "cli",
+        "code-assistant",
+        "code-review",
+        "deepseek-chat",
+        "developer-tool",
+        "developer-tools",
+        "glm",
+        "llm",
+        "multi-agent",
+        "opensource",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 66,
+      "forks_count": 10,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:35Z",
+      "created_at": "2026-04-04T03:32:17Z"
+    },
+    {
+      "full_name": "K-dash/nblm-rs",
+      "html_url": "https://github.com/K-dash/nblm-rs",
+      "description": "An unofficial NotebookLM Enterprise API client built on a Rust core, with interfaces for both the CLI and a Python SDK.",
+      "topics": [
+        "api-client",
+        "cli",
+        "gemini",
+        "google-cloud",
+        "hacktoberfest",
+        "notebooklm",
+        "python",
+        "rust"
+      ],
+      "language": "Rust",
+      "stargazers_count": 85,
+      "forks_count": 10,
+      "open_issues_count": 7,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:33Z",
+      "created_at": "2025-10-19T04:37:37Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "VOBC/oh-my-coder",
+      "html_url": "https://github.com/VOBC/oh-my-coder",
+      "description": "Multi-Agent AI Coding Assistant - 支持 DeepSeek/文心/通义 等12+国产大模型，多智能体协作编程",
+      "topics": [
+        "ai-coding",
+        "chinese",
+        "cli",
+        "code-assistant",
+        "code-review",
+        "deepseek-chat",
+        "developer-tool",
+        "developer-tools",
+        "glm",
+        "llm",
+        "multi-agent",
+        "opensource",
+        "python"
+      ],
+      "language": "Python",
+      "stargazers_count": 66,
+      "forks_count": 10,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:35Z",
+      "created_at": "2026-04-04T03:32:17Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Oh My Coder (OMC 中文版)\n\n> 🤖 多智能体 AI 编程助手，支持国内大模型\n\n🎯 **GLM-4.7-Flash 开源免费 · 12 家国产大模型 · 31 个专业 Agent · 多 Agent 协作 · 完全开源**\n\n[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)\n[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)\n[![Stars](https://img.shields.io/github/stars/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/stargazers)\n[![Forks](https://img.shields.io/github/forks/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/network/members)\n[![Last Commit](https://img.shields.io/github/last-commit/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/commits)\n[![Issues](https://img.shields.io/github/issues/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/issues)\n\n**灵感来源**: [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode) (28.9k ⭐)\n\n![Agent System](docs/screenshots/demo-agents.svg)\n\n---\n\n## 📖 目录\n\n- [🎯 为什么选择 Oh My Coder？](#-为什么选择-oh-my-coder)\n- [🚀 Claude Code 迁移指南](#-claude-code-迁移指南)\n- [💰 零成本起步](#️-零成本起步) **[NEW]**\n- [🎯 项目简介](#-项目简介)\n- [🚀 快速开始](#-快速开始)\n- [👀 快速示例](#-快速示例)\n- [🎬 效果演示](docs/screenshots/demo-showcase.md)\n- [🌐 Web 界面预览](docs/screenshots/web-preview.md)\n- [🏗️ 架构设计](#️-架构设计)\n- [🤖 Agent 系统（31 个专业 Agent）](docs/agents/agent-list.md)\n- [🧙 Quest Mode（异步自主编程）](#️-quest-mode异步自主编程)\n- [🧠 主动学习模块](#-主动学习模块)\n- [🧠 分层记忆系统](docs/guide/memory-system.md)\n- [🌐 多平台 Gateway](#-多平台-gateway)\n- [📂 工作目录上下文感知](#️-工作目录上下文感知)\n- [🧠 支持的模型](#-支持的模型)\n- [🔄 工作流](#-工作流)\n- [📊 任务总结](#-任务总结)\n- [🔒 安全特性](#-安全特性)\n- [📁 项目结构](#-项目结构)\n- [🧪 测试](#-测试)\n- [📋 开发进度](#-开发进度)\n- [❓ 常见问题](#-常见问题)\n- [🤝 贡献](#-贡献)\n- [📄 License](#-license)\n- [🙏 致谢](#-致谢)\n\n---\n\n## 🎯 为什么选择 Oh My Coder？\n\n> 💰 **零成本起步** — 国产大模型免费额度 + 开箱即用，无需翻墙、无需 Claude 订阅\n\n### ⚠️ Claude 封号？这里是国产替代方案\n\n**2026年4月14日更新**：Claude 官方强制实名认证，中国大陆用户账号被封。如果你正在寻找 Claude Code 的替代品，oh-my-coder 是**最佳国产开源选择**：\n\n| 对比项 | Claude Code | oh-my-coder |\n|--------|-------------|-------------|\n| **模型** | 仅 Claude（需翻墙） | **12个国产模型**（GLM-4.7-Flash 完全免费） |\n| **价格** | 需 Claude Pro ($25/月) | **完全免费开源** |\n| **数据隐私** | 上传到海外服务器 | **本地处理，不上传** |\n| **中国用户** | 封号风险高 | **完全支持** |\n| **Agent数量** | 约10个 | **31个专业Agent** |\n| **开源** | 闭源 | **MIT开源协议** |\n\n**迁移指南**：如果你之前用 Claude Code，切换到 oh-my-coder 只需：\n```bash\npip install oh-my-coder\nomc config set -k GLM_API_KEY -v \"your_key\"  # 注册获取：https://open.bigmodel.cn/\nomc run \"你好，介绍一下你自己\"\n```\n\n---\n\n## 🏆 差异化优势\n\n与 Claude Code、Gemini CLI 等国际工具相比，oh-my-coder 的三大核心优势：\n\n### 1️⃣ 国产模型全家桶（12家 vs 单家）\n- **Claude Code**：仅支持 Claude（需翻墙，$25/月）\n- **Gemini CLI**：仅支持 Google Gemini\n- **oh-my-coder**：✅ **12家国产模型**（GLM-4.7-Flash、DeepSeek-V3、通义千问、Kimi、豆包等），GLM-4.7-Flash **完全免费**\n\n### 2️⃣ 中文友好（中文文档 vs 英文为主）\n- **Claude Code / Gemini CLI**：英文为主，中文支持有限\n- **oh-my-coder**：✅ **全中文交互**，中文文档、中文错误提示、中文 Agent 命名\n\n### 3️⃣ 完全开源可私有部署（vs 闭源）\n- **Claude Code**：闭源，无法自托管\n- **Gemini CLI**：开源 CLI，但依赖 Google 云服务\n- **oh-my-coder**：✅ **MIT 协议完全开源**，支持本地离线运行、私有部署、二次开发\n\n---\n\n### 完整竞品对比（2026年AI编程工具生态）\n\n#### 多Agent编排框架对比\n\n| 工具 | 类型 | Stars | 价格 | 开源 | 国内可用 | 多Agent | 模型支持 |\n|------|------|-------|------|------|----------|---------|----------|\n| **oh-my-claudecode** | Claude Code插件 | 28,890 ⭐ (截至2026-04-19) | 需Claude Pro ($25/月) | ✅ | ⚠️ 需翻墙 | ✅ 32个Agent | 仅Claude |\n| **oh-my-coder** | 多Agent框架 | 较少 | **免费** | **✅ MIT** | **✅** | ✅ 31个Agent | ✅ 12家国产模型 |\n| **AutoGen** | 微软多Agent框架 | 大 | 免费 | ✅ | ⚠️ 需翻墙 | ✅ | 多模型 |\n| **OpenCode** | 开源CLI | 中 | 免费 | ✅ | ✅ | ✅ | 75+模型 |\n| **MyClaude** | 多后端编排 | 小 | 免费 | ✅ | ✅ | ✅ | Claude/Codex/Gemini |\n\n#### 国内AI编程助手对比\n\n| 工具 | 类型 | 价格 | 多Agent | 主要特点 |\n|------|------|------|---------|----------|\n| **腾讯云CodeBuddy** | IDE插件 | 免费个人版 / ¥78/人/月企业版 | ❌ | MCP协议支持，混元模型 |\n| **文心快码(Comate)** | IDE插件 | 免费个人版 / ¥150/人/月企业版 | ✅ | SPEC规范驱动，200+语言 |\n| **通义灵码** | IDE插件 | 免费 | ❌ | 阿里系集成 |\n| **Cursor** | AI原生IDE | $20/月¹ | ⚠️ API需代理 | AI原生IDE |\n| **GitHub Copilot** | 编辑器插件 | $19/月² | ❌ | GitHub生态集成 |\n| **Claude Code** | AI编程CLI | 需Claude Pro ($25/月) | ✅ | 原生CLI，Agent能力 |\n| **Qoder** | 多Agent编程 | 免费+付费 | ✅ | 多Agent协作 |\n\n#### oh-my-coder 的定位\n\n> **同类开源项目对比**：oh-my-coder 是目前**唯一一个**将多Agent编排框架 + 国产模型 + 中文交互 + 完全免费结合起来的开源项目。\n>\n> 与原版 oh-my-claudecode（28,890 ⭐ (截至2026-04-19)）相比，我们聚焦在**国产模型支持**和**零成本**两个核心差异点，适合无法使用Claude Pro/翻墙的国内开发者。\n\n> 📌 **价格说明**：\n> 1. Cursor: $20/月（以官网 https://cursor.sh 为准）\n> 2. GitHub Copilot: $19/月（以官网 https://github.com/features/copilot 为准）\n> 3. DeepSeek API 赠送额度（以 DeepSeek 官网活动为准）\n> 4. 腾讯云CodeBuddy: ¥78/人/月企业版（以官网 copilot.tencent.com 为准）\n> 5. 文心快码Comate: ¥150/人/月企业版（以官网 comate.baidu.com 为准）\n\n### 核心优势对比\n\n| 特性 | Oh My Coder | oh-my-claudecode | 腾讯CodeBuddy | Cursor | Copilot | AutoGen |\n|------|:-----------:|:----------------:|:-------------:|:------:|:-------:|:-------:|\n| 多Agent协作 | ✅ 31个 | ✅ 32个 | ❌ | ❌ | ❌ | ✅ |\n| 开源免费 | ✅ MIT | ✅ | ⚠️ 企业版付费 | ❌ $20/月 | ❌ $19/月 | ✅ |\n| 国内直连 | ✅ | ❌ 需翻墙 | ✅ | ❌ 需翻墙 | ❌ 需翻墙 | ✅ |\n| 国产模型支持 | ✅ 12家 | ❌ | ✅ 混元 | ❌ | ❌ | ❌ |\n| 中文交互 | ✅ | ❌ | ✅ | ✅ | ✅ | ⚠️ |\n| 本地运行 | ✅ | ⚠️ 需Claude Code | ❌ | ❌ | ❌ | ✅ |\n| 自托管 | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |\n| **核心差异** | **国产模型+零成本** | **Claude生态** | **大厂背书** | **AI原生IDE** | **GitHub集成** | **企业级框架** |\n\n> 🎯 **定位**：oh-my-claudecode 聚焦 Claude 生态（28,890 ⭐ (截至2026-04-19)，32个Agent，社区成熟）。我们专注**国产模型直连 + 中文优化 + 本地离线运行**，为国内开发者提供零门槛的多Agent编程体验。\n\n---\n\n## 🚀 Claude Code 迁移指南\n\n\n\n> 📖 [完整说明请看 Claude Code 迁移完整指南](docs/guide/claude-migration.md)\n\n---\n\n## 📌 项目简介\n\nOh My Coder 是一个**多智能体协作编程系统**，通过多个专业 Agent 协作完成复杂开发任务。\n\n**核心优势：**\n- 🧠 **智能路由** - 根据任务类型自动选择合适模型，通过三层模型路由自动选择性价比最高的模型\n- 🔄 **协作模式** - 多个 Agent 分工协作，像真实团队一样工作\n- 🇨🇳 **中文优先** - 本土化设计，支持国内主流大模型\n- ⚡ **成本优化** - 优先使用低成本/免费模型，支持 DeepSeek 等高性价比选项\n- 🧠 **自动 Skills 生成** - 任务完成后自动判断是否值得沉淀为 Skill，4种触发条件：工具调用≥5次、错误修复、用户纠正、非平凡工作流，自动生成符合 SKILL.md 规范的技能文件，学习曲线：越用越聪明\n- 🌐 **多平台 Gateway** - 支持 Telegram Bot / Discord Bot 双向消息，统一消息格式，跨平台协作，CLI 一键启动：`omc gateway start --telegram <token>`\n\n---\n\n## 💰 零成本起步\n\n> 无需信用卡，无需充值，直接使用免费模型开始编程\n\n### 三步快速配置\n\n```bash\n# 方式1: DeepSeek（推荐）\nomc config set -k DEEPSEEK_API_KEY -v \"your_key\"\n\n# 方式2: 智谱 GLM（需注册获取 API Key，有免费额度）\nomc config set -k GLM_API_KEY -v \"your_key\"  # https://open.bigmodel.cn/\n\n# 方式3: MiMo（长上下文支持）\nomc config set -k MIMOX_API_KEY -v \"your_key\"\n```\n\n### 免费模型对比\n\n> 📊 数据来源：各平台官方文档（2026-04-20）\n\n| 模型 | 免费额度 | 上下文 | 推荐理由 |\n|------|----------|--------|----------|\n| **DeepSeek V3.2** | 新用户赠送余额 | **128K** | 首选，代码能力强，输入 2 元/百万 tokens |\n| **智谱 GLM-4.7-Flash** | **完全免费** | **200K** | 零成本，中文优化，128K 输出 |\n| **小米 MiMo** | 免费一周活动 | 长上下文 | 小米出品，大文件处理 |\n\n💡 **推荐策略**：先用 GLM-4.7-Flash（完全免费），不够再切换 DeepSeek\n\n详细对比: [免费模型推荐](docs/guide/free-models.md)\n\n---\n\n## ⚡ 快速开始\n\n> 📖 [完整安装与配置指南](docs/guide/quickstart-detailed.md)（安装依赖、API Key 配置、模型特定配置、运行方式）\n\n**最简三步**：\n```bash\ngit clone https://github.com/VOBC/oh-my-coder.git && cd oh-my-coder\npip install --upgrade pip\npip install -e .\nexport DEEPSEEK_API_KEY=your_key && omc\n```\n\n> 要求：Python 3.10+，pip>=21.3\n\n## 👀 快速示例\n\n### CLI 示例\n\n```bash\n# 探索当前项目\nomc explore .\n\n# 执行一个完整构建任务\nomc run \"为用户模块添加 CRUD 接口\"\n\n# 代码审查\nomc run \"审查 src/api 目录下的代码\" -w review\n\n# 调试问题\nomc run \"修复登录接口偶发的超时问题\" -w debug\n\n# 查看所有 Agent\nomc agents\n\n# === Quest Mode (异步自主编程) ===\n# 创建 Quest\nomc run \"实现用户认证模块\" --quest\n\n# 查看 Quest 列表\nomc quest-list\n\n# 查看 Quest 状态\nomc quest-status <quest-id>\n\n# 订阅桌面通知 + Webhook\nomc quest-notify --dingtalk https://oapi.dingtalk.com/robot/send?access_token=xxx\n\n# === 工作目录上下文感知 ===\n# 扫描项目文件\nomc context scan\n\n# 获取项目摘要\nomc context summary\n\n# 查看浏览器上下文（当前打开的标签页）\nomc context browser\n\n# === 配置管理 ===\n# 查看当前配置\nomc config show\n\n# 设置 API Key（使用 -k 参数指定变量名，-v 指定值）\nomc config set -k DEEPSEEK_API_KEY -v <your-key>\nomc config set -k GLM_API_KEY -v <your-key>\n\n# 列出可用模型\nomc config list-models\n\n# === 代码清理 ===\n# 扫描项目中的冗余代码\nomc clean .\n\n# 自动修复可清理的问题\nomc clean . --fix\n\n# 激进模式（自动删除空文件）\nomc clean . --aggressive\n\n# === 成本估算 ===\n# 根据任务描述推荐最优模型\nomc cost \"设计新系统架构\"\n\n# 指定涉及文件数量以提高准确性\nomc cost \"重构用户模块\" --files 10\n\n# 列出所有可用模型及定价\nomc cost --list\n\n# === 版本迭代记忆 ===\n# 列出历史决策记录\nomc agent decisions\n\n# 检索相关历史决策（解决鬼打墙问题）\nomc agent decision \"用户登录报错 500\"\n\n# 记录新的重要决策\nomc agent record-decision -t \"修复 X 问题\" -p \"问题描述\" -s \"解决方案\"\n\n# 查看决策记忆统计\nomc agent decision-stats\n```\n\n### Web API 示例\n\n```python\nimport httpx\n\n# 调用异步执行（SSE 实时推送）\nresp = httpx.post(\n    \"http://localhost:8000/api/execute\",\n    json={\"task\": \"实现用户认证模块\", \"workflow\": \"build\"},\n    timeout=30\n)\n# resp.iter_lines() 接收 SSE 流式进度\n\n# 同步执行（直接返回）\nresp = httpx.post(\n    \"http://localhost:8000/api/execute-sync\",\n    json={\"task\": \"审查 src/core 目录\", \"workflow\": \"review\"}\n)\nprint(resp.json()[\"result\"])\n```\n\n### 输入 → 输出示例\n\n| 任务输入 | 工作流 | 输出 |\n|---------|--------|------|\n| `\"为商品模块添加分页查询接口\"` | `build` | 自动探索项目结构 → 分析 API 规范 → 设计 REST 接口 → 生成代码 → 运行测试验证 |\n| `\"审查 src/auth 目录\"` | `review` | 调用 CodeReviewerAgent + SecurityReviewerAgent，返回质量报告和安全建议 |\n| `\"修复注册接口的空指针异常\"` | `debug` | 调用 TracerAgent 追踪调用链 → DebuggerAgent 定位根因 → 自动修复 |\n| `\"为 order.py 生成单元测试\"` | `test` | 调用 TestEngineerAgent 分析函数 → 生成 pytest 测试用例 → 执行验证 |\n\n---\n\n## 🎬 效果演示\n\n支持 CLI 和 Web 两种使用方式，完整开发流程自动化。\n\n> 📖 [完整效果演示（工作流动画 + CLI 执行示例）](docs/screenshots/demo-showcase.md)\n\n---\n\n## 🌐 Web 界面预览\n\n内置 Web 界面，浏览器打开即可使用，支持任务提交、进度追踪、结果查看。\n\n> 📖 [完整 Web 界面预览（截图 + API 端点 + 调用示例）](docs/screenshots/web-preview.md)\n\n---\n\n## 🏗️ 架构设计\n\n### 多 Agent 协作流程\n\n```mermaid\nflowchart TD\n    User([用户输入任务])\n    Router{智能路由器}\n\n    subgraph Build[\"🚀 构建/分析通道 (9)\"]\n        E[ExploreAgent<br/>探索代码库]\n        A[AnalystAgent<br/>分析需求]\n        P[PlannerAgent<br/>制定计划]\n        AR[ArchitectAgent<br/>设计架构]\n        EX[ExecutorAgent<br/>生成代码]\n        V[VerifierAgent<br/>验证测试]\n        DB[DebuggerAgent<br/>定位问题]\n        TR[TracerAgent<br/>追踪根因]\n        PF[PerformanceAgent<br/>性能分析]\n    end\n\n    subgraph Review[\"🔍 审查通道 (2)\"]\n        CR[CodeReviewerAgent<br/>质量审查]\n        SR[SecurityReviewerAgent<br/>安全审查]\n    end\n\n    subgraph Domain1[\"🎯 领域通道 1/2 (10)\"]\n        TE[TestEngineerAgent<br/>测试生成]\n        DS[DesignerAgent<br/>设计]\n        VI[VisionAgent<br/>视觉分析<br/>UI代码生成]\n        DC[DocumentAgent<br/>长文档]\n        WT[WriterAgent<br/>快速文档]\n        SC[ScientistAgent<br/>技术调研]\n        GM[GitMasterAgent<br/>Git操作]\n        CS[CodeSimplifierAgent<br/>代码简化]\n        DB2[DatabaseAgent<br/>数据库]\n        AU[AuthAgent<br/>权限认证]\n    end\n\n    subgraph Domain2[\"🎯 领域通道 2/2 (6)\"]\n        API[APIAgent<br/>API开发]\n        DO[DevOpsAgent<br/>部署运维]\n        UML[UMLAgent<br/>UML建模]\n        QA[QATesterAgent<br/>QA验证]\n        MG[MigrationAgent<br/>迁移]\n        DA[DataAgent<br/>数据处理]\n    end\n\n    subgraph Wizard[\"🧙 协调通道 (4)\"]\n        PM[PromptAgent<br/>提示词优化]\n        SI[SelfImprovingAgent<br/>自我改进]\n        SM[SkillManageAgent<br/>经验沉淀]\n        CT2[CriticAgent<br/>批判分析]\n    end\n\n    User --> Router\n\n    %% Router 连接到各通道入口 Agent\n    Router --> E\n    Router --> CR\n    Router --> TE\n    Router --> PM\n    Router --> API\n\n    %% 构建通道流程\n    E --> A\n    A --> P\n    P --> AR\n    AR --> EX\n    EX --> V\n    DB --> TR\n    TR --> E\n\n    %% 审查通道\n    CR --> SR\n    SR --> CT\n\n    %% 领域通道内部连接\n    TE --> DS\n    VI --> DC\n    WT --> SC\n    GM --> CS\n\n    %% 领域通道 → 构建通道\n    DS --> AR\n    CS --> AR\n\n    %% 构建通道 → 审查通道\n    V --> CR\n\n    %% 协调通道连接\n    PM --> E\n    SI --> PM\n    SM --> PM\n    CT2 --> PM\n\n    V --> Result([完成])\n    CT --> Result\n    TR --> Result\n```\n\n### 三层模型路由\n\n```\n┌──────────────┐     ┌──────────────┐     ┌──────────────┐\n│   任务类型    │ ──▶ │   模型层级    │ ──▶ │   提供商选择  │\n└──────────────┘     └──────────────┘     └──────────────┘\n    EXPLORE              LOW (快)           DeepSeek\n    ANALYST              MEDIUM (平衡)       DeepSeek\n    ARCHITECT            HIGH (高质量)       DeepSeek\n    CODE_GEN             MEDIUM              DeepSeek\n    REVIEW               LOW                 DeepSeek\n```\n\n---\n## 🤖 Agent 系统（31 个专业 Agent）\n\nOh My Coder 内置 **31 个专业 Agent**，覆盖代码生成、审查、测试、安全、文档等完整开发流程。\n\n> 📖 [完整 Agent 清单（含通道分类与职责说明）](docs/agents/agent-list.md)\n\n---\n\n## 🧙 Quest Mode（异步自主编程）\n\n\n\n> 📖 [完整说明请看 Quest Mode 文档](docs/features/quest-mode.md)\n\n---\n\n## 🧠 主动学习模块\n\n\n\n> 📖 [完整说明请看 主动学习模块文档](docs/features/active-learning.",
+        "truncated": true,
+        "bytes": 29894,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 8,
+            "title": "pip install -e . 报错",
+            "state": "closed",
+            "url": "https://github.com/VOBC/oh-my-coder/issues/8"
+          },
+          {
+            "number": 7,
+            "title": "✗ 未找到 DEEPSEEK_API_KEY",
+            "state": "closed",
+            "url": "https://github.com/VOBC/oh-my-coder/issues/7"
+          },
+          {
+            "number": 2,
+            "title": "最好加入sh安装方式",
+            "state": "closed",
+            "url": "https://github.com/VOBC/oh-my-coder/issues/2"
+          },
+          {
+            "number": 1,
+            "title": "[Feature] 最好内置模型而且无限制的那种",
+            "state": "closed",
+            "url": "https://github.com/VOBC/oh-my-coder/issues/1"
+          },
+          {
+            "number": 3,
+            "title": "[Feature] 最好模型切换和自定义模型",
+            "state": "closed",
+            "url": "https://github.com/VOBC/oh-my-coder/issues/3"
+          },
+          {
+            "number": 4,
+            "title": "Windows安装方法",
+            "state": "closed",
+            "url": "https://github.com/VOBC/oh-my-coder/issues/4"
+          }
+        ]
+      },
+      "root_files": [
+        ".env.example",
+        ".githooks",
+        ".github",
+        ".gitignore",
+        ".openclaw",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "FUNDING.yml",
+        "HEARTBEAT.md",
+        "IDENTITY.md",
+        "LICENSE",
+        "MEMORY.md",
+        "README.md",
+        "SECURITY.md",
+        "SOUL.md",
+        "TOOLS.md",
+        "USER.md",
+        "config",
+        "demo.py",
+        "demo_video_generator.py",
+        "desktop",
+        "docker-compose.yml",
+        "docs",
+        "examples",
+        "extensions",
+        "health",
+        "install.ps1",
+        "install.sh",
+        "mkdocs.yml",
+        "models",
+        "projects",
+        "pyproject.toml",
+        "pytest.ini",
+        "quickstart.sh",
+        "railway.toml",
+        "scripts",
+        "src",
+        "start-dev.sh",
+        "tests",
+        "todo_demo.py",
+        "vercel.json",
+        "verify_gateway.py",
+        "wiki"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Stars](https://img.shields.io/github/stars/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/stargazers) [![Forks](https://img.shields.io/github/forks/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/network/members) [![Last Commit](https://img.shields.io/github/last-commit/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/commits) [![Issues](https://img.shields.io/github/issues/VOBC/oh-my-coder?style=flat-square&logo=github)](https://github.com/VOBC/oh-my-coder/issues)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 2)",
+          "excerpt": "**灵感来源**: [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode) (28.9k ⭐)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 3)",
+          "excerpt": "- [🎯 为什么选择 Oh My Coder？](#-为什么选择-oh-my-coder) - [🚀 Claude Code 迁移指南](#-claude-code-迁移指南) - [💰 零成本起步](#️-零成本起步) **[NEW]** - [🎯 项目简介](#-项目简介) - [🚀 快速开始](#-快速开始) - [👀 快速示例](#-快速示例) - [🎬 效果演示](docs/screenshots/demo-showcase.md) - [🌐 Web 界面预览](docs/screenshots/web-preview.md) - [🏗️ 架构设计](#️-架构设计) - [🤖 Agent 系统（31 个专业 Agent）](docs/agents/agent-list.md) - [🧙 Quest Mode（异步自主编程）](#️-quest-mode异步自主编程) - [🧠 主动学习模块](#-主动学习模块) - [🧠 分层记忆系统](docs/guide/memory-system.md) - [🌐 多平台 Gateway](#-多平台-gateway) - [📂 工作目录上下文感知](#️-工作目录上下文感知) - [🧠 支持的模型](#-支持的模型) - [🔄 工作流](#-工作流) - [📊 任务总结](#-任务总结) - [🔒 安全特性](#-安全特性) - [📁 项目结构](#-项目结构) - [🧪 测试](#-测试) - [📋 开发进度](#-开发进度) - [❓ 常见问题](#-常见问题) - [🤝 贡献](#-贡献) - [📄 License](#-license) - [🙏 致谢](#-致谢)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 4)",
+          "excerpt": "**2026年4月14日更新**：Claude 官方强制实名认证，中国大陆用户账号被封。如果你正在寻找 Claude Code 的替代品，oh-my-coder 是**最佳国产开源选择**：",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 5)",
+          "excerpt": "| 对比项 | Claude Code | oh-my-coder | |--------|-------------|-------------| | **模型** | 仅 Claude（需翻墙） | **12个国产模型**（GLM-4.7-Flash 完全免费） | | **价格** | 需 Claude Pro ($25/月) | **完全免费开源** | | **数据隐私** | 上传到海外服务器 | **本地处理，不上传** | | **中国用户** | 封号风险高 | **完全支持** | | **Agent数量** | 约10个 | **31个专业Agent** | | **开源** | 闭源 | **MIT开源协议** |",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 6)",
+          "excerpt": "**迁移指南**：如果你之前用 Claude Code，切换到 oh-my-coder 只需： ```bash pip install oh-my-coder omc config set -k GLM_API_KEY -v \"your_key\" # 注册获取：https://open.bigmodel.cn/ omc run \"你好，介绍一下你自己\" ```",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 7)",
+          "excerpt": "### 1️⃣ 国产模型全家桶（12家 vs 单家） - **Claude Code**：仅支持 Claude（需翻墙，$25/月） - **Gemini CLI**：仅支持 Google Gemini - **oh-my-coder**：✅ **12家国产模型**（GLM-4.7-Flash、DeepSeek-V3、通义千问、Kimi、豆包等），GLM-4.7-Flash **完全免费**",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/VOBC/oh-my-coder#readme",
+          "title": "README (segment 8)",
+          "excerpt": "### 2️⃣ 中文友好（中文文档 vs 英文为主） - **Claude Code / Gemini CLI**：英文为主，中文支持有限 - **oh-my-coder**：✅ **全中文交互**，中文文档、中文错误提示、中文 Agent 命名",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/VOBC/oh-my-coder/issues/8",
+          "title": "pip install -e . 报错",
+          "excerpt": "pip install -e . 报错 (state:closed)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "number": 8
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/VOBC/oh-my-coder/issues/7",
+          "title": "✗ 未找到 DEEPSEEK_API_KEY",
+          "excerpt": "✗ 未找到 DEEPSEEK_API_KEY (state:closed)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "number": 7
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/VOBC/oh-my-coder/issues/2",
+          "title": "最好加入sh安装方式",
+          "excerpt": "最好加入sh安装方式 (state:closed)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "number": 2
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/VOBC/oh-my-coder/issues/1",
+          "title": "[Feature] 最好内置模型而且无限制的那种",
+          "excerpt": "[Feature] 最好内置模型而且无限制的那种 (state:closed)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "number": 1
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/VOBC/oh-my-coder/issues/3",
+          "title": "[Feature] 最好模型切换和自定义模型",
+          "excerpt": "[Feature] 最好模型切换和自定义模型 (state:closed)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "number": 3
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/VOBC/oh-my-coder/issues/4",
+          "title": "Windows安装方法",
+          "excerpt": "Windows安装方法 (state:closed)",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "number": 4
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/VOBC/oh-my-coder",
+          "title": "ROOT_FILES",
+          "excerpt": ".env.example, .githooks, .github, .gitignore, .openclaw, AGENTS.md, CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Dockerfile, FUNDING.yml, HEARTBEAT.md, IDENTITY.md, LICENSE, MEMORY.md, README.md, SECURITY.md, SOUL.md, TOOLS.md, USER.md, config, demo.py, demo_video_generator.py, desktop, docker-compose.yml, docs, examples, extensions, health, install.ps1, install.sh, mkdocs.yml, models, projects, pyproject.toml, pytest.ini, quickstart.sh, railway.toml, scripts, src, start-dev.sh, tests, todo_demo.py, vercel.json, verify_gateway.py, wiki",
+          "fetched_at": "2026-04-25T05:15:04.926Z",
+          "meta": {
+            "repo_full_name": "VOBC/oh-my-coder",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "K-dash/nblm-rs",
+      "html_url": "https://github.com/K-dash/nblm-rs",
+      "description": "An unofficial NotebookLM Enterprise API client built on a Rust core, with interfaces for both the CLI and a Python SDK.",
+      "topics": [
+        "api-client",
+        "cli",
+        "gemini",
+        "google-cloud",
+        "hacktoberfest",
+        "notebooklm",
+        "python",
+        "rust"
+      ],
+      "language": "Rust",
+      "stargazers_count": 85,
+      "forks_count": 10,
+      "open_issues_count": 7,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-04-25T05:13:33Z",
+      "created_at": "2025-10-19T04:37:37Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n  <img width=\"256\" alt=\"logo\" src=\"https://github.com/user-attachments/assets/37f0f882-65ca-436e-8053-3db8c18cac59\" />\n\n  # _nblm-rs_\n\n  **Unofficial NotebookLM Enterprise API client**\n\n  🦀 **Rust CLI**: Command-line tool for shell scripting and automation <br/>\n  🐍 **Python SDK**: Python bindings for integration in Python applications\n\n  [![Crates.io](https://img.shields.io/crates/v/nblm-cli.svg)](https://crates.io/crates/nblm-cli)\n  [![Crates.io](https://img.shields.io/crates/d/nblm-cli.svg?color=orange&label=downloads)](https://crates.io/crates/nblm-cli)\n  <br/>\n  [![PyPI](https://img.shields.io/pypi/v/nblm.svg?color=blue)](https://pypi.org/project/nblm/)\n  [![PyPI Downloads](https://static.pepy.tech/personalized-badge/nblm?period=total&units=INTERNATIONAL_SYSTEM&left_color=GRAY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/nblm)\n  [![Python versions](https://img.shields.io/pypi/pyversions/nblm.svg)](https://pypi.org/project/nblm/)\n  [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)\n  [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)\n  [![mypy](https://img.shields.io/badge/mypy-checked-blue.svg)](https://mypy-lang.org/)\n  <br/>\n  [![DeepWiki](https://img.shields.io/badge/DeepWiki-K--dash%2Fnblm--rs-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEPtmUtyEzEQhtWTQyQLHNak2AB7ZnyXZMEjXMGeK/AIi+QuHrMnbChYY7MIh8g01fJoopFb0uhhEqqcbWTp06/uv1saEDv4O3n3dV60RfP947Mm9/SQc0ICFQgzfc4CYZoTPAswgSJCCUJUnAAoRHOAUOcATwbmVLWdGoH//PB8mnKqScAhsD0kYP3j/Yt5LPQe2KvcXmGvRHcDnpxfL2zOYJ1mFwrryWTz0advv1Ut4CJgf5uhDuDj5eUcAUoahrdY/56ebRWeraTjMt/00Sh3UDtjgHtQNHwcRGOC98BJEAEymycmYcWwOprTgcB6VZ5JK5TAJ+fXGLBm3FDAmn6oPPjR4rKCAoJCal2eAiQp2x0vxTPB3ALO2CRkwmDy5WohzBDwSEFKRwPbknEggCPB/imwrycgxX2NzoMCHhPkDwqYMr9tRcP5qNrMZHkVnOjRMWwLCcr8ohBVb1OMjxLwGCvjTikrsBOiA6fNyCrm8V1rP93iVPpwaE+gO0SsWmPiXB+jikdf6SizrT5qKasx5j8ABbHpFTx+vFXp9EnYQmLx02h1QTTrl6eDqxLnGjporxl3NL3agEvXdT0WmEost648sQOYAeJS9Q7bfUVoMGnjo4AZdUMQku50McDcMWcBPvr0SzbTAFDfvJqwLzgxwATnCgnp4wDl6Aa+Ax283gghmj+vj7feE2KBBRMW3FzOpLOADl0Isb5587h/U4gGvkt5v60Z1VLG8BhYjbzRwyQZemwAd6cCR5/XFWLYZRIMpX39AR0tjaGGiGzLVyhse5C9RKC6ai42ppWPKiBagOvaYk8lO7DajerabOZP46Lby5wKjw1HCRx7p9sVMOWGzb/vA1hwiWc6jm3MvQDTogQkiqIhJV0nBQBTU+3okKCFDy9WwferkHjtxib7t3xIUQtHxnIwtx4mpg26/HfwVNVDb4oI9RHmx5WGelRVlrtiw43zboCLaxv46AZeB3IlTkwouebTr1y2NjSpHz68WNFjHvupy3q8TFn3Hos2IAk4Ju5dCo8B3wP7VPr/FGaKiG+T+v+TQqIrOqMTL1VdWV1DdmcbO8KXBz6esmYWYKPwDL5b5FA1a0hwapHiom0r/cKaoqr+27/XcrS5UwSMbQAAAABJRU5ErkJggg==)](https://deepwiki.com/K-dash/nblm-rs)\n  [![codecov](https://codecov.io/gh/K-dash/nblm-rs/graph/badge.svg?token=OhxeTdnxTw)](https://codecov.io/gh/K-dash/nblm-rs)\n\n\n  \n</div>\n\n> [!IMPORTANT]\n> This project targets the **NotebookLM Enterprise API** only. Google hasn’t published an API for the consumer edition or general Google Workspace tenants as of 2025-10-25.\n\n## Motivation\n\nIn September 2025, Google released the [NotebookLM Enterprise API](https://cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview), enabling programmatic access to NotebookLM features for the first time.\n\nWhile you can interact with the API using simple `curl` commands, this approach has several limitations that this project addresses:\n\n### Challenges with Direct API Calls\n\n- **Authentication complexity**\n\n  - **Problem**: Managing OAuth tokens, handling token refresh, and ensuring secure credential storage\n  - **Solution**: Seamless `gcloud` CLI integration with automatic token caching and refresh\n\n- **Manual request construction**\n\n  - **Problem**: Writing JSON payloads by hand, managing resource names, and handling API versioning\n  - **Solution**: Type-safe CLI flags and Python SDK with intelligent defaults and validation\n\n- **Error handling**\n\n  - **Problem**: Cryptic HTTP error codes without context or recovery suggestions\n  - **Solution**: Clear, actionable error messages with automatic retries for transient failures\n\n- **Repeated operations**\n\n  - **Problem**: Writing boilerplate loops for fetch/add/delete sequences\n  - **Solution**: Higher-level client helpers and CLI flags that wrap single API calls (with retries built in) so scripts stay concise\n\n- **Output parsing**\n  - **Problem**: Manual JSON parsing and extracting specific fields from responses\n  - **Solution**: Structured response objects in the Python SDK and `--json` output in the CLI for easy integration with tools like `jq`\n\n### Project Goals\n\nThis project provides production-ready tools that make the NotebookLM API accessible and reliable:\n\n- **Rust CLI**: Fast, cross-platform binary for shell scripting and automation\n- **Python SDK**: Idiomatic Python bindings for application integration\n- **Type safety**: Compile-time checks prevent common API usage errors\n- **Developer experience**: Intuitive commands and clear documentation\n\n## Installation\n\n### CLI\n\n```bash\n# macOS\nbrew tap k-dash/nblm https://github.com/K-dash/homebrew-nblm\nbrew install k-dash/nblm/nblm\n\n# Linux (prebuilt binaries)\n# Download from Releases page: https://github.com/K-dash/nblm-rs/releases\n\n# From source\ncargo install nblm-cli\n```\n\n### Python SDK\n\n```bash\npip install nblm\n# or\nuv add nblm\n```\n\n> Prerequisite: a Google Cloud project with the NotebookLM Enterprise API enabled and either `gcloud auth login` or an OAuth token ready for `NBLM_ACCESS_TOKEN`.\n\nFor detailed installation instructions and troubleshooting, see the [Installation Guide](https://k-dash.github.io/nblm-rs/getting-started/installation/).\n\n## Quick Start\n\n### CLI\n\n```bash\n# 1. Authenticate\ngcloud auth login\n\n# 2. Set environment variables\nexport NBLM_PROJECT_NUMBER=\"123456789012\"  # Get from GCP console\nexport NBLM_LOCATION=\"global\"\nexport NBLM_ENDPOINT_LOCATION=\"global\"\n\n# 3. Create a notebook\nnblm notebooks create --title \"My Notebook\"\n\n# 4. Add a source\nnblm sources add \\\n  --notebook-id YOUR_NOTEBOOK_ID \\\n  --web-url \"https://example.com\" \\\n  --web-name \"Example\"\n```\n\n### Python\n\n```python\nfrom nblm import NblmClient, GcloudTokenProvider, WebSource\n\n# Initialize client\nclient = NblmClient(\n    token_provider=GcloudTokenProvider(),\n    project_number=\"123456789012\"\n)\n\n# Create a notebook\nnotebook = client.create_notebook(title=\"My Notebook\")\n\n# Add sources\nresponse = client.add_sources(\n    notebook_id=notebook.notebook_id,\n    web_sources=[WebSource(url=\"https://example.com\", name=\"Example\")]\n)\n```\n\n## Features\n\n> [!NOTE]\n> The NotebookLM API is currently in **alpha**. Some features may not work as documented due to API limitations. See the [complete feature list](https://k-dash.github.io/nblm-rs/#features) in the documentation.\n\nnblm-rs supports the following NotebookLM API operations:\n\n- **Notebooks**: Create, list, and delete notebooks\n- **Sources**: Add web URLs, text, videos (YouTube), Google Drive files, and upload files\n- **Audio Overview**: Create and delete audio overviews\n- **Sharing**: Share notebooks with users (CLI only, untested)\n\nFor detailed feature status and limitations, see the [Features documentation](https://k-dash.github.io/nblm-rs/#features).\n\n## Documentation\n\n**Complete guides and API references:**\n\n📖 **[Full Documentation](https://k-dash.github.io/nblm-rs/)** - Complete guides, API references, and examples\n\n- [Getting Started](https://k-dash.github.io/nblm-rs/getting-started/installation/) - Installation, authentication, configuration\n- [CLI Reference](https://k-dash.github.io/nblm-rs/cli/) - All commands, options, and examples\n- [Python SDK Reference](https://k-dash.github.io/nblm-rs/python/) - API reference and usage patterns\n\n## Known API Issues\n\n> [!NOTE]\n> The NotebookLM API is currently in **alpha** and has several known limitations. See [API Limitations](https://k-dash.github.io/nblm-rs/api/limitations/) for details.\n\n## Related Resources\n\n- [NotebookLM API Documentation](https://cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview) - Official API documentation\n- [NotebookLM API Reference](https://cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks) - API reference\n\n## Contributing\n\nContributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.\n\n## License\n\nMIT\n",
+        "truncated": false,
+        "bytes": 8423,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.2.3",
+            "tag_name": "v0.2.3",
+            "published_at": "2025-11-19T17:19:16Z",
+            "body_excerpt": "## What's Changed\r\n* refactor(env): centralize profile experiment flag logic and enhance tests by @K-dash in https://github.com/K-dash/nblm-rs/pull/95\r\n* feat(auth): implement OAuth2 client configuration and browser flow by @K-dash in https://github.com/K-dash/nblm-rs/pull/96\r\n* feat(auth): enhance OAuth2 support with UserOAuthProvider and related functionality by @K-dash in https://github.com/K-dash/nblm-rs/pull/97\r\n* feat: add auth command to CLI for authentication management by @K-dash in https://github.com/K-dash/nblm-rs/pull/98\r\n\r\n\r\n**Full Changelog**: https://github.com/K-dash/nblm-rs/compare/v0.2.2...v0.2.3"
+          },
+          {
+            "name": "v0.2.2",
+            "tag_name": "v0.2.2",
+            "published_at": "2025-11-10T15:51:53Z",
+            "body_excerpt": "## What's Changed\r\n* chore: add script to update Homebrew formula for nblm by @K-dash in https://github.com/K-dash/nblm-rs/pull/82\r\n* feat: add MkDocs configuration and deployment workflow  by @K-dash in https://github.com/K-dash/nblm-rs/pull/83\r\n* update README.md by @K-dash in https://github.com/K-dash/nblm-rs/pull/84\r\n* chore: add documentation deployment task to Makefile.toml by @K-dash in https://github.com/K-dash/nblm-rs/pull/85\r\n* update README.md by @K-dash in https://github.com/K-dash/nblm-rs/pull/86\r\n* update README.md by @K-dash in https://github.com/K-dash/nblm-rs/pull/87\r\n* chore: add pre-commit configuration and update contributing guidelines by @K-dash in https://github.com/K-dash/nblm-rs/pull/88\r\n* feat(experimental): implement OAuth2 user authentication flow by @K-dash in https://github.com/K-dash/nblm-rs/pull/89\r\n* test: add comprehensive unit tests for UserContent and serialization behaviors by @K-dash in https://github.com/K-dash/nblm-rs/pull/90\r\n* refactor: remove share functionality and related documentation by @K-dash in https://github.com/K-dash/nblm-rs/pull/92\r\n* feat(doctor): add NotebookLM API connectivity check (Phase 2) by @tysoncung in https://github.com/K-dash/nblm-rs/pull/91\r\n* refactor(auth): simplify bootstrap disabling logic and enhance tests by @K-dash in https://github.com/K-dash/nblm-rs/pull/93\r\n* chore: update package versions and adjust location parameters by @K-dash in https://github.com/K-dash/nblm-rs/pull/94\r\n\r\n\r\n**Full Changelog**: https://github.com/K-dash/nblm-rs/compare/v0.2.1...v0.2.2"
+          },
+          {
+            "name": "v0.2.1",
+            "tag_name": "v0.2.1",
+            "published_at": "2025-11-01T11:45:50Z",
+            "body_excerpt": "## What's Changed\r\n* feat: update version handling and import compatibility in nblm package by @K-dash in https://github.com/K-dash/nblm-rs/pull/78\r\n* feat: add command availability checks and color output to diagnostics by @K-dash in https://github.com/K-dash/nblm-rs/pull/79\r\n* feat: enhance doctor command with Google Drive access validation and JSON flag handling by @K-dash in https://github.com/K-dash/nblm-rs/pull/80\r\n* fix: update test assertions for colored markers in diagnostics by @K-dash in https://github.com/K-dash/nblm-rs/pull/81\r\n\r\n\r\n**Full Changelog**: https://github.com/K-dash/nblm-rs/compare/v0.2.0...v0.2.1"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 6,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/K-dash/nblm-rs/issues/6"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "CONTRIBUTING.md",
+        "Cargo.toml",
+        "LICENSE",
+        "Makefile.toml",
+        "README.md",
+        "codecov.yml",
+        "crates",
+        "docs",
+        "mkdocs.yml",
+        "python",
+        "renovate.json",
+        "rust-toolchain.toml",
+        "scripts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<img width=\"256\" alt=\"logo\" src=\"https://github.com/user-attachments/assets/37f0f882-65ca-436e-8053-3db8c18cac59\" />",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 2)",
+          "excerpt": "🦀 **Rust CLI**: Command-line tool for shell scripting and automation <br/> 🐍 **Python SDK**: Python bindings for integration in Python applications",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![Crates.io](https://img.shields.io/crates/v/nblm-cli.svg)](https://crates.io/crates/nblm-cli) [![Crates.io](https://img.shields.io/crates/d/nblm-cli.svg?color=orange&label=downloads)](https://crates.io/crates/nblm-cli) <br/> [![PyPI](https://img.shields.io/pypi/v/nblm.svg?color=blue)](https://pypi.org/project/nblm/) [![PyPI Downloads](https://static.pepy.tech/personalized-badge/nblm?period=total&units=INTERNATIONAL_SYSTEM&left_color=GRAY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/nblm) [![Python versions](https://img.shields.io/pypi/pyversions/nblm.svg)](https://pypi.org/project/nblm/) [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![mypy](https://img.shields.io/badge/mypy-checked-blue.svg)](https://mypy-lang.org/) <br/> [![DeepWiki](https://img.shields.io/badge/DeepWiki-K--dash%2Fnblm--rs-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEP…",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 4)",
+          "excerpt": "> [!IMPORTANT] > This project targets the **NotebookLM Enterprise API** only. Google hasn’t published an API for the consumer edition or general Google Workspace tenants as of 2025-10-25.",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 5)",
+          "excerpt": "In September 2025, Google released the [NotebookLM Enterprise API](https://cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview), enabling programmatic access to NotebookLM features for the first time.",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 6)",
+          "excerpt": "While you can interact with the API using simple `curl` commands, this approach has several limitations that this project addresses:",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **Problem**: Managing OAuth tokens, handling token refresh, and ensuring secure credential storage - **Solution**: Seamless `gcloud` CLI integration with automatic token caching and refresh",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/K-dash/nblm-rs#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- **Problem**: Writing JSON payloads by hand, managing resource names, and handling API versioning - **Solution**: Type-safe CLI flags and Python SDK with intelligent defaults and validation",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/K-dash/nblm-rs/issues/6",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "number": 6
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/K-dash/nblm-rs/releases",
+          "title": "v0.2.3",
+          "excerpt": "## What's Changed * refactor(env): centralize profile experiment flag logic and enhance tests by @K-dash in https://github.com/K-dash/nblm-rs/pull/95 * feat(auth): implement OAuth2 client configuration and browser flow by @K-dash in https://github.com/K-dash/nblm-rs/pull/96 * feat(auth): enhance OAuth2 support with UserOAuthProvider and related functionality by @K-dash in https://github.com/K-dash/nblm-rs/pull/97 * feat: add auth command to CLI for authentication management by @K-dash in https://github.com/K-dash/nblm-rs/pull/98 **Full Changelog**: https://github.com/K-dash/nblm-rs/compare/v0.2.2...v0.2.3",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "tag_name": "v0.2.3",
+            "published_at": "2025-11-19T17:19:16Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/K-dash/nblm-rs/releases",
+          "title": "v0.2.2",
+          "excerpt": "## What's Changed * chore: add script to update Homebrew formula for nblm by @K-dash in https://github.com/K-dash/nblm-rs/pull/82 * feat: add MkDocs configuration and deployment workflow by @K-dash in https://github.com/K-dash/nblm-rs/pull/83 * update README.md by @K-dash in https://github.com/K-dash/nblm-rs/pull/84 * chore: add documentation deployment task to Makefile.toml by @K-dash in https://github.com/K-dash/nblm-rs/pull/85 * update README.md by @K-dash in https://github.com/K-dash/nblm-rs/pull/86 * update README.md by @K-dash in https://github.com/K-dash/nblm-rs/pull/87 * chore: add pre-commit configuration and update contributing guidelines by @K-dash in https://github.com/K-dash/nblm-rs/pull/88 * feat(experimental): implement OAuth2 user authentication flow by @K-dash in https://github.com/K-dash/nblm-rs/pull/89 * test: add comprehensive unit tests for UserContent and serialization behaviors by @K-dash in https://github.com/K-dash/nblm-rs/pull/90 * refactor: remove share functionality and related documentation by @K-dash in https://github.com/K-dash/nblm-rs/pull/92 * feat(doctor): add NotebookLM API connectivity check (Phase 2) by @tysoncung in https://github.com/K-dash/n…",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "tag_name": "v0.2.2",
+            "published_at": "2025-11-10T15:51:53Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/K-dash/nblm-rs/releases",
+          "title": "v0.2.1",
+          "excerpt": "## What's Changed * feat: update version handling and import compatibility in nblm package by @K-dash in https://github.com/K-dash/nblm-rs/pull/78 * feat: add command availability checks and color output to diagnostics by @K-dash in https://github.com/K-dash/nblm-rs/pull/79 * feat: enhance doctor command with Google Drive access validation and JSON flag handling by @K-dash in https://github.com/K-dash/nblm-rs/pull/80 * fix: update test assertions for colored markers in diagnostics by @K-dash in https://github.com/K-dash/nblm-rs/pull/81 **Full Changelog**: https://github.com/K-dash/nblm-rs/compare/v0.2.0...v0.2.1",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "tag_name": "v0.2.1",
+            "published_at": "2025-11-01T11:45:50Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/K-dash/nblm-rs",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .pre-commit-config.yaml, CONTRIBUTING.md, Cargo.toml, LICENSE, Makefile.toml, README.md, codecov.yml, crates, docs, mkdocs.yml, python, renovate.json, rust-toolchain.toml, scripts",
+          "fetched_at": "2026-04-25T05:15:04.952Z",
+          "meta": {
+            "repo_full_name": "K-dash/nblm-rs",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "VOBC/oh-my-coder",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 6,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 6,
+      "releases_count": 0
+    },
+    {
+      "full_name": "K-dash/nblm-rs",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "VOBC/oh-my-coder",
+      "ok": true,
+      "spec_path": "specs/2026-04-25/VOBC__oh-my-coder.json"
+    },
+    {
+      "repo": "K-dash/nblm-rs",
+      "ok": true,
+      "spec_path": "specs/2026-04-25/K-dash__nblm-rs.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "VOBC/oh-my-coder",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-25/VOBC__oh-my-coder.json"
+    },
+    {
+      "repo": "K-dash/nblm-rs",
+      "ok": true,
+      "evidence_path": "evidence/2026-04-25/K-dash__nblm-rs.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "VOBC/oh-my-coder",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-25/VOBC__oh-my-coder.json"
+      ]
+    },
+    {
+      "repo": "K-dash/nblm-rs",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-04-25/K-dash__nblm-rs.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-04-25T05:15:24.095Z",
+      "run_id": "20260425T051459Z",
+      "repo": "VOBC/oh-my-coder",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "288fec0e329f61c28db8361dfa87abbf5aa699d5f7781b12e1436bdba43f2c0c",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 7144
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19139,
+      "prompt_chars": 7144,
+      "completion_chars": 2158
+    },
+    {
+      "ts": "2026-04-25T05:15:42.276Z",
+      "run_id": "20260425T051459Z",
+      "repo": "VOBC/oh-my-coder",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a1b7ecbc98fe678b66ba8d6f498b9f64c5720e76a66c8de630ac7db476ad5410",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 9526
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18181,
+      "prompt_chars": 9526,
+      "completion_chars": 2082
+    },
+    {
+      "ts": "2026-04-25T05:16:00.447Z",
+      "run_id": "20260425T051459Z",
+      "repo": "VOBC/oh-my-coder",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e79fd92fdbe9c8fabdaac28c17af4ffad3dcfd418b40302b61700a4b66310b6d",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 11808
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18170,
+      "prompt_chars": 11808,
+      "completion_chars": 2009
+    },
+    {
+      "ts": "2026-04-25T05:16:26.217Z",
+      "run_id": "20260425T051459Z",
+      "repo": "VOBC/oh-my-coder",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ad2cbbf337c07f1a603a4e1a45c9fc4b3c8b219ad79969d2188e7df0d917a317",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 14022
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 25770,
+      "prompt_chars": 14022,
+      "completion_chars": 2773
+    },
+    {
+      "ts": "2026-04-25T05:17:00.925Z",
+      "run_id": "20260425T051459Z",
+      "repo": "VOBC/oh-my-coder",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "075f15ae0c9bf4fa9a02251b493069d68d9a263d6e049930010b78411f903071",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 19631
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 34707,
+      "prompt_chars": 19631,
+      "completion_chars": 4167
+    },
+    {
+      "ts": "2026-04-25T05:17:15.860Z",
+      "run_id": "20260425T051459Z",
+      "repo": "K-dash/nblm-rs",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "94dbf97bfd421da74d0f5425220415a96b4a8782ceb323473a9582d9d34a6b0d",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 7907
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14920,
+      "prompt_chars": 7907,
+      "completion_chars": 1578
+    },
+    {
+      "ts": "2026-04-25T05:17:32.955Z",
+      "run_id": "20260425T051459Z",
+      "repo": "K-dash/nblm-rs",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f673811da5f964eb9746add7349ea68bb53b357a18aebc05fdfa08257d04ed1c",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9693
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17094,
+      "prompt_chars": 9693,
+      "completion_chars": 2005
+    },
+    {
+      "ts": "2026-04-25T05:17:47.990Z",
+      "run_id": "20260425T051459Z",
+      "repo": "K-dash/nblm-rs",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "df0bfa6185c15769f21fd8021c0f2fccec77b1af6ecf8f6f79048428f0fa44c0",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11906
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15035,
+      "prompt_chars": 11906,
+      "completion_chars": 1644
+    },
+    {
+      "ts": "2026-04-25T05:18:04.568Z",
+      "run_id": "20260425T051459Z",
+      "repo": "K-dash/nblm-rs",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "225c59d6ae0d04b345417192e6ceb24ab188f620c48bc136e2bfa42d18fba92a",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13751
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16578,
+      "prompt_chars": 13751,
+      "completion_chars": 1908
+    },
+    {
+      "ts": "2026-04-25T05:18:28.898Z",
+      "run_id": "20260425T051459Z",
+      "repo": "K-dash/nblm-rs",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4e356f10304f5acb57ba28414074c7472dac318af4abfa986afea0b832c025de",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 18485
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 24330,
+      "prompt_chars": 18485,
+      "completion_chars": 3106
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "VOBC/oh-my-coder",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "K-dash/nblm-rs",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "VOBC/oh-my-coder",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "K-dash/nblm-rs",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1777094099959,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "VOBC/oh-my-coder": 5,
+      "K-dash/nblm-rs": 5
+    },
+    "tokensApproxTotal": 36830,
+    "tokensApproxPerRepo": {
+      "VOBC/oh-my-coder": 18832,
+      "K-dash/nblm-rs": 17998
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "VOBC/oh-my-coder": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "oh-my-coder is a Chinese-focused, open-source multi-agent AI coding assistant designed as a domestic alternative to Claude Code, emphasizing support for 12+ Chinese large language models (e.g., GLM, DeepSeek), full offline/local operation, and zero-cost usage. It features 31 specialized agents, a layered memory system, and strong localization (Chinese UI/docs). The project is actively maintained with recent updates addressing China-specific access barriers to foreign LLMs.",
+        "highlights": [
+          "Positioned as a direct, open-source replacement for the now-inaccessible Claude Code in China due to mandatory real-name verification and account bans [E-RD-004].",
+          "Supports 12+ Chinese large models including free options like GLM-4.7-Flash, contrasting with Claude Code’s single paid model requiring international access [E-RD-005, E-RD-007].",
+          "Emphasizes data privacy via local processing and no cloud uploads, appealing to users concerned about overseas data handling [E-RD-005].",
+          "Fully localized experience: Chinese documentation, error messages, and agent names [E-RD-008].",
+          "Rich architecture with 31 professional agents, layered memory, and asynchronous 'Quest Mode' for autonomous coding [E-RD-003].",
+          "Provides multiple installation methods including shell scripts (install.sh, quickstart.sh) and Windows support (install.ps1) [E-RF-001, E-IS-006]."
+        ],
+        "risks": [
+          "Dependency on external API keys (e.g., GLM_API_KEY, DEEPSEEK_API_KEY) introduces setup friction and potential runtime failures if not configured [E-IS-002, E-RD-006].",
+          "Early-stage project with only 66 stars and 6 closed issues; lacks releases and may have immature stability or documentation gaps despite active commits [repo_profile, E-IS-001].",
+          "Claims of 'completely free' usage rely on third-party model providers’ policies, which may change (e.g., rate limits or deprecation of free tiers)."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-006",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "oh-my-coder is an inventive, China-centric reimagining of AI coding assistants that replaces foreign dependencies with a locally operable, multi-agent system powered by 12+ domestic LLMs. It innovates through deep localization, architectural modularity (31 agents, layered memory, Quest Mode), and zero-cost accessibility—positioning itself as a resilient alternative amid geopolitical barriers to models like Claude.",
+        "highlights": [
+          "Invents a localized, open-source alternative to Claude Code by integrating 12+ Chinese LLMs (e.g., GLM-4.7-Flash, DeepSeek-V3) with full offline operation and no data exfiltration [E-RD-005, E-RD-007].",
+          "Architecturally novel with 31 specialized agents, asynchronous Quest Mode for autonomous programming, and a hierarchical memory system—extending beyond typical single-agent CLI tools [E-RD-003].",
+          "Pioneers full Chinese UX: native-language documentation, error messages, and agent naming—addressing a gap in Western-dominated AI dev tools [E-RD-008].",
+          "Offers seamless migration from Claude Code via simple config commands, lowering adoption friction for displaced users [E-RD-006].",
+          "Provides cross-platform installers (install.sh, install.ps1, quickstart.sh) reflecting deliberate accessibility across OS environments [E-RF-001, E-IS-006]."
+        ],
+        "risks": [
+          "Innovation relies on third-party API keys (e.g., DEEPSEEK_API_KEY, GLM_API_KEY); missing keys break core functionality, creating usability fragility [E-IS-002, E-RD-006].",
+          "Claims of 'completely free' access depend on external providers’ policies; changes to free tiers (e.g., GLM-4.7-Flash) could undermine the zero-cost value proposition [E-RD-005, E-RD-007].",
+          "Despite rich architecture, the project lacks formal releases and has minimal community traction (66 stars), suggesting unproven scalability or robustness [repo_profile, E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-006",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "oh-my-coder is a Python-based, open-source multi-agent AI coding assistant engineered for Chinese developers, offering local execution, support for 12+ domestic LLMs (including free options like GLM-4.7-Flash), and a modular architecture with 31 specialized agents, layered memory, and asynchronous autonomous programming via Quest Mode. It provides cross-platform installation scripts and full Chinese localization.",
+        "highlights": [
+          "Engineered as a drop-in replacement for Claude Code with local execution and no data upload, addressing privacy and accessibility concerns for Chinese users [E-RD-004, E-RD-005].",
+          "Supports 12+ Chinese LLMs including free tiers (e.g., GLM-4.7-Flash) and provides simple CLI configuration for API keys [E-RD-005, E-RD-006, E-RD-007].",
+          "Modular architecture includes 31 professional agents, layered memory system, and asynchronous 'Quest Mode' for autonomous coding tasks [E-RD-003].",
+          "Fully localized Chinese experience: UI messages, documentation, and agent names are in Chinese [E-RD-008].",
+          "Cross-platform installers available: install.sh, quickstart.sh for Unix-like systems and install.ps1 for Windows [E-RF-001, E-IS-006]."
+        ],
+        "risks": [
+          "Runtime failures possible if required API keys (e.g., DEEPSEEK_API_KEY, GLM_API_KEY) are missing or misconfigured, as evidenced by closed user issues [E-IS-002, E-RD-006].",
+          "Early-stage project with no official releases, limited stars (66), and evidence of installation friction (e.g., pip editable install errors) suggesting potential stability or packaging issues [E-IS-001, repo_profile].",
+          "Reliance on third-party free model tiers (e.g., GLM-4.7-Flash) introduces sustainability risk if providers change pricing or access policies [E-RD-005, E-RD-007]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-006",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "oh-my-coder makes bold claims about being a fully functional, free, and privacy-preserving alternative to Claude Code with 31 agents and support for 12+ Chinese LLMs, but evidence suggests significant gaps between marketing and implementation—particularly around usability, dependency on external APIs, and lack of maturity.",
+        "highlights": [
+          "Claims of 'completely free' usage hinge on third-party model providers (e.g., GLM-4.7-Flash), whose free tiers may be temporary or rate-limited [E-RD-005, E-RD-007].",
+          "Despite advertising local execution and no data upload, the tool still requires API keys for cloud-based models like DeepSeek and GLM, contradicting true offline operation [E-IS-002, E-RD-006].",
+          "The project touts 31 professional agents and advanced features like Quest Mode, yet has only 66 stars, zero releases, and closed issues revealing basic setup failures (e.g., pip install errors) [E-RD-003, E-IS-001, repo_profile].",
+          "Marketing heavily leverages geopolitical friction (Claude bans in China) to position itself as a 'best domestic choice,' but offers no verifiable benchmarks or comparisons proving parity in coding capability [E-RD-004, E-RD-005].",
+          "Installation appears fragile: users report missing DEEPSEEK_API_KEY errors and request basic install methods (sh, Windows), suggesting poor out-of-box experience despite multiple installer scripts [E-IS-002, E-IS-003, E-IS-006]."
+        ],
+        "risks": [
+          "Overstated capabilities: The README emphasizes architectural sophistication (31 agents, memory system, Quest Mode), but absence of releases, tests, or community adoption raises doubts about functional completeness [E-RD-003, repo_profile, E-RF-001].",
+          "Misleading 'zero-cost' narrative: Free access depends entirely on external vendors; if GLM or others restrict free tiers, the core value proposition collapses [E-RD-005, E-RD-007].",
+          "Security and privacy claims are ambiguous: While it says 'local processing, no upload,' using cloud-hosted LLM APIs inherently involves sending code to third parties—undermining data privacy assurances [E-RD-005].",
+          "High setup barrier: Requiring manual API key configuration for multiple models contradicts the promise of seamless migration from Claude Code [E-RD-006, E-IS-002].",
+          "Lack of issue transparency: All 6 issues are closed, but include unresolved-seeming requests (e.g., built-in models, custom model support), possibly indicating premature closure or insufficient follow-up [E-IS-004, E-IS-005]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-006",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Oh My Coder\",\n    \"one_sentence\": \"A Chinese-focused, open-source multi-agent AI coding assistant supporting 12+ domestic LLMs with full offline operation and zero-cost usage.\",\n    \"inspired_by\": \"oh-my-claudecode\"\n  },\n  \"core_loop\": \"User issues natural language coding tasks via CLI or web interface; the system routes requests to specialized agents within a 31-agent ecosystem, leveraging layered memory and asynchronous Quest Mode for autonomous programming, while ensuring all processing remains local and private.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Interface\",\n      \"purpose\": \"Provide entry point for user to input coding tasks and view agent responses in Chinese.\",\n      \"primary_actions\": [\n        \"Submit coding task\",\n        \"View agent response\",\n        \"Access settings\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Model Configuration\",\n      \"purpose\": \"Allow user to configure API keys and select among 12+ supported Chinese LLMs.\",\n      \"primary_actions\": [\n        \"Set GLM_API_KEY\",\n        \"Set DEEPSEEK_API_KEY\",\n        \"Switch active model\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"omc_run\",\n      \"purpose\": \"Execute a natural language coding command using the configured LLM and agent system.\",\n      \"async\": true,\n      \"input\": {\n        \"command\": \"string\"\n      },\n      \"output\": {\n        \"result\": \"string\"\n      }\n    },\n    {\n      \"name\": \"omc_config_set\",\n      \"purpose\": \"Set configuration parameters such as API keys for supported models.\",\n      \"async\": false,\n      \"input\": {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      },\n      \"output\": {\n        \"status\": \"string\"\n      }\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"agents\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"name_zh\",\n            \"type\": \"string\"\n          },\n      "
+      }
+    },
+    "K-dash/nblm-rs": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "The repository provides an unofficial Rust-based client for the NotebookLM Enterprise API, offering both a CLI and a Python SDK. It emphasizes developer experience through type-safe interfaces, OAuth2 integration with gcloud, and automated tooling, targeting enterprise users post-Google's September 2025 API release.",
+        "highlights": [
+          "Supports both Rust CLI and Python SDK for NotebookLM Enterprise API interaction [ID:E-RD-002].",
+          "Implements OAuth2 user authentication with browser flow and gcloud integration for secure token handling [ID:E-RL-001][ID:E-RD-007].",
+          "Actively maintained with recent releases adding auth commands, documentation (MkDocs), and Homebrew support [ID:E-RL-001][ID:E-RL-002].",
+          "Explicitly targets only the NotebookLM Enterprise API, not consumer or general Workspace editions [ID:E-RD-004][ID:E-RD-005].",
+          "Uses modern Python tooling (uv, Ruff) and CI/CD practices (pre-commit, Makefile.toml, renovate) [ID:E-RD-003][ID:E-RF-001]."
+        ],
+        "risks": [
+          "Unofficial status may lead to instability if Google changes or restricts the Enterprise API without notice [ID:E-RD-004].",
+          "Heavy reliance on gcloud CLI for auth could limit portability in non-GCP environments [ID:E-RD-007].",
+          "Low issue activity (only 1 issue despite 7 open issues reported) might indicate limited community testing or responsiveness [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-001",
+          "E-RD-007",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-003",
+          "E-RF-001",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "The repository invents a dual-interface (Rust CLI + Python SDK) client for Google's newly released NotebookLM Enterprise API, solving key developer pain points around authentication, payload construction, and resource management through opinionated tooling and abstractions.",
+        "highlights": [
+          "Introduces a novel combination of Rust core with Python bindings to serve both systems-level scripting and application integration needs [ID:E-RD-002].",
+          "Invents an OAuth2 user flow integrated with gcloud CLI that automates token caching and refresh, removing manual credential handling [ID:E-RL-001][ID:E-RD-007].",
+          "Creates type-safe command-line flags and SDK methods that abstract away raw JSON payloads, resource naming conventions, and API versioning complexities [ID:E-RD-008].",
+          "Pioneers tooling support for the NotebookLM Enterprise API shortly after its September 2025 release, filling a gap left by Google’s lack of official client libraries [ID:E-RD-005][ID:E-RD-006].",
+          "Embeds developer experience innovations like automatic Homebrew formula updates, MkDocs-based documentation, and modern Python/Rust toolchains (uv, Ruff, pre-commit) [ID:E-RL-002][ID:E-RD-003]."
+        ],
+        "risks": [
+          "The invention depends entirely on an unofficial interpretation of a newly released and narrowly scoped enterprise API, risking obsolescence if Google changes or restricts access [ID:E-RD-004][ID:E-RD-005].",
+          "Tight coupling with gcloud CLI for authentication may hinder adoption in environments without GCP tooling or alternative identity providers [ID:E-RD-007].",
+          "Limited community validation (only 1 substantive issue despite 7 open issues) suggests the invented abstractions may not yet be battle-tested across diverse use cases [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-001",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "The repository implements a dual-interface client (Rust CLI and Python SDK) for the NotebookLM Enterprise API, addressing authentication, payload construction, and developer experience through modern tooling and abstractions.",
+        "highlights": [
+          "Built on a Rust core with Python bindings, enabling both shell automation and application integration [ID:E-RD-002].",
+          "Implements OAuth2 user authentication with browser flow and gcloud CLI integration for automatic token refresh and secure storage [ID:E-RL-001][ID:E-RD-007].",
+          "Provides type-safe CLI flags and SDK methods that abstract raw JSON payloads, resource names, and API versioning [ID:E-RD-008].",
+          "Includes modern engineering practices: MkDocs documentation, pre-commit hooks, Makefile-driven workflows, and Homebrew packaging [ID:E-RL-002][ID:E-RF-001].",
+          "Explicitly scoped to the NotebookLM Enterprise API released in September 2025, avoiding unsupported consumer variants [ID:E-RD-004][ID:E-RD-005]."
+        ],
+        "risks": [
+          "Unofficial status creates fragility; Google could alter or restrict the Enterprise API without warning, breaking compatibility [ID:E-RD-004].",
+          "Authentication tightly coupled to gcloud CLI, limiting usability in non-GCP or air-gapped environments [ID:E-RD-007].",
+          "Low community engagement (only 1 substantive issue despite 7 open issues) suggests limited real-world validation of core abstractions [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-001",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-002",
+          "E-RF-001",
+          "E-RD-004",
+          "E-RD-005",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While the repository presents a polished dual-interface client for the NotebookLM Enterprise API, its value proposition hinges on assumptions about stability, adoption, and necessity that lack sufficient validation given the project's early stage and narrow scope.",
+        "highlights": [
+          "Claims to solve real problems like OAuth token management and JSON payload construction, but offers no evidence these are widespread pain points among actual users of the new NotebookLM Enterprise API [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008].",
+          "Heavily promotes integration with gcloud CLI as a feature, yet this assumes all target users operate in GCP environments—a significant constraint not justified by user demand data [ID:E-RD-007].",
+          "Despite active development (e.g., auth flows, MkDocs, Homebrew support), there is minimal community engagement: only one substantive issue exists despite seven open issues reported, suggesting limited real-world usage or testing [ID:E-IS-001]."
+        ],
+        "risks": [
+          "The entire project depends on an unofficial interpretation of a very recently released (September 2025) and narrowly scoped enterprise API; Google could change, deprecate, or restrict access without notice, rendering the tool obsolete [ID:E-RD-004][ID:E-RD-005].",
+          "Tight coupling to gcloud CLI for authentication creates a hard dependency that excludes non-GCP workflows, air-gapped deployments, or alternative identity providers—yet no fallback mechanisms are mentioned [ID:E-RD-007].",
+          "Lack of third-party validation: with only 85 stars, 10 forks, and virtually no external issues or contributions, the robustness of its abstractions (e.g., type-safe SDK, OAuth flow) remains unproven in diverse environments [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-RD-004",
+          "E-RD-005"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"nblm-rs\",\n    \"one_sentence\": \"An unofficial NotebookLM Enterprise API client built on a Rust core, with interfaces for both the CLI and a Python SDK.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users authenticate via OAuth2 integrated with gcloud CLI, then interact with the NotebookLM Enterprise API through type-safe CLI commands or Python SDK methods to manage notebooks, sources, and content without manually handling JSON payloads or resource names.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main CLI Interface\",\n      \"purpose\": \"Provide command-line access to NotebookLM Enterprise API operations including authentication, notebook management, and diagnostics.\",\n      \"primary_actions\": [\n        \"Authenticate user via browser-based OAuth2 flow\",\n        \"Create and manage notebooks\",\n        \"Run diagnostics with Google Drive access validation\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"auth\",\n      \"purpose\": \"Manage authentication for NotebookLM Enterprise API using OAuth2 with browser flow and gcloud integration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"doctor\",\n      \"purpose\": \"Validate environment setup including Google Drive access and command availability with colorized output.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"UserContent\",\n        \"fields\": [\n          {\n            \"name\": \"resource_name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"payload\",\n            \"type\": \"json\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement OAuth2 user authentication flow with gcloud integration\",\n          \"Add type-safe CLI flags for notebook creation and management\",\n          \"Set up MkDocs documentation and CI/CD workflows\"\n        ]\n      }\n  "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "VOBC/oh-my-coder",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 8,
+        "engineer": 10,
+        "skeptic": 12,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "K-dash/nblm-rs",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 10,
+        "engineer": 9,
+        "skeptic": 6,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=244",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] VOBC/oh-my-coder evidence total=15 readme=8 issue=6 release=0 root_files=1",
+    "[repo_card_builder] K-dash/nblm-rs evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=28 gaps=0",
+    "[llm_spec_generator] VOBC/oh-my-coder canonical spec ok (iter=1) -> specs/2026-04-25/VOBC__oh-my-coder.json",
+    "[llm_spec_generator] K-dash/nblm-rs canonical spec ok (iter=1) -> specs/2026-04-25/K-dash__nblm-rs.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-04-25T05:14:59.959Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-04-25T05:14:59.980Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260425T051459Z"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:14:59.980Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:14:59.985Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:00.550Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:00.550Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:01.115Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:01.115Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:01.595Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:01.595Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:02.029Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:02.029Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:02.467Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:02.467Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:02.881Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:02.881Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:03.355Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:03.355Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:03.579Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:03.579Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:03.984Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:03.984Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.425Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.429Z",
+      "run_id": "20260425T051459Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 244
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.430Z",
+      "run_id": "20260425T051459Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.433Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-25T05:15:04.433Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "VOBC__oh-my-coder/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.434Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "VOBC__oh-my-coder/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.435Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "VOBC__oh-my-coder/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.437Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "VOBC__oh-my-coder/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.438Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-04-25T05:15:04.438Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "K-dash__nblm-rs/readme.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.440Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "K-dash__nblm-rs/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.441Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "K-dash__nblm-rs/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.444Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "K-dash__nblm-rs/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.925Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 29894,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.925Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.925Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 6
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.926Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 493
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.926Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 6,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.952Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 8423,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.952Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.952Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.952Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 514
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.952Z",
+      "run_id": "20260425T051459Z",
+      "node": "repo_card_builder",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.956Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 6,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:04.956Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:24.095Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2158,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:15:42.276Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2082,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:16:00.447Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2009,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:16:26.217Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2773,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:00.925Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4167,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:00.937Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:00.939Z",
+      "run_id": "20260425T051459Z",
+      "node": "artifacts",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-25/VOBC__oh-my-coder.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:00.939Z",
+      "run_id": "20260425T051459Z",
+      "node": "artifacts",
+      "repo": "VOBC/oh-my-coder",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-25/VOBC__oh-my-coder.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:00.939Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:00.939Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:15.860Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1578,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:32.955Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2005,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:17:47.990Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1644,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:04.568Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1908,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.898Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3106,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.900Z",
+      "run_id": "20260425T051459Z",
+      "node": "llm_spec_generator",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.901Z",
+      "run_id": "20260425T051459Z",
+      "node": "artifacts",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-04-25/K-dash__nblm-rs.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.901Z",
+      "run_id": "20260425T051459Z",
+      "node": "artifacts",
+      "repo": "K-dash/nblm-rs",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-04-25/K-dash__nblm-rs.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.905Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.905Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1777094099959,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "VOBC/oh-my-coder": 5,
+          "K-dash/nblm-rs": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.905Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-04-25T05:18:28.905Z",
+      "run_id": "20260425T051459Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-04-25",
+    "evidence_dir": "evidence/2026-04-25"
+  }
+}
