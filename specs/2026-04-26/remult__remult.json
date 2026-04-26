@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Remult",
+    "one_liner": "Full-stack CRUD, simplified, with SSOT TypeScript entities"
+  },
+  "screens": [
+    {
+      "name": "Entity Dashboard",
+      "purpose": "View and manage data through auto-generated CRUD interfaces based on shared TypeScript entities.",
+      "primary_actions": [
+        "Create new entity record",
+        "Edit or delete existing records",
+        "Filter and sort records"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Fetch a paginated, filtered list of entity records using consistent query syntax across client and server.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "title": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist an entity instance with full-stack validation and type safety.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define a Task entity with id and title fields",
+    "week 1: Implement save and list commands using Remult's repo API",
+    "week 1: Set up Remult with Express and SQLite"
+  ],
+  "acceptance_tests": [
+    "Bulk update and delete operations with 'where:all' and 'select:none' behave as expected without side effects.",
+    "User can create a new item and it appears in the list immediately with correct validation applied on both client and server."
+  ]
+}

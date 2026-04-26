@@ -1,0 +1,127 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Matcha",
+    "one_liner": "A powerful, feature-rich email client for your terminal built with Go and the Bubble Tea TUI framework."
+  },
+  "screens": [
+    {
+      "name": "Main Email View",
+      "purpose": "Display inbox and email list with support for rich content and crypto status indicators.",
+      "primary_actions": [
+        "Navigate folders",
+        "Trigger plugin actions",
+        "View email details"
+      ]
+    },
+    {
+      "name": "Plugin Marketplace",
+      "purpose": "Browse and manage community plugins directly in the TUI.",
+      "primary_actions": [
+        "Configure plugin",
+        "Install plugin",
+        "Search plugins"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "matcha_config",
+      "purpose": "Configure an installed plugin via CLI.",
+      "async": true,
+      "input": {
+        "body": "string",
+        "crypto_status": "string",
+        "payload": "json",
+        "subject": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "matcha_install",
+      "purpose": "Install a plugin from a URL or local file.",
+      "async": true,
+      "input": {
+        "body": "string",
+        "crypto_status": "string",
+        "payload": "json",
+        "subject": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "matcha_send",
+      "purpose": "Send an email non-interactively, intended for use by AI agents or scripts.",
+      "async": true,
+      "input": {
+        "body": "string",
+        "crypto_status": "string",
+        "payload": "json",
+        "subject": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "emails",
+        "columns": [
+          {
+            "name": "body",
+            "type": "TEXT"
+          },
+          {
+            "name": "crypto_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "subject",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "plugins",
+        "columns": [
+          {
+            "name": "installed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add non-interactive send command for AI agent support",
+    "week 1: Implement core email viewing interface using Bubble Tea",
+    "week 1: Integrate basic plugin loading from registry"
+  ],
+  "acceptance_tests": [
+    "AI agent can successfully send an email using 'matcha send' with --to, --subject, and --body flags.",
+    "Image display fallback (e.g., Sixel in Zellij) is attempted when viewing rich emails.",
+    "User can browse and install a plugin via 'matcha marketplace' and 'matcha install' commands.",
+    "User can view email list with correct crypto status rendering without string concatenation performance issues."
+  ]
+}

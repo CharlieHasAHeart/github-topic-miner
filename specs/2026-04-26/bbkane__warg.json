@@ -1,0 +1,105 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "warg",
+    "one_liner": "A declarative CLI framework for Go that enforces subcommand-only usage, unifies flag sources, and provides rich, colored help output."
+  },
+  "screens": [
+    {
+      "name": "CLI Help Display",
+      "purpose": "Show structured, colored help output including current flag values and command hierarchy.",
+      "primary_actions": [
+        "Display compact help",
+        "Display detailed help",
+        "Show command outline"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "parse_command",
+      "purpose": "Parse and validate CLI input against declared command structure and flag definitions.",
+      "async": false,
+      "input": {
+        "description": "string",
+        "flags": "json",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "render_help",
+      "purpose": "Generate rich, colored help output showing current flag values and command descriptions.",
+      "async": false,
+      "input": {
+        "description": "string",
+        "flags": "json",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "commands",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "flags",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "flags",
+        "columns": [
+          {
+            "name": "aliases",
+            "type": "JSON"
+          },
+          {
+            "name": "env_vars",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "required",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "value",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic help rendering with color support",
+    "week 1: Build unified flag resolution from args/env/config/defaults",
+    "week 1: Implement core command declaration API"
+  ],
+  "acceptance_tests": [
+    "Given a declared subcommand with a required flag, when the user omits the flag, then the system shows an error and compact help.",
+    "Given a flag set via environment variable and overridden via CLI arg, then the CLI value takes precedence and is shown in help output."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Open Resource Discovery Explorer",
+    "one_liner": "A tool to explore and visualize self-described APIs, events, and capabilities using the Open Resource Discovery (ORD) protocol."
+  },
+  "screens": [
+    {
+      "name": "Resource Dashboard",
+      "purpose": "Display a list of discovered ORD resources with filters by type (API, Event, Capability), status, and relationships.",
+      "primary_actions": [
+        "Download linked files",
+        "Follow related resources",
+        "View resource details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "load_ord_manifest",
+      "purpose": "Fetch and parse an ORD-compliant JSON manifest from a given URL or file path.",
+      "async": true,
+      "input": {
+        "ord_id": "string",
+        "payload": "json",
+        "release_status": "string",
+        "resource_type": "string",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ord_resources",
+        "columns": [
+          {
+            "name": "ord_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "release_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "resource_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for navigating relatedApiResources and relatedEventResources",
+    "week 1: Implement ORD manifest loader",
+    "week 1: Render basic resource list from parsed manifest"
+  ],
+  "acceptance_tests": [
+    "Given an ORD manifest containing an ApiResource with relatedEventResources, the system displays clickable links to those events.",
+    "When a Package includes a 'files' property with a PDF documentation link, the UI renders a download button for that file."
+  ]
+}

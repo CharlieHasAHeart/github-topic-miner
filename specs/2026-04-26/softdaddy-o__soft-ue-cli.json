@@ -1,0 +1,147 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "soft-ue-cli",
+    "one_liner": "AI-native CLI and MCP server enabling LLM agents to control Unreal Engine 5 via live bridge or offline file parsing."
+  },
+  "screens": [
+    {
+      "name": "Command Interface",
+      "purpose": "Provide unified access to 60+ UE5 automation tools via CLI or MCP server.",
+      "primary_actions": [
+        "Edit Blueprints",
+        "Inspect materials",
+        "Invoke actor spawning",
+        "Parse config files",
+        "Run PIE sessions"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "exec-console-command",
+      "purpose": "Execute Unreal Engine console commands directly in PIE sessions.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "layer_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "inspect-customizable-object-graph",
+      "purpose": "Inspect CustomizableObject graph structure for AI-driven asset analysis.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "layer_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "inspect-mutable-diagnostics",
+      "purpose": "Provide structured diagnostics for Mutable system operations.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "layer_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "inspect-mutable-parameters",
+      "purpose": "Expose Mutable parameter metadata for runtime configuration by AI agents.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "layer_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "validate-class-path",
+      "purpose": "Verify that a soft class path resolves before attempting to spawn an actor.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "layer_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config_layers",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "layer_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "mutable_parameters",
+        "columns": [
+          {
+            "name": "group_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "parameter_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "ue_assets",
+        "columns": [
+          {
+            "name": "asset_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "asset_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Ensure compatibility with UE 5.7 compilation",
+    "week 1: Restore and stabilize inspection commands for Mutable and CustomizableObject systems",
+    "week 1: Validate MCP server integration with Claude Desktop and Cursor"
+  ],
+  "acceptance_tests": [
+    "CLI exports inspect-customizable-object-graph, inspect-mutable-parameters, and inspect-mutable-diagnostics commands as documented",
+    "Commands requiring PIE auto-detect editor state and return structured errors when not available",
+    "LLM client receives correct setup instructions for autonomous plugin installation",
+    "Offline config parsing correctly diffs .ini and BuildConfiguration.xml layers",
+    "SoftUEBridge plugin compiles successfully on UE 5.7"
+  ]
+}
