@@ -1,0 +1,137 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Fay",
+    "one_liner": "Fay is an open-source digital human agent framework that enables modular integration of LLMs, ASR/TTS models, and avatars for offline-capable, multi-terminal deployment with autonomous behaviors."
+  },
+  "screens": [
+    {
+      "name": "Main Control Interface",
+      "purpose": "Provides central access to digital human interaction, configuration, and monitoring.",
+      "primary_actions": [
+        "Configure LLM/ASR/TTS models",
+        "Manage knowledge base and QA pairs",
+        "Start/stop digital human session",
+        "Switch between text and voice modes"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "configure_llm_backend",
+      "purpose": "Sets the LLM backend (e.g., OpenAI-compatible, DeepSeek, Ollama) with credentials and parameters.",
+      "async": false,
+      "input": {
+        "model_id": "string",
+        "payload": "json",
+        "render_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "load_digital_human_model",
+      "purpose": "Loads a specified digital human avatar model for rendering and interaction.",
+      "async": true,
+      "input": {
+        "model_id": "string",
+        "payload": "json",
+        "render_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_fay_instance",
+      "purpose": "Launches the Fay digital human agent with specified configuration.",
+      "async": true,
+      "input": {
+        "model_id": "string",
+        "payload": "json",
+        "render_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "update_qa_rules",
+      "purpose": "Reloads or updates voice command mappings from qa.csv.",
+      "async": false,
+      "input": {
+        "model_id": "string",
+        "payload": "json",
+        "render_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "digital_human_models",
+        "columns": [
+          {
+            "name": "model_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "render_type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "llm_configs",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "qa_rules",
+        "columns": [
+          {
+            "name": "response_action",
+            "type": "TEXT"
+          },
+          {
+            "name": "trigger_phrase",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create GUI entry point via main.py",
+    "week 1: Implement minimal LLM interface with OpenAI compatibility",
+    "week 1: Integrate basic ASR (FunASR) and TTS pipeline",
+    "week 1: Set up core Python runtime with config loading",
+    "week 2: Add support for qa.csv voice command mapping",
+    "week 2: Enable memory and context tracking",
+    "week 2: Expose REST/text interaction endpoints",
+    "week 2: Implement digital human model loading stub"
+  ],
+  "acceptance_tests": [
+    "Custom QA rules from qa.csv execute expected actions on voice command.",
+    "Digital human avatar loads and synchronizes with TTS output.",
+    "Multiple concurrent users can interact with separate sessions.",
+    "System starts successfully using local configuration without remote dependencies.",
+    "Voice input is correctly transcribed by ASR and triggers appropriate LLM response."
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Social Income",
+    "one_liner": "An open-source platform that delivers unconditional basic income directly to people in poverty via mobile phones using transparent and verifiable selection processes."
+  },
+  "screens": [
+    {
+      "name": "Country Landing Page",
+      "purpose": "Provide localized information about Social Income operations per country.",
+      "primary_actions": [
+        "Learn about local impact",
+        "Navigate to donation portal",
+        "View team members"
+      ]
+    },
+    {
+      "name": "Recipient Dashboard",
+      "purpose": "Display recipient status, payment history, and program information.",
+      "primary_actions": [
+        "Access FAQ",
+        "Update profile",
+        "View payment history"
+      ]
+    },
+    {
+      "name": "Transparency Portal",
+      "purpose": "Show verifiable proof of fair recipient selection using drand and dchoose.",
+      "primary_actions": [
+        "Access methodology documentation",
+        "Verify draw results",
+        "View committed lists"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "hash_and_commit_list",
+      "purpose": "Salt, hash, and commit raw recipient lists to the repository for transparency.",
+      "async": true,
+      "input": {
+        "draw_id": "string",
+        "payload": "json",
+        "randomness_source": "string",
+        "reproducible_with_dchoose": "boolean",
+        "selected_recipients": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_recipient_draw",
+      "purpose": "Execute the verifiable recipient selection process using drand randomness and dchoose logic.",
+      "async": true,
+      "input": {
+        "draw_id": "string",
+        "payload": "json",
+        "randomness_source": "string",
+        "reproducible_with_dchoose": "boolean",
+        "selected_recipients": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_storyblok_content",
+      "purpose": "Pull updated content from Storyblok CMS into the website frontend.",
+      "async": true,
+      "input": {
+        "draw_id": "string",
+        "payload": "json",
+        "randomness_source": "string",
+        "reproducible_with_dchoose": "boolean",
+        "selected_recipients": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "draw_results",
+        "columns": [
+          {
+            "name": "draw_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "randomness_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "reproducible_with_dchoose",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "selected_recipients",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "recipient_lists",
+        "columns": [
+          {
+            "name": "commit_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "hashed_entries",
+            "type": "JSON"
+          },
+          {
+            "name": "list_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "website_content",
+        "columns": [
+          {
+            "name": "cms_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_synced",
+            "type": "DATETIME"
+          },
+          {
+            "name": "page_slug",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement dchoose-based draw logic in recipients_selection module",
+    "week 1: Integrate drand client for fetching public randomness",
+    "week 1: Set up Firebase emulator with seed data from /seed directory",
+    "week 2: Build Transparency Portal screen to display /lists and /draws",
+    "week 2: Connect recipient mobile app to Firestore for real-time updates",
+    "week 2: Migrate hardcoded navigation to Storyblok CMS",
+    "week 3: Add Google Tag Manager integration for analytics",
+    "week 3: Deprecate /ui Storybook components in favor of /website implementations",
+    "week 3: Write end-to-end test for full draw-and-notify workflow"
+  ],
+  "acceptance_tests": [
+    "Given a country landing page PR, when merged, then the page is live on the Next.js website with correct localization.",
+    "Given a drand randomness beacon, when draw.sh runs, then results are reproducible using dchoose and written to /draws.",
+    "Given a new participant list, when hashed and committed, then it appears in /lists with a verifiable salt.",
+    "Given a Storyblok CMS update, when sync command runs, then website content reflects the latest version."
+  ]
+}

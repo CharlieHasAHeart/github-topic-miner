@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OpenWA",
+    "one_liner": "OpenWA is a free, open-source, self-hosted WhatsApp API Gateway that provides full control over messaging infrastructure without vendor lock-in."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Manage WhatsApp sessions, webhooks, and API keys through a visual interface.",
+      "primary_actions": [
+        "Configure webhook endpoints",
+        "Create new WhatsApp session",
+        "Generate and manage API keys"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist configuration or session data using pluggable storage backends (Local/S3).",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "phone_number": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "phone_number",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create basic REST API endpoints for WhatsApp messaging",
+    "week 1: Implement pluggable adapter interfaces for database/storage/cache",
+    "week 1: Set up NestJS 11 project with TypeScript 5"
+  ],
+  "acceptance_tests": [
+    "System starts successfully in Docker with Node 22 LTS and zero configuration.",
+    "User can swap between SQLite and PostgreSQL via config without code changes."
+  ]
+}
