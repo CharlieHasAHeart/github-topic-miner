@@ -1,0 +1,73 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "JSignPdf",
+    "one_liner": "A cross-platform Java desktop application for adding digital signatures to PDF documents with support for hardware tokens, RFC 3161 timestamping, and long-term validation."
+  },
+  "screens": [
+    {
+      "name": "Main Signing Interface",
+      "purpose": "Allows users to load PDFs, preview documents, drag-to-place visible signatures, configure signing options, and initiate the signing process.",
+      "primary_actions": [
+        "Configure keystore (PKCS#12/PKCS#11)",
+        "Enable timestamping and revocation embedding",
+        "Load PDF via drag-and-drop or file picker",
+        "Place visible signature by dragging onto preview",
+        "Sign document"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "sign_pdf_cli",
+      "purpose": "Sign one or more PDFs non-interactively using command-line parameters with full parity to GUI capabilities.",
+      "async": false,
+      "input": {
+        "embed_ocsp_crl": "boolean",
+        "keystore_type": "string",
+        "payload": "json",
+        "timestamp_url": "string",
+        "visible_signature_template": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "signing_config",
+        "columns": [
+          {
+            "name": "embed_ocsp_crl",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "keystore_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "visible_signature_template",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add RFC 3161 timestamping configuration",
+    "week 1: Implement JavaFX PDF preview with drag-to-place signature overlay",
+    "week 1: Integrate PKCS#12 and PKCS#11 keystore selection",
+    "week 1: Support OCSP/CRL embedding toggle for LTV"
+  ],
+  "acceptance_tests": [
+    "CLI mode signs 100 PDFs in batch using preconfigured properties without GUI interaction.",
+    "User can load an encrypted PDF, place a visible signature via drag, and successfully sign with a PKCS#11 hardware token."
+  ]
+}

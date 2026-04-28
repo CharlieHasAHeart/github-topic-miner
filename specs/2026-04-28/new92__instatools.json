@@ -1,0 +1,67 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "InstaTools",
+    "one_liner": "A modular Python-based toolkit for Instagram automation, scraping, and reconnaissance."
+  },
+  "screens": [
+    {
+      "name": "Main Tool Selector",
+      "purpose": "Display available Instagram automation tools and guide user to select one for execution.",
+      "primary_actions": [
+        "Choose tool (e.g., Poirot, Spider, Hunter)",
+        "Navigate to tool directory",
+        "Run selected script with parameters"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_instagram_tool",
+      "purpose": "Execute a specified InstaTools script (e.g., mutuals.py, poirot.py) with given parameters after cookie authentication.",
+      "async": true,
+      "input": {
+        "email": "string",
+        "payload": "json",
+        "phone_number": "string",
+        "username": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "instagram_profiles",
+        "columns": [
+          {
+            "name": "email",
+            "type": "TEXT"
+          },
+          {
+            "name": "phone_number",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic error handling for HTTP 401 failures",
+    "week 1: Implement cookie-based authentication flow",
+    "week 1: Integrate core scraping tools (Poirot, Spider)"
+  ],
+  "acceptance_tests": [
+    "Poirot extracts email and phone number from public profiles when available",
+    "Script execution can be safely interrupted with Ctrl+C and exits cleanly",
+    "Tool successfully imports cookies without HTTP 401 error",
+    "User can run any tool from the documented list (e.g., Mutuals, Tracker) via CLI"
+  ]
+}
