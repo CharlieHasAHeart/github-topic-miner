@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "DeepSeek-TUI",
+    "one_liner": "A terminal-native coding agent for DeepSeek V4 models with 1M-token context, real-time reasoning visualization, and full tool-use capabilities."
+  },
+  "screens": [
+    {
+      "name": "Main Agent Interface",
+      "purpose": "Primary screen for task input, real-time reasoning display, tool execution logs, and interaction mode control.",
+      "primary_actions": [
+        "Access tool details (Alt+V)",
+        "Adjust reasoning-effort tier (off → high → max)",
+        "Submit task request",
+        "Toggle interaction mode (Plan/Agent/YOLO)",
+        "View/edit current plan and checklist"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Checkpoint and resume long sessions by saving agent state and workspace context.",
+      "async": true,
+      "input": {
+        "checklist_items": "json",
+        "description": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "tasks",
+        "columns": [
+          {
+            "name": "checklist_items",
+            "type": "JSON"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add file read/write and shell execution tools with approval gating",
+    "week 1: Implement core TUI loop with task input and reasoning stream display",
+    "week 1: Integrate DeepSeek V4 API with 1M-token context handling"
+  ],
+  "acceptance_tests": [
+    "In Agent mode, all shell and file mutation commands require explicit user approval before execution.",
+    "User can launch the TUI, authenticate via DeepSeek API key, and submit a coding task that triggers real-time chain-of-thought rendering."
+  ]
+}

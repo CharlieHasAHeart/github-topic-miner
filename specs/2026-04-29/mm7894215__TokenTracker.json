@@ -1,0 +1,77 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "TokenTracker",
+    "one_liner": "A local-first, zero-config tool that auto-collects token usage from 12+ AI coding tools, provides cost analytics via a local dashboard, and enables one-click skill synchronization across agents."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Display real-time token usage trends, model breakdowns, and cost analysis for all connected AI tools in a privacy-preserving local interface.",
+      "primary_actions": [
+        "Access local analytics without API keys",
+        "Install and sync skills across agents",
+        "View usage trends by model and tool"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist token usage records or skill metadata locally without requiring network calls.",
+      "async": true,
+      "input": {
+        "input_tokens": "int",
+        "model": "string",
+        "output_tokens": "int",
+        "payload": "json",
+        "timestamp": "timestamp",
+        "tool_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "token_usage",
+        "columns": [
+          {
+            "name": "input_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          },
+          {
+            "name": "output_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          },
+          {
+            "name": "tool_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build local SQLite ingestion pipeline",
+    "week 1: Implement auto-detection of 12+ AI tool hooks",
+    "week 1: Launch minimal dashboard at localhost:7680"
+  ],
+  "acceptance_tests": [
+    "Dashboard loads at localhost:7680 on first run without manual configuration",
+    "No crashes occur during macOS menu bar app initialization",
+    "Skills can be installed once and synced to Claude, Codex, and Gemini agents",
+    "Token usage from Codex and Cursor appears with correct model attribution"
+  ]
+}

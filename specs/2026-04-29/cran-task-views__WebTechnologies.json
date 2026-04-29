@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CRAN Web Technologies Task View",
+    "one_liner": "A curated list of R packages for web-related technologies, maintained as a CRAN Task View."
+  },
+  "screens": [
+    {
+      "name": "Task View Overview",
+      "purpose": "Display the current list of curated R packages for web technologies with descriptions and categories.",
+      "primary_actions": [
+        "Contribute new package suggestion",
+        "Report outdated package",
+        "View package list"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a new package suggestion or update to the task view metadata.",
+      "async": true,
+      "input": {
+        "last_updated": "timestamp",
+        "name": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "packages",
+        "columns": [
+          {
+            "name": "last_updated",
+            "type": "DATETIME"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add validation to flag packages archived on CRAN >60 days",
+    "week 1: Implement basic contribution workflow via GitHub issues",
+    "week 1: Parse existing WebTechnologies.md into structured package list"
+  ],
+  "acceptance_tests": [
+    "Contributors can submit suggestions through documented channels per contribution guidelines.",
+    "System flags any package listed in task view that has been archived on CRAN for more than 60 days."
+  ]
+}
