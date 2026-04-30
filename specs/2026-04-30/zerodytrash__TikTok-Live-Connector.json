@@ -1,0 +1,100 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "TikTok Live Event Monitor",
+    "one_liner": "A real-time monitor for TikTok LIVE events such as comments, gifts, and user joins using only a username and no credentials."
+  },
+  "screens": [
+    {
+      "name": "Live Event Dashboard",
+      "purpose": "Display real-time TikTok LIVE events including chat comments, gifts, and user activity.",
+      "primary_actions": [
+        "Filter events by type (e.g., gift, comment, join)",
+        "Start monitoring a live stream by username",
+        "View incoming events in real time"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "connect_to_live",
+      "purpose": "Initiate connection to a TikTok LIVE stream using the streamer's username to begin receiving real-time events.",
+      "async": true,
+      "input": {
+        "username": "string"
+      },
+      "output": {
+        "connection_status": "string"
+      }
+    },
+    {
+      "name": "fetch_room_data",
+      "purpose": "Retrieve initial room metadata such as viewer count, stream status, and HLS URL if available.",
+      "async": true,
+      "input": {
+        "username": "string"
+      },
+      "output": {
+        "room_info": "json"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "live_events",
+        "columns": [
+          {
+            "name": "event_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "payload",
+            "type": "JSON"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "room_metadata",
+        "columns": [
+          {
+            "name": "hls_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_live",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          },
+          {
+            "name": "viewer_count",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add error handling for common connection failures (403, user_not_found)",
+    "week 1: Build basic dashboard to display incoming events",
+    "week 1: Implement core connection logic using TikTokLiveConnection wrapper",
+    "week 1: Set up event listeners for key WebcastEvent types (comment, gift, member)"
+  ],
+  "acceptance_tests": [
+    "Gift events from users are reliably captured and logged, even for high-frequency senders.",
+    "Initial room data (including live status and viewer count) is fetched without error on stream start.",
+    "Member join events are triggered for users with gift level 25+ in rooms with fewer than 100 viewers.",
+    "System successfully connects to a public TikTok LIVE stream using only the username and begins receiving chat comments."
+  ]
+}

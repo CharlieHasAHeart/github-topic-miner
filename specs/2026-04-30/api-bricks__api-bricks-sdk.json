@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "API Bricks SDK",
+    "one_liner": "A multi-protocol SDK suite for integrating CoinAPI and FinFeedAPI financial data services."
+  },
+  "screens": [
+    {
+      "name": "SDK Selector",
+      "purpose": "Allows developers to browse and select from available CoinAPI and FinFeedAPI SDK modules by product and protocol.",
+      "primary_actions": [
+        "Access Documentation Hub",
+        "View CoinAPI SDKs",
+        "View FinFeedAPI SDKs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist selected SDK configuration or example snippet locally for later use.",
+      "async": true,
+      "input": {
+        "description": "string",
+        "payload": "json",
+        "product_name": "string",
+        "protocols": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "sdk_modules",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "product_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "protocols",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add local save functionality for selected SDK examples",
+    "week 1: Implement SDK module listing from CoinAPI and FinFeedAPI families",
+    "week 1: Integrate links to external documentation hubs"
+  ],
+  "acceptance_tests": [
+    "User can access FinFeedAPI documentation via embedded link",
+    "User can view all CoinAPI SDK modules with their supported protocols"
+  ]
+}
