@@ -1,0 +1,85 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Lazygit",
+    "one_liner": "A terminal-based UI for Git that simplifies common and advanced Git operations through an intuitive, keyboard-driven interface."
+  },
+  "screens": [
+    {
+      "name": "Main Status View",
+      "purpose": "Display high-level Git status including changed files, branches, recent commits, and worktrees.",
+      "primary_actions": [
+        "Open GitHub pull requests",
+        "Stage/unstage files",
+        "Switch branches",
+        "View commit history"
+      ]
+    },
+    {
+      "name": "Settings/Keybindings",
+      "purpose": "Configure keybindings and application behavior.",
+      "primary_actions": [
+        "Adjust UI preferences",
+        "Modify keybinding syntax"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Fetch and display repository items like files, commits, or branches.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "offset": "int?",
+        "path": "string",
+        "query": "string?",
+        "status": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user changes such as staged hunks or commit messages.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for viewing commit history",
+    "week 1: Implement core file listing and staging logic",
+    "week 1: Integrate basic branch navigation"
+  ],
+  "acceptance_tests": [
+    "Nested worktree paths are correctly resolved without 'null' segments.",
+    "User can reword non-HEAD commits using `git history reword` instead of `git rebase -i`."
+  ]
+}

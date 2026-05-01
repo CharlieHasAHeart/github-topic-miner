@@ -1,0 +1,274 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Moku",
+    "one_liner": "A fast, minimal manga reader frontend for Suwayomi-Server built with Tauri and Svelte 5."
+  },
+  "screens": [
+    {
+      "name": "Downloads",
+      "purpose": "Monitor and manage chapter download queue with retry and priority controls.",
+      "primary_actions": [
+        "Cancel downloads",
+        "Reorder queue",
+        "Retry failed downloads"
+      ]
+    },
+    {
+      "name": "Library",
+      "purpose": "Display manga organized into folders with stats, unread counts, and filtering by publication status.",
+      "primary_actions": [
+        "Apply sort (unread, A–Z, etc.)",
+        "Open manga",
+        "Toggle folder visibility"
+      ]
+    },
+    {
+      "name": "Reader",
+      "purpose": "Read manga with configurable fit modes, keybinds, zoom, pan, and page markers.",
+      "primary_actions": [
+        "Access per-manga settings",
+        "Adjust zoom/fit",
+        "Navigate pages",
+        "Set markers"
+      ]
+    },
+    {
+      "name": "Search",
+      "purpose": "Discover manga via keyword or tag-based search across sources.",
+      "primary_actions": [
+        "Filter by tags",
+        "Pin sources",
+        "Search by title"
+      ]
+    },
+    {
+      "name": "Series Detail",
+      "purpose": "View manga metadata, manage automation rules, and access markers.",
+      "primary_actions": [
+        "Configure auto-download/delete",
+        "Manage markers",
+        "Open in file manager"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure app-wide preferences including theme, reader defaults, and extension management.",
+      "primary_actions": [
+        "Backup settings",
+        "Manage extensions",
+        "Switch theme"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_system_theme",
+      "purpose": "Switch app theme based on system preference.",
+      "async": false,
+      "input": {
+        "auto_download": "boolean",
+        "delete_after_read": "boolean",
+        "file_path": "string",
+        "fix_ids": "json?",
+        "manga_id": "string"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "open_in_file_manager",
+      "purpose": "Open the local directory containing downloaded manga chapters.",
+      "async": true,
+      "input": {
+        "auto_download": "boolean",
+        "delete_after_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "retry_download",
+      "purpose": "Retry a failed chapter download with enhanced toast notification.",
+      "async": true,
+      "input": {
+        "auto_download": "boolean",
+        "delete_after_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_tracking_progress",
+      "purpose": "Perform two-way synchronization of reading progress between reader and app.",
+      "async": true,
+      "input": {
+        "auto_download": "boolean",
+        "delete_after_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "toggle_library_display_option",
+      "purpose": "Update UI visibility of card stats or folder visibility in library view.",
+      "async": true,
+      "input": {
+        "auto_download": "boolean",
+        "delete_after_read": "boolean",
+        "manga_id": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "automation_rule",
+        "columns": [
+          {
+            "name": "auto_download",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "delete_after_read",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "manga_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "download_queue",
+        "columns": [
+          {
+            "name": "chapter_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "manga_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "priority",
+            "type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "folder",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "sort_order",
+            "type": "TEXT"
+          },
+          {
+            "name": "status_filter",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "manga",
+        "columns": [
+          {
+            "name": "folder_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "publication_status",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "unread_count",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "marker",
+        "columns": [
+          {
+            "name": "color",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "manga_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "note",
+            "type": "TEXT"
+          },
+          {
+            "name": "page_number",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add marker creation and display on progress bar",
+    "week 1: Implement core library view with folder-based organization",
+    "week 1: Integrate basic reader with zoom and navigation",
+    "week 2: Add per-folder sorting and filtering",
+    "week 2: Build download queue with retry logic",
+    "week 2: Implement dual-sync tracking mechanism",
+    "week 3: Add Discord Rich Presence support",
+    "week 3: Develop automation panel for pre-download and cleanup",
+    "week 3: Integrate system theme switching"
+  ],
+  "acceptance_tests": [
+    "When download fails, retry button appears and successfully requeues the chapter.",
+    "When system theme changes, app UI switches automatically without restart.",
+    "When tracking poll runs, reading progress updates correctly in both reader and series detail.",
+    "When user toggles 'Hide Completed Manga', completed titles disappear from library view."
+  ]
+}

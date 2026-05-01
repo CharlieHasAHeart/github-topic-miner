@@ -1,0 +1,82 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OfficeCLI",
+    "one_liner": "OfficeCLI is the world's first and best command-line tool designed for AI agents to read, edit, and automate Word, Excel, and PowerPoint files without requiring Microsoft Office."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide a unified command-line entry point for AI agents to control Office document operations.",
+      "primary_actions": [
+        "Execute document creation/editing commands",
+        "Manage document paths and registry entries",
+        "Watch and preview file changes"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "add",
+      "purpose": "Add or register a document path for manipulation; fails if trailing slashes are present in registry paths.",
+      "async": false,
+      "input": {
+        "format": "string",
+        "locked": "boolean",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "watch",
+      "purpose": "Monitor and preview updates to Excel (.xlsx) files, though preview may appear before actual disk persistence.",
+      "async": true,
+      "input": {
+        "format": "string",
+        "locked": "boolean",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "documents",
+        "columns": [
+          {
+            "name": "format",
+            "type": "TEXT"
+          },
+          {
+            "name": "locked",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add file lock conflict handling for Excel operations",
+    "week 1: Ensure headless execution without GUI dialogs",
+    "week 1: Implement core add/watch commands with path validation"
+  ],
+  "acceptance_tests": [
+    "CLI must operate in pure headless mode without triggering GUI dialogs during invocation.",
+    "Concurrent Excel edits by AI agents must not result in file lock conflicts.",
+    "The 'add' command must reject paths with trailing slashes and provide clear error messaging.",
+    "The 'watch' command must not indicate file updates until changes are durably written to disk."
+  ]
+}

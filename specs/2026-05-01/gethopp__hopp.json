@@ -1,0 +1,101 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Hopp",
+    "one_liner": "An open-source pair programming app enabling real-time collaboration with high-quality screen sharing via WebRTC."
+  },
+  "screens": [
+    {
+      "name": "Main Collaboration Screen",
+      "purpose": "Host real-time pair programming sessions with screen sharing and participant controls.",
+      "primary_actions": [
+        "Invite teammate",
+        "Join room",
+        "Start screen share"
+      ]
+    },
+    {
+      "name": "Settings Screen",
+      "purpose": "Configure user preferences and application behavior.",
+      "primary_actions": [
+        "Manage key bindings",
+        "Toggle self-hosted server URL",
+        "Update audio/video settings"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "join_room",
+      "purpose": "Initiate connection to a LiveKit-powered collaboration room from the Rust backend.",
+      "async": true,
+      "input": {
+        "room_id": "string",
+        "token": "string"
+      },
+      "output": {
+        "error": "string?",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "start_screen_share",
+      "purpose": "Begin optimized screen sharing stream using WebRTC logic migrated to Rust.",
+      "async": true,
+      "input": {
+        "display_id": "string"
+      },
+      "output": {
+        "error": "string?",
+        "stream_id": "string?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "rooms",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "owner_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "users",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement main screen UI with React/TypeScript",
+    "week 1: Integrate LiveKit client for WebRTC signaling",
+    "week 1: Set up Tauri + Rust core with basic room joining"
+  ],
+  "acceptance_tests": [
+    "Settings page loads and allows saving of user preferences.",
+    "User can join a room and see their own screen shared with <500ms latency."
+  ]
+}
