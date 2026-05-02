@@ -1,0 +1,87 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Ultimate Bug Scanner",
+    "one_liner": "A static analysis tool that catches 1000+ bug patterns across popular programming languages and auto-wires into AI coding agent quality guardrails."
+  },
+  "screens": [
+    {
+      "name": "Main Scan Interface",
+      "purpose": "Provide entry point for initiating bug scans with support for automated agent integration and easy-mode setup.",
+      "primary_actions": [
+        "Enable easy-mode for zero-interaction installation and scanning",
+        "Output machine-readable results to stdout",
+        "Run full scan with default settings"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Enumerate detected bug findings or available rule modules for inspection.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "finding_type": "string",
+        "limit": "int?",
+        "line_number": "int",
+        "offset": "int?",
+        "query": "string?"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist scan results or configuration state securely without overwriting user files unexpectedly.",
+      "async": true,
+      "input": {
+        "file_path": "string",
+        "finding_type": "string",
+        "line_number": "int",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "finding_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "line_number",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add confirmation guardrails to prevent silent file overwrites",
+    "week 1: Fix macOS shebang resolution to avoid bash 3.2 incompatibility",
+    "week 1: Implement core installer with immutable tag-based module fetching"
+  ],
+  "acceptance_tests": [
+    "CLI tools must not overwrite user-specified files without explicit confirmation or clear documentation.",
+    "Installer must fetch modules from immutable versioned tags, not mutable refs like 'main' or 'v${UBS_VERSION}'.",
+    "Scan output on macOS must not silently fail due to shebang resolution issues."
+  ]
+}

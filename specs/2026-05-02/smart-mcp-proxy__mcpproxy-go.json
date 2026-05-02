@@ -1,0 +1,160 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "MCPProxy",
+    "one_liner": "An open-source desktop application that super-charges AI agents with intelligent tool discovery, massive token savings, and built-in security quarantine against malicious MCP servers."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Provides an overview of active MCP servers, agent tokens, and activity metrics with drill-down navigation.",
+      "primary_actions": [
+        "Approve quarantined servers",
+        "Navigate to detailed metrics",
+        "View server status"
+      ]
+    },
+    {
+      "name": "Security Quarantine",
+      "purpose": "Review and manually approve new MCP servers before they are exposed to AI agents.",
+      "primary_actions": [
+        "Approve server",
+        "Reject server",
+        "View tool list"
+      ]
+    },
+    {
+      "name": "Upstream Servers",
+      "purpose": "Manage connected MCP servers, view their status, and approve new ones from quarantine.",
+      "primary_actions": [
+        "Approve server",
+        "Disconnect server",
+        "View server details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "approve_mcp_server",
+      "purpose": "Approve a quarantined MCP server, allowing its tools to be exposed to AI agents.",
+      "async": true,
+      "input": {
+        "details": "json",
+        "event_type": "string",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "install_native_binaries",
+      "purpose": "Install core server and system tray app to system directories and configure PATH.",
+      "async": true,
+      "input": {
+        "details": "json",
+        "event_type": "string",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_server_state",
+      "purpose": "Emit servers.changed event to synchronize UI after tool approval or server updates.",
+      "async": true,
+      "input": {
+        "details": "json",
+        "event_type": "string",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "activity_logs",
+        "columns": [
+          {
+            "name": "details",
+            "type": "JSON"
+          },
+          {
+            "name": "event_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      },
+      {
+        "name": "agent_tokens",
+        "columns": [
+          {
+            "name": "last_used",
+            "type": "DATETIME"
+          },
+          {
+            "name": "server_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "token_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "mcp_servers",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "quarantined",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add quarantine mechanism for unapproved servers",
+    "week 1: Build system-tray UI with server status indicators",
+    "week 1: Implement core proxy logic for MCP tool routing",
+    "week 2: Add telemetry for setup funnel analytics",
+    "week 2: Develop onboarding wizard with import workflow",
+    "week 2: Integrate dynamic tool discovery via retrieve_tools",
+    "week 3: Add real-time server state synchronization",
+    "week 3: Implement silent installation support",
+    "week 3: Package native installers for macOS, Windows, Linux"
+  ],
+  "acceptance_tests": [
+    "After approving a quarantined MCP server, the UI immediately reflects the updated server state without manual refresh.",
+    "Docker-based MCP servers recover properly after restart when MCPProxy runs as a macOS launchd service.",
+    "Native installers correctly place binaries in Program Files (Windows) or Applications (macOS) and add MCPProxy to system PATH.",
+    "OAuth authentication works reliably for Runlayer-backed MCP servers without regression.",
+    "The system tray displays accurate counts of active upstream servers matching the submenu contents."
+  ]
+}

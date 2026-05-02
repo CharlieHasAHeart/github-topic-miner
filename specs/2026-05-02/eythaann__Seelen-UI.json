@@ -1,0 +1,162 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Seelen UI",
+    "one_liner": "A fully customizable desktop environment replacement for Windows that reimagines core shell components like the taskbar, dock, and window manager through deep theming and extensible widgets."
+  },
+  "screens": [
+    {
+      "name": "Configuration Panel",
+      "purpose": "Allows users to adjust shell behavior, enable/disable widgets, manage themes, and configure input/display settings.",
+      "primary_actions": [
+        "Apply or create themes",
+        "Configure display handling",
+        "Set language preferences",
+        "Toggle widget visibility"
+      ]
+    },
+    {
+      "name": "Desktop Shell",
+      "purpose": "Provides a customizable replacement for the Windows desktop, including taskbar, dock, app launcher, and virtual desktops.",
+      "primary_actions": [
+        "Access system notifications",
+        "Customize appearance via themes",
+        "Launch applications",
+        "Switch between virtual desktops"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "handle_display_change",
+      "purpose": "Responds to monitor connection/disconnection events to maintain UI stability across dynamic display configurations.",
+      "async": true,
+      "input": {
+        "dpi_scale": "float",
+        "is_primary": "boolean",
+        "payload": "json",
+        "resolution": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "manage_alt_tab_focus",
+      "purpose": "Ensures proper focus handling during Alt-Tab switching, especially when interacting with fullscreen applications or configuration panels.",
+      "async": true,
+      "input": {
+        "dpi_scale": "float",
+        "is_primary": "boolean",
+        "payload": "json",
+        "resolution": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "process_touchpad_gesture",
+      "purpose": "Interprets touchpad tap-to-click and gesture inputs correctly within the Seelen UI shell context.",
+      "async": true,
+      "input": {
+        "dpi_scale": "float",
+        "is_primary": "boolean",
+        "payload": "json",
+        "resolution": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "toggle_toolbar_visibility",
+      "purpose": "Controls the appearance and disappearance of the toolbar and dock based on user settings and system state (e.g., game mode).",
+      "async": true,
+      "input": {
+        "dpi_scale": "float",
+        "is_primary": "boolean",
+        "payload": "json",
+        "resolution": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "display_configs",
+        "columns": [
+          {
+            "name": "dpi_scale",
+            "type": "REAL"
+          },
+          {
+            "name": "is_primary",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "resolution",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "themes",
+        "columns": [
+          {
+            "name": "css_rules",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "json_config",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "widgets",
+        "columns": [
+          {
+            "name": "enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "position",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Ensure consistent toolbar/dock visibility logic across sessions",
+    "week 1: Fix Alt-Tab focus retention during shell interactions",
+    "week 1: Implement stable display hot-plug detection and UI reconfiguration",
+    "week 1: Validate touchpad gesture recognition in all input contexts"
+  ],
+  "acceptance_tests": [
+    "Alt-Tab selector does not get stuck after switching focus from the Seelen UI configuration panel [E-IS-004].",
+    "Toolbar and dock do not intermittently disappear during normal desktop usage [E-IS-006].",
+    "Toolbar and dock remain stable when connecting or disconnecting external displays [E-IS-002].",
+    "Touchpad tap-to-click gestures are consistently recognized without misinterpretation [E-IS-003]."
+  ]
+}
