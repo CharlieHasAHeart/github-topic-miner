@@ -1,0 +1,108 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AIStudioToAPI",
+    "one_liner": "A proxy service that wraps Google AI Studio's web interface into APIs compatible with OpenAI, Gemini, and Anthropic formats using browser automation."
+  },
+  "screens": [
+    {
+      "name": "Web Control Console",
+      "purpose": "Provides a local dashboard to monitor account status, service health, and model usage statistics.",
+      "primary_actions": [
+        "Access VNC session for account management (Docker only)",
+        "Monitor real-time request statistics",
+        "View connected Google accounts"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "setup_auth",
+      "purpose": "Initiates the authentication flow to log into Google AI Studio and persist credentials locally.",
+      "async": true,
+      "input": {
+        "account_id": "string",
+        "last_used": "timestamp",
+        "payload": "json",
+        "session_data": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_service",
+      "purpose": "Launches the API proxy server and browser automation backend.",
+      "async": true,
+      "input": {
+        "account_id": "string",
+        "last_used": "timestamp",
+        "payload": "json",
+        "session_data": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "auth_credentials",
+        "columns": [
+          {
+            "name": "account_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_used",
+            "type": "DATETIME"
+          },
+          {
+            "name": "session_data",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "usage_stats",
+        "columns": [
+          {
+            "name": "account_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "api_format",
+            "type": "TEXT"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          },
+          {
+            "name": "request_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add persistent auth storage in /configs/auth",
+    "week 1: Build API routers for OpenAI, Gemini, and Anthropic compatibility",
+    "week 1: Create Web UI dashboard on port 7860",
+    "week 1: Implement browser automation layer with Camoufox"
+  ],
+  "acceptance_tests": [
+    "Docker deployment mounts auth and data volumes and exposes port 7860 as documented.",
+    "Multiple Google accounts can be added via npm run setup-auth and switched without re-login.",
+    "Service successfully proxies an OpenAI-style chat completion request to Google AI Studio and returns a valid response.",
+    "Usage statistics are correctly written to /data/usage-stats.jsonl after each request."
+  ]
+}

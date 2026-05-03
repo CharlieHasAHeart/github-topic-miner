@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "TensorFlow Quantum",
+    "one_liner": "An open-source Python framework for hybrid quantum-classical machine learning that integrates Cirq-defined quantum circuits with TensorFlow’s scalable ML infrastructure."
+  },
+  "screens": [
+    {
+      "name": "Quantum ML Workspace",
+      "purpose": "Enable users to define, simulate, and train hybrid quantum-classical models by combining Cirq circuits with TensorFlow constructs.",
+      "primary_actions": [
+        "Compute gradients via parameter shift or adjoint methods",
+        "Define quantum circuit with Cirq",
+        "Integrate into Keras model",
+        "Simulate circuit using qsim"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "configure_keras_compatibility",
+      "purpose": "Set environment variable TF_USE_LEGACY_KERAS=1 before importing TensorFlow or TensorFlow Quantum to ensure compatibility with Keras 2.",
+      "async": false,
+      "input": {
+        "circuit_definition": "string",
+        "payload": "json",
+        "simulation_backend": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "quantum_circuits",
+        "columns": [
+          {
+            "name": "circuit_definition",
+            "type": "TEXT"
+          },
+          {
+            "name": "simulation_backend",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define a simple parameterized quantum circuit using Cirq",
+    "week 1: Embed circuit into a Keras model using TFQ layers",
+    "week 1: Install pinned versions of TensorFlow (2.18.1) and TensorFlow Quantum (0.7.6)",
+    "week 1: Set up environment with TF_USE_LEGACY_KERAS=1",
+    "week 1: Train model using parameter-shift gradient method"
+  ],
+  "acceptance_tests": [
+    "Application runs without error only when TF_USE_LEGACY_KERAS=1 is set before any TensorFlow import.",
+    "Framework supports Python 3.10–3.12 and NumPy 2 as stated in v0.7.6 release notes.",
+    "Quantum operations execute as first-class TensorFlow C++ ops within the compute graph."
+  ]
+}
