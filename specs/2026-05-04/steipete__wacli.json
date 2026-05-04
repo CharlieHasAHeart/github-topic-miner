@@ -1,0 +1,167 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "wacli",
+    "one_liner": "A third-party WhatsApp CLI tool that enables local message sync, offline search, and programmatic messaging via the WhatsApp Web protocol."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide command-line access to WhatsApp features including auth, sync, message listing/searching, sending, and group management.",
+      "primary_actions": [
+        "Authenticate with QR code",
+        "List/search messages",
+        "Manage contacts and groups",
+        "Send text/media messages",
+        "Start continuous sync"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "auth",
+      "purpose": "Initiate QR code login and bootstrap initial message sync.",
+      "async": false,
+      "input": {
+        "alias": "string",
+        "jid": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "messages_list",
+      "purpose": "List recent messages from a specified chat with filtering by time, sender, media type, and order.",
+      "async": false,
+      "input": {
+        "alias": "string",
+        "jid": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "send",
+      "purpose": "Send text, quoted replies, or media files with captions, MIME override, and custom filenames—but fails if sync is not running due to LID cache dependency.",
+      "async": true,
+      "input": {
+        "alias": "string",
+        "jid": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync",
+      "purpose": "Run non-interactive sync to capture message history continuously or once; required for reliable message sending.",
+      "async": true,
+      "input": {
+        "alias": "string",
+        "jid": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "contacts",
+        "columns": [
+          {
+            "name": "alias",
+            "type": "TEXT"
+          },
+          {
+            "name": "jid",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "groups",
+        "columns": [
+          {
+            "name": "jid",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "participants",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "messages",
+        "columns": [
+          {
+            "name": "body",
+            "type": "TEXT"
+          },
+          {
+            "name": "chat_jid",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_forwarded",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "media_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "sender_jid",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Enable basic message listing and search by chat/time",
+    "week 1: Implement auth flow with QR display and initial sync",
+    "week 1: Set up SQLite store with FTS5 support and fallback to LIKE",
+    "week 1: Support sending plain text messages",
+    "week 2: Add presence indicators (typing/paused)",
+    "week 2: Add quoted reply and media sending with caption/filename override",
+    "week 2: Implement contact and group listing/refresh",
+    "week 2: Integrate background media download during sync"
+  ],
+  "acceptance_tests": [
+    "1:1 chat messages appear split between @s.whatsapp.net and @lid JIDs, causing fragmented history.",
+    "After successful `auth`, running `sync --follow` captures incoming messages without re-authentication.",
+    "LID normalization works during initial sync (`auth`) but fails during live sync (`sync --once`).",
+    "Messages sent successfully may not be delivered if internal message lookup fails ('couldn't find message' error).",
+    "Sending a message fails with timeout if `sync` is not running, due to missing LID cache.",
+    "SQLite store is secured against path injection and null byte exploits as patched in v0.6.0."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Binance PHP Connector",
+    "one_liner": "A modular, auto-generated PHP SDK providing secure REST API access to Binance's trading and financial services."
+  },
+  "screens": [
+    {
+      "name": "Connector Dashboard",
+      "purpose": "Display available Binance service connectors and allow selection for API interaction.",
+      "primary_actions": [
+        "Configure authentication",
+        "Select Futures connector",
+        "Select Spot connector"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "configure_authentication",
+      "purpose": "Set up API credentials and signature method (HMAC, RSA, or Ed25519) for secure API access.",
+      "async": true,
+      "input": {
+        "api_key": "string",
+        "payload": "json",
+        "signature_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "instantiate_connector",
+      "purpose": "Create an instance of a specific Binance service connector (e.g., Spot, Convert, Crypto Loans).",
+      "async": true,
+      "input": {
+        "api_key": "string",
+        "payload": "json",
+        "signature_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "authentication_configs",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "signature_type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "connectors",
+        "columns": [
+          {
+            "name": "module_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "service_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic error handling for class loading",
+    "week 1: Implement HMAC-based authentication setup",
+    "week 1: Integrate Spot connector instantiation"
+  ],
+  "acceptance_tests": [
+    "System handles missing class errors gracefully with clear guidance.",
+    "User can configure HMAC authentication using API key and secret without runtime errors.",
+    "User can instantiate Spot connector and call a basic endpoint (e.g., /api/v3/ping)."
+  ]
+}

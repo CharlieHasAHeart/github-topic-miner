@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "unplugin-element-plus",
+    "one_liner": "A cross-bundler plugin enabling on-demand import of Element Plus components and styles."
+  },
+  "screens": [
+    {
+      "name": "Plugin Configuration",
+      "purpose": "Configure unplugin-element-plus options for on-demand imports and locale settings.",
+      "primary_actions": [
+        "Select target bundler",
+        "Set on-demand import options",
+        "Specify default locale"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist plugin configuration for a given bundler setup.",
+      "async": true,
+      "input": {
+        "bundler": "string",
+        "options": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "plugin_configs",
+        "columns": [
+          {
+            "name": "bundler",
+            "type": "TEXT"
+          },
+          {
+            "name": "options",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add on-demand style import logic",
+    "week 1: Implement core unplugin interface for Vite and Webpack",
+    "week 1: Integrate locale replacement feature"
+  ],
+  "acceptance_tests": [
+    "Locale replacement works as configured across different bundlers.",
+    "Plugin correctly imports only used Element Plus components in Vite projects without full bundle inclusion."
+  ]
+}
