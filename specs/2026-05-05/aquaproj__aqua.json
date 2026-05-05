@@ -1,0 +1,110 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "aqua",
+    "one_liner": "Declarative CLI version manager written in Go that supports lazy install, registry-based tool management, and continuous updates via Renovate."
+  },
+  "screens": [
+    {
+      "name": "Tool Management Dashboard",
+      "purpose": "Display configured CLI tools, their versions, and installation status with options to update or switch versions.",
+      "primary_actions": [
+        "Install selected tool version",
+        "Switch tool version per project",
+        "Trigger Renovate update check"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_tool",
+      "purpose": "Lazily install a CLI tool from the registry based on declared configuration.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "tool_versions": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "switch_version",
+      "purpose": "Switch the active version of a CLI tool for the current project context.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "tool_versions": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_with_renovate",
+      "purpose": "Check for available updates via Renovate integration and propose version bumps.",
+      "async": true,
+      "input": {
+        "path": "string",
+        "payload": "json",
+        "tool_versions": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "tool_versions",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "tools",
+        "columns": [
+          {
+            "name": "installed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "registry_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build project-scoped version switching logic",
+    "week 1: Implement core lazy install mechanism for registry-based tools",
+    "week 1: Integrate basic Renovate update detection"
+  ],
+  "acceptance_tests": [
+    "Given a new version is available via Renovate, when syncing, the system proposes an update without breaking existing installations.",
+    "Given a project with an aqua configuration, when the user runs a declared CLI tool, then it is installed lazily and executed.",
+    "Given two projects with different versions of the same tool, when switching between them, the correct version is active in each context."
+  ]
+}

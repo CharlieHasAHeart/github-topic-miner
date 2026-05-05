@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Schemathesis",
+    "one_liner": "Automated API testing tool that generates thousands of test cases from OpenAPI or GraphQL schemas to uncover edge-case bugs and contract violations."
+  },
+  "screens": [
+    {
+      "name": "Test Runner Dashboard",
+      "purpose": "Display real-time results of automated API test runs, including detected bugs like 500 errors, schema violations, and stateful workflow failures.",
+      "primary_actions": [
+        "Inspect runtime resource pool contents",
+        "Run tests from CLI or pytest",
+        "View captured request/response pairs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "run_tests",
+      "purpose": "Execute automated test cases against an API using its OpenAPI or GraphQL schema, with support for fuzzing, stateful chaining, and coverage phases.",
+      "async": true,
+      "input": {
+        "captured_value": "string",
+        "payload": "json",
+        "resource_key": "string",
+        "source_request_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "runtime_resource_pool",
+        "columns": [
+          {
+            "name": "captured_value",
+            "type": "TEXT"
+          },
+          {
+            "name": "resource_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_request_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "test_cases",
+        "columns": [
+          {
+            "name": "case_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "generated_input",
+            "type": "JSON"
+          },
+          {
+            "name": "response_status",
+            "type": "INTEGER"
+          },
+          {
+            "name": "schema_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "violation_type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic CLI command 'run_tests'",
+    "week 1: Build test case generator with edge-case and invalid input support",
+    "week 1: Implement schema ingestion for OpenAPI/GraphQL"
+  ],
+  "acceptance_tests": [
+    "System captures path-parameter values from successful 2xx responses and reuses them in later fuzzing phases.",
+    "Test runner detects 500 errors, schema violations, validation bypasses, and stateful workflow failures as documented."
+  ]
+}

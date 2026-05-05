@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "mdsf",
+    "one_liner": "Format and lint code blocks in Markdown documents using external tools."
+  },
+  "screens": [
+    {
+      "name": "CLI Interface",
+      "purpose": "Provide command-line access to formatting, linting, configuration, and tool management features.",
+      "primary_actions": [
+        "format markdown files",
+        "initialize configuration",
+        "list supported tools",
+        "verify formatting compliance"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "cache_cleanup",
+      "purpose": "Remove outdated formatting cache entries to free disk space.",
+      "async": true,
+      "input": {
+        "file_format": "string",
+        "newlines": "string",
+        "payload": "json",
+        "schema_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "format",
+      "purpose": "Format code blocks in Markdown files using configured external tools.",
+      "async": true,
+      "input": {
+        "file_format": "string",
+        "newlines": "string",
+        "payload": "json",
+        "schema_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "init",
+      "purpose": "Generate a new configuration file with specified schema version and format (TOML/YAML).",
+      "async": true,
+      "input": {
+        "file_format": "string",
+        "newlines": "string",
+        "payload": "json",
+        "schema_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "verify",
+      "purpose": "Check whether code blocks in Markdown files are correctly formatted without modifying them.",
+      "async": true,
+      "input": {
+        "file_format": "string",
+        "newlines": "string",
+        "payload": "json",
+        "schema_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config",
+        "columns": [
+          {
+            "name": "file_format",
+            "type": "TEXT"
+          },
+          {
+            "name": "newlines",
+            "type": "TEXT"
+          },
+          {
+            "name": "schema_version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tools",
+        "columns": [
+          {
+            "name": "command",
+            "type": "TEXT"
+          },
+          {
+            "name": "language_aliases",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for TOML configuration loading",
+    "week 1: Implement core CLI parsing and dispatch",
+    "week 1: Integrate basic formatting with built-in tool registry"
+  ],
+  "acceptance_tests": [
+    "Given a Markdown file with unformatted Python code block, when mdsf format is run, then the code block is reformatted using black.",
+    "Given a valid mdsf config in YAML, when mdsf verify is executed, then it reports no errors if all code blocks match expected formatting.",
+    "Given custom tool definition in config, when mdsf format runs on matching language alias, then the custom command is invoked correctly."
+  ]
+}
