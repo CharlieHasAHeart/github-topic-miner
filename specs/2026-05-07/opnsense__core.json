@@ -1,0 +1,108 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OPNsense Core",
+    "one_liner": "An open-source firewall platform with modular architecture, GUI, and API backend focused on incremental evolution and community contribution."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Provide overview of system status and navigation to firewall, DHCP, and VPN configuration modules.",
+      "primary_actions": [
+        "Access WireGuard configuration",
+        "Navigate to DHCP settings",
+        "View system logs"
+      ]
+    },
+    {
+      "name": "Network Settings",
+      "purpose": "Configure DHCP reservations, lease times, and subnet options using KEA backend.",
+      "primary_actions": [
+        "Edit KEA DHCP reservations",
+        "Set lease duration per subnet",
+        "Toggle ISC reservation matching"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "restart_wireguard_connection",
+      "purpose": "Re-establish a dropped PROTON WireGuard tunnel.",
+      "async": true,
+      "input": {
+        "ip_address": "string",
+        "mac_address": "string",
+        "payload": "json",
+        "subnet_id": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_kea_reservation",
+      "purpose": "Persist a KEA DHCP reservation configuration to the system.",
+      "async": true,
+      "input": {
+        "ip_address": "string",
+        "mac_address": "string",
+        "payload": "json",
+        "subnet_id": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "dhcp_reservations",
+        "columns": [
+          {
+            "name": "ip_address",
+            "type": "TEXT"
+          },
+          {
+            "name": "mac_address",
+            "type": "TEXT"
+          },
+          {
+            "name": "subnet_id",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "wireguard_peers",
+        "columns": [
+          {
+            "name": "endpoint",
+            "type": "TEXT"
+          },
+          {
+            "name": "peer_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "persistent_keepalive",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add per-subnet lease time configuration UI",
+    "week 1: Implement KEA DHCPv6 MAC-based reservation fix",
+    "week 1: Integrate WireGuard connection health monitoring"
+  ],
+  "acceptance_tests": [
+    "ISC reservation matching toggle functions as expected [ID:E-IS-004].",
+    "KEA DHCPv6 reservations correctly assign IP addresses based on MAC address [ID:E-IS-002].",
+    "Per-subnet DHCP lease times are honored by KEA server [ID:E-IS-003].",
+    "WireGuard connections automatically restore after drop [ID:E-IS-005]."
+  ]
+}

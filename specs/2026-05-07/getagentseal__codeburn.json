@@ -1,0 +1,158 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CodeBurn",
+    "one_liner": "A local-first CLI and macOS menubar tool that tracks AI coding token usage, cost, and performance across 18+ tools by reading session data directly from disk with no API keys or proxies."
+  },
+  "screens": [
+    {
+      "name": "Interactive TUI Dashboard",
+      "purpose": "Display real-time and historical AI coding cost, token usage, and performance metrics across projects, models, and providers with time-range navigation.",
+      "primary_actions": [
+        "Export data as JSON or CSV",
+        "Launch model comparison view",
+        "Launch optimization suggestions",
+        "Quit or auto-refresh dashboard",
+        "Switch between time ranges (Today, 7 Days, 30 Days, Month, 6 Months)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "compare_models",
+      "purpose": "Fetch side-by-side metrics (cost, tokens, speed) for different models or providers over a specified period.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "session_path_pattern": "string",
+        "supported_models": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list_items",
+      "purpose": "Retrieve and filter session records by time range, provider, or project for display in the dashboard or export.",
+      "async": true,
+      "input": {
+        "limit": "int?",
+        "name": "string",
+        "offset": "int?",
+        "query": "string?",
+        "session_path_pattern": "string",
+        "supported_models": "json"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "optimize_insights",
+      "purpose": "Scan historical usage to identify wasteful patterns (e.g., high-cost low-yield sessions) and generate actionable copy-paste fixes.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "session_path_pattern": "string",
+        "supported_models": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist parsed session data including tokens, cost, model, provider, and timestamps to local storage for aggregation and reporting.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "session_path_pattern": "string",
+        "supported_models": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_path_pattern",
+            "type": "TEXT"
+          },
+          {
+            "name": "supported_models",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "cost_usd",
+            "type": "REAL"
+          },
+          {
+            "name": "input_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "model",
+            "type": "TEXT"
+          },
+          {
+            "name": "output_tokens",
+            "type": "INTEGER"
+          },
+          {
+            "name": "project",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          },
+          {
+            "name": "tool_use_blocks",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add export functionality (JSON/CSV) and basic optimization heuristic",
+    "week 1: Build core TUI dashboard with time-range filtering and auto-refresh",
+    "week 1: Implement local session file parser for at least 3 major AI coding tools (e.g., Codex, Claude Code, Cursor)",
+    "week 1: Integrate LiteLLM-based cost calculator with model alias resolution"
+  ],
+  "acceptance_tests": [
+    "On Node.js 22.13+, CodeBurn correctly ingests Cursor session data via better-sqlite3 and displays non-zero costs in the dashboard.",
+    "On Windows, Antigravity sessions are either detected correctly or the system provides a clear warning about unsupported platform behavior.",
+    "Running `codeburn optimize` on a dataset containing redundant streaming responses accurately identifies waste and suggests fixes without losing tool_use blocks.",
+    "The macOS menubar app installs via `npx codeburn menubar`, clears quarantine attributes, and displays live cost updates matching the CLI dashboard."
+  ]
+}
