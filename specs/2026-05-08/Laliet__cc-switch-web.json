@@ -1,0 +1,164 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "cc-switch-web",
+    "one_liner": "A cross-platform web-based All-in-One assistant for Claude Code, Codex, Gemini CLI, OpenCode & OMO with cloud/headless deployment support."
+  },
+  "screens": [
+    {
+      "name": "Provider & MCP Dashboard",
+      "purpose": "Display and manage AI providers, MCP servers, and active configurations for multiple AI toolchains.",
+      "primary_actions": [
+        "Backup/restore configuration",
+        "Edit system prompt",
+        "Manage MCP server connections",
+        "Switch provider endpoint"
+      ]
+    },
+    {
+      "name": "Skills Marketplace",
+      "purpose": "Browse and install Claude skills from GitHub repositories.",
+      "primary_actions": [
+        "Install skill",
+        "Search skills",
+        "View installed skills"
+      ]
+    },
+    {
+      "name": "Web Server Settings",
+      "purpose": "Configure headless Web Server mode including authentication and network settings.",
+      "primary_actions": [
+        "Enable/disable Web Server mode",
+        "Set Basic Auth credentials",
+        "View server status"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "backup_config",
+      "purpose": "Serialize and save current application configuration with version history.",
+      "async": true,
+      "input": {
+        "backup_id": "string",
+        "created_at": "timestamp",
+        "data": "json",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "backup_id": "string",
+        "timestamp": "string"
+      }
+    },
+    {
+      "name": "install_skill",
+      "purpose": "Download and install a Claude skill from a GitHub URL into the correct local path.",
+      "async": true,
+      "input": {
+        "github_url": "string",
+        "target_toolchain": "string"
+      },
+      "output": {
+        "error": "string?",
+        "installed_path": "string"
+      }
+    },
+    {
+      "name": "switch_provider",
+      "purpose": "Switch the active API provider endpoint for a given AI toolchain (e.g., Claude, Codex).",
+      "async": true,
+      "input": {
+        "api_key": "string",
+        "endpoint_url": "string",
+        "toolchain": "string"
+      },
+      "output": {
+        "message": "string",
+        "success": "boolean"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "config_backups",
+        "columns": [
+          {
+            "name": "backup_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "data",
+            "type": "JSON"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "endpoint_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "env_config",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "toolchain",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "skills",
+        "columns": [
+          {
+            "name": "github_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "installed_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add config backup/restore with versioning",
+    "week 1: Build main dashboard UI with provider/MCP listing",
+    "week 1: Implement core provider switching logic with env preservation",
+    "week 2: Add system prompt editor with syntax highlighting",
+    "week 2: Implement Web Server mode with Basic Auth",
+    "week 2: Integrate GitHub-based skills installer with path validation"
+  ],
+  "acceptance_tests": [
+    "MCP servers for Claude/Codex/Gemini display correctly; OpenCode MCP/plugins render without UI anomalies.",
+    "Skills installed from GitHub appear in the marketplace and are placed in the correct filesystem path.",
+    "User can change Web Server password after initial setup.",
+    "User can switch between OpenAI-compatible providers without losing nested env variables in configuration.",
+    "Web Server mode starts on Linux x86_64 and serves UI with Basic Auth protection."
+  ]
+}

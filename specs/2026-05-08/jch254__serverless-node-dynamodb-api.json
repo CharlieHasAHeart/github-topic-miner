@@ -1,0 +1,62 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Serverless Authenticated API Starter",
+    "one_liner": "A production-ready serverless API starter kit using Node.js, TypeScript, Webpack, DynamoDB, and Auth0 for JWT-based authentication."
+  },
+  "screens": [
+    {
+      "name": "API Gateway Interface",
+      "purpose": "Serve as the entry point for authenticated RESTful requests to the serverless backend.",
+      "primary_actions": [
+        "Submit authenticated CRUD requests to DynamoDB-backed resources"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Store a new item in the DynamoDB table after validating the user's Auth0 JWT token.",
+      "async": true,
+      "input": {
+        "data": "json",
+        "payload": "json",
+        "userId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "data",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "userId",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure Auth0 JWT validation middleware for all endpoints",
+    "week 1: Implement basic CRUD operations for DynamoDB items",
+    "week 1: Set up local development environment with serverless-offline and serverless-dynamodb-local"
+  ],
+  "acceptance_tests": [
+    "API returns 401 when request lacks valid Auth0 JWT token",
+    "Authenticated user can create and retrieve their own items from DynamoDB"
+  ]
+}

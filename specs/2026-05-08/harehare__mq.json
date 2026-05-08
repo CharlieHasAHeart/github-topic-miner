@@ -1,0 +1,55 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "mq",
+    "one_liner": "A jq-like command-line tool for querying and transforming Markdown, optimized for LLM workflows."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Execute mq queries against Markdown files or stdin with support for multiple output formats.",
+      "primary_actions": [
+        "Invoke REPL for interactive exploration",
+        "Run query with grep output",
+        "Run query with table output"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist transformed Markdown content to disk using mq's core processing pipeline.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add REPL with rich completions",
+    "week 1: Implement core selector syntax for Markdown filtering",
+    "week 1: Support table and grep output formats"
+  ],
+  "acceptance_tests": [
+    "User can filter Markdown headers using bracket selectors with variables",
+    "User receives colored table output with borders when using --table flag"
+  ]
+}
