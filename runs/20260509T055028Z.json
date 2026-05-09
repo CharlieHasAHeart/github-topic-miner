@@ -1,0 +1,2803 @@
+{
+  "run_id": "20260509T055028Z",
+  "generated_at": "2026-05-09T05:50:28.622Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 40,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 16,
+      "release": 6,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-09T05:54:03.809Z",
+    "repo_count": 284
+  },
+  "candidates": [
+    {
+      "full_name": "libnyanpasu/clash-nyanpasu",
+      "html_url": "https://github.com/libnyanpasu/clash-nyanpasu",
+      "description": "Clash Nyanpasu～(∠・ω< )⌒☆​",
+      "topics": [
+        "clash",
+        "clash-meta",
+        "clash-nyanpasu",
+        "clash-rs",
+        "material-you",
+        "mihomo",
+        "react",
+        "rust",
+        "tauri",
+        "tauri-app"
+      ],
+      "language": "Rust",
+      "stargazers_count": 12987,
+      "forks_count": 790,
+      "open_issues_count": 110,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-09T05:50:13Z",
+      "created_at": "2023-11-10T01:25:55Z"
+    },
+    {
+      "full_name": "WFCD/warframe-items",
+      "html_url": "https://github.com/WFCD/warframe-items",
+      "description": "📘 Get all Warframe items directly from Warframe's API. No more messy wikia scraping.",
+      "topics": [
+        "api",
+        "drop-rates",
+        "ducats",
+        "items",
+        "patchlogs",
+        "rivens",
+        "warframe",
+        "warframe-api",
+        "warframe-items"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 374,
+      "forks_count": 70,
+      "open_issues_count": 15,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:49Z",
+      "created_at": "2018-05-18T21:01:05Z"
+    },
+    {
+      "full_name": "lakernote/EasyPostman",
+      "html_url": "https://github.com/lakernote/EasyPostman",
+      "description": "An open-source API debugging and stress testing tool inspired by Postman and a simplified JMeter, optimized for developers with a clean UI and powerful features.",
+      "topics": [
+        "api",
+        "api-test",
+        "api-test-automation",
+        "java",
+        "javaswing",
+        "jmeter",
+        "postman",
+        "tools"
+      ],
+      "language": "Java",
+      "stargazers_count": 639,
+      "forks_count": 49,
+      "open_issues_count": 9,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:31Z",
+      "created_at": "2025-06-18T15:17:27Z"
+    },
+    {
+      "full_name": "Seafoam-Labs/Shelly-ALPM",
+      "html_url": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+      "description": "Pacman alternative for ArchLinux, designed with you in mind.",
+      "topics": [
+        "archlinux",
+        "archlinux-community",
+        "archlinux-package",
+        "archlinuxgui",
+        "cachyos",
+        "cli",
+        "dotnet",
+        "garuda-linux",
+        "gtk",
+        "gtk4",
+        "linux",
+        "package-management",
+        "package-manager",
+        "pacman",
+        "shelly",
+        "shelly-cli",
+        "shelly-ui",
+        "visual"
+      ],
+      "language": "C#",
+      "stargazers_count": 514,
+      "forks_count": 31,
+      "open_issues_count": 28,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:18Z",
+      "created_at": "2026-01-07T17:57:02Z"
+    },
+    {
+      "full_name": "gptme/gptme",
+      "html_url": "https://github.com/gptme/gptme",
+      "description": "Your agent in your terminal, equipped with local tools: writes code, uses the terminal, browses the web. Make your own persistent autonomous agent on top!",
+      "topics": [
+        "agent",
+        "agents",
+        "ai-agents",
+        "ai-assistant",
+        "anthropic",
+        "chatbot",
+        "chatgpt",
+        "cli",
+        "code-generation",
+        "llamacpp",
+        "llm",
+        "llm-agent",
+        "llm-apps",
+        "openai",
+        "openrouter",
+        "rag"
+      ],
+      "language": "Python",
+      "stargazers_count": 4293,
+      "forks_count": 386,
+      "open_issues_count": 23,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:08Z",
+      "created_at": "2023-03-24T16:25:01Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "lakernote/EasyPostman",
+      "html_url": "https://github.com/lakernote/EasyPostman",
+      "description": "An open-source API debugging and stress testing tool inspired by Postman and a simplified JMeter, optimized for developers with a clean UI and powerful features.",
+      "topics": [
+        "api",
+        "api-test",
+        "api-test-automation",
+        "java",
+        "javaswing",
+        "jmeter",
+        "postman",
+        "tools"
+      ],
+      "language": "Java",
+      "stargazers_count": 639,
+      "forks_count": 49,
+      "open_issues_count": 9,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:31Z",
+      "created_at": "2025-06-18T15:17:27Z"
+    },
+    {
+      "full_name": "Seafoam-Labs/Shelly-ALPM",
+      "html_url": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+      "description": "Pacman alternative for ArchLinux, designed with you in mind.",
+      "topics": [
+        "archlinux",
+        "archlinux-community",
+        "archlinux-package",
+        "archlinuxgui",
+        "cachyos",
+        "cli",
+        "dotnet",
+        "garuda-linux",
+        "gtk",
+        "gtk4",
+        "linux",
+        "package-management",
+        "package-manager",
+        "pacman",
+        "shelly",
+        "shelly-cli",
+        "shelly-ui",
+        "visual"
+      ],
+      "language": "C#",
+      "stargazers_count": 514,
+      "forks_count": 31,
+      "open_issues_count": 28,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:18Z",
+      "created_at": "2026-01-07T17:57:02Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "lakernote/EasyPostman",
+      "html_url": "https://github.com/lakernote/EasyPostman",
+      "description": "An open-source API debugging and stress testing tool inspired by Postman and a simplified JMeter, optimized for developers with a clean UI and powerful features.",
+      "topics": [
+        "api",
+        "api-test",
+        "api-test-automation",
+        "java",
+        "javaswing",
+        "jmeter",
+        "postman",
+        "tools"
+      ],
+      "language": "Java",
+      "stargazers_count": 639,
+      "forks_count": 49,
+      "open_issues_count": 9,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:31Z",
+      "created_at": "2025-06-18T15:17:27Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n<img src=\"docs/icon.png\" alt=\"EasyPostman Logo\" width=\"100\" />\n\n# EasyPostman\n\n**An open-source API debugging & performance testing desktop app**  \n*Inspired by Postman · Powered by Java · Built for developers*\n\n[![GitHub license](https://img.shields.io/github/license/lakernote/easy-postman?style=flat-square)](https://github.com/lakernote/easy-postman/blob/main/LICENSE)\n[![GitHub release](https://img.shields.io/github/v/release/lakernote/easy-postman?style=flat-square&color=brightgreen)](https://github.com/lakernote/easy-postman/releases)\n[![GitHub stars](https://img.shields.io/github/stars/lakernote/easy-postman?style=flat-square&color=yellow)](https://github.com/lakernote/easy-postman/stargazers)\n[![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/)\n[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-0078D4?style=flat-square&logo=windows&logoColor=white)](https://github.com/lakernote/easy-postman/releases)\n\n[![GitHub](https://img.shields.io/badge/GitHub-lakernote-181717?style=flat-square&logo=github)](https://github.com/lakernote)\n[![Gitee](https://img.shields.io/badge/Gitee-lakernote-C71D23?style=flat-square&logo=gitee)](https://gitee.com/lakernote)\n\n[简体中文](README_zh.md) · [English](README.md) · [📦 Download](https://github.com/lakernote/easy-postman/releases) · [📖 Docs](docs/FEATURES.md) · [💬 Discuss](https://github.com/lakernote/easy-postman/discussions)\n\n</div>\n\n---\n\n## 📖 Table of Contents\n\n- [💡 About](#-about)\n- [✨ Features](#-features)\n- [📦 Download](#-download)\n- [🚀 Quick Start](#-quick-start)\n- [🖼️ Screenshots](#️-screenshots)\n- [🤝 Contributing](#-contributing)\n- [📚 Documentation](#-documentation)\n- [❓ FAQ](#-faq)\n- [💖 Support](#-support)\n\n---\n\n## 💡 About\n\nEasyPostman provides developers with a **local, privacy-first** API debugging experience comparable to Postman, plus simplified JMeter-style performance testing. Built with Java Swing for cross-platform support, it works completely offline and includes built-in Git workspace support for team collaboration and version control.\n\n| 🎯 Focus on Core | 🔒 Privacy First | 🚀 Performance |\n|:---:|:---:|:---:|\n| Simple yet powerful, rich features without bloat | 100% local storage, no cloud sync, your data stays private | Native Java app, fast startup, smooth experience |\n\n---\n\n## ✨ Features\n\n### 🏢 Workspace & Collaboration\n- **Local Workspace** - Personal projects with local storage\n- **Git Workspace** - Version control and team collaboration\n- **Multi-device Sync** - Share API data via Git repositories\n- **Project Isolation** - Each workspace manages its own collections and environments\n\n### 🔌 API Testing\n- **HTTP/HTTPS** - Full REST API support (GET, POST, PUT, DELETE, etc.)\n- **WebSocket & SSE** - Real-time protocol support\n- **Multiple Body Types** - Form Data, JSON, XML, Binary\n- **File Upload/Download** - Drag & drop support\n- **Environment Variables** - Multi-environment management with dynamic variables\n\n### ⚡ Performance Testing\n- **Thread Group Modes** - Fixed, Ramp-up, Stair-step, Spike\n- **Real-time Monitoring** - TPS, response time, error rate\n- **Visual Reports** - Performance trend charts and result trees\n- **Batch Requests** - Simplified JMeter-style testing\n\n### 📝 Advanced Features\n- **Pre-request Scripts** - JavaScript execution before requests with Redis/Kafka/Elasticsearch/InfluxDB access\n- **Test Scripts** - Assertions for HTTP responses and external data-store query/write results\n- **Data Store Script APIs** - Read, write, and validate Redis, Kafka, Elasticsearch, and InfluxDB directly in scripts\n- **Request Chaining** - Extract data and pass to next request\n- **Network Event Log** - Detailed request/response analysis\n- **Import/Export** - Postman v2.1, cURL, HAR (in progress)\n\n### 🎨 User Experience\n- **Light & Dark Mode** - Comfortable viewing in any lighting\n- **Multi-language** - English, 简体中文\n- **Syntax Highlighting** - JSON, XML, JavaScript\n- **Cross-platform** - Windows, macOS, Linux\n\n📖 **[View All Features →](docs/FEATURES.md)**\n\n---\n\n## 📦 Download\n\n### Latest Release\n\n🔗 **[GitHub Releases](https://github.com/lakernote/easy-postman/releases)** | **[Gitee Mirror (China)](https://gitee.com/lakernote/easy-postman/releases)**\n\n### Platform Downloads\n\n| Platform | Package | Notes |\n|----------|---------|-------|\n| 🍎 **macOS (Apple Silicon)** | `EasyPostman-{version}-macos-arm64.dmg` | M1/M2/M3/M4 |\n| 🍏 **macOS (Intel)** | `EasyPostman-{version}-macos-x86_64.dmg` | Intel-based Mac |\n| 🪟 **Windows (Installer)** | `EasyPostman-{version}-windows-x64.exe` | Auto-update support |\n| 🪟 **Windows (Portable)** | `EasyPostman-{version}-windows-x64-portable.zip` | No install needed |\n| 🐧 **Linux AMD64 (Generic)** | `EasyPostman-{version}-linux-amd64.deb` | For common `x86_64` / `amd64` Linux systems |\n| 🐧 **Linux ARM64 (Generic)** | `EasyPostman-{version}-linux-arm64.deb` | For common `aarch64` / `arm64` Linux systems |\n| 🐧 **Linux ARM64 (Compatibility)** | `EasyPostman-{version}-linux-arm64-compat.deb` | Recommended when the generic ARM64 DEB cannot be installed by older `dpkg` environments |\n| 🐧 **RHEL / Rocky / CentOS / Fedora (x64)** | `EasyPostman-{version}-1.x86_64.rpm` | Available on GitHub Releases only |\n| 🐧 **RHEL / Rocky / CentOS / Fedora (ARM64)** | `EasyPostman-{version}-1.aarch64.rpm` | Available on GitHub Releases only |\n| ☕ **Cross-platform JAR** | `easy-postman-{version}.jar` | Requires Java 17+ |\n\n> ⚠️ **First Run Notice**\n>\n> - **Windows**: SmartScreen warning → \"More info\" → \"Run anyway\"\n> - **macOS**: \"Cannot be opened\" → Right-click → \"Open\" → \"Open\"\n>\n> The app is 100% open-source. Warnings appear because we don't purchase code signing certificates.\n\n> 🌏 **Gitee Mirror** only provides macOS (ARM) DMG and Windows packages. Linux DEB/RPM packages are published on GitHub Releases only.\n\n---\n\n## 🚀 Quick Start\n\n### Option 1: Download Pre-built Release\n\n1. Grab the package for your platform from [Releases](https://github.com/lakernote/easy-postman/releases)\n2. Install and run:\n\n| Platform | Command / Action |\n|----------|-----------------|\n| macOS | Open DMG → drag to Applications |\n| Windows Installer | Run `.exe`, follow wizard |\n| Windows Portable | Extract ZIP → run `EasyPostman.exe` |\n| Linux DEB (AMD64, Generic) | `sudo dpkg -i EasyPostman-{version}-linux-amd64.deb` |\n| Linux DEB (ARM64, Generic) | `sudo dpkg -i EasyPostman-{version}-linux-arm64.deb` |\n| Linux DEB (ARM64, Compatibility) | `sudo dpkg -i EasyPostman-{version}-linux-arm64-compat.deb` |\n| Linux RPM (x64) | `sudo rpm -ivh EasyPostman-{version}-1.x86_64.rpm` |\n| Linux RPM (ARM64) | `sudo rpm -ivh EasyPostman-{version}-1.aarch64.rpm` |\n| JAR | `java -jar easy-postman-{version}.jar` |\n\nIf you're not sure which Linux package to use, run `uname -m` first:\n\n- `x86_64` -> use `EasyPostman-{version}-linux-amd64.deb` or `x86_64.rpm`\n- `aarch64` -> use `EasyPostman-{version}-linux-arm64.deb`\n- if the generic ARM64 DEB fails to install on an older `dpkg` environment -> try `EasyPostman-{version}-linux-arm64-compat.deb`\n\n### Option 2: Build from Source\n\n```bash\ngit clone https://github.com/lakernote/easy-postman.git\ncd easy-postman\nmvn clean package\njava -jar target/easy-postman-*.jar\n```\n\n📖 **[Build Guide →](docs/BUILD.md)**\n\n### First Steps\n\n1. **Create a Workspace** — Local (personal) or Git (team)\n2. **Create a Collection** — Organize your API requests\n3. **Send Your First Request** — Enter URL, configure params, click Send\n4. **Set Up Environments** — Switch between dev / test / prod easily\n\n---\n\n## 🖼️ Screenshots\n\n<div align=\"center\">\n\n| Home | Workspaces |\n|:----:|:----------:|\n| ![Home](docs/home-en.png) | ![Workspaces](docs/workspaces.png) |\n\n| Collections & API Testing | Performance Testing |\n|:-------------------------:|:-------------------:|\n| ![Collections](docs/collections.png) | ![Performance](docs/performance.png) |\n\n</div>\n\n📸 **[View All Screenshots →](docs/SCREENSHOTS.md)**\n\n---\n\n## 🤝 Contributing\n\nWe welcome all forms of contribution — bug reports, feature requests, code, or docs!\n\n| Type | How |\n|------|-----|\n| 🐛 Bug Report | [Open an issue](https://github.com/lakernote/easy-postman/issues/new/choose) |\n| ✨ Feature Request | [Share your idea](https://github.com/lakernote/easy-postman/issues/new/choose) |\n| 💻 Code | Fork → branch → PR |\n| 📝 Docs | Fix typos, add examples, translate |\n\nEvery PR triggers automated checks: build, tests, code quality, and format validation.\n\n📖 **[Contributing Guide →](.github/CONTRIBUTING.md)**\n\n---\n\n## 📚 Documentation\n\n| Doc | Description |\n|-----|-------------|\n| 📖 [Features](docs/FEATURES.md) | Comprehensive feature documentation |\n| 🏗️ [Architecture](docs/ARCHITECTURE.md) | Technical stack and design |\n| 🚀 [Build Guide](docs/BUILD.md) | Build from source & generate installers |\n| 🖼️ [Screenshots](docs/SCREENSHOTS.md) | All application screenshots |\n| 📝 [Script API Reference](docs/SCRIPT_API_REFERENCE_zh.md) | Pre-request & test script API, including Redis/Kafka/ES/InfluxDB |\n| 📝 [Script Snippets](docs/SCRIPT_SNIPPETS_QUICK_REFERENCE.md) | Built-in snippets, including data-store read/write/assert examples |\n| 🔐 [Client Certificates](docs/CLIENT_CERTIFICATES.md) | mTLS configuration |\n| 🐧 [Linux Build](docs/LINUX_BUILD.md) | Building on Linux |\n| ❓ [FAQ](docs/FQA.MD) | Frequently asked questions |\n\n---\n\n## ❓ FAQ\n\n<details>\n<summary><b>Q: Why local storage instead of cloud sync?</b></summary>\n\nWe value developer privacy. Local storage ensures your API data is never leaked to third parties. Use Git workspace for team collaboration while maintaining full control over your data.\n</details>\n\n<details>\n<summary><b>Q: How to import Postman data?</b></summary>\n\nIn the Collections view, click **Import** and select a Postman v2.1 JSON file. Collections, requests, and environments are converted automatically.\n</details>\n\n<details>\n<summary><b>Q: Why does Windows/macOS show security warnings?</b></summary>\n\n- **Windows SmartScreen**: No code signing cert (~$100–400/year). → Click \"More info\" → \"Run anyway\". Warnings decrease as download count grows.\n- **macOS Gatekeeper**: No Apple Developer cert ($99/year). → Right-click → \"Open\", or run: `sudo xattr -rd com.apple.quarantine /Applications/EasyPostman.app`\n\nThis project is **fully open-source** and auditable on GitHub.\n</details>\n\n<details>\n<summary><b>Q: Does it support team collaboration?</b></summary>\n\n✅ Yes — use **Git workspace** to share collections & environments, track changes (commit/push/pull), and collaborate across devices without any cloud service.\n</details>\n\n<details>\n<summary><b>Q: Are workspaces isolated?</b></summary>\n\nYes. Each workspace has its own collections, environments, and history. Switching workspaces provides complete data isolation.\n</details>\n\n<details>\n<summary><b>Q: Which Git platforms are supported?</b></summary>\n\nAll standard Git platforms: GitHub, Gitee, GitLab, Bitbucket, and self-hosted Git servers (HTTPS or SSH).\n</details>\n\n---\n\n## 💖 Support the Project\n\nIf EasyPostman helps you, consider:\n\n- ⭐ **Star this repo** — it means a lot!\n- 🍴 **Fork & contribute** — help make it better\n- 📢 **Share with friends** — spread the word\n- 💬 **WeChat group** — add **lakernote** for direct communication\n- 💬 **GitHub Discussions** — [ask questions & share ideas](https://github.com/lakernote/easy-postman/discussions)\n\n---\n\n## ⭐ Star History\n\n<div align=\"center\">\n\n[![Star History Chart](https://api.star-history.com/svg?repos=lakernote/easy-postman&type=date&legend=top-left)](https://www.star-history.com/#lakernote/easy-postman&type=date&legend=top-left)\n\n</div>\n\n---\n\n## 🙏 Acknowledgements\n\nThanks to these awesome open-source projects:\n\n| Project | Role |\n|---------|------|\n| [FlatLaf](https://github.com/JFormDesigner/FlatLaf) | Modern Swing theme |\n| [RSyntaxTextArea](https://github.com/bobbylight/RSyntaxTextArea) | Syntax highlighting editor |\n|",
+        "truncated": true,
+        "bytes": 12789,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v5.4.28",
+            "tag_name": "v5.4.28",
+            "published_at": "2026-04-28T06:48:48Z",
+            "body_excerpt": "- 修复禁用重定向功能无效"
+          },
+          {
+            "name": "v5.4.27",
+            "tag_name": "v5.4.27",
+            "published_at": "2026-04-27T23:33:25Z",
+            "body_excerpt": "- 修复kafka插件排序问题"
+          },
+          {
+            "name": "Plugin kafka 5.4.26",
+            "tag_name": "plugin-kafka-v5.4.26",
+            "published_at": "2026-04-27T14:36:36Z",
+            "body_excerpt": "Independent release for `plugin-kafka`.\n\n- Plugin version: \n- Minimum app version: \n- Plugin platform version: \n- Built against host revision: \n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 129,
+            "title": "[Bug]: linux wayland下无法启动，提示缺少X11",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/129"
+          },
+          {
+            "number": 122,
+            "title": "[Bug]:  http请求失败",
+            "state": "open",
+            "url": "https://github.com/lakernote/EasyPostman/issues/122"
+          },
+          {
+            "number": 128,
+            "title": "[Bug]: Basic认证似乎没起作用",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/128"
+          },
+          {
+            "number": 123,
+            "title": "[Bug]: json工具拖动缓慢",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/123"
+          },
+          {
+            "number": 126,
+            "title": "[Bug]:响应体文本框中，显示长 json 时水平滚动卡顿 ",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/126"
+          },
+          {
+            "number": 127,
+            "title": "[Bug]: 禁用重定向功能无效",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/127"
+          },
+          {
+            "number": 119,
+            "title": "[Feature]: 希望支持配置跨环境的全局变量",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/119"
+          },
+          {
+            "number": 124,
+            "title": "[Bug]: EasyPostman-5.4.14-windows-x64-portable.zip 版本默认工作区目录读取错位",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/124"
+          },
+          {
+            "number": 121,
+            "title": "[Bug]: 当环境变量名称为下划线命名时，无法正常读取环境变量的值",
+            "state": "closed",
+            "url": "https://github.com/lakernote/EasyPostman/issues/121"
+          }
+        ]
+      },
+      "root_files": [
+        ".codex",
+        ".github",
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "README_zh.md",
+        "assets",
+        "build",
+        "docs",
+        "easy-postman-app",
+        "easy-postman-plugin-api",
+        "easy-postman-plugin-bridge",
+        "easy-postman-plugin-runtime",
+        "easy-postman-plugin-ui",
+        "easy-postman-plugins",
+        "plugin-catalog",
+        "pom.xml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 1)",
+          "excerpt": "**An open-source API debugging & performance testing desktop app** *Inspired by Postman · Powered by Java · Built for developers*",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 1,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![GitHub license](https://img.shields.io/github/license/lakernote/easy-postman?style=flat-square)](https://github.com/lakernote/easy-postman/blob/main/LICENSE) [![GitHub release](https://img.shields.io/github/v/release/lakernote/easy-postman?style=flat-square&color=brightgreen)](https://github.com/lakernote/easy-postman/releases) [![GitHub stars](https://img.shields.io/github/stars/lakernote/easy-postman?style=flat-square&color=yellow)](https://github.com/lakernote/easy-postman/stargazers) [![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/) [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-0078D4?style=flat-square&logo=windows&logoColor=white)](https://github.com/lakernote/easy-postman/releases)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 2,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![GitHub](https://img.shields.io/badge/GitHub-lakernote-181717?style=flat-square&logo=github)](https://github.com/lakernote) [![Gitee](https://img.shields.io/badge/Gitee-lakernote-C71D23?style=flat-square&logo=gitee)](https://gitee.com/lakernote)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 3,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[简体中文](README_zh.md) · [English](README.md) · [📦 Download](https://github.com/lakernote/easy-postman/releases) · [📖 Docs](docs/FEATURES.md) · [💬 Discuss](https://github.com/lakernote/easy-postman/discussions)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 4,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- [💡 About](#-about) - [✨ Features](#-features) - [📦 Download](#-download) - [🚀 Quick Start](#-quick-start) - [🖼️ Screenshots](#️-screenshots) - [🤝 Contributing](#-contributing) - [📚 Documentation](#-documentation) - [❓ FAQ](#-faq) - [💖 Support](#-support)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 5,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 6)",
+          "excerpt": "EasyPostman provides developers with a **local, privacy-first** API debugging experience comparable to Postman, plus simplified JMeter-style performance testing. Built with Java Swing for cross-platform support, it works completely offline and includes built-in Git workspace support for team collaboration and version control.",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 6,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| 🎯 Focus on Core | 🔒 Privacy First | 🚀 Performance | |:---:|:---:|:---:| | Simple yet powerful, rich features without bloat | 100% local storage, no cloud sync, your data stays private | Native Java app, fast startup, smooth experience |",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 7,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/lakernote/EasyPostman#readme",
+          "title": "README (segment 8)",
+          "excerpt": "### 🏢 Workspace & Collaboration - **Local Workspace** - Personal projects with local storage - **Git Workspace** - Version control and team collaboration - **Multi-device Sync** - Share API data via Git repositories - **Project Isolation** - Each workspace manages its own collections and environments",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "segment": 8,
+            "language": "Java"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/129",
+          "title": "[Bug]: linux wayland下无法启动，提示缺少X11",
+          "excerpt": "[Bug]: linux wayland下无法启动，提示缺少X11 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 129
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/122",
+          "title": "[Bug]:  http请求失败",
+          "excerpt": "[Bug]: http请求失败 (state:open)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 122
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/128",
+          "title": "[Bug]: Basic认证似乎没起作用",
+          "excerpt": "[Bug]: Basic认证似乎没起作用 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 128
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/123",
+          "title": "[Bug]: json工具拖动缓慢",
+          "excerpt": "[Bug]: json工具拖动缓慢 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 123
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/126",
+          "title": "[Bug]:响应体文本框中，显示长 json 时水平滚动卡顿 ",
+          "excerpt": "[Bug]:响应体文本框中，显示长 json 时水平滚动卡顿 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 126
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/127",
+          "title": "[Bug]: 禁用重定向功能无效",
+          "excerpt": "[Bug]: 禁用重定向功能无效 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 127
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/119",
+          "title": "[Feature]: 希望支持配置跨环境的全局变量",
+          "excerpt": "[Feature]: 希望支持配置跨环境的全局变量 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 119
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/124",
+          "title": "[Bug]: EasyPostman-5.4.14-windows-x64-portable.zip 版本默认工作区目录读取错位",
+          "excerpt": "[Bug]: EasyPostman-5.4.14-windows-x64-portable.zip 版本默认工作区目录读取错位 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 124
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/lakernote/EasyPostman/issues/121",
+          "title": "[Bug]: 当环境变量名称为下划线命名时，无法正常读取环境变量的值",
+          "excerpt": "[Bug]: 当环境变量名称为下划线命名时，无法正常读取环境变量的值 (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "number": 121
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/lakernote/EasyPostman/releases",
+          "title": "v5.4.28",
+          "excerpt": "- 修复禁用重定向功能无效",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "tag_name": "v5.4.28",
+            "published_at": "2026-04-28T06:48:48Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/lakernote/EasyPostman/releases",
+          "title": "v5.4.27",
+          "excerpt": "- 修复kafka插件排序问题",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "tag_name": "v5.4.27",
+            "published_at": "2026-04-27T23:33:25Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/lakernote/EasyPostman/releases",
+          "title": "plugin-kafka-v5.4.26",
+          "excerpt": "Independent release for `plugin-kafka`. - Plugin version: - Minimum app version: - Plugin platform version: - Built against host revision:",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "tag_name": "plugin-kafka-v5.4.26",
+            "published_at": "2026-04-27T14:36:36Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/lakernote/EasyPostman",
+          "title": "ROOT_FILES",
+          "excerpt": ".codex, .github, .gitignore, AGENTS.md, LICENSE, README.md, README_zh.md, assets, build, docs, easy-postman-app, easy-postman-plugin-api, easy-postman-plugin-bridge, easy-postman-plugin-runtime, easy-postman-plugin-ui, easy-postman-plugins, plugin-catalog, pom.xml",
+          "fetched_at": "2026-05-09T05:50:32.490Z",
+          "meta": {
+            "repo_full_name": "lakernote/EasyPostman",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "Seafoam-Labs/Shelly-ALPM",
+      "html_url": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+      "description": "Pacman alternative for ArchLinux, designed with you in mind.",
+      "topics": [
+        "archlinux",
+        "archlinux-community",
+        "archlinux-package",
+        "archlinuxgui",
+        "cachyos",
+        "cli",
+        "dotnet",
+        "garuda-linux",
+        "gtk",
+        "gtk4",
+        "linux",
+        "package-management",
+        "package-manager",
+        "pacman",
+        "shelly",
+        "shelly-cli",
+        "shelly-ui",
+        "visual"
+      ],
+      "language": "C#",
+      "stargazers_count": 514,
+      "forks_count": 31,
+      "open_issues_count": 28,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-09T05:49:18Z",
+      "created_at": "2026-01-07T17:57:02Z",
+      "readme": {
+        "fetched": true,
+        "text": "![shelly_banner.png](shelly_banner.png)\n\n![Shelly Wiki](https://img.shields.io/badge/Shelly-Wiki-blue)\n\n<details>\n  <summary>Screenshots</summary>\n  <p align=\"center\">\n  Search Standard Packages, AUR, and Flatpak in one place\n\n  <img width=\"1372\" height=\"1019\" alt=\"image\" src=\"https://github.com/user-attachments/assets/6aa86662-d9f6-4d3c-9164-9df5d05257b3\" />\n  <img width=\"1768\" height=\"1177\" alt=\"image\" src=\"https://github.com/user-attachments/assets/8e9d851b-a3a0-4aaf-b91a-b3b3c3ec7f6d\" />\n  <img width=\"1768\" height=\"1177\" alt=\"image\" src=\"https://github.com/user-attachments/assets/cc2a8d31-e5c9-42d4-ba87-db25e10a1110\" />\n  </p>\n</details>\n\n\n### About\n\nShelly is a modern reimagination of the Arch Linux package manager, designed to be a more intuitive and user-friendly\nalternative to `pacman` and `octopi`. Unlike other Arch package managers, Shelly offers a modern, visual interface with\na focus on\nuser experience and ease of use; It **IS NOT** built as a `pacman` wrapper or front-end. It is a complete reimagination\nof how a user\ninteracts with their Arch Linux system, providing a more streamlined and intuitive experience.\n\n## Quick Install\n\nThe recommended installation method for Shelly is for CachyOS or using CachyOS packages\n\n```bash\nsudo pacman -S shelly\n```\n\nThis will download and install the latest release, including the UI and CLI tools.\n\nTo install with an AUR helper like yay or paru.\n\n```bash\nyay -S shelly\n```\n\nor\n\n```bash\nparu -S shelly\n```\n\n## Uninstall\n\n#### For standard package removal\n\n```bash\nsudo pacman -Rns shelly\n```\n\n#### If installed from AUR\n\n```bash\nyay -Rns shelly\n```\n\nor\n\n```bash\nparu -Rns shelly\n```\n\n## Features\n\n- **Modern-CLI**: Provides a command-line interface for advanced users and automation, with a focus on ease of use.\n- **Native Arch Integration**: Directly interacts with `libalpm` for accurate and fast package management.\n- **Native Wayland Support**: Front end built using GTK4.\n- **Package Management**: Supports searching and filtering for, installing, updating, and removing packages.\n- **Repository Management**: Synchronizes with official repositories to keep package lists up to date.\n- **AUR Support**: Integration with the Arch User Repository for a wider range of software.\n- **Flatpak Support**: Manage Flatpak applications alongside native packages.\n\n## Roadmap\n\nUpcoming features and development targets:\n\n- **Repository Modification**: Allow modification of supported repositories (In progress).\n- **App Image Support**: Further app image support similar to [AppLever](https://github.com/mijorus/gearlever). (In\n  progress)\n- **Package Import**: Allow for import of a previously existing package list to bring the system back to a saved package\n  state. (Not yet started)\n- **Multi Language Support**: Translation layer for supporting languages outside english\n- **Offline Updates**: Similar functionality to pacman-offline script\n- **Layout Customization**: Allow for customization of the individual user experience.\n\n## Prerequisites\n\n- **Arch Linux** (or an Arch-based distribution)\n- **.NET 10.0 SDK** (for building)\n- **libalpm** (provided by `pacman`)\n\n#### Optional Prerequisites\n\n- **Flatpak**: Can be installed via shelly inside settings by turning flatpak on.\n\n## Installation\n\n### Using PKGBUILD\n\nSince Shelly is designed for Arch Linux, you can build and install it using the provided `PKGBUILD`:\n\n```bash\ngit clone https://github.com/ZoeyErinBauer/Shelly-ALPM.git\ncd Shelly-ALPM\nmakepkg -si\n```\n\n### Manual Build\n\nYou can also build the project manually using the .NET CLI:\n\n```bash\ndotnet publish Shelly.Gtk/Shelly.Gtk.csproj -c Release -o publish/shelly-ui\ndotnet publish Shelly-CLI/Shelly-CLI.csproj -c Release -o publish/shelly-cli\ndotnet publish Shelly-CLI/Shelly-CLI.csproj -c Release -o publish/shelly-notifications\n```\n\nalternatively, you can run\n\n```bash\nsudo ./local-install.sh\n```\n\nThis will build and perform the functions of install.sh\n\nThe binary will be located in the `/opt/shelly` directory.\n\n## Usage\n\nRun the application from your terminal:\n\nFor ui:\n\n```bash\nshelly-ui\n```\n\nFor cli:\n\n```bash\nshelly\n```\n\nNotifications will be started with the ui, or it can be configured to launch at startup using your systems startup\nconfiguration to run:\n\n```bash\nshelly-notifications\n```\n\n## Shelly-CLI\n\nShelly also includes a command-line interface (`shelly-cli`) for users who prefer terminal-based package management. The\nCLI provides the same core functionality as the UI but in a scriptable, terminal-friendly format.\n\n### CLI Commands\n\n#### Package Management\n\n| Command              | Description                     |\n|----------------------|---------------------------------|\n| `sync`               | Synchronize package databases   |\n| `list-installed`     | List all installed packages     |\n| `list-available`     | List all available packages     |\n| `list-updates`       | List packages that need updates |\n| `install <packages>` | Install one or more packages    |\n| `install-local`      | Install a local package file    |\n| `remove <packages>`  | Remove one or more packages     |\n| `update <packages>`  | Update one or more packages     |\n| `upgrade`            | Perform a full system upgrade   |\n\n#### Keyring Management (`keyring`)\n\n| Command                      | Description                                             |\n|------------------------------|---------------------------------------------------------|\n| `keyring init`               | Initialize the pacman keyring                           |\n| `keyring populate [keyring]` | Reload keys from keyrings in /usr/share/pacman/keyrings |\n| `keyring recv <keys>`        | Receive keys from a keyserver                           |\n| `keyring lsign <keys>`       | Locally sign the specified key(s)                       |\n| `keyring list`               | List all keys in the keyring                            |\n| `keyring refresh`            | Refresh keys from the keyserver                         |\n\n#### AUR Management (`aur`)\n\n| Command                  | Description                         |\n|--------------------------|-------------------------------------|\n| `aur search <query>`     | Search for AUR packages             |\n| `aur list`               | List installed AUR packages         |\n| `aur list-updates`       | List AUR packages that need updates |\n| `aur install <packages>` | Install AUR packages                |\n| `aur update <packages>`  | Update specific AUR packages        |\n| `aur upgrade`            | Upgrade all AUR packages            |\n| `aur remove <packages>`  | Remove AUR packages                 |\n\n#### Flatpak Management (`flatpak`)\n\n| Command                         | Description                    |\n|---------------------------------|--------------------------------|\n| `flatpak search <query>`        | Search flatpak                 |\n| `flatpak list`                  | List installed flatpak apps    |\n| `flatpak list-updates`          | List flatpak apps with updates |\n| `flatpak install <apps>`        | Install flatpak app            |\n| `flatpak update <apps>`         | Update flatpak app             |\n| `flatpak uninstall <apps>`      | Remove flatpak app             |\n| `flatpak run <app>`             | Run flatpak app                |\n| `flatpak running`               | List running flatpak apps      |\n| `flatpak search <app>`          | search flathub                 |\n| `flatpak sync-remote-appstream` | Sync remote appstream          |\n| `flatpak get-remote-appstream`  | Returns remote appstream json  |\n| `flatpak upgrade`               | Upgrade all flatpak apps       |\n\n#### Shelly Utility (`utility`)\n\n| Command           | Description                   |\n|-------------------|-------------------------------|\n| `utility export`  | Export sync file              |\n| `utility updates` | check for updates as non-root |\n\n### CLI Configuration\n\nShelly-CLI uses a JSON configuration file to customize its behavior. On the first run, it automatically creates a\ndefault configuration file at:\n\n`~/.config/shelly/config.json`\n\n#### Configuration Options\n\n| Option             | Description                                                                                                                                                                                                                                                    |\n|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| `FileSizeDisplay`  | Controls how file sizes are displayed. <br> Possible values: \"Bytes\", \"Megabytes\", \"Gigabytes\". <br> Default: \"Bytes\"                                                                                                                                          |\n| `DefaultExecution` | Determines which command is executed when `shelly` is run without any arguments (the default command). <br> Possible values: \"UpgradeStandard\", \"UpgradeFlatpak\", \"UpgradeAur\", \"UpgradeAll\", \"Sync\", \"SyncForce\", \"ListInstalled\". <br> Default: \"UpgradeAll\" |\n\n#### Example `config.json`\n\n```json\n{\n  \"FileSizeDisplay\": \"Bytes\",\n  \"DefaultExecution\": \"UpgradeAll\"\n}\n```\n\n### CLI Options\n\n**Global options:**\n\n- `--help` - Display help information\n- `--version` - Display version information\n\n**sync command:**\n\n- `-f, --force` - Force synchronization even if databases are up to date\n\n**install, remove, update commands:**\n\n- `--no-confirm` - Skip confirmation prompt\n\n**upgrade command:**\n\n- `--no-confirm` - Skip confirmation prompt\n\n### CLI Examples\n\n```bash\n# Synchronize package databases\nshelly sync\n\n# Force sync even if up to date\nshelly sync --force\n\n# List all installed packages\nshelly list-installed\n\n# List packages needing updates\nshelly list-updates\n\n# Install packages\nshelly install firefox vim\n\n# Install without confirmation\nshelly install firefox --no-confirm\n\n# Remove packages\nshelly remove firefox\n\n# Update specific packages\n# This should not be done unless you know what you're doing\nshelly update firefox vim\n\n# Perform full system upgrade\n# Preferred way to update your system\nshelly upgrade\n\n# System upgrade without confirmation\nshelly upgrade --no-confirm\n```\n\n## Development\n\nShelly is structured into several components:\n\n- **Shelly.Gtk**: The main GUI desktop application.\n- **Shelly-CLI**: Command-line interface for terminal-based package management.\n- **Shelly-Notifications**: Tray service to manage notifactions the Shelly-UI.\n- **PackageManager**: The core logic library providing bindings and abstractions for `libalpm`.\n- **PackageManager.Tests**: Comprehensive tests for the package management logic.\n\n### Building for Development\n\n```bash\ndotnet build\n```\n\n### Running Tests\n\n```bash\ndotnet test\n```\n\n## License\n\nThis project is licensed under the GPL-3.0 License – see the [LICENSE](LICENSE) file for details.\n\n\n",
+        "truncated": false,
+        "bytes": 11017,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.2.3.2 - Rolling With My Gnomies A Dark Mode Fix",
+            "tag_name": "v2.2.3.2",
+            "published_at": "2026-05-06T19:46:10Z",
+            "body_excerpt": "## What's Changed\r\n* Add Last Updated Date Column to Shelly Search Results by @azdanov in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/717\r\n* Add GNOME-specific theme detection and setup in `Program.cs` and enha… by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/718\r\n\r\n\r\n**Full Changelog**: https://github.com/Seafoam-Labs/Shelly-ALPM/compare/v2.2.3.1...v2.2.3.2"
+          },
+          {
+            "name": "v2.2.3.1",
+            "tag_name": "v2.2.3.1",
+            "published_at": "2026-05-06T01:49:15Z",
+            "body_excerpt": "## Summary\r\n* Corrected support for GTK Theming on Gnome to enable make sure you download and install a GTK4 Theme  \r\n\r\n   - `nwg-look` is one of the best ways to do this if you are unsure.\r\n\r\n* Finished cleanup of updated UI\r\n* Fixed -git tracking bugs for the aur\r\n\r\n## What's Changed\r\n* Add ui tweaks by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/700\r\n* 705 bug dark mode stopped working on gnome by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/707\r\n* Aur object refactor by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/711\r\n* Aur update fix by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/713\r\n\r\n\r\n**Full Changelog**: https://github.com/Seafoam-Labs/Shelly-ALPM/compare/v2.2.3...v2.2.3.1"
+          },
+          {
+            "name": "v2.2.3",
+            "tag_name": "v2.2.3",
+            "published_at": "2026-05-05T05:51:03Z",
+            "body_excerpt": "## What's Changed\r\n* Changing SingleSelection property \"Autoselect\" from \"false\" to \"true\" by @VinnyQF in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/662\r\n* Adding default page config option by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/664\r\n* 665 bug fix by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/667\r\n* 606 sort buttons dont work by @VinnyQF in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/621\r\n* Custom Tray Icons for shelly by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/668\r\n* fixing icon downloader. by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/682\r\n* fixing inconsitent issues with settings page render by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/683\r\n* manage should not have checks being in manage already implies installed. by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/684\r\n* Re added vertical nav by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/692\r\n* Refactor styles to use theme variables for improved consistency and m… by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/694\r\n* Refactor package install logic: introduce `BindState` for managing si… by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/696\r\n* UI tweaks to ui, including margin adjustments and style changes by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/693\r\n* Add variable expansion support in `VcsSourceParser` and enhance branc… by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/698\r\n* Adding a PKGBUILD preview window by @VinnyQF in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/697\r\n* Fixing \"AurWindow.ui\" to match with previous design. by @VinnyQF in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/699\r\n* 537 feature requestadd cli function that reutrns simple integer count of all available updates by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/7"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 722,
+            "title": "[Feature]:Allow Shelly search to find packages without hyphens, and include description in search.",
+            "state": "closed",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/722"
+          },
+          {
+            "number": 559,
+            "title": "Create  CLI implementation for pacman-key --init",
+            "state": "open",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/559"
+          },
+          {
+            "number": 737,
+            "title": "[Question]: Shelly update notification does nothing when clicked on",
+            "state": "closed",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/737"
+          },
+          {
+            "number": 736,
+            "title": "[Bug]: Arch Linux News Order Reversed",
+            "state": "open",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/736"
+          },
+          {
+            "number": 728,
+            "title": "[Bug]: JsonException: 'P' is an invalid start of a value in GetAurPackageBuild",
+            "state": "open",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/728"
+          },
+          {
+            "number": 735,
+            "title": "About Page",
+            "state": "open",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/735"
+          },
+          {
+            "number": 734,
+            "title": "[Bug]: Checkmark icon is in a lower resolution than the rest of the UI",
+            "state": "closed",
+            "url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/734"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".run",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "MANUAL_TESTING.md",
+        "Man",
+        "PKGBUILD",
+        "PKGBUILD-bin",
+        "PKGBUILD-git",
+        "PackageManager.Tests",
+        "PackageManager",
+        "README.md",
+        "SECURITY.md",
+        "Screencast_20260204_202406.webm",
+        "Shelly-CLI.Tests",
+        "Shelly-CLI",
+        "Shelly-Notifications",
+        "Shelly-UI.slnx",
+        "Shelly.Gtk.Tests",
+        "Shelly.Gtk",
+        "debug-as-root.sh",
+        "demo_part1.gif",
+        "demo_part2.gif",
+        "demo_part3.gif",
+        "local-install.sh",
+        "shelly.fish",
+        "shelly_banner.png",
+        "uninstall.sh",
+        "wiki"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<details> <summary>Screenshots</summary> <p align=\"center\"> Search Standard Packages, AUR, and Flatpak in one place",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 1,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<img width=\"1372\" height=\"1019\" alt=\"image\" src=\"https://github.com/user-attachments/assets/6aa86662-d9f6-4d3c-9164-9df5d05257b3\" /> <img width=\"1768\" height=\"1177\" alt=\"image\" src=\"https://github.com/user-attachments/assets/8e9d851b-a3a0-4aaf-b91a-b3b3c3ec7f6d\" /> <img width=\"1768\" height=\"1177\" alt=\"image\" src=\"https://github.com/user-attachments/assets/cc2a8d31-e5c9-42d4-ba87-db25e10a1110\" /> </p> </details>",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 2,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Shelly is a modern reimagination of the Arch Linux package manager, designed to be a more intuitive and user-friendly alternative to `pacman` and `octopi`. Unlike other Arch package managers, Shelly offers a modern, visual interface with a focus on user experience and ease of use; It **IS NOT** built as a `pacman` wrapper or front-end. It is a complete reimagination of how a user interacts with their Arch Linux system, providing a more streamlined and intuitive experience.",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 3,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 4)",
+          "excerpt": "The recommended installation method for Shelly is for CachyOS or using CachyOS packages",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 4,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 5)",
+          "excerpt": "This will download and install the latest release, including the UI and CLI tools.",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 5,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- **Modern-CLI**: Provides a command-line interface for advanced users and automation, with a focus on ease of use. - **Native Arch Integration**: Directly interacts with `libalpm` for accurate and fast package management. - **Native Wayland Support**: Front end built using GTK4. - **Package Management**: Supports searching and filtering for, installing, updating, and removing packages. - **Repository Management**: Synchronizes with official repositories to keep package lists up to date. - **AUR Support**: Integration with the Arch User Repository for a wider range of software. - **Flatpak Support**: Manage Flatpak applications alongside native packages.",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 6,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **Repository Modification**: Allow modification of supported repositories (In progress). - **App Image Support**: Further app image support similar to [AppLever](https://github.com/mijorus/gearlever). (In progress) - **Package Import**: Allow for import of a previously existing package list to bring the system back to a saved package state. (Not yet started) - **Multi Language Support**: Translation layer for supporting languages outside english - **Offline Updates**: Similar functionality to pacman-offline script - **Layout Customization**: Allow for customization of the individual user experience.",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 7,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM#readme",
+          "title": "README (segment 8)",
+          "excerpt": "- **Arch Linux** (or an Arch-based distribution) - **.NET 10.0 SDK** (for building) - **libalpm** (provided by `pacman`)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "segment": 8,
+            "language": "C#"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/722",
+          "title": "[Feature]:Allow Shelly search to find packages without hyphens, and include description in search.",
+          "excerpt": "[Feature]:Allow Shelly search to find packages without hyphens, and include description in search. (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 722
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/559",
+          "title": "Create  CLI implementation for pacman-key --init",
+          "excerpt": "Create CLI implementation for pacman-key --init (state:open)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 559
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/737",
+          "title": "[Question]: Shelly update notification does nothing when clicked on",
+          "excerpt": "[Question]: Shelly update notification does nothing when clicked on (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 737
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/736",
+          "title": "[Bug]: Arch Linux News Order Reversed",
+          "excerpt": "[Bug]: Arch Linux News Order Reversed (state:open)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 736
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/728",
+          "title": "[Bug]: JsonException: 'P' is an invalid start of a value in GetAurPackageBuild",
+          "excerpt": "[Bug]: JsonException: 'P' is an invalid start of a value in GetAurPackageBuild (state:open)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 728
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/735",
+          "title": "About Page",
+          "excerpt": "About Page (state:open)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 735
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/issues/734",
+          "title": "[Bug]: Checkmark icon is in a lower resolution than the rest of the UI",
+          "excerpt": "[Bug]: Checkmark icon is in a lower resolution than the rest of the UI (state:closed)",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "number": 734
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/releases",
+          "title": "v2.2.3.2",
+          "excerpt": "## What's Changed * Add Last Updated Date Column to Shelly Search Results by @azdanov in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/717 * Add GNOME-specific theme detection and setup in `Program.cs` and enha… by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/718 **Full Changelog**: https://github.com/Seafoam-Labs/Shelly-ALPM/compare/v2.2.3.1...v2.2.3.2",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "tag_name": "v2.2.3.2",
+            "published_at": "2026-05-06T19:46:10Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/releases",
+          "title": "v2.2.3.1",
+          "excerpt": "## Summary * Corrected support for GTK Theming on Gnome to enable make sure you download and install a GTK4 Theme - `nwg-look` is one of the best ways to do this if you are unsure. * Finished cleanup of updated UI * Fixed -git tracking bugs for the aur ## What's Changed * Add ui tweaks by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/700 * 705 bug dark mode stopped working on gnome by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/707 * Aur object refactor by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/711 * Aur update fix by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/713 **Full Changelog**: https://github.com/Seafoam-Labs/Shelly-ALPM/compare/v2.2.3...v2.2.3.1",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "tag_name": "v2.2.3.1",
+            "published_at": "2026-05-06T01:49:15Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM/releases",
+          "title": "v2.2.3",
+          "excerpt": "## What's Changed * Changing SingleSelection property \"Autoselect\" from \"false\" to \"true\" by @VinnyQF in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/662 * Adding default page config option by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/664 * 665 bug fix by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/667 * 606 sort buttons dont work by @VinnyQF in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/621 * Custom Tray Icons for shelly by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/668 * fixing icon downloader. by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/682 * fixing inconsitent issues with settings page render by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/683 * manage should not have checks being in manage already implies installed. by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/684 * Re added vertical nav by @caroberrie in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/692 * Refactor styles to use theme variables for improved consistency and m… by @ZoeyErinBauer in https://github.com/Seafoam-Labs/Shelly-ALPM/pull/694 * Refactor package install logic: introd…",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "tag_name": "v2.2.3",
+            "published_at": "2026-05-05T05:51:03Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .run, CONTRIBUTING.md, LICENSE, MANUAL_TESTING.md, Man, PKGBUILD, PKGBUILD-bin, PKGBUILD-git, PackageManager.Tests, PackageManager, README.md, SECURITY.md, Screencast_20260204_202406.webm, Shelly-CLI.Tests, Shelly-CLI, Shelly-Notifications, Shelly-UI.slnx, Shelly.Gtk.Tests, Shelly.Gtk, debug-as-root.sh, demo_part1.gif, demo_part2.gif, demo_part3.gif, local-install.sh, shelly.fish, shelly_banner.png, uninstall.sh, wiki",
+          "fetched_at": "2026-05-09T05:50:32.482Z",
+          "meta": {
+            "repo_full_name": "Seafoam-Labs/Shelly-ALPM",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "lakernote/EasyPostman",
+      "evidence_count": 21,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 9,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 9,
+      "releases_count": 3
+    },
+    {
+      "full_name": "Seafoam-Labs/Shelly-ALPM",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "lakernote/EasyPostman",
+      "ok": true,
+      "spec_path": "specs/2026-05-09/lakernote__EasyPostman.json"
+    },
+    {
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "ok": true,
+      "spec_path": "specs/2026-05-09/Seafoam-Labs__Shelly-ALPM.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "lakernote/EasyPostman",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-09/lakernote__EasyPostman.json"
+    },
+    {
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-09/Seafoam-Labs__Shelly-ALPM.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "lakernote/EasyPostman",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-09/lakernote__EasyPostman.json"
+      ]
+    },
+    {
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-09/Seafoam-Labs__Shelly-ALPM.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-09T05:50:51.637Z",
+      "run_id": "20260509T055028Z",
+      "repo": "lakernote/EasyPostman",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "186bf871225aabb39a443fbdbe760d12c7443d8e17ada2d51b8e4264fcb55f20",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 8372
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19142,
+      "prompt_chars": 8372,
+      "completion_chars": 1829
+    },
+    {
+      "ts": "2026-05-09T05:51:02.735Z",
+      "run_id": "20260509T055028Z",
+      "repo": "lakernote/EasyPostman",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "63ac31a8ecb1f9154e09ff5f2de31fec9b67ab42746c1fc4de232a66a7173805",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 10377
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11097,
+      "prompt_chars": 10377,
+      "completion_chars": 1371
+    },
+    {
+      "ts": "2026-05-09T05:51:15.549Z",
+      "run_id": "20260509T055028Z",
+      "repo": "lakernote/EasyPostman",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c788bbaf8dd0d53cb51a95bd4b1e0d14227492b645663bc984b545d243340788",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 11956
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12814,
+      "prompt_chars": 11956,
+      "completion_chars": 1638
+    },
+    {
+      "ts": "2026-05-09T05:51:31.754Z",
+      "run_id": "20260509T055028Z",
+      "repo": "lakernote/EasyPostman",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fa4a1f1a5ac81981966c83af13496c0fd798151298a28d657ee8756fef9ed95c",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 13795
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16204,
+      "prompt_chars": 13795,
+      "completion_chars": 1708
+    },
+    {
+      "ts": "2026-05-09T05:52:09.166Z",
+      "run_id": "20260509T055028Z",
+      "repo": "lakernote/EasyPostman",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "658b36c626bc1084907fc7d7b20d5384a3bff6fba23056b4dbd30ec2c5045f87",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 18385
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 37411,
+      "prompt_chars": 18385,
+      "completion_chars": 4694
+    },
+    {
+      "ts": "2026-05-09T05:52:28.434Z",
+      "run_id": "20260509T055028Z",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "29f8b6cec83469898657d79082c963193c515600d6025284bdefcf94579a8c6e",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 10610
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19253,
+      "prompt_chars": 10610,
+      "completion_chars": 1831
+    },
+    {
+      "ts": "2026-05-09T05:52:45.030Z",
+      "run_id": "20260509T055028Z",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8b67cf094f8d5f87ad118618994c3698c066e7ffd6a315b9e478238f3204693b",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 12657
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16595,
+      "prompt_chars": 12657,
+      "completion_chars": 1730
+    },
+    {
+      "ts": "2026-05-09T05:53:05.916Z",
+      "run_id": "20260509T055028Z",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8c2fc6fdd7a4924a35390081afdc627409f1d7898fcec0a699859d755c29bc98",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 14611
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 20885,
+      "prompt_chars": 14611,
+      "completion_chars": 2065
+    },
+    {
+      "ts": "2026-05-09T05:53:22.787Z",
+      "run_id": "20260509T055028Z",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bdad8786d366f762af64bc43d345b2409b5d1e6fc3adbaabe70752a48cc820ff",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 16881
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16871,
+      "prompt_chars": 16881,
+      "completion_chars": 1996
+    },
+    {
+      "ts": "2026-05-09T05:54:03.806Z",
+      "run_id": "20260509T055028Z",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "33a5d994a2c6bf5598fe78613f51b365812e2262f0128a138e9ef3289f2fe9a7",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 21775
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 41018,
+      "prompt_chars": 21775,
+      "completion_chars": 5460
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "lakernote/EasyPostman",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "lakernote/EasyPostman",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 21,
+      "evidence_total_final": 21,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1778305828631,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "lakernote/EasyPostman": 5,
+      "Seafoam-Labs/Shelly-ALPM": 5
+    },
+    "tokensApproxTotal": 40939,
+    "tokensApproxPerRepo": {
+      "lakernote/EasyPostman": 18533,
+      "Seafoam-Labs/Shelly-ALPM": 22406
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "lakernote/EasyPostman": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "scout",
+        "summary": "EasyPostman is an open-source, Java-based desktop API debugging and performance testing tool inspired by Postman and simplified JMeter. It emphasizes local-first privacy, offline functionality, and Git-integrated collaboration, with cross-platform support (Windows/macOS/Linux). The project shows active maintenance with recent releases addressing bugs and plugin enhancements.",
+        "highlights": [
+          "Positioned as a privacy-first, fully offline alternative to Postman with built-in Git workspace support for team collaboration.",
+          "Built with Java Swing for cross-platform compatibility and claims fast startup and smooth performance.",
+          "Recent releases (v5.4.28, v5.4.27) actively fix functional bugs like redirect handling and Kafka plugin issues.",
+          "Supports both local and Git-managed workspaces with project isolation and multi-device sync via repositories."
+        ],
+        "risks": [
+          "Open bug reports indicate unresolved HTTP request failures and potential stability issues on Linux Wayland (though marked closed, may reflect incomplete fixes).",
+          "Multiple closed UI/performance bugs (e.g., JSON drag lag, horizontal scroll stutter) suggest ongoing rendering or event-handling inefficiencies in the Swing UI.",
+          "Environment variable parsing issues (e.g., underscore-named variables) and portable Windows path misreads point to edge-case robustness gaps.",
+          "Plugin ecosystem appears fragmented, with independent plugin releases (e.g., plugin-kafka) requiring version alignment with the core app."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-006",
+          "E-IS-008",
+          "E-IS-009"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "inventor",
+        "summary": "EasyPostman is a privacy-focused, offline-first API debugging and performance testing desktop application built in Java Swing, offering Git-integrated workspaces and plugin extensibility as a Postman/JMeter alternative.",
+        "highlights": [
+          "Combines Postman-like API debugging with simplified JMeter-style load testing in a single local-first tool.",
+          "Uses Git workspaces for team collaboration and version control without cloud dependency.",
+          "Modular plugin architecture evident from separate plugin directories and independent plugin releases (e.g., Kafka).",
+          "Emphasizes data privacy with 100% local storage and no telemetry or cloud sync."
+        ],
+        "risks": [
+          "Plugin system may suffer from version fragmentation due to independent release cycles (e.g., plugin-kafka).",
+          "Core functionality bugs (e.g., HTTP failures, redirect handling) suggest incomplete test coverage.",
+          "UI performance issues in JSON rendering and scrolling indicate potential scalability limits in Swing implementation.",
+          "Environment variable parsing limitations (e.g., underscore names) reveal gaps in expression resolution robustness."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RF-001",
+          "E-IS-002",
+          "E-IS-006",
+          "E-IS-009",
+          "E-IS-004",
+          "E-IS-005",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "engineer",
+        "summary": "EasyPostman is a Java Swing-based desktop application providing offline API debugging and performance testing with Git-integrated workspaces. It emphasizes privacy, local data storage, and cross-platform support, but exhibits recurring UI performance issues and unresolved core functionality bugs.",
+        "highlights": [
+          "Built with Java 17+ and Swing for cross-platform compatibility (Windows/macOS/Linux) with fast startup and offline operation.",
+          "Supports both local and Git-backed workspaces enabling version-controlled collaboration without cloud dependencies.",
+          "Modular plugin architecture with dedicated directories (e.g., easy-postman-plugin-api) and independently versioned plugins like Kafka.",
+          "Recent releases actively patch critical bugs such as redirect handling and plugin-specific issues."
+        ],
+        "risks": [
+          "Open HTTP request failure bug ([ID:E-IS-002]) indicates potential instability in core networking logic.",
+          "Multiple closed UI performance bugs (e.g., JSON drag lag [ID:E-IS-004], horizontal scroll stutter [ID:E-IS-005]) suggest inefficient rendering or event handling in Swing components.",
+          "Environment variable resolution fails with underscore-named keys ([ID:E-IS-009]), revealing limitations in expression parsing robustness.",
+          "Independent plugin releases (e.g., [ID:E-RL-003]) risk version skew between core app and plugins, complicating compatibility management."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RF-001",
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-009",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "skeptic",
+        "summary": "EasyPostman markets itself as a robust, privacy-first Postman alternative with performance testing capabilities, but recurring bugs in core functionality, UI performance issues, and inconsistent cross-platform support undermine its reliability claims.",
+        "highlights": [
+          "Claims 'fast startup' and 'smooth experience' despite multiple closed reports of UI lag in JSON handling and scrolling (e.g., drag slowdown, horizontal scroll stutter).",
+          "Advertises full Linux support, yet a closed bug reveals failure under Wayland due to X11 dependency—suggesting incomplete platform compatibility.",
+          "Promotes '100% local storage' and offline use, but unresolved HTTP request failures ([ID:E-IS-002]) cast doubt on basic API debugging reliability.",
+          "Touts Git workspace collaboration, yet environment variable parsing breaks on common naming conventions (e.g., underscores), indicating immature expression resolution."
+        ],
+        "risks": [
+          "Core networking functionality may be unstable, as an open bug ([ID:E-IS-002]) reports generic HTTP request failures with no resolution.",
+          "UI performance bottlenecks in Swing implementation could degrade usability with large payloads or complex workflows.",
+          "Cross-platform claims are overstated; Linux users on modern display servers (Wayland) face launch failures despite badge suggesting universal support.",
+          "Plugin ecosystem fragmentation (e.g., independent Kafka plugin releases) increases integration risk and complicates version management."
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-001",
+          "E-IS-009",
+          "E-RD-002",
+          "E-RD-007",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"EasyPostman\",\n    \"one_sentence\": \"An open-source API debugging & performance testing desktop app inspired by Postman and simplified JMeter, built with Java for offline, privacy-first developer workflows.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User creates or imports API requests into a local or Git-backed workspace, configures environments and variables, sends requests, views responses, and optionally runs performance tests—all without cloud dependency.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Workspace\",\n      \"purpose\": \"Primary interface for managing API collections, environments, and sending requests with response inspection and performance testing capabilities.\",\n      \"primary_actions\": [\n        \"Create new request\",\n        \"Send HTTP request\",\n        \"Switch workspace (Local/Git)\",\n        \"Run performance test\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"send_http_request\",\n      \"purpose\": \"Execute an HTTP request with configured method, headers, body, and authentication, respecting redirect settings.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"load_git_workspace\",\n      \"purpose\": \"Initialize and load a workspace from a local Git repository for version-controlled collaboration.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"resolve_environment_variables\",\n      \"purpose\": \"Parse and substitute environment and global variables in request fields, supporting standard naming conventions.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"workspaces\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"type\",\n            \"type\": \"enum<local|git>\"\n          },\n          {\n            \"name\": \"path\",\n            \"type\": \"string\"\n          }\n  "
+      }
+    },
+    "Seafoam-Labs/Shelly-ALPM": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "scout",
+        "summary": "Shelly-ALPM is a modern, native Arch Linux package manager built in C# with GTK4, offering integrated support for official repos, AUR, and Flatpak. It emphasizes UX with both GUI and CLI interfaces, avoids being a pacman wrapper, and targets Arch-based distros like CachyOS. Active development includes theming fixes, search enhancements, and new features like repository modification and offline updates.",
+        "highlights": [
+          "Not a pacman wrapper—directly uses libalpm for native package management [ID:E-RD-003].",
+          "Unified search across official repos, AUR, and Flatpak with visual UI [ID:E-RD-001].",
+          "Built with .NET 10 and GTK4, supporting Wayland and GNOME theming [ID:E-RD-006, E-RL-002].",
+          "Includes both GUI (Shelly.Gtk) and CLI (Shelly-CLI) components [ID:E-RF-001, E-RD-006].",
+          "Actively developed with recent releases fixing AUR bugs, UI issues, and adding features like last-updated columns [ID:E-RL-001, E-RL-002, E-RL-003]."
+        ],
+        "risks": [
+          "Open bug: JSON parsing error during AUR package build may break AUR functionality [ID:E-IS-005].",
+          "Incomplete features like repository modification and package import are still in progress or not started [ID:E-RD-007].",
+          "Tight coupling with CachyOS may limit broader Arch compatibility or adoption [ID:E-RD-004].",
+          "Reliance on .NET 10 SDK (preview/unstable) could introduce build or runtime instability [ID:E-RD-008].",
+          "UI inconsistencies reported (e.g., low-res icons, broken update notifications) suggest ongoing polish needed [ID:E-IS-007, E-IS-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "inventor",
+        "summary": "Shelly-ALPM reimagines Arch Linux package management by integrating native libalpm access with a modern GTK4 UI and CLI, unifying official repos, AUR, and Flatpak into a single visual workflow—distinct from traditional pacman wrappers.",
+        "highlights": [
+          "Introduces a unified search interface for standard packages, AUR, and Flatpak in one view [ID:E-RD-001].",
+          "Built as a native libalpm consumer rather than a pacman wrapper, enabling deeper system integration [ID:E-RD-003].",
+          "Delivers dual interfaces: a GTK4-based GUI with Wayland support and a dedicated CLI toolset [ID:E-RD-006, E-RF-001].",
+          "Actively extends functionality with features like last-updated columns, GNOME theming, and tray icons [ID:E-RL-001, E-RL-002].",
+          "Plans novel capabilities such as offline updates, package list import, and layout customization [ID:E-RD-007]."
+        ],
+        "risks": [
+          "Critical AUR functionality may fail due to JSON parsing errors during package build [ID:E-IS-005].",
+          "Key features like repository modification and package import remain incomplete or unstarted [ID:E-RD-007].",
+          "Dependence on .NET 10 SDK (unstable/preview) risks build reliability and long-term maintenance [ID:E-RD-008].",
+          "UI polish issues persist, including broken update notifications and inconsistent icon resolution [ID:E-IS-003, E-IS-007].",
+          "Installation guidance prioritizes CachyOS, potentially limiting accessibility for generic Arch users [ID:E-RD-004]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "engineer",
+        "summary": "Shelly-ALPM is a C#/.NET 10 application that directly interfaces with libalpm to provide native package management for Arch Linux, featuring a GTK4-based GUI and a CLI. It supports unified search across official repos, AUR, and Flatpak, and is actively developed with recent fixes for theming, AUR updates, and UI polish. However, it depends on preview-grade .NET SDKs and has unresolved bugs affecting core functionality.",
+        "highlights": [
+          "Direct libalpm integration enables native package operations without relying on pacman wrappers [ID:E-RD-003, E-RD-006].",
+          "Dual interface architecture: Shelly.Gtk (GTK4/Wayland GUI) and Shelly-CLI coexist as first-class components [ID:E-RF-001, E-RD-006].",
+          "Recent releases address critical issues: GNOME dark mode, AUR update logic, and UI rendering inconsistencies [ID:E-RL-002, E-RL-003].",
+          "Unified package discovery spans official repos, AUR, and Flatpak in a single searchable view [ID:E-RD-001].",
+          "Active feature development includes last-updated timestamps, tray icons, and default page configuration [ID:E-RL-001, E-RL-003]."
+        ],
+        "risks": [
+          "Open JsonException during AUR package build suggests fragile JSON handling that may break AUR installations [ID:E-IS-005].",
+          "Reliance on .NET 10 SDK—a non-LTS, preview release—introduces potential instability in builds and runtime [ID:E-RD-008].",
+          "Incomplete core features like repository modification and package import remain unimplemented or in-progress [ID:E-RD-007].",
+          "UI reliability concerns: update notifications are non-functional and icon assets suffer from resolution mismatches [ID:E-IS-003, E-IS-007].",
+          "Installation guidance favors CachyOS, which may hinder adoption or compatibility testing on vanilla Arch systems [ID:E-RD-004]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-003",
+          "E-IS-005",
+          "E-IS-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "skeptic",
+        "summary": "Shelly-ALPM presents an ambitious but unproven reimplementation of Arch package management using .NET and GTK4, with significant unresolved issues, incomplete core features, and questionable architectural choices that undermine its reliability and readiness for real-world use.",
+        "highlights": [
+          "Claims to be a 'complete reimagination' rather than a pacman wrapper, yet depends on libalpm and pacman's underlying infrastructure [ID:E-RD-003].",
+          "Promotes unified search across repos, AUR, and Flatpak, but basic search functionality lacks hyphen tolerance and description indexing—features users expect [ID:E-IS-001].",
+          "Advertises native Arch integration but prioritizes CachyOS in installation guidance, raising doubts about compatibility with standard Arch systems [ID:E-RD-004].",
+          "Showcases modern UI with screenshots, yet suffers from broken interactions like non-functional update notifications [ID:E-IS-003].",
+          "Lists planned features like offline updates and package import as future work, indicating current functionality is incomplete [ID:E-RD-007]."
+        ],
+        "risks": [
+          "Critical AUR operations fail due to JSON parsing errors, suggesting inadequate input validation or error handling [ID:E-IS-005].",
+          "Reliance on .NET 10 SDK—a preview, non-LTS release—introduces build fragility and long-term maintenance risk [ID:E-RD-008].",
+          "UI inconsistencies (e.g., low-res icons) and broken notifications indicate insufficient QA despite public releases [ID:E-IS-007, E-IS-003].",
+          "Missing basic CLI parity: no implementation for `pacman-key --init`, a fundamental key management task [ID:E-IS-002].",
+          "Arch Linux news displayed in reverse chronological order, undermining usability for time-sensitive updates [ID:E-IS-004]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-005",
+          "E-IS-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Shelly-ALPM\",\n    \"one_sentence\": \"A modern, native Arch Linux package manager with unified GUI and CLI interfaces for managing official repos, AUR, and Flatpak packages.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User searches across official repositories, AUR, and Flatpak in a single interface, installs or updates packages via direct libalpm integration, and manages system state through GTK4 UI or CLI tools.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Package Search & Management\",\n      \"purpose\": \"Unified view to search, filter, install, update, and remove packages from official repos, AUR, and Flatpak.\",\n      \"primary_actions\": [\n        \"Search packages by name or description\",\n        \"Install selected package\",\n        \"Update all or selected packages\",\n        \"View package details including last updated date\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Preferences & Configuration\",\n      \"purpose\": \"Configure repository sources, default page, theming, and layout options.\",\n      \"primary_actions\": [\n        \"Modify enabled repositories\",\n        \"Set default landing page\",\n        \"Customize UI layout\",\n        \"Manage update notification behavior\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"search_packages\",\n      \"purpose\": \"Perform unified search across official repos, AUR, and Flatpak with support for hyphen-insensitive matching and description inclusion.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"install_package\",\n      \"purpose\": \"Install a package using direct libalpm integration, supporting official, AUR, and Flatpak sources.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"update_system\",\n      \"purpose\": \"Check for and apply updates across all supported package sources, including handling offline update scenarios.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "lakernote/EasyPostman",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 10,
+        "engineer": 9,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 12,
+        "engineer": 12,
+        "skeptic": 10,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=282",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] Seafoam-Labs/Shelly-ALPM evidence total=19 readme=8 issue=7 release=3 root_files=1",
+    "[repo_card_builder] lakernote/EasyPostman evidence total=21 readme=8 issue=9 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=40 gaps=0",
+    "[llm_spec_generator] lakernote/EasyPostman canonical spec ok (iter=1) -> specs/2026-05-09/lakernote__EasyPostman.json",
+    "[llm_spec_generator] Seafoam-Labs/Shelly-ALPM canonical spec ok (iter=1) -> specs/2026-05-09/Seafoam-Labs__Shelly-ALPM.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-09T05:50:28.631Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:28.657Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260509T055028Z"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:28.657Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:28.662Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:29.082Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:29.082Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:29.444Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:29.444Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:29.823Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:29.823Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:30.171Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:30.171Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:30.505Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:30.505Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:30.854Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:30.854Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:31.247Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:31.247Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:31.407Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:31.407Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:31.782Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:31.782Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.105Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.108Z",
+      "run_id": "20260509T055028Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 282
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.109Z",
+      "run_id": "20260509T055028Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.111Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-09T05:50:32.112Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lakernote__EasyPostman/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.112Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lakernote__EasyPostman/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.114Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lakernote__EasyPostman/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.115Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lakernote__EasyPostman/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.118Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-09T05:50:32.118Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Seafoam-Labs__Shelly-ALPM/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.119Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Seafoam-Labs__Shelly-ALPM/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.121Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Seafoam-Labs__Shelly-ALPM/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.122Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Seafoam-Labs__Shelly-ALPM/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.482Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 11017,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.482Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.482Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.482Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 364
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.483Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.490Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12789,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.490Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.490Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 9
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.490Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 379
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.490Z",
+      "run_id": "20260509T055028Z",
+      "node": "repo_card_builder",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 21,
+        "readme": 8,
+        "issues": 9,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.494Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 21,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 9,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:32.494Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 21,
+        "evidence_selected": 21,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:50:51.637Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1829,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:51:02.735Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1371,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:51:15.549Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1638,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:51:31.754Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1708,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:09.166Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4694,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:09.179Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:09.180Z",
+      "run_id": "20260509T055028Z",
+      "node": "artifacts",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-09/lakernote__EasyPostman.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:09.181Z",
+      "run_id": "20260509T055028Z",
+      "node": "artifacts",
+      "repo": "lakernote/EasyPostman",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-09/lakernote__EasyPostman.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:09.182Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:09.182Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:28.435Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1831,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:52:45.030Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1730,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:53:05.916Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2065,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:53:22.787Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1996,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.806Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5460,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.808Z",
+      "run_id": "20260509T055028Z",
+      "node": "llm_spec_generator",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.809Z",
+      "run_id": "20260509T055028Z",
+      "node": "artifacts",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-09/Seafoam-Labs__Shelly-ALPM.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.809Z",
+      "run_id": "20260509T055028Z",
+      "node": "artifacts",
+      "repo": "Seafoam-Labs/Shelly-ALPM",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-09/Seafoam-Labs__Shelly-ALPM.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.813Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.813Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1778305828631,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "lakernote/EasyPostman": 5,
+          "Seafoam-Labs/Shelly-ALPM": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.813Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-09T05:54:03.813Z",
+      "run_id": "20260509T055028Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-09",
+    "evidence_dir": "evidence/2026-05-09"
+  }
+}

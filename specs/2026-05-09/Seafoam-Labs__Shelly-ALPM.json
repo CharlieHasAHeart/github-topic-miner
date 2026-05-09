@@ -1,0 +1,161 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Shelly-ALPM",
+    "one_liner": "A modern, native Arch Linux package manager with unified GUI and CLI interfaces for managing official repos, AUR, and Flatpak packages."
+  },
+  "screens": [
+    {
+      "name": "Package Search & Management",
+      "purpose": "Unified view to search, filter, install, update, and remove packages from official repos, AUR, and Flatpak.",
+      "primary_actions": [
+        "Install selected package",
+        "Search packages by name or description",
+        "Update all or selected packages",
+        "View package details including last updated date"
+      ]
+    },
+    {
+      "name": "Preferences & Configuration",
+      "purpose": "Configure repository sources, default page, theming, and layout options.",
+      "primary_actions": [
+        "Customize UI layout",
+        "Manage update notification behavior",
+        "Modify enabled repositories",
+        "Set default landing page"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_arch_news",
+      "purpose": "Retrieve and display Arch Linux news in correct chronological order.",
+      "async": true,
+      "input": {
+        "content_snippet": "string",
+        "date": "timestamp",
+        "payload": "json",
+        "title": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "install_package",
+      "purpose": "Install a package using direct libalpm integration, supporting official, AUR, and Flatpak sources.",
+      "async": true,
+      "input": {
+        "content_snippet": "string",
+        "date": "timestamp",
+        "payload": "json",
+        "title": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "search_packages",
+      "purpose": "Perform unified search across official repos, AUR, and Flatpak with support for hyphen-insensitive matching and description inclusion.",
+      "async": true,
+      "input": {
+        "content_snippet": "string",
+        "date": "timestamp",
+        "payload": "json",
+        "title": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "update_system",
+      "purpose": "Check for and apply updates across all supported package sources, including handling offline update scenarios.",
+      "async": true,
+      "input": {
+        "content_snippet": "string",
+        "date": "timestamp",
+        "payload": "json",
+        "title": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "arch_news",
+        "columns": [
+          {
+            "name": "content_snippet",
+            "type": "TEXT"
+          },
+          {
+            "name": "date",
+            "type": "DATETIME"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "packages",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_updated",
+            "type": "DATETIME"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "repository",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add CLI command scaffolding for install/update/search",
+    "week 1: Build unified search screen with filtering by source type",
+    "week 1: Display package list with last-updated column",
+    "week 1: Implement core libalpm integration for package operations"
+  ],
+  "acceptance_tests": [
+    "Arch Linux news items appear in correct reverse-chronological order (newest first).",
+    "Clicking an update notification opens the update interface and shows applicable updates.",
+    "Installing an AUR package does not trigger JsonException during build metadata parsing.",
+    "User can search for 'firefox' and find results from official repos, AUR, and Flatpak regardless of hyphens in package names."
+  ]
+}

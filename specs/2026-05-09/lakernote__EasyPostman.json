@@ -1,0 +1,133 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "EasyPostman",
+    "one_liner": "An open-source API debugging & performance testing desktop app inspired by Postman and simplified JMeter, built with Java for offline, privacy-first developer workflows."
+  },
+  "screens": [
+    {
+      "name": "Main Workspace",
+      "purpose": "Primary interface for managing API collections, environments, and sending requests with response inspection and performance testing capabilities.",
+      "primary_actions": [
+        "Create new request",
+        "Run performance test",
+        "Send HTTP request",
+        "Switch workspace (Local/Git)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "load_git_workspace",
+      "purpose": "Initialize and load a workspace from a local Git repository for version-controlled collaboration.",
+      "async": true,
+      "input": {
+        "field": "string",
+        "name": "string",
+        "payload": "json",
+        "variables": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "resolve_environment_variables",
+      "purpose": "Parse and substitute environment and global variables in request fields, supporting standard naming conventions.",
+      "async": false,
+      "input": {
+        "field": "string",
+        "name": "string",
+        "payload": "json",
+        "variables": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "send_http_request",
+      "purpose": "Execute an HTTP request with configured method, headers, body, and authentication, respecting redirect settings.",
+      "async": true,
+      "input": {
+        "field": "string",
+        "name": "string",
+        "payload": "json",
+        "variables": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "environments",
+        "columns": [
+          {
+            "name": "field",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "variables",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "requests",
+        "columns": [
+          {
+            "name": "method",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          },
+          {
+            "name": "workspace_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workspaces",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build local workspace persistence layer",
+    "week 1: Design main screen layout with request editor and response viewer",
+    "week 1: Implement core HTTP client with redirect control"
+  ],
+  "acceptance_tests": [
+    "Application launches successfully on Windows, macOS, and Linux (including Wayland)",
+    "Environment variables with underscore names are correctly resolved",
+    "Git workspace loads and syncs API collections via local repository",
+    "HTTP requests execute correctly with proper error handling",
+    "Redirects can be disabled and the setting is respected"
+  ]
+}
