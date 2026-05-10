@@ -1,0 +1,3359 @@
+{
+  "run_id": "20260510T061426Z",
+  "generated_at": "2026-05-10T06:14:26.252Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 38,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 5,
+      "release": 6,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-10T06:18:25.346Z",
+    "repo_count": 287
+  },
+  "candidates": [
+    {
+      "full_name": "tektoncd/cli",
+      "html_url": "https://github.com/tektoncd/cli",
+      "description": "A CLI for interacting with Tekton!",
+      "topics": [
+        "cli",
+        "command-line",
+        "hacktoberfest",
+        "pipeline",
+        "tekton"
+      ],
+      "language": "Go",
+      "stargazers_count": 460,
+      "forks_count": 263,
+      "open_issues_count": 59,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:25Z",
+      "created_at": "2019-04-17T17:33:25Z"
+    },
+    {
+      "full_name": "alienx5499/SortVision",
+      "html_url": "https://github.com/alienx5499/SortVision",
+      "description": "SortVision is a web-based sorting algorithm visualizer 🖥️ that lets users explore and compare algorithms like Bubble, Quick, Merge, and more 🔄. Easily adjust speed ⚡ and array size 📊 to watch the sorting process in real-time. Perfect for students and enthusiasts looking to understand sorting mechanics!",
+      "topics": [
+        "algorithm-visualization",
+        "algorithm-visualizer",
+        "data-structures",
+        "interactive-learning",
+        "react",
+        "reactjs",
+        "sorting-algorithms",
+        "sorting-visualizer",
+        "tailwindcss",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 225,
+      "forks_count": 73,
+      "open_issues_count": 10,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:18Z",
+      "created_at": "2025-03-13T05:07:43Z"
+    },
+    {
+      "full_name": "SurgeDM/Surge",
+      "html_url": "https://github.com/SurgeDM/Surge",
+      "description": "Blazing fast TUI download manager built in Go for power users",
+      "topics": [
+        "cli",
+        "download-manager",
+        "downloader",
+        "go",
+        "golang",
+        "hacktoberfest",
+        "poweruser",
+        "terminal",
+        "tui"
+      ],
+      "language": "Go",
+      "stargazers_count": 3015,
+      "forks_count": 120,
+      "open_issues_count": 55,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:10Z",
+      "created_at": "2025-10-29T05:00:15Z"
+    },
+    {
+      "full_name": "superset-sh/superset",
+      "html_url": "https://github.com/superset-sh/superset",
+      "description": "Code Editor for the AI Agents Era - Run an army of Claude Code, Codex, etc. on your machine",
+      "topics": [
+        "agentic-ai",
+        "ai-agents",
+        "claude-code",
+        "cli",
+        "codex",
+        "coding-agents",
+        "cursor-agent",
+        "desktop-app",
+        "developer-tools",
+        "electron",
+        "git-worktree",
+        "llm",
+        "mcp",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "terminal",
+        "tui",
+        "vibe-coding",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 10539,
+      "forks_count": 879,
+      "open_issues_count": 854,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:03Z",
+      "created_at": "2025-10-21T09:16:51Z"
+    },
+    {
+      "full_name": "fujiapple852/trippy",
+      "html_url": "https://github.com/fujiapple852/trippy",
+      "description": "A network diagnostic tool ",
+      "topics": [
+        "cli",
+        "command-line-interface",
+        "command-line-tool",
+        "dns",
+        "icmp",
+        "linux",
+        "macos",
+        "mtr",
+        "netbsd",
+        "network",
+        "networking",
+        "ping",
+        "ratatui",
+        "rust",
+        "rustlang",
+        "tool",
+        "traceroute",
+        "tui",
+        "tui-rs",
+        "windows"
+      ],
+      "language": "Rust",
+      "stargazers_count": 6848,
+      "forks_count": 225,
+      "open_issues_count": 77,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-10T06:14:00Z",
+      "created_at": "2022-03-28T10:56:29Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "alienx5499/SortVision",
+      "html_url": "https://github.com/alienx5499/SortVision",
+      "description": "SortVision is a web-based sorting algorithm visualizer 🖥️ that lets users explore and compare algorithms like Bubble, Quick, Merge, and more 🔄. Easily adjust speed ⚡ and array size 📊 to watch the sorting process in real-time. Perfect for students and enthusiasts looking to understand sorting mechanics!",
+      "topics": [
+        "algorithm-visualization",
+        "algorithm-visualizer",
+        "data-structures",
+        "interactive-learning",
+        "react",
+        "reactjs",
+        "sorting-algorithms",
+        "sorting-visualizer",
+        "tailwindcss",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 225,
+      "forks_count": 73,
+      "open_issues_count": 10,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:18Z",
+      "created_at": "2025-03-13T05:07:43Z"
+    },
+    {
+      "full_name": "SurgeDM/Surge",
+      "html_url": "https://github.com/SurgeDM/Surge",
+      "description": "Blazing fast TUI download manager built in Go for power users",
+      "topics": [
+        "cli",
+        "download-manager",
+        "downloader",
+        "go",
+        "golang",
+        "hacktoberfest",
+        "poweruser",
+        "terminal",
+        "tui"
+      ],
+      "language": "Go",
+      "stargazers_count": 3015,
+      "forks_count": 120,
+      "open_issues_count": 55,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:10Z",
+      "created_at": "2025-10-29T05:00:15Z"
+    },
+    {
+      "full_name": "fujiapple852/trippy",
+      "html_url": "https://github.com/fujiapple852/trippy",
+      "description": "A network diagnostic tool ",
+      "topics": [
+        "cli",
+        "command-line-interface",
+        "command-line-tool",
+        "dns",
+        "icmp",
+        "linux",
+        "macos",
+        "mtr",
+        "netbsd",
+        "network",
+        "networking",
+        "ping",
+        "ratatui",
+        "rust",
+        "rustlang",
+        "tool",
+        "traceroute",
+        "tui",
+        "tui-rs",
+        "windows"
+      ],
+      "language": "Rust",
+      "stargazers_count": 6848,
+      "forks_count": 225,
+      "open_issues_count": 77,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-10T06:14:00Z",
+      "created_at": "2022-03-28T10:56:29Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "alienx5499/SortVision",
+      "html_url": "https://github.com/alienx5499/SortVision",
+      "description": "SortVision is a web-based sorting algorithm visualizer 🖥️ that lets users explore and compare algorithms like Bubble, Quick, Merge, and more 🔄. Easily adjust speed ⚡ and array size 📊 to watch the sorting process in real-time. Perfect for students and enthusiasts looking to understand sorting mechanics!",
+      "topics": [
+        "algorithm-visualization",
+        "algorithm-visualizer",
+        "data-structures",
+        "interactive-learning",
+        "react",
+        "reactjs",
+        "sorting-algorithms",
+        "sorting-visualizer",
+        "tailwindcss",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 225,
+      "forks_count": 73,
+      "open_issues_count": 10,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:18Z",
+      "created_at": "2025-03-13T05:07:43Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n# 🌟 **SortVision** 🌟\n\n### _Interactive Sorting Algorithm Visualizer_\n\n[![Build Passing](https://img.shields.io/badge/build-passing-success?style=flat-square)](https://github.com/alienx5499/sortvisioN/actions)\n[![Node.js](https://img.shields.io/badge/Node.js-v16.10.0-green?style=flat-square)](https://nodejs.org/)\n[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/alienx5499/sortvisioN/blob/main/CONTRIBUTING.md)\n[![License: MIT](https://custom-icon-badges.herokuapp.com/github/license/alienx5499/sortvisioN?logo=law&logoColor=white)](https://github.com/alienx5499/sortvisioN/blob/main/LICENSE)\n[![Platform](https://img.shields.io/badge/platform-Web-brightgreen?style=flat-square)](https://sortvision.vercel.app/)\n[![Views](https://visitor-badge.laobi.icu/badge?page_id=alienx5499.sortvision)](https://visitor-badge.laobi.icu/badge?page_id=alienx5499.sortvision)\n[![⭐ GitHub stars](https://img.shields.io/github/stars/alienx5499/sortvisioN?style=social)](https://github.com/alienx5499/sortvisioN/stargazers)\n[![🍴 GitHub forks](https://img.shields.io/github/forks/alienx5499/sortvisioN?style=social)](https://github.com/alienx5499/sortvisioN/network)\n[![Commits](https://badgen.net/github/commits/alienx5499/sortvisioN)](https://github.com/alienx5499/sortvisioN/commits/main)\n[![🐛 GitHub issues](https://img.shields.io/github/issues/alienx5499/sortvisioN)](https://github.com/alienx5499/sortvisioN/issues)\n[![📂 GitHub pull requests](https://img.shields.io/github/issues-pr/alienx5499/sortvisioN)](https://github.com/alienx5499/sortvisioN/pulls)\n[![💾 GitHub code size](https://img.shields.io/github/languages/code-size/alienx5499/sortvisioN)](https://github.com/alienx5499/sortvisioN)\n\n</div>\n\n---\n\n## 🎯 **What is SortVision?**\n\nSortVision is an interactive web application that brings sorting algorithms to life through real-time visualization. Built with modern web technologies, it provides an engaging platform for learning and understanding various sorting algorithms.\n\n### 🌟 **Key Features**\n\n- **Interactive Visualizations**: Watch sorting algorithms in action with real-time animations\n- **Multiple Algorithms**: Explore 8 different sorting algorithms\n- **Customizable Parameters**: Adjust speed, array size, and more\n- **Performance Metrics**: Track comparisons, swaps, and time complexity\n- **Educational Insights**: Learn about algorithm behavior and efficiency\n- **Responsive Design**: Works seamlessly on desktop and mobile devices\n\n> _\"Visualize your data, understand sorting better!\"_\n\n<div align=\"center\">\n\n### 🚀 **Help Us Build Something Amazing Together!**\n\n**Made algorithms click for you? You're exactly who we built this for!** ✨\n_Help other developers discover what you just experienced_ 💝\n\n<a href=\"https://github.com/alienx5499/SortVision\">\n  <img src=\"https://img.shields.io/badge/⭐%20Star%20this%20repo-Be%20part%20of%20our%20community!-yellow?style=for-the-badge&logo=github\" alt=\"Star this repo\" />\n</a>\n\n<a href=\"https://twitter.com/intent/tweet?text=🔥%20WOW!%20SortVision%20made%20sorting%20algorithms%20finally%20click%20for%20me!%20This%20interactive%20visualizer%20is%20a%20game-changer%20🧠✨%0AIf%20you're%20struggling%20with%20DSA,%20prepping%20for%20coding%20interviews,%20or%20just%20want%20to%20understand%20algorithms%20better%20-%20you%20NEED%20this!%20%F0%9F%9A%80%0Ahttps://github.com/alienx5499/SortVision%0A@alienx5499\">\n  <img src=\"https://img.shields.io/badge/🐦%20Share%20the%20love-Help%20a%20fellow%20developer!-1DA1F2?style=for-the-badge&logo=twitter\" alt=\"Tweet about SortVision\" />\n</a>\n\n<a href=\"https://sortvision.vercel.app/\">\n  <img src=\"https://img.shields.io/badge/🎮%20Experience%20the%20Magic-Try%20it%20NOW!-brightgreen?style=for-the-badge&logo=vercel\" alt=\"Try SortVision Live\" />\n</a>\n\n<a href=\"https://sortvision.vercel.app/contributions\">\n  <img src=\"https://img.shields.io/badge/🌟%20Meet%20Our%20Heroes-View%20Contributors-purple?style=for-the-badge&logo=github\" alt=\"View Contributors\" />\n</a>\n\n**💭 \"Every star motivates us to add more algorithms and features!\" - The SortVision Team**\n\n</div>\n\n---\n\n## 📚 **Table of Contents**\n\n1. [✨ Features](#-features)\n2. [🦾 Tech Stack](#-tech-stack)\n3. [📂 Project Structure](#-project-structure)\n4. [📸 Screenshots](#-screenshots)\n5. [🚀 Quick Start](#-quick-start)\n6. [👨‍🔧 Detailed Setup](#-detailed-setup)\n7. [🛠️ Developer Tools](#️-developer-tools)\n8. [🎯 Target Audience](#-target-audience)\n9. [🤝 Contributing](#-contributing)\n10. [⭐ Star History](#-star-history)\n11. [🌟 Awesome Contributors](#-awesome-contributors)\n12. [📜 License](#-license)\n13. [📬 Feedback & Suggestions](#-feedback--suggestions)\n---\n\n## ✨ **Features**\n\n### 🎮 **Interactive Visualization**\n\n- Real-time visual representation of sorting steps\n- Adjustable animation speed\n- Pause and resume functionality\n- Array size customization\n- Random array generation\n\n### 📊 **Supported Algorithms**\n\n- **Bubble Sort**: Simple comparison-based algorithm\n- **Selection Sort**: In-place comparison sorting\n- **Insertion Sort**: Adaptive sorting algorithm\n- **Merge Sort**: Divide-and-conquer algorithm\n- **Quick Sort**: Efficient, in-place sorting\n- **Heap Sort**: Comparison-based sorting using binary heap data structure\n- **Radix Sort**: Non-comparative integer sorting\n- **Bucket Sort**: Distribution sort that groups elements into buckets\n\n### 📈 **Performance Tracking**\n\n- Real-time comparison count\n- Swap operation tracking\n- Time complexity visualization\n- Algorithm efficiency metrics\n\n### 🎨 **User Interface**\n\n- Modern, responsive design\n- Dark mode support\n- Mobile-friendly interface\n- Intuitive controls\n\n---\n\n## 🦾 **Tech Stack**\n\n### 🌐 **Frontend Technologies**\n\n- **Framework**: React.js with Next.js\n- **Styling**: Tailwind CSS v4 with custom animations\n- **Icons**: Lucide React\n- **Audio**: Web Audio API\n- **Analytics**: Vercel Analytics & Speed Insights\n- **Routing**: React Router DOM (client-side) with Next.js App Router\n- **Build Tool**: Next.js\n\n### 🛠️ **Development Tools**\n\n- **Build Tool**: Vite\n- **Package Manager**: npm/pnpm\n- **Code Quality**: ESLint\n- **Version Control**: Git\n- **Deployment**: Vercel\n\n### 🔧 **Future Enhancements**\n\n- Backend integration with Node.js\n- User preferences storage\n- Algorithm performance history\n- Custom algorithm support\n\n---\n\n## 📂 **Project Structure**\n\n```\nSortVision/\n├─ .github/                    # GitHub specific configurations\n│  ├─ ISSUE_TEMPLATE/          # Templates for GitHub issues\n│  │  ├─ bug_report.md         # Bug report template\n│  │  ├─ config.yml            # Issue template configuration\n│  │  ├─ documentation.md      # Documentation request template\n│  │  ├─ feature_request.md    # Feature request template\n│  │  └─ performance.md        # Performance issue template\n│  ├─ dependabot.yml           # Dependabot configuration\n│  └─ pull_request_template.md # PR template\n├─ .gitignore                  # Git ignore configuration\n├─ CODE_OF_CONDUCT.md          # Community code of conduct\n├─ CONTRIBUTING.md             # Contribution guidelines\n├─ LICENSE                     # MIT license file\n├─ README.md                   # Project documentation (this file)\n├─ SECURITY.md                 # Security policy and reporting\n└─ SortVision/                 # Main application directory\n   ├─ .env.example             # Environment variables template\n   ├─ Dockerfile               # Docker containerization config\n   ├─ api/                     # API endpoints\n   │  └─ gemini.js             # Gemini AI API integration\n   ├─ components.json          # Component configuration\n   ├─ docker-compose.yml       # Docker Compose configuration\n   ├─ eslint.config.js         # ESLint configuration\n   ├─ jsconfig.json            # JavaScript configuration\n   ├─ next.config.mjs          # Next.js configuration\n   ├─ nginx.conf               # Nginx configuration\n   ├─ package-lock.json        # NPM package lock\n   ├─ package.json             # NPM package definition\n   ├─ pnpm-lock.yaml           # PNPM package lock\n   ├─ postcss.config.mjs       # PostCSS configuration\n   ├─ public/                  # Public static assets\n   │  ├─ code/                 # Algorithm implementations in multiple languages\n   │  │  ├─ bubble/            # Bubble Sort implementations\n   │  │  │  ├─ c/              # C implementation\n   │  │  │  │  └─ bubbleSort.c\n   │  │  │  ├─ cpp/            # C++ implementation\n   │  │  │  │  └─ bubbleSort.cpp\n   │  │  │  ├─ csharp/         # C# implementation\n   │  │  │  │  └─ bubbleSort.cs\n   │  │  │  ├─ dart/           # Dart implementation\n   │  │  │  │  └─ bubbleSort.dart\n   │  │  │  ├─ golang/         # Go implementation\n   │  │  │  │  └─ bubbleSort.go\n   │  │  │  ├─ haskell/        # Haskell implementation\n   │  │  │  │  └─ bubbleSort.hs\n   │  │  │  ├─ java/           # Java implementation\n   │  │  │  │  └─ bubbleSort.java\n   │  │  │  ├─ javascript/     # JavaScript implementation\n   │  │  │  │  └─ bubbleSort.js\n   │  │  │  ├─ julia/          # Julia implementation\n   │  │  │  │  └─ bubbleSort.jl\n   │  │  │  ├─ kotlin/         # Kotlin implementation\n   │  │  │  │  └─ bubbleSort.kt\n   │  │  │  ├─ lua/            # Lua implementation\n   │  │  │  │  └─ bubbleSort.lua\n   │  │  │  ├─ php/            # PHP implementation\n   │  │  │  │  └─ bubbleSort.php\n   │  │  │  ├─ pseudocode/     # Pseudocode representation\n   │  │  │  │  └─ bubbleSort.txt\n   │  │  │  ├─ python/         # Python implementation\n   │  │  │  │  └─ bubbleSort.py\n   │  │  │  ├─ r/              # R implementation\n   │  │  │  │  └─ bubbleSort.r\n   │  │  │  ├─ ruby/           # Ruby implementation\n   │  │  │  │  └─ bubbleSort.rb\n   │  │  │  ├─ rust/           # Rust implementation\n   │  │  │  │  └─ bubbleSort.rs\n   │  │  │  ├─ scala/          # Scala implementation\n   │  │  │  │  └─ bubbleSort.scala\n   │  │  │  ├─ swift/          # Swift implementation\n   │  │  │  │  └─ bubbleSort.swift\n   │  │  │  └─ typescript/     # TypeScript implementation\n   │  │  │     └─ bubbleSort.ts\n   │  │  ├─ bucket/            # Bucket Sort implementations (same structure)\n   │  │  ├─ heap/              # Heap Sort implementations (same structure)\n   │  │  ├─ insertion/         # Insertion Sort implementations (same structure)\n   │  │  ├─ merge/             # Merge Sort implementations (same structure)\n   │  │  ├─ quick/             # Quick Sort implementations (same structure)\n   │  │  ├─ radix/             # Radix Sort implementations (same structure)\n   │  │  └─ selection/         # Selection Sort implementations (same structure)\n   │  ├─ devTools/             # Developer tools directory\n   │  │  ├─ core.js            # Core utilities and initialization\n   │  │  ├─ device-info.js     # Device detection and information\n   │  │  ├─ index.js           # Main entry point for debug tools\n   │  │  ├─ monitoring.js      # Performance monitoring utilities\n   │  │  ├─ performance.js     # Performance metrics tracking\n   │  │  └─ ui.js              # Debug UI components and panel\n   │  ├─ favicon.svg           # Site favicon\n   │  ├─ google12e2679e2ea95334.html # Google site verification\n   │  ├─ manifest.json         # PWA manifest\n   │  ├─ mobile.css            # Mobile-specific styles\n   │  ├─ og-image.png          # Open Graph image for sharing\n   │  ├─ robots.txt            # Search engine crawling instructions\n   │  ├─ sitemap.xml           # Site map for search engines\n   │  ├─ splash.svg            # App splash screen\n   │  ├─ sw.js                 # Service worker for offline support\n   │  └─ twitter-image.png     # Twitter card image\n   ├─ scripts/                 # Build and utility scripts\n   │  └─ generate-sitemap.js   # Sitemap generator\n   ├─ server/                  # Backend server directory\n   │  └─ index.js              # Express server for API proxy\n   ├─ src/                     # Source code directory\n   │  ├─ App.css               # App-level styles\n   │  ├",
+        "truncated": true,
+        "bytes": 38308,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".editorconfig",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".husky",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "SortVision",
+        "_typos.toml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Build Passing](https://img.shields.io/badge/build-passing-success?style=flat-square)](https://github.com/alienx5499/sortvisioN/actions) [![Node.js](https://img.shields.io/badge/Node.js-v16.10.0-green?style=flat-square)](https://nodejs.org/) [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/alienx5499/sortvisioN/blob/main/CONTRIBUTING.md) [![License: MIT](https://custom-icon-badges.herokuapp.com/github/license/alienx5499/sortvisioN?logo=law&logoColor=white)](https://github.com/alienx5499/sortvisioN/blob/main/LICENSE) [![Platform](https://img.shields.io/badge/platform-Web-brightgreen?style=flat-square)](https://sortvision.vercel.app/) [![Views](https://visitor-badge.laobi.icu/badge?page_id=alienx5499.sortvision)](https://visitor-badge.laobi.icu/badge?page_id=alienx5499.sortvision) [![⭐ GitHub stars](https://img.shields.io/github/stars/alienx5499/sortvisioN?style=social)](https://github.com/alienx5499/sortvisioN/stargazers) [![🍴 GitHub forks](https://img.shields.io/github/forks/alienx5499/sortvisioN?style=social)](https://github.com/alienx5499/sortvisioN/network) [![Commits](https://badgen.net/githu…",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 2)",
+          "excerpt": "SortVision is an interactive web application that brings sorting algorithms to life through real-time visualization. Built with modern web technologies, it provides an engaging platform for learning and understanding various sorting algorithms.",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 3)",
+          "excerpt": "- **Interactive Visualizations**: Watch sorting algorithms in action with real-time animations - **Multiple Algorithms**: Explore 8 different sorting algorithms - **Customizable Parameters**: Adjust speed, array size, and more - **Performance Metrics**: Track comparisons, swaps, and time complexity - **Educational Insights**: Learn about algorithm behavior and efficiency - **Responsive Design**: Works seamlessly on desktop and mobile devices",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 4)",
+          "excerpt": "**Made algorithms click for you? You're exactly who we built this for!** ✨ _Help other developers discover what you just experienced_ 💝",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<a href=\"https://github.com/alienx5499/SortVision\"> <img src=\"https://img.shields.io/badge/⭐%20Star%20this%20repo-Be%20part%20of%20our%20community!-yellow?style=for-the-badge&logo=github\" alt=\"Star this repo\" /> </a>",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<a href=\"https://twitter.com/intent/tweet?text=🔥%20WOW!%20SortVision%20made%20sorting%20algorithms%20finally%20click%20for%20me!%20This%20interactive%20visualizer%20is%20a%20game-changer%20🧠✨%0AIf%20you're%20struggling%20with%20DSA,%20prepping%20for%20coding%20interviews,%20or%20just%20want%20to%20understand%20algorithms%20better%20-%20you%20NEED%20this!%20%F0%9F%9A%80%0Ahttps://github.com/alienx5499/SortVision%0A@alienx5499\"> <img src=\"https://img.shields.io/badge/🐦%20Share%20the%20love-Help%20a%20fellow%20developer!-1DA1F2?style=for-the-badge&logo=twitter\" alt=\"Tweet about SortVision\" /> </a>",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<a href=\"https://sortvision.vercel.app/\"> <img src=\"https://img.shields.io/badge/🎮%20Experience%20the%20Magic-Try%20it%20NOW!-brightgreen?style=for-the-badge&logo=vercel\" alt=\"Try SortVision Live\" /> </a>",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/alienx5499/SortVision#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<a href=\"https://sortvision.vercel.app/contributions\"> <img src=\"https://img.shields.io/badge/🌟%20Meet%20Our%20Heroes-View%20Contributors-purple?style=for-the-badge&logo=github\" alt=\"View Contributors\" /> </a>",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/alienx5499/SortVision",
+          "title": "ROOT_FILES",
+          "excerpt": ".editorconfig, .gitattributes, .github, .gitignore, .husky, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, README.md, SECURITY.md, SortVision, _typos.toml",
+          "fetched_at": "2026-05-10T06:14:31.631Z",
+          "meta": {
+            "repo_full_name": "alienx5499/SortVision",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "SurgeDM/Surge",
+      "html_url": "https://github.com/SurgeDM/Surge",
+      "description": "Blazing fast TUI download manager built in Go for power users",
+      "topics": [
+        "cli",
+        "download-manager",
+        "downloader",
+        "go",
+        "golang",
+        "hacktoberfest",
+        "poweruser",
+        "terminal",
+        "tui"
+      ],
+      "language": "Go",
+      "stargazers_count": 3015,
+      "forks_count": 120,
+      "open_issues_count": 55,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-10T06:14:10Z",
+      "created_at": "2025-10-29T05:00:15Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n# Surge\n\n**Blazing fast TUI download manager built in Go for power users**\n\n[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/SurgeDM/Surge)\n[![Release](https://img.shields.io/github/v/release/SurgeDM/Surge?style=flat-square&color=blue)](https://github.com/SurgeDM/Surge/releases)\n[![Go Version](https://img.shields.io/github/go-mod/go-version/SurgeDM/Surge?style=flat-square&color=cyan)](go.mod)\n[![License](https://img.shields.io/badge/License-MIT-grey.svg?style=flat-square)](LICENSE)\n[![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-violet.svg)](https://www.buymeacoffee.com/surge.downloader)\n[![Stars](https://img.shields.io/github/stars/SurgeDM/Surge?style=social)](https://github.com/SurgeDM/Surge/stargazers)\n\n[Installation](#installation) • [Usage](#usage) • [Themes](docs/THEMES.md) • [Fonts](docs/FONTS.md) • [Benchmarks](#benchmarks) • [Extension](#browser-extension) • [Settings](docs/SETTINGS.md) • [CLI Reference](docs/USAGE.md)\n\n</div>\n\n---\n\n## What is Surge?\n\nSurge is designed for power users who prefer a keyboard-driven workflow. It features a beautiful **Terminal User Interface (TUI)**, as well as a background **Headless Server** and a **CLI tool** for automation.\n\n![Surge Demo](assets/demo.gif)\n\n---\n\n## Why use Surge?\n\nMost browsers open a single connection for a download. Surge opens multiple (up to 32), splits the file, and downloads chunks in parallel. But we take it a step further:\n\n- **Blazing Fast:** Designed to maximize your bandwidth utilization and download files as quickly as possible.\n- **Multiple Mirrors:** Download from multiple sources simultaneously. Surge distributes workers across all available mirrors and automatically handles failover.\n- **Sequential Download:** Option to download files in strict order (Streaming Mode). Ideal for media files that you want to preview while downloading.\n- **Daemon Architecture:** Surge runs a single background \"engine.\" You can open 10 different terminal tabs and queue downloads; they all funnel into one efficient manager.\n- **Beautiful TUI:** Built with Bubble Tea & Lipgloss, featuring customizable palettes and full theme engine support.\n\nFor a deep dive into how we make downloads faster (like work stealing and slow worker handling), check out our **[Optimization Guide](docs/OPTIMIZATIONS.md)**.\n\n---\n\n## Support the Project\n\nWe are just two CS students building Surge in between classes and exams. We love working on this, but maintaining a project of this scale takes time and resources. That's where you come in!\n\nIf Surge saves you time, consider supporting the development! Donations go directly toward:\n\n- **Publishing the Extension:** Paying the Chrome Web Store fee so you can finally install the extension officially (no more sideloading!).\n- **Dev Tools:** Licenses for tools like **GoReleaser Pro** to help us automate our builds.\n- **Debrid Integration:** Covering subscription costs so we can test and build native Debrid support.\n\n[**☕ Buy us a coffee**](https://www.buymeacoffee.com/surge.downloader)\n\n_Totally optional—your stars, issues, and contributions already mean the world to us! :)_\n\n---\n\n## Installation\n\nSurge is available on multiple platforms. Choose the method that works best for you.\n\n| Platform / Method                  | Command / Instructions                                                           | Notes                                        |\n| :--------------------------------- | :------------------------------------------------------------------------------- | :------------------------------------------- |\n| **Prebuilt Binary**          | [Download from Releases](https://github.com/SurgeDM/Surge/releases/latest) | Easiest method. Just download and run.       |\n| **Arch Linux (AUR)**         | `yay -S surge`                                                                 | Managed via AUR.                             |\n| **macOS / Linux (Homebrew)** | `brew install SurgeDM/tap/surge`                                      | Recommended for Mac/Linux users.             |\n| **Nix / NixOS**              | `nix run github:SurgeDM/Surge`                                        | Via Nix flake. NixOS config: `inputs.surge.packages.${pkgs.system}.default` |\n| **Windows**         | `winget install surge-downloader.surge`<br />or<br />`scoop install surge` | Recommended for Windows users.               |\n| **Dockerfile**               | [See instructions](#4-server-mode-with-docker-compose)                              | Run Surge in server mode with Docker Compose |\n| **Go Install**               | `go install github.com/SurgeDM/Surge@latest`                          | Requires Go 1.25+                           |\n\n---\n\n## Usage\n\nSurge has two main modes: **TUI (Interactive)** and **Server (Headless)**.\n\nFor a full reference, see the **[Themes Guide](docs/THEMES.md)**, **[Settings &amp; Configuration Guide](docs/SETTINGS.md)** and the **[CLI Usage Guide](docs/USAGE.md)**.\n\n### 1. Interactive TUI Mode\n\nJust run `surge` to enter the dashboard. This is where you can visualize progress, manage the queue, and see speed graphs. If you encounter any issues, press `?` to open the bug reporting wizard.\n\n```bash\n# Start the TUI\nsurge\n\n# Start TUI with downloads queued\nsurge https://example.com/file1.zip https://example.com/file2.zip\n\n# Combine URLs and batch file\nsurge https://example.com/file.zip --batch urls.txt\n```\n\n### 2. Server Mode (Headless)\n\nGreat for servers, Raspberry Pis, or background processes.\n\n```bash\n# Start the server\nsurge server\n\n# Start the server with a download\nsurge server https://url.com/file.zip\n\n# Start with explicit API token\nsurge server --token <token>\n```\n\n### 3. Auto-Start Service\n\nSurge provides an official way to manage it as a system service (daemon). This is the recommended way for servers and reproducible deployments.\n\n```bash\n# Install Surge as a system service\nsurge service install\n\n# Manage the service\nsurge service start\nsurge service stop\nsurge service status\n\n# Uninstall the service\nsurge service uninstall\n```\n\n> [!NOTE]\n> On Linux, these commands may require `sudo`. On Windows, they should be run in an elevated (Administrator) terminal.\n\n### 4. Remote TUI\n\n`surge` and `surge server` bind the HTTP API to `0.0.0.0` (all interfaces) by default.\nThis means the server is accessible via `localhost` (127.0.0.1) as well as your local network IP.\n\nThe API is token-protected. Generate/read your token by running:\n\n```bash\nsurge token\n```\n\nAlternatively, you can find it in the TUI under **Settings > Extension**.\n\n### 3. Remote TUI\n\nConnect to a running Surge daemon (local or remote).\n\n```bash\n# Connect to local server (auto-detected)\nsurge connect\n\n# Connect to a remote daemon\nsurge connect 192.168.1.10:1700 --token <token>\n\n# Equivalent global-flag form\nsurge --host 192.168.1.10:1700 --token <token>\n```\n\nBy default, `surge connect` uses:\n\n- `http://` for loopback and private IP targets\n- `https://` for public/hostname targets\n\n### 4. Global Connection Flags (CLI + TUI)\n\nThese global flags are available on all commands:\n\n- `--host <host:port>`: target server for TUI and CLI operations.\n- `--token <token>`: bearer token for authentication.\n\nEnvironment variable fallbacks:\n\n- `SURGE_HOST`\n- `SURGE_TOKEN`\n\n### 5. Server Mode with Docker Compose\n\nDownload the compose file and start the container:\n\n```bash\nwget https://raw.githubusercontent.com/SurgeDM/Surge/refs/heads/main/docker/compose.yml\ndocker compose up -d\n```\n\nGet the API token:\n\n```bash\ndocker compose exec surge surge token\n```\n\nSave this token - you'll need it to authenticate API requests and connect remotely.\n\nCheck downloads/API availability:\n\n```bash\ndocker compose exec surge surge ls\n```\n\nView logs:\n\n```bash\ndocker compose logs -f surge\n```\n\n---\n\n## Fonts\n\nSurge ships a bundled Nerd Font for the TUI, but your terminal controls the\nactual font selection. See [docs/FONTS.md](docs/FONTS.md) for install steps and\nlicensing details.\n\n---\n\n## Benchmarks\n\nWe tested Surge against standard tools. Because of our connection optimization logic, Surge significantly outperforms single-connection tools.\n\n| Tool            | Time             | Speed                | Comparison    |\n| --------------- | ---------------- | -------------------- | ------------- |\n| **Surge** | **28.93s** | **35.40 MB/s** | **—**  |\n| aria2c          | 40.04s           | 25.57 MB/s           | 1.38× slower |\n| curl            | 57.57s           | 17.79 MB/s           | 1.99× slower |\n| wget            | 61.81s           | 16.57 MB/s           | 2.14× slower |\n\n> _Test details: 1GB file, Windows 11, Ryzen 5 5600X, 360 Mbps Network. Results averaged over 5 runs._\n\nWe would love to see you benchmark Surge on your system!\n\n---\n\n## Browser Extension\n\nThe Surge extension intercepts browser downloads and sends them straight to your terminal. It communicates with the Surge client on port **1700** by default.\n\n> [!IMPORTANT]\n> An **Auth Token** is required to connect the extension to your Surge server. This can be obtained from the TUI under **Settings > Extension** or by running `surge token`.\n\n### Chrome / Edge / Brave\n\n1. Download `extension-chrome.zip` from the latest GitHub release.\n2. Unzip it somewhere on disk.\n3. Open your browser and navigate to `chrome://extensions`.\n4. Enable **\"Developer mode\"** in the top right corner.\n5. Click **\"Load unpacked\"**.\n6. Select the unzipped `extension-chrome` folder.\n7. Click the Surge icon in your browser toolbar and enter your **Auth Token** in the settings.\n\n### Firefox\n\n1. **Stable:** [Get the Add-on](https://addons.mozilla.org/en-US/firefox/addon/surge/)\n2. **Development:**\n   - Download `extension-firefox.zip` from the latest GitHub release.\n   - Navigate to `about:debugging#/runtime/this-firefox`.\n   - Click **\"Load Temporary Add-on...\"**.\n   - Select the zip file (or unzip and select `manifest.json`).\n   - Click the Surge icon in your browser toolbar and enter your **Auth Token** in the settings.\n\n---\n\n## Acknowledgements\n\nHuge thanks to the teams and sponsors helping us build and ship Surge:\n\n- [Charm](https://charm.sh/) for the incredible terminal UI ecosystem (Bubble Tea, Lip Gloss, and more).\n- [GoReleaser Pro](https://goreleaser.com/pro/) for release automation (provided free for open source).\n\n---\n\n## Community & Contributing\n\nWe love community contributions! Whether it's a bug fix, a new feature, or just cleaning up typos.\nPRs are always welcome. For a quick guide, see [CONTRIBUTING.md](CONTRIBUTING.md).\n\nYou can check out the [Discussions](https://github.com/SurgeDM/Surge/discussions) for any questions or ideas, or follow us on [X (Twitter)](https://x.com/SurgeDownloader)!\n\n## License\n\nDistributed under the MIT License. See [LICENSE](https://github.com/SurgeDM/Surge/blob/main/LICENSE) for more information.\n\n---\n\n<div align=\"center\">\n<a href=\"https://star-history.com/#SurgeDM/Surge&Date\">\n <picture>\n   <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://api.star-history.com/svg?repos=SurgeDM/Surge&type=Date&theme=dark\" />\n   <source media=\"(prefers-color-scheme: light)\" srcset=\"https://api.star-history.com/svg?repos=SurgeDM/Surge&type=Date\" />\n   <img alt=\"Star History Chart\" src=\"https://api.star-history.com/svg?repos=SurgeDM/Surge&type=Date\" />\n </picture>\n</a>\n\n<br />\nIf Surge saved you some time, consider giving it a ⭐ to help others find it!\n</div>\n",
+        "truncated": false,
+        "bytes": 11449,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.8.5",
+            "tag_name": "v0.8.5",
+            "published_at": "2026-05-01T19:15:15Z",
+            "body_excerpt": "## Changelog\n* ee48e8da97e8d09eacd4c7c7be923580ec0fc0d6 chore: go fmt (#425)\n* a78b50d4deda7ff1d8f4ed0e3ff40f241a99530c fix: native Termux runit service backend (#424)\n\n---\n**Enjoying Surge?** Consider supporting the project to keep it blazing fast!\n- [GitHub Sponsors](https://github.com/sponsors/SurgeDM)\n- [Buy Me a Coffee](https://buymeacoffee.com/surge.downloader)\n- Release automation powered by [GoReleaser Pro](https://goreleaser.com/pro/)\n\n"
+          },
+          {
+            "name": "v0.8.4",
+            "tag_name": "v0.8.4",
+            "published_at": "2026-04-30T18:55:45Z",
+            "body_excerpt": "## Changelog\n* 5f388afaf540e7972de028058906ef83eed0df2a Enhance Category Manager UX and Implement Robust Settings Validation (#421)\n* 62059573df68626389cb6d17d4fa074129fe4552 Fix runtime directory for Termux on Android (#420)\n* 6a8922da27c8e9f6c71d13925abcf3e2ff31ec01 chore(deps): bump postcss from 8.5.9 to 8.5.10 in /extension (#416)\n* f26c4dd7c219252380f57c978a367569c8a70c11 chore: npm update (#419)\n* 44074cff9f901992336ff09e4b207619a04a8588 feat(tui): mark restart-required settings and add confirmation modal (#417)\n* 73bca40f884a0ceb831dfda7be012199759ea4ab feat: official auto-start service support (#422)\n* 5af64dd748245acd34b876843456e3cd4ddacdae fix delete failed (#418)\n* eec85c040e092c540e8ebe3471713b101e5f70fc long urls break tui (#415)\n\n---\n**Enjoying Surge?** Consider supporting the project to keep it blazing fast!\n- [GitHub Sponsors](https://github.com/sponsors/SurgeDM)\n- [Buy Me a Coffee](https://buymeacoffee.com/surge.downloader)\n- Release automation powered by [GoReleaser Pro](https://goreleaser.com/pro/)\n\n"
+          },
+          {
+            "name": "v0.8.3",
+            "tag_name": "v0.8.3",
+            "published_at": "2026-04-24T16:30:51Z",
+            "body_excerpt": "## Changelog\r\n* 502c5266caa3aa7203b3b3ab7b7d05994aa1bd1d Implement optimistic probe fallback and concurrent bootstrap (#404)\r\n* e48a0adc262d38b8c443072ba98073fd39073472 feat: add automatic bug reporting flow (closes #334) (#345)\r\n* 29fc5562fafecfa1dc794732675422236c9c1ff1 fix settings tui cutoff (#409)\r\n* 8a4249bf783b6dc61b203d7e12cb3a581f5f622d fix worker buffer size (#408)\r\n* e4b72bffd4cab972a878c7c69e3a4b64dc87f13c fix: drain response body before signaling readiness in concurrent downloader to ensure connection reuse (#407)\r\n* 418fcdf8200881019d706311c18d617497d35f7c refactor: introduce shared NetworkPool to manage and reuse HTTP transports across downloaders (#410)\r\n* 3c10034c94383f41bc7efcc43109660ba92c698b refactor: unify download progress state management using SessionReset and effective total size passing (#411)\r\n\r\n---\r\n\r\n### New Contributors\r\n* @smazmi  made their first contribution in [https://github.com/SurgeDM/Surge/pull/345](https://github.com/SurgeDM/Surge/pull/345)\r\n\r\n---\r\n**Enjoying Surge?** Consider supporting the project to keep it blazing fast!\r\n- [GitHub Sponsors](https://github.com/sponsors/SurgeDM)\r\n- [Buy Me a Coffee](https://buymeacoffee.com/surge.downloader)\r\n- Release automation powered by [GoReleaser Pro](https://goreleaser.com/pro/)\r\n\r\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 433,
+            "title": "Failed to connect to surge after service start",
+            "state": "open",
+            "url": "https://github.com/SurgeDM/Surge/issues/433"
+          },
+          {
+            "number": 338,
+            "title": "Add certain common DNS providers",
+            "state": "closed",
+            "url": "https://github.com/SurgeDM/Surge/issues/338"
+          },
+          {
+            "number": 431,
+            "title": "Feature request: Set \"Active\" tab to selected when a download starts",
+            "state": "open",
+            "url": "https://github.com/SurgeDM/Surge/issues/431"
+          },
+          {
+            "number": 430,
+            "title": "J and K trigger navigation rather than typing when in Categories editor",
+            "state": "open",
+            "url": "https://github.com/SurgeDM/Surge/issues/430"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".goreleaser.yaml",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "cmd",
+        "docker",
+        "docs",
+        "extension",
+        "flake.lock",
+        "flake.nix",
+        "go.mod",
+        "go.sum",
+        "internal",
+        "main.go",
+        "package.nix",
+        "scripts",
+        "tests",
+        "themes"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/SurgeDM/Surge) [![Release](https://img.shields.io/github/v/release/SurgeDM/Surge?style=flat-square&color=blue)](https://github.com/SurgeDM/Surge/releases) [![Go Version](https://img.shields.io/github/go-mod/go-version/SurgeDM/Surge?style=flat-square&color=cyan)](go.mod) [![License](https://img.shields.io/badge/License-MIT-grey.svg?style=flat-square)](LICENSE) [![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-violet.svg)](https://www.buymeacoffee.com/surge.downloader) [![Stars](https://img.shields.io/github/stars/SurgeDM/Surge?style=social)](https://github.com/SurgeDM/Surge/stargazers)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[Installation](#installation) • [Usage](#usage) • [Themes](docs/THEMES.md) • [Fonts](docs/FONTS.md) • [Benchmarks](#benchmarks) • [Extension](#browser-extension) • [Settings](docs/SETTINGS.md) • [CLI Reference](docs/USAGE.md)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Surge is designed for power users who prefer a keyboard-driven workflow. It features a beautiful **Terminal User Interface (TUI)**, as well as a background **Headless Server** and a **CLI tool** for automation.",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Most browsers open a single connection for a download. Surge opens multiple (up to 32), splits the file, and downloads chunks in parallel. But we take it a step further:",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- **Blazing Fast:** Designed to maximize your bandwidth utilization and download files as quickly as possible. - **Multiple Mirrors:** Download from multiple sources simultaneously. Surge distributes workers across all available mirrors and automatically handles failover. - **Sequential Download:** Option to download files in strict order (Streaming Mode). Ideal for media files that you want to preview while downloading. - **Daemon Architecture:** Surge runs a single background \"engine.\" You can open 10 different terminal tabs and queue downloads; they all funnel into one efficient manager. - **Beautiful TUI:** Built with Bubble Tea & Lipgloss, featuring customizable palettes and full theme engine support.",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 6)",
+          "excerpt": "For a deep dive into how we make downloads faster (like work stealing and slow worker handling), check out our **[Optimization Guide](docs/OPTIMIZATIONS.md)**.",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 7)",
+          "excerpt": "We are just two CS students building Surge in between classes and exams. We love working on this, but maintaining a project of this scale takes time and resources. That's where you come in!",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/SurgeDM/Surge#readme",
+          "title": "README (segment 8)",
+          "excerpt": "If Surge saves you time, consider supporting the development! Donations go directly toward:",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/SurgeDM/Surge/issues/433",
+          "title": "Failed to connect to surge after service start",
+          "excerpt": "Failed to connect to surge after service start (state:open)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "number": 433
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/SurgeDM/Surge/issues/338",
+          "title": "Add certain common DNS providers",
+          "excerpt": "Add certain common DNS providers (state:closed)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "number": 338
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/SurgeDM/Surge/issues/431",
+          "title": "Feature request: Set \"Active\" tab to selected when a download starts",
+          "excerpt": "Feature request: Set \"Active\" tab to selected when a download starts (state:open)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "number": 431
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/SurgeDM/Surge/issues/430",
+          "title": "J and K trigger navigation rather than typing when in Categories editor",
+          "excerpt": "J and K trigger navigation rather than typing when in Categories editor (state:open)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "number": 430
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/SurgeDM/Surge/releases",
+          "title": "v0.8.5",
+          "excerpt": "## Changelog * ee48e8da97e8d09eacd4c7c7be923580ec0fc0d6 chore: go fmt (#425) * a78b50d4deda7ff1d8f4ed0e3ff40f241a99530c fix: native Termux runit service backend (#424) --- **Enjoying Surge?** Consider supporting the project to keep it blazing fast! - [GitHub Sponsors](https://github.com/sponsors/SurgeDM) - [Buy Me a Coffee](https://buymeacoffee.com/surge.downloader) - Release automation powered by [GoReleaser Pro](https://goreleaser.com/pro/)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "tag_name": "v0.8.5",
+            "published_at": "2026-05-01T19:15:15Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/SurgeDM/Surge/releases",
+          "title": "v0.8.4",
+          "excerpt": "## Changelog * 5f388afaf540e7972de028058906ef83eed0df2a Enhance Category Manager UX and Implement Robust Settings Validation (#421) * 62059573df68626389cb6d17d4fa074129fe4552 Fix runtime directory for Termux on Android (#420) * 6a8922da27c8e9f6c71d13925abcf3e2ff31ec01 chore(deps): bump postcss from 8.5.9 to 8.5.10 in /extension (#416) * f26c4dd7c219252380f57c978a367569c8a70c11 chore: npm update (#419) * 44074cff9f901992336ff09e4b207619a04a8588 feat(tui): mark restart-required settings and add confirmation modal (#417) * 73bca40f884a0ceb831dfda7be012199759ea4ab feat: official auto-start service support (#422) * 5af64dd748245acd34b876843456e3cd4ddacdae fix delete failed (#418) * eec85c040e092c540e8ebe3471713b101e5f70fc long urls break tui (#415) --- **Enjoying Surge?** Consider supporting the project to keep it blazing fast! - [GitHub Sponsors](https://github.com/sponsors/SurgeDM) - [Buy Me a Coffee](https://buymeacoffee.com/surge.downloader) - Release automation powered by [GoReleaser Pro](https://goreleaser.com/pro/)",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "tag_name": "v0.8.4",
+            "published_at": "2026-04-30T18:55:45Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/SurgeDM/Surge/releases",
+          "title": "v0.8.3",
+          "excerpt": "## Changelog * 502c5266caa3aa7203b3b3ab7b7d05994aa1bd1d Implement optimistic probe fallback and concurrent bootstrap (#404) * e48a0adc262d38b8c443072ba98073fd39073472 feat: add automatic bug reporting flow (closes #334) (#345) * 29fc5562fafecfa1dc794732675422236c9c1ff1 fix settings tui cutoff (#409) * 8a4249bf783b6dc61b203d7e12cb3a581f5f622d fix worker buffer size (#408) * e4b72bffd4cab972a878c7c69e3a4b64dc87f13c fix: drain response body before signaling readiness in concurrent downloader to ensure connection reuse (#407) * 418fcdf8200881019d706311c18d617497d35f7c refactor: introduce shared NetworkPool to manage and reuse HTTP transports across downloaders (#410) * 3c10034c94383f41bc7efcc43109660ba92c698b refactor: unify download progress state management using SessionReset and effective total size passing (#411) --- ### New Contributors * @smazmi made their first contribution in [https://github.com/SurgeDM/Surge/pull/345](https://github.com/SurgeDM/Surge/pull/345) --- **Enjoying Surge?** Consider supporting the project to keep it blazing fast! - [GitHub Sponsors](https://github.com/sponsors/SurgeDM) - [Buy Me a Coffee](https://buymeacoffee.com/surge.downloader) - Release automati…",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "tag_name": "v0.8.3",
+            "published_at": "2026-04-24T16:30:51Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/SurgeDM/Surge",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .goreleaser.yaml, CONTRIBUTING.md, LICENSE, README.md, assets, cmd, docker, docs, extension, flake.lock, flake.nix, go.mod, go.sum, internal, main.go, package.nix, scripts, tests, themes",
+          "fetched_at": "2026-05-10T06:14:31.717Z",
+          "meta": {
+            "repo_full_name": "SurgeDM/Surge",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "fujiapple852/trippy",
+      "html_url": "https://github.com/fujiapple852/trippy",
+      "description": "A network diagnostic tool ",
+      "topics": [
+        "cli",
+        "command-line-interface",
+        "command-line-tool",
+        "dns",
+        "icmp",
+        "linux",
+        "macos",
+        "mtr",
+        "netbsd",
+        "network",
+        "networking",
+        "ping",
+        "ratatui",
+        "rust",
+        "rustlang",
+        "tool",
+        "traceroute",
+        "tui",
+        "tui-rs",
+        "windows"
+      ],
+      "language": "Rust",
+      "stargazers_count": 6848,
+      "forks_count": 225,
+      "open_issues_count": 77,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-10T06:14:00Z",
+      "created_at": "2022-03-28T10:56:29Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/fujiapple852/trippy/master/docs/src/assets/Trippy-Vertical-DarkMode.svg#gh-dark-mode-only\" width=\"300\">\n  <img src=\"https://raw.githubusercontent.com/fujiapple852/trippy/master/docs/src/assets/Trippy-Vertical.svg#gh-light-mode-only\" width=\"300\"><br>\n  <br>\n  <a href=\"https://github.com/fujiapple852/trippy/actions/workflows/ci.yml\">\n    <img src=\"https://github.com/fujiapple852/trippy/actions/workflows/ci.yml/badge.svg?branch=master\"></a>\n  <a href=\"https://crates.io/crates/trippy/0.13.0\">\n    <img src=\"https://img.shields.io/crates/v/trippy.svg\"></a>\n  <a href=\"https://repology.org/project/trippy/versions\">\n    <img src=\"https://repology.org/badge/tiny-repos/trippy.svg\"></a>\n  <a href=\"https://trippy.zulipchat.com\">\n    <img src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\"></a>\n  <a href=\"https://matrix.to/#/#trippy-dev:matrix.org\">\n    <img src=\"https://img.shields.io/badge/matrix/trippy-dev:matrix.org-blue\"></a>\n  <br>\n  <br>\n  Trippy combines the functionality of traceroute and ping and is designed to assist with the analysis of networking\nissues.\n</p>\n\n<img src=\"https://raw.githubusercontent.com/fujiapple852/trippy/master/assets/0.12.0/demo.gif\" alt=\"trippy\"/>\n\n## Quick Start\n\nSee the [getting started](https://trippy.rs/start/getting-started) guide.\n\n### Install\n\nTrippy runs on Linux, BSD, macOS, and Windows. It can be installed from most package managers, precompiled binaries, or\nsource.\n\nFor example, to install Trippy from `cargo`:\n\n```shell\ncargo install trippy --locked\n```\n\n<details>\n\n<summary>All package managers</summary>\n\n### Cargo\n\n[![Crates.io](https://img.shields.io/crates/v/trippy)](https://crates.io/crates/trippy/0.13.0)\n\n```shell\ncargo install trippy --locked\n```\n\n### APT (Debian)\n\n[![Debian 13 package](https://repology.org/badge/version-for-repo/debian_13/trippy.svg)](https://tracker.debian.org/pkg/trippy)\n\n```shell\napt install trippy\n```\n\n> ⓘ Note:\n>\n> Only available for Debian 13 (`trixie`) and later.\n\n### PPA (Ubuntu)\n\n[![Ubuntu PPA](https://img.shields.io/badge/Ubuntu%20PPA-0.13.0-brightgreen)](https://launchpad.net/~fujiapple/+archive/ubuntu/trippy/+packages)\n\n```shell\nadd-apt-repository ppa:fujiapple/trippy\napt update && apt install trippy\n```\n\n> ⓘ Note:\n>\n> Only available for Ubuntu 24.04 (`Noble`) and 22.04 (`Jammy`).\n\n### Snap (Linux)\n\n[![trippy](https://snapcraft.io/trippy/badge.svg)](https://snapcraft.io/trippy)\n\n```shell\nsnap install trippy\n```\n\n### Homebrew (macOS)\n\n[![Homebrew package](https://repology.org/badge/version-for-repo/homebrew/trippy.svg)](https://formulae.brew.sh/formula/trippy)\n\n```shell\nbrew install trippy\n```\n\n### WinGet (Windows)\n\n[![winget package](https://img.shields.io/badge/WinGet-0.13.0-brightgreen)](https://github.com/microsoft/winget-pkgs/tree/master/manifests/f/FujiApple/Trippy/0.13.0)\n\n```shell\nwinget install trippy\n```\n\n### Scoop (Windows)\n\n[![Scoop package](https://img.shields.io/scoop/v/trippy?style=flat&labelColor=5c5c5c&color=%234dc71f)](https://github.com/ScoopInstaller/Main/blob/master/bucket/trippy.json)\n\n```shell\nscoop install trippy\n```\n\n### Chocolatey (Windows)\n\n[![Chocolatey package](https://repology.org/badge/version-for-repo/chocolatey/trippy.svg)](https://community.chocolatey.org/packages/trippy)\n\n```shell\nchoco install trippy\n```\n\n### NetBSD\n\n[![pkgsrc current package](https://repology.org/badge/version-for-repo/pkgsrc_current/trippy.svg)](https://pkgsrc.se/net/trippy)\n\n```shell\npkgin install trippy\n```\n\n### FreeBSD\n\n[![FreeBSD port](https://repology.org/badge/version-for-repo/freebsd/trippy.svg)](https://www.freshports.org/net/trippy/)\n\n```shell\npkg install trippy\n```\n\n### OpenBSD\n\n[![OpenBSD port](https://repology.org/badge/version-for-repo/openbsd/trippy.svg)](https://openports.pl/path/net/trippy)\n\n```shell\npkg_add trippy\n```\n\n### Arch Linux\n\n[![Arch package](https://repology.org/badge/version-for-repo/arch/trippy.svg)](https://archlinux.org/packages/extra/x86_64/trippy)\n\n```shell\npacman -S trippy\n```\n\n### Gentoo Linux\n\n[![Gentoo package](https://repology.org/badge/version-for-repo/gentoo/trippy.svg)](https://packages.gentoo.org/packages/net-analyzer/trippy)\n\n```shell\nemerge -av net-analyzer/trippy\n```\n\n### Void Linux\n\n[![Void Linux x86_64 package](https://repology.org/badge/version-for-repo/void_x86_64/trippy.svg)](https://github.com/void-linux/void-packages/tree/master/srcpkgs/trippy)\n\n```shell\nxbps-install -S trippy\n```\n\n### ALT Sisyphus\n\n[![ALT Sisyphus package](https://repology.org/badge/version-for-repo/altsisyphus/trippy.svg)](https://packages.altlinux.org/en/sisyphus/srpms/trippy/)\n\n```shell\napt-get install trippy\n```\n\n### Chimera Linux\n\n[![Chimera Linux package](https://repology.org/badge/version-for-repo/chimera/trippy.svg)](https://github.com/chimera-linux/cports/tree/master/user/trippy)\n\n```shell\napk add trippy\n```\n\n### Nix\n\n[![nixpkgs unstable package](https://repology.org/badge/version-for-repo/nix_unstable/trippy.svg)](https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/tr/trippy/package.nix)\n\n```shell\nnix-env -iA trippy\n```\n\n### Docker\n\n[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/fujiapple/trippy)](https://hub.docker.com/r/fujiapple/trippy/)\n\n```shell\ndocker run -it fujiapple/trippy\n```\n\n### All Repositories\n\n[![Packaging status](https://repology.org/badge/vertical-allrepos/trippy.svg)](https://repology.org/project/trippy/versions)\n\n</details>\n\nSee the [installation](https://trippy.rs/start/installation) guide for details of how to install Trippy on your system.\n\n### Run\n\nTo run a basic trace to `example.com` with default settings, use the following command:\n\n```shell\nsudo trip example.com\n```\n\nSee the [usage examples](https://trippy.rs/guides/usage) and [CLI reference](https://trippy.rs/reference/cli) for\ndetails of how to use Trippy. To use Trippy without elevated privileges, see\nthe [privileges](https://trippy.rs/guides/privileges) guide.\n\n## Documentation\n\nFull documentation is available at [trippy.rs](https://trippy.rs).\n\n<details>\n\n<summary>documentation links</summary>\n\n## Getting Started\n\nSee the [Getting Started](https://trippy.rs/start/getting-started/) guide.\n\n## Features\n\nSee the [Features](https://trippy.rs/start/features/) list.\n\n## Distributions\n\nSee the [Distributions](https://trippy.rs/start/installation/) list.\n\n## Privileges\n\nSee the [Privileges](https://trippy.rs/guides/privileges/) guide.\n\n## Usage Examples\n\nSee the [Usage Examples](https://trippy.rs/guides/usage/).\n\n## Command Reference\n\nSee the [Command Reference](https://trippy.rs/reference/cli/).\n\n## Theme Reference\n\nSee the [Theme Reference](https://trippy.rs/reference/theme/).\n\n## Column Reference\n\nSee the [Column Reference](https://trippy.rs/reference/column/).\n\n## Configuration Reference\n\nSee the [Configuration Reference](https://trippy.rs/reference/configuration/).\n\n## Locale Reference\n\nSee the [Locale Reference](https://trippy.rs/reference/locale/).\n\n## Versions\n\nSee the [Version Reference](https://trippy.rs/reference/version/).\n\n## Frequently Asked Questions\n\n### Why does Trippy show \"Awaiting data...\"?\n\nSee the [Awaiting Data](https://trippy.rs/guides/faq/) guide.\n\n<a name=\"windows-defender\"></a>\n\n### How do I allow incoming ICMP traffic in the Windows Defender firewall?\n\nSee the [Windows Defender Firewall](https://trippy.rs/guides/windows_firewall/) guide.\n\n### What are the recommended settings for Trippy?\n\nSee the [Recommended Tracing Settings](https://trippy.rs/guides/recommendation/) guide.\n\n</details>\n\n## Acknowledgements\n\nTrippy is made possible by [ratatui](https://github.com/ratatui-org/ratatui) (\nformerly [tui-rs](https://github.com/fdehau/tui-rs)),\n[crossterm](https://github.com/crossterm-rs/crossterm) as well\nas [several](https://github.com/fujiapple852/trippy/blob/master/Cargo.toml) foundational Rust libraries.\n\nTrippy draws heavily from [mtr](https://github.com/traviscross/mtr) and also incorporates ideas\nfrom both [libparistraceroute](https://github.com/libparistraceroute/libparistraceroute)\n& [Dublin Traceroute](https://github.com/insomniacslk/dublin-traceroute).\n\nThe Trippy networking code is inspired by [pnet](https://github.com/libpnet/libpnet) and some elements of that codebase\nare incorporated in Trippy.\n\nThe [AS][autonomous_system] data is retrieved from\nthe [IP to ASN Mapping Service](https://team-cymru.com/community-services/ip-asn-mapping/#dns) provided\nby [Team Cymru](https://team-cymru.com).\n\nThe [trippy.cli.rs](https://trippy.cli.rs) CNAME hosting is provided by [cli.rs](https://cli.rs).\n\nThe Trippy chat room is sponsored by [Zulip](https://zulip.com).\n\nTrippy logo designed by [Harun Ocaksiz Design](https://www.instagram.com/harunocaksiz).\n\n## License\n\nThis project is distributed under the terms of the Apache License (Version 2.0).\n\nUnless you explicitly state otherwise, any contribution intentionally submitted for inclusion in time by you, as defined\nin the Apache-2.0 license, shall be licensed as above, without any additional terms or conditions.\n\nSee [LICENSE](LICENSE) for details.\n\nCopyright 2022 [Trippy Contributors](https://github.com/fujiapple852/trippy/graphs/contributors)\n\n[autonomous_system]: https://en.wikipedia.org/wiki/Autonomous_system_(Internet)\n",
+        "truncated": false,
+        "bytes": 9257,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Trippy 0.13.0",
+            "tag_name": "0.13.0",
+            "published_at": "2025-05-05T12:35:13Z",
+            "body_excerpt": "## Highlights\r\n\r\nThe 0.13.0 release of Trippy includes several enhancements related to Type of Service (`ToS`) and adds new `Dscp` and `Ecn` columns.\r\n\r\nIt also includes improvements to the TUI such as allowing a custom timezone to be set and adding the ability to read the configuration file from the XDG app config directory. The `json` report has been enriched with start and end timestamps.\r\n\r\nThis release includes a number of bug fixes. For Windows users in particular, this release includes several important stability improvements.\r\n\r\nThe release also introduces a new `system` address family option, which will become the new default in the next major release.\r\n\r\nFinally, Trippy now has a dedicated website and a logo!\r\n\r\n### Type of Service (DSCP/ECN) Improvements\r\n\r\nTrippy allows setting the Type of Service (`ToS`) for IPv4 via the `--tos` (`-Q`) command-line argument (or via the configuration file). The `ToS` value is the second byte of the `IPv4` header and encodes the Differentiated Services Code Point (`DSCP`) and Explicit Congestion Notification (`ECN`) fields.\r\n\r\nSetting the `ToS` on outgoing probe packets can influence the Quality of Service (`QoS`) used by the network devices along the path.\r\n\r\nProbe responses received from the hops along the path include the `ToS` values in the Original Datagram (the `IPv4`/`IPv6` header of the probe packet nested inside the `ICMP` error). Examining the `ToS` value from the Original Datagram can provide useful insight into the `QoS` treatment of the probe packets by network devices along the path.\r\n\r\nThis release of Trippy adds two new columns to display the `DSCP` & `ECN` values, which are derived from the `ToS` value from the Original Datagram for each hop. The new columns are:\r\n\r\n- `Dscp` (`K`): The Differentiated Services Code Point (`DSCP`) of the Original Datagram for a hop\r\n- `Ecn` (`M`): The Explicit Congestion Notification (`ECN`) of the Original Datagram for a hop\r\n\r\nThe `Dscp` and `Ecn` columns are decoded from"
+          },
+          {
+            "name": "Trippy 0.12.2",
+            "tag_name": "0.12.2",
+            "published_at": "2025-01-03T12:59:01Z",
+            "body_excerpt": "# Highlights\r\n\r\nThis maintenance release of Trippy fixes a bug introduced in 0.12.0 which causes a tracer panic if `--first-ttl` is set to be greater than one. The release also addresses a longstanding bug which causes `--dns-resolve-method resolv` to ignore any value provided for `--addr-family` and therefore always use the default value of `ipv4`. Finally the help text for `--addr-family` has been corrected.\r\n\r\nSee the main [0.12.0](https://github.com/fujiapple852/trippy/releases/tag/0.12.0) release note.\r\n\r\n## Changelog\r\n\r\n### Fixed\r\n\r\n- Tracer panic when `--first-ttl` is greater than 1 ([#1460](https://github.com/fujiapple852/trippy/issues/1460))\r\n- IP `--addr-family` not respected for `--dns-resolve-method resolv` ([#1461](https://github.com/fujiapple852/trippy/issues/1461))\r\n- Incorrect cli help text for `--addr-family` ([#1456](https://github.com/fujiapple852/trippy/issues/1456))\r\n\r\n## New Contributors\r\n* @jsoref made their first contribution in https://github.com/fujiapple852/trippy/pull/1459\r\n\r\nSee [CHANGELOG.md](https://github.com/fujiapple852/trippy/blob/master/CHANGELOG.md) for details.\r\n\r\n**Full Changelog**: https://github.com/fujiapple852/trippy/compare/0.12.1...0.12.2"
+          },
+          {
+            "name": "Trippy 0.12.1",
+            "tag_name": "0.12.1",
+            "published_at": "2024-12-21T03:05:52Z",
+            "body_excerpt": "# Highlights\r\n\r\nThis maintenance release of Trippy fixes a bug which prevented translations from working in Docker and also divests all internal use of `yaml` dependencies which were problematic to maintain on some platforms (thanks to @nc7s).\r\n\r\nSee the main [0.12.0](https://github.com/fujiapple852/trippy/releases/tag/0.12.0) release note.\r\n\r\n## Changelog\r\n\r\n### Fixed\r\n\r\n- Locale data not copied into docker image ([#1431](https://github.com/fujiapple852/trippy/issues/1431))\r\n\r\n### Changed\r\n\r\n- Replace use of `yaml` with `toml` dependency ([#1416](https://github.com/fujiapple852/trippy/issues/1416))\r\n\r\n## New Contributors\r\n* @nc7s made their first contribution in https://github.com/fujiapple852/trippy/pull/1424\r\n\r\nSee [CHANGELOG.md](https://github.com/fujiapple852/trippy/blob/master/CHANGELOG.md) for details.\r\n\r\n**Full Changelog**: https://github.com/fujiapple852/trippy/compare/0.12.0...0.12.1"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1790,
+            "title": "trippy-core can't run when there are more than 1024 file descriptors because it uses select()",
+            "state": "open",
+            "url": "https://github.com/fujiapple852/trippy/issues/1790"
+          }
+        ]
+      },
+      "root_files": [
+        ".config",
+        ".devcontainer",
+        ".github",
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "Dockerfile",
+        "LICENSE",
+        "README.md",
+        "RELEASES.md",
+        "assets",
+        "crates",
+        "deny.toml",
+        "docs",
+        "dprint.json",
+        "examples",
+        "snap",
+        "trippy-config-sample.toml",
+        "ubuntu-ppa"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <img src=\"https://raw.githubusercontent.com/fujiapple852/trippy/master/docs/src/assets/Trippy-Vertical-DarkMode.svg#gh-dark-mode-only\" width=\"300\"> <img src=\"https://raw.githubusercontent.com/fujiapple852/trippy/master/docs/src/assets/Trippy-Vertical.svg#gh-light-mode-only\" width=\"300\"><br> <br> <a href=\"https://github.com/fujiapple852/trippy/actions/workflows/ci.yml\"> <img src=\"https://github.com/fujiapple852/trippy/actions/workflows/ci.yml/badge.svg?branch=master\"></a> <a href=\"https://crates.io/crates/trippy/0.13.0\"> <img src=\"https://img.shields.io/crates/v/trippy.svg\"></a> <a href=\"https://repology.org/project/trippy/versions\"> <img src=\"https://repology.org/badge/tiny-repos/trippy.svg\"></a> <a href=\"https://trippy.zulipchat.com\"> <img src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\"></a> <a href=\"https://matrix.to/#/#trippy-dev:matrix.org\"> <img src=\"https://img.shields.io/badge/matrix/trippy-dev:matrix.org-blue\"></a> <br> <br> Trippy combines the functionality of traceroute and ping and is designed to assist with the analysis of networking issues. </p>",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<img src=\"https://raw.githubusercontent.com/fujiapple852/trippy/master/assets/0.12.0/demo.gif\" alt=\"trippy\"/>",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Trippy runs on Linux, BSD, macOS, and Windows. It can be installed from most package managers, precompiled binaries, or source.",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[![Crates.io](https://img.shields.io/crates/v/trippy)](https://crates.io/crates/trippy/0.13.0)",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[![Debian 13 package](https://repology.org/badge/version-for-repo/debian_13/trippy.svg)](https://tracker.debian.org/pkg/trippy)",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 6)",
+          "excerpt": "[![Ubuntu PPA](https://img.shields.io/badge/Ubuntu%20PPA-0.13.0-brightgreen)](https://launchpad.net/~fujiapple/+archive/ubuntu/trippy/+packages)",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```shell add-apt-repository ppa:fujiapple/trippy apt update && apt install trippy ```",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/fujiapple852/trippy#readme",
+          "title": "README (segment 8)",
+          "excerpt": "[![Homebrew package](https://repology.org/badge/version-for-repo/homebrew/trippy.svg)](https://formulae.brew.sh/formula/trippy)",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/fujiapple852/trippy/issues/1790",
+          "title": "trippy-core can't run when there are more than 1024 file descriptors because it uses select()",
+          "excerpt": "trippy-core can't run when there are more than 1024 file descriptors because it uses select() (state:open)",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "number": 1790
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/fujiapple852/trippy/releases",
+          "title": "0.13.0",
+          "excerpt": "## Highlights The 0.13.0 release of Trippy includes several enhancements related to Type of Service (`ToS`) and adds new `Dscp` and `Ecn` columns. It also includes improvements to the TUI such as allowing a custom timezone to be set and adding the ability to read the configuration file from the XDG app config directory. The `json` report has been enriched with start and end timestamps. This release includes a number of bug fixes. For Windows users in particular, this release includes several important stability improvements. The release also introduces a new `system` address family option, which will become the new default in the next major release. Finally, Trippy now has a dedicated website and a logo! ### Type of Service (DSCP/ECN) Improvements Trippy allows setting the Type of Service (`ToS`) for IPv4 via the `--tos` (`-Q`) command-line argument (or via the configuration file). The `ToS` value is the second byte of the `IPv4` header and encodes the Differentiated Services Code Point (`DSCP`) and Explicit Congestion Notification (`ECN`) fields. Setting the `ToS` on outgoing probe packets can influence the Quality of Service (`QoS`) used by the network devices along the path. Pr…",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "tag_name": "0.13.0",
+            "published_at": "2025-05-05T12:35:13Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/fujiapple852/trippy/releases",
+          "title": "0.12.2",
+          "excerpt": "# Highlights This maintenance release of Trippy fixes a bug introduced in 0.12.0 which causes a tracer panic if `--first-ttl` is set to be greater than one. The release also addresses a longstanding bug which causes `--dns-resolve-method resolv` to ignore any value provided for `--addr-family` and therefore always use the default value of `ipv4`. Finally the help text for `--addr-family` has been corrected. See the main [0.12.0](https://github.com/fujiapple852/trippy/releases/tag/0.12.0) release note. ## Changelog ### Fixed - Tracer panic when `--first-ttl` is greater than 1 ([#1460](https://github.com/fujiapple852/trippy/issues/1460)) - IP `--addr-family` not respected for `--dns-resolve-method resolv` ([#1461](https://github.com/fujiapple852/trippy/issues/1461)) - Incorrect cli help text for `--addr-family` ([#1456](https://github.com/fujiapple852/trippy/issues/1456)) ## New Contributors * @jsoref made their first contribution in https://github.com/fujiapple852/trippy/pull/1459 See [CHANGELOG.md](https://github.com/fujiapple852/trippy/blob/master/CHANGELOG.md) for details. **Full Changelog**: https://github.com/fujiapple852/trippy/compare/0.12.1...0.12.2",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "tag_name": "0.12.2",
+            "published_at": "2025-01-03T12:59:01Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/fujiapple852/trippy/releases",
+          "title": "0.12.1",
+          "excerpt": "# Highlights This maintenance release of Trippy fixes a bug which prevented translations from working in Docker and also divests all internal use of `yaml` dependencies which were problematic to maintain on some platforms (thanks to @nc7s). See the main [0.12.0](https://github.com/fujiapple852/trippy/releases/tag/0.12.0) release note. ## Changelog ### Fixed - Locale data not copied into docker image ([#1431](https://github.com/fujiapple852/trippy/issues/1431)) ### Changed - Replace use of `yaml` with `toml` dependency ([#1416](https://github.com/fujiapple852/trippy/issues/1416)) ## New Contributors * @nc7s made their first contribution in https://github.com/fujiapple852/trippy/pull/1424 See [CHANGELOG.md](https://github.com/fujiapple852/trippy/blob/master/CHANGELOG.md) for details. **Full Changelog**: https://github.com/fujiapple852/trippy/compare/0.12.0...0.12.1",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "tag_name": "0.12.1",
+            "published_at": "2024-12-21T03:05:52Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/fujiapple852/trippy",
+          "title": "ROOT_FILES",
+          "excerpt": ".config, .devcontainer, .github, .gitignore, AGENTS.md, CHANGELOG.md, CONTRIBUTING.md, Cargo.lock, Cargo.toml, Dockerfile, LICENSE, README.md, RELEASES.md, assets, crates, deny.toml, docs, dprint.json, examples, snap, trippy-config-sample.toml, ubuntu-ppa",
+          "fetched_at": "2026-05-10T06:14:31.726Z",
+          "meta": {
+            "repo_full_name": "fujiapple852/trippy",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "alienx5499/SortVision",
+      "evidence_count": 9,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 0,
+      "releases_count": 0
+    },
+    {
+      "full_name": "SurgeDM/Surge",
+      "evidence_count": 16,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 4,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 4,
+      "releases_count": 3
+    },
+    {
+      "full_name": "fujiapple852/trippy",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "alienx5499/SortVision",
+      "ok": true,
+      "spec_path": "specs/2026-05-10/alienx5499__SortVision.json"
+    },
+    {
+      "repo": "SurgeDM/Surge",
+      "ok": true,
+      "spec_path": "specs/2026-05-10/SurgeDM__Surge.json"
+    },
+    {
+      "repo": "fujiapple852/trippy",
+      "ok": true,
+      "spec_path": "specs/2026-05-10/fujiapple852__trippy.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "alienx5499/SortVision",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-10/alienx5499__SortVision.json"
+    },
+    {
+      "repo": "SurgeDM/Surge",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-10/SurgeDM__Surge.json"
+    },
+    {
+      "repo": "fujiapple852/trippy",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-10/fujiapple852__trippy.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "alienx5499/SortVision",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-10/alienx5499__SortVision.json"
+      ]
+    },
+    {
+      "repo": "SurgeDM/Surge",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-10/SurgeDM__Surge.json"
+      ]
+    },
+    {
+      "repo": "fujiapple852/trippy",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-10/fujiapple852__trippy.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-10T06:14:42.415Z",
+      "run_id": "20260510T061426Z",
+      "repo": "alienx5499/SortVision",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d7f2eaadad291d2f08e56feaa48f8da67a5f69382a35df721385c97d2220c8c7",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 6367
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10685,
+      "prompt_chars": 6367,
+      "completion_chars": 1275
+    },
+    {
+      "ts": "2026-05-10T06:14:53.029Z",
+      "run_id": "20260510T061426Z",
+      "repo": "alienx5499/SortVision",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4fd9597d9d3a7674411199a0be2739faa4ac61d65b6627dabdb271bdb2596d90",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 7841
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10613,
+      "prompt_chars": 7841,
+      "completion_chars": 1530
+    },
+    {
+      "ts": "2026-05-10T06:15:06.199Z",
+      "run_id": "20260510T061426Z",
+      "repo": "alienx5499/SortVision",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c6cfcd596a63a8facd54338a16e7a1069728fc6d2130e7c753b2f2c7dbfe1e59",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 9558
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13170,
+      "prompt_chars": 9558,
+      "completion_chars": 1567
+    },
+    {
+      "ts": "2026-05-10T06:15:17.568Z",
+      "run_id": "20260510T061426Z",
+      "repo": "alienx5499/SortVision",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6d43c786a8267e322c01212202fbb9bf43d8a30b2c7be583c873adff8aa1beca",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 11309
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11369,
+      "prompt_chars": 11309,
+      "completion_chars": 1291
+    },
+    {
+      "ts": "2026-05-10T06:15:39.481Z",
+      "run_id": "20260510T061426Z",
+      "repo": "alienx5499/SortVision",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "eea3276d8fccebfb3c5c1ccdad6e9d93a1b6b083f2342f64102c02bebde72f6a",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 15391
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 21913,
+      "prompt_chars": 15391,
+      "completion_chars": 2880
+    },
+    {
+      "ts": "2026-05-10T06:15:50.224Z",
+      "run_id": "20260510T061426Z",
+      "repo": "SurgeDM/Surge",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a10e6961263e232bbc0a9c7d19c6ce2eb0234187bef4b81e8eb30083ca27470d",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 9204
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10727,
+      "prompt_chars": 9204,
+      "completion_chars": 1276
+    },
+    {
+      "ts": "2026-05-10T06:15:59.981Z",
+      "run_id": "20260510T061426Z",
+      "repo": "SurgeDM/Surge",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ba27bbc4a298944d78641096270664d2954f7c963a767a650107e761b5f0356a",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 10696
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9756,
+      "prompt_chars": 10696,
+      "completion_chars": 1407
+    },
+    {
+      "ts": "2026-05-10T06:16:11.894Z",
+      "run_id": "20260510T061426Z",
+      "repo": "SurgeDM/Surge",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "bd0745a930bc10390540732dc958cfe46c2a15deeca124bedcc3a671017668bc",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 12291
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11913,
+      "prompt_chars": 12291,
+      "completion_chars": 1408
+    },
+    {
+      "ts": "2026-05-10T06:16:22.038Z",
+      "run_id": "20260510T061426Z",
+      "repo": "SurgeDM/Surge",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f805ef6dbd0503863c12730f1061e95a8c87e8eeb6ccc013e0ca743104747691",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 13896
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10143,
+      "prompt_chars": 13896,
+      "completion_chars": 1206
+    },
+    {
+      "ts": "2026-05-10T06:17:02.891Z",
+      "run_id": "20260510T061426Z",
+      "repo": "SurgeDM/Surge",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5c3ba837e62e0d1684b74baa4f265d0a67520b984d27c224eef59d409a1a68c3",
+      "input_stats": {
+        "evidence_count": 16,
+        "approx_chars": 17968
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 40853,
+      "prompt_chars": 17968,
+      "completion_chars": 5227
+    },
+    {
+      "ts": "2026-05-10T06:17:14.307Z",
+      "run_id": "20260510T061426Z",
+      "repo": "fujiapple852/trippy",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4aa4fe0e97720d2b27a4b32622fd631772f41f9d192623ac602402a7a971a7a2",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 8492
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11411,
+      "prompt_chars": 8492,
+      "completion_chars": 1223
+    },
+    {
+      "ts": "2026-05-10T06:17:28.556Z",
+      "run_id": "20260510T061426Z",
+      "repo": "fujiapple852/trippy",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "198c66027c681daef64f66828ae638ba837fcc6df2e1c76c35c87ade2d842729",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9919
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14248,
+      "prompt_chars": 9919,
+      "completion_chars": 1458
+    },
+    {
+      "ts": "2026-05-10T06:17:43.007Z",
+      "run_id": "20260510T061426Z",
+      "repo": "fujiapple852/trippy",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7b45c5b53a0f3b470c70e5dea9b6c06ec880e3a4320b1179e3ba76cd8478c7ec",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11569
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14450,
+      "prompt_chars": 11569,
+      "completion_chars": 1606
+    },
+    {
+      "ts": "2026-05-10T06:17:56.218Z",
+      "run_id": "20260510T061426Z",
+      "repo": "fujiapple852/trippy",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "68254c70f15b0aef50d0ad348e5542a80403e70ef338c9bcc0d9cab0a5d25388",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13364
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13211,
+      "prompt_chars": 13364,
+      "completion_chars": 1582
+    },
+    {
+      "ts": "2026-05-10T06:18:25.344Z",
+      "run_id": "20260510T061426Z",
+      "repo": "fujiapple852/trippy",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d584c777258119e1cc11173150f815dce9b220f15f1cb78b1b3ef73865cc2738",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 17776
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 29125,
+      "prompt_chars": 17776,
+      "completion_chars": 3366
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "alienx5499/SortVision",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "SurgeDM/Surge",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "fujiapple852/trippy",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "alienx5499/SortVision",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 9,
+      "evidence_total_final": 9,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "SurgeDM/Surge",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 16,
+      "evidence_total_final": 16,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "fujiapple852/trippy",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1778393666259,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "alienx5499/SortVision": 5,
+      "SurgeDM/Surge": 5,
+      "fujiapple852/trippy": 5
+    },
+    "tokensApproxTotal": 50991,
+    "tokensApproxPerRepo": {
+      "alienx5499/SortVision": 14754,
+      "SurgeDM/Surge": 18646,
+      "fujiapple852/trippy": 17591
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "alienx5499/SortVision": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "scout",
+        "summary": "SortVision is an interactive, web-based sorting algorithm visualizer built with modern frontend technologies (React, TypeScript, Tailwind CSS, Vite). It offers real-time animations of 8 sorting algorithms with customizable parameters and educational insights, targeting students and developers learning data structures and algorithms.",
+        "highlights": [
+          "Live demo available on Vercel with responsive design for desktop and mobile",
+          "Comprehensive README with badges for build status, license, platform, and community engagement",
+          "Strong focus on education through visualizations, performance metrics, and algorithm comparisons",
+          "Active community signals: 225 stars, 73 forks, contribution guidelines, and contributor showcase",
+          "Project includes standard open-source hygiene files (CODE_OF_CONDUCT.md, SECURITY.md, LICENSE, etc.)"
+        ],
+        "risks": [
+          "No releases or versioning strategy evident (0 releases)",
+          "Recent activity timestamp appears anomalous (pushed_at in 2026)",
+          "Open issues exist (10) but no issue history visible, limiting insight into maintenance responsiveness"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RF-001",
+          "E-RD-003",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "inventor",
+        "summary": "SortVision is an inventive educational tool that transforms abstract sorting algorithms into tangible, interactive visual experiences using modern web technologies. It demonstrates novelty in pedagogical approach by combining real-time animation, performance tracking, and user customization to deepen algorithmic understanding.",
+        "highlights": [
+          "Innovative use of real-time visualization to demystify complex sorting algorithms for learners",
+          "Integration of performance metrics (comparisons, swaps, time complexity) alongside visual execution enhances conceptual clarity",
+          "Customizable parameters (speed, array size) enable exploratory learning and comparative analysis across 8 algorithms",
+          "Designed as a responsive web app, making algorithm experimentation accessible on any device without installation",
+          "Leverages modern stack (React, TypeScript, Tailwind CSS, Vite) to deliver smooth, engaging user experience"
+        ],
+        "risks": [
+          "Core innovation appears limited to presentation layer; no evidence of novel algorithmic contributions or unique computational techniques",
+          "Educational value depends heavily on implementation quality of visualizations, which cannot be verified from README alone",
+          "No versioned releases suggest the invention may lack stability or documented evolution, reducing reliability for academic or instructional use"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-007",
+          "E-RF-001",
+          "E-RD-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "engineer",
+        "summary": "SortVision is a well-structured, modern web application built with React, TypeScript, Tailwind CSS, and Vite to visualize sorting algorithms interactively. It emphasizes educational utility through real-time animations, performance tracking, and responsive design, supported by standard engineering practices like CI badges, contribution guidelines, and open-source documentation.",
+        "highlights": [
+          "Built with a modern, type-safe stack (TypeScript, React, Vite) enabling maintainable and scalable frontend code",
+          "Includes engineering hygiene artifacts: .editorconfig, .gitignore, .husky, CODE_OF_CONDUCT.md, SECURITY.md, and LICENSE [ID:E-RF-001]",
+          "CI/CD integration indicated by build-passing badge and Vercel deployment link [ID:E-RD-001], [ID:E-RD-007]",
+          "Supports developer contributions with clear onboarding via CONTRIBUTING.md and contributor recognition [ID:E-RF-001], [ID:E-RD-008]",
+          "Responsive, parameterized visualizations suggest thoughtful state management and animation architecture [ID:E-RD-003]"
+        ],
+        "risks": [
+          "No tagged releases or versioning strategy may complicate dependency management and production adoption [ID:E-RD-001]",
+          "Anomalous 'pushed_at' date (2026) raises questions about repository metadata integrity or maintenance activity",
+          "Lack of visible test suite or coverage metrics in README despite build badge—unclear validation depth [ID:E-RD-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RF-001",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "skeptic",
+        "summary": "While SortVision presents itself as an engaging educational tool for sorting algorithms, several claims lack verifiable substantiation, and structural red flags suggest potential overstatement of maturity, maintenance, and technical rigor.",
+        "highlights": [
+          "README heavily emphasizes marketing language ('game-changer', 'made algorithms click') over technical or pedagogical substance [ID:E-RD-004], [ID:E-RD-006]",
+          "Build-passing badge is present but no link to actual CI logs or test coverage, making quality assurances unverifiable [ID:E-RD-001]",
+          "Claims of 'performance metrics' and '8 algorithms' are asserted without evidence of implementation depth or correctness [ID:E-RD-003]"
+        ],
+        "risks": [
+          "Repository shows signs of promotional focus (social sharing prompts, star-begging) that may prioritize visibility over software robustness [ID:E-RD-005], [ID:E-RD-006]",
+          "Anomalous future 'pushed_at' date (2026) undermines trust in activity metrics and maintenance claims",
+          "Absence of releases, changelog, or versioning suggests the project may be unstable or abandoned despite active appearance [ID:E-RD-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"SortVision\",\n    \"one_sentence\": \"An interactive web application that visualizes sorting algorithms in real time with customizable parameters and performance metrics.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User selects a sorting algorithm, configures array size and speed, then watches the algorithm execute with live animations while tracking comparisons, swaps, and time complexity.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Algorithm Visualization Dashboard\",\n      \"purpose\": \"Display real-time animation of selected sorting algorithm with controls for customization and performance feedback.\",\n      \"primary_actions\": [\n        \"Select sorting algorithm\",\n        \"Adjust array size\",\n        \"Control playback speed\",\n        \"Start/pause/reset visualization\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist user configuration or session state (e.g., preferred algorithm, array settings).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"algorithm_sessions\",\n        \"fields\": [\n          {\n            \"name\": \"algorithm_name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"array_size\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"speed_setting\",\n            \"type\": \"number\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core visualization engine for at least 3 sorting algorithms\",\n          \"Build responsive UI with algorithm selector and playback controls\",\n          \"Integrate performance metric tracking (comparisons, swaps)\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can select Bubble Sort and observe correct step-by-step execution on a randomized array.\",\n    \"Adjusting speed slider immediately affects animation fram"
+      }
+    },
+    "SurgeDM/Surge": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "scout",
+        "summary": "Surge is a high-performance, keyboard-driven download manager built in Go, featuring a TUI, headless daemon, and CLI. It emphasizes speed through parallel downloads, mirror support, and advanced networking optimizations. The project is actively maintained by a small team seeking community support.",
+        "highlights": [
+          "Blazing fast downloads via multi-connection splitting (up to 32) and multiple mirror support",
+          "Daemon architecture allows unified download management across multiple terminal sessions",
+          "Built with Bubble Tea & Lipgloss, offering customizable themes and a polished TUI",
+          "Active development with recent releases addressing UX, Termux compatibility, and performance",
+          "Strong documentation including optimization guides, settings, fonts, and themes"
+        ],
+        "risks": [
+          "Small maintainer team (two CS students) may impact long-term sustainability",
+          "Open issues include connectivity problems and UI/UX bugs (e.g., navigation key conflicts)",
+          "Reliance on community donations for continued development"
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-IS-004",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "inventor",
+        "summary": "Surge innovates in download management by combining a keyboard-centric TUI, a persistent daemon for unified control, and aggressive parallelization across mirrors and connections—optimized via techniques like work stealing and connection reuse.",
+        "highlights": [
+          "Uses up to 32 parallel connections per download with automatic chunking and mirror failover for maximum throughput",
+          "Daemon architecture centralizes all download operations, enabling seamless coordination across multiple CLI/TUI instances",
+          "Implements advanced networking optimizations including shared HTTP transport pools and response body draining for connection reuse",
+          "Features a fully themeable TUI built on Bubble Tea & Lipgloss, tailored for power users preferring keyboard navigation",
+          "Supports streaming mode for sequential downloads, enabling media preview during transfer"
+        ],
+        "risks": [
+          "Complex concurrency model (e.g., work stealing, shared NetworkPool) may introduce subtle race conditions or debugging challenges",
+          "Heavy reliance on Go runtime and external libraries (Bubble Tea, Lipgloss) could limit portability or increase maintenance burden",
+          "Small team size may hinder sustained innovation despite ambitious architectural choices"
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-003",
+          "E-RD-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "engineer",
+        "summary": "Surge is a Go-based download manager engineered for performance and usability, featuring a TUI, daemonized architecture, and aggressive parallelization. It leverages modern Go tooling, Bubble Tea for UI, and advanced networking techniques like connection reuse and work stealing to maximize throughput.",
+        "highlights": [
+          "Built in Go with modular structure (cmd/, internal/, go.mod) and uses GoReleaser Pro for CI/CD automation",
+          "Daemon architecture centralizes download management, enabling coordination across multiple CLI/TUI sessions",
+          "Implements shared NetworkPool and response draining to optimize HTTP connection reuse and reduce overhead",
+          "TUI built with Bubble Tea & Lipgloss supports theming, keyboard navigation, and settings validation",
+          "Actively maintained with recent fixes for Termux compatibility, UX improvements, and bug reporting"
+        ],
+        "risks": [
+          "Open issues indicate unresolved connectivity problems (E-IS-001) and TUI input conflicts (E-IS-004)",
+          "Small maintainer team may struggle to sustain complex concurrency and networking logic long-term",
+          "Heavy use of external Go modules and UI libraries increases dependency surface and potential breakage"
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role": "skeptic",
+        "summary": "While Surge promises high performance and a polished TUI experience, several red flags suggest potential overstatement of capabilities, sustainability concerns, and unresolved stability issues.",
+        "highlights": [
+          "Claims of 'blazing fast' downloads rely on ideal conditions (multiple mirrors, stable connections) not guaranteed in real-world use",
+          "Daemon architecture and complex concurrency model may introduce hidden failure modes not evident from changelogs",
+          "Project is maintained by only two CS students with heavy reliance on donations, raising doubts about long-term viability"
+        ],
+        "risks": [
+          "Open issue E-IS-001 ('Failed to connect to surge after service start') indicates fundamental reliability problems in the daemon layer",
+          "TUI usability issues like E-IS-004 (keyboard navigation interfering with text input) undermine the 'keyboard-driven workflow' promise",
+          "Frequent appeals for financial support (E-RD-007, E-RD-008, E-RL-001, E-RL-002) suggest resource constraints that could stall development"
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-004",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 16,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Surge\",\n    \"one_sentence\": \"Blazing fast TUI download manager built in Go for power users\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User initiates downloads via CLI or TUI; the daemon manages parallel chunked downloads across multiple mirrors, updates progress in real-time, and allows keyboard-driven interaction with active and completed downloads.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Download View\",\n      \"purpose\": \"Display active, queued, and completed downloads with real-time progress and status indicators.\",\n      \"primary_actions\": [\n        \"Start new download\",\n        \"Pause/Resume download\",\n        \"Cancel download\",\n        \"Switch to Settings\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings Editor\",\n      \"purpose\": \"Configure download behavior, themes, categories, and daemon options with validation and restart-required warnings.\",\n      \"primary_actions\": [\n        \"Edit categories\",\n        \"Change theme\",\n        \"Adjust connection limits\",\n        \"Save settings\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"start_download\",\n      \"purpose\": \"Initiate a new download job using URL and optional mirrors, handled by the background daemon.\",\n      \"async\": true,\n      \"input\": {\n        \"url\": \"string\",\n        \"mirrors\": \"array<string>\",\n        \"category\": \"string\"\n      },\n      \"output\": {\n        \"job_id\": \"string\",\n        \"status\": \"string\"\n      }\n    },\n    {\n      \"name\": \"list_downloads\",\n      \"purpose\": \"Retrieve current download queue and history from the daemon.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {\n        \"downloads\": \"array<object>\"\n      }\n    },\n    {\n      \"name\": \"update_settings\",\n      \"purpose\": \"Apply validated user settings and trigger restart if required.\",\n      \"async\": true,\n      \"input\": {\n        \"settings\": \"object\"\n      },\n      \"output\": {\n        \"success\": \"boolean\",\n        \"restart_required\": \"bool"
+      }
+    },
+    "fujiapple852/trippy": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "Trippy is a mature, cross-platform network diagnostic tool written in Rust, offering traceroute-like functionality with a modern TUI. It is actively maintained, widely packaged, and has recent releases addressing bugs and adding features like DSCP/ECN support and improved configuration handling.",
+        "highlights": [
+          "Actively developed with recent stable releases (0.13.0, 0.12.2, 0.12.1) introducing new features and fixes.",
+          "Cross-platform support (Linux, BSD, macOS, Windows) with availability via multiple package managers (Debian, Ubuntu PPA, Homebrew, Cargo).",
+          "Modern terminal UI built with Ratatui, enhanced in recent versions with timezone customization and XDG config support.",
+          "Project has strong community signals: 6.8k stars, active issue tracking, CI integration, and dedicated chat (Zulip, Matrix)."
+        ],
+        "risks": [
+          "Open issue indicates a scalability limitation: trippy-core fails when exceeding 1024 file descriptors due to use of select() [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "Trippy is an innovative, cross-platform network diagnostic tool that reimagines traditional traceroute with a modern TUI, granular traffic control via DSCP/ECN settings, and flexible configuration. Built in Rust, it emphasizes usability, portability, and extensibility while supporting diverse deployment methods.",
+        "highlights": [
+          "Introduces fine-grained Type of Service (ToS) control with dedicated DSCP and ECN columns, enabling advanced network path analysis [ID:E-RL-001].",
+          "Features a responsive terminal user interface (TUI) built with Ratatui, enhanced with timezone customization and XDG config directory support [ID:E-RL-001].",
+          "Designed for broad accessibility: packaged across major platforms (Debian, Ubuntu PPA, Homebrew, Cargo) and supports Linux, BSD, macOS, and Windows [ID:E-RD-003, E-RD-005, E-RD-006, E-RD-007, E-RD-008].",
+          "Adopts modern configuration practices, migrating from YAML to TOML and supporting external config files, improving maintainability and cross-platform consistency [ID:E-RL-003, E-RF-001]."
+        ],
+        "risks": [
+          "Scalability bottleneck due to reliance on select(), limiting operation to ≤1024 file descriptors—a known issue that constrains high-concurrency use cases [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-003",
+          "E-RF-001",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "Trippy is a well-structured, cross-platform network diagnostic tool written in Rust, leveraging modern practices like TOML configuration, CI/CD, and modular crate organization. It offers advanced features such as DSCP/ECN control and a Ratatui-based TUI, but has a known scalability limitation due to its use of select().",
+        "highlights": [
+          "Codebase is organized into crates (evident from root 'crates' dir) and uses Cargo.toml for dependency management, indicating modular Rust architecture [ID:E-RF-001].",
+          "Recent releases show active engineering: migration from YAML to TOML improves maintainability and platform compatibility [ID:E-RL-003], and new system address family option signals ongoing protocol stack refinement [ID:E-RL-001].",
+          "Comprehensive packaging and installation support across Linux distros (Debian, Ubuntu PPA), macOS (Homebrew), and Windows demonstrates robust build and distribution engineering [ID:E-RD-005, E-RD-006, E-RD-007, E-RD-008].",
+          "CI pipeline is integrated (GitHub Actions badge in README) and project enforces code quality via tools like dprint (present in root files) [ID:E-RD-001, E-RF-001]."
+        ],
+        "risks": [
+          "Critical scalability issue: trippy-core uses select(), which fails when file descriptor count exceeds 1024—unsuitable for high-concurrency or large-scale monitoring scenarios without architectural changes [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RL-003",
+          "E-RL-001",
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "Despite Trippy's polished presentation and active release cadence, it harbors a fundamental architectural flaw that undermines its reliability in real-world network environments with moderate to high concurrency.",
+        "highlights": [
+          "The project prominently advertises cross-platform support and modern features like DSCP/ECN control and TUI enhancements [ID:E-RL-001], yet glosses over a critical technical limitation in core documentation.",
+          "Recent releases focus on user-facing improvements and packaging [ID:E-RL-001, E-RD-005–E-RD-008], but fail to address the known select() bottleneck, suggesting low priority for scalability fixes.",
+          "While engineering practices appear sound (modular crates, TOML config, CI) [ID:E-RF-001, E-RL-003], the persistence of a decades-old I/O multiplexing anti-pattern (select()) raises questions about core architecture review rigor."
+        ],
+        "risks": [
+          "The use of select() imposes a hard limit of 1024 file descriptors, causing trippy-core to fail in environments with many concurrent connections or interfaces—a serious flaw for a network diagnostic tool expected to handle complex topologies [ID:E-IS-001].",
+          "No evidence suggests a migration plan to poll(), epoll(), kqueue(), or async I/O; without such a refactor, Trippy remains unsuitable for production monitoring at scale despite its otherwise professional appearance."
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-RL-001",
+          "E-RF-001",
+          "E-RL-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Trippy\",\n    \"one_sentence\": \"A modern, cross-platform network diagnostic tool with a terminal-based UI for advanced traceroute analysis.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Trippy continuously sends probe packets to trace network paths, captures responses, and renders real-time hop-by-hop latency and routing data in a TUI, supporting configurable Type of Service (ToS), DSCP, and ECN settings.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Traceroute View\",\n      \"purpose\": \"Display live traceroute results with hop details, round-trip times, and optional DSCP/ECN columns.\",\n      \"primary_actions\": [\n        \"Start/stop tracing\",\n        \"Toggle DSCP/ECN columns\",\n        \"Adjust TTL range\",\n        \"Switch address family\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"start_traceroute\",\n      \"purpose\": \"Initiate a new traceroute session with specified target, address family, ToS, and DNS resolution method.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"load_config\",\n      \"purpose\": \"Load configuration from XDG app config directory or provided file path using TOML format.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"hops\",\n        \"fields\": [\n          {\n            \"name\": \"ttl\",\n            \"type\": \"u8\"\n          },\n          {\n            \"name\": \"ip_address\",\n            \"type\": \"String\"\n          },\n          {\n            \"name\": \"rtt_ms\",\n            \"type\": \"f64\"\n          },\n          {\n            \"name\": \"dscp\",\n            \"type\": \"Option<u8>\"\n          },\n          {\n            \"name\": \"ecn\",\n            \"type\": \"Option<u8>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core packet probing logic using raw sockets\",\n          \"Render basic TUI with Ratatui showin"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "alienx5499/SortVision",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 6,
+        "inventor": 5,
+        "engineer": 5,
+        "skeptic": 5,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "SurgeDM/Surge",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 5,
+        "engineer": 8,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "fujiapple852/trippy",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 9,
+        "engineer": 9,
+        "skeptic": 8,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=284",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] alienx5499/SortVision evidence total=9 readme=8 issue=0 release=0 root_files=1",
+    "[repo_card_builder] SurgeDM/Surge evidence total=16 readme=8 issue=4 release=3 root_files=1",
+    "[repo_card_builder] fujiapple852/trippy evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=38 gaps=0",
+    "[llm_spec_generator] alienx5499/SortVision canonical spec ok (iter=1) -> specs/2026-05-10/alienx5499__SortVision.json",
+    "[llm_spec_generator] SurgeDM/Surge canonical spec ok (iter=1) -> specs/2026-05-10/SurgeDM__Surge.json",
+    "[llm_spec_generator] fujiapple852/trippy canonical spec ok (iter=1) -> specs/2026-05-10/fujiapple852__trippy.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-10T06:14:26.259Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:26.280Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260510T061426Z"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:26.280Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:26.284Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:26.848Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:26.848Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:27.317Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:27.317Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:27.736Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:27.736Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:28.297Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:28.297Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:28.756Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:28.756Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:29.308Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:29.308Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:29.828Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:29.828Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:30.097Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:30.097Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:30.608Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:30.608Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.085Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.088Z",
+      "run_id": "20260510T061426Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 284
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.089Z",
+      "run_id": "20260510T061426Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.092Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-10T06:14:31.092Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "alienx5499__SortVision/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.093Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "alienx5499__SortVision/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.094Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "alienx5499__SortVision/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.096Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "alienx5499__SortVision/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.098Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-10T06:14:31.098Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "SurgeDM__Surge/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.099Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "SurgeDM__Surge/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.101Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "SurgeDM__Surge/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.102Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "SurgeDM__Surge/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.104Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-10T06:14:31.104Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fujiapple852__trippy/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.105Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fujiapple852__trippy/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.106Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fujiapple852__trippy/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.107Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fujiapple852__trippy/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.631Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 38308,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.631Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.631Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.631Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 539
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.632Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 9,
+        "readme": 8,
+        "issues": 0,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.717Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 11449,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.717Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.717Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 4
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.717Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 619
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.717Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 16,
+        "readme": 8,
+        "issues": 4,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.726Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 9257,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.726Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.726Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.726Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 622
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.726Z",
+      "run_id": "20260510T061426Z",
+      "node": "repo_card_builder",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.730Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 9,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:31.730Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 9,
+        "evidence_selected": 9,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:42.415Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1275,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:14:53.029Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1530,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:06.199Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1567,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:17.568Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1291,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:39.482Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2880,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:39.495Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:39.496Z",
+      "run_id": "20260510T061426Z",
+      "node": "artifacts",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-10/alienx5499__SortVision.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:39.496Z",
+      "run_id": "20260510T061426Z",
+      "node": "artifacts",
+      "repo": "alienx5499/SortVision",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-10/alienx5499__SortVision.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:39.496Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 16,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 4,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:39.496Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 16,
+        "evidence_selected": 16,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:50.224Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1276,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:15:59.981Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1407,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:16:11.894Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1408,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:16:22.038Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1206,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:02.891Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5227,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:02.894Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:02.894Z",
+      "run_id": "20260510T061426Z",
+      "node": "artifacts",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-10/SurgeDM__Surge.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:02.894Z",
+      "run_id": "20260510T061426Z",
+      "node": "artifacts",
+      "repo": "SurgeDM/Surge",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-10/SurgeDM__Surge.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:02.895Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:02.895Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:14.307Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1223,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:28.556Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1458,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:43.007Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1606,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:17:56.218Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1582,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.344Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3366,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.345Z",
+      "run_id": "20260510T061426Z",
+      "node": "llm_spec_generator",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.346Z",
+      "run_id": "20260510T061426Z",
+      "node": "artifacts",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-10/fujiapple852__trippy.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.346Z",
+      "run_id": "20260510T061426Z",
+      "node": "artifacts",
+      "repo": "fujiapple852/trippy",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-10/fujiapple852__trippy.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.349Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.349Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1778393666259,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "alienx5499/SortVision": 5,
+          "SurgeDM/Surge": 5,
+          "fujiapple852/trippy": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.349Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-10T06:18:25.350Z",
+      "run_id": "20260510T061426Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-10",
+    "evidence_dir": "evidence/2026-05-10"
+  }
+}

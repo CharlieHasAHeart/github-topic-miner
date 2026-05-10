@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Trippy",
+    "one_liner": "A modern, cross-platform network diagnostic tool with a terminal-based UI for advanced traceroute analysis."
+  },
+  "screens": [
+    {
+      "name": "Main Traceroute View",
+      "purpose": "Display live traceroute results with hop details, round-trip times, and optional DSCP/ECN columns.",
+      "primary_actions": [
+        "Adjust TTL range",
+        "Start/stop tracing",
+        "Switch address family",
+        "Toggle DSCP/ECN columns"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "load_config",
+      "purpose": "Load configuration from XDG app config directory or provided file path using TOML format.",
+      "async": false,
+      "input": {
+        "dscp": "string",
+        "ecn": "string",
+        "ip_address": "string",
+        "payload": "json",
+        "rtt_ms": "float",
+        "ttl": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_traceroute",
+      "purpose": "Initiate a new traceroute session with specified target, address family, ToS, and DNS resolution method.",
+      "async": true,
+      "input": {
+        "dscp": "string",
+        "ecn": "string",
+        "ip_address": "string",
+        "payload": "json",
+        "rtt_ms": "float",
+        "ttl": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "hops",
+        "columns": [
+          {
+            "name": "dscp",
+            "type": "TEXT"
+          },
+          {
+            "name": "ecn",
+            "type": "TEXT"
+          },
+          {
+            "name": "ip_address",
+            "type": "TEXT"
+          },
+          {
+            "name": "rtt_ms",
+            "type": "REAL"
+          },
+          {
+            "name": "ttl",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for IPv4/IPv6 address families",
+    "week 1: Implement core packet probing logic using raw sockets",
+    "week 1: Integrate TOML config loading from XDG directory",
+    "week 1: Render basic TUI with Ratatui showing hop table"
+  ],
+  "acceptance_tests": [
+    "Given a target host, Trippy displays live hop-by-hop latency in the TUI within 2 seconds.",
+    "The application runs without panic when --first-ttl > 1 (regression test from 0.12.2).",
+    "Trippy loads configuration from $XDG_CONFIG_HOME/trippy/config.toml if present.",
+    "When --tos is set, DSCP and ECN columns appear and reflect configured values."
+  ]
+}

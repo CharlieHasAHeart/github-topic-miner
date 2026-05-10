@@ -1,0 +1,145 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Surge",
+    "one_liner": "Blazing fast TUI download manager built in Go for power users"
+  },
+  "screens": [
+    {
+      "name": "Main Download View",
+      "purpose": "Display active, queued, and completed downloads with real-time progress and status indicators.",
+      "primary_actions": [
+        "Cancel download",
+        "Pause/Resume download",
+        "Start new download",
+        "Switch to Settings"
+      ]
+    },
+    {
+      "name": "Settings Editor",
+      "purpose": "Configure download behavior, themes, categories, and daemon options with validation and restart-required warnings.",
+      "primary_actions": [
+        "Adjust connection limits",
+        "Change theme",
+        "Edit categories",
+        "Save settings"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_downloads",
+      "purpose": "Retrieve current download queue and history from the daemon.",
+      "async": false,
+      "input": {
+        "category": "string",
+        "created_at": "timestamp",
+        "limit": "int?",
+        "offset": "int?",
+        "progress": "float",
+        "query": "string?",
+        "status": "string",
+        "url": "string"
+      },
+      "output": {
+        "downloads": "string"
+      }
+    },
+    {
+      "name": "start_download",
+      "purpose": "Initiate a new download job using URL and optional mirrors, handled by the background daemon.",
+      "async": true,
+      "input": {
+        "category": "string",
+        "mirrors": "string",
+        "url": "string"
+      },
+      "output": {
+        "job_id": "string",
+        "status": "string"
+      }
+    },
+    {
+      "name": "update_settings",
+      "purpose": "Apply validated user settings and trigger restart if required.",
+      "async": true,
+      "input": {
+        "settings": "json"
+      },
+      "output": {
+        "restart_required": "boolean",
+        "success": "boolean"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "downloads",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "progress",
+            "type": "REAL"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "settings",
+        "columns": [
+          {
+            "name": "auto_start_service",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "max_connections",
+            "type": "INTEGER"
+          },
+          {
+            "name": "streaming_mode",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "theme",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add CLI command to enqueue downloads",
+    "week 1: Build basic TUI with Bubble Tea showing active downloads",
+    "week 1: Implement core daemon with parallel chunked downloader",
+    "week 1: Persist download state to disk",
+    "week 2: Add settings screen with validation",
+    "week 2: Implement streaming mode toggle",
+    "week 2: Integrate mirror support and failover logic",
+    "week 2: Support theme customization"
+  ],
+  "acceptance_tests": [
+    "After service start, client successfully connects to daemon without failure.",
+    "In Categories editor, typing 'j' or 'k' inserts characters instead of triggering navigation.",
+    "User can start a download via CLI and see it appear in the TUI within 1 second.",
+    "When a download starts, the 'Active' tab is automatically selected (per feature request)."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "SortVision",
+    "one_liner": "An interactive web application that visualizes sorting algorithms in real time with customizable parameters and performance metrics."
+  },
+  "screens": [
+    {
+      "name": "Algorithm Visualization Dashboard",
+      "purpose": "Display real-time animation of selected sorting algorithm with controls for customization and performance feedback.",
+      "primary_actions": [
+        "Adjust array size",
+        "Control playback speed",
+        "Select sorting algorithm",
+        "Start/pause/reset visualization"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist user configuration or session state (e.g., preferred algorithm, array settings).",
+      "async": true,
+      "input": {
+        "algorithm_name": "string",
+        "array_size": "int",
+        "payload": "json",
+        "speed_setting": "float"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "algorithm_sessions",
+        "columns": [
+          {
+            "name": "algorithm_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "array_size",
+            "type": "INTEGER"
+          },
+          {
+            "name": "speed_setting",
+            "type": "REAL"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build responsive UI with algorithm selector and playback controls",
+    "week 1: Implement core visualization engine for at least 3 sorting algorithms",
+    "week 1: Integrate performance metric tracking (comparisons, swaps)"
+  ],
+  "acceptance_tests": [
+    "Adjusting speed slider immediately affects animation frame rate without breaking visualization.",
+    "User can select Bubble Sort and observe correct step-by-step execution on a randomized array."
+  ]
+}
