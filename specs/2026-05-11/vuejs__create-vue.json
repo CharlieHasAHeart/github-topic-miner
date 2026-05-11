@@ -1,0 +1,58 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "create-vue",
+    "one_liner": "The recommended way to start a Vite-powered Vue project."
+  },
+  "screens": [
+    {
+      "name": "Project Setup CLI",
+      "purpose": "Guide users through interactive prompts or accept CLI flags to configure a new Vue project.",
+      "primary_actions": [
+        "Run scaffolding command with or without feature flags",
+        "View available options via --help"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "scaffold_vue_project",
+      "purpose": "Generate a new Vue 3 project structure based on user-selected features (e.g., TypeScript, Router).",
+      "async": true,
+      "input": {
+        "features": "json",
+        "payload": "json",
+        "template_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "project_templates",
+        "columns": [
+          {
+            "name": "features",
+            "type": "JSON"
+          },
+          {
+            "name": "template_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core CLI scaffolding logic with Vite-based template generation",
+    "week 1: Support feature flags for TypeScript, Router, and minimal boilerplate"
+  ],
+  "acceptance_tests": [
+    "Omitting @latest results in a warning about potential outdated package resolution.",
+    "Running `npm create vue@latest -- --typescript --router` creates a project with both TypeScript and Vue Router configured."
+  ]
+}

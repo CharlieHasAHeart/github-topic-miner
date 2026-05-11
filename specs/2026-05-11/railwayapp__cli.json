@@ -1,0 +1,103 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Railway CLI",
+    "one_liner": "A Rust-based command-line interface for interacting with Railway infrastructure, supporting agent integration, multiple installation methods, and non-interactive workflows."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide entry point for all Railway CLI commands including project management, environment configuration, and agent setup.",
+      "primary_actions": [
+        "execute project-level commands with RAILWAY_TOKEN",
+        "run railway login",
+        "run railway setup agent"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "edit_config_by_project",
+      "purpose": "Modify environment configuration scoped to a specific Railway project.",
+      "async": true,
+      "input": {
+        "CLINE_ACTIVE": "boolean",
+        "payload": "json",
+        "ROO_ACTIVE": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "login_browserless",
+      "purpose": "Enable authentication in headless environments like SSH sessions without browser access.",
+      "async": true,
+      "input": {
+        "CLINE_ACTIVE": "boolean",
+        "payload": "json",
+        "ROO_ACTIVE": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "setup_agent",
+      "purpose": "Automatically configure detected AI coding agents (e.g., Cline, Roo Code) by detecting CLINE_ACTIVE or ROO_ACTIVE environment variables.",
+      "async": true,
+      "input": {
+        "CLINE_ACTIVE": "boolean",
+        "payload": "json",
+        "ROO_ACTIVE": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agent_integrations",
+        "columns": [
+          {
+            "name": "CLINE_ACTIVE",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "ROO_ACTIVE",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "railway_tokens",
+        "columns": [
+          {
+            "name": "RAILWAY_API_TOKEN",
+            "type": "TEXT"
+          },
+          {
+            "name": "RAILWAY_TOKEN",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for token-based authentication",
+    "week 1: Implement core CLI scaffolding in Rust",
+    "week 1: Integrate agent detection via environment variables"
+  ],
+  "acceptance_tests": [
+    "Authentication succeeds in SSH session using browserless login",
+    "CLI installs successfully via install.sh and runs `railway setup agent` automatically",
+    "Cline and Roo Code are detected when their respective env vars are set",
+    "Command `railway edit config` works per project as introduced in v4.57.2"
+  ]
+}

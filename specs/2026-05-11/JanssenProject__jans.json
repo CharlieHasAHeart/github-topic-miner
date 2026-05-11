@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Janssen Identity Platform",
+    "one_liner": "An open source, modular IAM platform providing OAuth/OpenID Connect, FIDO2, SCIM, and policy decision capabilities with cloud-native deployment support."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Provide overview of identity services, health status, and quick access to core components like auth server, FIDO2, and config API.",
+      "primary_actions": [
+        "Access component logs",
+        "Navigate to configuration",
+        "View service status"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "send_health_check",
+      "purpose": "Send periodic health checks from Cedarling to the lock server to ensure distributed coordination reliability.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "service_name": "string",
+        "status": "string",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "identity_services",
+        "columns": [
+          {
+            "name": "service_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure Cedarling health checks to lock server",
+    "week 1: Deploy Janssen AIO Helm chart with Gateway API support",
+    "week 1: Verify auth code flow in standard and incognito browser modes"
+  ],
+  "acceptance_tests": [
+    "Auth code flow completes successfully in both regular and incognito browser sessions.",
+    "System deploys successfully using v2.0.0 Helm chart with configurable Gateway ports."
+  ]
+}
