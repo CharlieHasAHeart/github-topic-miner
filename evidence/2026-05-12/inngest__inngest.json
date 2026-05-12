@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "evidence_version": 1,
+    "run_id": "20260512T061635Z",
+    "generated_at": "2026-05-12T06:16:35.446Z",
+    "source_repo": {
+      "full_name": "inngest/inngest",
+      "url": "https://github.com/inngest/inngest"
+    },
+    "spec_path": "specs/2026-05-12/inngest__inngest.json"
+  },
+  "evidence": [
+    {
+      "id": "E-RD-001",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 1)",
+      "excerpt": "# [![Inngest](https://github.com/inngest/.github/raw/main/profile/github-readme-banner-2025-06-20.png)](https://www.inngest.com)",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 1,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-002",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 2)",
+      "excerpt": "[![Latest release](https://img.shields.io/github/v/release/inngest/inngest?include_prereleases&sort=semver)](https://github.com/inngest/inngest/releases) [![Test Status](https://img.shields.io/github/actions/workflow/status/inngest/inngest/go.yaml?branch=main&label=tests)](https://github.com/inngest/inngest/actions?query=branch%3Amain) [![Discord](https://img.shields.io/discord/842170679536517141?label=discord)](https://www.inngest.com/discord) [![Twitter Follow](https://img.shields.io/twitter/follow/inngest?style=social)](https://twitter.com/inngest)",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 2,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-003",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 3)",
+      "excerpt": "[Inngest](https://www.inngest.com/?ref=github-inngest-readme)'s durable functions replace queues, state management, and scheduling to enable any developer to write reliable step functions faster without touching infrastructure.",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 3,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-004",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 4)",
+      "excerpt": "1. Write durable functions using any of [**our language SDKs**](#sdks) 2. Run the [**Inngest Dev Server**](#getting-started) for a complete local development experience, with production parity. 3. Deploy your functions to your own infrastructure 4. Sync your application's functions with the [**Inngest Platform**](https://www.inngest.com/?ref=github-inngest-readme) or a [self-hosted Inngest server](#self-hosting). 5. Inngest invokes your functions securely via HTTPS whenever triggering events are received.",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 4,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-005",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 5)",
+      "excerpt": "Inngest Functions enable developers to run reliable background logic, from background jobs to complex workflows. An Inngest Function is composed of three key parts that provide robust support for retrying, scheduling, and coordinating complex sequences of operations:",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 5,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-006",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 6)",
+      "excerpt": "- [**Triggers**](https://www.inngest.com/docs/features/events-triggers?ref=github-inngest-readme) - Events, Cron schedules or webhook events that trigger the function. - [**Flow Control**](https://www.inngest.com/docs/guides/flow-control?ref=github-inngest-readme) - Configure how the function runs are enqueued and executed including concurrency, throttling, debouncing, rate limiting, and prioritization. - [**Steps**](/docs/features/inngest-functions/steps-workflows?ref=github-inngest-readme) - Steps are fundamental building blocks of Inngest, turning your Inngest Functions into reliable workflows that can run for months and recover from failures.",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 6,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-007",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 7)",
+      "excerpt": "Here is an example function that limits concurrency for each unique user id and performs two steps that will be retried on error:",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 7,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RD-008",
+      "type": "readme",
+      "source_url": "https://github.com/inngest/inngest#readme",
+      "title": "README (segment 8)",
+      "excerpt": "```typescript export default inngest.createFunction( { id: \"import-product-images\", concurrency: { key: \"event.data.userId\", limit: 10 } }, { event: \"shop/product.imported\" }, async ({ event, step }) => { // Here goes the business logic // By wrapping code in steps, each will be retried automatically on failure const s3Urls = await step.run(\"copy-images-to-s3\", async () => { return copyAllImagesToS3(event.data.imageURLs); }); // You can include numerous steps in your function await step.run(\"resize-images\", async () => { await resizer.bulk({ urls: s3Urls, quality: 0.9, maxWidth: 1024 }); }) }; );",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "segment": 8,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "E-RL-001",
+      "type": "release",
+      "source_url": "https://github.com/inngest/inngest/releases",
+      "title": "v1.19.2",
+      "excerpt": "## Changelog * 46f39ad2be372a91e5df12e41a36526fba682a9f Add `DeferAdd` and `DeferCancel` Opcodes (#4010) * 448abf182e36c51153822926d87273b5a7158a5c Add security email (#4080) * 1234ac30d0074d66ed43e01edc182cadaaab7c0b Improve Connect gateway lifecycle logging (#4135) * ad78a9fb3367aa0724ef824d34c3371fddb235a0 feat: add SDK conformance CLI serve runner (#4027) * 78147bb18488c4c79b8155a28dd3e88e1db5e1e1 fix metadata fallback (#4137) * 3cadfae632998e9f3d283da2ad4ec5b83f3d9383 fix(registration): nil-pointer panic on empty-function sync (/fn/register) (#4129) * cdda5dd36e448891e18a786c23f6ed899b4d4520 standardize variant naming (#4131) * 3138bd377d700dac6820b805f98595fdf6df5b32 vendor latest Go SDK (#4133)",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "tag_name": "v1.19.2",
+        "published_at": "2026-05-07T18:55:03Z"
+      }
+    },
+    {
+      "id": "E-RL-002",
+      "type": "release",
+      "source_url": "https://github.com/inngest/inngest/releases",
+      "title": "v1.9.2-beta.1",
+      "excerpt": "## Changelog * 816a2830f977bc3c6796b21ed89871d1c1db6f4b Add Linear releases to CI for CLI release (#4107) * 8edbfb9f13488c8603bb7df2a432e169c811b326 Add simple _inngest.step.type attribute for Insights (#4120) * 3fe317ed6a28d0986715c626f1462c01d5454f7c Checkpointing: Log step name for duplicate/failed step saves (#4077) * 61859e0449c2123fd6489b940bc15411ba6aca4d Disable constraint cache skips for older queue items (#4122) * 89f6a7ebc351a3ec0c09e4d546fb053b9cf7c21a EXE-1594: API Docs (#3968) * 5ec6627dccdcc90e738caff960525cac18458e41 EXE-1640 feat: experiments detail views — dashboard (list + detail + scoring UI) (#4018) * 45fbeaeaa91d67dd3e13eadcd7bab01a08c630a6 Fix missed test assertion (#4111) * acbefdc7575e4f9529c69f13d1925c45320d07b3 Fix shadow partition constraint reporting after exhausting constraints (#3991) * 632f0b32e303f56c0ff6e871fe23134edba891be Persist AppID in constraint API request state (#4088) * a9819544179bdd7fd4708d8a8c1292254ac3cb53 Postgres slice bug and functions primary key gap (self-hosting) (#4037) * 8600e589d629e54e649ec0ac2ae6c62bbb8e5449 Remove ineffective and unused cleanup functions from Shard interface (#4096) * d8e225941114202fdc04db863ff590e2b0bf62…",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "tag_name": "v1.9.2-beta.1",
+        "published_at": "2026-05-07T18:55:54Z"
+      }
+    },
+    {
+      "id": "E-RL-003",
+      "type": "release",
+      "source_url": "https://github.com/inngest/inngest/releases",
+      "title": "v1.19.1",
+      "excerpt": "## Changelog * b9d95c608504338938269f06cb97d22ee5625b6a Adds sync failure status handling in UI (#4065) * 09403725ea1d000881af09b0bd040b6ad3054a75 Fix constraint cache silently dropping retries on exhaustion (#4084) * 7f0b859a230abab4876fc0490b7243531a58d76d Fix mockBufferer.PausesSinceWithCreatedAt to respect the `since` parameter (#4085) * 2fdc4af8a2449a29f2a77cdce6dc88d08cb69b9a Insights: Add tables to schema explorer (#4072) * d5a467bb2b3d5edd650e2ebaccc2ef9e565f63ce add schedule type & original run id to replayed runs (#4067) * dfcc1f5449ca8a8cae31dcd049a2d2fac24508fb block affected sdk versions (#4066) * 42ddd6d0162c251b16e7a964a177d6969c17265a fix: broaden hasPlanOp check (#4079)",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "tag_name": "v1.19.1",
+        "published_at": "2026-04-30T20:45:38Z"
+      }
+    },
+    {
+      "id": "E-RF-001",
+      "type": "root_files",
+      "source_url": "https://github.com/inngest/inngest",
+      "title": "ROOT_FILES",
+      "excerpt": ".devcontainer, .dir-locals.el, .envrc, .gitattributes, .github, .gitignore, .gitmodules, .golangci.json, .goreleaser.yml, .ignore, .tool-versions, .vscode, AGENTS.md, CHANGELOG.md, CLAUDE.md, CODEOWNERS, Dockerfile, Dockerfile.goreleaser, LICENSE.md, Makefile, README.md, SECURITY.md, TESTING.md, api.test, bin, buf.gen.yaml, buf.yaml, cliff.toml, cmd, docs, flake.lock, flake.nix, go.mod, go.sum, install.sh, internal, npm, package.json, pkg, pnpm-lock.yaml, proto, schema.json, scripts, sqlc.yaml, tests.sh, tests, tmp, tools.go, tools, tygo.yaml",
+      "fetched_at": "2026-05-12T06:16:40.065Z",
+      "meta": {
+        "repo_full_name": "inngest/inngest",
+        "path": "/"
+      }
+    }
+  ]
+}

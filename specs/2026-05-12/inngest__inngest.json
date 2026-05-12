@@ -1,0 +1,95 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Inngest",
+    "one_liner": "A workflow orchestration platform that enables developers to build durable, event-driven step functions with built-in retries, concurrency control, and state management without managing infrastructure."
+  },
+  "screens": [
+    {
+      "name": "Function Dashboard",
+      "purpose": "View and manage durable functions, their triggers, steps, and execution status.",
+      "primary_actions": [
+        "Configure concurrency and throttling",
+        "Create new function",
+        "View function runs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "invoke_step",
+      "purpose": "Execute a single step within a durable function, with automatic retry on failure.",
+      "async": true,
+      "input": {
+        "concurrency_key": "string",
+        "payload": "json",
+        "trigger_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "register_function",
+      "purpose": "Sync a function definition with the Inngest platform or self-hosted server for execution.",
+      "async": true,
+      "input": {
+        "concurrency_key": "string",
+        "payload": "json",
+        "trigger_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "functions",
+        "columns": [
+          {
+            "name": "concurrency_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "trigger_type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "steps",
+        "columns": [
+          {
+            "name": "function_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "step_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build local dev server with production parity",
+    "week 1: Implement core durable step execution with retry logic",
+    "week 1: Support event and cron triggers"
+  ],
+  "acceptance_tests": [
+    "A function with two steps retries each step independently on failure and completes successfully after transient errors.",
+    "Concurrency limit of 10 per user ID prevents more than 10 simultaneous executions for the same user."
+  ]
+}

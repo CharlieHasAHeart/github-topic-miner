@@ -1,0 +1,118 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OpenClaude",
+    "one_liner": "An open-source coding-agent CLI that unifies diverse AI backends into a terminal-first workflow with tools, agents, MCP, and streaming output."
+  },
+  "screens": [
+    {
+      "name": "Terminal Interface",
+      "purpose": "Primary interaction surface for prompting, tool invocation, and streaming agent output.",
+      "primary_actions": [
+        "Enter natural language prompts",
+        "Invoke slash commands",
+        "Trigger tool/MCP actions",
+        "View streaming agent responses"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "persist_knowledge",
+      "purpose": "Store agent memory and context using local Orama persistence (feature-flagged).",
+      "async": true,
+      "input": {
+        "content": "string",
+        "embedding": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "select_model",
+      "purpose": "Allow user to specify a model without explicitly declaring the provider, enabling provider-agnostic model selection.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "embedding": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "validate_mcp_schema",
+      "purpose": "Ensure MCP tool schemas include required fields like 'type' to prevent provider errors (e.g., Codex 400 failures).",
+      "async": true,
+      "input": {
+        "content": "string",
+        "embedding": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "knowledge_store",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "embedding",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "api_compatibility",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tools",
+        "columns": [
+          {
+            "name": "requires_type_field",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "schema",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add streaming output handler for terminal display",
+    "week 1: Implement unified CLI interface supporting --model without --provider",
+    "week 1: Integrate basic MCP tool calling with schema validation",
+    "week 1: Set up local Orama persistence behind feature flag"
+  ],
+  "acceptance_tests": [
+    "After enabling the Orama feature flag, agent interactions are persisted locally and retrievable in subsequent sessions.",
+    "Given a user runs `openclaude --model gpt-4o`, the system selects the appropriate OpenAI-compatible provider without requiring explicit --provider.",
+    "The terminal interface streams agent output incrementally while counting tokens with caching for performance.",
+    "When a Codex provider is used with an MCP tool missing the 'type' field, the system validates the schema and returns a clear error before sending the request."
+  ]
+}

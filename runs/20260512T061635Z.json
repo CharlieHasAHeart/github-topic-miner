@@ -1,0 +1,2465 @@
+{
+  "run_id": "20260512T061635Z",
+  "generated_at": "2026-05-12T06:16:35.446Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 25,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 1,
+      "release": 6,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-12T06:19:38.110Z",
+    "repo_count": 292
+  },
+  "candidates": [
+    {
+      "full_name": "descope/descopecli",
+      "html_url": "https://github.com/descope/descopecli",
+      "description": "A command line utility for performing common tasks on Descope projects",
+      "topics": [
+        "authentication",
+        "authorization",
+        "cli",
+        "descope"
+      ],
+      "language": "Go",
+      "stargazers_count": 110,
+      "forks_count": 9,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:16:30Z",
+      "created_at": "2024-02-23T17:05:03Z"
+    },
+    {
+      "full_name": "Gitlawb/openclaude",
+      "html_url": "https://github.com/Gitlawb/openclaude",
+      "description": "runs anywhere. uses anything",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-tools",
+        "cli",
+        "coding"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 26408,
+      "forks_count": 8401,
+      "open_issues_count": 167,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:16:07Z",
+      "created_at": "2026-04-01T03:15:49Z"
+    },
+    {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development",
+        "integration-framework",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-platform",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "n8n",
+        "no-code",
+        "self-hosted",
+        "typescript",
+        "workflow",
+        "workflow-automation"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 187512,
+      "forks_count": 57557,
+      "open_issues_count": 1465,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-05-12T06:15:41Z",
+      "created_at": "2019-06-22T09:24:21Z"
+    },
+    {
+      "full_name": "inngest/inngest",
+      "html_url": "https://github.com/inngest/inngest",
+      "description": "The leading workflow orchestration platform.  Run stateful step functions and AI workflows on serverless, servers, or the edge.",
+      "topics": [
+        "cli",
+        "event-driven",
+        "event-driven-architecture",
+        "queues",
+        "serverless",
+        "serverless-functions",
+        "workflow-engine",
+        "workflows"
+      ],
+      "language": "Go",
+      "stargazers_count": 5345,
+      "forks_count": 296,
+      "open_issues_count": 186,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:15:19Z",
+      "created_at": "2021-06-07T18:26:33Z"
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen IDE for working with a fleet of parallel agents. Run any coding agent with your own subscription.",
+      "topics": [
+        "ade",
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "ide",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 2151,
+      "forks_count": 142,
+      "open_issues_count": 121,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:14:30Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "Gitlawb/openclaude",
+      "html_url": "https://github.com/Gitlawb/openclaude",
+      "description": "runs anywhere. uses anything",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-tools",
+        "cli",
+        "coding"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 26408,
+      "forks_count": 8401,
+      "open_issues_count": 167,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:16:07Z",
+      "created_at": "2026-04-01T03:15:49Z"
+    },
+    {
+      "full_name": "inngest/inngest",
+      "html_url": "https://github.com/inngest/inngest",
+      "description": "The leading workflow orchestration platform.  Run stateful step functions and AI workflows on serverless, servers, or the edge.",
+      "topics": [
+        "cli",
+        "event-driven",
+        "event-driven-architecture",
+        "queues",
+        "serverless",
+        "serverless-functions",
+        "workflow-engine",
+        "workflows"
+      ],
+      "language": "Go",
+      "stargazers_count": 5345,
+      "forks_count": 296,
+      "open_issues_count": 186,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:15:19Z",
+      "created_at": "2021-06-07T18:26:33Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "Gitlawb/openclaude",
+      "html_url": "https://github.com/Gitlawb/openclaude",
+      "description": "runs anywhere. uses anything",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-tools",
+        "cli",
+        "coding"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 26408,
+      "forks_count": 8401,
+      "open_issues_count": 167,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:16:07Z",
+      "created_at": "2026-04-01T03:15:49Z",
+      "readme": {
+        "fetched": true,
+        "text": "# OpenClaude\n\nOpenClaude is an open-source coding-agent CLI for cloud and local model providers.\n\nUse OpenAI-compatible APIs, Gemini, GitHub Models, Codex OAuth, Codex, Ollama, Atomic Chat, and other supported backends while keeping one terminal-first workflow: prompts, tools, agents, MCP, slash commands, and streaming output.\n\n[![PR Checks](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml)\n[![Release](https://img.shields.io/github/v/tag/Gitlawb/openclaude?label=release&color=0ea5e9)](https://github.com/Gitlawb/openclaude/tags)\n[![Discussions](https://img.shields.io/badge/discussions-open-7c3aed)](https://github.com/Gitlawb/openclaude/discussions)\n[![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)\n[![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)\n\nOpenClaude is also mirrored to GitLawb:\n[gitlawb.com/node/repos/z6MkqDnb/openclaude](https://gitlawb.com/node/repos/z6MkqDnb/openclaude)\n\n[Quick Start](#quick-start) | [Setup Guides](#setup-guides) | [Providers](#supported-providers) | [Source Build](#source-build-and-local-development) | [VS Code Extension](#vs-code-extension) | [Sponsors](#sponsors) | [Community](#community)\n\n## Sponsors\n\n<p align=\"center\">\n  <a href=\"https://gitlawb.com\">\n    <img src=\"https://gitlawb.com/logo.png\" alt=\"GitLawb logo\" width=\"96\">\n  </a>\n  &nbsp;&nbsp;&nbsp;&nbsp;\n  <a href=\"https://bankr.bot\">\n    <img src=\"https://bankr.bot/favicon.svg\" alt=\"Bankr.bot logo\" width=\"96\">\n  </a>\n  &nbsp;&nbsp;&nbsp;&nbsp;\n  <a href=\"https://atomic.chat/\">\n    <img src=\"docs/assets/atomic-chat-logo.png\" alt=\"Atomic Chat logo\" width=\"96\">\n  </a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://gitlawb.com\"><strong>GitLawb</strong></a>\n  &nbsp;&nbsp;&nbsp;&nbsp;\n  <a href=\"https://bankr.bot\"><strong>Bankr.bot</strong></a>\n  &nbsp;&nbsp;&nbsp;&nbsp;\n  <a href=\"https://atomic.chat/\"><strong>Atomic Chat</strong></a>\n</p>\n\n## Star History\n\n[![Star History Chart](https://api.star-history.com/chart?repos=gitlawb/openclaude&type=date&legend=top-left)](https://www.star-history.com/?repos=gitlawb%2Fopenclaude&type=date&legend=top-left)\n\n## Why OpenClaude\n\n- Use one CLI across cloud APIs and local model backends\n- Save provider profiles inside the app with `/provider`\n- Run with OpenAI-compatible services, Gemini, GitHub Models, Codex OAuth, Codex, Ollama, Atomic Chat, and other supported providers\n- Keep coding-agent workflows in one place: bash, file tools, grep, glob, agents, tasks, MCP, and web tools\n- Use the bundled VS Code extension for launch integration and theme support\n\n## Quick Start\n\n### Install\n\n```bash\nnpm install -g @gitlawb/openclaude\n```\n\nIf the install later reports `ripgrep not found`, install ripgrep system-wide and confirm `rg --version` works in the same terminal before starting OpenClaude.\n\n### Start\n\n```bash\nopenclaude\n```\n\nInside OpenClaude:\n\n- run `/provider` for guided provider setup and saved profiles\n- run `/onboard-github` for GitHub Models onboarding\n\n### Fastest OpenAI setup\n\nmacOS / Linux:\n\n```bash\nexport CLAUDE_CODE_USE_OPENAI=1\nexport OPENAI_API_KEY=sk-your-key-here\nexport OPENAI_MODEL=gpt-4o\n\nopenclaude\n```\n\nWindows PowerShell:\n\n```powershell\n$env:CLAUDE_CODE_USE_OPENAI=\"1\"\n$env:OPENAI_API_KEY=\"sk-your-key-here\"\n$env:OPENAI_MODEL=\"gpt-4o\"\n\nopenclaude\n```\n\n### Fastest local Ollama setup\n\nmacOS / Linux:\n\n```bash\nexport CLAUDE_CODE_USE_OPENAI=1\nexport OPENAI_BASE_URL=http://localhost:11434/v1\nexport OPENAI_MODEL=qwen2.5-coder:7b\n\nopenclaude\n```\n\nWindows PowerShell:\n\n```powershell\n$env:CLAUDE_CODE_USE_OPENAI=\"1\"\n$env:OPENAI_BASE_URL=\"http://localhost:11434/v1\"\n$env:OPENAI_MODEL=\"qwen2.5-coder:7b\"\n\nopenclaude\n```\n\n### Using Ollama's launch command\n\nIf you have [Ollama](https://ollama.com) installed, you can skip the env var setup entirely:\n\n```bash\nollama launch openclaude --model qwen2.5-coder:7b\n```\n\nThis automatically sets `ANTHROPIC_BASE_URL`, model routing, and auth so all API traffic goes through your local Ollama instance. Works with any model you have pulled — local or cloud.\n\n## Setup Guides\n\nBeginner-friendly guides:\n\n- [Non-Technical Setup](docs/non-technical-setup.md)\n- [Windows Quick Start](docs/quick-start-windows.md)\n- [macOS / Linux Quick Start](docs/quick-start-mac-linux.md)\n\nAdvanced and source-build guides:\n\n- [Advanced Setup](docs/advanced-setup.md)\n- [Android Install](ANDROID_INSTALL.md)\n\n## Supported Providers\n\n| Provider | Setup Path | Notes |\n| --- | --- | --- |\n| OpenAI-compatible | `/provider` or env vars | Works with OpenAI, OpenRouter, DeepSeek, Groq, Mistral, LM Studio, and other compatible `/v1` servers |\n| Hicap | `/provider` or OpenAI-compatible env vars | Uses `api-key` auth, discovers models from unauthenticated `/models`, and supports Responses mode for `gpt-` models |\n| Gemini | `/provider` or env vars | Supports API key only |\n| GitHub Models | `/onboard-github` | Interactive onboarding with saved credentials |\n| Codex OAuth | `/provider` | Opens ChatGPT sign-in in your browser and stores Codex credentials securely |\n| Codex | `/provider` | Uses existing Codex CLI auth, OpenClaude secure storage, or env credentials |\n| Ollama | `/provider`, env vars, or `ollama launch` | Local inference with no API key |\n| Atomic Chat | `/provider`, env vars, or `bun run dev:atomic-chat` | Local Model Provider; auto-detects loaded models |\n| Bedrock / Vertex / Foundry | env vars | Additional provider integrations for supported environments |\n\n## What Works\n\n- **Tool-driven coding workflows**: Bash, file read/write/edit, grep, glob, agents, tasks, MCP, and slash commands\n- **Streaming responses**: Real-time token output and tool progress\n- **Tool calling**: Multi-step tool loops with model calls, tool execution, and follow-up responses\n- **Images**: URL and base64 image inputs for providers that support vision\n- **Provider profiles**: Guided setup plus saved user-level provider profile support\n- **Local and remote model backends**: Cloud APIs, local servers, and Apple Silicon local inference\n\n## Provider Notes\n\nOpenClaude supports multiple providers, but behavior is not identical across all of them.\n\n- Anthropic-specific features may not exist on other providers\n- Tool quality depends heavily on the selected model\n- Smaller local models can struggle with long multi-step tool flows\n- Some providers impose lower output caps than the CLI defaults, and OpenClaude adapts where possible\n\nFor best results, use models with strong tool/function calling support.\n\n## Agent Routing\n\nOpenClaude can route different agents to different models through settings-based routing. This is useful for cost optimization or splitting work by model strength.\n\nAdd to `~/.openclaude.json`:\n\n```json\n{\n  \"agentModels\": {\n    \"deepseek-v4-flash\": {\n      \"base_url\": \"https://api.deepseek.com/v1\",\n      \"api_key\": \"sk-your-key\"\n    },\n    \"gpt-4o\": {\n      \"base_url\": \"https://api.openai.com/v1\",\n      \"api_key\": \"sk-your-key\"\n    }\n  },\n  \"agentRouting\": {\n    \"Explore\": \"deepseek-v4-flash\",\n    \"Plan\": \"gpt-4o\",\n    \"general-purpose\": \"gpt-4o\",\n    \"frontend-dev\": \"deepseek-v4-flash\",\n    \"default\": \"gpt-4o\"\n  }\n}\n```\n\nWhen no routing match is found, the global provider remains the fallback.\n\n> **Note:** `api_key` values in `settings.json` are stored in plaintext. Keep this file private and do not commit it to version control.\n\n## Web Search and Fetch\n\nBy default, `WebSearch` works on non-Anthropic models using DuckDuckGo. This gives GPT-4o, DeepSeek, Gemini, Ollama, and other OpenAI-compatible providers a free web search path out of the box.\n\n> **Note:** DuckDuckGo fallback works by scraping search results and may be rate-limited, blocked, or subject to DuckDuckGo's Terms of Service. If you want a more reliable supported option, configure Firecrawl.\n\nFor Anthropic-native backends and Codex responses, OpenClaude keeps the native provider web search behavior.\n\n`WebFetch` works, but its basic HTTP plus HTML-to-markdown path can still fail on JavaScript-rendered sites or sites that block plain HTTP requests.\n\nSet a [Firecrawl](https://firecrawl.dev) API key if you want Firecrawl-powered search/fetch behavior:\n\n```bash\nexport FIRECRAWL_API_KEY=your-key-here\n```\n\nWith Firecrawl enabled:\n\n- `WebSearch` can use Firecrawl's search API while DuckDuckGo remains the default free path for non-Claude models\n- `WebFetch` uses Firecrawl's scrape endpoint instead of raw HTTP, handling JS-rendered pages correctly\n\nFree tier at [firecrawl.dev](https://firecrawl.dev) includes 500 credits. The key is optional.\n\n---\n\n## Headless gRPC Server\n\nOpenClaude can be run as a headless gRPC service, allowing you to integrate its agentic capabilities (tools, bash, file editing) into other applications, CI/CD pipelines, or custom user interfaces. The server uses bidirectional streaming to send real-time text chunks, tool calls, and request permissions for sensitive commands.\n\n### 1. Start the gRPC Server\n\nStart the core engine as a gRPC service on `localhost:50051`:\n\n```bash\nnpm run dev:grpc\n```\n\n#### Configuration\n\n| Variable | Default | Description |\n|-----------|-------------|------------------------------------------------|\n| `GRPC_PORT` | `50051` | Port the gRPC server listens on |\n| `GRPC_HOST` | `localhost` | Bind address. Use `0.0.0.0` to expose on all interfaces (not recommended without authentication) |\n\n### 2. Run the Test CLI Client\n\nWe provide a lightweight CLI client that communicates exclusively over gRPC. It acts just like the main interactive CLI, rendering colors, streaming tokens, and prompting you for tool permissions (y/n) via the gRPC `action_required` event.\n\nIn a separate terminal, run:\n\n```bash\nnpm run dev:grpc:cli\n```\n\n*Note: The gRPC definitions are located in `src/proto/openclaude.proto`. You can use this file to generate clients in Python, Go, Rust, or any other language.*\n\n---\n\n## Source Build And Local Development\n\n```bash\nbun install\nbun run build\nnode dist/cli.mjs\n```\n\nHelpful commands:\n\n- `bun run dev`\n- `bun test`\n- `bun run test:coverage`\n- `bun run security:pr-scan -- --base origin/main`\n- `bun run smoke`\n- `bun run doctor:runtime`\n- `bun run verify:privacy`\n- focused `bun test ...` runs for the areas you touch\n\n## Testing And Coverage\n\nOpenClaude uses Bun's built-in test runner for unit tests.\n\nRun the full unit suite:\n\n```bash\nbun test\n```\n\nGenerate unit test coverage:\n\n```bash\nbun run test:coverage\n```\n\nOpen the visual coverage report:\n\n```bash\nopen coverage/index.html\n```\n\nIf you already have `coverage/lcov.info` and only want to rebuild the UI:\n\n```bash\nbun run test:coverage:ui\n```\n\nUse focused test runs when you only touch one area:\n\n- `bun run test:provider`\n- `bun run test:provider-recommendation`\n- `bun test path/to/file.test.ts`\n\nRecommended contributor validation before opening a PR:\n\n- `bun run build`\n- `bun run smoke`\n- `bun run test:coverage` for broader unit coverage when your change affects shared runtime or provider logic\n- focused `bun test ...` runs for the files and flows you changed\n\nCoverage output is written to `coverage/lcov.info`, and OpenClaude also generates a git-activity-style heatmap at `coverage/index.html`.\n## Repository Structure\n\n- `src/` - core CLI/runtime\n- `scripts/` - build, verification, and maintenance scripts\n- `docs/` - setup, contributor, and project documentation\n- `python/` - standalone Python helpers and their tests\n- `vscode-extension/openclaude-vscode/` - VS Code extension\n- `.github/` - repo automation, templates, and CI configuration\n- `bin/` - CLI launcher entrypoints\n\n## VS Code Extension\n\nThe repo includes a VS Code extension in [`vscode-extension/openclaude-vscode`](vscode-extension/openclaude-vscode) for OpenClaude launch integration, provider-aware control-center UI, and theme support.\n\n## Security\n\nIf you believe you found a security issue, see [SECURITY.md](SECURITY.md).\n\n## Community\n\n- Use [GitHub Discussions](https://github.",
+        "truncated": true,
+        "bytes": 12893,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.10.0",
+            "tag_name": "v0.10.0",
+            "published_at": "2026-05-11T00:14:10Z",
+            "body_excerpt": "## [0.10.0](https://github.com/Gitlawb/openclaude/compare/v0.9.2...v0.10.0) (2026-05-11)\n\n\n### Features\n\n* Add startup logo palette picker ([#1072](https://github.com/Gitlawb/openclaude/issues/1072)) ([ed7b697](https://github.com/Gitlawb/openclaude/commit/ed7b6972f9cd7d36cd604738f5160064061ab254))\n* **cli:** honor --model alone without requiring --provider ([#854](https://github.com/Gitlawb/openclaude/issues/854)) ([7cfc8d5](https://github.com/Gitlawb/openclaude/commit/7cfc8d5dad1aa3be247c3197e3442d9f70691db1))\n* incremental and cached token counting ([#795](https://github.com/Gitlawb/openclaude/issues/795)) ([4b1e516](https://github.com/Gitlawb/openclaude/commit/4b1e516fc70c07da6ad678df35030fa114cc8918))\n* **knowledge:** introduce local Orama persistence (feature-flagged) ([#1015](https://github.com/Gitlawb/openclaude/issues/1015)) ([5873bc6](https://github.com/Gitlawb/openclaude/commit/5873bc67141b6345d0630112a84d7fcfb149b584))\n* make Orama the default search engine with JSON-backed ([#1094](https://github.com/Gitlawb/openclaude/issues/1094)) ([f443669](https://github.com/Gitlawb/openclaude/commit/f4436697f02cc626bb55c3c4db1cd86938471e37))\n* **websearch:** add first-class Brave adapter; fix Google + Brave presets; restore Exa snippets ([#1044](https://github.com/Gitlawb/openclaude/issues/1044)) ([402cd3d](https://github.com/Gitlawb/openclaude/commit/402cd3dbe81835cc6a658b31355d16697f9e6346))\n\n\n### Bug Fixes\n\n* **agent:** ensure main agent waits for subagent completion ([#1032](https://github.com/Gitlawb/openclaude/issues/1032)) ([6af709e](https://github.com/Gitlawb/openclaude/commit/6af709e65ea61e9071cbccbdcd7c57fe87b0710e))\n* **agents:** coerce non-string whenToUse to prevent crash on save ([#1086](https://github.com/Gitlawb/openclaude/issues/1086)) ([#1087](https://github.com/Gitlawb/openclaude/issues/1087)) ([fc89767](https://github.com/Gitlawb/openclaude/commit/fc8976708b9648bb021bc80270eb9e1d416bef37))\n* **bashSecurity:** reject nested heredoc ranges in strip"
+          },
+          {
+            "name": "v0.9.2",
+            "tag_name": "v0.9.2",
+            "published_at": "2026-05-06T02:43:47Z",
+            "body_excerpt": "## [0.9.2](https://github.com/Gitlawb/openclaude/compare/v0.9.1...v0.9.2) (2026-05-06)\n\n\n### Bug Fixes\n\n* **cli:** replace createRequire with static import for teammate.js ([#1026](https://github.com/Gitlawb/openclaude/issues/1026)) ([#1033](https://github.com/Gitlawb/openclaude/issues/1033)) ([c873725](https://github.com/Gitlawb/openclaude/commit/c873725d901c9fd612140603da964894ef69e510))"
+          },
+          {
+            "name": "v0.9.1",
+            "tag_name": "v0.9.1",
+            "published_at": "2026-05-05T10:42:11Z",
+            "body_excerpt": "## [0.9.1](https://github.com/Gitlawb/openclaude/compare/v0.9.0...v0.9.1) (2026-05-05)\n\n\n### Bug Fixes\n\n* **theme:** remove stale memo wrappers from theme context hooks ([#534](https://github.com/Gitlawb/openclaude/issues/534)) ([094f04c](https://github.com/Gitlawb/openclaude/commit/094f04c8036200eb3c51b7b7b4ec3c75ee83b3a0))"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 1114,
+            "title": "Codex provider fails with 400 error due to missing 'type' in MCP tool schema",
+            "state": "closed",
+            "url": "https://github.com/Gitlawb/openclaude/issues/1114"
+          }
+        ]
+      },
+      "root_files": [
+        ".dockerignore",
+        ".env.example",
+        ".github",
+        ".gitignore",
+        ".npmignore",
+        ".release-please-manifest.json",
+        "ANDROID_INSTALL.md",
+        "CHANGELOG.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "LICENSE",
+        "PLAYBOOK.md",
+        "README.md",
+        "SECURITY.md",
+        "bin",
+        "bun.lock",
+        "docs",
+        "package.json",
+        "python",
+        "release-please-config.json",
+        "scripts",
+        "src",
+        "tests",
+        "tsconfig.json",
+        "vscode-extension",
+        "web"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 1)",
+          "excerpt": "OpenClaude is an open-source coding-agent CLI for cloud and local model providers.",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Use OpenAI-compatible APIs, Gemini, GitHub Models, Codex OAuth, Codex, Ollama, Atomic Chat, and other supported backends while keeping one terminal-first workflow: prompts, tools, agents, MCP, slash commands, and streaming output.",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![PR Checks](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml) [![Release](https://img.shields.io/github/v/tag/Gitlawb/openclaude?label=release&color=0ea5e9)](https://github.com/Gitlawb/openclaude/tags) [![Discussions](https://img.shields.io/badge/discussions-open-7c3aed)](https://github.com/Gitlawb/openclaude/discussions) [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md) [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 4)",
+          "excerpt": "OpenClaude is also mirrored to GitLawb: [gitlawb.com/node/repos/z6MkqDnb/openclaude](https://gitlawb.com/node/repos/z6MkqDnb/openclaude)",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[Quick Start](#quick-start) | [Setup Guides](#setup-guides) | [Providers](#supported-providers) | [Source Build](#source-build-and-local-development) | [VS Code Extension](#vs-code-extension) | [Sponsors](#sponsors) | [Community](#community)",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://gitlawb.com\"> <img src=\"https://gitlawb.com/logo.png\" alt=\"GitLawb logo\" width=\"96\"> </a> &nbsp;&nbsp;&nbsp;&nbsp; <a href=\"https://bankr.bot\"> <img src=\"https://bankr.bot/favicon.svg\" alt=\"Bankr.bot logo\" width=\"96\"> </a> &nbsp;&nbsp;&nbsp;&nbsp; <a href=\"https://atomic.chat/\"> <img src=\"docs/assets/atomic-chat-logo.png\" alt=\"Atomic Chat logo\" width=\"96\"> </a> </p>",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://gitlawb.com\"><strong>GitLawb</strong></a> &nbsp;&nbsp;&nbsp;&nbsp; <a href=\"https://bankr.bot\"><strong>Bankr.bot</strong></a> &nbsp;&nbsp;&nbsp;&nbsp; <a href=\"https://atomic.chat/\"><strong>Atomic Chat</strong></a> </p>",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/Gitlawb/openclaude#readme",
+          "title": "README (segment 8)",
+          "excerpt": "[![Star History Chart](https://api.star-history.com/chart?repos=gitlawb/openclaude&type=date&legend=top-left)](https://www.star-history.com/?repos=gitlawb%2Fopenclaude&type=date&legend=top-left)",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Gitlawb/openclaude/issues/1114",
+          "title": "Codex provider fails with 400 error due to missing 'type' in MCP tool schema",
+          "excerpt": "Codex provider fails with 400 error due to missing 'type' in MCP tool schema (state:closed)",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "number": 1114
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Gitlawb/openclaude/releases",
+          "title": "v0.10.0",
+          "excerpt": "## [0.10.0](https://github.com/Gitlawb/openclaude/compare/v0.9.2...v0.10.0) (2026-05-11) ### Features * Add startup logo palette picker ([#1072](https://github.com/Gitlawb/openclaude/issues/1072)) ([ed7b697](https://github.com/Gitlawb/openclaude/commit/ed7b6972f9cd7d36cd604738f5160064061ab254)) * **cli:** honor --model alone without requiring --provider ([#854](https://github.com/Gitlawb/openclaude/issues/854)) ([7cfc8d5](https://github.com/Gitlawb/openclaude/commit/7cfc8d5dad1aa3be247c3197e3442d9f70691db1)) * incremental and cached token counting ([#795](https://github.com/Gitlawb/openclaude/issues/795)) ([4b1e516](https://github.com/Gitlawb/openclaude/commit/4b1e516fc70c07da6ad678df35030fa114cc8918)) * **knowledge:** introduce local Orama persistence (feature-flagged) ([#1015](https://github.com/Gitlawb/openclaude/issues/1015)) ([5873bc6](https://github.com/Gitlawb/openclaude/commit/5873bc67141b6345d0630112a84d7fcfb149b584)) * make Orama the default search engine with JSON-backed ([#1094](https://github.com/Gitlawb/openclaude/issues/1094)) ([f443669](https://github.com/Gitlawb/openclaude/commit/f4436697f02cc626bb55c3c4db1cd86938471e37)) * **websearch:** add first-class Brave ada…",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "tag_name": "v0.10.0",
+            "published_at": "2026-05-11T00:14:10Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Gitlawb/openclaude/releases",
+          "title": "v0.9.2",
+          "excerpt": "## [0.9.2](https://github.com/Gitlawb/openclaude/compare/v0.9.1...v0.9.2) (2026-05-06) ### Bug Fixes * **cli:** replace createRequire with static import for teammate.js ([#1026](https://github.com/Gitlawb/openclaude/issues/1026)) ([#1033](https://github.com/Gitlawb/openclaude/issues/1033)) ([c873725](https://github.com/Gitlawb/openclaude/commit/c873725d901c9fd612140603da964894ef69e510))",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "tag_name": "v0.9.2",
+            "published_at": "2026-05-06T02:43:47Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Gitlawb/openclaude/releases",
+          "title": "v0.9.1",
+          "excerpt": "## [0.9.1](https://github.com/Gitlawb/openclaude/compare/v0.9.0...v0.9.1) (2026-05-05) ### Bug Fixes * **theme:** remove stale memo wrappers from theme context hooks ([#534](https://github.com/Gitlawb/openclaude/issues/534)) ([094f04c](https://github.com/Gitlawb/openclaude/commit/094f04c8036200eb3c51b7b7b4ec3c75ee83b3a0))",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "tag_name": "v0.9.1",
+            "published_at": "2026-05-05T10:42:11Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Gitlawb/openclaude",
+          "title": "ROOT_FILES",
+          "excerpt": ".dockerignore, .env.example, .github, .gitignore, .npmignore, .release-please-manifest.json, ANDROID_INSTALL.md, CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, Dockerfile, LICENSE, PLAYBOOK.md, README.md, SECURITY.md, bin, bun.lock, docs, package.json, python, release-please-config.json, scripts, src, tests, tsconfig.json, vscode-extension, web",
+          "fetched_at": "2026-05-12T06:16:40.074Z",
+          "meta": {
+            "repo_full_name": "Gitlawb/openclaude",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "inngest/inngest",
+      "html_url": "https://github.com/inngest/inngest",
+      "description": "The leading workflow orchestration platform.  Run stateful step functions and AI workflows on serverless, servers, or the edge.",
+      "topics": [
+        "cli",
+        "event-driven",
+        "event-driven-architecture",
+        "queues",
+        "serverless",
+        "serverless-functions",
+        "workflow-engine",
+        "workflows"
+      ],
+      "language": "Go",
+      "stargazers_count": 5345,
+      "forks_count": 296,
+      "open_issues_count": 186,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "main",
+      "pushed_at": "2026-05-12T06:15:19Z",
+      "created_at": "2021-06-07T18:26:33Z",
+      "readme": {
+        "fetched": true,
+        "text": "# [![Inngest](https://github.com/inngest/.github/raw/main/profile/github-readme-banner-2025-06-20.png)](https://www.inngest.com)\n\n[![Latest release](https://img.shields.io/github/v/release/inngest/inngest?include_prereleases&sort=semver)](https://github.com/inngest/inngest/releases)\n[![Test Status](https://img.shields.io/github/actions/workflow/status/inngest/inngest/go.yaml?branch=main&label=tests)](https://github.com/inngest/inngest/actions?query=branch%3Amain)\n[![Discord](https://img.shields.io/discord/842170679536517141?label=discord)](https://www.inngest.com/discord)\n[![Twitter Follow](https://img.shields.io/twitter/follow/inngest?style=social)](https://twitter.com/inngest)\n\n[Inngest](https://www.inngest.com/?ref=github-inngest-readme)'s durable functions replace queues, state management, and scheduling to enable any developer to write reliable step functions faster without touching infrastructure.\n\n1. Write durable functions using any of [**our language SDKs**](#sdks)\n2. Run the [**Inngest Dev Server**](#getting-started) for a complete local development experience, with production parity.\n3. Deploy your functions to your own infrastructure\n4. Sync your application's functions with the [**Inngest Platform**](https://www.inngest.com/?ref=github-inngest-readme) or a [self-hosted Inngest server](#self-hosting).\n5. Inngest invokes your functions securely via HTTPS whenever triggering events are received.\n\n### An example durable function\n\nInngest Functions enable developers to run reliable background logic, from background jobs to complex workflows. An Inngest Function is composed of three key parts that provide robust support for retrying, scheduling, and coordinating complex sequences of operations:\n\n- [**Triggers**](https://www.inngest.com/docs/features/events-triggers?ref=github-inngest-readme) - Events, Cron schedules or webhook events that trigger the function.\n- [**Flow Control**](https://www.inngest.com/docs/guides/flow-control?ref=github-inngest-readme) - Configure how the function runs are enqueued and executed including concurrency, throttling, debouncing, rate limiting, and prioritization.\n- [**Steps**](/docs/features/inngest-functions/steps-workflows?ref=github-inngest-readme) - Steps are fundamental building blocks of Inngest, turning your Inngest Functions into reliable workflows that can run for months and recover from failures.\n\nHere is an example function that limits concurrency for each unique user id and performs two steps that will be retried on error:\n\n```typescript\nexport default inngest.createFunction(\n  {\n    id: \"import-product-images\",\n    concurrency: {\n      key: \"event.data.userId\",\n      limit: 10\n    }\n  },\n  { event: \"shop/product.imported\" },\n  async ({ event, step }) => {\n    // Here goes the business logic\n    // By wrapping code in steps, each will be retried automatically on failure\n    const s3Urls = await step.run(\"copy-images-to-s3\", async () => {\n      return copyAllImagesToS3(event.data.imageURLs);\n    });\n    // You can include numerous steps in your function\n    await step.run(\"resize-images\", async () => {\n      await resizer.bulk({ urls: s3Urls, quality: 0.9, maxWidth: 1024 });\n    })\n  };\n);\n\n// Elsewhere in your code (e.g. in your API endpoint):\nawait inngest.send({\n  name: \"shop/product.imported\",\n  data: {\n    userId: \"01J8G44701QYGE0DH65PZM8DPM\",\n    imageURLs: [\n      \"https://useruploads.acme.com/q2345678/1094.jpg\",\n      \"https://useruploads.acme.com/q2345678/1095.jpg\"\n    ],\n  },\n});\n```\n\n## Learn more\n\n- [Getting started](#getting-started)\n- [SDKs](#sdks)\n- [Project Architecture](#project-architecture)\n- [Self-hosting](#self-hosting)\n- [Community](#community)\n\n## Getting started\n\nRun the Inngest Dev Server using our CLI:\n\n```\nnpx inngest-cli@latest dev\n```\n\nOpen the Inngest Dev Server dashboard at http://localhost:8288:\n\n![Screenshot of the Inngest dashboard served by the Inngest Dev Server](.github/assets/dashboard-screenshot-2024-09-23.png)\n\nFollow our [Next.js](https://www.inngest.com/docs/getting-started/nextjs-quick-start?ref=github-inngest-readme), [Node.js](https://www.inngest.com/docs/getting-started/nodejs-quick-start?ref=github-inngest-readme) or [Python](https://www.inngest.com/docs/getting-started/python-quick-start?ref=github-inngest-readme) quick start guides.\n\n## SDKs\n\n- **TypeScript / JavaScript** ([inngest-js](https://github.com/inngest/inngest-js)) - [Reference](https://www.inngest.com/docs/reference/typescript?ref=github-inngest-readme)\n- **Python** ([inngest-py](https://github.com/inngest/inngest-py)) - [Reference](https://www.inngest.com/docs/reference/python?ref=github-inngest-readme)\n- **Go** ([inngestgo](https://github.com/inngest/inngestgo)) - [Reference](https://pkg.go.dev/github.com/inngest/inngestgo)\n- **Kotlin / Java** ([inngest-kt](https://github.com/inngest/inngest-kt))\n\n## Project Architecture\n\nTo understand how self-hosting works, it's valuable to understand the architecture and system components at a high level. We'll take a look at a simplified architecture diagram and walk through the system.\n\n<br />\n\n<p align=\"center\">\n  <img src=\".github/assets/architecture-2024-09-23.png\" alt=\"System Architecture\" width=\"660\" />\n</p>\n\n- **Event API** - Receives events from SDKs via HTTP requests. Authenticates client requests via [Event Keys](https://www.inngest.com/docs/events/creating-an-event-key?ref=github-inngest-readme). The Event API publishes event payloads to an internal event stream.\n- **Event stream** - Acts as buffer between the _Event API_ and the _Runner_.\n- **Runner** - Consumes incoming events and performs several actions:\n  - Scheduling of new “function runs” (aka jobs) given the event type, creating initial run state in the _State store_ database. Runs are added to queues given the function's flow control configuration.\n  - Resume functions paused via [`waitForEvent`](https://www.inngest.com/docs/features/inngest-functions/steps-workflows/wait-for-event?ref=github-inngest-readme) with matching expressions.\n  - Cancels running functions with matching [`cancelOn`](https://www.inngest.com/docs/features/inngest-functions/cancellation/cancel-on-events?ref=github-inngest-readme) expressions\n  - Writes ingested events to a database for historical record and future replay.\n- **Queue** - A multi-tenant aware, multi-tier queue designed for fairness and various [flow control](https://www.inngest.com/docs/guides/flow-control?ref=github-inngest-readme) methods (concurrency, throttling, prioritization, debouncing, rate limiting) and [batching](https://www.inngest.com/docs/guides/batching?ref=github-inngest-readme).\n- **Executor** - Responsible for executing functions, from initial execution, step execution, writing incremental function run state to the _State store_, and retries after failures.\n- **State store (database)** - Persists data for pending and ongoing function runs. Data includes initial triggering event(s), step output and step errors.\n- **Database** - Persists system data and history including Apps, Functions, Events, Function run results.\n- **API** - GraphQL and REST APIs for programmatic access and management of system resources.\n- **Dashboard UI** - The UI to manage apps, functions and view function run history.\n\n<br />\n\n## Community\n\n- [**Join our Discord community for support, to give us feedback, or chat with us**](https://www.inngest.com/discord).\n- [Post a question or idea to our GitHub discussion board](https://github.com/orgs/inngest/discussions)\n- [Read the documentation](https://www.inngest.com/docs?ref=github-inngest-readme)\n- [Explore our public roadmap](http://roadmap.inngest.com/)\n- [Follow us on Twitter](https://twitter.com/inngest)\n- [Join our mailing list](https://www.inngest.com/mailing-list) for release notes and project updates\n\n## Contributing\n\nWe embrace contributions in many forms, including documentation, typos, bug reports or fixes. Check out our [contributing guide](/docs/CONTRIBUTING.md) to get started. Each of our open source [SDKs](#sdks) are open to contributions as well.\n\nAdditionally, Inngest's website documentation is available for contribution in [the `inngest/website` repo](https://github.com/inngest/website).\n\n## Self-hosting\n\nSelf-hosting the Inngest server is possible and easy to get started with. Learn more about self-hosting Inngest in [our docs guide](https://www.inngest.com/docs/self-hosting?ref=github-inngest-readme).\n\n## License\n\nThe Inngest server and CLI are available under the Server Side Public License and delayed open source publication (DOSP) under Apache 2.0. [View the license here](/LICENSE.md).\n\nAll Inngest [SDKs](#sdks) are all available under the Apache 2.0 license.\n",
+        "truncated": false,
+        "bytes": 8686,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.19.2",
+            "tag_name": "v1.19.2",
+            "published_at": "2026-05-07T18:55:03Z",
+            "body_excerpt": "## Changelog\r\n* 46f39ad2be372a91e5df12e41a36526fba682a9f Add `DeferAdd` and `DeferCancel` Opcodes (#4010)\r\n* 448abf182e36c51153822926d87273b5a7158a5c Add security email (#4080)\r\n* 1234ac30d0074d66ed43e01edc182cadaaab7c0b Improve Connect gateway lifecycle logging (#4135)\r\n* ad78a9fb3367aa0724ef824d34c3371fddb235a0 feat: add SDK conformance CLI serve runner (#4027)\r\n* 78147bb18488c4c79b8155a28dd3e88e1db5e1e1 fix metadata fallback (#4137)\r\n* 3cadfae632998e9f3d283da2ad4ec5b83f3d9383 fix(registration): nil-pointer panic on empty-function sync (/fn/register) (#4129)\r\n* cdda5dd36e448891e18a786c23f6ed899b4d4520 standardize variant naming (#4131)\r\n* 3138bd377d700dac6820b805f98595fdf6df5b32 vendor latest Go SDK (#4133)\r\n\r\n"
+          },
+          {
+            "name": "v1.9.2-beta.1",
+            "tag_name": "v1.9.2-beta.1",
+            "published_at": "2026-05-07T18:55:54Z",
+            "body_excerpt": "## Changelog\n* 816a2830f977bc3c6796b21ed89871d1c1db6f4b Add Linear releases to CI for CLI release (#4107)\n* 8edbfb9f13488c8603bb7df2a432e169c811b326 Add simple _inngest.step.type attribute for Insights (#4120)\n* 3fe317ed6a28d0986715c626f1462c01d5454f7c Checkpointing: Log step name for duplicate/failed step saves (#4077)\n* 61859e0449c2123fd6489b940bc15411ba6aca4d Disable constraint cache skips for older queue items (#4122)\n* 89f6a7ebc351a3ec0c09e4d546fb053b9cf7c21a EXE-1594: API Docs (#3968)\n* 5ec6627dccdcc90e738caff960525cac18458e41 EXE-1640 feat: experiments detail views — dashboard (list + detail + scoring UI) (#4018)\n* 45fbeaeaa91d67dd3e13eadcd7bab01a08c630a6 Fix missed test assertion (#4111)\n* acbefdc7575e4f9529c69f13d1925c45320d07b3 Fix shadow partition constraint reporting after exhausting constraints (#3991)\n* 632f0b32e303f56c0ff6e871fe23134edba891be Persist AppID in constraint API request state (#4088)\n* a9819544179bdd7fd4708d8a8c1292254ac3cb53 Postgres slice bug and functions primary key gap (self-hosting) (#4037)\n* 8600e589d629e54e649ec0ac2ae6c62bbb8e5449 Remove ineffective and unused cleanup functions from Shard interface (#4096)\n* d8e225941114202fdc04db863ff590e2b0bf6229 Remove per-Acquire constraintUsage from Lua (#4087)\n* 774e501b24b5f1944fa1d77887da7cf7bf39bbfe SYS-751: Create a ShardRegisty interface that owns all known shards and shard selector logic (#4082)\n* 6d3eeb1744d4c9610ef6b123991786bd50ccc23e SYS-823: Make Singleton Manager blissfully unaware of underlying queue stores. (#4081)\n* 2e8d26f8082fb09c8f32c87ff7d6a5ab5f4c5399 SYS-839: Rename NewRedisCronManager to NewManager (#4109)\n* aae073a90953790269f4450f3307ed47a993a3c1 chore(build): bump MCP and go-jwt package versions for CVE fixes (#4099)\n* 29821adc7b191d9865c34c1fc2f3250be82bfd12 connect/routing: drop 5-candidate clamp in pickConnection (#4112)\n* 6a4e79c44ac2f63635fd0404e2655dd3be44d16d fix(queue): pass RequestTime in queue Acquire to bypass stale constraint cache (#4104)\n* af5b9d26d6f3a9"
+          },
+          {
+            "name": "v1.19.1",
+            "tag_name": "v1.19.1",
+            "published_at": "2026-04-30T20:45:38Z",
+            "body_excerpt": "## Changelog\n* b9d95c608504338938269f06cb97d22ee5625b6a Adds sync failure status handling in UI (#4065)\n* 09403725ea1d000881af09b0bd040b6ad3054a75 Fix constraint cache silently dropping retries on exhaustion (#4084)\n* 7f0b859a230abab4876fc0490b7243531a58d76d Fix mockBufferer.PausesSinceWithCreatedAt to respect the `since` parameter (#4085)\n* 2fdc4af8a2449a29f2a77cdce6dc88d08cb69b9a Insights: Add tables to schema explorer (#4072)\n* d5a467bb2b3d5edd650e2ebaccc2ef9e565f63ce add schedule type & original run id to replayed runs (#4067)\n* dfcc1f5449ca8a8cae31dcd049a2d2fac24508fb block affected sdk versions (#4066)\n* 42ddd6d0162c251b16e7a964a177d6969c17265a fix: broaden hasPlanOp check (#4079)\n\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".devcontainer",
+        ".dir-locals.el",
+        ".envrc",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".gitmodules",
+        ".golangci.json",
+        ".goreleaser.yml",
+        ".ignore",
+        ".tool-versions",
+        ".vscode",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CODEOWNERS",
+        "Dockerfile",
+        "Dockerfile.goreleaser",
+        "LICENSE.md",
+        "Makefile",
+        "README.md",
+        "SECURITY.md",
+        "TESTING.md",
+        "api.test",
+        "bin",
+        "buf.gen.yaml",
+        "buf.yaml",
+        "cliff.toml",
+        "cmd",
+        "docs",
+        "flake.lock",
+        "flake.nix",
+        "go.mod",
+        "go.sum",
+        "install.sh",
+        "internal",
+        "npm",
+        "package.json",
+        "pkg",
+        "pnpm-lock.yaml",
+        "proto",
+        "schema.json",
+        "scripts",
+        "sqlc.yaml",
+        "tests.sh",
+        "tests",
+        "tmp",
+        "tools.go",
+        "tools",
+        "tygo.yaml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 1)",
+          "excerpt": "# [![Inngest](https://github.com/inngest/.github/raw/main/profile/github-readme-banner-2025-06-20.png)](https://www.inngest.com)",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 1,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![Latest release](https://img.shields.io/github/v/release/inngest/inngest?include_prereleases&sort=semver)](https://github.com/inngest/inngest/releases) [![Test Status](https://img.shields.io/github/actions/workflow/status/inngest/inngest/go.yaml?branch=main&label=tests)](https://github.com/inngest/inngest/actions?query=branch%3Amain) [![Discord](https://img.shields.io/discord/842170679536517141?label=discord)](https://www.inngest.com/discord) [![Twitter Follow](https://img.shields.io/twitter/follow/inngest?style=social)](https://twitter.com/inngest)",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 2,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[Inngest](https://www.inngest.com/?ref=github-inngest-readme)'s durable functions replace queues, state management, and scheduling to enable any developer to write reliable step functions faster without touching infrastructure.",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 3,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 4)",
+          "excerpt": "1. Write durable functions using any of [**our language SDKs**](#sdks) 2. Run the [**Inngest Dev Server**](#getting-started) for a complete local development experience, with production parity. 3. Deploy your functions to your own infrastructure 4. Sync your application's functions with the [**Inngest Platform**](https://www.inngest.com/?ref=github-inngest-readme) or a [self-hosted Inngest server](#self-hosting). 5. Inngest invokes your functions securely via HTTPS whenever triggering events are received.",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 4,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Inngest Functions enable developers to run reliable background logic, from background jobs to complex workflows. An Inngest Function is composed of three key parts that provide robust support for retrying, scheduling, and coordinating complex sequences of operations:",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 5,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- [**Triggers**](https://www.inngest.com/docs/features/events-triggers?ref=github-inngest-readme) - Events, Cron schedules or webhook events that trigger the function. - [**Flow Control**](https://www.inngest.com/docs/guides/flow-control?ref=github-inngest-readme) - Configure how the function runs are enqueued and executed including concurrency, throttling, debouncing, rate limiting, and prioritization. - [**Steps**](/docs/features/inngest-functions/steps-workflows?ref=github-inngest-readme) - Steps are fundamental building blocks of Inngest, turning your Inngest Functions into reliable workflows that can run for months and recover from failures.",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 6,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Here is an example function that limits concurrency for each unique user id and performs two steps that will be retried on error:",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 7,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/inngest/inngest#readme",
+          "title": "README (segment 8)",
+          "excerpt": "```typescript export default inngest.createFunction( { id: \"import-product-images\", concurrency: { key: \"event.data.userId\", limit: 10 } }, { event: \"shop/product.imported\" }, async ({ event, step }) => { // Here goes the business logic // By wrapping code in steps, each will be retried automatically on failure const s3Urls = await step.run(\"copy-images-to-s3\", async () => { return copyAllImagesToS3(event.data.imageURLs); }); // You can include numerous steps in your function await step.run(\"resize-images\", async () => { await resizer.bulk({ urls: s3Urls, quality: 0.9, maxWidth: 1024 }); }) }; );",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "segment": 8,
+            "language": "Go"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/inngest/inngest/releases",
+          "title": "v1.19.2",
+          "excerpt": "## Changelog * 46f39ad2be372a91e5df12e41a36526fba682a9f Add `DeferAdd` and `DeferCancel` Opcodes (#4010) * 448abf182e36c51153822926d87273b5a7158a5c Add security email (#4080) * 1234ac30d0074d66ed43e01edc182cadaaab7c0b Improve Connect gateway lifecycle logging (#4135) * ad78a9fb3367aa0724ef824d34c3371fddb235a0 feat: add SDK conformance CLI serve runner (#4027) * 78147bb18488c4c79b8155a28dd3e88e1db5e1e1 fix metadata fallback (#4137) * 3cadfae632998e9f3d283da2ad4ec5b83f3d9383 fix(registration): nil-pointer panic on empty-function sync (/fn/register) (#4129) * cdda5dd36e448891e18a786c23f6ed899b4d4520 standardize variant naming (#4131) * 3138bd377d700dac6820b805f98595fdf6df5b32 vendor latest Go SDK (#4133)",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "tag_name": "v1.19.2",
+            "published_at": "2026-05-07T18:55:03Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/inngest/inngest/releases",
+          "title": "v1.9.2-beta.1",
+          "excerpt": "## Changelog * 816a2830f977bc3c6796b21ed89871d1c1db6f4b Add Linear releases to CI for CLI release (#4107) * 8edbfb9f13488c8603bb7df2a432e169c811b326 Add simple _inngest.step.type attribute for Insights (#4120) * 3fe317ed6a28d0986715c626f1462c01d5454f7c Checkpointing: Log step name for duplicate/failed step saves (#4077) * 61859e0449c2123fd6489b940bc15411ba6aca4d Disable constraint cache skips for older queue items (#4122) * 89f6a7ebc351a3ec0c09e4d546fb053b9cf7c21a EXE-1594: API Docs (#3968) * 5ec6627dccdcc90e738caff960525cac18458e41 EXE-1640 feat: experiments detail views — dashboard (list + detail + scoring UI) (#4018) * 45fbeaeaa91d67dd3e13eadcd7bab01a08c630a6 Fix missed test assertion (#4111) * acbefdc7575e4f9529c69f13d1925c45320d07b3 Fix shadow partition constraint reporting after exhausting constraints (#3991) * 632f0b32e303f56c0ff6e871fe23134edba891be Persist AppID in constraint API request state (#4088) * a9819544179bdd7fd4708d8a8c1292254ac3cb53 Postgres slice bug and functions primary key gap (self-hosting) (#4037) * 8600e589d629e54e649ec0ac2ae6c62bbb8e5449 Remove ineffective and unused cleanup functions from Shard interface (#4096) * d8e225941114202fdc04db863ff590e2b0bf62…",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "tag_name": "v1.9.2-beta.1",
+            "published_at": "2026-05-07T18:55:54Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/inngest/inngest/releases",
+          "title": "v1.19.1",
+          "excerpt": "## Changelog * b9d95c608504338938269f06cb97d22ee5625b6a Adds sync failure status handling in UI (#4065) * 09403725ea1d000881af09b0bd040b6ad3054a75 Fix constraint cache silently dropping retries on exhaustion (#4084) * 7f0b859a230abab4876fc0490b7243531a58d76d Fix mockBufferer.PausesSinceWithCreatedAt to respect the `since` parameter (#4085) * 2fdc4af8a2449a29f2a77cdce6dc88d08cb69b9a Insights: Add tables to schema explorer (#4072) * d5a467bb2b3d5edd650e2ebaccc2ef9e565f63ce add schedule type & original run id to replayed runs (#4067) * dfcc1f5449ca8a8cae31dcd049a2d2fac24508fb block affected sdk versions (#4066) * 42ddd6d0162c251b16e7a964a177d6969c17265a fix: broaden hasPlanOp check (#4079)",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "tag_name": "v1.19.1",
+            "published_at": "2026-04-30T20:45:38Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/inngest/inngest",
+          "title": "ROOT_FILES",
+          "excerpt": ".devcontainer, .dir-locals.el, .envrc, .gitattributes, .github, .gitignore, .gitmodules, .golangci.json, .goreleaser.yml, .ignore, .tool-versions, .vscode, AGENTS.md, CHANGELOG.md, CLAUDE.md, CODEOWNERS, Dockerfile, Dockerfile.goreleaser, LICENSE.md, Makefile, README.md, SECURITY.md, TESTING.md, api.test, bin, buf.gen.yaml, buf.yaml, cliff.toml, cmd, docs, flake.lock, flake.nix, go.mod, go.sum, install.sh, internal, npm, package.json, pkg, pnpm-lock.yaml, proto, schema.json, scripts, sqlc.yaml, tests.sh, tests, tmp, tools.go, tools, tygo.yaml",
+          "fetched_at": "2026-05-12T06:16:40.065Z",
+          "meta": {
+            "repo_full_name": "inngest/inngest",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "Gitlawb/openclaude",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "inngest/inngest",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "Gitlawb/openclaude",
+      "ok": true,
+      "spec_path": "specs/2026-05-12/Gitlawb__openclaude.json"
+    },
+    {
+      "repo": "inngest/inngest",
+      "ok": true,
+      "spec_path": "specs/2026-05-12/inngest__inngest.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "Gitlawb/openclaude",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-12/Gitlawb__openclaude.json"
+    },
+    {
+      "repo": "inngest/inngest",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-12/inngest__inngest.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "Gitlawb/openclaude",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-12/Gitlawb__openclaude.json"
+      ]
+    },
+    {
+      "repo": "inngest/inngest",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-12/inngest__inngest.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-12T06:16:55.368Z",
+      "run_id": "20260512T061635Z",
+      "repo": "Gitlawb/openclaude",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4bfa47e52bd886647b644d6adb3bb65469540a02c9f2c85b4e45e1b378382e56",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 7655
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15289,
+      "prompt_chars": 7655,
+      "completion_chars": 1290
+    },
+    {
+      "ts": "2026-05-12T06:17:08.398Z",
+      "run_id": "20260512T061635Z",
+      "repo": "Gitlawb/openclaude",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "46a4c1db86762b3649ef4a99c8953cc6877acc44b4ae33c904fe09e4d8c0d1e1",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9149
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13029,
+      "prompt_chars": 9149,
+      "completion_chars": 1423
+    },
+    {
+      "ts": "2026-05-12T06:17:21.428Z",
+      "run_id": "20260512T061635Z",
+      "repo": "Gitlawb/openclaude",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d75508ceb563da63980370b038ff77651d088862b1af7a75ae051c1b2d57abaa",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10752
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13030,
+      "prompt_chars": 10752,
+      "completion_chars": 1465
+    },
+    {
+      "ts": "2026-05-12T06:17:36.951Z",
+      "run_id": "20260512T061635Z",
+      "repo": "Gitlawb/openclaude",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7615db80b8faee775c7f5161380d1d202a3a22757065d82abf325c32c6614673",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 12398
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15523,
+      "prompt_chars": 12398,
+      "completion_chars": 1705
+    },
+    {
+      "ts": "2026-05-12T06:18:13.489Z",
+      "run_id": "20260512T061635Z",
+      "repo": "Gitlawb/openclaude",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1aeac35ef99f64a8c5cf09ef016422792d9da5332a2226e6d2556acb2aacdd8c",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 16967
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 36537,
+      "prompt_chars": 16967,
+      "completion_chars": 4627
+    },
+    {
+      "ts": "2026-05-12T06:18:27.569Z",
+      "run_id": "20260512T061635Z",
+      "repo": "inngest/inngest",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "cd4aede408112d370455c6dda302a056c4355c0b89702d5bc775ec7e3c5e8fc8",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9304
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14064,
+      "prompt_chars": 9304,
+      "completion_chars": 1375
+    },
+    {
+      "ts": "2026-05-12T06:18:41.170Z",
+      "run_id": "20260512T061635Z",
+      "repo": "inngest/inngest",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ab7722a65631dc16c41728268b090d47af9327f37ffeb8ab2371a6cbf4f069ba",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 10879
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13601,
+      "prompt_chars": 10879,
+      "completion_chars": 1616
+    },
+    {
+      "ts": "2026-05-12T06:18:55.624Z",
+      "run_id": "20260512T061635Z",
+      "repo": "inngest/inngest",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "15ac0ce43ee47be97e139098f620a7b6a84136c8dd114e289ee5a64cdedb1d3e",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 12679
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14454,
+      "prompt_chars": 12679,
+      "completion_chars": 1662
+    },
+    {
+      "ts": "2026-05-12T06:19:07.410Z",
+      "run_id": "20260512T061635Z",
+      "repo": "inngest/inngest",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1589ec053d0c7e852e578cd59b2278c9054e2600e976b1faafb16422494ac96c",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 14518
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11786,
+      "prompt_chars": 14518,
+      "completion_chars": 1399
+    },
+    {
+      "ts": "2026-05-12T06:19:38.107Z",
+      "run_id": "20260512T061635Z",
+      "repo": "inngest/inngest",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "99839906eda22ff0282dd831a22a7ac2208d36a37a09062019e2eee07a162e5e",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 18741
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 30696,
+      "prompt_chars": 18741,
+      "completion_chars": 3763
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "Gitlawb/openclaude",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "inngest/inngest",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "Gitlawb/openclaude",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "inngest/inngest",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1778566595458,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "Gitlawb/openclaude": 5,
+      "inngest/inngest": 5
+    },
+    "tokensApproxTotal": 35846,
+    "tokensApproxPerRepo": {
+      "Gitlawb/openclaude": 16860,
+      "inngest/inngest": 18986
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "Gitlawb/openclaude": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "OpenClaude is a terminal-first, open-source coding agent CLI that supports multiple AI backends (OpenAI, Gemini, Ollama, etc.) and features tools, agents, MCP, and streaming. It has active development, recent releases, and a growing community, but shows signs of integration fragility.",
+        "highlights": [
+          "Supports diverse model providers including OpenAI-compatible APIs, Gemini, GitHub Models, Codex, and Ollama [ID:E-RD-002].",
+          "Recent feature additions include local Orama persistence, improved CLI model selection, and token counting [ID:E-RL-001].",
+          "Strong project hygiene: includes SECURITY.md, CODE_OF_CONDUCT.md, CI badges, and release tagging [ID:E-RF-001][ID:E-RD-003].",
+          "High engagement with 26.4K stars and active maintenance (latest push May 2026) [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Provider-specific bugs observed: Codex integration failed due to MCP schema incompatibility (missing 'type') [ID:E-IS-001].",
+          "Rapid iteration (v0.9.1 → v0.10.0 in one week) may indicate instability or immature APIs [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RF-001",
+          "E-RD-003",
+          "E-RD-008",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "OpenClaude invents a unified, terminal-native interface for heterogeneous AI coding agents, abstracting diverse backends (OpenAI, Gemini, Ollama, Codex, etc.) into a consistent CLI workflow with tools, agents, MCP, and streaming—enabling portable, provider-agnostic automation.",
+        "highlights": [
+          "Invents a polyglot agent abstraction layer that normalizes disparate AI providers (OpenAI, Gemini, GitHub Models, Codex, Ollama) under one CLI [ID:E-RD-002].",
+          "Introduces local Orama-based knowledge persistence as a novel on-device memory system for coding agents (feature-flagged) [ID:E-RL-001].",
+          "Pioneers terminal-first agent interactions with slash commands, streaming output, and integrated tool calling without GUI dependency [ID:E-RD-001][ID:E-RD-002].",
+          "Enables model selection via --model alone, decoupling model identity from explicit provider specification—a usability innovation [ID:E-RL-001]."
+        ],
+        "risks": [
+          "Invented abstractions may leak provider-specific constraints, as seen in Codex MCP schema failures requiring 'type' fields [ID:E-IS-001].",
+          "Rapid invention cycle (e.g., v0.9.1 to v0.10.0 in 6 days) risks unstable or under-specified interfaces, especially in new features like Orama persistence [ID:E-RL-001][ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "OpenClaude is a TypeScript-based CLI coding agent that abstracts multiple AI backends into a unified terminal workflow, with recent engineering efforts focused on usability (e.g., decoupled model selection), performance (cached token counting), and extensibility (local Orama knowledge persistence). However, integration fragility—particularly around MCP schema compliance—poses maintenance risks.",
+        "highlights": [
+          "Decouples model specification from provider via --model flag, simplifying CLI usage [ID:E-RL-001].",
+          "Implements incremental and cached token counting for efficiency [ID:E-RL-001].",
+          "Introduces feature-flagged local Orama persistence for agent knowledge, enabling offline-capable memory [ID:E-RL-001].",
+          "Maintains solid engineering hygiene: CI/CD badges, security policy, contribution guidelines, and regular releases [ID:E-RD-003][ID:E-RF-001]."
+        ],
+        "risks": [
+          "MCP tool schema incompatibility caused Codex provider failure due to missing 'type' field, indicating weak schema validation or insufficient cross-provider testing [ID:E-IS-001].",
+          "High release velocity (three patch/minor versions in one week) may reflect unstable APIs or reactive bug fixing, especially around new features like Orama integration [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-IS-001",
+          "E-RD-003",
+          "E-RF-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "OpenClaude promises a unified, terminal-first coding agent across many AI backends, but evidence reveals integration fragility, rapid unstable releases, and potential overstatement of compatibility—raising doubts about reliability and maintainability.",
+        "highlights": [
+          "Claims broad provider support (OpenAI, Gemini, Codex, Ollama, etc.), yet a closed issue confirms Codex fails due to an MCP schema violation—suggesting incomplete or brittle abstraction [ID:E-IS-001][ID:E-RD-002].",
+          "Three releases in one week (v0.9.1 → v0.10.0) include minor features like a logo palette picker alongside core changes, hinting at undisciplined versioning or masking instability as progress [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Prominent branding of GitLawb, Bankr.bot, and Atomic Chat in the README suggests possible marketing-driven development rather than community-led engineering [ID:E-RD-006][ID:E-RD-007]."
+        ],
+        "risks": [
+          "The abstraction layer may not truly normalize providers—Codex’s failure on a missing 'type' field implies inconsistent schema enforcement and inadequate cross-backend testing [ID:E-IS-001].",
+          "Feature-flagged additions like Orama persistence are introduced amid rapid patching, increasing risk of technical debt or half-baked functionality [ID:E-RL-001].",
+          "High star count (26.4K) could reflect hype rather than robustness, especially given minimal issue history (only 1 issue tracked) despite claimed multi-provider complexity [ID:E-RD-008][ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"OpenClaude\",\n    \"one_sentence\": \"An open-source coding-agent CLI that unifies diverse AI backends into a terminal-first workflow with tools, agents, MCP, and streaming output.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User issues prompts or slash commands in the terminal; OpenClaude routes to a configured AI provider (e.g., OpenAI, Gemini, Ollama, Codex), executes tool calls via MCP, streams responses, and optionally persists knowledge locally using Orama.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Terminal Interface\",\n      \"purpose\": \"Primary interaction surface for prompting, tool invocation, and streaming agent output.\",\n      \"primary_actions\": [\n        \"Enter natural language prompts\",\n        \"Invoke slash commands\",\n        \"View streaming agent responses\",\n        \"Trigger tool/MCP actions\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"select_model\",\n      \"purpose\": \"Allow user to specify a model without explicitly declaring the provider, enabling provider-agnostic model selection.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"persist_knowledge\",\n      \"purpose\": \"Store agent memory and context using local Orama persistence (feature-flagged).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"validate_mcp_schema\",\n      \"purpose\": \"Ensure MCP tool schemas include required fields like 'type' to prevent provider errors (e.g., Codex 400 failures).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"providers\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"api_compatibility\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"tools\",\n        \"fields\": [\n          {\n            \"name\": \"schema\",\n            \"type\": \"json\""
+      }
+    },
+    "inngest/inngest": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "Inngest is a Go-based workflow orchestration platform enabling durable, event-driven functions with built-in retries, concurrency control, and step-level reliability. It supports local development via a dev server and can be self-hosted or integrated with the Inngest cloud platform.",
+        "highlights": [
+          "Offers durable functions that abstract away queues, state management, and scheduling [ID:E-RD-003].",
+          "Functions support triggers (events/cron), flow control (concurrency, rate limiting), and composable steps with automatic retries [ID:E-RD-005, E-RD-006, E-RD-008].",
+          "Active release cadence with recent fixes for stability (e.g., nil-pointer panic, constraint cache issues) and new features like DeferAdd/DeferCancel opcodes [ID:E-RL-001, E-RL-003].",
+          "Includes security policy (SECURITY.md) and conformance tooling for SDKs [ID:E-RF-001, E-RL-001]."
+        ],
+        "risks": [
+          "Recent releases include patches for critical bugs like nil-pointer panics and dropped retries, indicating ongoing stability challenges [ID:E-RL-001, E-RL-003].",
+          "Dependency on proprietary platform sync for full functionality may limit offline/self-hosted use cases [ID:E-RD-004]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RF-001",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "Inngest introduces a novel abstraction for durable, event-driven step functions that unify workflow orchestration, state persistence, and retry logic without requiring developers to manage infrastructure. Its design centers on composable steps with automatic failure recovery, fine-grained concurrency control, and seamless local-to-production parity.",
+        "highlights": [
+          "Invents a developer-centric model where complex workflows are built from retriable, durable steps triggered by events or cron schedules [ID:E-RD-005, E-RD-006, E-RD-008].",
+          "Introduces opcodes like `DeferAdd` and `DeferCancel` to extend workflow control primitives, suggesting ongoing innovation in execution semantics [ID:E-RL-001].",
+          "Enables per-user concurrency limiting via declarative keys (e.g., `event.data.userId`), offering granular flow control uncommon in traditional queue systems [ID:E-RD-008].",
+          "Provides a local dev server with production parity, reducing the orchestration gap between development and deployment environments [ID:E-RD-004]."
+        ],
+        "risks": [
+          "Core reliability depends on correct checkpointing and constraint handling—recent fixes for nil-pointer panics and dropped retries indicate fragility in foundational mechanisms [ID:E-RL-001, E-RL-003].",
+          "Tight coupling between SDKs and platform sync may hinder adoption in air-gapped or fully self-hosted scenarios despite claimed self-hosting support [ID:E-RD-004, E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RD-004",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "Inngest is a Go-based workflow orchestration system that enables developers to build durable, event-driven step functions with built-in retries, concurrency control, and state management. It supports local development via a dev server and can be deployed self-hosted or synced with the Inngest cloud platform.",
+        "highlights": [
+          "Core functionality revolves around durable steps that automatically retry on failure, enabling long-running workflows resilient to crashes [ID:E-RD-008].",
+          "Fine-grained flow control features like per-user concurrency limits (e.g., `concurrency: { key: \"event.data.userId\" }`) provide advanced orchestration capabilities beyond basic queue systems [ID:E-RD-008].",
+          "Recent releases include critical stability fixes (e.g., nil-pointer panic in function registration, dropped retries due to constraint cache bugs) indicating active maintenance of core execution logic [ID:E-RL-001, E-RL-003].",
+          "Tooling includes SDK conformance CLI, security policy (SECURITY.md), and structured release notes—signs of production-grade engineering practices [ID:E-RF-001, E-RL-001]."
+        ],
+        "risks": [
+          "Ongoing bug fixes for foundational issues like nil-pointer panics and lost retries suggest potential instability in checkpointing and constraint handling subsystems [ID:E-RL-001, E-RL-003].",
+          "Self-hosting may require tight integration with the Inngest platform for full functionality (e.g., function sync), which could complicate fully offline deployments [ID:E-RD-004]."
+        ],
+        "evidence_ids": [
+          "E-RD-008",
+          "E-RD-004",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While Inngest promises durable, infrastructure-free workflows with automatic retries and concurrency control, recent critical bug fixes and tight platform coupling raise doubts about its stability and true self-hosting viability.",
+        "highlights": [
+          "Claims of 'reliable step functions' are undermined by recent patches for nil-pointer panics and dropped retries, suggesting core execution logic remains fragile [ID:E-RL-001, E-RL-003].",
+          "Self-hosting appears conditional on syncing with the Inngest Platform, contradicting assertions of full offline deployment capability [ID:E-RD-004].",
+          "Marketing emphasizes developer simplicity, yet release notes reveal ongoing low-level issues in constraint handling and checkpointing—areas critical to promised durability [ID:E-RL-001, E-RL-002, E-RL-003]."
+        ],
+        "risks": [
+          "The system’s reliability hinges on mechanisms (e.g., checkpointing, constraint caching) that have recently failed in production-critical ways, casting doubt on claims of 'months-long' workflow resilience [ID:E-RL-001, E-RL-003].",
+          "Dependency on platform sync for function registration implies self-hosted deployments may lack autonomy, potentially creating vendor lock-in despite open-source appearance [ID:E-RD-004, E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RL-003",
+          "E-RD-004",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Inngest\",\n    \"one_sentence\": \"A workflow orchestration platform that enables developers to build durable, event-driven step functions with built-in retries, concurrency control, and state management without managing infrastructure.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers define functions triggered by events or cron schedules, composed of retriable steps with automatic failure recovery; Inngest handles execution, state persistence, scheduling, and flow control (e.g., per-user concurrency limits), invoking functions via HTTPS upon trigger receipt.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Function Dashboard\",\n      \"purpose\": \"View and manage durable functions, their triggers, steps, and execution status.\",\n      \"primary_actions\": [\n        \"Create new function\",\n        \"View function runs\",\n        \"Configure concurrency and throttling\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"register_function\",\n      \"purpose\": \"Sync a function definition with the Inngest platform or self-hosted server for execution.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"invoke_step\",\n      \"purpose\": \"Execute a single step within a durable function, with automatic retry on failure.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"functions\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"trigger_type\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"concurrency_key\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"steps\",\n        \"fields\": [\n          {\n            \"name\": \"function_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"step_name\",\n            \"type\": \"string\"\n          },\n          {\n            "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "Gitlawb/openclaude",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 5,
+        "engineer": 6,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "inngest/inngest",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 6,
+        "engineer": 5,
+        "skeptic": 4,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=290",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] inngest/inngest evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] Gitlawb/openclaude evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=25 gaps=0",
+    "[llm_spec_generator] Gitlawb/openclaude canonical spec ok (iter=1) -> specs/2026-05-12/Gitlawb__openclaude.json",
+    "[llm_spec_generator] inngest/inngest canonical spec ok (iter=1) -> specs/2026-05-12/inngest__inngest.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-12T06:16:35.458Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:35.483Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260512T061635Z"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:35.483Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:35.487Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:36.039Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:36.039Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:36.437Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:36.437Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:36.924Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:36.924Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:37.295Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:37.295Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:37.728Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:37.728Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:38.137Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:38.137Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:38.563Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:38.563Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:38.762Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:38.762Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.241Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.241Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.646Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.650Z",
+      "run_id": "20260512T061635Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 290
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.650Z",
+      "run_id": "20260512T061635Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.653Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-12T06:16:39.653Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Gitlawb__openclaude/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.654Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Gitlawb__openclaude/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.656Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Gitlawb__openclaude/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.658Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Gitlawb__openclaude/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.659Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-12T06:16:39.659Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "inngest__inngest/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.660Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "inngest__inngest/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.663Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "inngest__inngest/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:39.664Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "inngest__inngest/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.065Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 8686,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.065Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.065Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.065Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 406
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.066Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.074Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12893,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.074Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.074Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.074Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 421
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.074Z",
+      "run_id": "20260512T061635Z",
+      "node": "repo_card_builder",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.078Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:40.078Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:16:55.368Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1290,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:17:08.398Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1423,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:17:21.428Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1465,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:17:36.951Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1705,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:13.489Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4627,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:13.503Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:13.504Z",
+      "run_id": "20260512T061635Z",
+      "node": "artifacts",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-12/Gitlawb__openclaude.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:13.504Z",
+      "run_id": "20260512T061635Z",
+      "node": "artifacts",
+      "repo": "Gitlawb/openclaude",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-12/Gitlawb__openclaude.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:13.504Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:13.504Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:27.569Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1375,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:41.170Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1616,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:18:55.624Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1662,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:07.410Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1399,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.107Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3763,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.109Z",
+      "run_id": "20260512T061635Z",
+      "node": "llm_spec_generator",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.109Z",
+      "run_id": "20260512T061635Z",
+      "node": "artifacts",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-12/inngest__inngest.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.110Z",
+      "run_id": "20260512T061635Z",
+      "node": "artifacts",
+      "repo": "inngest/inngest",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-12/inngest__inngest.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.114Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.114Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1778566595458,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "Gitlawb/openclaude": 5,
+          "inngest/inngest": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.114Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-12T06:19:38.114Z",
+      "run_id": "20260512T061635Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-12",
+    "evidence_dir": "evidence/2026-05-12"
+  }
+}
