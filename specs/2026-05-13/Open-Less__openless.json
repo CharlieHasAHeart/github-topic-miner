@@ -1,0 +1,112 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OpenLess",
+    "one_liner": "An open-source voice input app for macOS and Windows that captures speech via hotkey and outputs AI-polished text at the cursor."
+  },
+  "screens": [
+    {
+      "name": "Main Voice Input Interface",
+      "purpose": "Display recording state and provide visual feedback during dictation.",
+      "primary_actions": [
+        "Receive polished text output",
+        "Trigger recording via hotkey",
+        "View recording status"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure hotkeys, AI preferences, and update channel.",
+      "primary_actions": [
+        "Manage AI provider settings",
+        "Set recording hotkey",
+        "Toggle beta channel"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "inject_text_at_cursor",
+      "purpose": "Insert AI-polished text at the system cursor location.",
+      "async": true,
+      "input": {
+        "audio_path": "string",
+        "payload": "json",
+        "polished_text": "string",
+        "transcript": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "trigger_recording",
+      "purpose": "Initiate audio capture either via hotkey or CLI fallback (e.g., for Wayland).",
+      "async": true,
+      "input": {
+        "audio_path": "string",
+        "payload": "json",
+        "polished_text": "string",
+        "transcript": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "recordings",
+        "columns": [
+          {
+            "name": "audio_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "polished_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "transcript",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "settings",
+        "columns": [
+          {
+            "name": "ai_provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "beta_channel_enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "hotkey",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic Tauri window for recording feedback",
+    "week 1: Implement hotkey listener for macOS/Windows",
+    "week 1: Integrate CLI fallback for Linux/Wayland"
+  ],
+  "acceptance_tests": [
+    "On Debian/Wayland, CLI-triggered recording works as fallback when hotkey fails.",
+    "On macOS, after installing via DMG and running 'xattr -cr', the app launches without Gatekeeper error.",
+    "Pressing the global hotkey starts recording and inserts AI-polished text at cursor upon release.",
+    "Switching to Beta channel in Settings makes pre-release versions visible in updater."
+  ]
+}

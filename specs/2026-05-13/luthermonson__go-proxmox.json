@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "go-proxmox",
+    "one_liner": "A strongly-typed Go client for the Proxmox VE REST API with full JSON marshaling, testing, and context support."
+  },
+  "screens": [
+    {
+      "name": "Client Initialization & Resource Interaction",
+      "purpose": "Enable users to create a configured Proxmox API client and execute operations against cluster resources.",
+      "primary_actions": [
+        "Fetch cluster version",
+        "Initialize client with credentials",
+        "Manage VMs and containers"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist Proxmox resource configurations (e.g., VM or container settings) via API calls.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "proxmox_resources",
+        "columns": [
+          {
+            "name": "config",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add typed structures for VM and container APIs",
+    "week 1: Implement core client with credential handling",
+    "week 1: Integrate context and logging support"
+  ],
+  "acceptance_tests": [
+    "Client successfully authenticates and retrieves Proxmox version using username/password credentials.",
+    "VM creation and configuration operations succeed with proper JSON marshaling and error handling."
+  ]
+}

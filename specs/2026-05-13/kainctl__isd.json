@@ -1,0 +1,137 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "isd",
+    "one_liner": "A keyboard-focused, highly customizable TUI for managing systemd units with fuzzy search, auto-refreshing previews, and dynamic theming."
+  },
+  "screens": [
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure keybindings, themes, and application behavior via YAML or UI controls.",
+      "primary_actions": [
+        "Adjust refresh behavior",
+        "Edit keybindings",
+        "Select theme (including terminal-derived-theme)",
+        "Toggle input caching"
+      ]
+    },
+    {
+      "name": "Unit Browser",
+      "purpose": "Display and interact with systemd units in a searchable, filterable list with real-time preview.",
+      "primary_actions": [
+        "Execute systemctl commands (start, stop, enable, etc.)",
+        "Fuzzy search units",
+        "Open unit details or logs in pager/editor",
+        "Toggle between system/user scope"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_theme",
+      "purpose": "Load and apply a selected theme, including experimental terminal-derived themes based on TERM environment inspection.",
+      "async": false,
+      "input": {
+        "file_path": "string",
+        "fix_ids": "json?",
+        "name": "string",
+        "scope": "string",
+        "state": "string",
+        "type": "string"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "execute_systemctl_action",
+      "purpose": "Run a systemctl command on a selected unit, automatically prefixing with sudo if required by permissions.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "scope": "string",
+        "state": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "switch_unit_scope",
+      "purpose": "Toggle between system-wide and user-specific systemd units.",
+      "async": false,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "scope": "string",
+        "state": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "systemd_units",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "scope",
+            "type": "TEXT"
+          },
+          {
+            "name": "state",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "themes",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_light",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "is_terminal_derived",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic theme selection (including terminal-derived)",
+    "week 1: Implement core unit listing with fuzzy search",
+    "week 1: Integrate auto-sudo logic for privileged operations",
+    "week 1: Support system/user scope switching"
+  ],
+  "acceptance_tests": [
+    "Global configuration file at /etc/xdg/isd_tui/config.yaml is loaded and overridden by local config.",
+    "Initial search term can be passed via CLI argument (pending implementation).",
+    "Text in Cat tab is selectable and copyable after fix.",
+    "Theme respects terminal color scheme when using terminal-derived-theme in supported emulators like kitty.",
+    "User can switch between system and user units without restarting the app."
+  ]
+}
