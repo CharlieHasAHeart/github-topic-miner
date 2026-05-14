@@ -1,0 +1,166 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Danmaku Anywhere",
+    "one_liner": "An open-source browser extension that enables danmaku (commentary overlays) on nearly any video website, supporting platforms like Plex, YouTube, Bilibili, and more."
+  },
+  "screens": [
+    {
+      "name": "Video Overlay Screen",
+      "purpose": "Display弹幕 overlaid on top of any supported video player while allowing user interaction with弹幕 sources and settings.",
+      "primary_actions": [
+        "Import/export .xml弹幕 files",
+        "Search for弹幕 by title",
+        "Toggle弹幕 visibility"
+      ]
+    },
+    {
+      "name": "弹幕 Source Configuration",
+      "purpose": "Configure弹幕 sources, matching rules, and site-specific settings for弹幕 retrieval.",
+      "primary_actions": [
+        "Add/remove弹幕 sources",
+        "Enable/disable AI matching",
+        "Set default弹幕 provider"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "export_current_danmaku",
+      "purpose": "Save currently viewed弹幕 to a .xml file for offline use or sharing.",
+      "async": true,
+      "input": {
+        "enabled": "boolean",
+        "manifest_url": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fetch_danmaku_from_source",
+      "purpose": "Retrieve弹幕 data from a specified source (e.g., Bilibili, DDP API) using declarative manifests.",
+      "async": true,
+      "input": {
+        "enabled": "boolean",
+        "manifest_url": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "import_local_danmaku",
+      "purpose": "Load弹幕 from a user-provided .xml file and overlay them on the current video.",
+      "async": true,
+      "input": {
+        "enabled": "boolean",
+        "manifest_url": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "match_video_to_danmaku",
+      "purpose": "Use AI or rule-based logic to automatically associate the playing video with available弹幕 metadata.",
+      "async": true,
+      "input": {
+        "enabled": "boolean",
+        "manifest_url": "string",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "danmaku_sources",
+        "columns": [
+          {
+            "name": "enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "manifest_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "local_danmaku_files",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_used",
+            "type": "DATETIME"
+          },
+          {
+            "name": "video_title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "site_configurations",
+        "columns": [
+          {
+            "name": "default_source",
+            "type": "TEXT"
+          },
+          {
+            "name": "matching_rules",
+            "type": "JSON"
+          },
+          {
+            "name": "site_domain",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add manual .xml import/export functionality",
+    "week 1: Implement core弹幕 overlay renderer",
+    "week 1: Integrate Bilibili and DDP-compatible弹幕 sources",
+    "week 2: Build settings UI for source configuration",
+    "week 2: Develop AI-assisted video-to-弹幕 matching",
+    "week 2: Support episode-level metadata handling",
+    "week 3: Add support for MacCMS and Tencent sources",
+    "week 3: Implement authenticated proxy forwarding for DDP services",
+    "week 3: Test on self-hosted media servers (Plex, Jellyfin)"
+  ],
+  "acceptance_tests": [
+    "AI matching correctly associates a Crunchyroll episode with弹幕 from danmu-api.",
+    "Episode list renders immediately without waiting for弹幕 metadata to load.",
+    "Extension successfully loads弹幕 from Bilibili using declarative manifest engine ('dango').",
+    "User can install extension and enable弹幕 on a Plex video page without desktop client.",
+    "User imports local .xml弹幕 file and sees comments overlaid on video."
+  ]
+}

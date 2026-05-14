@@ -1,0 +1,3423 @@
+{
+  "run_id": "20260514T062645Z",
+  "generated_at": "2026-05-14T06:26:45.188Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 39,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 3,
+      "release": 9,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-14T06:31:32.858Z",
+    "repo_count": 298
+  },
+  "candidates": [
+    {
+      "full_name": "fastrepl/anarlog",
+      "html_url": "https://github.com/fastrepl/anarlog",
+      "description": "Open source Granola AI Alternative",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8454,
+      "forks_count": 607,
+      "open_issues_count": 153,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-14T06:26:21Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "storybookjs/storybook",
+      "html_url": "https://github.com/storybookjs/storybook",
+      "description": "Storybook is the industry standard workshop for building, documenting, and testing UI components in isolation",
+      "topics": [
+        "angular",
+        "components",
+        "design-systems",
+        "documentation",
+        "html",
+        "javascript",
+        "react",
+        "react-native",
+        "stories",
+        "storybook",
+        "styleguide",
+        "svelte",
+        "testing",
+        "typescript",
+        "ui",
+        "vite",
+        "vue",
+        "web-components",
+        "webpack",
+        "workshop"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 89901,
+      "forks_count": 10057,
+      "open_issues_count": 2267,
+      "license_spdx_id": "MIT",
+      "default_branch": "next",
+      "pushed_at": "2026-05-14T06:25:53Z",
+      "created_at": "2016-03-18T04:23:44Z"
+    },
+    {
+      "full_name": "Mr-Quin/danmaku-anywhere",
+      "html_url": "https://github.com/Mr-Quin/danmaku-anywhere",
+      "description": "一个可以给几乎任何视频网站添加弹幕的开源软件 | An open source solution to add danmaku to almost every video website",
+      "topics": [
+        "browser-extension",
+        "danmaku",
+        "danmu",
+        "plex",
+        "userscript",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 504,
+      "forks_count": 13,
+      "open_issues_count": 11,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-05-14T06:25:42Z",
+      "created_at": "2023-04-14T20:48:23Z"
+    },
+    {
+      "full_name": "nrwl/nx",
+      "html_url": "https://github.com/nrwl/nx",
+      "description": "The Monorepo Platform that amplifies both developers and AI agents. Nx optimizes your builds, scales your CI, and fixes failed PRs automatically. Ship in half the time.",
+      "topics": [
+        "angular",
+        "build",
+        "build-system",
+        "build-tool",
+        "building-tool",
+        "cli",
+        "cypress",
+        "hacktoberfest",
+        "javascript",
+        "monorepo",
+        "nextjs",
+        "nodejs",
+        "nx",
+        "nx-workspaces",
+        "react",
+        "storybook",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 28702,
+      "forks_count": 2722,
+      "open_issues_count": 495,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-14T06:25:35Z",
+      "created_at": "2017-08-11T18:50:23Z"
+    },
+    {
+      "full_name": "dotenvx/dotenvx",
+      "html_url": "https://github.com/dotenvx/dotenvx",
+      "description": "a secure dotenv–from the creator of `dotenv`",
+      "topics": [
+        "cli",
+        "configuration-file",
+        "curl",
+        "dotenv",
+        "dotenvx",
+        "end-to-end-encryption",
+        "env",
+        "environment-variables",
+        "homebrew",
+        "secret-management",
+        "secret-manager",
+        "secrets",
+        "secrets-management",
+        "security-tools",
+        "winget"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 5439,
+      "forks_count": 143,
+      "open_issues_count": 53,
+      "license_spdx_id": "BSD-3-Clause",
+      "default_branch": "main",
+      "pushed_at": "2026-05-14T06:25:17Z",
+      "created_at": "2023-11-18T00:55:16Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "fastrepl/anarlog",
+      "html_url": "https://github.com/fastrepl/anarlog",
+      "description": "Open source Granola AI Alternative",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8454,
+      "forks_count": 607,
+      "open_issues_count": 153,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-14T06:26:21Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "Mr-Quin/danmaku-anywhere",
+      "html_url": "https://github.com/Mr-Quin/danmaku-anywhere",
+      "description": "一个可以给几乎任何视频网站添加弹幕的开源软件 | An open source solution to add danmaku to almost every video website",
+      "topics": [
+        "browser-extension",
+        "danmaku",
+        "danmu",
+        "plex",
+        "userscript",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 504,
+      "forks_count": 13,
+      "open_issues_count": 11,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-05-14T06:25:42Z",
+      "created_at": "2023-04-14T20:48:23Z"
+    },
+    {
+      "full_name": "dotenvx/dotenvx",
+      "html_url": "https://github.com/dotenvx/dotenvx",
+      "description": "a secure dotenv–from the creator of `dotenv`",
+      "topics": [
+        "cli",
+        "configuration-file",
+        "curl",
+        "dotenv",
+        "dotenvx",
+        "end-to-end-encryption",
+        "env",
+        "environment-variables",
+        "homebrew",
+        "secret-management",
+        "secret-manager",
+        "secrets",
+        "secrets-management",
+        "security-tools",
+        "winget"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 5439,
+      "forks_count": 143,
+      "open_issues_count": 53,
+      "license_spdx_id": "BSD-3-Clause",
+      "default_branch": "main",
+      "pushed_at": "2026-05-14T06:25:17Z",
+      "created_at": "2023-11-18T00:55:16Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "fastrepl/anarlog",
+      "html_url": "https://github.com/fastrepl/anarlog",
+      "description": "Open source Granola AI Alternative",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8454,
+      "forks_count": 607,
+      "open_issues_count": 153,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-14T06:26:21Z",
+      "created_at": "2024-12-09T02:51:21Z",
+      "readme": {
+        "fetched": true,
+        "text": "> **Note:** We're now working primarily on **[char](https://char.com)** — a new productivity-focused product that's where most of our active development goes. **anarlog** stays open-source, MIT-licensed, and maintained. The cross-link to char lives here so you know where the team's attention is. Same team, different bets.\n\n![anarlog](https://repository-images.githubusercontent.com/900550981/a4267a9f-414b-4c36-965c-419313ce2417)\n\n<p align=\"center\">\n  <p align=\"center\">\n   <a href=\"https://deepwiki.com/fastrepl/char\"><img src=\"https://deepwiki.com/badge.svg\" alt=\"Ask DeepWiki\"></a>\n   <a href=\"https://char.com/discord\" target=\"_blank\"><img src=\"https://img.shields.io/static/v1?label=Join%20our&message=Discord&color=blue&logo=Discord\" alt=\"Discord\"></a>\n   <a href=\"https://x.com/getcharnotes\" target=\"_blank\"><img src=\"https://img.shields.io/static/v1?label=Follow%20us%20on&message=X&color=black&logo=x\" alt=\"X\"></a>\n  </p>\n</p>\n\n# anarlog\n\nThe open-source AI meeting notetaker. Local-first. Privacy-first. Yours to fork.\n\nGranola, rearranged.\n\n## How to use it\n\nDownload the latest release for your platform:\n\n→ [github.com/fastrepl/char/releases/latest](https://github.com/fastrepl/char/releases/latest)\n\nOpen it. Join a meeting. anarlog records, transcribes locally, and saves your notes as markdown on disk. Bring your own LLM (OpenAI, Anthropic, Gemini, OpenRouter, Ollama, LM Studio, anything OpenAI-compatible).\n\nSelf-host? Clone the repo, build, run.\n\n## Why use it\n\n- **Your data, your disk.** Every meeting is a `.md` file. `cat` it. Grep it. Sync it via Dropbox / iCloud / Syncthing / git. There is no cloud lock-in because there is no cloud.\n- **Local transcription.** On-device speech models. Audio never leaves your machine.\n- **Bring your own AI.** Plug in any LLM provider. No vendor we picked for you.\n- **Open source, MIT.** Fork it. Sell it. Self-host it. We mean it.\n- **No accounts. No tracking. No \"free tier.\"** Just the app.\n\n## A short essay\n\nWe started this as **Hyprnote**. It became **char**. Now it's **anarlog**.\n\nEach name change came from a different reason — a legal one, a strategic one, a brand one. The product underneath kept getting clearer: a notetaker that respects your time, your data, and your right to walk away with both.\n\nWe're now building [**char**](https://char.com) — a new product, productivity-focused, where most of our active development happens. **anarlog** isn't a sunset. It's the open-source companion we promised to keep alive, and we will. This repository keeps its full history, its stars, and its trajectory. Same team. Same standards. Just a clearer split between what's open and what's experimental.\n\nIf you came here from Granola, welcome. If you came here from Hyprnote, welcome back.\n\nEither way: it's yours.\n\n---\n\n**License:** MIT · **Maintainers:** [fastrepl](https://github.com/fastrepl)\n",
+        "truncated": false,
+        "bytes": 2876,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "desktop_v1.0.26",
+            "tag_name": "desktop_v1.0.26",
+            "published_at": "2026-05-12T06:43:59Z",
+            "body_excerpt": "https://anarlog.so/changelog/1.0.26"
+          },
+          {
+            "name": "desktop_v1.0.26-nightly.1",
+            "tag_name": "desktop_v1.0.26-nightly.1",
+            "published_at": "2026-05-12T06:38:45Z",
+            "body_excerpt": "https://github.com/fastrepl/anarlog/compare/desktop_v1.0.25-nightly.4...desktop_v1.0.26-nightly.1"
+          },
+          {
+            "name": "desktop_v1.0.25-nightly.2",
+            "tag_name": "desktop_v1.0.25-nightly.2",
+            "published_at": "2026-04-21T02:30:08Z",
+            "body_excerpt": "https://github.com/fastrepl/char/compare/desktop_v1.0.25-nightly.1...desktop_v1.0.25-nightly.2"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".agents",
+        ".cargo",
+        ".codex",
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".grit",
+        ".infisical.json",
+        ".npmrc",
+        ".oxfmtrc.json",
+        ".oxfmtrc.jsonc",
+        ".oxlintrc.json",
+        ".vscode",
+        ".zed",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "OBSERVABILITY.md",
+        "README.md",
+        "Taskfile.yaml",
+        "apps",
+        "bacon.toml",
+        "bitrise.yml",
+        "crates",
+        "doxxer.api.toml",
+        "doxxer.cli.toml",
+        "doxxer.desktop.toml",
+        "doxxer.stripe.toml",
+        "doxxer.web.toml",
+        "dprint.json",
+        "e2e",
+        "eslint-plugin-hypr.mjs",
+        "eslint.config.js",
+        "examples",
+        "go.mod",
+        "go.sum",
+        "legacy",
+        "openstatus.lock",
+        "openstatus.yaml",
+        "otel",
+        "package.json",
+        "packages",
+        "patches",
+        "plugins",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 1)",
+          "excerpt": "> **Note:** We're now working primarily on **[char](https://char.com)** — a new productivity-focused product that's where most of our active development goes. **anarlog** stays open-source, MIT-licensed, and maintained. The cross-link to char lives here so you know where the team's attention is. Same team, different bets.",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 2)",
+          "excerpt": "![anarlog](https://repository-images.githubusercontent.com/900550981/a4267a9f-414b-4c36-965c-419313ce2417)",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <p align=\"center\"> <a href=\"https://deepwiki.com/fastrepl/char\"><img src=\"https://deepwiki.com/badge.svg\" alt=\"Ask DeepWiki\"></a> <a href=\"https://char.com/discord\" target=\"_blank\"><img src=\"https://img.shields.io/static/v1?label=Join%20our&message=Discord&color=blue&logo=Discord\" alt=\"Discord\"></a> <a href=\"https://x.com/getcharnotes\" target=\"_blank\"><img src=\"https://img.shields.io/static/v1?label=Follow%20us%20on&message=X&color=black&logo=x\" alt=\"X\"></a> </p> </p>",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 4)",
+          "excerpt": "The open-source AI meeting notetaker. Local-first. Privacy-first. Yours to fork.",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 5)",
+          "excerpt": "→ [github.com/fastrepl/char/releases/latest](https://github.com/fastrepl/char/releases/latest)",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Open it. Join a meeting. anarlog records, transcribes locally, and saves your notes as markdown on disk. Bring your own LLM (OpenAI, Anthropic, Gemini, OpenRouter, Ollama, LM Studio, anything OpenAI-compatible).",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **Your data, your disk.** Every meeting is a `.md` file. `cat` it. Grep it. Sync it via Dropbox / iCloud / Syncthing / git. There is no cloud lock-in because there is no cloud. - **Local transcription.** On-device speech models. Audio never leaves your machine. - **Bring your own AI.** Plug in any LLM provider. No vendor we picked for you. - **Open source, MIT.** Fork it. Sell it. Self-host it. We mean it. - **No accounts. No tracking. No \"free tier.\"** Just the app.",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/fastrepl/anarlog#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Each name change came from a different reason — a legal one, a strategic one, a brand one. The product underneath kept getting clearer: a notetaker that respects your time, your data, and your right to walk away with both.",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/fastrepl/anarlog/releases",
+          "title": "desktop_v1.0.26",
+          "excerpt": "https://anarlog.so/changelog/1.0.26",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "tag_name": "desktop_v1.0.26",
+            "published_at": "2026-05-12T06:43:59Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/fastrepl/anarlog/releases",
+          "title": "desktop_v1.0.26-nightly.1",
+          "excerpt": "https://github.com/fastrepl/anarlog/compare/desktop_v1.0.25-nightly.4...desktop_v1.0.26-nightly.1",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "tag_name": "desktop_v1.0.26-nightly.1",
+            "published_at": "2026-05-12T06:38:45Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/fastrepl/anarlog/releases",
+          "title": "desktop_v1.0.25-nightly.2",
+          "excerpt": "https://github.com/fastrepl/char/compare/desktop_v1.0.25-nightly.1...desktop_v1.0.25-nightly.2",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "tag_name": "desktop_v1.0.25-nightly.2",
+            "published_at": "2026-04-21T02:30:08Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/fastrepl/anarlog",
+          "title": "ROOT_FILES",
+          "excerpt": ".agents, .cargo, .codex, .dockerignore, .gitattributes, .github, .gitignore, .grit, .infisical.json, .npmrc, .oxfmtrc.json, .oxfmtrc.jsonc, .oxlintrc.json, .vscode, .zed, AGENTS.md, CLAUDE.md, CONTRIBUTING.md, Cargo.lock, Cargo.toml, LICENSE, OBSERVABILITY.md, README.md, Taskfile.yaml, apps, bacon.toml, bitrise.yml, crates, doxxer.api.toml, doxxer.cli.toml, doxxer.desktop.toml, doxxer.stripe.toml, doxxer.web.toml, dprint.json, e2e, eslint-plugin-hypr.mjs, eslint.config.js, examples, go.mod, go.sum, legacy, openstatus.lock, openstatus.yaml, otel, package.json, packages, patches, plugins, pnpm-lock.yaml, pnpm-workspace.yaml",
+          "fetched_at": "2026-05-14T06:26:49.789Z",
+          "meta": {
+            "repo_full_name": "fastrepl/anarlog",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "Mr-Quin/danmaku-anywhere",
+      "html_url": "https://github.com/Mr-Quin/danmaku-anywhere",
+      "description": "一个可以给几乎任何视频网站添加弹幕的开源软件 | An open source solution to add danmaku to almost every video website",
+      "topics": [
+        "browser-extension",
+        "danmaku",
+        "danmu",
+        "plex",
+        "userscript",
+        "webapp"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 504,
+      "forks_count": 13,
+      "open_issues_count": 11,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-05-14T06:25:42Z",
+      "created_at": "2023-04-14T20:48:23Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <img width=\"128\" height=\"128\" src=\"./assets/logo.png\">\n  <h1>\n    弹幕任何地方\n  </h1>\n  <p><em>Danmaku Anywhere</em></p>\n  <p align=\"center\">\n    <a href=\"https://github.com/Mr-Quin/danmaku-anywhere/releases\">\n      <img alt=\"GitHub Release\" src=\"https://img.shields.io/github/v/release/Mr-Quin/danmaku-anywhere?style=flat-square&logo=github\">\n    </a>\n    <a href=\"https://github.com/Mr-Quin/danmaku-anywhere/actions\">\n      <img alt=\"GitHub Actions Workflow Status\" src=\"https://img.shields.io/github/actions/workflow/status/Mr-Quin/danmaku-anywhere/release.yml?style=flat-square&logo=github\">\n    </a>\n    <a href=\"https://chromewebstore.google.com/detail/danmaku-anywhere/jnflbkkmffognjjhibkjnomjedogmdpo?hl=zh\">\n      <img alt=\"Chrome Web Store Rating\" src=\"https://img.shields.io/chrome-web-store/rating/jnflbkkmffognjjhibkjnomjedogmdpo?style=flat-square&logo=googlechrome&logoColor=yellow\">\n    </a>    \n    <a href=\"https://addons.mozilla.org/zh-CN/firefox/addon/danmaku-anywhere/\">\n      <img alt=\"Chrome Web Store Rating\" src=\"https://img.shields.io/amo/rating/danmaku-anywhere?style=flat-square&logo=firefox&logoColor=orange\">\n    </a>\n    <img alt=\"QQ群\" src=\"https://img.shields.io/badge/QQ%E7%BE%A4-531237584-blue?logo=qq&style=flat-square\">\n  </p>\n</div>\n\n> 没有弹幕怎么看番？\n> **弹幕任何地方**是一个开源项目，旨在为你喜爱的几乎任何视频网站添加弹幕。\n\n此项目包含多个子项目：\n\n- [浏览器扩展 - 给几乎任何网站添加弹幕](#extension)\n- [Web 应用 - 基于 Kazumi 规则的视频采集网站](#app)\n\n## 目录\n\n- [快速开始](#quick-start)\n- [下载安装](#installation)\n- [功能特性](#extension)\n- [开发计划](#roadmap)\n- [Web 应用](#app)\n- [参与开发](#contributing)\n- [许可证](#license)\n\n<a id=\"quick-start\"></a>\n\n## ⚡ 快速开始\n\n1. 安装扩展（见下文）。\n2. 打开视频网站（如 Plex）。\n3. 右键网站空白处，选择“为当前网站添加配置”\n4. 点击网站左下角的扩展图标，让它自动匹配或搜索弹幕。\n\n请参阅 [说明文档](https://docs.danmaku.weeblify.app/getting-started/) 了解更多详情。\n\n<a id=\"installation\"></a>\n\n## 📥 下载安装\n\n### 桌面端\n\n| 浏览器                    | 安装方式                                                                                                                                                                                                                           |\n| :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Chrome / Edge / Opera** | [Chrome 商店](https://chromewebstore.google.com/detail/danmaku-anywhere/jnflbkkmffognjjhibkjnomjedogmdpo?hl=zh) / [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/danmaku-anywhere/alcoddhlgdbhlljlnhckhomdcgbnmanf) |\n| **Firefox**               | [Firefox Add-ons](https://addons.mozilla.org/zh-CN/firefox/addon/danmaku-anywhere/)                                                                                                                                                |\n| **Safari**                | 不支持                                                                                                                                                                                                                             |\n\n### 移动端\n\n| 系统        | 浏览器                     | 安装方式                                                                                                                                        |\n| :---------- | :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Android** | Kiwi / Lemur / Edge Canary | [下载 .crx/.zip](https://docs.danmaku.weeblify.app/downloads/) 或 [GitHub Release](https://github.com/Mr-Quin/danmaku-anywhere/releases/latest) |\n| **iOS**     | Safari / Chrome            | **不支持** (受限于 🍎)                                                                                                                          |\n\n> **预览版**: 想要尝鲜未发布的最新版本，可以在 [下载页面](https://docs.danmaku.weeblify.app/downloads/) 或 [GitHub Release](https://github.com/Mr-Quin/danmaku-anywhere/releases) 下载安装预览版 (pre-release)。\n\n<a id=\"extension\"></a>\n\n## 🚀 浏览器扩展: 功能特性\n\n- **在几乎任何网站观看弹幕**：\n  - 自托管的媒体服务器（如 Plex、Emby、Jellyfin、飞牛影视）\n  - 流媒体平台（如 YouTube、Crunchyroll）\n  - 其他视频网站\n- **纯浏览器体验**：无需任何桌面客户端\n- **从多个弹幕源获取弹幕**，目前支持：\n  - 弹弹play\n  - B 站\n  - 腾讯\n  - MacCMS (Vod)\n  - 兼容弹弹play API 的服务，如[danmu-api](https://github.com/huangxd-/danmu_api)\n- **手动导入**：支持手动导入本地弹幕文件 (`.xml` 格式)\n- **自动匹配**：可自定义匹配规则，或使用 AI 匹配功能\n  - 根据播放的视频，自动搜索弹幕\n  - 自动关联同名的本地弹幕文件\n- **弹幕导出**：将看过的弹幕导出为`.xml`文件\n\n### 效果截图\n\n<video src=\"https://github.com/user-attachments/assets/c5df8221-4381-4d58-9f88-3ca73a1431bb\"></video>\n\n<details>\n<summary>点击展开截图</summary>\n\n**Plex**\n\n![Plex](./assets/screenshot_plex.png)\n\n**Jellyfin**\n\n![Jellyfin](./assets/screenshot_jellyfin.png)\n\n**YouTube**\n\n![YouTube](./assets/screenshot_youtube.png)\n\n</details>\n\n<br/>\n\n<a id=\"roadmap\"></a>\n\n## 🗺️ 开发计划\n\n项目的待办事项请参考 [项目看板](https://sharing.clickup.com/90131020449/b/h/6-901309979467-2/ce1456a4915dc70)\n\n近期重点：\n\n- 支持本地 AI\n- 智能防挡弹幕\n- 一起看\n\n<a id=\"app\"></a>\n\n## 🧩 Web 应用\n\n> [https://danmaku.weeblify.app/](https://danmaku.weeblify.app/)\n\n这是一个**实验性项目**，旨在在浏览器中提供类似 Kazumi 的功能。**需要安装*弹幕任何地方*扩展后才可使用**。\n\n- 基于 Kazumi 规则，在一个网站上观看来自不同网站的视频\n- 播放本地视频\n- 支持 PWA\n\n### 效果截图\n\n![热门动画](assets/screenshot_webapp_trending.png)\n![搜索](assets/screenshot_webapp_kazumi.png)\n\n<a id=\"contributing\"></a>\n\n## 🧑‍💻 参与开发\n\n欢迎任何形式的贡献！包括但不限于代码、美术资源、文档。\n\n如果您对项目开发感兴趣，请查阅 [开发文档](https://docs.danmaku.weeblify.app/development/structure/)。\n\n<a id=\"credits\"></a>\n\n## ❤️ 美术资源\n\n### 吳都行\n\n### 猫与白月（[B 站](https://space.bilibili.com/220694183)）\n\n<a id=\"license\"></a>\n\n## 📝 许可证\n\n本项目的每个包都有自己的许可证。基本上，除了 **danmaku-anywhere** 扩展为 AGPL，其他包都是 MIT 许可证。\n\n详情请查看 [许可证](LICENSE)。\n",
+        "truncated": false,
+        "bytes": 7112,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Preview Build nightly-25839328492 (579)",
+            "tag_name": "nightly-25839328492",
+            "published_at": "2026-05-14T03:10:45Z",
+            "body_excerpt": "Preview build generated from run 579\n## What's Changed\n* (extension) dango: declarative danmaku source engine [DA-469] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/377\n* (extension) add dango-manifests package with DDP manifest [DA-470] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/379\n* (extension) ship ddp-compat, bilibili, and tencent manifests [DA-471] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/380\n* (extension) episode list renders without waiting on danmaku metadata [DA-475] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/382\n* (chore) add ai-rereview label workflow [DA-492] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/384\n* (extension) suppress release notes auto-show in dev mode [DA-493] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/385\n* (extension) stop persisting search results to seasons table [DA-480] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/383\n\n\n**Full Changelog**: https://github.com/Mr-Quin/danmaku-anywhere/compare/nightly-25031732987...nightly-25839328492"
+          },
+          {
+            "name": "Preview Build nightly-25775863350 (556)",
+            "tag_name": "nightly-25775863350",
+            "published_at": "2026-05-13T03:11:24Z",
+            "body_excerpt": "Preview build generated from run 556\n## What's Changed\n* (extension) match bilibili episodes when show_title is a bare number [DA-464] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/375\n* (proxy) forward authenticated state to DDP service binding [DA-465] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/376\n* (extension) dango: declarative danmaku source engine [DA-469] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/377\n* (extension) add dango-manifests package with DDP manifest [DA-470] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/379\n* (extension) ship ddp-compat, bilibili, and tencent manifests [DA-471] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/380\n\n\n**Full Changelog**: https://github.com/Mr-Quin/danmaku-anywhere/compare/nightly-24974652105...nightly-25775863350"
+          },
+          {
+            "name": "Preview Build nightly-25031732987 (533)",
+            "tag_name": "nightly-25031732987",
+            "published_at": "2026-04-28T03:10:33Z",
+            "body_excerpt": "Preview build generated from run 533\n## What's Changed\n* (chore) comment preview build link on PR and linked issues [DA-461] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/372\n* (extension) match bilibili episodes when show_title is a bare number [DA-464] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/375\n* (proxy) forward authenticated state to DDP service binding [DA-465] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/376\n\n\n**Full Changelog**: https://github.com/Mr-Quin/danmaku-anywhere/compare/nightly-24946927669...nightly-25031732987"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 378,
+            "title": "更多格式的弹幕支持",
+            "state": "open",
+            "url": "https://github.com/Mr-Quin/danmaku-anywhere/issues/378"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".cursor",
+        ".cursorignore",
+        ".devcontainer",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".npmrc",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "app",
+        "assets",
+        "backend",
+        "biome.json",
+        "cursor.json",
+        "docs",
+        "knip.config.ts",
+        "lefthook.yml",
+        "legacy",
+        "package.json",
+        "packages",
+        "patches",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "scripts",
+        "tsconfig.base.json",
+        "tsconfig.json"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <img width=\"128\" height=\"128\" src=\"./assets/logo.png\"> <h1> 弹幕任何地方 </h1> <p><em>Danmaku Anywhere</em></p> <p align=\"center\"> <a href=\"https://github.com/Mr-Quin/danmaku-anywhere/releases\"> <img alt=\"GitHub Release\" src=\"https://img.shields.io/github/v/release/Mr-Quin/danmaku-anywhere?style=flat-square&logo=github\"> </a> <a href=\"https://github.com/Mr-Quin/danmaku-anywhere/actions\"> <img alt=\"GitHub Actions Workflow Status\" src=\"https://img.shields.io/github/actions/workflow/status/Mr-Quin/danmaku-anywhere/release.yml?style=flat-square&logo=github\"> </a> <a href=\"https://chromewebstore.google.com/detail/danmaku-anywhere/jnflbkkmffognjjhibkjnomjedogmdpo?hl=zh\"> <img alt=\"Chrome Web Store Rating\" src=\"https://img.shields.io/chrome-web-store/rating/jnflbkkmffognjjhibkjnomjedogmdpo?style=flat-square&logo=googlechrome&logoColor=yellow\"> </a> <a href=\"https://addons.mozilla.org/zh-CN/firefox/addon/danmaku-anywhere/\"> <img alt=\"Chrome Web Store Rating\" src=\"https://img.shields.io/amo/rating/danmaku-anywhere?style=flat-square&logo=firefox&logoColor=orange\"> </a> <img alt=\"QQ群\" src=\"https://img.shields.io/badge/QQ%E7%BE%A4-531237584-blue?logo=qq&style=flat-square\"> </p>…",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 2)",
+          "excerpt": "- [快速开始](#quick-start) - [下载安装](#installation) - [功能特性](#extension) - [开发计划](#roadmap) - [Web 应用](#app) - [参与开发](#contributing) - [许可证](#license)",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 3)",
+          "excerpt": "1. 安装扩展（见下文）。 2. 打开视频网站（如 Plex）。 3. 右键网站空白处，选择“为当前网站添加配置” 4. 点击网站左下角的扩展图标，让它自动匹配或搜索弹幕。",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 4)",
+          "excerpt": "| 浏览器 | 安装方式 | | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | | **Chrome / Edge / Opera** | [Chrome 商店](https://chromewebstore.google.com/detail/danmaku-anywhere/jnflbkkmffognjjhibkjnomjedogmdpo?hl=zh) / [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/danmaku-anywhere/alcoddhlgdbhlljlnhckhomdcgbnmanf) | | **Firefox** | [Firefox Add-ons](https://addons.mozilla.org/zh-CN/firefox/addon/danmaku-anywhere/) | | **Safari** | 不支持 |",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 5)",
+          "excerpt": "| 系统 | 浏览器 | 安装方式 | | :---------- | :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | | **Android** | Kiwi / Lemur / Edge Canary | [下载 .crx/.zip](https://docs.danmaku.weeblify.app/downloads/) 或 [GitHub Release](https://github.com/Mr-Quin/danmaku-anywhere/releases/latest) | | **iOS** | Safari / Chrome | **不支持** (受限于 🍎) |",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 6)",
+          "excerpt": "> **预览版**: 想要尝鲜未发布的最新版本，可以在 [下载页面](https://docs.danmaku.weeblify.app/downloads/) 或 [GitHub Release](https://github.com/Mr-Quin/danmaku-anywhere/releases) 下载安装预览版 (pre-release)。",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 7)",
+          "excerpt": "- **在几乎任何网站观看弹幕**： - 自托管的媒体服务器（如 Plex、Emby、Jellyfin、飞牛影视） - 流媒体平台（如 YouTube、Crunchyroll） - 其他视频网站 - **纯浏览器体验**：无需任何桌面客户端 - **从多个弹幕源获取弹幕**，目前支持： - 弹弹play - B 站 - 腾讯 - MacCMS (Vod) - 兼容弹弹play API 的服务，如[danmu-api](https://github.com/huangxd-/danmu_api) - **手动导入**：支持手动导入本地弹幕文件 (`.xml` 格式) - **自动匹配**：可自定义匹配规则，或使用 AI 匹配功能 - 根据播放的视频，自动搜索弹幕 - 自动关联同名的本地弹幕文件 - **弹幕导出**：将看过的弹幕导出为`.xml`文件",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<video src=\"https://github.com/user-attachments/assets/c5df8221-4381-4d58-9f88-3ca73a1431bb\"></video>",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere/issues/378",
+          "title": "更多格式的弹幕支持",
+          "excerpt": "更多格式的弹幕支持 (state:open)",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "number": 378
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere/releases",
+          "title": "nightly-25839328492",
+          "excerpt": "Preview build generated from run 579 ## What's Changed * (extension) dango: declarative danmaku source engine [DA-469] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/377 * (extension) add dango-manifests package with DDP manifest [DA-470] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/379 * (extension) ship ddp-compat, bilibili, and tencent manifests [DA-471] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/380 * (extension) episode list renders without waiting on danmaku metadata [DA-475] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/382 * (chore) add ai-rereview label workflow [DA-492] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/384 * (extension) suppress release notes auto-show in dev mode [DA-493] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/385 * (extension) stop persisting search results to seasons table [DA-480] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/383 **Full Changelog**: https://github.com/Mr-Quin/danmaku-anywhere/compare/nightly-25031732987...nightly-25839328492",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "tag_name": "nightly-25839328492",
+            "published_at": "2026-05-14T03:10:45Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere/releases",
+          "title": "nightly-25775863350",
+          "excerpt": "Preview build generated from run 556 ## What's Changed * (extension) match bilibili episodes when show_title is a bare number [DA-464] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/375 * (proxy) forward authenticated state to DDP service binding [DA-465] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/376 * (extension) dango: declarative danmaku source engine [DA-469] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/377 * (extension) add dango-manifests package with DDP manifest [DA-470] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/379 * (extension) ship ddp-compat, bilibili, and tencent manifests [DA-471] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/380 **Full Changelog**: https://github.com/Mr-Quin/danmaku-anywhere/compare/nightly-24974652105...nightly-25775863350",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "tag_name": "nightly-25775863350",
+            "published_at": "2026-05-13T03:11:24Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere/releases",
+          "title": "nightly-25031732987",
+          "excerpt": "Preview build generated from run 533 ## What's Changed * (chore) comment preview build link on PR and linked issues [DA-461] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/372 * (extension) match bilibili episodes when show_title is a bare number [DA-464] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/375 * (proxy) forward authenticated state to DDP service binding [DA-465] by @Mr-Quin in https://github.com/Mr-Quin/danmaku-anywhere/pull/376 **Full Changelog**: https://github.com/Mr-Quin/danmaku-anywhere/compare/nightly-24946927669...nightly-25031732987",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "tag_name": "nightly-25031732987",
+            "published_at": "2026-04-28T03:10:33Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Mr-Quin/danmaku-anywhere",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .cursor, .cursorignore, .devcontainer, .gitattributes, .github, .gitignore, .npmrc, CLAUDE.md, LICENSE, README.md, app, assets, backend, biome.json, cursor.json, docs, knip.config.ts, lefthook.yml, legacy, package.json, packages, patches, pnpm-lock.yaml, pnpm-workspace.yaml, scripts, tsconfig.base.json, tsconfig.json",
+          "fetched_at": "2026-05-14T06:26:56.792Z",
+          "meta": {
+            "repo_full_name": "Mr-Quin/danmaku-anywhere",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "dotenvx/dotenvx",
+      "html_url": "https://github.com/dotenvx/dotenvx",
+      "description": "a secure dotenv–from the creator of `dotenv`",
+      "topics": [
+        "cli",
+        "configuration-file",
+        "curl",
+        "dotenv",
+        "dotenvx",
+        "end-to-end-encryption",
+        "env",
+        "environment-variables",
+        "homebrew",
+        "secret-management",
+        "secret-manager",
+        "secrets",
+        "secrets-management",
+        "security-tools",
+        "winget"
+      ],
+      "language": "JavaScript",
+      "stargazers_count": 5439,
+      "forks_count": 143,
+      "open_issues_count": 53,
+      "license_spdx_id": "BSD-3-Clause",
+      "default_branch": "main",
+      "pushed_at": "2026-05-14T06:25:17Z",
+      "created_at": "2023-11-18T00:55:16Z",
+      "readme": {
+        "fetched": true,
+        "text": "[![dotenvx](https://dotenvx.com/banner.png)](https://dotenvx.com)\n\n*a secure dotenv*–from the creator of [`dotenv`](https://github.com/motdotla/dotenv).\n\n* run anywhere (cross-platform)\n* multi-environment\n* encrypted envs\n\n[Read the whitepaper](https://dotenvx.com/dotenvx.pdf?v=README)\n\n&nbsp;\n\n\n### Quickstart [![npm version](https://img.shields.io/npm/v/@dotenvx/dotenvx.svg)](https://www.npmjs.com/package/@dotenvx/dotenvx) [![downloads](https://img.shields.io/npm/dw/@dotenvx/dotenvx)](https://www.npmjs.com/package/@dotenvx/dotenvx) [![test suite](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/motdotenv/bb76445765a9731e7d824a6efdf53524/raw/dotenvxTestCount.json)](https://github.com/dotenvx/dotenvx/tree/main/tests) \n\nInstall and use it in code just like `dotenv`.\n\n```sh\nnpm install @dotenvx/dotenvx --save\n```\n```js\n// index.js\nrequire('@dotenvx/dotenvx').config()\n// or import '@dotenvx/dotenvx/config' // for esm\n\nconsole.log(`Hello ${process.env.HELLO}`)\n```\n\n&nbsp;\n\nor install globally - *unlocks dotenv for any language, framework, or platform!*\n\n<details><summary>with npm 🌍</summary><br>\n\n```sh\nnpm i -g @dotenvx/dotenvx\ndotenvx encrypt\n```\n\n[![npm installs](https://img.shields.io/npm/dt/@dotenvx/dotenvx)](https://npmjs.com/@dotenvx/dotenvx)\n\n&nbsp;\n\n</details>\n<details><summary>with curl 🌐</summary><br>\n\n```sh\ncurl -sfS https://dotenvx.sh | sh\ndotenvx encrypt\n```\n\n[![curl installs](https://img.shields.io/endpoint?url=https://dotenvx.sh/stats/curl&label=curl%20installs)](https://github.com/dotenvx/dotenvx.sh/blob/main/install.sh)\n\n&nbsp;\n\n</details>\n\n<details><summary>with brew 🍺</summary><br>\n\n```sh\nbrew install dotenvx/brew/dotenvx\ndotenvx encrypt\n```\n\n[![brew installs](https://img.shields.io/github/downloads/dotenvx/dotenvx/total?label=brew%20installs)](https://github.com/dotenvx/homebrew-brew/blob/main/Formula/dotenvx.rb)\n\n&nbsp;\n\n</details>\n\n<details><summary>with docker 🐳</summary><br>\n\n```sh\ndocker run -it --rm -v $(pwd):/app dotenv/dotenvx encrypt\n```\n\n[![docker pulls](https://img.shields.io/docker/pulls/dotenv/dotenvx)](https://hub.docker.com/r/dotenv/dotenvx)\n\n&nbsp;\n\n</details>\n\n<details><summary>with github releases 🐙</summary><br>\n\n```sh\ncurl -L -o dotenvx.tar.gz \"https://github.com/dotenvx/dotenvx/releases/latest/download/dotenvx-$(uname -s)-$(uname -m).tar.gz\"\ntar -xzf dotenvx.tar.gz\n./dotenvx encrypt\n```\n\n[![github releases](https://img.shields.io/github/downloads/dotenvx/dotenvx/total)](https://github.com/dotenvx/dotenvx/releases)\n\n&nbsp;\n\n</details>\n\n\n<details><summary>or windows 🪟</summary><br>\n\n```sh\nwinget install dotenvx\ndotenvx encrypt\n```\n\n</details>\n\n&nbsp;\n\n## Run Anywhere\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ node index.js\nHello undefined # without dotenvx\n\n$ dotenvx run -- node index.js\nHello Dotenvx # with dotenvx\n> :-D\n```\n\nsee [extended quickstart guide](https://dotenvx.com/docs/quickstart)\n\nMore examples\n\n<details><summary>TypeScript 📘</summary><br>\n\n```json\n// package.json\n{\n  \"type\": \"module\",\n  \"dependencies\": {\n    \"chalk\": \"^5.3.0\"\n  }\n}\n```\n\n```js\n// index.ts\nimport chalk from 'chalk'\nconsole.log(chalk.blue(`Hello ${process.env.HELLO}`))\n```\n\n```sh\n$ npm install\n$ echo \"HELLO=Dotenvx\" > .env\n\n$ dotenvx run -- npx tsx index.ts\nHello Dotenvx\n```\n\n</details>\n<details><summary>Cloudflare Workers ⛅️</summary><br>\n\n```sh\n$ dotenvx encrypt -f .env.txt\n```\n\n```js\n// src/index.js\nimport envSrc from '../.env.txt'\nimport dotenvx from '@dotenvx/dotenvx'\n\nconst config = dotenvx.config({ envs: [{ type: 'env', value: envSrc, privateKeyName: 'DOTENV_PRIVATE_KEY' }] })\nconst envx = config.parsed\n\nexport default {\n  async fetch(request, env, ctx) {\n    return new Response(`Hello ${envx.HELLO}`)\n  }\n}\n```\n```json\n\"scripts\": {\n  \"deploy\": \"wrangler deploy\",\n  \"dev\": \"wrangler dev --var $(dotenvx keypair -f .env.txt --format=colon)\",\n  \"start\": \"wrangler dev --var $(dotenvx keypair -f .env.txt --format=colon)\",\n}\n```\n\n</details>\n<details><summary>Deno 🦕</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo \"console.log('Hello ' + Deno.env.get('HELLO'))\" > index.ts\n\n$ deno run --allow-env index.ts\nHello undefined\n\n$ dotenvx run -- deno run --allow-env index.ts\nHello Dotenvx\n```\n\n> [!WARNING]\n> Some of you are attempting to use the npm module directly with `deno run`. Don't, because deno currently has incomplete support for these encryption ciphers.\n>\n> ```\n> $ deno run -A npm:@dotenvx/dotenvx encrypt\n> Unknown cipher\n> ```\n> \n> Instead, use `dotenvx` as designed, by installing the cli as a binary - via curl, brew, etc.\n\n</details>\n<details><summary>Bun 🥟</summary><br>\n\n```sh\n$ echo \"HELLO=Test\" > .env.test\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ bun index.js\nHello undefined\n\n$ dotenvx run -f .env.test -- bun index.js\nHello Test\n```\n\n</details>\n<details><summary>Python 🐍</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo 'import os;print(\"Hello \" + os.getenv(\"HELLO\", \"\"))' > index.py\n\n$ dotenvx run -- python3 index.py\nHello Dotenvx\n```\n\nsee [extended python guide](https://dotenvx.com/docs/quickstart)\n\n</details>\n<details><summary>PHP 🐘</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo '<?php echo \"Hello {$_SERVER[\"HELLO\"]}\\n\";' > index.php\n\n$ dotenvx run -- php index.php\nHello Dotenvx\n```\n\nsee [extended php guide](https://dotenvx.com/docs/quickstart)\n\n</details>\n<details><summary>Ruby 💎</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo 'puts \"Hello #{ENV[\"HELLO\"]}\"' > index.rb\n\n$ dotenvx run -- ruby index.rb\nHello Dotenvx\n```\n\nsee [extended ruby guide](https://dotenvx.com/docs/quickstart)\n\n</details>\n<details><summary>Go 🐹</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo 'package main; import (\"fmt\"; \"os\"); func main() { fmt.Printf(\"Hello %s\\n\", os.Getenv(\"HELLO\")) }' > main.go\n\n$ dotenvx run -- go run main.go\nHello Dotenvx\n```\n\nsee [extended go guide](https://dotenvx.com/docs/quickstart)\n\n</details>\n<details><summary>Rust 🦀</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo 'fn main() {let hello = std::env::var(\"HELLO\").unwrap_or(\"\".to_string());println!(\"Hello {hello}\");}' > src/main.rs\n\n$ dotenvx run -- cargo run\nHello Dotenvx\n```\n\nsee [extended rust guide](https://dotenvx.com/docs/quickstart)\n\n</details>\n<details><summary>Java ☕️</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo 'public class Index { public static void main(String[] args) { System.out.println(\"Hello \" + System.getenv(\"HELLO\")); } }' > index.java\n\n$ dotenvx run -- java index.java\nHello Dotenvx\n```\n\n</details>\n<details><summary>Clojure 🌿</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo '(println \"Hello\" (System/getenv \"HELLO\"))' > index.clj\n\n$ dotenvx run -- clojure -M index.clj\nHello Dotenvx\n```\n\n</details>\n<details><summary>Kotlin 📐</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n$ echo 'fun main() { val hello = System.getenv(\"HELLO\") ?: \"\"; println(\"Hello $hello\") }' > index.kt\n$ kotlinc index.kt -include-runtime -d index.jar\n\n$ dotenvx run -- java -jar index.jar\nHello Dotenvx\n```\n\n</details>\n<details><summary>.NET 🔵</summary><br>\n\n```sh\n$ dotnet new console -n HelloWorld -o HelloWorld\n$ cd HelloWorld\n$ echo \"HELLO=Dotenvx\" | Out-File -FilePath .env -Encoding utf8\n$ echo 'Console.WriteLine($\"Hello {Environment.GetEnvironmentVariable(\"HELLO\")}\");' > Program.cs\n\n$ dotenvx run -- dotnet run\nHello Dotenvx\n```\n\n</details>\n<details><summary>Bash 🖥️</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n\n$ dotenvx run --quiet -- sh -c 'echo Hello $HELLO'\nHello Dotenvx\n```\n\n</details>\n<details><summary>Fish 🐠</summary><br>\n\n```sh\n$ echo \"HELLO=Dotenvx\" > .env\n\n$ dotenvx run --quiet -- sh -c 'echo Hello $HELLO'\nHello Dotenvx\n```\n\n</details>\n<details><summary>Cron ⏰</summary><br>\n\n```sh\n# run every day at 8am\n0 8 * * * dotenvx run -- /path/to/myscript.sh\n```\n\n</details>\n<details><summary>Frameworks ▲</summary><br>\n\n```sh\n$ dotenvx run -- next dev\n$ dotenvx run -- npm start\n$ dotenvx run -- bin/rails s\n$ dotenvx run -- php artisan serve\n```\n\nsee [framework guides](https://dotenvx.com/docs#frameworks)\n\n</details>\n<details><summary>Docker 🐳</summary><br>\n\n```sh\n$ docker run -it --rm -v $(pwd):/app dotenv/dotenvx run -- node index.js\n```\n\nOr in any image:\n\n```Containerfile\nFROM node:latest\nRUN echo \"HELLO=Dotenvx\" > .env && echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\nRUN curl -fsS https://dotenvx.sh/install.sh | sh\nCMD [\"/usr/local/bin/dotenvx\", \"run\", \"--\", \"echo\", \"Hello $HELLO\"]\n```\n\nsee [docker guide](https://dotenvx.com/docs/platforms/docker)\n\n</details>\n<details><summary>CI/CDs 🐙</summary><br>\n\n```yaml\nname: build\non: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v3\n    - uses: actions/setup-node@v3\n      with:\n        node-version: 16\n    - run: curl -fsS https://dotenvx.sh/install.sh | sh\n    - run: dotenvx run -- node build.js\n      env:\n        DOTENV_KEY: ${{ secrets.DOTENV_KEY }}\n```\n\nsee [github actions guide](https://dotenvx.com/docs/cis/github-actions)\n\n</details>\n<details><summary>Platforms</summary><br>\n\n```sh\n# heroku\nheroku buildpacks:add https://github.com/dotenvx/heroku-buildpack-dotenvx\n\n# docker\nRUN curl -fsS https://dotenvx.sh | sh\n\n# vercel\nnpm install @dotenvx/dotenvx --save\n```\n\nsee [platform guides](https://dotenvx.com/docs#platforms)\n\n</details>\n<details><summary>Process Managers</summary><br>\n\n```js\n// pm2\n\"scripts\": {\n  \"start\": \"dotenvx run -- pm2-runtime start ecosystem.config.js --env production\"\n},\n```\n\nsee [process manager guides](https://dotenvx.com/docs#process-managers)\n\n</details>\n<details><summary>npx</summary><br>\n\n```sh\n# alternatively use npx\n$ npx @dotenvx/dotenvx run -- node index.js\n$ npx @dotenvx/dotenvx run -- next dev\n$ npx @dotenvx/dotenvx run -- npm start\n```\n\n</details>\n<details><summary>npm</summary><br>\n\n```sh\n$ npm install @dotenvx/dotenvx --save\n```\n\n```json\n{\n  \"scripts\": {\n    \"start\": \"./node_modules/.bin/dotenvx run -- node index.js\"\n  },\n  \"dependencies\": {\n    \"@dotenvx/dotenvx\": \"^0.5.0\"\n  }\n}\n```\n\n```sh\n$ npm run start\n\n> start\n> ./node_modules/.bin/dotenvx run -- node index.js\n\n[dotenvx@1.X.X] injecting env (1) from .env.production\nHello Dotenvx\n```\n\n</details>\n<details><summary>asdf</summary><br>\n\n```sh\n# use dotenvx with asdf\n$ asdf plugin add dotenvx\n$ asdf install dotenvx latest\n```\n\nthank you [@jgburet](https://github.com/jgburet/asdf-dotenvx) of Paris 🇫🇷\n\n</details>\n<details><summary>Git</summary><br>\n\n```sh\n# use as a git submodule\n$ git dotenvx run -- node index.js\n$ git dotenvx run -- next dev\n$ git dotenvx run -- npm start\n```\n\n</details>\n<details><summary>Variable Expansion</summary><br>\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://${USERNAME}@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://username@localhost/my_database\n```\n\n</details>\n<details><summary>Command Substitution</summary><br>\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://$(whoami)@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://yourusername@localhost/my_database\n```\n\n</details>\n\n\n&nbsp;\n\n## Multiple Environments\n\n> Create a `.env.production` file and use `-f` to load it. It's straightforward, yet flexible.\n```sh\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run -f .env.production -- node index.js\n[dotenvx@1.X.X] injecting env (1) from .env.production\nHello production\n> ^^\n```\n\nMore examples\n\n<details><summary>multiple `.env` files</summary><br>\n\n",
+        "truncated": true,
+        "bytes": 71767,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.66.0",
+            "tag_name": "v1.66.0",
+            "published_at": "2026-05-14T05:32:14Z",
+            "body_excerpt": "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)"
+          },
+          {
+            "name": "v1.65.3",
+            "tag_name": "v1.65.3",
+            "published_at": "2026-05-14T00:39:16Z",
+            "body_excerpt": "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)"
+          },
+          {
+            "name": "v1.65.2",
+            "tag_name": "v1.65.2",
+            "published_at": "2026-05-13T23:30:12Z",
+            "body_excerpt": "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 466,
+            "title": "error code: `[WRONG_PRIVATE_KEY]`",
+            "state": "closed",
+            "url": "https://github.com/dotenvx/dotenvx/issues/466"
+          },
+          {
+            "number": 807,
+            "title": "dotenv rotate does not check wether it has write permission before overwriting the .env file",
+            "state": "open",
+            "url": "https://github.com/dotenvx/dotenvx/issues/807"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".npmignore",
+        ".shellspec",
+        "CHANGELOG.md",
+        "Dockerfile",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "esbuild.js",
+        "install.sh",
+        "package-lock.json",
+        "package.json",
+        "spec",
+        "src",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 1)",
+          "excerpt": "*a secure dotenv*–from the creator of [`dotenv`](https://github.com/motdotla/dotenv).",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 1,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 2)",
+          "excerpt": "### Quickstart [![npm version](https://img.shields.io/npm/v/@dotenvx/dotenvx.svg)](https://www.npmjs.com/package/@dotenvx/dotenvx) [![downloads](https://img.shields.io/npm/dw/@dotenvx/dotenvx)](https://www.npmjs.com/package/@dotenvx/dotenvx) [![test suite](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/motdotenv/bb76445765a9731e7d824a6efdf53524/raw/dotenvxTestCount.json)](https://github.com/dotenvx/dotenvx/tree/main/tests)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 2,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 3)",
+          "excerpt": "```sh npm install @dotenvx/dotenvx --save ``` ```js // index.js require('@dotenvx/dotenvx').config() // or import '@dotenvx/dotenvx/config' // for esm",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 3,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 4)",
+          "excerpt": "or install globally - *unlocks dotenv for any language, framework, or platform!*",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 4,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 5)",
+          "excerpt": "[![npm installs](https://img.shields.io/npm/dt/@dotenvx/dotenvx)](https://npmjs.com/@dotenvx/dotenvx)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 5,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 6)",
+          "excerpt": "[![curl installs](https://img.shields.io/endpoint?url=https://dotenvx.sh/stats/curl&label=curl%20installs)](https://github.com/dotenvx/dotenvx.sh/blob/main/install.sh)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 6,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 7)",
+          "excerpt": "[![brew installs](https://img.shields.io/github/downloads/dotenvx/dotenvx/total?label=brew%20installs)](https://github.com/dotenvx/homebrew-brew/blob/main/Formula/dotenvx.rb)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 7,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/dotenvx/dotenvx#readme",
+          "title": "README (segment 8)",
+          "excerpt": "[![docker pulls](https://img.shields.io/docker/pulls/dotenv/dotenvx)](https://hub.docker.com/r/dotenv/dotenvx)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "segment": 8,
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/dotenvx/dotenvx/issues/466",
+          "title": "error code: `[WRONG_PRIVATE_KEY]`",
+          "excerpt": "error code: `[WRONG_PRIVATE_KEY]` (state:closed)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "number": 466
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/dotenvx/dotenvx/issues/807",
+          "title": "dotenv rotate does not check wether it has write permission before overwriting the .env file",
+          "excerpt": "dotenv rotate does not check wether it has write permission before overwriting the .env file (state:open)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "number": 807
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/dotenvx/dotenvx/releases",
+          "title": "v1.66.0",
+          "excerpt": "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "tag_name": "v1.66.0",
+            "published_at": "2026-05-14T05:32:14Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/dotenvx/dotenvx/releases",
+          "title": "v1.65.3",
+          "excerpt": "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "tag_name": "v1.65.3",
+            "published_at": "2026-05-14T00:39:16Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/dotenvx/dotenvx/releases",
+          "title": "v1.65.2",
+          "excerpt": "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "tag_name": "v1.65.2",
+            "published_at": "2026-05-13T23:30:12Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/dotenvx/dotenvx",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .npmignore, .shellspec, CHANGELOG.md, Dockerfile, LICENSE, README.md, SECURITY.md, esbuild.js, install.sh, package-lock.json, package.json, spec, src, tests",
+          "fetched_at": "2026-05-14T06:27:00.629Z",
+          "meta": {
+            "repo_full_name": "dotenvx/dotenvx",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "fastrepl/anarlog",
+      "evidence_count": 12,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 3
+    },
+    {
+      "full_name": "Mr-Quin/danmaku-anywhere",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "dotenvx/dotenvx",
+      "evidence_count": 14,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 2,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "fastrepl/anarlog",
+      "ok": true,
+      "spec_path": "specs/2026-05-14/fastrepl__anarlog.json"
+    },
+    {
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "ok": true,
+      "spec_path": "specs/2026-05-14/Mr-Quin__danmaku-anywhere.json"
+    },
+    {
+      "repo": "dotenvx/dotenvx",
+      "ok": true,
+      "spec_path": "specs/2026-05-14/dotenvx__dotenvx.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "fastrepl/anarlog",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-14/fastrepl__anarlog.json"
+    },
+    {
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-14/Mr-Quin__danmaku-anywhere.json"
+    },
+    {
+      "repo": "dotenvx/dotenvx",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-14/dotenvx__dotenvx.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "fastrepl/anarlog",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-14/fastrepl__anarlog.json"
+      ]
+    },
+    {
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-14/Mr-Quin__danmaku-anywhere.json"
+      ]
+    },
+    {
+      "repo": "dotenvx/dotenvx",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-14/dotenvx__dotenvx.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-14T06:27:13.335Z",
+      "run_id": "20260514T062645Z",
+      "repo": "fastrepl/anarlog",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "8252960779db7f9fd687405f894cc9114214b130cd35e06158ca63111001dbc7",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 6156
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12701,
+      "prompt_chars": 6156,
+      "completion_chars": 1377
+    },
+    {
+      "ts": "2026-05-14T06:27:25.753Z",
+      "run_id": "20260514T062645Z",
+      "repo": "fastrepl/anarlog",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "2c95ffb6616b69612a894c41a02a21b3e4f4f4787ff485a80466df6bea8f7350",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 7733
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12417,
+      "prompt_chars": 7733,
+      "completion_chars": 1559
+    },
+    {
+      "ts": "2026-05-14T06:27:38.627Z",
+      "run_id": "20260514T062645Z",
+      "repo": "fastrepl/anarlog",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9b20027a465b4472b6aba2ffa5ea06353b4f9d7cbc20c84ca852ed25ebe4ceb8",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 9480
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12873,
+      "prompt_chars": 9480,
+      "completion_chars": 1706
+    },
+    {
+      "ts": "2026-05-14T06:27:52.395Z",
+      "run_id": "20260514T062645Z",
+      "repo": "fastrepl/anarlog",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d0305d650554560a6479552e947b626b6d91cd5907afaef5ad14dda5002c2e05",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 11371
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13768,
+      "prompt_chars": 11371,
+      "completion_chars": 1625
+    },
+    {
+      "ts": "2026-05-14T06:28:16.034Z",
+      "run_id": "20260514T062645Z",
+      "repo": "fastrepl/anarlog",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "39965d4a41688f5d42ecb1436cd7e3ef7e9a2584b52b3ae7c87d2dcde42b9920",
+      "input_stats": {
+        "evidence_count": 12,
+        "approx_chars": 15830
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 23638,
+      "prompt_chars": 15830,
+      "completion_chars": 2709
+    },
+    {
+      "ts": "2026-05-14T06:28:30.092Z",
+      "run_id": "20260514T062645Z",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "dea8afad44e4f60e97e302afbdba46f0cfe99b79b762a2b6537c96d320867fc5",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9202
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14043,
+      "prompt_chars": 9202,
+      "completion_chars": 1720
+    },
+    {
+      "ts": "2026-05-14T06:28:47.563Z",
+      "run_id": "20260514T062645Z",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "84bf41ee9dcc3551fa13de5f6aa12761ab38051ccda0fe8674ab9c245fab53e3",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11138
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17471,
+      "prompt_chars": 11138,
+      "completion_chars": 1987
+    },
+    {
+      "ts": "2026-05-14T06:29:06.304Z",
+      "run_id": "20260514T062645Z",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5ee8fd3703c96f92bc89385a4c568dbcb985bbcec6ada6eb537019e54c0f89dd",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13309
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18740,
+      "prompt_chars": 13309,
+      "completion_chars": 1839
+    },
+    {
+      "ts": "2026-05-14T06:29:27.161Z",
+      "run_id": "20260514T062645Z",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "50c314438dbedc64e04a77dc6a74f798a30fbe71d6f53ba2e119e7250d007401",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 15349
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 20856,
+      "prompt_chars": 15349,
+      "completion_chars": 2341
+    },
+    {
+      "ts": "2026-05-14T06:30:15.445Z",
+      "run_id": "20260514T062645Z",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a81948bfb79f0f4b8d7eed94225a130aedb272471342a4bce71708e1499d4fad",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 20540
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 48283,
+      "prompt_chars": 20540,
+      "completion_chars": 6036
+    },
+    {
+      "ts": "2026-05-14T06:30:26.506Z",
+      "run_id": "20260514T062645Z",
+      "repo": "dotenvx/dotenvx",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d8ca55743cafae7677d90ac99bde653a2f6218c21c7c6f648a3448b9be267396",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 5695
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11056,
+      "prompt_chars": 5695,
+      "completion_chars": 1312
+    },
+    {
+      "ts": "2026-05-14T06:30:37.603Z",
+      "run_id": "20260514T062645Z",
+      "repo": "dotenvx/dotenvx",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6287d2e692f4ba12e7ae22a8370b6deffe55137649a650fd6a0f3c476d281292",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 7215
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11097,
+      "prompt_chars": 7215,
+      "completion_chars": 1429
+    },
+    {
+      "ts": "2026-05-14T06:30:49.938Z",
+      "run_id": "20260514T062645Z",
+      "repo": "dotenvx/dotenvx",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ae39ec042b37c79cd8867687c43aa91033b530270ea34bacb7cdd18f7eebb2c0",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 8832
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12335,
+      "prompt_chars": 8832,
+      "completion_chars": 1500
+    },
+    {
+      "ts": "2026-05-14T06:31:04.244Z",
+      "run_id": "20260514T062645Z",
+      "repo": "dotenvx/dotenvx",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ef74ed73a799cc34fb53b80bfdfbf258cba8b5ad1b15d9db23bc04fb8f68904a",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 10529
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14305,
+      "prompt_chars": 10529,
+      "completion_chars": 1663
+    },
+    {
+      "ts": "2026-05-14T06:31:32.856Z",
+      "run_id": "20260514T062645Z",
+      "repo": "dotenvx/dotenvx",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a58171ee4938e39c475636631ba6d7da7062f42e10f73b97f8fbc9785f31ce49",
+      "input_stats": {
+        "evidence_count": 14,
+        "approx_chars": 15048
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 28612,
+      "prompt_chars": 15048,
+      "completion_chars": 3322
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "fastrepl/anarlog",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "dotenvx/dotenvx",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "fastrepl/anarlog",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 12,
+      "evidence_total_final": 12,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "dotenvx/dotenvx",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 14,
+      "evidence_total_final": 14,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1778740005193,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "fastrepl/anarlog": 5,
+      "Mr-Quin/danmaku-anywhere": 5,
+      "dotenvx/dotenvx": 5
+    },
+    "tokensApproxTotal": 49892,
+    "tokensApproxPerRepo": {
+      "fastrepl/anarlog": 14888,
+      "Mr-Quin/danmaku-anywhere": 20867,
+      "dotenvx/dotenvx": 14137
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "fastrepl/anarlog": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "scout",
+        "summary": "anarlog is an open-source, local-first AI meeting notetaker built with privacy and user control as core principles. While actively maintained under MIT license, the primary development focus of the team has shifted to a related product called 'char', which may impact long-term feature velocity for anarlog.",
+        "highlights": [
+          "Strong privacy guarantees: all transcription and data storage happen locally; no cloud dependency or account required.",
+          "Highly flexible LLM integration: supports any OpenAI-compatible provider including Ollama, LM Studio, Anthropic, etc.",
+          "Active maintenance with recent releases (e.g., desktop_v1.0.26) despite team's strategic pivot to 'char'.",
+          "Rich monorepo structure with Rust/Tauri core and extensive tooling/configs, indicating mature engineering practices."
+        ],
+        "risks": [
+          "Team attention appears primarily focused on 'char', potentially limiting future investment in anarlog.",
+          "Release artifacts reference both 'anarlog' and 'char' repos, suggesting possible conflation or migration risk.",
+          "High issue count (153 open issues) relative to release frequency (only 3 releases) may indicate support or prioritization challenges."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "inventor",
+        "summary": "anarlog is a privacy-centric, local-first AI meeting notetaker that empowers users with full data ownership and flexible LLM integration. Built with Rust and Tauri, it transcribes audio on-device and saves notes as plain Markdown files, avoiding cloud dependencies entirely. While the core team has shifted primary focus to a successor product 'char', anarlog remains MIT-licensed, actively maintained, and open to community innovation.",
+        "highlights": [
+          "On-device transcription ensures audio never leaves the user's machine, aligning with strict privacy-by-design principles.",
+          "Notes are saved as standard Markdown files, enabling universal interoperability with existing tools and sync systems (e.g., git, Dropbox).",
+          "Supports any OpenAI-compatible LLM—including local options like Ollama and LM Studio—giving users full control over AI providers.",
+          "MIT license explicitly permits forking, commercialization, and self-hosting, lowering barriers to derivative invention."
+        ],
+        "risks": [
+          "Strategic pivot to 'char' may reduce long-term feature development or architectural evolution in anarlog.",
+          "Conflation between 'anarlog' and 'char' in release notes (e.g., E-RL-003) suggests potential branding or codebase migration ambiguity.",
+          "High open issue count (153) with limited recent releases could hinder adoption of novel integrations or hardware support."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "engineer",
+        "summary": "anarlog is a mature, local-first AI meeting notetaker built with Rust and Tauri, emphasizing on-device processing, data ownership via Markdown files, and flexible LLM integration. While actively maintained under MIT license, engineering focus appears to have shifted toward the 'char' product, which may affect future development velocity and architectural investment in anarlog.",
+        "highlights": [
+          "On-device transcription using local speech models ensures audio never leaves the user's machine, fulfilling strong privacy guarantees.",
+          "Notes are stored as plain Markdown files, enabling seamless integration with version control, sync tools, and CLI workflows.",
+          "Support for any OpenAI-compatible LLM—including Ollama, LM Studio, and cloud providers—offers significant flexibility in AI backend selection.",
+          "Monorepo structure with Cargo.toml, multiple doxxer configs, and extensive tooling (e.g., dprint, oxlint, Taskfile) indicates disciplined, production-grade engineering practices."
+        ],
+        "risks": [
+          "Primary team focus has shifted to 'char', potentially limiting future feature development or performance optimizations in anarlog despite its active maintenance status.",
+          "Release artifacts reference both 'anarlog' and 'char' repos (e.g., E-RL-003), suggesting possible codebase conflation or migration ambiguity that could complicate dependency management.",
+          "High open issue count (153) relative to low release frequency (3 releases) may indicate challenges in triage, testing, or CI/CD scalability."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role": "skeptic",
+        "summary": "While anarlog touts strong privacy and local-first principles, evidence suggests it may be a deprioritized project with ambiguous maintenance commitment, branding confusion with 'char', and potential sustainability risks despite its MIT license and active repository appearance.",
+        "highlights": [
+          "The team explicitly states primary development focus has shifted to 'char', casting doubt on long-term investment in anarlog despite claims of maintenance [E-RD-001].",
+          "Release notes conflate 'anarlog' and 'char' repositories (e.g., comparing char tags in anarlog releases), indicating possible codebase drift or misleading versioning [E-RL-003].",
+          "Marketing emphasizes radical data ownership and no cloud dependency, yet the product relies on external LLM providers—undermining true offline autonomy unless paired with local models like Ollama [E-RD-006, E-RD-007]."
+        ],
+        "risks": [
+          "The project may be in maintenance-only mode with minimal new feature development, despite high star count creating an illusion of active innovation [E-RD-001].",
+          "Branding instability is evident from past name changes and cross-promotion with 'char', raising concerns about product identity and roadmap clarity [E-RD-008, E-RD-005].",
+          "High open issue count (153) with only 3 releases suggests limited responsiveness to community feedback or bug resolution, potentially masking abandonment risk [E-RL-001, E-RL-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 12,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"anarlog\",\n    \"one_sentence\": \"The open-source AI meeting notetaker. Local-first. Privacy-first. Yours to fork.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Open it. Join a meeting. anarlog records, transcribes locally, and saves your notes as markdown on disk. Bring your own LLM (OpenAI, Anthropic, Gemini, OpenRouter, Ollama, LM Studio, anything OpenAI-compatible).\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Meeting Notetaker\",\n      \"purpose\": \"Record, transcribe, and save meeting notes locally as Markdown files with user-chosen LLM summarization.\",\n      \"primary_actions\": [\n        \"Start recording\",\n        \"Stop recording\",\n        \"Save note as .md\",\n        \"Select LLM provider\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a meeting note as a local Markdown file on disk.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"notes\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"content\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"filepath\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement local audio capture and on-device transcription\",\n          \"Integrate OpenAI-compatible LLM interface\",\n          \"Save output as Markdown file to user-specified directory\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can start/stop recording and see real-time transcription\",\n    \"Meeting notes are saved as .md files readable by any text editor\",\n    \"LLM provider can be switched without app restart\"\n  ],\n  \"open_questions\": [\n    \"How to handle multi-language transcription robustly?\",\n    \"What fallback exists if selected LLM is unreachable?\""
+      }
+    },
+    "Mr-Quin/danmaku-anywhere": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "Danmaku Anywhere is an open-source browser extension that enables danmaku (commentary overlays) on nearly any video website, supporting platforms like Plex, YouTube, Bilibili, and more. It offers automatic matching, manual import/export of .xml弹幕 files, and integrates with multiple弹幕 sources including DDP-compatible services. The project is actively developed with frequent nightly releases and supports major browsers except Safari/iOS.",
+        "highlights": [
+          "Supports弹幕 on a wide range of video sites including self-hosted media servers (Plex, Emby, Jellyfin) and streaming platforms (YouTube, Crunchyroll).",
+          "Integrates multiple弹幕 sources: Bilibili, Tencent, MacCMS, and DDP-compatible APIs like danmu-api.",
+          "Offers both automatic AI-assisted matching and manual .xml弹幕 import/export functionality.",
+          "Available on Chrome, Edge, Firefox, and Android-compatible browsers; explicitly unsupported on iOS/Safari due to platform limitations.",
+          "Active development with regular preview (nightly) releases and recent enhancements to declarative弹幕 source engine ('dango')."
+        ],
+        "risks": [
+          "Limited mobile support: iOS is explicitly unsupported, restricting accessibility on Apple mobile devices.",
+          "Reliance on external弹幕 sources (e.g., Bilibili, Tencent) may introduce fragility if those APIs change or become unavailable.",
+          "Preview/nightly builds are actively shipped, suggesting potential instability for non-developer users who install pre-release versions."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "Danmaku Anywhere introduces a novel browser-based architecture for injecting danmaku into arbitrary video sites via a declarative source engine ('dango') and manifest-driven integration with multiple弹幕 providers. It enables cross-platform弹幕 consumption without native app dependencies, using AI-assisted matching and local .xml handling to bridge content across self-hosted and commercial video platforms.",
+        "highlights": [
+          "Invents a declarative弹幕 source engine ('dango') that abstracts弹幕 retrieval logic via manifests (e.g., DDP, Bilibili, Tencent), enabling modular and extensible弹幕 source integration [E-RL-001][E-RL-002].",
+          "Enables弹幕 on self-hosted media servers (Plex, Emby, Jellyfin) and third-party sites (YouTube, Crunchyroll) through a pure browser extension, eliminating need for desktop clients [E-RD-007].",
+          "Combines AI-powered automatic弹幕 matching with manual .xml import/export, creating a hybrid user-controlled弹幕 discovery system [E-RD-007].",
+          "Supports MacCMS (Vod) and generic DDP-compatible APIs (e.g., danmu-api), demonstrating adaptable protocol abstraction beyond major platforms [E-RD-007].",
+          "Implements episode-level metadata handling that decouples UI rendering from弹幕 loading, improving responsiveness during playback [E-RL-001]."
+        ],
+        "risks": [
+          "The 'dango' engine’s reliance on external manifests and third-party APIs (Bilibili, Tencent) creates dependency risks if those services alter or restrict access [E-RL-001][E-RD-007].",
+          "AI matching and declarative source logic may introduce complexity that affects reliability or debuggability for end users [E-RD-007][E-RL-002].",
+          "Active shipping of nightly builds with core architectural changes (e.g., DDP manifests, authenticated proxy forwarding) suggests the invention is still in flux, risking breaking changes [E-RL-001][E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "Danmaku Anywhere is a TypeScript-based browser extension that injects danmaku into arbitrary video websites using a modular, manifest-driven architecture. It leverages a declarative弹幕 source engine ('dango') to integrate multiple providers (Bilibili, Tencent, DDP-compatible APIs) and supports both automatic AI-assisted matching and manual .xml import/export. The codebase is structured as a monorepo with active development reflected in frequent nightly releases.",
+        "highlights": [
+          "Modular architecture using 'dango' declarative engine and manifests (ddp-compat, bilibili, tencent) enables extensible弹幕 source integration [E-RL-001][E-RL-002].",
+          "Monorepo structure with packages, backend, app, and tooling (Biome, pnpm, Lefthook) indicates professional-grade TypeScript engineering [E-RF-001].",
+          "Decouples episode list rendering from弹幕 metadata loading for improved UI responsiveness [E-RL-001].",
+          "Supports authenticated proxy forwarding to DDP services, suggesting secure handling of user sessions [E-RL-002][E-RL-003].",
+          "Actively developed with CI/CD via GitHub Actions and automated preview builds linked to PRs and issues [E-RD-001][E-RL-003]."
+        ],
+        "risks": [
+          "Heavy reliance on third-party弹幕 APIs (Bilibili, Tencent) and DDP manifests introduces fragility if external interfaces change [E-RD-007][E-RL-001].",
+          "Frequent pre-release builds with core architectural changes (e.g., dango engine, manifests) may impact stability for end users [E-RD-006][E-RL-001].",
+          "iOS/Safari incompatibility limits cross-platform reach due to Apple's extension restrictions [E-RD-004][E-RD-005]."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While Danmaku Anywhere promises broad弹幕 compatibility across video platforms, its heavy dependence on external APIs, frequent unstable pre-release builds, and lack of iOS support raise concerns about long-term reliability, maintainability, and user accessibility.",
+        "highlights": [
+          "Claims 'almost any website'弹幕 support but relies on fragile integrations with third-party services like Bilibili and Tencent that could break without notice [E-RD-007][E-RL-001].",
+          "Actively ships nightly builds with core architectural changes (e.g., 'dango' engine, DDP manifests), suggesting the extension may be unstable for general users despite public availability [E-RD-006][E-RL-001][E-RL-002].",
+          "Explicitly excludes iOS/Safari due to platform restrictions, limiting mobile reach and contradicting the 'anywhere' promise for a significant user base [E-RD-004][E-RD-005].",
+          "AI-assisted matching is mentioned but lacks transparency—no details on accuracy, privacy implications, or fallback mechanisms when it fails [E-RD-007].",
+          "Open issue requesting 'more弹幕 formats' indicates current source coverage is incomplete, undermining claims of universal弹幕 support [E-IS-001]."
+        ],
+        "risks": [
+          "Over-reliance on external弹幕 providers (Bilibili, Tencent, DDP APIs) creates single points of failure; if these services change or block access, core functionality degrades [E-RD-007][E-RL-001].",
+          "Frequent pre-release updates with foundational changes (e.g., declarative source engine) suggest the project prioritizes feature velocity over stability, risking regressions for end users [E-RD-006][E-RL-001][E-RL-002].",
+          "No support for iOS/Safari—a major platform gap—contradicts the 'anywhere' branding and excludes Apple mobile users entirely [E-RD-004][E-RD-005].",
+          "Lack of documentation or evidence on AI matching robustness raises doubts about real-world reliability, especially for niche or self-hosted media servers [E-RD-007].",
+          "Monorepo complexity (multiple packages, backend, proxy logic) increases maintenance burden and potential attack surface, yet security practices are not discussed [E-RF-001][E-RL-002]."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-IS-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Danmaku Anywhere\",\n    \"one_sentence\": \"An open-source browser extension that enables danmaku (commentary overlays) on nearly any video website, supporting platforms like Plex, YouTube, Bilibili, and more.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User installs the extension, navigates to a video site (e.g., Plex, YouTube), triggers弹幕 loading via context menu or icon, and views弹幕 overlaid on video;弹幕 are fetched from integrated sources (Bilibili, Tencent, DDP-compatible APIs) or local .xml files, with optional AI-assisted matching.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Video Overlay Screen\",\n      \"purpose\": \"Display弹幕 overlaid on top of any supported video player while allowing user interaction with弹幕 sources and settings.\",\n      \"primary_actions\": [\n        \"Toggle弹幕 visibility\",\n        \"Search for弹幕 by title\",\n        \"Import/export .xml弹幕 files\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"弹幕 Source Configuration\",\n      \"purpose\": \"Configure弹幕 sources, matching rules, and site-specific settings for弹幕 retrieval.\",\n      \"primary_actions\": [\n        \"Add/remove弹幕 sources\",\n        \"Enable/disable AI matching\",\n        \"Set default弹幕 provider\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"fetch_danmaku_from_source\",\n      \"purpose\": \"Retrieve弹幕 data from a specified source (e.g., Bilibili, DDP API) using declarative manifests.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"import_local_danmaku\",\n      \"purpose\": \"Load弹幕 from a user-provided .xml file and overlay them on the current video.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"export_current_danmaku\",\n      \"purpose\": \"Save currently viewed弹幕 to a .xml file for offline use or sharing.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"match_video_to_danmaku\",\n      \"purpose\": \"Use AI or rule-based logic t"
+      }
+    },
+    "dotenvx/dotenvx": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "scout",
+        "summary": "dotenvx is a JavaScript-based secure dotenv tool created by the original author of dotenv, offering cross-platform support via CLI, global install, and Docker. It emphasizes secret management with end-to-end encryption and shows active maintenance through frequent releases and testing.",
+        "highlights": [
+          "Created by the original author of dotenv, positioning it as a trusted evolution with enhanced security.",
+          "Supports multiple installation methods: npm, curl, Homebrew, and Docker—enabling broad language/framework compatibility.",
+          "Actively maintained with recent releases (v1.66.0, v1.65.3, v1.65.2) and visible test suite metrics.",
+          "Strong focus on secrets management and end-to-end encryption, aligned with security-conscious workflows."
+        ],
+        "risks": [
+          "Open issue indicates potential data loss risk: 'dotenv rotate does not check whether it has write permission before overwriting the .env file'.",
+          "Closed issue referencing '[WRONG_PRIVATE_KEY]' error suggests past cryptographic or key-handling issues that may recur if not thoroughly mitigated."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "inventor",
+        "summary": "dotenvx extends the classic dotenv pattern into a secure, cross-platform secret management tool with end-to-end encryption, global CLI availability, and multi-language support—positioning it as a modern evolution of environment variable handling.",
+        "highlights": [
+          "Invents a 'secure dotenv' paradigm by integrating end-to-end encryption into traditional .env workflows, differentiating from standard dotenv libraries.",
+          "Enables universal adoption across languages and platforms via global install (npm, curl, Homebrew) and Docker, transcending JavaScript runtime boundaries.",
+          "Introduces CLI-driven secret rotation and management (e.g., 'dotenv rotate'), suggesting novel operational patterns for .env file lifecycle control.",
+          "Leverages creator credibility from original dotenv to establish trust while innovating on security and portability."
+        ],
+        "risks": [
+          "The 'dotenv rotate' feature may overwrite critical .env files without permission checks, risking irreversible data loss during automated key rotation [ID:E-IS-002].",
+          "Past '[WRONG_PRIVATE_KEY]' errors indicate potential fragility in cryptographic key handling, which could undermine the core security proposition if not robustly validated [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "engineer",
+        "summary": "dotenvx is a JavaScript-based secure dotenv tool that extends the traditional dotenv pattern with end-to-end encryption and cross-platform CLI support. It offers multiple installation methods (npm, curl, Homebrew, Docker), active maintenance with frequent releases, and introduces operational features like 'dotenv rotate'—though some pose data integrity risks.",
+        "highlights": [
+          "Built by the original creator of dotenv, ensuring conceptual continuity while adding security enhancements like end-to-end encryption.",
+          "Supports global installation via npm, curl, Homebrew, and Docker, enabling use across any language or platform without runtime dependencies.",
+          "Actively developed with recent tagged releases (v1.66.0, v1.65.3, v1.65.2) and visible test suite metrics indicating engineering discipline.",
+          "Provides programmatic and CLI interfaces for managing .env files, including secret rotation capabilities."
+        ],
+        "risks": [
+          "The 'dotenv rotate' command may overwrite .env files without verifying write permissions, risking unintended data loss [ID:E-IS-002].",
+          "A past '[WRONG_PRIVATE_KEY]' error suggests potential weaknesses in cryptographic key validation that could compromise security guarantees if not fully resolved [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role": "skeptic",
+        "summary": "dotenvx markets itself as a 'secure dotenv' with end-to-end encryption and cross-platform support, but critical operational flaws and opaque security claims raise serious doubts about its reliability and actual security posture.",
+        "highlights": [
+          "Claims of 'end-to-end encryption' and 'secure dotenv' lack technical substantiation in available evidence—no cryptographic design details, threat model, or audit reports are referenced.",
+          "Despite boasting broad installation methods (npm, curl, Homebrew, Docker), the core security mechanism remains undocumented, making it impossible to verify if secrets are truly protected in transit or at rest.",
+          "The project leverages the reputation of the original dotenv creator for credibility, yet offers no clear evidence that its encryption implementation is robust or peer-reviewed."
+        ],
+        "risks": [
+          "The 'dotenv rotate' command overwrites .env files without checking write permissions, creating a real risk of accidental data loss during routine operations [ID:E-IS-002].",
+          "A past '[WRONG_PRIVATE_KEY]' error suggests fundamental flaws in key management—without transparency into how keys are generated, stored, or validated, users cannot trust the encryption claims [ID:E-IS-001].",
+          "Frequent releases (v1.66.0, v1.65.3, etc.) may indicate active development, but without a public changelog or security disclosures, they could also mask unresolved vulnerabilities or breaking changes [ID:E-RL-001, ID:E-RL-002, ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 14,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"dotenvx\",\n    \"one_sentence\": \"A secure dotenv tool with end-to-end encryption for managing environment variables across any language or platform.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users install dotenvx globally or as a dependency, then use CLI commands like 'dotenv rotate' to manage encrypted .env files, ensuring secrets are securely stored and injected into applications at runtime.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main CLI Interface\",\n      \"purpose\": \"Provide access to dotenvx commands for managing encrypted environment variables.\",\n      \"primary_actions\": [\n        \"Run 'dotenvx run -- <command>' to execute programs with decrypted envs\",\n        \"Use 'dotenvx rotate' to rotate encryption keys and re-encrypt .env files\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"rotate_keys\",\n      \"purpose\": \"Rotate encryption keys and re-encrypt .env files securely.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"run_with_env\",\n      \"purpose\": \"Execute a command with decrypted environment variables injected.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"encrypted_env_files\",\n        \"fields\": [\n          {\n            \"name\": \"filepath\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"encryption_key_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"last_rotated_at\",\n            \"type\": \"timestamp\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core CLI command parsing\",\n          \"Integrate decryption logic for .env files\",\n          \"Add key rotation functionality with file overwrite safety checks\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Verify that 'dotenvx rotate' fails gracefully when write permissi"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "fastrepl/anarlog",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 7,
+        "inventor": 6,
+        "engineer": 6,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 4,
+        "engineer": 9,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "dotenvx/dotenvx",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 7,
+        "engineer": 10,
+        "skeptic": 6,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=295",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] fastrepl/anarlog evidence total=12 readme=8 issue=0 release=3 root_files=1",
+    "[repo_card_builder] Mr-Quin/danmaku-anywhere evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] dotenvx/dotenvx evidence total=14 readme=8 issue=2 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=39 gaps=0",
+    "[llm_spec_generator] fastrepl/anarlog canonical spec ok (iter=1) -> specs/2026-05-14/fastrepl__anarlog.json",
+    "[llm_spec_generator] Mr-Quin/danmaku-anywhere canonical spec ok (iter=1) -> specs/2026-05-14/Mr-Quin__danmaku-anywhere.json",
+    "[llm_spec_generator] dotenvx/dotenvx canonical spec ok (iter=1) -> specs/2026-05-14/dotenvx__dotenvx.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-14T06:26:45.192Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:45.214Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260514T062645Z"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:45.214Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:45.219Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:45.688Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:45.688Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:46.322Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:46.322Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:46.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:46.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:47.201Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:47.201Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:47.575Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:47.575Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:48.046Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:48.046Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:48.470Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:48.470Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:48.703Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:48.703Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.114Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.114Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.443Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.447Z",
+      "run_id": "20260514T062645Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 295
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.448Z",
+      "run_id": "20260514T062645Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.451Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-14T06:26:49.451Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastrepl__anarlog/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.451Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastrepl__anarlog/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.453Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastrepl__anarlog/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.455Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastrepl__anarlog/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.456Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-14T06:26:49.456Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Mr-Quin__danmaku-anywhere/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.457Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Mr-Quin__danmaku-anywhere/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.459Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Mr-Quin__danmaku-anywhere/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.460Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Mr-Quin__danmaku-anywhere/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.462Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-14T06:26:49.462Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dotenvx__dotenvx/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.463Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dotenvx__dotenvx/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.464Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dotenvx__dotenvx/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.466Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "dotenvx__dotenvx/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.789Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2876,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.789Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.789Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.789Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 338
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:49.790Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 12,
+        "readme": 8,
+        "issues": 0,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:56.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 7112,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:56.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:56.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:56.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 7336
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:56.792Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:26:59.933Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "warn",
+      "event": "GITHUB_RETRY",
+      "data": {
+        "repo": "dotenvx/dotenvx",
+        "endpoint": "root_files_main",
+        "attempt": 1,
+        "status": "undefined"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.629Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 71767,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.629Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.629Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.629Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 11167
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.629Z",
+      "run_id": "20260514T062645Z",
+      "node": "repo_card_builder",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 14,
+        "readme": 8,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.633Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 12,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:00.633Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 12,
+        "evidence_selected": 12,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:13.336Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1377,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:25.753Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1559,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:38.627Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1706,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:27:52.395Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1625,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:16.034Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2709,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:16.046Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:16.048Z",
+      "run_id": "20260514T062645Z",
+      "node": "artifacts",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-14/fastrepl__anarlog.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:16.048Z",
+      "run_id": "20260514T062645Z",
+      "node": "artifacts",
+      "repo": "fastrepl/anarlog",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-14/fastrepl__anarlog.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:16.048Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:16.048Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:30.092Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1720,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:28:47.563Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1987,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:29:06.304Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1839,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:29:27.161Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2341,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:15.445Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 6036,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:15.448Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:15.449Z",
+      "run_id": "20260514T062645Z",
+      "node": "artifacts",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-14/Mr-Quin__danmaku-anywhere.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:15.449Z",
+      "run_id": "20260514T062645Z",
+      "node": "artifacts",
+      "repo": "Mr-Quin/danmaku-anywhere",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-14/Mr-Quin__danmaku-anywhere.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:15.449Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 14,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:15.449Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 14,
+        "evidence_selected": 14,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:26.506Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1312,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:37.603Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1429,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:30:49.938Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1500,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:04.244Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1663,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.856Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3322,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.857Z",
+      "run_id": "20260514T062645Z",
+      "node": "llm_spec_generator",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.858Z",
+      "run_id": "20260514T062645Z",
+      "node": "artifacts",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-14/dotenvx__dotenvx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.858Z",
+      "run_id": "20260514T062645Z",
+      "node": "artifacts",
+      "repo": "dotenvx/dotenvx",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-14/dotenvx__dotenvx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.862Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.862Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1778740005193,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "fastrepl/anarlog": 5,
+          "Mr-Quin/danmaku-anywhere": 5,
+          "dotenvx/dotenvx": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.862Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-14T06:31:32.862Z",
+      "run_id": "20260514T062645Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-14",
+    "evidence_dir": "evidence/2026-05-14"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "dotenvx",
+    "one_liner": "A secure dotenv tool with end-to-end encryption for managing environment variables across any language or platform."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide access to dotenvx commands for managing encrypted environment variables.",
+      "primary_actions": [
+        "Run 'dotenvx run -- <command>' to execute programs with decrypted envs",
+        "Use 'dotenvx rotate' to rotate encryption keys and re-encrypt .env files"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "rotate_keys",
+      "purpose": "Rotate encryption keys and re-encrypt .env files securely.",
+      "async": true,
+      "input": {
+        "encryption_key_id": "string",
+        "filepath": "string",
+        "last_rotated_at": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_with_env",
+      "purpose": "Execute a command with decrypted environment variables injected.",
+      "async": true,
+      "input": {
+        "encryption_key_id": "string",
+        "filepath": "string",
+        "last_rotated_at": "timestamp",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "encrypted_env_files",
+        "columns": [
+          {
+            "name": "encryption_key_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "filepath",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_rotated_at",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add key rotation functionality with file overwrite safety checks",
+    "week 1: Implement core CLI command parsing",
+    "week 1: Integrate decryption logic for .env files"
+  ],
+  "acceptance_tests": [
+    "Confirm that wrong private key usage results in clear [WRONG_PRIVATE_KEY] error without data corruption",
+    "Ensure 'dotenvx run -- node index.js' correctly injects decrypted env vars into the process",
+    "Validate that global installation via npm/curl/Homebrew enables cross-language usage",
+    "Verify that 'dotenvx rotate' fails gracefully when write permissions are missing on .env file"
+  ]
+}

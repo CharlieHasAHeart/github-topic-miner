@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "anarlog",
+    "one_liner": "The open-source AI meeting notetaker. Local-first. Privacy-first. Yours to fork."
+  },
+  "screens": [
+    {
+      "name": "Main Meeting Notetaker",
+      "purpose": "Record, transcribe, and save meeting notes locally as Markdown files with user-chosen LLM summarization.",
+      "primary_actions": [
+        "Save note as .md",
+        "Select LLM provider",
+        "Start recording",
+        "Stop recording"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a meeting note as a local Markdown file on disk.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "filepath": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "notes",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "filepath",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement local audio capture and on-device transcription",
+    "week 1: Integrate OpenAI-compatible LLM interface",
+    "week 1: Save output as Markdown file to user-specified directory"
+  ],
+  "acceptance_tests": [
+    "LLM provider can be switched without app restart",
+    "Meeting notes are saved as .md files readable by any text editor",
+    "User can start/stop recording and see real-time transcription"
+  ]
+}
