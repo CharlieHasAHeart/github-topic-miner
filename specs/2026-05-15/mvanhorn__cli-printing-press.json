@@ -1,0 +1,92 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CLI Printing Press",
+    "one_liner": "Generates token-efficient, AI-agent-optimized CLIs by synthesizing official APIs, community tools, and scraped web interfaces, paired with local SQLite caches and Claude Code skills."
+  },
+  "screens": [
+    {
+      "name": "Catalog Browser",
+      "purpose": "Browse and select from pre-generated CLIs organized by category, with links to live examples and documentation.",
+      "primary_actions": [
+        "Access documentation",
+        "Install binary and skill",
+        "View CLI details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "generate_cli",
+      "purpose": "Synthesize a new agent-optimized CLI from API specs, community tools, and scraped web data.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "source_type": "string",
+        "supports_compound_queries": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_local_cache",
+      "purpose": "Populate or update local SQLite mirror for offline and compound queries.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "source_type": "string",
+        "supports_compound_queries": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cli_catalog",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "supports_compound_queries",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "session_state",
+        "columns": [
+          {
+            "name": "last_sync",
+            "type": "DATETIME"
+          },
+          {
+            "name": "tenant_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add SQLite cache initialization",
+    "week 1: Implement core CLI generation from OpenAPI specs",
+    "week 1: Integrate Claude Code skill scaffolding"
+  ],
+  "acceptance_tests": [
+    "Generated CLI binary executes without error when invoked by Claude Code skill",
+    "Local SQLite cache supports compound query not expressible via original API",
+    "Sensitive session-state.json is excluded from default archive paths"
+  ]
+}

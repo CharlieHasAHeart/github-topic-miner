@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "senpi",
+    "one_liner": "An experimental, opinionated fork of pi-mono that serves as a lightweight coding-agent runtime for Dori, Sisyphus Labs' AI assistant, incorporating select features from OMO while staying close to upstream."
+  },
+  "screens": [
+    {
+      "name": "Main Agent Interface",
+      "purpose": "Primary TUI for interacting with the senpi coding agent, displaying agent output, tool calls, and task progress.",
+      "primary_actions": [
+        "Interrupt execution",
+        "Start new coding task",
+        "View agent logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist agent-generated artifacts or state snapshots to disk.",
+      "async": true,
+      "input": {
+        "content": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic TUI screen",
+    "week 1: Initialize minimal senpi runtime with core loop",
+    "week 1: Integrate builtin extensions from pi-extensions"
+  ],
+  "acceptance_tests": [
+    "Built-in extensions load correctly at runtime.",
+    "Core modifications remain minimal and tracked via changes.md.",
+    "The senpi CLI starts without crashing when packaged."
+  ]
+}
