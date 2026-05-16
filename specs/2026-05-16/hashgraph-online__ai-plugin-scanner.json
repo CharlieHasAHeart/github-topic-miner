@@ -1,0 +1,165 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "HOL Guard",
+    "one_liner": "A local AI toolchain guardian that intercepts and vets plugin/tool usage through shims, hooks, and a localhost approval center."
+  },
+  "screens": [
+    {
+      "name": "Approval Center",
+      "purpose": "Display pending approvals or resolved blocks for AI tool invocations that couldn't be vetted inline.",
+      "primary_actions": [
+        "Approve or block queued actions",
+        "Review pending changes",
+        "View receipt history"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "hol_guard_approvals",
+      "purpose": "Lists pending approvals or resolves them from terminal.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "pending_changes": "json",
+        "session_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "hol_guard_bootstrap",
+      "purpose": "Detects best local harness, starts approval center, and installs Guard in front of it.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "pending_changes": "json",
+        "session_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "hol_guard_receipts",
+      "purpose": "Shows local approval and block history.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "pending_changes": "json",
+        "session_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "hol_guard_run",
+      "purpose": "Reviews changes before launch and hands blocked sessions to approval center when needed.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "pending_changes": "json",
+        "session_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "hol_guard_start",
+      "purpose": "Shows the next step for detected harnesses.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "pending_changes": "json",
+        "session_id": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "approvals",
+        "columns": [
+          {
+            "name": "pending_changes",
+            "type": "JSON"
+          },
+          {
+            "name": "session_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "harnesses",
+        "columns": [
+          {
+            "name": "config_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_active",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "receipts",
+        "columns": [
+          {
+            "name": "artifact_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "decision",
+            "type": "TEXT"
+          },
+          {
+            "name": "harness",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build local approval center UI",
+    "week 1: Implement core interception logic for Codex and Copilot CLI",
+    "week 1: Store receipts in SQLite with basic query interface"
+  ],
+  "acceptance_tests": [
+    "`hol-guard bootstrap` detects existing Claude Code config and installs shim",
+    "`hol-guard receipts` shows historical approve/block decisions with timestamps",
+    "Blocked `find` pipeline triggers approval center entry visible via `hol-guard approvals`",
+    "Running `hol-guard run codex --dry-run` records baseline without launching tool"
+  ]
+}

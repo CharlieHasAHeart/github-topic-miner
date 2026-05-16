@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CCXT Unified Crypto Trading SDK",
+    "one_liner": "A multi-language SDK that unifies access to 110+ cryptocurrency exchanges via a consistent API for market data and trading."
+  },
+  "screens": [
+    {
+      "name": "Exchange Integration Dashboard",
+      "purpose": "Display supported exchanges, connection status, and quick-access trading controls.",
+      "primary_actions": [
+        "Connect to exchange",
+        "Execute trade order",
+        "Fetch market data"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist exchange configuration or trading state to local storage.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "supported_apis": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "exchanges",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "supported_apis",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for REST public/private endpoints in Python and JS",
+    "week 1: Implement core unified API abstraction layer",
+    "week 1: Integrate with 3 major exchanges (e.g., Binance, Kraken, Coinbase)"
+  ],
+  "acceptance_tests": [
+    "System successfully fetches ticker data from at least 5 different exchanges using the same API call structure.",
+    "Trade execution works consistently across JavaScript and Python implementations for a supported exchange."
+  ]
+}

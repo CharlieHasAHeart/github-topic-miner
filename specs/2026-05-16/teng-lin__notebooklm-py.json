@@ -1,0 +1,143 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "notebooklm-py",
+    "one_liner": "An unofficial Python API and CLI for Google NotebookLM that enables programmatic access to features beyond the web UI, including AI agent integration, research automation, and content generation."
+  },
+  "screens": [
+    {
+      "name": "Notebook Dashboard",
+      "purpose": "Display active notebook, sources, and generated artifacts with options to trigger new actions like research, generation, or export.",
+      "primary_actions": [
+        "Export artifacts",
+        "Generate audio/video overview",
+        "Import sources",
+        "Run research query"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "auth_refresh",
+      "purpose": "Trigger a one-shot session keepalive to rotate authentication cookies and persist them to storage.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sources": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "doctor",
+      "purpose": "Run diagnostics on authentication, profile setup, and migration status with optional auto-fix.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "sources": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "note_create",
+      "purpose": "Create a new note in the current notebook with specified content and metadata.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "sources": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "profile_switch",
+      "purpose": "Switch the active Google account profile for subsequent commands.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "sources": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "notebooks",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sources",
+            "type": "JSON"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "profiles",
+        "columns": [
+          {
+            "name": "is_default",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "storage_path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "sources",
+        "columns": [
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic notebook and source CRUD operations",
+    "week 1: Expose CLI commands for note creation and metadata export",
+    "week 1: Implement core NotebookLMClient with auth and cookie persistence"
+  ],
+  "acceptance_tests": [
+    "Auth refresh command successfully rotates SIDTS cookies and persists updated state",
+    "CLI-created notes should appear in the web UI with interactive [N] citation hover links",
+    "Conversations initiated via CLI must be visible in the NotebookLM web interface",
+    "Profile switching correctly isolates storage and credentials across Google accounts"
+  ]
+}

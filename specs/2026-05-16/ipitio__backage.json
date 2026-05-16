@@ -1,0 +1,102 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Backage",
+    "one_liner": "A GitHub-native service that provides dynamic badges and download metrics for GitHub Packages using only free GitHub resources."
+  },
+  "screens": [
+    {
+      "name": "Badge Dashboard",
+      "purpose": "Display dynamic badges and package statistics for indexed GitHub Packages across ecosystems like npm, GHCR, Maven, and NuGet.",
+      "primary_actions": [
+        "Check indexing status via release notes",
+        "Embed dynamic badges in READMEs",
+        "View package download counts"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_package_metadata",
+      "purpose": "Scrape and aggregate public package metadata from GitHub using shell-based workflows triggered by stars and queue entries.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "priority_score": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "update_owners_queue",
+      "purpose": "Add or prioritize user/organization names in the ingestion queue (owners.txt) to trigger package indexing.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "priority_score": "int"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "owners",
+        "columns": [
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "priority_score",
+            "type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "name": "packages",
+        "columns": [
+          {
+            "name": "downloads",
+            "type": "INTEGER"
+          },
+          {
+            "name": "ecosystem",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "owner",
+            "type": "TEXT"
+          },
+          {
+            "name": "versions",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Generate JSON/XML endpoints for badge rendering",
+    "week 1: Implement shell-based scraper using GitHub Actions",
+    "week 1: Publish initial index via GitHub Releases",
+    "week 1: Set up circular priority queue via owners.txt"
+  ],
+  "acceptance_tests": [
+    "Given a public GitHub profile with packages, when the user stars Backage, then their packages appear in the index within 24 hours.",
+    "Given a self-hosted fork, when configured correctly, then it generates independent badge endpoints without relying on central index.",
+    "Given a valid package in the index, when a badge URL is requested, then it returns correct download count and version data.",
+    "Given an entry in owners.txt, when the update workflow runs, then the owner’s packages are scraped and added to the dataset."
+  ]
+}
