@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ByteChef",
+    "one_liner": "An open-source platform that unifies AI agent orchestration and workflow automation for enterprises."
+  },
+  "screens": [
+    {
+      "name": "Workflow Editor",
+      "purpose": "Visual canvas for building and managing multi-step workflows with AI agents and third-party integrations.",
+      "primary_actions": [
+        "Add trigger or action node",
+        "Configure AI agent behavior",
+        "Test workflow execution",
+        "View execution errors"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist workflow configuration including AI agent settings and integration parameters.",
+      "async": true,
+      "input": {
+        "definition": "json",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "workflows",
+        "columns": [
+          {
+            "name": "definition",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add Docker-based deployment support",
+    "week 1: Implement core workflow editor UI",
+    "week 1: Integrate langgraph4j-based AI agent execution"
+  ],
+  "acceptance_tests": [
+    "User can create a workflow that combines a Google Calendar trigger with an AI agent that summarizes events using OpenRouter.",
+    "Workflow execution logs display errors clearly in the code editor when an AI agent fails to process input."
+  ]
+}

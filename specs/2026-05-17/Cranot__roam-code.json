@@ -1,0 +1,207 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "roam-code",
+    "one_liner": "A local-first, agent-centric CLI that provides AI coding agents with deep codebase intelligence and generates tamper-evident evidence packets for every change."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Serve as the primary agent-facing surface for initializing, analyzing, and modifying codebases with built-in safety and evidence generation.",
+      "primary_actions": [
+        "Execute preflight analysis",
+        "Generate ChangeEvidence packet",
+        "Initialize repository index",
+        "Run health scoring"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "roam_health",
+      "purpose": "Compute a composite 0-100 score based on complexity, cycles, coupling, and dead code to assess codebase health.",
+      "async": false,
+      "input": {
+        "pattern_name": "string",
+        "payload": "json",
+        "symbol_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "roam_init",
+      "purpose": "Index the target repository into a local SQLite database (.roam/index.db) to enable code intelligence queries.",
+      "async": false,
+      "input": {
+        "pattern_name": "string",
+        "payload": "json",
+        "symbol_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "roam_preflight",
+      "purpose": "Analyze blast radius, relevant tests, complexity, and architecture rules for a given symbol before editing.",
+      "async": false,
+      "input": {
+        "pattern_name": "string",
+        "payload": "json",
+        "symbol_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "algorithmic_patterns",
+        "columns": [
+          {
+            "name": "pattern_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "symbol_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "architecture_layers",
+        "columns": [
+          {
+            "name": "layer_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "symbol_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "calls",
+        "columns": [
+          {
+            "name": "callee_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "caller_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "git_history",
+        "columns": [
+          {
+            "name": "author",
+            "type": "TEXT"
+          },
+          {
+            "name": "commit_hash",
+            "type": "TEXT"
+          },
+          {
+            "name": "message",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "runtime_traces",
+        "columns": [
+          {
+            "name": "symbol_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "timestamp",
+            "type": "INTEGER"
+          },
+          {
+            "name": "trace_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "security_flows",
+        "columns": [
+          {
+            "name": "flow_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sink_symbol",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_symbol",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "smells",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "smell_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "symbol_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "symbols",
+        "columns": [
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "kind",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic preflight command with blast radius estimation",
+    "week 1: Build initial MCP server integration",
+    "week 1: Implement core SQLite schema for symbols, calls, and layers"
+  ],
+  "acceptance_tests": [
+    "After `roam init`, the .roam/index.db file exists and contains parsed symbols from the repo.",
+    "All commands operate without network egress or authentication requirements.",
+    "Executing `roam preflight <valid_symbol>` outputs relevant tests, complexity metrics, and architecture rule violations.",
+    "Generated ChangeEvidence packets include HMAC-chained logs and signed attestations.",
+    "Running `roam health` returns a numeric score between 0 and 100 without error."
+  ]
+}
