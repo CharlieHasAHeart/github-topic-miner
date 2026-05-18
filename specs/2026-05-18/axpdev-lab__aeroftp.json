@@ -1,0 +1,141 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AeroFTP",
+    "one_liner": "A cross-platform desktop file client supporting FTP, SFTP, WebDAV, S3, GitHub, and cloud providers like MEGA and Filen, with AI-powered tools, AES-256 encryption, and a 15-source profile bridge."
+  },
+  "screens": [
+    {
+      "name": "Application Settings",
+      "purpose": "Manages global preferences including theme selection, language, encryption settings, and AI provider configuration.",
+      "primary_actions": [
+        "Configure AeroVault behavior",
+        "Select UI language",
+        "Switch application theme"
+      ]
+    },
+    {
+      "name": "Main File Manager",
+      "purpose": "Provides dual-panel file browsing with endpoint-aware unification across local, remote, and encrypted storage sources.",
+      "primary_actions": [
+        "Connect to FTP/SFTP/WebDAV/S3/cloud profile",
+        "Toggle between unified and split view",
+        "Transfer files between panels"
+      ]
+    },
+    {
+      "name": "Profile Bridge Dialog",
+      "purpose": "Enables import/export of connection profiles from 15+ external tools including rclone, AWS CLI, Cyberduck, and restic.",
+      "primary_actions": [
+        "Auto-detect config path",
+        "Recover credentials into AeroVault",
+        "Select source tool for import"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_cli_ls_command",
+      "purpose": "Lists directory contents via CLI interface using native protocol handlers.",
+      "async": true,
+      "input": {
+        "profile_id": "string",
+        "remote_path": "string"
+      },
+      "output": {
+        "entries": "json",
+        "error": "string?"
+      }
+    },
+    {
+      "name": "import_profile_from_external_tool",
+      "purpose": "Imports connection profiles from external CLI/GUI tools by auto-detecting config paths and securely migrating credentials into AeroVault.",
+      "async": true,
+      "input": {
+        "config_path": "string",
+        "tool_name": "string"
+      },
+      "output": {
+        "imported_profile_id": "string",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "switch_protocol_for_profile",
+      "purpose": "Changes the protocol type (e.g., FTP to SFTP) for an existing connection profile while preserving compatible settings.",
+      "async": true,
+      "input": {
+        "new_protocol": "string",
+        "profile_id": "string"
+      },
+      "output": {
+        "success": "boolean",
+        "updated_profile": "json"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "aerovault_secrets",
+        "columns": [
+          {
+            "name": "aes_gcm_siv_nonce",
+            "type": "BLOB"
+          },
+          {
+            "name": "encrypted_payload",
+            "type": "BLOB"
+          },
+          {
+            "name": "vault_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "profiles",
+        "columns": [
+          {
+            "name": "credentials_vault_ref",
+            "type": "TEXT"
+          },
+          {
+            "name": "host",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_favorite",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "protocol",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add AeroVault stub for credential storage",
+    "week 1: Implement core dual-panel file browser with local/remote toggle",
+    "week 1: Integrate basic FTP/SFTP connection handling",
+    "week 2: Add CLI `ls` command with error reporting",
+    "week 2: Build profile import logic for rclone and WinSCP",
+    "week 2: Implement protocol switching for editable profiles"
+  ],
+  "acceptance_tests": [
+    "CLI `ls` command successfully lists contents of a connected S3 bucket.",
+    "Installer does not interfere with other CLI applications on system PATH.",
+    "Koofr API connections succeed without returning 404 errors.",
+    "User can switch protocol type when editing a Filen profile without error."
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Tock",
+    "one_liner": "Tock is a powerful time tracking tool for the command line that saves activity logs as plaintext files and provides an interactive terminal UI for viewing your time."
+  },
+  "screens": [
+    {
+      "name": "Interactive Calendar View",
+      "purpose": "Display time entries in a calendar-based terminal interface with support for navigation, filtering by tags, and visual theming.",
+      "primary_actions": [
+        "Access export options",
+        "Navigate dates",
+        "View tagged entries"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_tag_colors",
+      "purpose": "Assign and render custom colors per tag in the TUI based on configuration.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "file_path": "string",
+        "fix_ids": "json?",
+        "tag_name": "string"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "export_report",
+      "purpose": "Export time entries within a specified date range (--from/--to) in text, CSV, JSON, or iCal format.",
+      "async": true,
+      "input": {
+        "color": "string",
+        "payload": "json",
+        "tag_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Record a new time entry with optional tags, notes, and duration (supporting decimal hours).",
+      "async": true,
+      "input": {
+        "color": "string",
+        "payload": "json",
+        "tag_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "tag_config",
+        "columns": [
+          {
+            "name": "color",
+            "type": "TEXT"
+          },
+          {
+            "name": "tag_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "time_entries",
+        "columns": [
+          {
+            "name": "duration",
+            "type": "REAL"
+          },
+          {
+            "name": "end_time",
+            "type": "DATETIME"
+          },
+          {
+            "name": "notes",
+            "type": "TEXT"
+          },
+          {
+            "name": "start_time",
+            "type": "DATETIME"
+          },
+          {
+            "name": "tags",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for tagging and notes",
+    "week 1: Build basic TUI calendar view using Bubble Tea",
+    "week 1: Implement core time entry storage with flat-file backend"
+  ],
+  "acceptance_tests": [
+    "Decimal durations (e.g., 1.5h) are accepted and displayed accurately.",
+    "Tag colors configured in tock.yaml are rendered correctly in the terminal UI.",
+    "User can export entries between --from and --to dates in CSV format.",
+    "User can log a time entry with multiple tags and verify it appears in the TUI."
+  ]
+}

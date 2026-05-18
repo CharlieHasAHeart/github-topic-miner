@@ -1,0 +1,112 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "DeepSeek-Reasonix",
+    "one_liner": "A DeepSeek-native AI coding agent for your terminal, engineered around prefix-cache stability to minimize token costs during long sessions."
+  },
+  "screens": [
+    {
+      "name": "Terminal Interface",
+      "purpose": "Provide a CLI/TUI for interacting with the AI coding agent, supporting code proposals, skill execution, and session management.",
+      "primary_actions": [
+        "/apply",
+        "/btw",
+        "/new",
+        "/skill"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_edit",
+      "purpose": "Apply a proposed SEARCH/REPLACE code edit to disk after user confirmation.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "file_path": "string",
+        "fix_ids": "json?",
+        "name": "string"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "execute_skill",
+      "purpose": "Run a named skill with configurable iteration budget and autocomplete support.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "start_new_session",
+      "purpose": "Initiate a new conversation session without archiving the current one unnecessarily.",
+      "async": true,
+      "input": {
+        "created_at": "timestamp",
+        "name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "created_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "skills",
+        "columns": [
+          {
+            "name": "max_iters",
+            "type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add session persistence and auto-scroll for desktop",
+    "week 1: Build CLI interface with /apply and /new commands",
+    "week 1: Implement core cache-first loop with DeepSeek integration"
+  ],
+  "acceptance_tests": [
+    "Agent achieves >99% cache hit rate on long-running session with DeepSeek v4-flash",
+    "Desktop client scrolls to latest message automatically",
+    "Proposed code edits remain unapplied until explicit /apply command",
+    "Skill execution respects per-skill max-iters frontmatter setting",
+    "User can start a new session via /new without unintended archiving suffixes"
+  ]
+}

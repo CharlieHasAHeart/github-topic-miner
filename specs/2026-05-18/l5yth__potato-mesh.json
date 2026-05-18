@@ -1,0 +1,69 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Potato Mesh",
+    "one_liner": "A federated, Meshtastic and Meshcore node dashboard for your local community with no MQTT clutter, just local LoRa aether."
+  },
+  "screens": [
+    {
+      "name": "Node Dashboard",
+      "purpose": "Display real-time nodes, positions, neighbors, trace routes, telemetry, and messages on a map and in a chat window.",
+      "primary_actions": [
+        "Read new node notifications and telemetry logs in chat",
+        "Search and filter nodes in map and table view",
+        "View map with colocated node spider-net visualization"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "post_telemetry",
+      "purpose": "Authenticate and store incoming telemetry, messages, or node data via the REST API.",
+      "async": true,
+      "input": {
+        "last_seen": "timestamp",
+        "payload": "json",
+        "position": "json",
+        "protocol": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "nodes",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_seen",
+            "type": "DATETIME"
+          },
+          {
+            "name": "position",
+            "type": "JSON"
+          },
+          {
+            "name": "protocol",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement authenticated POST/GET API endpoints",
+    "week 1: Integrate basic map and chat UI components",
+    "week 1: Set up Ruby/Sinatra web server with SQLite backend"
+  ],
+  "acceptance_tests": [
+    "Given a valid API_TOKEN, telemetry can be posted to /api/v1/telemetry and appears in the dashboard within 5 seconds.",
+    "When two nodes share the same location, the map renders them as a collapsible spider-net cluster."
+  ]
+}
