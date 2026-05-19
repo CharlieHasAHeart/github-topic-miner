@@ -1,0 +1,124 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Shopware CLI",
+    "one_liner": "A command-line companion for managing Shopware 6 accounts, extensions, and projects."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal Interface",
+      "purpose": "Provides access to all CLI command groups (account, extension, project) via terminal input.",
+      "primary_actions": [
+        "Run account commands",
+        "Run extension commands",
+        "Run project commands"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "account_login",
+      "purpose": "Authenticate user with Shopware account credentials.",
+      "async": false,
+      "input": {
+        "auth_token": "string",
+        "payload": "json",
+        "user_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "extension_build",
+      "purpose": "Build and validate Shopware extensions with custom PHP linting support.",
+      "async": true,
+      "input": {
+        "auth_token": "string",
+        "payload": "json",
+        "user_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "project_create",
+      "purpose": "Create new Shopware projects with staging mode and environment flag support.",
+      "async": true,
+      "input": {
+        "auth_token": "string",
+        "payload": "json",
+        "user_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "accounts",
+        "columns": [
+          {
+            "name": "auth_token",
+            "type": "TEXT"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "extensions",
+        "columns": [
+          {
+            "name": "extension_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "php_version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "amqp_enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "elasticsearch_enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "project_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "staging_mode",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add extension build and validation pipeline",
+    "week 1: Implement core account authentication flow",
+    "week 1: Support basic project creation with configuration flags"
+  ],
+  "acceptance_tests": [
+    "Extension builds succeed with custom PHP version specification",
+    "Project creation respects staging mode and environment flags (Elasticsearch, AMQP)",
+    "Telemetry events are emitted during upgrade checks without breaking core functionality",
+    "User can log in to Shopware account via CLI"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "mirrord",
+    "one_liner": "Run local code as if it were a pod in a remote Kubernetes cluster: real env vars, DNS, network, traffic."
+  },
+  "screens": [
+    {
+      "name": "Mirrord Main Interface",
+      "purpose": "Enable users to select a target pod and activate mirrord to run their local process in the context of the remote Kubernetes environment.",
+      "primary_actions": [
+        "Enable mirrord",
+        "Select target pod",
+        "Start debugging"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "enable_mirrord",
+      "purpose": "Activate mirrord interception for a local process using the default kubeconfig to connect to the Kubernetes cluster.",
+      "async": true,
+      "input": {
+        "kubeconfig_path": "string",
+        "payload": "json",
+        "selected_pod": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "kubernetes_contexts",
+        "columns": [
+          {
+            "name": "kubeconfig_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "selected_pod",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement pod selection UI",
+    "week 1: Integrate with default kubeconfig",
+    "week 1: Proxy network and environment variables from remote pod"
+  ],
+  "acceptance_tests": [
+    "Local process successfully resolves DNS and accesses services as if running inside the selected Kubernetes pod.",
+    "mirrord correctly handles IPv4 fallback when IPv6 setup fails in clusters with IPv6 disabled."
+  ]
+}
