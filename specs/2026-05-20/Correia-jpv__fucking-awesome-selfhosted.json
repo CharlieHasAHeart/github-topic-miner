@@ -1,0 +1,75 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Awesome Self-Hosted Directory",
+    "one_liner": "A curated, categorized directory of free and self-hostable web applications and network services that empowers users to replace SaaSS with privacy-respecting, Free Software alternatives."
+  },
+  "screens": [
+    {
+      "name": "Software Categories",
+      "purpose": "Display top-level categories (e.g., Analytics, Email, Backup) for navigating the self-hosted software directory.",
+      "primary_actions": [
+        "Access source code links",
+        "Browse category",
+        "View software details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a selected software entry locally for later reference or deployment planning.",
+      "async": true,
+      "input": {
+        "category": "string",
+        "license": "string",
+        "name": "string",
+        "payload": "json",
+        "source_url": "string",
+        "tech_stack": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "software_entries",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "license",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "tech_stack",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Display license and tech stack metadata for each entry",
+    "week 1: Implement basic navigation between categories and entries",
+    "week 1: Parse and structure README content into categorized software entries"
+  ],
+  "acceptance_tests": [
+    "Each software entry displays its license (e.g., MIT, AGPL-3.0) and runtime environment (e.g., Nodejs/Docker).",
+    "User can navigate from main screen to Analytics category and view listed tools like ANALOG and Aptabase."
+  ]
+}
