@@ -1,0 +1,3734 @@
+{
+  "run_id": "20260521T065518Z",
+  "generated_at": "2026-05-21T06:55:18.652Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 92,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 54,
+    "evidence_by_type": {
+      "readme": 24,
+      "issue": 21,
+      "release": 6,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-21T07:00:02.979Z",
+    "repo_count": 316
+  },
+  "candidates": [
+    {
+      "full_name": "fastapi/fastapi",
+      "html_url": "https://github.com/fastapi/fastapi",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "topics": [
+        "api",
+        "async",
+        "asyncio",
+        "fastapi",
+        "framework",
+        "json",
+        "json-schema",
+        "openapi",
+        "openapi3",
+        "pydantic",
+        "python",
+        "python-types",
+        "python3",
+        "redoc",
+        "rest",
+        "starlette",
+        "swagger",
+        "swagger-ui",
+        "uvicorn",
+        "web"
+      ],
+      "language": "Python",
+      "stargazers_count": 98382,
+      "forks_count": 9323,
+      "open_issues_count": 184,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-21T06:55:22Z",
+      "created_at": "2018-12-08T08:21:47Z"
+    },
+    {
+      "full_name": "vitejs/vite",
+      "html_url": "https://github.com/vitejs/vite",
+      "description": "Next generation frontend tooling. It's fast!",
+      "topics": [
+        "build-tool",
+        "dev-server",
+        "frontend",
+        "hmr",
+        "vite"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 80745,
+      "forks_count": 8202,
+      "open_issues_count": 725,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:55:09Z",
+      "created_at": "2020-04-21T05:03:57Z"
+    },
+    {
+      "full_name": "t8y2/dbx",
+      "html_url": "https://github.com/t8y2/dbx",
+      "description": "15MB, lightweight, cross-platform database client. Supports MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, ClickHouse, SQL Server and more.15MB，轻量级跨平台数据库客户端。支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、DuckDB、ClickHouse、SQL Server 等。",
+      "topics": [
+        "clickhouse",
+        "database",
+        "database-client",
+        "database-management",
+        "duckdb",
+        "gui",
+        "mongodb",
+        "mysql",
+        "postgresql",
+        "redis",
+        "rust",
+        "sql-server",
+        "sqlite",
+        "tauri",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1722,
+      "forks_count": 122,
+      "open_issues_count": 71,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:54:09Z",
+      "created_at": "2026-04-29T03:00:36Z"
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop and mobile.",
+      "topics": [
+        "ade",
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "ide",
+        "mobile-app",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 2963,
+      "forks_count": 207,
+      "open_issues_count": 178,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:53:53Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    },
+    {
+      "full_name": "HzaCode/OneCite",
+      "html_url": "https://github.com/HzaCode/OneCite",
+      "description": "📚 An intelligent toolkit to automatically parse, complete, and format academic references.",
+      "topics": [
+        "agent-skills",
+        "arxiv",
+        "bibliography",
+        "bibtex",
+        "citation",
+        "citation-style-language",
+        "citeproc",
+        "cli",
+        "crossref",
+        "datacite",
+        "doi",
+        "latex",
+        "pubmed",
+        "python",
+        "reference-manager",
+        "semantic-scholar",
+        "zenodo"
+      ],
+      "language": "Python",
+      "stargazers_count": 59,
+      "forks_count": 8,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:53:45Z",
+      "created_at": "2025-08-12T02:58:21Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "fastapi/fastapi",
+      "html_url": "https://github.com/fastapi/fastapi",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "topics": [
+        "api",
+        "async",
+        "asyncio",
+        "fastapi",
+        "framework",
+        "json",
+        "json-schema",
+        "openapi",
+        "openapi3",
+        "pydantic",
+        "python",
+        "python-types",
+        "python3",
+        "redoc",
+        "rest",
+        "starlette",
+        "swagger",
+        "swagger-ui",
+        "uvicorn",
+        "web"
+      ],
+      "language": "Python",
+      "stargazers_count": 98382,
+      "forks_count": 9323,
+      "open_issues_count": 184,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-21T06:55:22Z",
+      "created_at": "2018-12-08T08:21:47Z"
+    },
+    {
+      "full_name": "t8y2/dbx",
+      "html_url": "https://github.com/t8y2/dbx",
+      "description": "15MB, lightweight, cross-platform database client. Supports MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, ClickHouse, SQL Server and more.15MB，轻量级跨平台数据库客户端。支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、DuckDB、ClickHouse、SQL Server 等。",
+      "topics": [
+        "clickhouse",
+        "database",
+        "database-client",
+        "database-management",
+        "duckdb",
+        "gui",
+        "mongodb",
+        "mysql",
+        "postgresql",
+        "redis",
+        "rust",
+        "sql-server",
+        "sqlite",
+        "tauri",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1722,
+      "forks_count": 122,
+      "open_issues_count": 71,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:54:09Z",
+      "created_at": "2026-04-29T03:00:36Z"
+    },
+    {
+      "full_name": "HzaCode/OneCite",
+      "html_url": "https://github.com/HzaCode/OneCite",
+      "description": "📚 An intelligent toolkit to automatically parse, complete, and format academic references.",
+      "topics": [
+        "agent-skills",
+        "arxiv",
+        "bibliography",
+        "bibtex",
+        "citation",
+        "citation-style-language",
+        "citeproc",
+        "cli",
+        "crossref",
+        "datacite",
+        "doi",
+        "latex",
+        "pubmed",
+        "python",
+        "reference-manager",
+        "semantic-scholar",
+        "zenodo"
+      ],
+      "language": "Python",
+      "stargazers_count": 59,
+      "forks_count": 8,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:53:45Z",
+      "created_at": "2025-08-12T02:58:21Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "fastapi/fastapi",
+      "html_url": "https://github.com/fastapi/fastapi",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "topics": [
+        "api",
+        "async",
+        "asyncio",
+        "fastapi",
+        "framework",
+        "json",
+        "json-schema",
+        "openapi",
+        "openapi3",
+        "pydantic",
+        "python",
+        "python-types",
+        "python3",
+        "redoc",
+        "rest",
+        "starlette",
+        "swagger",
+        "swagger-ui",
+        "uvicorn",
+        "web"
+      ],
+      "language": "Python",
+      "stargazers_count": 98382,
+      "forks_count": 9323,
+      "open_issues_count": 184,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-21T06:55:22Z",
+      "created_at": "2018-12-08T08:21:47Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <a href=\"https://fastapi.tiangolo.com\"><img src=\"https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png\" alt=\"FastAPI\"></a>\n</p>\n<p align=\"center\">\n    <em>FastAPI framework, high performance, easy to learn, fast to code, ready for production</em>\n</p>\n<p align=\"center\">\n<a href=\"https://github.com/fastapi/fastapi/actions?query=workflow%3ATest+event%3Apush+branch%3Amaster\">\n    <img src=\"https://github.com/fastapi/fastapi/actions/workflows/test.yml/badge.svg?event=push&branch=master\" alt=\"Test\">\n</a>\n<a href=\"https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/fastapi\">\n    <img src=\"https://coverage-badge.samuelcolvin.workers.dev/fastapi/fastapi.svg\" alt=\"Coverage\">\n</a>\n<a href=\"https://pypi.org/project/fastapi\">\n    <img src=\"https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package\" alt=\"Package version\">\n</a>\n<a href=\"https://pypi.org/project/fastapi\">\n    <img src=\"https://img.shields.io/pypi/pyversions/fastapi.svg?color=%2334D058\" alt=\"Supported Python versions\">\n</a>\n</p>\n\n---\n\n**Documentation**: [https://fastapi.tiangolo.com](https://fastapi.tiangolo.com)\n\n**Source Code**: [https://github.com/fastapi/fastapi](https://github.com/fastapi/fastapi)\n\n---\n\nFastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints.\n\nThe key features are:\n\n* **Fast**: Very high performance, on par with **NodeJS** and **Go** (thanks to Starlette and Pydantic). [One of the fastest Python frameworks available](#performance).\n* **Fast to code**: Increase the speed to develop features by about 200% to 300%. *\n* **Fewer bugs**: Reduce about 40% of human (developer) induced errors. *\n* **Intuitive**: Great editor support. <dfn title=\"also known as auto-complete, autocompletion, IntelliSense\">Completion</dfn> everywhere. Less time debugging.\n* **Easy**: Designed to be easy to use and learn. Less time reading docs.\n* **Short**: Minimize code duplication. Multiple features from each parameter declaration. Fewer bugs.\n* **Robust**: Get production-ready code. With automatic interactive documentation.\n* **Standards-based**: Based on (and fully compatible with) the open standards for APIs: [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (previously known as Swagger) and [JSON Schema](https://json-schema.org/).\n\n<small>* estimation based on tests conducted by an internal development team, building production applications.</small>\n\n## Sponsors\n\n<!-- sponsors -->\n### Keystone Sponsor\n\n<a href=\"https://fastapicloud.com\" target=\"_blank\" title=\"FastAPI Cloud. By the same team behind FastAPI. You code. We Cloud.\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/fastapicloud.png\"></a>\n\n### Gold Sponsors\n\n<a href=\"https://blockbee.io?ref=fastapi\" target=\"_blank\" title=\"BlockBee Cryptocurrency Payment Gateway\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/blockbee.png\"></a>\n<a href=\"https://github.com/scalar/scalar/?utm_source=fastapi&utm_medium=website&utm_campaign=main-badge\" target=\"_blank\" title=\"Scalar: Beautiful Open-Source API References from Swagger/OpenAPI files\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/scalar.svg\"></a>\n<a href=\"https://www.propelauth.com/?utm_source=fastapi&utm_campaign=1223&utm_medium=mainbadge\" target=\"_blank\" title=\"Auth, user management and more for your B2B product\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/propelauth.png\"></a>\n<a href=\"https://liblab.com?utm_source=fastapi\" target=\"_blank\" title=\"liblab - Generate SDKs from FastAPI\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/liblab.png\"></a>\n<a href=\"https://docs.render.com/deploy-fastapi?utm_source=deploydoc&utm_medium=referral&utm_campaign=fastapi\" target=\"_blank\" title=\"Deploy & scale any full-stack web app on Render. Focus on building apps, not infra.\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/render.svg\"></a>\n<a href=\"https://www.coderabbit.ai/?utm_source=fastapi&utm_medium=badge&utm_campaign=fastapi\" target=\"_blank\" title=\"Cut Code Review Time & Bugs in Half with CodeRabbit\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/coderabbit.png\"></a>\n<a href=\"https://subtotal.com/?utm_source=fastapi&utm_medium=sponsorship&utm_campaign=open-source\" target=\"_blank\" title=\"The Gold Standard in Retail Account Linking\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/subtotal.svg\"></a>\n<a href=\"https://docs.railway.com/guides/fastapi?utm_medium=integration&utm_source=docs&utm_campaign=fastapi\" target=\"_blank\" title=\"Deploy enterprise applications at startup speed\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/railway.png\"></a>\n<a href=\"https://serpapi.com/?utm_source=fastapi_website\" target=\"_blank\" title=\"SerpApi: Web Search API\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/serpapi.png\"></a>\n<a href=\"https://www.greptile.com/?utm_source=fastapi&utm_medium=sponsorship&utm_campaign=fastapi_sponsor_page\" target=\"_blank\" title=\"Greptile: The AI Code Reviewer\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/greptile.png\"></a>\n\n### Silver Sponsors\n\n<a href=\"https://databento.com/?utm_source=fastapi&utm_medium=sponsor&utm_content=display\" target=\"_blank\" title=\"Pay as you go for market data\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/databento.svg\"></a>\n<a href=\"https://www.svix.com/\" target=\"_blank\" title=\"Svix - Webhooks as a service\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/svix.svg\"></a>\n<a href=\"https://www.stainlessapi.com/?utm_source=fastapi&utm_medium=referral\" target=\"_blank\" title=\"Stainless | Generate best-in-class SDKs\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/stainless.png\"></a>\n<a href=\"https://www.permit.io/blog/implement-authorization-in-fastapi?utm_source=github&utm_medium=referral&utm_campaign=fastapi\" target=\"_blank\" title=\"Fine-Grained Authorization for FastAPI\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/permit.png\"></a>\n<a href=\"https://www.interviewpal.com/?utm_source=fastapi&utm_medium=open-source&utm_campaign=dev-hiring\" target=\"_blank\" title=\"InterviewPal - AI Interview Coach for Engineers and Devs\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/interviewpal.png\"></a>\n<a href=\"https://dribia.com/en/\" target=\"_blank\" title=\"Dribia - Data Science within your reach\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/dribia.png\"></a>\n<a href=\"https://talordata.com/?campaignid=oh5dVZ3Zc3YGiAI2&utm_source=fastapi&utm_term=fastapi\" target=\"_blank\" title=\"TalorData SERP API - Multi-Engine Search Results Data\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/talordata.png\"></a>\n\n<!-- /sponsors -->\n\n[Other sponsors](https://fastapi.tiangolo.com/fastapi-people/#sponsors)\n\n## Opinions\n\n\n\n<div class=\"only-github\" markdown=\"1\">\n\n\"_[...] I'm using **FastAPI** a ton these days. [...] I'm actually planning to use it for all of my team's **ML services at Microsoft**. Some of them are getting integrated into the core **Windows** product and some **Office** products._\"\n\n<div style=\"text-align: right; margin-right: 10%;\">Kabir Khan - <strong>Microsoft</strong> <a href=\"https://github.com/fastapi/fastapi/pull/26\"><small>(ref)</small></a></div>\n\n---\n\n\"_We adopted the **FastAPI** library to spawn a **REST** server that can be queried to obtain **predictions**. [for Ludwig]_\"\n\n<div style=\"text-align: right; margin-right: 10%;\">Piero Molino, Yaroslav Dudin, and Sai Sumanth Miryala - <strong>Uber</strong> <a href=\"https://eng.uber.com/ludwig-v0-2/\"><small>(ref)</small></a></div>\n\n---\n\n\"_**Netflix** is pleased to announce the open-source release of our **crisis management** orchestration framework: **Dispatch**! [built with **FastAPI**]_\"\n\n<div style=\"text-align: right; margin-right: 10%;\">Kevin Glisson, Marc Vilanova, Forest Monsen - <strong>Netflix</strong> <a href=\"https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072\"><small>(ref)</small></a></div>\n\n---\n\n\"_If anyone is looking to build a production Python API, I would highly recommend **FastAPI**. It is **beautifully designed**, **simple to use** and **highly scalable**, it has become a **key component** in our API first development strategy and is driving many automations and services such as our Virtual TAC Engineer._\"\n\n<div style=\"text-align: right; margin-right: 10%;\">Deon Pillsbury - <strong>Cisco</strong> <a href=\"https://www.linkedin.com/posts/deonpillsbury_cisco-cx-python-activity-6963242628536487936-trAp/\"><small>(ref)</small></a></div>\n\n---\n\n</div>\n\n## FastAPI Conf\n\n[**FastAPI Conf '26**](https://fastapiconf.com) is happening on **October 28, 2026** in **Amsterdam, NL**. All about FastAPI, right from the source. 🎤\n\n<a class=\"fastapi-feature-banner\" href=\"https://fastapiconf.com\"><img src=\"https://fastapi.tiangolo.com/img/fastapi-conf.jpeg\" alt=\"FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL\"></a>\n\n## FastAPI mini documentary\n\nThere's a [FastAPI mini documentary](https://www.youtube.com/watch?v=mpR8ngthqiE) released at the end of 2025, you can watch it online:\n\n<a class=\"fastapi-feature-banner\" href=\"https://www.youtube.com/watch?v=mpR8ngthqiE\"><img src=\"https://fastapi.tiangolo.com/img/fastapi-documentary.jpg\" alt=\"FastAPI Mini Documentary\"></a>\n\n## **Typer**, the FastAPI of CLIs\n\n<a href=\"https://typer.tiangolo.com\"><img src=\"https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg\" style=\"width: 20%;\"></a>\n\nIf you are building a <abbr title=\"Command Line Interface\">CLI</abbr> app to be used in the terminal instead of a web API, check out [**Typer**](https://typer.tiangolo.com/).\n\n**Typer** is FastAPI's little sibling. And it's intended to be the **FastAPI of CLIs**. ⌨️ 🚀\n\n## Requirements\n\nFastAPI stands on the shoulders of giants:\n\n* [Starlette](https://www.starlette.dev/) for the web parts.\n* [Pydantic](https://docs.pydantic.dev/) for the data parts.\n\n## Installation\n\nCreate and activate a [virtual environment](https://fastapi.tiangolo.com/virtual-environments/) and then install FastAPI:\n\n<div class=\"termy\">\n\n```console\n$ pip install \"fastapi[standard]\"\n\n---> 100%\n```\n\n</div>\n\n**Note**: Make sure you put `\"fastapi[standard]\"` in quotes to ensure it works in all terminals.\n\n## Example\n\n### Create it\n\nCreate a file `main.py` with:\n\n```Python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n\n@app.get(\"/\")\ndef read_root():\n    return {\"Hello\": \"World\"}\n\n\n@app.get(\"/items/{item_id}\")\ndef read_item(item_id: int, q: str | None = None):\n    return {\"item_id\": item_id, \"q\": q}\n```\n\n<details markdown=\"1\">\n<summary>Or use <code>async def</code>...</summary>\n\nIf your code uses `async` / `await`, use `async def`:\n\n```Python hl_lines=\"7  12\"\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n\n@app.get(\"/\")\nasync def read_root():\n    return {\"Hello\": \"World\"}\n\n\n@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int, q: str | None = None):\n    return {\"item_id\": item_id, \"q\": q}\n```\n\n**Note**:\n\nIf you don't know, check the _\"In a hurry?\"_ section about [`async` and `await` in the docs](https://fastapi.tiangolo.com/async/#in-a-hurry).\n\n</details>\n\n### Run it\n\nRun the server with:\n\n<div class=\"termy\">\n\n```console\n$ fastapi dev\n\n ╭────────── FastAPI CLI - Development mode ───────────╮\n │                                                     │\n │  Serving at: http://127.0.0.1:8000                  │\n │                                                     │\n │  API docs: http://127.0.0.1:8000/docs               │\n │                                                     │\n │  Running in development mode, for production use:   │\n │                                                     │\n │  fastapi run                                        │\n │                                                     │\n ╰─────────────────────────────────────────────────────╯\n\nINFO:     Will watch for changes in these directories: ['/home/user/code/awesomeapp']\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\nINFO:     Started reloader process [2248755] using WatchFiles\nINFO:     Started server process [2248757]\nINFO:     Waiting f",
+        "truncated": true,
+        "bytes": 23764,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "0.136.1",
+            "tag_name": "0.136.1",
+            "published_at": "2026-04-23T16:49:26Z",
+            "body_excerpt": "### Upgrades\r\n\r\n* ⬆️ Update Pydantic v2 code to address deprecations. PR [#15101](https://github.com/fastapi/fastapi/pull/15101) by [@svlandeg](https://github.com/svlandeg).\r\n\r\n### Internal\r\n\r\n* 🔨 Tweak translation script. PR [#15174](https://github.com/fastapi/fastapi/pull/15174) by [@YuriiMotov](https://github.com/YuriiMotov).\r\n* ⬆ Bump mkdocs-material from 9.7.1 to 9.7.6. PR [#15408](https://github.com/fastapi/fastapi/pull/15408) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump inline-snapshot from 0.31.1 to 0.32.6. PR [#15409](https://github.com/fastapi/fastapi/pull/15409) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump pytest-codspeed from 4.3.0 to 4.4.0. PR [#15407](https://github.com/fastapi/fastapi/pull/15407) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump pytest-cov from 7.0.0 to 7.1.0. PR [#15406](https://github.com/fastapi/fastapi/pull/15406) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump cloudflare/wrangler-action from 3.14.1 to 3.15.0. PR [#15405](https://github.com/fastapi/fastapi/pull/15405) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump mypy from 1.19.1 to 1.20.1. PR [#15410](https://github.com/fastapi/fastapi/pull/15410) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump python-dotenv from 1.2.1 to 1.2.2. PR [#15400](https://github.com/fastapi/fastapi/pull/15400) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump starlette from 0.52.1 to 1.0.0. PR [#15397](https://github.com/fastapi/fastapi/pull/15397) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump pygithub from 2.8.1 to 2.9.1. PR [#15396](https://github.com/fastapi/fastapi/pull/15396) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump pyjwt from 2.12.0 to 2.12.1. PR [#15393](https://github.com/fastapi/fastapi/pull/15393) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump zizmor from 1.23.1 to 1.24.1."
+          },
+          {
+            "name": "0.136.0",
+            "tag_name": "0.136.0",
+            "published_at": "2026-04-16T11:46:49Z",
+            "body_excerpt": "### Upgrades\r\n\r\n* ⬆️ Support free-threaded Python 3.14t. PR [#15149](https://github.com/fastapi/fastapi/pull/15149) by [@svlandeg](https://github.com/svlandeg)."
+          },
+          {
+            "name": "0.135.4",
+            "tag_name": "0.135.4",
+            "published_at": "2026-04-16T11:38:45Z",
+            "body_excerpt": "### Refactors\r\n\r\n* 🔥 Remove April Fool's `@app.vibe()` 🤪. PR [#15363](https://github.com/fastapi/fastapi/pull/15363) by [@tiangolo](https://github.com/tiangolo).\r\n\r\n### Internal\r\n\r\n* ⬆ Bump cryptography from 46.0.5 to 46.0.7. PR [#15314](https://github.com/fastapi/fastapi/pull/15314) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* ⬆ Bump strawberry-graphql from 0.307.1 to 0.312.3. PR [#15309](https://github.com/fastapi/fastapi/pull/15309) by [@dependabot[bot]](https://github.com/apps/dependabot).\r\n* 🔨 Add pre-commit hook to ensure latest release header has date. PR [#15293](https://github.com/fastapi/fastapi/pull/15293) by [@YuriiMotov](https://github.com/YuriiMotov)."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 15578,
+            "title": "fastapi[standard]>=0.112.0,<0.113.0",
+            "state": "closed",
+            "url": "https://github.com/fastapi/fastapi/issues/15578"
+          }
+        ]
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".python-version",
+        "CITATION.cff",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "docs",
+        "docs_src",
+        "fastapi-slim",
+        "fastapi",
+        "pyproject.toml",
+        "scripts",
+        "tests",
+        "uv.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://fastapi.tiangolo.com\"><img src=\"https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png\" alt=\"FastAPI\"></a> </p> <p align=\"center\"> <em>FastAPI framework, high performance, easy to learn, fast to code, ready for production</em> </p> <p align=\"center\"> <a href=\"https://github.com/fastapi/fastapi/actions?query=workflow%3ATest+event%3Apush+branch%3Amaster\"> <img src=\"https://github.com/fastapi/fastapi/actions/workflows/test.yml/badge.svg?event=push&branch=master\" alt=\"Test\"> </a> <a href=\"https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/fastapi\"> <img src=\"https://coverage-badge.samuelcolvin.workers.dev/fastapi/fastapi.svg\" alt=\"Coverage\"> </a> <a href=\"https://pypi.org/project/fastapi\"> <img src=\"https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package\" alt=\"Package version\"> </a> <a href=\"https://pypi.org/project/fastapi\"> <img src=\"https://img.shields.io/pypi/pyversions/fastapi.svg?color=%2334D058\" alt=\"Supported Python versions\"> </a> </p>",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 2)",
+          "excerpt": "**Source Code**: [https://github.com/fastapi/fastapi](https://github.com/fastapi/fastapi)",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 3)",
+          "excerpt": "FastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints.",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 4)",
+          "excerpt": "* **Fast**: Very high performance, on par with **NodeJS** and **Go** (thanks to Starlette and Pydantic). [One of the fastest Python frameworks available](#performance). * **Fast to code**: Increase the speed to develop features by about 200% to 300%. * * **Fewer bugs**: Reduce about 40% of human (developer) induced errors. * * **Intuitive**: Great editor support. <dfn title=\"also known as auto-complete, autocompletion, IntelliSense\">Completion</dfn> everywhere. Less time debugging. * **Easy**: Designed to be easy to use and learn. Less time reading docs. * **Short**: Minimize code duplication. Multiple features from each parameter declaration. Fewer bugs. * **Robust**: Get production-ready code. With automatic interactive documentation. * **Standards-based**: Based on (and fully compatible with) the open standards for APIs: [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (previously known as Swagger) and [JSON Schema](https://json-schema.org/).",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<small>* estimation based on tests conducted by an internal development team, building production applications.</small>",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 6)",
+          "excerpt": "<a href=\"https://fastapicloud.com\" target=\"_blank\" title=\"FastAPI Cloud. By the same team behind FastAPI. You code. We Cloud.\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/fastapicloud.png\"></a>",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 7)",
+          "excerpt": "<a href=\"https://blockbee.io?ref=fastapi\" target=\"_blank\" title=\"BlockBee Cryptocurrency Payment Gateway\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/blockbee.png\"></a> <a href=\"https://github.com/scalar/scalar/?utm_source=fastapi&utm_medium=website&utm_campaign=main-badge\" target=\"_blank\" title=\"Scalar: Beautiful Open-Source API References from Swagger/OpenAPI files\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/scalar.svg\"></a> <a href=\"https://www.propelauth.com/?utm_source=fastapi&utm_campaign=1223&utm_medium=mainbadge\" target=\"_blank\" title=\"Auth, user management and more for your B2B product\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/propelauth.png\"></a> <a href=\"https://liblab.com?utm_source=fastapi\" target=\"_blank\" title=\"liblab - Generate SDKs from FastAPI\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/liblab.png\"></a> <a href=\"https://docs.render.com/deploy-fastapi?utm_source=deploydoc&utm_medium=referral&utm_campaign=fastapi\" target=\"_blank\" title=\"Deploy & scale any full-stack web app on Render. Focus on building apps, not infra.\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/render.svg\"></a> <a href=\"https://www.coderabbit.ai/?utm_s…",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/fastapi/fastapi#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<a href=\"https://databento.com/?utm_source=fastapi&utm_medium=sponsor&utm_content=display\" target=\"_blank\" title=\"Pay as you go for market data\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/databento.svg\"></a> <a href=\"https://www.svix.com/\" target=\"_blank\" title=\"Svix - Webhooks as a service\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/svix.svg\"></a> <a href=\"https://www.stainlessapi.com/?utm_source=fastapi&utm_medium=referral\" target=\"_blank\" title=\"Stainless | Generate best-in-class SDKs\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/stainless.png\"></a> <a href=\"https://www.permit.io/blog/implement-authorization-in-fastapi?utm_source=github&utm_medium=referral&utm_campaign=fastapi\" target=\"_blank\" title=\"Fine-Grained Authorization for FastAPI\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/permit.png\"></a> <a href=\"https://www.interviewpal.com/?utm_source=fastapi&utm_medium=open-source&utm_campaign=dev-hiring\" target=\"_blank\" title=\"InterviewPal - AI Interview Coach for Engineers and Devs\"><img src=\"https://fastapi.tiangolo.com/img/sponsors/interviewpal.png\"></a> <a href=\"https://dribia.com/en/\" target=\"_blank\" title=\"Dribia - Data Science within your …",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/fastapi/fastapi/issues/15578",
+          "title": "fastapi[standard]>=0.112.0,<0.113.0",
+          "excerpt": "fastapi[standard]>=0.112.0,<0.113.0 (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "number": 15578
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/fastapi/fastapi/releases",
+          "title": "0.136.1",
+          "excerpt": "### Upgrades * ⬆️ Update Pydantic v2 code to address deprecations. PR [#15101](https://github.com/fastapi/fastapi/pull/15101) by [@svlandeg](https://github.com/svlandeg). ### Internal * 🔨 Tweak translation script. PR [#15174](https://github.com/fastapi/fastapi/pull/15174) by [@YuriiMotov](https://github.com/YuriiMotov). * ⬆ Bump mkdocs-material from 9.7.1 to 9.7.6. PR [#15408](https://github.com/fastapi/fastapi/pull/15408) by [@dependabot[bot]](https://github.com/apps/dependabot). * ⬆ Bump inline-snapshot from 0.31.1 to 0.32.6. PR [#15409](https://github.com/fastapi/fastapi/pull/15409) by [@dependabot[bot]](https://github.com/apps/dependabot). * ⬆ Bump pytest-codspeed from 4.3.0 to 4.4.0. PR [#15407](https://github.com/fastapi/fastapi/pull/15407) by [@dependabot[bot]](https://github.com/apps/dependabot). * ⬆ Bump pytest-cov from 7.0.0 to 7.1.0. PR [#15406](https://github.com/fastapi/fastapi/pull/15406) by [@dependabot[bot]](https://github.com/apps/dependabot). * ⬆ Bump cloudflare/wrangler-action from 3.14.1 to 3.15.0. PR [#15405](https://github.com/fastapi/fastapi/pull/15405) by [@dependabot[bot]](https://github.com/apps/dependabot). * ⬆ Bump mypy from 1.19.1 to 1.20.1. PR [#1541…",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "tag_name": "0.136.1",
+            "published_at": "2026-04-23T16:49:26Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/fastapi/fastapi/releases",
+          "title": "0.136.0",
+          "excerpt": "### Upgrades * ⬆️ Support free-threaded Python 3.14t. PR [#15149](https://github.com/fastapi/fastapi/pull/15149) by [@svlandeg](https://github.com/svlandeg).",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "tag_name": "0.136.0",
+            "published_at": "2026-04-16T11:46:49Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/fastapi/fastapi/releases",
+          "title": "0.135.4",
+          "excerpt": "### Refactors * 🔥 Remove April Fool's `@app.vibe()` 🤪. PR [#15363](https://github.com/fastapi/fastapi/pull/15363) by [@tiangolo](https://github.com/tiangolo). ### Internal * ⬆ Bump cryptography from 46.0.5 to 46.0.7. PR [#15314](https://github.com/fastapi/fastapi/pull/15314) by [@dependabot[bot]](https://github.com/apps/dependabot). * ⬆ Bump strawberry-graphql from 0.307.1 to 0.312.3. PR [#15309](https://github.com/fastapi/fastapi/pull/15309) by [@dependabot[bot]](https://github.com/apps/dependabot). * 🔨 Add pre-commit hook to ensure latest release header has date. PR [#15293](https://github.com/fastapi/fastapi/pull/15293) by [@YuriiMotov](https://github.com/YuriiMotov).",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "tag_name": "0.135.4",
+            "published_at": "2026-04-16T11:38:45Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/fastapi/fastapi",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .pre-commit-config.yaml, .python-version, CITATION.cff, CONTRIBUTING.md, LICENSE, README.md, SECURITY.md, docs, docs_src, fastapi-slim, fastapi, pyproject.toml, scripts, tests, uv.lock",
+          "fetched_at": "2026-05-21T06:55:25.161Z",
+          "meta": {
+            "repo_full_name": "fastapi/fastapi",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "t8y2/dbx",
+      "html_url": "https://github.com/t8y2/dbx",
+      "description": "15MB, lightweight, cross-platform database client. Supports MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, ClickHouse, SQL Server and more.15MB，轻量级跨平台数据库客户端。支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、DuckDB、ClickHouse、SQL Server 等。",
+      "topics": [
+        "clickhouse",
+        "database",
+        "database-client",
+        "database-management",
+        "duckdb",
+        "gui",
+        "mongodb",
+        "mysql",
+        "postgresql",
+        "redis",
+        "rust",
+        "sql-server",
+        "sqlite",
+        "tauri",
+        "vue"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 1722,
+      "forks_count": 122,
+      "open_issues_count": 71,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:54:09Z",
+      "created_at": "2026-04-29T03:00:36Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n  <h2>40+ databases in 15 MB. Desktop & Docker self-hosting, with built-in AI assistant.</h2>\n\n  <p>\n    <img src=\"https://dl.dbxio.com/assets/readme-hero-20260517.png\" alt=\"DBX screenshot\" width=\"820\" />\n  </p>\n\n  <p>\n    <a href=\"https://github.com/t8y2/dbx/releases\"><img src=\"https://img.shields.io/github/downloads/t8y2/dbx/total?style=for-the-badge&color=blue\" /></a>\n    <a href=\"https://github.com/t8y2/dbx/graphs/contributors\"><img src=\"https://img.shields.io/github/contributors/t8y2/dbx?style=for-the-badge\" /></a>\n    <a href=\"https://discord.gg/W7NyVDRt6a\"><img src=\"https://dcbadge.limes.pink/api/server/W7NyVDRt6a\" alt=\"Join Discord\" /></a>\n    <a href=\"https://qm.qq.com/cgi-bin/qm/qr?k=&group_code=1087880322\"><img src=\"https://img.shields.io/badge/QQ_群-1087880322-EB1923?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iODYiIHdpZHRoPSI4NiIgdmlld0JveD0iMCAwIDEyMCAxNDUiPjxwYXRoIGZpbGw9IiNmYWFiMDciIGQ9Ik02MC41MDMgMTQyLjIzN2MtMTIuNTMzIDAtMjQuMDM4LTQuMTk1LTMxLjQ0NS0xMC40Ni0zLjc2MiAxLjEyNC04LjU3NCAyLjkzMi0xMS42MSA1LjE3NS0yLjYgMS45MTgtMi4yNzUgMy44NzQtMS44MDcgNC42NjMgMi4wNTYgMy40NyAzNS4yNzMgMi4yMTYgNDQuODYyIDEuMTM2em0wIDBjMTIuNTM1IDAgMjQuMDM5LTQuMTk1IDMxLjQ0Ny0xMC40NiAzLjc2IDEuMTI0IDguNTczIDIuOTMyIDExLjYxIDUuMTc1IDIuNTk4IDEuOTE4IDIuMjc0IDMuODc0IDEuODA1IDQuNjYzLTIuMDU2IDMuNDctMzUuMjcyIDIuMjE2LTQ0Ljg2MiAxLjEzNnptMCAwIi8+PHBhdGggZD0iTTYwLjU3NiA2Ny4xMTljMjAuNjk4LS4xNCAzNy4yODYtNC4xNDcgNDIuOTA3LTUuNjgzIDEuMzQtLjM2NyAyLjA1Ni0xLjAyNCAyLjA1Ni0xLjAyNC4wMDUtLjE4OS4wODUtMy4zNy4wODUtNS4wMUMxMDUuNjI0IDI3Ljc2OCA5Mi41OC4wMDEgNjAuNSAwIDI4LjQyLjAwMSAxNS4zNzUgMjcuNzY5IDE1LjM3NSA1NS40MDFjMCAxLjY0Mi4wOCA0LjgyMi4wODYgNS4wMSAwIDAgLjU4My42MTUgMS42NS45MTMgNS4xOSAxLjQ0NCAyMi4wOSA1LjY1IDQzLjMxMiA1Ljc5NXptNTYuMjQ1IDIzLjAyYy0xLjI4My00LjEyOS0zLjAzNC04Ljk0NC00LjgwOC0xMy41NjggMCAwLTEuMDItLjEyNi0xLjUzNy4wMjMtMTUuOTEzIDQuNjIzLTM1LjIwMiA3LjU3LTQ5LjkgNy4zOTJoLS4xNTNjLTE0LjYxNi4xNzUtMzMuNzc0LTIuNzM3LTQ5LjYzNC03LjMxNS0uNjA2LS4xNzUtMS44MDItLjEtMS44MDItLjEtMS43NzQgNC42MjQtMy41MjUgOS40NC00LjgwOCAxMy41NjgtNi4xMTkgMTkuNjktNC4xMzYgMjcuODM4LTIuNjI3IDI4LjAyIDMuMjM5LjM5MiAxMi42MDYtMTQuODIxIDEyLjYwNi0xNC44MjEgMCAxNS40NTkgMTMuOTU3IDM5LjE5NSA0NS45MTggMzkuNDEzaC44NDhjMzEuOTYtLjIxOCA0NS45MTctMjMuOTU0IDQ1LjkxNy0zOS40MTMgMCAwIDkuMzY4IDE1LjIxMyAxMi42MDcgMTQuODIyIDEuNTA4LS4xODMgMy40OTEtOC4zMzItMi42MjctMjguMDIxIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTQ5LjA4NSA0MC44MjRjLTQuMzUyLjE5Ny04LjA3LTQuNzYtOC4zMDQtMTEuMDYzLS4yMzYtNi4zMDUgMy4wOTgtMTEuNTc2IDcuNDUtMTEuNzczIDQuMzQ3LS4xOTUgOC4wNjQgNC43NiA4LjMgMTEuMDY1LjIzOCA2LjMwNi0zLjA5NyAxMS41NzctNy40NDYgMTEuNzcxbTMxLjEzMy0xMS4wNjNjLS4yMzMgNi4zMDItMy45NTEgMTEuMjYtOC4zMDMgMTEuMDYzLTQuMzUtLjE5NS03LjY4NC01LjQ2NS03LjQ0Ni0xMS43Ny4yMzYtNi4zMDUgMy45NTItMTEuMjYgOC4zLTExLjA2NiA0LjM1Mi4xOTcgNy42ODYgNS40NjggNy40NDkgMTEuNzczIi8+PHBhdGggZmlsbD0iI2ZhYWIwNyIgZD0iTTg3Ljk1MiA0OS43MjVDODYuNzkgNDcuMTUgNzUuMDc3IDQ0LjI4IDYwLjU3OCA0NC4yOGgtLjE1NmMtMTQuNSAwLTI2LjIxMiAyLjg3LTI3LjM3NSA1LjQ0NmEuODYzLjg2MyAwIDAwLS4wODUuMzY3Ljg4Ljg4IDAgMDAuMTYuNDk2Yy45OCAxLjQyNyAxMy45ODUgOC40ODcgMjcuMyA4LjQ4N2guMTU2YzEzLjMxNCAwIDI2LjMxOS03LjA1OCAyNy4yOTktOC40ODdhLjg3My44NzMgMCAwMC4xNi0uNDk4Ljg1Ni44NTYgMCAwMC0uMDg1LS4zNjUiLz48cGF0aCBkPSJNNTQuNDM0IDI5Ljg1NGMuMTk5IDIuNDktMS4xNjcgNC43MDItMy4wNDYgNC45NDMtMS44ODMuMjQyLTMuNTY4LTEuNTgtMy43NjgtNC4wNy0uMTk3LTIuNDkyIDEuMTY3LTQuNzA0IDMuMDQzLTQuOTQ0IDEuODg2LS4yNDQgMy41NzQgMS41OCAzLjc3MSA0LjA3bTExLjk1Ni44MzNjLjM4NS0uNjg5IDMuMDA0LTQuMzEyIDguNDI3LTIuOTkzIDEuNDI1LjM0NyAyLjA4NC44NTcgMi4yMjMgMS4wNTcuMjA1LjI5Ni4yNjIuNzE4LjA1MyAxLjI4Ni0uNDEyIDEuMTI2LTEuMjYzIDEuMDk1LTEuNzM0Ljg3NS0uMzA1LS4xNDItNC4wODItMi42Ni03LjU2MiAxLjA5Ny0uMjQuMjU3LS42NjguMzQ2LTEuMDczLjA0LS40MDctLjMwOC0uNTc0LS45My0uMzM0LTEuMzYyIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTYwLjU3NiA4My4wOGgtLjE1M2MtOS45OTYuMTItMjIuMTE2LTEuMjA0LTMzLjg1NC0zLjUxOC0xLjAwNCA1LjgxOC0xLjYxIDEzLjEzMi0xLjA5IDIxLjg1MyAxLjMxNiAyMi4wNDMgMTQuNDA3IDM1LjkgMzQuNjE0IDM2LjFoLjgyYzIwLjIwOC0uMiAzMy4yOTgtMTQuMDU3IDM0LjYxNi0zNi4xLjUyLTguNzIzLS4wODctMTYuMDM1LTEuMDkyLTIxLjg1NC0xMS43MzkgMi4zMTUtMjMuODYyIDMuNjQtMzMuODYgMy41MTgiLz48cGF0aCBmaWxsPSIjZWIxOTIzIiBkPSJNMzIuMTAyIDgxLjIzNXYyMS42OTNzOS45MzcgMi4wMDQgMTkuODkzLjYxNlY4My41MzVjLTYuMzA3LS4zNTctMTMuMTA5LTEuMTUyLTE5Ljg5My0yLjMiLz48cGF0aCBmaWxsPSIjZWIxOTIzIiBkPSJNMTA1LjUzOSA2MC40MTJzLTE5LjMzIDYuMTAyLTQ0Ljk2MyA2LjI3NWgtLjE1M2MtMjUuNTkxLS4xNzItNDQuODk2LTYuMjU1LTQ0Ljk2Mi02LjI3NUw4Ljk4NyA3Ni41N2MxNi4xOTMgNC44ODIgMzYuMjYxIDguMDI4IDUxLjQzNiA3Ljg0NWguMTUzYzE1LjE3NS4xODMgMzUuMjQyLTIuOTYzIDUxLjQzNy03Ljg0NXptMCAwIi8+PC9zdmc+\" alt=\"Join QQ Group\" /></a>\n    <a href=\"https://docs.qq.com/doc/DVVhMY0h1ekJqc0tz\" target=\"_blank\"><img src=\"https://img.shields.io/badge/微信群-Join-07C160?style=for-the-badge&logo=wechat&logoColor=white\" alt=\"Join WeChat Group\" /></a>\n  </p>\n  <p>\n    <img src=\"https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/DuckDB-FFF000?logo=duckdb&logoColor=black\" />\n    <img src=\"https://img.shields.io/badge/ClickHouse-FFCC01?logo=clickhouse&logoColor=black\" />\n    <img src=\"https://img.shields.io/badge/SQL%20Server-CC2927?logo=microsoftsqlserver&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/Oracle-F80000?logo=oracle&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/Elasticsearch-005571?logo=elasticsearch&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/TiDB-DC150B?logo=tidb&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/Doris-0052CC?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/SelectDB-22C1C3?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/StarRocks-5C2D91?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/Redshift-8C4FFF?logo=amazonredshift&logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/DM-3857FF?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/OceanBase-006AFF?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/openGauss-2B7BD9?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/GaussDB-E60012?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/KingBase-003B8E?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/TDengine-2F6FFF?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/CockroachDB-6933FF?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/JDBC-4B5563?logoColor=white\" />\n    <img src=\"https://img.shields.io/badge/and%20more...-555555?logoColor=white\" />\n  </p>\n  <p>\n    English | <a href=\"README.zh-CN.md\">前往中文版本</a>\n  </p>\n\n  <p>\n    <a href=\"docs/screenshot-light.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-light.png\" width=\"395\" /></a>\n    <a href=\"docs/screenshot-dark.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-dark.png\" width=\"395\" /></a>\n  </p>\n  <p>\n    <a href=\"docs/screenshot-er.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-er.png\" width=\"395\" /></a>\n    <a href=\"docs/screenshot-grid.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-grid.png\" width=\"395\" /></a>\n  </p>\n</div>\n\n## Features\n\n### 40+ Databases, One Tool\n\nMySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, ClickHouse, SQL Server, Oracle, Elasticsearch, MariaDB, TiDB, OceanBase, openGauss, GaussDB, KingBase, Vastbase, GoldenDB, Doris, SelectDB, StarRocks, Redshift, DM, TDengine, CockroachDB, Access, HighGo, and more. Agent/JDBC-oriented profiles extend DBX to H2, Snowflake, Trino, Hive, DB2, Informix, Neo4j, Cassandra, BigQuery, Kylin, SunDB, and custom JDBC connections. All in a single ~15 MB app. No bundled Chromium.\n\n### Query Editor\n\nCodeMirror 6 with SQL syntax highlighting, metadata-aware autocomplete, `Cmd+Enter` execution, selected SQL execution, SQL formatting, diagnostics, and 9 editor themes. Persistent query history, saved SQL snippets, tab restore, and SQL file execution keep repeat work close at hand.\n\n### AI SQL Assistant\n\nDescribe what you want in plain language — get SQL back. DBX can explain queries, optimize SQL, fix errors, and run AI-generated SQL through built-in safety checks. Works with Claude, OpenAI, local models, or any OpenAI-compatible endpoint.\n\n### Data Grid\n\nVirtual-scrolled table that handles large result sets. Inline editing, SQL preview before save, WHERE / ORDER BY controls, DataGrip-style filters, LIKE / NOT LIKE context filters, sorting, full-text search, pagination, column resize, auto-fit, row numbers, zebra stripes, and full cell details. Export or copy as CSV, JSON, Markdown, XLSX, or INSERT statements.\n\n### Schema Tools\n\n- **Schema browser** — databases, schemas, tables, columns, indexes, foreign keys, triggers, with sidebar search & pin\n- **Object browser** — grouped procedures, functions, views, and source editing where supported\n- **Table structure editor** — reviewable column and index changes for supported engines\n- **ER diagram** — visualize table relationships\n- **Schema diff** — compare structures across connections\n- **Explain plan** — visual query execution plan\n- **Field lineage** — column-level lineage analysis\n- **Database search** — find objects across large schemas\n\n### Data Operations\n\n- **Table import** — CSV, Excel\n- **Data transfer** — migrate between databases\n- **Database export** — full database dump\n- **Data compare** — compare table data and review synchronization output\n- **SQL file execution** — run `.sql` files directly\n- **File preview** — drag & drop Parquet, CSV, JSON to preview instantly (powered by DuckDB)\n- **Connection import** — bring connection profiles from DBeaver or Navicat\n\n### Specialized Browsers\n\n- **Redis** — key pattern search, batch key operations, command runner, TTL editing, and all data types (String, Hash, List, Set, ZSet, Stream)\n- **MongoDB** — document CRUD with pagination, Atlas & replica set URL connection\n\n### Safety & Connectivity\n\nSSH tunnel (key & password) · database and AI proxy settings · auto-reconnect on connection loss · confirmation dialogs for destructive operations · encrypted config export/import · color-coded connections · driver store and optional JDBC plugin\n\n### Polished UI\n\nDark mode with native title bar sync · 9 editor themes · English, 简体中文 & Español · layout preferences · built-in auto-update\n\n## AI Agent Integration (MCP)\n\nDBX provides an [MCP server](packages/mcp-server/) that lets AI coding agents query your databases using connections already configured in DBX.\n\n```bash\nnpx @dbx-app/mcp-server\n```\n\nAdd to your `.mcp.json`:\n\n```json\n{\n  \"mcpServers\": {\n    \"dbx\": { \"command\": \"npx\", \"args\": [\"-y\", \"@dbx-app/mcp-server\"] }\n  }\n}\n```\n\nWorks with Claude Code, Cursor, Windsurf, and any MCP-compatible agent. Supports listing connections, browsing tables, executing SQL, and opening tables directly in DBX's UI.\n\nDBX also provides a dedicated CLI package for terminal, script, and Codex workflows:\n\n```bash\nnpm install -g @dbx-app/cli\ndbx connections list --json\ndbx query local \"select 1\" --json\n```\n\nSee the [MCP server README](packages/mcp-server/README.md) and [CLI README](packages/cli/README.md) for details.\n\n## Install\n\nDownload the latest release from the [Releases](https://github.com/t8y2/dbx/releases/latest) page.\n\n**Homebrew (macOS):**\n\n```bash\nbrew install --cask t8y2/tap/dbx\n```\n\n**Scoop (Windows):**\n\n```bash\nscoop bucket add dbx https://github.com/t8y2/scoop-bucket\nscoop install dbx\n```\n\n## Self-Hosted (Docker)\n\nDBX provides a web version that can be deployed via Docker.\n\n```bash\ndocker run -d --name dbx -p 4224:4224 -v dbx-data:/app/data t8y2/dbx\n```",
+        "truncated": true,
+        "bytes": 16048,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v0.5.16",
+            "tag_name": "v0.5.16",
+            "published_at": "2026-05-21T04:16:11Z",
+            "body_excerpt": "### 新功能\n\n- **查询快捷键** — 新增快速执行查询的快捷键，减少鼠标操作，提高日常 SQL 编辑效率\n- **MongoDB 视图模式记忆** — 记住 MongoDB 浏览器的视图模式偏好，切换集合后无需重复选择 (contributed by @baizhi958216)\n- **结果网格复制为 UPDATE** — 支持将当前行内容快速复制为 `UPDATE` 语句，便于生成修改脚本\n- **Redis 键浏览体验增强** — 优化 Redis key browser 的日常浏览与操作流程\n- **单元格详情编辑器** — 新增更适合编辑复杂内容的单元格详情视图\n- **表过滤面板可调整大小** — 支持拖拽调整表过滤区域尺寸，提升大表筛选时的可读性\n- **AI 模型列表自动获取** — 在 AI 设置中自动拉取并选择可用模型，减少手动输入模型 ID 的出错率 (contributed by @Abeautifulsnow)\n- **DBX 深链接** — 支持通过 `dbx://connection/new` 深链接打开应用并预填连接信息，便于从网页、文档或脚本快速发起连接 (contributed by @yavon007) (closes #347)\n\n### 改进\n\n- **无主键表编辑体验** — 改进无主键 SQL 表的编辑能力，并在插入行保存后自动刷新结果\n- **静默更新提醒** — 后台更新检查改为仅显示徽标提示，减少打断\n- **SAP HANA 连接兼容性** — 支持 SAP HANA tenant routing，改善特定部署下的连接体验\n- **SQL 缩放交互** — 优化编辑器缩放手感，让 SQL 阅读和演示更顺滑\n- **MySQL 时区处理** — 保留会话时区设置，减少时间字段显示偏差\n- **工具栏提示稳定性** — 改进下拉菜单 tooltip 表现，减少悬浮提示丢失\n- **Windows 桌面体验** — 提升任务栏和托盘图标可见性，并修复应用驻留托盘时双击桌面图标无法正确唤起窗口的问题\n\n### 修复\n\n- **macOS 全屏标题栏间隙** — 修复 macOS 全屏模式下工具栏顶部留白异常的问题\n- **标签切换编辑丢失** — 修复切换标签页时未保存的行编辑内容可能丢失的问题 (closes #362)\n- **MySQL DELIMITER 崩溃** — 修复 `DELIMITER` 跟在包含非 ASCII 注释的 SQL 后面时可能导致崩溃的问题 (closes #360)\n- **数据库树搜索结果保持** — 修复侧边栏搜索后数据库子节点状态无法正确保留的问题\n- **SQL Server 事务控制** — 修复部分事务控制语句未按正确执行路径发送而导致失败的问题\n- **SQL 编辑器查找** — 修复 SQL 编辑器中 `Ctrl+F` 的行为，改进查找替换体验\n\n### 下载安装\n\n#### 系统要求\n\n| 操作系统 | 最低版本 | 架构 |\n| ------- | ------- | --- |\n| Windows | Windows 10 或更高版本 | x64 |\n| macOS | macOS 12 (Monterey) 或更高版本 | Intel (x64) / Apple Silicon (arm64) |\n| Linux | 见下表 | x64 |\n\n#### Windows\n\n| 文件 | 说明 |\n| --- | --- |\n| `DBX_0.5.16_x64-setup.exe` | **推荐** — NSIS 安装包，支持自动更新 |\n| `DBX_0.5.16_x64_en-US.msi` | MSI 安装包，适用于企业部署 |\n\n**Scoop:**\n```bash\nscoop bucket add dbx https://github.com/t8y2/scoop-bucket\nscoop install dbx\n```\n\n更新：\n```bash\nscoop update dbx\n```\n\n#### macOS\n\n| 文件 | 说明 |\n| --- | --- |\n| `DBX_0.5.16_aarch64.dmg` | **推荐** — 适用于 Apple Silicon (M1/M2/M3/M4) |\n| `DBX_0.5.16_x64.dmg` | 适用于 Intel Mac |\n\n**Homebrew:**\n```bash\nbrew install --cask t8y2/tap/dbx\n```\n\n更新：\n```bash\nbrew upgrade --cask t8y2/tap/dbx\n```\n\n####"
+          },
+          {
+            "name": "v0.5.15",
+            "tag_name": "v0.5.15",
+            "published_at": "2026-05-20T03:49:31Z",
+            "body_excerpt": "### 新功能\n\n- **离线驱动导入** — 支持通过 ZIP 包或本地 JAR 文件离线导入 JDBC 驱动，方便无法访问外网的环境使用\n\n### 改进\n\n- **数据网格体验优化** — 改进单元格详情编辑器（含日期时间内联编辑）、Enter 键编辑和键盘导航、转置视图的列宽调整和记录切换等多项交互体验 (contributed by @yavon007)\n\n### 修复\n\n- **MCP 数据库上下文** — 修复 MCP 请求未正确传递当前数据库上下文到后端的问题\n- **SQL Server 事务语法** — 修复 SQL Server 显式事务使用 `BEGIN` 而非 `BEGIN TRANSACTION` 导致执行失败的问题\n- **Agent 大响应崩溃** — 限制 Agent 单行读取大小，防止超大响应导致内存溢出崩溃\n- **MySQL TLS 连接** — 修复 MySQL TLS 连接意外关闭后未自动降级为非 SSL 重试的问题\n- **插件进程稳定性** — 加固插件进程的 IO 处理，提升连接稳定性\n- **Elasticsearch 聚合查询** — 修复 Elasticsearch 聚合查询结果无法正确解析为表格格式的问题 (closes #344)\n- **MySQL 元数据排序规则** — 修复 MariaDB 中 `information_schema` 表排序规则不一致导致元数据查询失败的问题 (contributed by @yavon007)\n- **驱动下载校验** — 移除驱动下载时不必要的 SHA-256 校验，避免校验失败阻止安装\n\n### 下载安装\n\n#### 系统要求\n\n| 操作系统 | 最低版本 | 架构 |\n| ------- | ------- | --- |\n| Windows | Windows 10 或更高版本 | x64 |\n| macOS | macOS 12 (Monterey) 或更高版本 | Intel (x64) / Apple Silicon (arm64) |\n| Linux | 见下表 | x64 |\n\n#### Windows\n\n| 文件 | 说明 |\n| --- | --- |\n| `DBX_0.5.15_x64-setup.exe` | **推荐** — NSIS 安装包，支持自动更新 |\n| `DBX_0.5.15_x64_en-US.msi` | MSI 安装包，适用于企业部署 |\n\n**Scoop:**\n```\nscoop bucket add dbx https://github.com/t8y2/scoop-bucket\nscoop install dbx\n```\n\n更新：\n```\nscoop update dbx\n```\n\n#### macOS\n\n| 文件 | 说明 |\n| --- | --- |\n| `DBX_0.5.15_aarch64.dmg` | **推荐** — 适用于 Apple Silicon (M1/M2/M3/M4) |\n| `DBX_0.5.15_x64.dmg` | 适用于 Intel Mac |\n\n**Homebrew:**\n```\nbrew install --cask t8y2/tap/dbx\n```\n\n更新：\n```\nbrew upgrade --cask t8y2/tap/dbx\n```\n\n#### Linux\n\n| 发行版 | 推荐格式 | 安装方式 |\n| ----- | ------- | ------- |\n| Ubuntu / Debian / Linux Mint / Pop!_OS | `.deb` | `sudo dpkg -i DBX_*.deb` 或 `sudo apt install ./DBX_*.deb` |\n| Fedora / RHEL / CentOS / Rocky Linux | `.rpm` | `sudo rpm -i DBX-*.rpm` 或 `sudo dnf install ./DBX-*.rpm` |\n| openSUSE | `.rpm` | `sudo zypper install ./DBX-*.rpm` |\n| Arch Linux / Manjaro | `.AppImage` | 添加执行权限后运行 |\n| 其他发行版 | `.AppImage` | `chmod +x DBX_*.AppImage && ./DBX_*.AppImage` |"
+          },
+          {
+            "name": "v0.5.14",
+            "tag_name": "v0.5.14",
+            "published_at": "2026-05-19T13:40:32Z",
+            "body_excerpt": "### 新功能\n\n- **批量插入行** — 在数据网格中一次插入多行数据时，合并为单条 INSERT 语句执行，提升批量操作效率\n- **MySQL DELIMITER 语法** — SQL 编辑器支持 MySQL 的 DELIMITER 语法，正确分割存储过程等多语句脚本\n- **数据库导出搜索** — 导出对话框新增表搜索过滤功能，快速定位目标表\n- **日期时间编辑器** — 数据网格中日期、时间、时间戳类型的单元格使用专用编辑器，输入更直观\n- **DuckDB 创建数据库** — 支持在连接表单中直接创建 DuckDB 数据库文件\n- **内存数据库** — SQLite 和 DuckDB 支持以内存模式连接（`:memory:`）\n- **DDL 能力矩阵** — 表结构编辑器根据数据库类型自动启用/禁用 DDL 操作\n- **SQL 自动补全优化** — 改善 SQL 编辑器自动补全的界面交互体验\n- **保存分页大小** — 查询结果的每页行数设置将持久化保存\n- **Oracle 查询优化** — 使用直接 SQL 替代 JDBC 元数据 API，加速 Oracle 元数据查询\n\n### 改进\n\n- **Agent 协议重构** — 全面重构 Agent 驱动通信协议，新增兼容握手机制和能力矩阵，提升驱动兼容性\n\n### 修复\n\n- **OceanBase 兼容** — 修复 OceanBase (MySQL 兼容模式) 中 COLLATE 不一致导致元数据查询失败的问题\n- **SQL Server ORDER BY** — 修复 SQL Server 包装查询时未正确移除 ORDER BY 的问题\n- **ClickHouse 元数据** — 修复 ClickHouse 的 schema 元数据数据库解析错误\n- **MongoDB 认证库** — 修复 MongoDB 无法配置认证数据库 (authSource) 的问题\n- **思考模型超时** — 延长 AI 思考模型的超时时间和 token 预算\n- **IME 回车** — 修复中文等输入法组合状态下误触发发送的问题\n- **数据网格状态** — 切换结果集时正确丢弃未提交的编辑\n- **格式化按钮遮挡** — 加宽表头控件宽度，避免格式化按钮被遮挡\n- **分页行数** — 修复数据网格未正确遵守分页大小限制的问题\n- **无 Catalog 的数据库** — 修复不支持 Catalog 的数据库侧边栏 schema 树无法展示的问题\n- **对象搜索** — 修复对象搜索结果中不必要的 schema 前缀\n- **Web 端复制** — 修复 Web 端复制功能在部分浏览器不可用的问题\n- **表结构编辑器** — 修复表结构编辑器打开时未正确加载、ClickHouse 列编辑和对象 schema 丢失等多个问题\n- **DuckDB 时间显示** — 修复 DuckDB 中日期时间类型的显示格式\n- **DuckDB 连接测试** — 修复连接测试时重复创建连接池的问题\n- **JDBC 兼容** — 捕获部分老旧 JDBC 驱动不支持 getSchema/getCatalog 的异常\n- **驱动校验** — 增强下载驱动的文件完整性校验\n- **连接编辑** — 修复打开已保存连接的编辑对话框时数据未正确填充的问题\n- **代理设置** — 修复 Agent 意外继承系统代理设置导致连接失败的问题\n\n### 下载安装\n\n#### 系统要求\n\n| 操作系统 | 最低版本 | 架构 |\n| ------- | ------- | --- |\n| Windows | Windows 10 或更高版本 | x64 |\n| macOS | macOS 12 (Monterey) 或更高版本 | Intel (x64) / Apple Silicon (arm64) |\n| Linux | 见下表 | x64 |\n\n#### Windows\n\n| 文件 | 说明 |\n| --- | --- |\n| `DBX_0.5.14_x64-setup.exe` | **推荐** — NSIS 安装包，支持自动更新 |\n| `DBX_0.5.14_x64_en-US.msi` | MSI 安装包，适用于企业部署 |\n\n**Scoop:**\n```\nscoop bucket add dbx https://github.com/t8y2/scoop-bucket\nscoop install dbx\n```\n\n更新：\n```\nscoop update dbx\n```\n\n#### macOS\n\n| 文件 | 说明 |\n| --- | --- |\n| `DBX_0."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 310,
+            "title": "[Feature] 数据表格 列筛选",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/310"
+          },
+          {
+            "number": 346,
+            "title": "[Bug] DuckDB若干问题",
+            "state": "closed",
+            "url": "https://github.com/t8y2/dbx/issues/346"
+          },
+          {
+            "number": 376,
+            "title": "[Feature] 建议添加webdav同步数据",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/376"
+          },
+          {
+            "number": 375,
+            "title": "[Compatibility]  查询mysql 5.7 用户权限无结果返回。",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/375"
+          },
+          {
+            "number": 365,
+            "title": "[Feature] 优化单元格详情界面",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/365"
+          },
+          {
+            "number": 371,
+            "title": "[Bug] 操作总是无缘无故界面卡起了，各种点不动",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/371"
+          },
+          {
+            "number": 366,
+            "title": "[Bug] 数据库查询报错",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/366"
+          },
+          {
+            "number": 374,
+            "title": "[Feature] 希望添加类似于datagrip的字段检查功能",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/374"
+          },
+          {
+            "number": 367,
+            "title": "[Question] 是没有建表工具吗",
+            "state": "open",
+            "url": "https://github.com/t8y2/dbx/issues/367"
+          },
+          {
+            "number": 373,
+            "title": "[Feature] 自动刷新表格数据",
+            "state": "closed",
+            "url": "https://github.com/t8y2/dbx/issues/373"
+          }
+        ]
+      },
+      "root_files": [
+        ".cargo",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".nvmrc",
+        ".oxfmtrc.json",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "README.md",
+        "README.zh-CN.md",
+        "SECURITY.md",
+        "apps",
+        "crates",
+        "deploy",
+        "docs",
+        "package.json",
+        "packages",
+        "plugins",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "rustfmt.toml",
+        "src-tauri"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <h2>40+ databases in 15 MB. Desktop & Docker self-hosting, with built-in AI assistant.</h2>",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p> <img src=\"https://dl.dbxio.com/assets/readme-hero-20260517.png\" alt=\"DBX screenshot\" width=\"820\" /> </p>",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p> <a href=\"https://github.com/t8y2/dbx/releases\"><img src=\"https://img.shields.io/github/downloads/t8y2/dbx/total?style=for-the-badge&color=blue\" /></a> <a href=\"https://github.com/t8y2/dbx/graphs/contributors\"><img src=\"https://img.shields.io/github/contributors/t8y2/dbx?style=for-the-badge\" /></a> <a href=\"https://discord.gg/W7NyVDRt6a\"><img src=\"https://dcbadge.limes.pink/api/server/W7NyVDRt6a\" alt=\"Join Discord\" /></a> <a href=\"https://qm.qq.com/cgi-bin/qm/qr?k=&group_code=1087880322\"><img src=\"https://img.shields.io/badge/QQ_群-1087880322-EB1923?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iODYiIHdpZHRoPSI4NiIgdmlld0JveD0iMCAwIDEyMCAxNDUiPjxwYXRoIGZpbGw9IiNmYWFiMDciIGQ9Ik02MC41MDMgMTQyLjIzN2MtMTIuNTMzIDAtMjQuMDM4LTQuMTk1LTMxLjQ0NS0xMC40Ni0zLjc2MiAxLjEyNC04LjU3NCAyLjkzMi0xMS42MSA1LjE3NS0yLjYgMS45MTgtMi4yNzUgMy44NzQtMS44MDcgNC42NjMgMi4wNTYgMy40NyAzNS4yNzMgMi4yMTYgNDQuODYyIDEuMTM2em0wIDBjMTIuNTM1IDAgMjQuMDM5LTQuMTk1IDMxLjQ0Ny0xMC40NiAzLjc2IDEuMTI0IDguNTczIDIuOTMyIDExLjYxIDUuMTc1IDIuNTk4IDEuOTE4IDIuMjc0IDMuODc0IDEuODA1IDQuNjYzLTIuMDU2IDMuNDctMzUuMjcyIDIuMjE2LTQ0Ljg2MiAxLjEzNnptMCAwIi8+PHBhdGggZD0iTTYwLjU3NiA2…",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p> <a href=\"docs/screenshot-light.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-light.png\" width=\"395\" /></a> <a href=\"docs/screenshot-dark.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-dark.png\" width=\"395\" /></a> </p> <p> <a href=\"docs/screenshot-er.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-er.png\" width=\"395\" /></a> <a href=\"docs/screenshot-grid.png\"><img src=\"https://cdn.jsdelivr.net/gh/t8y2/dbx@main/docs/screenshot-grid.png\" width=\"395\" /></a> </p> </div>",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 5)",
+          "excerpt": "MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, ClickHouse, SQL Server, Oracle, Elasticsearch, MariaDB, TiDB, OceanBase, openGauss, GaussDB, KingBase, Vastbase, GoldenDB, Doris, SelectDB, StarRocks, Redshift, DM, TDengine, CockroachDB, Access, HighGo, and more. Agent/JDBC-oriented profiles extend DBX to H2, Snowflake, Trino, Hive, DB2, Informix, Neo4j, Cassandra, BigQuery, Kylin, SunDB, and custom JDBC connections. All in a single ~15 MB app. No bundled Chromium.",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 6)",
+          "excerpt": "CodeMirror 6 with SQL syntax highlighting, metadata-aware autocomplete, `Cmd+Enter` execution, selected SQL execution, SQL formatting, diagnostics, and 9 editor themes. Persistent query history, saved SQL snippets, tab restore, and SQL file execution keep repeat work close at hand.",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Describe what you want in plain language — get SQL back. DBX can explain queries, optimize SQL, fix errors, and run AI-generated SQL through built-in safety checks. Works with Claude, OpenAI, local models, or any OpenAI-compatible endpoint.",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/t8y2/dbx#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Virtual-scrolled table that handles large result sets. Inline editing, SQL preview before save, WHERE / ORDER BY controls, DataGrip-style filters, LIKE / NOT LIKE context filters, sorting, full-text search, pagination, column resize, auto-fit, row numbers, zebra stripes, and full cell details. Export or copy as CSV, JSON, Markdown, XLSX, or INSERT statements.",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/310",
+          "title": "[Feature] 数据表格 列筛选",
+          "excerpt": "[Feature] 数据表格 列筛选 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 310
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/346",
+          "title": "[Bug] DuckDB若干问题",
+          "excerpt": "[Bug] DuckDB若干问题 (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 346
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/376",
+          "title": "[Feature] 建议添加webdav同步数据",
+          "excerpt": "[Feature] 建议添加webdav同步数据 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 376
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/375",
+          "title": "[Compatibility]  查询mysql 5.7 用户权限无结果返回。",
+          "excerpt": "[Compatibility] 查询mysql 5.7 用户权限无结果返回。 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 375
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/365",
+          "title": "[Feature] 优化单元格详情界面",
+          "excerpt": "[Feature] 优化单元格详情界面 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 365
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/371",
+          "title": "[Bug] 操作总是无缘无故界面卡起了，各种点不动",
+          "excerpt": "[Bug] 操作总是无缘无故界面卡起了，各种点不动 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 371
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/366",
+          "title": "[Bug] 数据库查询报错",
+          "excerpt": "[Bug] 数据库查询报错 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 366
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/374",
+          "title": "[Feature] 希望添加类似于datagrip的字段检查功能",
+          "excerpt": "[Feature] 希望添加类似于datagrip的字段检查功能 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 374
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/367",
+          "title": "[Question] 是没有建表工具吗",
+          "excerpt": "[Question] 是没有建表工具吗 (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 367
+          }
+        },
+        {
+          "id": "E-IS-010",
+          "type": "issue",
+          "source_url": "https://github.com/t8y2/dbx/issues/373",
+          "title": "[Feature] 自动刷新表格数据",
+          "excerpt": "[Feature] 自动刷新表格数据 (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "number": 373
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/t8y2/dbx/releases",
+          "title": "v0.5.16",
+          "excerpt": "### 新功能 - **查询快捷键** — 新增快速执行查询的快捷键，减少鼠标操作，提高日常 SQL 编辑效率 - **MongoDB 视图模式记忆** — 记住 MongoDB 浏览器的视图模式偏好，切换集合后无需重复选择 (contributed by @baizhi958216) - **结果网格复制为 UPDATE** — 支持将当前行内容快速复制为 `UPDATE` 语句，便于生成修改脚本 - **Redis 键浏览体验增强** — 优化 Redis key browser 的日常浏览与操作流程 - **单元格详情编辑器** — 新增更适合编辑复杂内容的单元格详情视图 - **表过滤面板可调整大小** — 支持拖拽调整表过滤区域尺寸，提升大表筛选时的可读性 - **AI 模型列表自动获取** — 在 AI 设置中自动拉取并选择可用模型，减少手动输入模型 ID 的出错率 (contributed by @Abeautifulsnow) - **DBX 深链接** — 支持通过 `dbx://connection/new` 深链接打开应用并预填连接信息，便于从网页、文档或脚本快速发起连接 (contributed by @yavon007) (closes #347) ### 改进 - **无主键表编辑体验** — 改进无主键 SQL 表的编辑能力，并在插入行保存后自动刷新结果 - **静默更新提醒** — 后台更新检查改为仅显示徽标提示，减少打断 - **SAP HANA 连接兼容性** — 支持 SAP HANA tenant routing，改善特定部署下的连接体验 - **SQL 缩放交互** — 优化编辑器缩放手感，让 SQL 阅读和演示更顺滑 - **MySQL 时区处理** — 保留会话时区设置，减少时间字段显示偏差 - **工具栏提示稳定性** — 改进下拉菜单 tooltip 表现，减少悬浮提示丢失 - **Windows 桌面体验** — 提升任务栏和托盘图标可见性，并修复应用驻留托盘时双击桌面图标无法正确唤起窗口的问题 ### 修复 - **macOS 全屏标题栏间隙** — 修复 macOS 全屏模式下工具栏顶部留白异常的问题 - **标签切换编辑丢失** — 修复切换标签页时未保存的行编辑内容可能丢失的问题 (closes #362) - **MySQL DELIMITER 崩溃** — 修复 `DELIMITER` 跟在包含非 ASCII 注释的 SQL 后面时可能导致崩溃的问题 (closes #360) - **数据库树搜索结果保持** — 修复侧边栏搜索后数据库子节点状态无法正确保留的问题 - **SQL Server 事务控制** — 修复部分事务控制语句未按正确执行路径发送而导致失败的问题 - **SQL 编辑器…",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "tag_name": "v0.5.16",
+            "published_at": "2026-05-21T04:16:11Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/t8y2/dbx/releases",
+          "title": "v0.5.15",
+          "excerpt": "### 新功能 - **离线驱动导入** — 支持通过 ZIP 包或本地 JAR 文件离线导入 JDBC 驱动，方便无法访问外网的环境使用 ### 改进 - **数据网格体验优化** — 改进单元格详情编辑器（含日期时间内联编辑）、Enter 键编辑和键盘导航、转置视图的列宽调整和记录切换等多项交互体验 (contributed by @yavon007) ### 修复 - **MCP 数据库上下文** — 修复 MCP 请求未正确传递当前数据库上下文到后端的问题 - **SQL Server 事务语法** — 修复 SQL Server 显式事务使用 `BEGIN` 而非 `BEGIN TRANSACTION` 导致执行失败的问题 - **Agent 大响应崩溃** — 限制 Agent 单行读取大小，防止超大响应导致内存溢出崩溃 - **MySQL TLS 连接** — 修复 MySQL TLS 连接意外关闭后未自动降级为非 SSL 重试的问题 - **插件进程稳定性** — 加固插件进程的 IO 处理，提升连接稳定性 - **Elasticsearch 聚合查询** — 修复 Elasticsearch 聚合查询结果无法正确解析为表格格式的问题 (closes #344) - **MySQL 元数据排序规则** — 修复 MariaDB 中 `information_schema` 表排序规则不一致导致元数据查询失败的问题 (contributed by @yavon007) - **驱动下载校验** — 移除驱动下载时不必要的 SHA-256 校验，避免校验失败阻止安装 ### 下载安装 #### 系统要求 | 操作系统 | 最低版本 | 架构 | | ------- | ------- | --- | | Windows | Windows 10 或更高版本 | x64 | | macOS | macOS 12 (Monterey) 或更高版本 | Intel (x64) / Apple Silicon (arm64) | | Linux | 见下表 | x64 | #### Windows | 文件 | 说明 | | --- | --- | | `DBX_0.5.15_x64-setup.exe` | **推荐** — NSIS 安装包，支持自动更新 | | `DBX_0.5.15_x64_en-US.msi` | MSI 安装包，适用于企业部署 | **Scoop:** ``` scoop bucket add dbx https://github.com/t8y2/scoop-bucket scoop install dbx ``` 更新： ``` scoop update dbx ``` #### macOS | 文件 | 说明 | | …",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "tag_name": "v0.5.15",
+            "published_at": "2026-05-20T03:49:31Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/t8y2/dbx/releases",
+          "title": "v0.5.14",
+          "excerpt": "### 新功能 - **批量插入行** — 在数据网格中一次插入多行数据时，合并为单条 INSERT 语句执行，提升批量操作效率 - **MySQL DELIMITER 语法** — SQL 编辑器支持 MySQL 的 DELIMITER 语法，正确分割存储过程等多语句脚本 - **数据库导出搜索** — 导出对话框新增表搜索过滤功能，快速定位目标表 - **日期时间编辑器** — 数据网格中日期、时间、时间戳类型的单元格使用专用编辑器，输入更直观 - **DuckDB 创建数据库** — 支持在连接表单中直接创建 DuckDB 数据库文件 - **内存数据库** — SQLite 和 DuckDB 支持以内存模式连接（`:memory:`） - **DDL 能力矩阵** — 表结构编辑器根据数据库类型自动启用/禁用 DDL 操作 - **SQL 自动补全优化** — 改善 SQL 编辑器自动补全的界面交互体验 - **保存分页大小** — 查询结果的每页行数设置将持久化保存 - **Oracle 查询优化** — 使用直接 SQL 替代 JDBC 元数据 API，加速 Oracle 元数据查询 ### 改进 - **Agent 协议重构** — 全面重构 Agent 驱动通信协议，新增兼容握手机制和能力矩阵，提升驱动兼容性 ### 修复 - **OceanBase 兼容** — 修复 OceanBase (MySQL 兼容模式) 中 COLLATE 不一致导致元数据查询失败的问题 - **SQL Server ORDER BY** — 修复 SQL Server 包装查询时未正确移除 ORDER BY 的问题 - **ClickHouse 元数据** — 修复 ClickHouse 的 schema 元数据数据库解析错误 - **MongoDB 认证库** — 修复 MongoDB 无法配置认证数据库 (authSource) 的问题 - **思考模型超时** — 延长 AI 思考模型的超时时间和 token 预算 - **IME 回车** — 修复中文等输入法组合状态下误触发发送的问题 - **数据网格状态** — 切换结果集时正确丢弃未提交的编辑 - **格式化按钮遮挡** — 加宽表头控件宽度，避免格式化按钮被遮挡 - **分页行数** — 修复数据网格未正确遵守分页大小限制的问题 - **无 Catalog 的数据库** — 修复不支持 Catalog 的数据库侧边栏 schema 树无法展示的问题 - **对象搜索** — 修复对象搜索结果中不必要的 schema 前缀 - **Web 端复制** — 修复 Web 端复制功能在部分浏览器不可用的问题 - **表结构编辑器** — 修复表结构编辑器打开时未正确加载、ClickHouse 列编辑和…",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "tag_name": "v0.5.14",
+            "published_at": "2026-05-19T13:40:32Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/t8y2/dbx",
+          "title": "ROOT_FILES",
+          "excerpt": ".cargo, .github, .gitignore, .husky, .nvmrc, .oxfmtrc.json, CONTRIBUTING.md, Cargo.lock, Cargo.toml, LICENSE, README.md, README.zh-CN.md, SECURITY.md, apps, crates, deploy, docs, package.json, packages, plugins, pnpm-lock.yaml, pnpm-workspace.yaml, rustfmt.toml, src-tauri",
+          "fetched_at": "2026-05-21T06:55:25.287Z",
+          "meta": {
+            "repo_full_name": "t8y2/dbx",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "HzaCode/OneCite",
+      "html_url": "https://github.com/HzaCode/OneCite",
+      "description": "📚 An intelligent toolkit to automatically parse, complete, and format academic references.",
+      "topics": [
+        "agent-skills",
+        "arxiv",
+        "bibliography",
+        "bibtex",
+        "citation",
+        "citation-style-language",
+        "citeproc",
+        "cli",
+        "crossref",
+        "datacite",
+        "doi",
+        "latex",
+        "pubmed",
+        "python",
+        "reference-manager",
+        "semantic-scholar",
+        "zenodo"
+      ],
+      "language": "Python",
+      "stargazers_count": 59,
+      "forks_count": 8,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-21T06:53:45Z",
+      "created_at": "2025-08-12T02:58:21Z",
+      "readme": {
+        "fetched": true,
+        "text": "\n\n<div align=\"center\">\n  <p align=\"center\">\n    <img src=\"https://github.com/HzaCode/OneCite/raw/master/logo_.jpg\" alt=\"OneCite Logo\" width=\"160\" />\n  </p>\n\n  <h1>OneCite</h1>\n  <h3>Citation & Academic Reference Toolkit</h3>\n</div>\n\n<div align=\"center\">\n\n[![Downloads](https://img.shields.io/pepy/dt/onecite?style=flat-square&label=Downloads)](https://pepy.tech/project/onecite)\n[![Awesome CLI Apps](https://img.shields.io/badge/🏆%20Featured-Awesome%20CLI%20Apps%20-FF6B35?style=flat-square)](https://github.com/agarrharr/awesome-cli-apps?tab=readme-ov-file#academia)\n\n[![Tests](https://img.shields.io/github/actions/workflow/status/HzaCode/OneCite/tests.yml?style=flat-square&logo=github)](https://github.com/HzaCode/OneCite/actions)\n[![codecov](https://img.shields.io/codecov/c/github/HzaCode/OneCite?style=flat-square&logo=codecov)](https://codecov.io/gh/HzaCode/OneCite)\n[![PyPI](https://img.shields.io/pypi/v/onecite?style=flat-square&logo=pypi&color=blue)](https://pypi.org/project/onecite/)\n[![Python](https://img.shields.io/badge/3.10+-blue?style=flat-square&logo=python)](https://www.python.org)\n[![MIT](https://img.shields.io/badge/MIT-green?style=flat-square)](LICENSE)\n[![Docs](https://img.shields.io/badge/Docs-Pages-blue?style=flat-square&logo=github)](https://hzacode.github.io/OneCite/)\n[![Awesome LaTeX](https://img.shields.io/badge/Awesome-LaTeX-008B8B?style=flat-square&logo=awesome-lists&logoColor=white&labelColor=493267)](https://github.com/egeerardyn/awesome-LaTeX?tab=readme-ov-file#bibliography-tools)\n\n\n</div>\n\n<p align=\"center\">\n  <a href=\"#-features\">Features</a> •\n  <a href=\"#-quick-start\">Quick Start</a> •\n  <a href=\"#-advanced-usage\">📖 Advanced Usage</a> •\n  <a href=\"#-roadmap\">🗺️ Roadmap</a> •\n  <a href=\"#-contributing\">🤝 Contributing</a>\n</p>\n\n---\n\n<p align=\"center\">\n  OneCite is a command-line tool and Python library for citation management. It accepts DOIs, paper titles, arXiv IDs, and mixed inputs, and outputs formatted bibliographic entries.\n</p>\n\n---\n\n\n Researchers frequently accumulate reference lists in ad-hoc formats—DOIs copied from browser tabs, arXiv IDs from paper PDFs, titles typed by hand, and BibTeX fragments from various sources. Cleaning these into consistent BibTeX output is tedious and error-prone. OneCite parses raw reference text and attempts metadata lookup against configured sources such as CrossRef, PubMed, arXiv, and Semantic Scholar. The result is a reproducible processing layer that reports unresolved entries and produces auditable BibTeX where metadata can be found.\n\n\n\n\n\n---\n\n## Features\n\n| Feature                 | Description                                                                                             |\n| ----------------------- | ------------------------------------------------------------------------------------------------------- |\n| **Fuzzy Matching**          | Attempt to match incomplete references against configured academic metadata sources.                 |\n| **Multiple Formats**        | Input `.txt`/`.bib` → Output **BibTeX**.                                                             |\n| **4-stage Pipeline**        | A 4-stage process (clean → query → validate → format) to produce consistent output.                  |\n| **Field Completion**        | Fill available fields returned by metadata sources, such as journal, volume, pages, authors, and abstract. |\n| 🎓 **7+ Citation Types**    | Handles journal articles, conference papers, books, software, datasets, theses, and preprints.        |\n| **Multi-Source Lookup**     | Uses source-specific routes for CrossRef, arXiv, PubMed, Semantic Scholar, Google Books, and others. |\n| **Many Identifier Types**   | Accepts DOI, PMID, arXiv ID, ISBN, GitHub URL, Zenodo DOI, or plain text queries.                    |\n| 🎛️ **Interactive Mode**    | Manually select the correct entry when multiple potential matches are found.                          |\n| **Custom Templates**        | YAML-based presets that provide a fallback BibTeX entry type when auto-detection is inconclusive.    |\n\n\n## 🌐 Data Sources\n\n<div align=\"center\">\n\n[![CrossRef](https://img.shields.io/badge/CrossRef-B31B1B?style=for-the-badge&logo=crossref&logoColor=white)](https://www.crossref.org/)\n[![Semantic Scholar](https://img.shields.io/badge/Semantic-1857B6?style=for-the-badge&logo=semanticscholar&logoColor=white)](https://www.semanticscholar.org/)\n[![PubMed](https://img.shields.io/badge/PubMed-326599?style=for-the-badge&logo=pubmed&logoColor=white)](https://pubmed.ncbi.nlm.nih.gov/)\n[![arXiv](https://img.shields.io/badge/𝒳_arXiv-B31B1B?style=for-the-badge)](https://arxiv.org/)\n[![DataCite](https://img.shields.io/badge/DataCite-00B4A0?style=for-the-badge&logo=datacite&logoColor=white)](https://datacite.org/)\n[![Zenodo](https://img.shields.io/badge/Zenodo-0A0E4A?style=for-the-badge&logo=zenodo&logoColor=white)](https://zenodo.org/)\n[![Google Books](https://img.shields.io/badge/Google-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://books.google.com/)\n</div>\n\n\n## Quick Start\n\nInstall and try OneCite in a few steps.\n\n### 1. Installation\n```bash\n# Recommended: Install from PyPI\npip install onecite\n```\n\n### 2. Create an Input File\nCreate a file named `references.txt` with your mixed-format references:\n```text\n# references.txt\n# Add blank lines between entries to avoid misidentification\n\n10.1038/nature14539\n\nAttention is all you need, Vaswani et al., NIPS 2017\n\nGoodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.\n\nhttps://github.com/tensorflow/tensorflow\n\n10.5281/zenodo.3233118\n\narXiv:2103.00020\n\nSmith, J. (2020). Neural Architecture Search. PhD Thesis. Stanford University.\n```\n\n### 3. Run OneCite\nExecute the command to process your file and generate a clean `.bib` output.\n```bash\nonecite process references.txt -o results.bib --quiet\n```\n\n### 4. View Output\nYour `results.bib` file now contains entries of different types.\n\n<details>\n<summary><strong>View Complete Output (results.bib)</strong></summary>\n\n```bibtex\n@article{LeCun2015Deep,\n  doi = \"10.1038/nature14539\",\n  title = \"Deep learning\",\n  author = \"LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey\",\n  journal = \"Nature\",\n  year = 2015,\n  volume = 521,\n  number = 7553,\n  pages = \"436-444\",\n  publisher = \"Springer Science and Business Media LLC\",\n  url = \"https://doi.org/10.1038/nature14539\",\n  type = \"journal-article\",\n  abstract = \"Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction...\",\n}\n@inproceedings{Vaswani2017Attention,\n  arxiv = \"1706.03762\",\n  title = \"Attention Is All You Need\",\n  author = \"Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia\",\n  year = 2017,\n  booktitle = \"Advances in Neural Information Processing Systems (NeurIPS)\",\n  url = \"https://arxiv.org/abs/1706.03762\",\n}\n# ... and 5 more entries ...\n```\n\n</details>\n\n## 📖 Advanced Usage\n\n<details>\n<summary><strong>Direct String and Stdin Input</strong></summary>\n\n```bash\nonecite process \"10.1038/nature14539\"\nonecite process \"Attention is all you need, Vaswani et al., NIPS 2017\"\necho \"10.1038/nature14539\" | onecite process -\n```\n</details>\n\n<details>\n<summary><strong>Interactive Disambiguation</strong></summary>\n\nFor ambiguous entries, use the `--interactive` flag to manually select the correct match and ensure accuracy.\n\n**Command**:\n```bash\nonecite process ambiguous.txt --interactive\n```\n\n**Example Interaction**:\n```\nFound multiple possible matches for \"Deep learning Hinton\":\n1. Deep learning\n   Authors: LeCun, Yann; Bengio, Yoshua; Hinton, Geoffrey\n   Journal: Nature, 2015\n   DOI: 10.1038/nature14539\n\n2. Deep belief networks\n   Authors: Hinton, Geoffrey E.\n   Journal: Scholarpedia, 2009\n   DOI: 10.4249/scholarpedia.5947\n\nPlease select (1-2, 0=skip): 1\nSelected: Deep learning\n```\n</details>\n\n<details>\n<summary><strong>🐍 Use as a Python Library</strong></summary>\n\nUse OneCite directly in your Python scripts.\n\n```python\nfrom onecite import process_references\n\n# A callback can be used for non-interactive selection (e.g., always choose the best match)\ndef auto_select_callback(candidates):\n    return 0 # Index of the best candidate\n\nresult = process_references(\n    input_content=\"Deep learning review\\nLeCun, Bengio, Hinton\\nNature 2015\",\n    input_type=\"txt\",\n    template_name=\"journal_article_full\",\n    output_format=\"bibtex\",\n    interactive_callback=auto_select_callback\n)\n\nprint('\\n\\n'.join(result['results']))\n```\n</details>\n\n<details>\n<summary><strong>💻 CLI Commands & Options</strong></summary>\n\nOneCite provides a command-line interface with the following commands and options:\n\n### `onecite process`\n\nThe main command for processing references through the OneCite pipeline.\n\n**Usage:**\n```bash\nonecite process <input_file> [OPTIONS]\n```\n\n**Arguments:**\n- `input_file` - Input file path, `-` for stdin, or a reference string (e.g., DOI, title)\n\n**Options:**\n| Option | Short | Description | Default |\n|--------|-------|-------------|---------|\n| `--input-type` | | Input format: `txt` or `bib` | `txt` |\n| `--template` | | Fallback BibTeX entry-type preset when auto-detection is inconclusive | `journal_article_full` |\n| `--output-format` | | Output format (currently only `bibtex` supported) | `bibtex` |\n| `--output` | `-o` | Output file path (default: stdout) | - |\n| `--interactive` | | Enable interactive mode for ambiguous matches | `False` |\n| `--quiet` | `-q` | Suppress verbose logging output | `False` |\n| `--json` | | Print a stable JSON envelope instead of BibTeX text | `False` |\n| `--ndjson` | | Print newline-delimited JSON events for streaming automation workflows | `False` |\n| `--fail-on-unresolved` | | Return exit code `2` when any entry cannot be resolved | `False` |\n| `--google-scholar` | | Enable Google Scholar as an additional data source (requires scholarly package) | `False` |\n\n**Examples:**\n```bash\n# Process a text file\nonecite process references.txt -o results.bib\n\n# Process a BibTeX file with auto-detection\nonecite process references.bib\n\n# Process with interactive mode\nonecite process ambiguous.txt --interactive\n\n# Use stdin\necho \"10.1038/nature14539\" | onecite process -\n\n# Process a direct string (DOI)\nonecite process \"10.1038/nature14539\"\n\n# Process with custom template\nonecite process references.txt --template conference_paper\n\n# Enable Google Scholar (requires scholarly package)\nonecite process references.txt --google-scholar\n\n# Quiet mode for scripts\nonecite process references.txt -o results.bib --quiet\n\n# Automation-friendly JSON with unresolved-entry exit-code handling\nonecite process references.txt --json --fail-on-unresolved\n\n# Streaming NDJSON for automation\nonecite process references.txt --ndjson\n```\n\n### `onecite --version`\n\nDisplay the installed OneCite version.\n\n**Usage:**\n```bash\nonecite --version\n```\n\n### `onecite version`\n\nAlternative command to display version information.\n\n**Usage:**\n```bash\nonecite version\n```\n\n### `onecite templates`\n\nList the bundled fallback BibTeX templates and the fields they request.\n\n**Usage:**\n```bash\nonecite templates\nonecite templates --json\n```\n\n### `onecite benchmark`\n\nRun a small deterministic regression suite for covered DOI lookup, arXiv\nlookup, PMID/PubMed lookup, GitHub software URLs, Zenodo/DataCite dataset\nDOIs, and mixed valid/invalid batches. The command is designed for CI and\nautomation workflows that need a machine-readable pass/fail check; it is not\na comprehensive citation-accuracy benchmark.\n\n**Usage:**\n```bash\nonecite benchmark [OPTIONS]\n```\n\n**Options:**\n| Option | Description | Default |\n|--------|-------------|---------|\n| `--cases` | Path to a custom benchmark suite JSON file | bundled golden cases |\n| `--min-success-rate` | Minimum covered-case pass rate required for exit code `0` | `1.0` |\n| `--json` | Print the benchmark report as JSON | `False` |\n| `--li",
+        "truncated": true,
+        "bytes": 15156,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 39,
+            "title": "Incorrect abstract attached to DOI 10.2307/2531595 despite correct title metadata",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/39"
+          },
+          {
+            "number": 38,
+            "title": "Your project is listed on Spark — claim your listing",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/38"
+          },
+          {
+            "number": 17,
+            "title": "[pyos][design] Break up `pipeline.py`",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/17"
+          },
+          {
+            "number": 4,
+            "title": "[FEATURE] Reference Authenticity & Retraction Check (Lite)",
+            "state": "open",
+            "url": "https://github.com/HzaCode/OneCite/issues/4"
+          },
+          {
+            "number": 16,
+            "title": "[pyos][design] Templating system conflicts with package design",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/16"
+          },
+          {
+            "number": 23,
+            "title": "[pyos][design] Identification logic is weak, difficult to follow, and inconsistent.",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/23"
+          },
+          {
+            "number": 27,
+            "title": "[pyos][bug] Scoring logic is nonsensical",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/27"
+          },
+          {
+            "number": 3,
+            "title": "Text search scoring algorithm needs improvement",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/3"
+          },
+          {
+            "number": 30,
+            "title": "[pyos][design] Use `bibtexparser` to render bibtex",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/30"
+          },
+          {
+            "number": 34,
+            "title": "[pyos][tests] Most tests don't test anything",
+            "state": "closed",
+            "url": "https://github.com/HzaCode/OneCite/issues/34"
+          }
+        ]
+      },
+      "root_files": [
+        ".flake8",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".zenodo.json",
+        "CHANGELOG.md",
+        "CITATION.cff",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "MANIFEST.in",
+        "README.md",
+        "benchmarks",
+        "docs",
+        "logo_.jpg",
+        "onecite",
+        "pyproject.toml",
+        "scripts",
+        "skills",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<div align=\"center\"> <p align=\"center\"> <img src=\"https://github.com/HzaCode/OneCite/raw/master/logo_.jpg\" alt=\"OneCite Logo\" width=\"160\" /> </p>",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![Downloads](https://img.shields.io/pepy/dt/onecite?style=flat-square&label=Downloads)](https://pepy.tech/project/onecite) [![Awesome CLI Apps](https://img.shields.io/badge/🏆%20Featured-Awesome%20CLI%20Apps%20-FF6B35?style=flat-square)](https://github.com/agarrharr/awesome-cli-apps?tab=readme-ov-file#academia)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 3)",
+          "excerpt": "[![Tests](https://img.shields.io/github/actions/workflow/status/HzaCode/OneCite/tests.yml?style=flat-square&logo=github)](https://github.com/HzaCode/OneCite/actions) [![codecov](https://img.shields.io/codecov/c/github/HzaCode/OneCite?style=flat-square&logo=codecov)](https://codecov.io/gh/HzaCode/OneCite) [![PyPI](https://img.shields.io/pypi/v/onecite?style=flat-square&logo=pypi&color=blue)](https://pypi.org/project/onecite/) [![Python](https://img.shields.io/badge/3.10+-blue?style=flat-square&logo=python)](https://www.python.org) [![MIT](https://img.shields.io/badge/MIT-green?style=flat-square)](LICENSE) [![Docs](https://img.shields.io/badge/Docs-Pages-blue?style=flat-square&logo=github)](https://hzacode.github.io/OneCite/) [![Awesome LaTeX](https://img.shields.io/badge/Awesome-LaTeX-008B8B?style=flat-square&logo=awesome-lists&logoColor=white&labelColor=493267)](https://github.com/egeerardyn/awesome-LaTeX?tab=readme-ov-file#bibliography-tools)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<p align=\"center\"> <a href=\"#-features\">Features</a> • <a href=\"#-quick-start\">Quick Start</a> • <a href=\"#-advanced-usage\">📖 Advanced Usage</a> • <a href=\"#-roadmap\">🗺️ Roadmap</a> • <a href=\"#-contributing\">🤝 Contributing</a> </p>",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 5)",
+          "excerpt": "<p align=\"center\"> OneCite is a command-line tool and Python library for citation management. It accepts DOIs, paper titles, arXiv IDs, and mixed inputs, and outputs formatted bibliographic entries. </p>",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Researchers frequently accumulate reference lists in ad-hoc formats—DOIs copied from browser tabs, arXiv IDs from paper PDFs, titles typed by hand, and BibTeX fragments from various sources. Cleaning these into consistent BibTeX output is tedious and error-prone. OneCite parses raw reference text and attempts metadata lookup against configured sources such as CrossRef, PubMed, arXiv, and Semantic Scholar. The result is a reproducible processing layer that reports unresolved entries and produces auditable BibTeX where metadata can be found.",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 7)",
+          "excerpt": "| Feature | Description | | ----------------------- | ------------------------------------------------------------------------------------------------------- | | **Fuzzy Matching** | Attempt to match incomplete references against configured academic metadata sources. | | **Multiple Formats** | Input `.txt`/`.bib` → Output **BibTeX**. | | **4-stage Pipeline** | A 4-stage process (clean → query → validate → format) to produce consistent output. | | **Field Completion** | Fill available fields returned by metadata sources, such as journal, volume, pages, authors, and abstract. | | 🎓 **7+ Citation Types** | Handles journal articles, conference papers, books, software, datasets, theses, and preprints. | | **Multi-Source Lookup** | Uses source-specific routes for CrossRef, arXiv, PubMed, Semantic Scholar, Google Books, and others. | | **Many Identifier Types** | Accepts DOI, PMID, arXiv ID, ISBN, GitHub URL, Zenodo DOI, or plain text queries. | | 🎛️ **Interactive Mode** | Manually select the correct entry when multiple potential matches are found. | | **Custom Templates** | YAML-based presets that provide a fallback BibTeX entry type when auto-detection is inconclusive. |",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/HzaCode/OneCite#readme",
+          "title": "README (segment 8)",
+          "excerpt": "[![CrossRef](https://img.shields.io/badge/CrossRef-B31B1B?style=for-the-badge&logo=crossref&logoColor=white)](https://www.crossref.org/) [![Semantic Scholar](https://img.shields.io/badge/Semantic-1857B6?style=for-the-badge&logo=semanticscholar&logoColor=white)](https://www.semanticscholar.org/) [![PubMed](https://img.shields.io/badge/PubMed-326599?style=for-the-badge&logo=pubmed&logoColor=white)](https://pubmed.ncbi.nlm.nih.gov/) [![arXiv](https://img.shields.io/badge/𝒳_arXiv-B31B1B?style=for-the-badge)](https://arxiv.org/) [![DataCite](https://img.shields.io/badge/DataCite-00B4A0?style=for-the-badge&logo=datacite&logoColor=white)](https://datacite.org/) [![Zenodo](https://img.shields.io/badge/Zenodo-0A0E4A?style=for-the-badge&logo=zenodo&logoColor=white)](https://zenodo.org/) [![Google Books](https://img.shields.io/badge/Google-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://books.google.com/) </div>",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/39",
+          "title": "Incorrect abstract attached to DOI 10.2307/2531595 despite correct title metadata",
+          "excerpt": "Incorrect abstract attached to DOI 10.2307/2531595 despite correct title metadata (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 39
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/38",
+          "title": "Your project is listed on Spark — claim your listing",
+          "excerpt": "Your project is listed on Spark — claim your listing (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 38
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/17",
+          "title": "[pyos][design] Break up `pipeline.py`",
+          "excerpt": "[pyos][design] Break up `pipeline.py` (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 17
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/4",
+          "title": "[FEATURE] Reference Authenticity & Retraction Check (Lite)",
+          "excerpt": "[FEATURE] Reference Authenticity & Retraction Check (Lite) (state:open)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 4
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/16",
+          "title": "[pyos][design] Templating system conflicts with package design",
+          "excerpt": "[pyos][design] Templating system conflicts with package design (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 16
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/23",
+          "title": "[pyos][design] Identification logic is weak, difficult to follow, and inconsistent.",
+          "excerpt": "[pyos][design] Identification logic is weak, difficult to follow, and inconsistent. (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 23
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/27",
+          "title": "[pyos][bug] Scoring logic is nonsensical",
+          "excerpt": "[pyos][bug] Scoring logic is nonsensical (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 27
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/3",
+          "title": "Text search scoring algorithm needs improvement",
+          "excerpt": "Text search scoring algorithm needs improvement (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 3
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/30",
+          "title": "[pyos][design] Use `bibtexparser` to render bibtex",
+          "excerpt": "[pyos][design] Use `bibtexparser` to render bibtex (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 30
+          }
+        },
+        {
+          "id": "E-IS-010",
+          "type": "issue",
+          "source_url": "https://github.com/HzaCode/OneCite/issues/34",
+          "title": "[pyos][tests] Most tests don't test anything",
+          "excerpt": "[pyos][tests] Most tests don't test anything (state:closed)",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "number": 34
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/HzaCode/OneCite",
+          "title": "ROOT_FILES",
+          "excerpt": ".flake8, .github, .gitignore, .pre-commit-config.yaml, .zenodo.json, CHANGELOG.md, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, MANIFEST.in, README.md, benchmarks, docs, logo_.jpg, onecite, pyproject.toml, scripts, skills, tests",
+          "fetched_at": "2026-05-21T06:55:25.247Z",
+          "meta": {
+            "repo_full_name": "HzaCode/OneCite",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "fastapi/fastapi",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 1,
+      "releases_count": 3
+    },
+    {
+      "full_name": "t8y2/dbx",
+      "evidence_count": 22,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 10,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 10,
+      "releases_count": 3
+    },
+    {
+      "full_name": "HzaCode/OneCite",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 10,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 10,
+      "releases_count": 0
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "fastapi/fastapi",
+      "ok": true,
+      "spec_path": "specs/2026-05-21/fastapi__fastapi.json"
+    },
+    {
+      "repo": "t8y2/dbx",
+      "ok": true,
+      "spec_path": "specs/2026-05-21/t8y2__dbx.json"
+    },
+    {
+      "repo": "HzaCode/OneCite",
+      "ok": true,
+      "spec_path": "specs/2026-05-21/HzaCode__OneCite.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "fastapi/fastapi",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-21/fastapi__fastapi.json"
+    },
+    {
+      "repo": "t8y2/dbx",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-21/t8y2__dbx.json"
+    },
+    {
+      "repo": "HzaCode/OneCite",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-21/HzaCode__OneCite.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "fastapi/fastapi",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-21/fastapi__fastapi.json"
+      ]
+    },
+    {
+      "repo": "t8y2/dbx",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 5,
+          "cited": 5
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-21/t8y2__dbx.json"
+      ]
+    },
+    {
+      "repo": "HzaCode/OneCite",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-21/HzaCode__OneCite.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-21T06:55:42.282Z",
+      "run_id": "20260521T065518Z",
+      "repo": "fastapi/fastapi",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6a11f6a3ec14f7f93cd8ef13731b1cf5da563fdfd59e1a70715b14a713b29d06",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9899
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16990,
+      "prompt_chars": 9899,
+      "completion_chars": 1698
+    },
+    {
+      "ts": "2026-05-21T06:55:59.203Z",
+      "run_id": "20260521T065518Z",
+      "repo": "fastapi/fastapi",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "fdb7c43be71f43643286f69251cd174afb348909220a513c31aab1e0a97df383",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11813
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16920,
+      "prompt_chars": 11813,
+      "completion_chars": 1860
+    },
+    {
+      "ts": "2026-05-21T06:56:16.431Z",
+      "run_id": "20260521T065518Z",
+      "repo": "fastapi/fastapi",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d0ba41cc9b44f3282be4042ac333dcb16a6f258df0d185d102bc7b02b30a7008",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 13877
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17227,
+      "prompt_chars": 13877,
+      "completion_chars": 1779
+    },
+    {
+      "ts": "2026-05-21T06:56:34.061Z",
+      "run_id": "20260521T065518Z",
+      "repo": "fastapi/fastapi",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3910b891a9e38af6ff897473d21f10a9b9f4cd66d3026cf4cd028c5e99a10a7a",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 15853
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17630,
+      "prompt_chars": 15853,
+      "completion_chars": 2113
+    },
+    {
+      "ts": "2026-05-21T06:56:58.883Z",
+      "run_id": "20260521T065518Z",
+      "repo": "fastapi/fastapi",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5ef7af194a92fc9fe86d1082d37920b6fa0e0f9b2a9caa9afeff02a2ca2752de",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 20804
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 24820,
+      "prompt_chars": 20804,
+      "completion_chars": 3189
+    },
+    {
+      "ts": "2026-05-21T06:57:14.551Z",
+      "run_id": "20260521T065518Z",
+      "repo": "t8y2/dbx",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "4a9fb5eff865bc0b55a32f5dd26a1e1babcfb4b8bd4ce527fa4ea371483e4689",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 11414
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15652,
+      "prompt_chars": 11414,
+      "completion_chars": 1888
+    },
+    {
+      "ts": "2026-05-21T06:57:29.246Z",
+      "run_id": "20260521T065518Z",
+      "repo": "t8y2/dbx",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "55e350ac304b9829846d791a0d8e26a9b1a287c5285b3f83cedd7994ba3e7262",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 13514
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14695,
+      "prompt_chars": 13514,
+      "completion_chars": 1801
+    },
+    {
+      "ts": "2026-05-21T06:57:50.126Z",
+      "run_id": "20260521T065518Z",
+      "repo": "t8y2/dbx",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "72807c6405cab0f975dc0a34c10f7c34d67de316bc234faaf523909f54aa45a6",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 15527
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 20880,
+      "prompt_chars": 15527,
+      "completion_chars": 2370
+    },
+    {
+      "ts": "2026-05-21T06:58:03.452Z",
+      "run_id": "20260521T065518Z",
+      "repo": "t8y2/dbx",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3924098d6e441a77fb7718cdbe9e15a2af904ba9e0913eb05e6c82e570aa805f",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 18098
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13324,
+      "prompt_chars": 18098,
+      "completion_chars": 1537
+    },
+    {
+      "ts": "2026-05-21T06:58:47.186Z",
+      "run_id": "20260521T065518Z",
+      "repo": "t8y2/dbx",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a00497654204611fa3fa4c54b17e971291ea032f8d12d61156ae7c5264e8aceb",
+      "input_stats": {
+        "evidence_count": 22,
+        "approx_chars": 22521
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 43732,
+      "prompt_chars": 22521,
+      "completion_chars": 5638
+    },
+    {
+      "ts": "2026-05-21T06:59:00.046Z",
+      "run_id": "20260521T065518Z",
+      "repo": "HzaCode/OneCite",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "143595d45fcabc16a3068f4facc203f668e498c19b5f1583bc5e6e009556032f",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 10076
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12855,
+      "prompt_chars": 10076,
+      "completion_chars": 1429
+    },
+    {
+      "ts": "2026-05-21T06:59:11.946Z",
+      "run_id": "20260521T065518Z",
+      "repo": "HzaCode/OneCite",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f6bb93a7967edcdd339e32b04f68c156e76858b5a806d9be58d0632a809907b2",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 11717
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11899,
+      "prompt_chars": 11717,
+      "completion_chars": 1555
+    },
+    {
+      "ts": "2026-05-21T06:59:26.264Z",
+      "run_id": "20260521T065518Z",
+      "repo": "HzaCode/OneCite",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "56c98d21d5b8945b138f5f1b729f522fff2d622b7171854638cb3400a35d78cc",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 13476
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14317,
+      "prompt_chars": 13476,
+      "completion_chars": 1830
+    },
+    {
+      "ts": "2026-05-21T06:59:36.714Z",
+      "run_id": "20260521T065518Z",
+      "repo": "HzaCode/OneCite",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e24c3b944c0985bb88882a39eff58a287a50744b31ab168b145c8c15b9cc25ae",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 15511
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10450,
+      "prompt_chars": 15511,
+      "completion_chars": 1280
+    },
+    {
+      "ts": "2026-05-21T07:00:02.977Z",
+      "run_id": "20260521T065518Z",
+      "repo": "HzaCode/OneCite",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9688cdac566e54eba75e84224e0a3e5fce8c6313cdb3aa3cf8b1b723606b6d6a",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 19621
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 26263,
+      "prompt_chars": 19621,
+      "completion_chars": 3116
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "fastapi/fastapi",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "t8y2/dbx",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "HzaCode/OneCite",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "fastapi/fastapi",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "t8y2/dbx",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 22,
+      "evidence_total_final": 22,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "HzaCode/OneCite",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1779346518660,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "fastapi/fastapi": 5,
+      "t8y2/dbx": 5,
+      "HzaCode/OneCite": 5
+    },
+    "tokensApproxTotal": 64208,
+    "tokensApproxPerRepo": {
+      "fastapi/fastapi": 20724,
+      "t8y2/dbx": 23579,
+      "HzaCode/OneCite": 19905
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "fastapi/fastapi": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "FastAPI is a high-performance Python web framework for building APIs, emphasizing speed, developer productivity, and standards compliance (OpenAPI, JSON Schema). It leverages Pydantic and Starlette, offers automatic interactive documentation, and maintains active development with frequent dependency updates and robust testing.",
+        "highlights": [
+          "Marketed as one of the fastest Python frameworks, comparable to Node.js and Go [ID:E-RD-004].",
+          "Built on standard Python type hints and fully compatible with OpenAPI and JSON Schema [ID:E-RD-003][ID:E-RD-004].",
+          "Claims to accelerate development by 200–300% and reduce bugs by ~40% based on internal team estimates [ID:E-RD-004][ID:E-RD-005].",
+          "Actively maintained with recent releases addressing Pydantic v2 deprecations and adding support for free-threaded Python 3.14t [ID:E-RL-001][ID:E-RL-002].",
+          "Strong ecosystem integration, including sponsors and partners offering cloud, auth, SDK generation, and webhook services [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "risks": [
+          "Heavy reliance on external dependencies like Pydantic and Starlette; breaking changes in these could impact stability [ID:E-RL-001].",
+          "Performance claims are based on internal team estimates without independent benchmark references [ID:E-RD-004][ID:E-RD-005].",
+          "Presence of non-core or humorous code (e.g., April Fool's @app.vibe()) suggests potential for unvetted experimental features [ID:E-RL-003]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "FastAPI is a modern Python web framework that invents a developer-centric approach to API creation by deeply integrating type hints with automatic validation, serialization, and interactive documentation, while aligning with OpenAPI and JSON Schema standards.",
+        "highlights": [
+          "Invents a programming model where API contracts are derived directly from Python type hints, enabling automatic request parsing, validation, and OpenAPI spec generation [ID:E-RD-003][ID:E-RD-004].",
+          "Introduces built-in, interactive API documentation (Swagger UI and ReDoc) as a core feature, reducing the need for external tools [ID:E-RD-004].",
+          "Pioneers developer experience enhancements such as editor autocompletion and reduced boilerplate, claiming 200–300% faster feature development [ID:E-RD-004][ID:E-RD-005].",
+          "Actively evolves with emerging Python innovations, including early support for free-threaded Python 3.14t [ID:E-RL-002].",
+          "Demonstrates extensibility through ecosystem partnerships offering SDK generation, auth, and cloud deployment tailored to FastAPI apps [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "risks": [
+          "The tight coupling between FastAPI’s core functionality and Pydantic v2 means deprecations or breaking changes in Pydantic require immediate framework updates [ID:E-RL-001].",
+          "Experimental or non-standard features (e.g., April Fool's @app.vibe()) indicate potential for unstable or undocumented APIs entering the codebase [ID:E-RL-003].",
+          "Performance and productivity claims rely on internal estimates without public benchmark methodology, limiting verifiability [ID:E-RD-004][ID:E-RD-005]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "FastAPI is a high-performance Python web framework engineered for building production-ready APIs with minimal boilerplate, leveraging Pydantic for data validation and Starlette for async capabilities, while auto-generating OpenAPI-compliant documentation.",
+        "highlights": [
+          "Engineered for performance and developer efficiency, claiming 200–300% faster feature development and ~40% fewer bugs via type-driven API contracts [ID:E-RD-004][ID:E-RD-005].",
+          "Tightly integrated with Pydantic v2 and Starlette, enabling automatic request/response validation, serialization, and async I/O [ID:E-RD-003][ID:E-RD-004].",
+          "Maintains active engineering velocity with regular dependency updates (e.g., Pydantic deprecation fixes, free-threaded Python 3.14t support) [ID:E-RL-001][ID:E-RL-002].",
+          "Includes robust CI/CD signals: test workflow badges, coverage tracking, and automated dependency upgrades via Dependabot [ID:E-RD-001][ID:E-RL-001][ID:E-RL-003].",
+          "Structured codebase with clear separation (e.g., fastapi/, docs_src/, tests/) and tooling config (.pre-commit-config.yaml, pyproject.toml) [ID:E-RF-001]."
+        ],
+        "risks": [
+          "Strong coupling to Pydantic v2 introduces maintenance overhead; breaking changes require immediate framework patches [ID:E-RL-001].",
+          "Removal of experimental features like @app.vibe() suggests occasional inclusion of non-production-grade code, risking instability [ID:E-RL-003].",
+          "Performance claims lack external benchmark references, relying on internal team estimates that may not generalize [ID:E-RD-004][ID:E-RD-005]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While FastAPI presents compelling claims about performance, developer productivity, and robustness, many of these assertions rely on unverified internal estimates, lack independent benchmarking, and depend heavily on external libraries whose changes can destabilize the framework. Additionally, the presence of non-serious code and commercial sponsorships raises questions about long-term stability and focus.",
+        "highlights": [
+          "Performance and productivity claims (e.g., '200–300% faster development', '40% fewer bugs') are based solely on internal team estimates with no public methodology or third-party validation [ID:E-RD-004][ID:E-RD-005].",
+          "The framework’s core functionality is tightly coupled to Pydantic v2 and Starlette; recent releases show reactive patching for Pydantic deprecations, indicating fragility in dependency management [ID:E-RL-001].",
+          "Experimental or humorous features like @app.vibe() have been merged into the codebase, suggesting insufficient gatekeeping for production-ready quality [ID:E-RL-003].",
+          "The README prominently features commercial sponsors and affiliated services (e.g., FastAPI Cloud, SDK generators), potentially signaling a shift toward monetization over pure open-source stewardship [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "risks": [
+          "Overreliance on unverified performance and productivity metrics may mislead adopters about real-world gains [ID:E-RD-004][ID:E-RD-005].",
+          "Dependency volatility—especially with Pydantic—could lead to breaking changes requiring urgent upgrades, increasing maintenance burden [ID:E-RL-001].",
+          "Inclusion of non-standard or joke features undermines confidence in code review rigor and release stability [ID:E-RL-003].",
+          "Heavy promotion of commercial partners in official documentation may indicate conflicting priorities between community needs and business interests [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RL-001",
+          "E-RL-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"FastAPI\",\n    \"one_sentence\": \"FastAPI is a modern, high-performance Python web framework for building APIs with automatic validation, serialization, and interactive documentation based on standard Python type hints.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers define API endpoints using Python type hints; FastAPI automatically validates requests, serializes responses, generates OpenAPI specs, and serves interactive documentation.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Interactive API Documentation\",\n      \"purpose\": \"Provide auto-generated, interactive Swagger UI and ReDoc documentation for all defined API endpoints.\",\n      \"primary_actions\": [\n        \"View endpoint details\",\n        \"Test API calls directly in browser\",\n        \"Explore request/response schemas\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"serve_api\",\n      \"purpose\": \"Start the FastAPI application server to handle HTTP requests and serve the API with auto-generated documentation.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"api_endpoints\",\n        \"fields\": [\n          {\n            \"name\": \"path\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"method\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"handler\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Define core routing and dependency injection system\",\n          \"Integrate Pydantic for request/response validation\",\n          \"Generate OpenAPI spec from type annotations\",\n          \"Embed Swagger UI and ReDoc documentation\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"The application starts successfully and serves an OpenAPI-compliant specification at /openapi.json\",\n    \"Interactive documentation (Sw"
+      }
+    },
+    "t8y2/dbx": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "scout",
+        "summary": "DBX is a lightweight (~15 MB), cross-platform database client supporting over 40 databases via native and JDBC/Agent-based drivers. It features a modern GUI built with Tauri and Vue, SQL editing with AI assistance, rich data grid capabilities, and frequent feature-rich releases. Active development is evident, but open issues highlight stability concerns and missing enterprise-grade features.",
+        "highlights": [
+          "Supports 40+ databases including MySQL, PostgreSQL, MongoDB, Redis, DuckDB, Oracle, and more, with extensibility via JDBC/Agent profiles.",
+          "Built-in AI assistant for SQL generation, explanation, and optimization using OpenAI-compatible endpoints or local models.",
+          "Feature-rich data grid with inline editing, filtering, export options, and performance optimizations for large result sets.",
+          "Recent releases (v0.5.14–v0.5.16) show rapid iteration with user-requested features like deep linking, offline JDBC driver import, and enhanced editing UX.",
+          "Lightweight desktop app (~15 MB) without bundled Chromium, leveraging Rust (Tauri) and TypeScript/Vue."
+        ],
+        "risks": [
+          "Multiple open bug reports indicate UI freezes, query errors, and compatibility issues (e.g., MySQL 5.7 permissions, DuckDB problems).",
+          "Missing core functionalities like table creation UI and field validation (requested in open issues), limiting usability for schema management.",
+          "Stability concerns around Agent/JDBC plugins and memory handling (e.g., crash on large responses).",
+          "Reliance on community contributions for key features may affect consistency and maintenance velocity."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-009"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "inventor",
+        "summary": "DBX innovates by packing 40+ database support, AI-assisted SQL, and a full-featured data grid into a 15 MB desktop app without Chromium, using a Rust/Tauri core with extensible Agent/JDBC drivers.",
+        "highlights": [
+          "Combines native and Agent/JDBC-based connectivity to support 40+ databases in a single lightweight (~15 MB) binary, avoiding bundled Chromium.",
+          "Integrates an AI assistant that generates, explains, and optimizes SQL via OpenAI-compatible endpoints or local models, with built-in safety checks.",
+          "Offers advanced data grid features like inline editing, DataGrip-style filters, virtual scrolling for large results, and export to multiple formats (CSV, JSON, XLSX, INSERT).",
+          "Enables deep linking (e.g., dbx://connection/new) and offline JDBC driver import, enhancing integration and usability in restricted environments.",
+          "Rapid feature iteration driven by user feedback, including memory-mode DuckDB/SQLite, DELIMITER support, and AI model auto-discovery."
+        ],
+        "risks": [
+          "Architectural complexity from hybrid native/Agent/JDBC driver model may lead to inconsistent behavior or crashes (e.g., Agent large-response crash, MCP context loss).",
+          "Missing foundational features like table creation UI and field validation limit utility for schema design, despite rich query capabilities.",
+          "Performance instability reported in open issues (UI freezes, query errors) could undermine reliability for daily use.",
+          "Heavy reliance on community contributions for core enhancements risks uneven quality or maintenance gaps."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-009"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "engineer",
+        "summary": "DBX is a compact (~15 MB), cross-platform database client built with Tauri (Rust) and Vue, supporting 40+ databases via native and extensible Agent/JDBC drivers. It delivers advanced SQL editing with AI assistance, a performant virtual-scrolled data grid, and frequent user-driven feature releases—but faces stability issues and gaps in schema management tooling.",
+        "highlights": [
+          "Hybrid architecture using Rust (Tauri) for the backend and TypeScript/Vue for the frontend enables a lightweight (~15 MB), Chromium-free desktop app with native performance.",
+          "Extensible connectivity model supports 40+ databases natively (MySQL, PostgreSQL, Redis, etc.) and via Agent/JDBC profiles (Snowflake, Hive, Neo4j, etc.), with recent enhancements like offline JDBC driver import and SAP HANA tenant routing.",
+          "AI-assisted SQL features include natural-language-to-SQL generation, query explanation, and optimization using OpenAI-compatible or local models, with safety checks and auto-discovery of available models.",
+          "Data grid offers enterprise-grade UX: inline editing with SQL preview, DataGrip-style filters, virtual scrolling for large results, column resizing, and export to CSV/JSON/XLSX/INSERT.",
+          "Recent releases (v0.5.14–v0.5.16) demonstrate rapid iteration on user feedback, adding deep linking, memory-mode DuckDB/SQLite, DELIMITER support, and improved keyboard navigation."
+        ],
+        "risks": [
+          "Open bug reports indicate critical stability issues: UI freezes (E-IS-006), query execution errors (E-IS-007), and compatibility gaps (e.g., MySQL 5.7 permissions, E-IS-004).",
+          "Lack of table creation UI (E-IS-009) and field validation (E-IS-008) limits schema design capabilities despite strong query and data browsing features.",
+          "Agent/JDBC subsystem shows fragility: crashes on large responses (E-RL-002), incorrect database context passing (E-RL-002), and TLS fallback failures (E-RL-002).",
+          "Performance bottlenecks in core interactions—such as unresponsive UI during normal operations—suggest potential issues in event loop handling or plugin IPC."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-004",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role": "skeptic",
+        "summary": "Despite ambitious claims of supporting 40+ databases in a 15 MB app with AI assistance, DBX exhibits significant stability issues, missing core features, and inconsistent compatibility—raising doubts about its readiness for serious database work.",
+        "highlights": [
+          "Claims of '40+ databases' rely heavily on experimental Agent/JDBC profiles with known fragility (e.g., crashes on large responses, context loss).",
+          "AI-assisted SQL is marketed prominently but lacks transparency on safety checks or reliability under real-world usage.",
+          "Frequent releases add surface-level features (themes, shortcuts) while critical bugs like UI freezes and query failures remain unresolved."
+        ],
+        "risks": [
+          "Unstable user experience: open reports of unexplained UI freezes (E-IS-006) and query errors (E-IS-007) undermine trust in daily use.",
+          "Incomplete functionality: absence of table creation UI (E-IS-009) and field validation (E-IS-008) contradicts claims of being a full-featured client.",
+          "Compatibility gaps persist: MySQL 5.7 permission queries fail (E-IS-004), DuckDB has unresolved issues (E-IS-002), and Oracle support appears superficial despite listing.",
+          "Overreliance on community patches for core fixes (e.g., SAP HANA, MariaDB collation) suggests inconsistent internal QA."
+        ],
+        "evidence_ids": [
+          "E-IS-002",
+          "E-IS-004",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-008",
+          "E-IS-009",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-005",
+          "E-RD-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 22,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"DBX\",\n    \"one_sentence\": \"A lightweight (~15 MB), cross-platform database client supporting 40+ databases with built-in AI-assisted SQL and a rich data grid.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User connects to a database, writes or generates SQL (optionally via AI), executes queries, views and edits results in a virtual-scrolled grid, and exports or saves work—all within a compact desktop app.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Query Workspace\",\n      \"purpose\": \"Primary interface for database connections, SQL editing, query execution, and result browsing.\",\n      \"primary_actions\": [\n        \"Connect to database\",\n        \"Write and execute SQL\",\n        \"Edit table data inline\",\n        \"Export query results\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings & AI Configuration\",\n      \"purpose\": \"Configure database connections, AI models, and application preferences.\",\n      \"primary_actions\": [\n        \"Set AI model endpoint\",\n        \"Manage JDBC drivers\",\n        \"Adjust UI themes and shortcuts\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"execute_query\",\n      \"purpose\": \"Run SQL against a connected database and return results with metadata.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"save_snippet\",\n      \"purpose\": \"Persist user SQL snippets for reuse.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"generate_sql_with_ai\",\n      \"purpose\": \"Send natural language prompt to AI backend and return generated SQL.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"import_jdbc_driver\",\n      \"purpose\": \"Load offline JDBC driver from ZIP or JAR file.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"connections\",\n        \"fields\": [\n          {\n            \"name\": \"i"
+      }
+    },
+    "HzaCode/OneCite": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "scout",
+        "summary": "OneCite is a Python-based CLI tool and library for parsing and formatting academic references from mixed inputs (DOIs, titles, arXiv IDs, etc.) into BibTeX using metadata from multiple scholarly sources. It features a 4-stage pipeline and supports diverse citation types, but has known design and reliability issues.",
+        "highlights": [
+          "Supports fuzzy matching and multi-source metadata lookup (CrossRef, PubMed, arXiv, Semantic Scholar, etc.)",
+          "Processes mixed reference inputs into consistent BibTeX output via a 4-stage pipeline",
+          "Listed in 'Awesome CLI Apps' and 'Awesome LaTeX'; includes documentation, CI/CD, and test coverage",
+          "Actively developed with recent commits and community engagement"
+        ],
+        "risks": [
+          "Metadata accuracy issues: incorrect abstracts retrieved despite correct title/DOI (e.g., DOI 10.2307/2531595)",
+          "Weak and inconsistent identification logic for reference parsing",
+          "Flawed scoring algorithm for text search and reference matching",
+          "Inadequate test suite: most tests lack meaningful assertions",
+          "Monolithic design concerns (e.g., oversized pipeline.py) despite refactoring efforts"
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "inventor",
+        "summary": "OneCite introduces an automated, multi-source pipeline for transforming messy academic reference inputs into structured BibTeX, leveraging fuzzy matching and metadata enrichment from major scholarly databases.",
+        "highlights": [
+          "Invents a 4-stage processing pipeline (clean → query → validate → format) to standardize heterogeneous citation inputs into auditable BibTeX",
+          "Integrates diverse academic metadata sources (CrossRef, PubMed, arXiv, Semantic Scholar, DataCite, Zenodo, Google Books) with source-specific lookup logic",
+          "Supports fuzzy matching of incomplete references and handles 7+ citation types including software, datasets, and theses",
+          "Designed as both a CLI tool and Python library, enabling programmatic citation resolution in research workflows"
+        ],
+        "risks": [
+          "Core identification and scoring logic is flawed—described as 'weak', 'inconsistent', and 'nonsensical'—undermining reliability of reference matching",
+          "Metadata inaccuracies persist (e.g., wrong abstracts despite correct DOI), indicating gaps in validation or source prioritization",
+          "Insufficient test coverage fails to verify critical behavior, reducing confidence in output correctness",
+          "Monolithic architecture (e.g., oversized pipeline.py) complicates maintenance and extension despite acknowledged refactoring needs"
+        ],
+        "evidence_ids": [
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-008",
+          "E-IS-010"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "engineer",
+        "summary": "OneCite is a Python-based CLI and library that automates the conversion of mixed academic reference inputs into standardized BibTeX using a multi-source metadata pipeline, but suffers from architectural, algorithmic, and testing deficiencies that impact reliability.",
+        "highlights": [
+          "Implements a 4-stage pipeline (clean → query → validate → format) to normalize heterogeneous inputs like DOIs, arXiv IDs, and free-text titles into consistent BibTeX output",
+          "Integrates seven+ scholarly metadata sources (CrossRef, PubMed, arXiv, Semantic Scholar, DataCite, Zenodo, Google Books) with source-specific query logic",
+          "Supports fuzzy matching and handles diverse citation types including journal articles, preprints, datasets, software, and theses",
+          "Ships with CI/CD (GitHub Actions), test coverage reporting (Codecov), documentation, and packaging (PyPI), indicating production-readiness intent"
+        ],
+        "risks": [
+          "Core reference identification logic is weak, inconsistent, and difficult to follow, leading to unreliable parsing outcomes",
+          "Text search and scoring algorithms are flawed—described as 'nonsensical'—compromising match accuracy during fuzzy resolution",
+          "Metadata validation is insufficient: verified cases show incorrect abstracts returned despite correct DOI/title (e.g., DOI 10.2307/2531595)",
+          "Test suite lacks meaningful assertions ('most tests don't test anything'), reducing confidence in correctness and regression safety",
+          "Monolithic design (e.g., oversized `pipeline.py`) persists despite acknowledged need for modularization, hindering maintainability"
+        ],
+        "evidence_ids": [
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-008",
+          "E-IS-010"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "skeptic",
+        "summary": "OneCite promises automated, accurate citation formatting from messy inputs but exhibits systemic flaws in its core logic, validation, and testing that undermine trust in its output.",
+        "highlights": [
+          "Claims robust multi-source metadata integration (CrossRef, PubMed, arXiv, etc.) and fuzzy matching for diverse citation types",
+          "Advertises a structured 4-stage pipeline and CI/CD with test coverage, suggesting reliability",
+          "Featured in 'Awesome CLI Apps' and 'Awesome LaTeX', indicating community recognition"
+        ],
+        "risks": [
+          "Metadata inaccuracies confirmed: wrong abstract returned for correct DOI (10.2307/2531595), revealing faulty validation or source handling",
+          "Core identification and scoring logic repeatedly criticized as 'weak', 'inconsistent', and 'nonsensical', directly threatening match reliability",
+          "Test suite is largely ineffective—'most tests don't test anything'—offering no real assurance of correctness or regression safety",
+          "Monolithic design (e.g., oversized `pipeline.py`) persists despite known maintainability issues, increasing risk of undetected bugs"
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-006",
+          "E-IS-007",
+          "E-IS-008",
+          "E-IS-010",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"OneCite\",\n    \"one_sentence\": \"A command-line tool and Python library that parses mixed academic reference inputs (DOIs, titles, arXiv IDs, etc.) into standardized BibTeX using metadata from multiple scholarly sources.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users provide raw reference text containing DOIs, titles, arXiv IDs, or BibTeX fragments; OneCite cleans the input, queries multiple metadata sources (CrossRef, PubMed, arXiv, Semantic Scholar, etc.), validates matches using fuzzy logic, and formats the result as consistent BibTeX with auditable unresolved entries.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"CLI Interface\",\n      \"purpose\": \"Accept raw reference input and output formatted BibTeX via command line.\",\n      \"primary_actions\": [\n        \"Parse mixed reference inputs\",\n        \"Output BibTeX to stdout or file\",\n        \"Report unresolved entries\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"parse_references\",\n      \"purpose\": \"Process raw reference strings through the 4-stage pipeline to produce validated BibTeX entries.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"references\",\n        \"fields\": [\n          {\n            \"name\": \"identifier\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"citation_type\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"metadata\",\n            \"type\": \"json\"\n          },\n          {\n            \"name\": \"source\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core 4-stage pipeline (clean → query → validate → format)\",\n          \"Integrate CrossRef and arXiv metadata lookup\",\n          \"Support DOI and arXiv ID input parsing\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Given a valid D"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "fastapi/fastapi",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 10,
+        "inventor": 9,
+        "engineer": 8,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "t8y2/dbx",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 10,
+        "engineer": 12,
+        "skeptic": 10,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "HzaCode/OneCite",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 9,
+        "engineer": 9,
+        "skeptic": 6,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=2",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=92 kept=5 limit=5",
+    "[deduper] existing_index_repos=313",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] fastapi/fastapi evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] HzaCode/OneCite evidence total=19 readme=8 issue=10 release=0 root_files=1",
+    "[repo_card_builder] t8y2/dbx evidence total=22 readme=8 issue=10 release=3 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=54 gaps=0",
+    "[llm_spec_generator] fastapi/fastapi canonical spec ok (iter=1) -> specs/2026-05-21/fastapi__fastapi.json",
+    "[llm_spec_generator] t8y2/dbx canonical spec ok (iter=1) -> specs/2026-05-21/t8y2__dbx.json",
+    "[llm_spec_generator] HzaCode/OneCite canonical spec ok (iter=1) -> specs/2026-05-21/HzaCode__OneCite.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-21T06:55:18.659Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:18.681Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260521T065518Z"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:18.681Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:18.684Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:19.407Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:19.407Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:19.998Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:19.998Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:20.591Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:20.591Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:21.203Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:21.203Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:21.883Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:21.883Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:22.492Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:22.492Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:23.033Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:23.033Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:23.473Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:23.473Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.116Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.116Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.663Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.666Z",
+      "run_id": "20260521T065518Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 313
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.667Z",
+      "run_id": "20260521T065518Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.670Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-21T06:55:24.671Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastapi__fastapi/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.672Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastapi__fastapi/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.674Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastapi__fastapi/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.676Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fastapi__fastapi/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.677Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-21T06:55:24.677Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "t8y2__dbx/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.678Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "t8y2__dbx/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.680Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "t8y2__dbx/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.681Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "t8y2__dbx/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.683Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-21T06:55:24.683Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "HzaCode__OneCite/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.684Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "HzaCode__OneCite/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.685Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "HzaCode__OneCite/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:24.687Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "HzaCode__OneCite/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.161Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 23764,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.161Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.161Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.161Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 491
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.162Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.247Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 15156,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.247Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.247Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.247Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 565
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.247Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 10,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.287Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 16048,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.287Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.287Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.287Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 610
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.287Z",
+      "run_id": "20260521T065518Z",
+      "node": "repo_card_builder",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 22,
+        "readme": 8,
+        "issues": 10,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.291Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:25.291Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:42.283Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1698,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:55:59.203Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1860,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:16.431Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1779,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:34.061Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2113,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:58.883Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3189,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:58.896Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:58.897Z",
+      "run_id": "20260521T065518Z",
+      "node": "artifacts",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-21/fastapi__fastapi.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:58.897Z",
+      "run_id": "20260521T065518Z",
+      "node": "artifacts",
+      "repo": "fastapi/fastapi",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-21/fastapi__fastapi.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:58.898Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 22,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 10,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-21T06:56:58.898Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 22,
+        "evidence_selected": 22,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:57:14.551Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1888,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:57:29.246Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1801,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:57:50.126Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2370,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:03.452Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1537,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:47.186Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5638,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:47.188Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:47.189Z",
+      "run_id": "20260521T065518Z",
+      "node": "artifacts",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-21/t8y2__dbx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:47.190Z",
+      "run_id": "20260521T065518Z",
+      "node": "artifacts",
+      "repo": "t8y2/dbx",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-21/t8y2__dbx.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:47.190Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 10,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-21T06:58:47.190Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-21T06:59:00.046Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1429,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:59:11.946Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1555,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:59:26.264Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1830,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T06:59:36.714Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1280,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.977Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3116,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.978Z",
+      "run_id": "20260521T065518Z",
+      "node": "llm_spec_generator",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.979Z",
+      "run_id": "20260521T065518Z",
+      "node": "artifacts",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-21/HzaCode__OneCite.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.979Z",
+      "run_id": "20260521T065518Z",
+      "node": "artifacts",
+      "repo": "HzaCode/OneCite",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-21/HzaCode__OneCite.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.983Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.983Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1779346518660,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "fastapi/fastapi": 5,
+          "t8y2/dbx": 5,
+          "HzaCode/OneCite": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.983Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-21T07:00:02.983Z",
+      "run_id": "20260521T065518Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-21",
+    "evidence_dir": "evidence/2026-05-21"
+  }
+}

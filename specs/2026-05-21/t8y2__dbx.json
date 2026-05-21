@@ -1,0 +1,170 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "DBX",
+    "one_liner": "A lightweight (~15 MB), cross-platform database client supporting 40+ databases with built-in AI-assisted SQL and a rich data grid."
+  },
+  "screens": [
+    {
+      "name": "Main Query Workspace",
+      "purpose": "Primary interface for database connections, SQL editing, query execution, and result browsing.",
+      "primary_actions": [
+        "Connect to database",
+        "Edit table data inline",
+        "Export query results",
+        "Write and execute SQL"
+      ]
+    },
+    {
+      "name": "Settings & AI Configuration",
+      "purpose": "Configure database connections, AI models, and application preferences.",
+      "primary_actions": [
+        "Adjust UI themes and shortcuts",
+        "Manage JDBC drivers",
+        "Set AI model endpoint"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "execute_query",
+      "purpose": "Run SQL against a connected database and return results with metadata.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "name": "string",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "generate_sql_with_ai",
+      "purpose": "Send natural language prompt to AI backend and return generated SQL.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "name": "string",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "import_jdbc_driver",
+      "purpose": "Load offline JDBC driver from ZIP or JAR file.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "name": "string",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_snippet",
+      "purpose": "Persist user SQL snippets for reuse.",
+      "async": true,
+      "input": {
+        "config": "json",
+        "name": "string",
+        "payload": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "connections",
+        "columns": [
+          {
+            "name": "config",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "query_history",
+        "columns": [
+          {
+            "name": "connection_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "executed_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sql",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "snippets",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "sql",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add DuckDB and SQLite native connectors",
+    "week 1: Build virtual-scrolled result grid with inline editing",
+    "week 1: Implement core Tauri + Vue shell with connection management",
+    "week 1: Integrate CodeMirror 6 SQL editor with basic autocomplete",
+    "week 2: Add AI SQL generation via OpenAI-compatible API",
+    "week 2: Add deep linking (dbx://) handler",
+    "week 2: Implement CSV/JSON export from result grid",
+    "week 2: Support saved SQL snippets and query history"
+  ],
+  "acceptance_tests": [
+    "AI assistant generates valid SQL from natural language input and explains existing queries.",
+    "Application remains responsive during normal operations; no unexplained UI freezes.",
+    "Offline JDBC driver import works for Snowflake using local JAR file.",
+    "Result grid handles 100k+ rows without freezing and allows inline cell editing with SQL preview.",
+    "User can connect to a MySQL database and execute a SELECT query without crashes."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "OneCite",
+    "one_liner": "A command-line tool and Python library that parses mixed academic reference inputs (DOIs, titles, arXiv IDs, etc.) into standardized BibTeX using metadata from multiple scholarly sources."
+  },
+  "screens": [
+    {
+      "name": "CLI Interface",
+      "purpose": "Accept raw reference input and output formatted BibTeX via command line.",
+      "primary_actions": [
+        "Output BibTeX to stdout or file",
+        "Parse mixed reference inputs",
+        "Report unresolved entries"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "parse_references",
+      "purpose": "Process raw reference strings through the 4-stage pipeline to produce validated BibTeX entries.",
+      "async": true,
+      "input": {
+        "citation_type": "string",
+        "identifier": "string",
+        "metadata": "json",
+        "payload": "json",
+        "source": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "references",
+        "columns": [
+          {
+            "name": "citation_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "identifier",
+            "type": "TEXT"
+          },
+          {
+            "name": "metadata",
+            "type": "JSON"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core 4-stage pipeline (clean → query → validate → format)",
+    "week 1: Integrate CrossRef and arXiv metadata lookup",
+    "week 1: Support DOI and arXiv ID input parsing"
+  ],
+  "acceptance_tests": [
+    "Given a malformed title, the system attempts fuzzy matching against Semantic Scholar and reports confidence score.",
+    "Given a valid DOI, the system returns correct BibTeX with all available fields including abstract."
+  ]
+}

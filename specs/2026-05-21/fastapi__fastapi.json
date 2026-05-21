@@ -1,0 +1,68 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "FastAPI",
+    "one_liner": "FastAPI is a modern, high-performance Python web framework for building APIs with automatic validation, serialization, and interactive documentation based on standard Python type hints."
+  },
+  "screens": [
+    {
+      "name": "Interactive API Documentation",
+      "purpose": "Provide auto-generated, interactive Swagger UI and ReDoc documentation for all defined API endpoints.",
+      "primary_actions": [
+        "Explore request/response schemas",
+        "Test API calls directly in browser",
+        "View endpoint details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "serve_api",
+      "purpose": "Start the FastAPI application server to handle HTTP requests and serve the API with auto-generated documentation.",
+      "async": true,
+      "input": {
+        "handler": "string",
+        "method": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "api_endpoints",
+        "columns": [
+          {
+            "name": "handler",
+            "type": "TEXT"
+          },
+          {
+            "name": "method",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define core routing and dependency injection system",
+    "week 1: Embed Swagger UI and ReDoc documentation",
+    "week 1: Generate OpenAPI spec from type annotations",
+    "week 1: Integrate Pydantic for request/response validation"
+  ],
+  "acceptance_tests": [
+    "Interactive documentation (Swagger UI) is accessible at /docs and reflects defined endpoints",
+    "Request validation rejects malformed input based on Pydantic models",
+    "The application starts successfully and serves an OpenAPI-compliant specification at /openapi.json",
+    "Type hints on function parameters correctly generate path/query/body parameter schemas"
+  ]
+}
