@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Luffy",
+    "one_liner": "A Go-based CLI media streaming tool that enables cross-platform playback of movies and TV shows without requiring a browser."
+  },
+  "screens": [
+    {
+      "name": "Main Media Selector",
+      "purpose": "Display search results and allow user to select media for playback or download.",
+      "primary_actions": [
+        "Search for movies or TV shows",
+        "Select item to download",
+        "Select item to stream"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Download and save a selected media item to local storage, handling segmented downloads and partial file cleanup on failure.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "provider": "string",
+        "title": "string",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "items",
+        "columns": [
+          {
+            "name": "provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add mpv playback support with configurable args",
+    "week 1: Implement core CLI interface for media search and selection",
+    "week 1: Integrate reverse-engineered cineby provider"
+  ],
+  "acceptance_tests": [
+    "User can install Luffy via Nix or APT and successfully stream a movie on Linux.",
+    "When megacloud client key extraction fails, the system provides a clear error instead of hanging."
+  ]
+}

@@ -1,0 +1,2703 @@
+{
+  "run_id": "20260522T065119Z",
+  "generated_at": "2026-05-22T06:51:19.421Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 92,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 34,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 10,
+      "release": 6,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-22T06:54:23.259Z",
+    "repo_count": 318
+  },
+  "candidates": [
+    {
+      "full_name": "fallow-rs/fallow",
+      "html_url": "https://github.com/fallow-rs/fallow",
+      "description": "Codebase intelligence for TypeScript and JavaScript. Free static layer: unused code, duplication, circular deps, complexity hotspots, architecture boundaries. Optional paid runtime layer: hot-path review and cold-path deletion evidence from real production traffic. Rust-native, sub-second, 95 framework plugins.",
+      "topics": [
+        "cli",
+        "code-duplication",
+        "code-quality",
+        "codebase-intelligence",
+        "copy-paste-detection",
+        "dead-code",
+        "developer-tools",
+        "duplicate-code",
+        "javascript",
+        "linter",
+        "oxc",
+        "runtime-intelligence",
+        "rust",
+        "static-analysis",
+        "typescript",
+        "unused-code",
+        "unused-dependencies",
+        "unused-exports"
+      ],
+      "language": "Rust",
+      "stargazers_count": 2408,
+      "forks_count": 59,
+      "open_issues_count": 40,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-22T06:51:22Z",
+      "created_at": "2026-03-17T08:40:57Z"
+    },
+    {
+      "full_name": "mvanhorn/cli-printing-press",
+      "html_url": "https://github.com/mvanhorn/cli-printing-press",
+      "description": "Every API has a secret identity. This finds it, absorbs every feature from every competing tool, then builds the GOAT CLI — designed for AI agents first, with SQLite sync, offline search, and compound insight commands.",
+      "topics": [
+        "ai-agents",
+        "cli",
+        "cli-generator",
+        "developer-tools",
+        "golang",
+        "openapi"
+      ],
+      "language": "Go",
+      "stargazers_count": 2347,
+      "forks_count": 226,
+      "open_issues_count": 219,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-22T06:51:14Z",
+      "created_at": "2026-03-23T16:02:09Z"
+    },
+    {
+      "full_name": "new92/instatools",
+      "html_url": "https://github.com/new92/instatools",
+      "description": "🧰 A collection of automation tools for Instagram 📱| Written in Python 🐍 | Don't forget to ⭐ the repo !",
+      "topics": [
+        "automation",
+        "bot",
+        "cli",
+        "collection",
+        "explore",
+        "github",
+        "instagram",
+        "instagram-bot",
+        "python",
+        "python3",
+        "scraper",
+        "scraping",
+        "script",
+        "scripting",
+        "scripts",
+        "toolbox",
+        "toolkit",
+        "tools"
+      ],
+      "language": "Python",
+      "stargazers_count": 306,
+      "forks_count": 33,
+      "open_issues_count": 3,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-22T06:51:06Z",
+      "created_at": "2023-01-03T21:46:34Z"
+    },
+    {
+      "full_name": "DemonKingSwarn/luffy",
+      "html_url": "https://github.com/DemonKingSwarn/luffy",
+      "description": "Spiritual successor of flix-cli and mov-cli",
+      "topics": [
+        "cli",
+        "commandline",
+        "download",
+        "flix-cli",
+        "go",
+        "luffy",
+        "mov-cli",
+        "movies",
+        "stream",
+        "tv"
+      ],
+      "language": "C",
+      "stargazers_count": 174,
+      "forks_count": 11,
+      "open_issues_count": 3,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-22T06:49:58Z",
+      "created_at": "2026-01-02T09:12:35Z"
+    },
+    {
+      "full_name": "teng-lin/notebooklm-py",
+      "html_url": "https://github.com/teng-lin/notebooklm-py",
+      "description": "Unofficial Python API and agentic skill for Google NotebookLM. Full programmatic access to NotebookLM's features—including capabilities the web UI doesn't expose—via Python, CLI, and AI agents like Claude Code, Codex, and OpenClaw.",
+      "topics": [
+        "agentic-skill",
+        "api",
+        "claude",
+        "claude-skills",
+        "google-notebooklm",
+        "notebooklm",
+        "notebooklm-api",
+        "notebooklm-skill",
+        "openclaw-skills",
+        "podcast-generator",
+        "python",
+        "python-api",
+        "sdk",
+        "skills"
+      ],
+      "language": "Python",
+      "stargazers_count": 14487,
+      "forks_count": 2003,
+      "open_issues_count": 14,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-22T06:49:33Z",
+      "created_at": "2026-01-07T15:27:19Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "fallow-rs/fallow",
+      "html_url": "https://github.com/fallow-rs/fallow",
+      "description": "Codebase intelligence for TypeScript and JavaScript. Free static layer: unused code, duplication, circular deps, complexity hotspots, architecture boundaries. Optional paid runtime layer: hot-path review and cold-path deletion evidence from real production traffic. Rust-native, sub-second, 95 framework plugins.",
+      "topics": [
+        "cli",
+        "code-duplication",
+        "code-quality",
+        "codebase-intelligence",
+        "copy-paste-detection",
+        "dead-code",
+        "developer-tools",
+        "duplicate-code",
+        "javascript",
+        "linter",
+        "oxc",
+        "runtime-intelligence",
+        "rust",
+        "static-analysis",
+        "typescript",
+        "unused-code",
+        "unused-dependencies",
+        "unused-exports"
+      ],
+      "language": "Rust",
+      "stargazers_count": 2408,
+      "forks_count": 59,
+      "open_issues_count": 40,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-22T06:51:22Z",
+      "created_at": "2026-03-17T08:40:57Z"
+    },
+    {
+      "full_name": "DemonKingSwarn/luffy",
+      "html_url": "https://github.com/DemonKingSwarn/luffy",
+      "description": "Spiritual successor of flix-cli and mov-cli",
+      "topics": [
+        "cli",
+        "commandline",
+        "download",
+        "flix-cli",
+        "go",
+        "luffy",
+        "mov-cli",
+        "movies",
+        "stream",
+        "tv"
+      ],
+      "language": "C",
+      "stargazers_count": 174,
+      "forks_count": 11,
+      "open_issues_count": 3,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-22T06:49:58Z",
+      "created_at": "2026-01-02T09:12:35Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "fallow-rs/fallow",
+      "html_url": "https://github.com/fallow-rs/fallow",
+      "description": "Codebase intelligence for TypeScript and JavaScript. Free static layer: unused code, duplication, circular deps, complexity hotspots, architecture boundaries. Optional paid runtime layer: hot-path review and cold-path deletion evidence from real production traffic. Rust-native, sub-second, 95 framework plugins.",
+      "topics": [
+        "cli",
+        "code-duplication",
+        "code-quality",
+        "codebase-intelligence",
+        "copy-paste-detection",
+        "dead-code",
+        "developer-tools",
+        "duplicate-code",
+        "javascript",
+        "linter",
+        "oxc",
+        "runtime-intelligence",
+        "rust",
+        "static-analysis",
+        "typescript",
+        "unused-code",
+        "unused-dependencies",
+        "unused-exports"
+      ],
+      "language": "Rust",
+      "stargazers_count": 2408,
+      "forks_count": 59,
+      "open_issues_count": 40,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-22T06:51:22Z",
+      "created_at": "2026-03-17T08:40:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/fallow-rs/fallow/main/assets/logo-dark.svg\">\n    <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/fallow-rs/fallow/main/assets/logo.svg\">\n    <img src=\"https://raw.githubusercontent.com/fallow-rs/fallow/main/assets/logo.svg\" alt=\"fallow\" width=\"290\">\n  </picture>\n</p>\n\n<p align=\"center\">\n  <strong>Codebase intelligence for TypeScript & JavaScript.</strong><br>\n  Free static analysis for unused code, duplication, complexity, and architecture drift.<br>\n  Optional runtime intelligence for hot paths, cold paths, and runtime-backed code decisions.<br>\n  <strong>Built for AI-assisted development. No AI inside.</strong><br>\n  <strong>Rust-native. Zero config. Sub-second.</strong>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/fallow-rs/fallow/actions/workflows/ci.yml\"><img src=\"https://github.com/fallow-rs/fallow/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://github.com/fallow-rs/fallow/actions/workflows/coverage.yml\"><img src=\"https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/fallow-rs/fallow/badges/coverage.json\" alt=\"Coverage\"></a>\n  <a href=\"https://crates.io/crates/fallow-cli\"><img src=\"https://img.shields.io/crates/v/fallow-cli.svg\" alt=\"crates.io\"></a>\n  <a href=\"https://www.npmjs.com/package/fallow\"><img src=\"https://img.shields.io/npm/v/fallow.svg\" alt=\"npm\"></a>\n  <a href=\"https://github.com/fallow-rs/fallow/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg\" alt=\"MIT License\"></a>\n  <a href=\"https://docs.fallow.tools\"><img src=\"https://img.shields.io/badge/docs-docs.fallow.tools-blue.svg\" alt=\"Documentation\"></a>\n</p>\n\n---\n\n```bash\nnpx fallow --summary\n```\n\n```\nDead Code Summary\n\n      12  Unused files\n      47  Unused exports\n       8  Unused types\n       3  Unused dependencies\n       2  Circular dependencies\n\n      72  Total\n\nDuplication Summary\n\n      18  Clone families\n      53  Clone groups\n   2,140  Duplicated lines\n    4.2%  Duplication rate\n\nHealth Summary\n\n     612  Functions analyzed\n       9  Above threshold\n    89.4  Average maintainability (good)\n```\n\n**Static analysis is free and open source. Runtime intelligence is optional.**\n\n95 framework plugins. No Node.js runtime required for static analysis. No config needed for the first run.\n\nFallow builds a project-wide understanding of your TS/JS codebase instead of checking one file at a time. Use it to review AI-generated changes faster, clean up dead code, reduce duplication, find risky complexity, and enforce architecture boundaries. Add the runtime layer when you want to know what actually executed in production.\n\n**Fallow is the codebase truth layer your coding agent can call. It is not an AI assistant.**\n\n## Install\n\n```bash\nnpm install --save-dev fallow   # or: pnpm add -D fallow / yarn add -D fallow / bun add -d fallow\n```\n\nInstalls the CLI, LSP server, MCP server, and version-matched Agent Skill into `node_modules`. For one-off CLI use, run `npx fallow`; Rust users can also run `cargo install fallow-cli`.\n\nParsing `fallow --format json` in TypeScript? `import type { CheckOutput } from \"fallow/types\"` gives you the full output contract, version-pinned to your installed CLI.\n\nProgrammatic Node API:\n\n```bash\nnpm install @fallow-cli/fallow-node   # or: pnpm/yarn/bun add @fallow-cli/fallow-node\n```\n\n```ts\nimport { detectDeadCode, detectDuplication, computeHealth } from '@fallow-cli/fallow-node';\n\nconst deadCode = await detectDeadCode({ root: process.cwd() });\nconst dupes = await detectDuplication({ root: process.cwd(), mode: 'mild', minTokens: 30 });\nconst health = await computeHealth({ root: process.cwd(), score: true, ownershipEmails: 'handle' });\n```\n\n## Start here\n\n```bash\nfallow                      # Dead code + duplication + health\nfallow dead-code            # Cleanup candidates\nfallow dupes                # Repeated logic\nfallow health               # Complexity + refactor targets\nfallow fix --dry-run        # Preview automatic cleanup\n```\n\n## What it finds\n\n- **Dead code**: unused files, exports, dependencies, types, cycles, boundaries, stale suppressions, unused pnpm `catalog:` entries, empty named pnpm catalog groups, unresolved pnpm `catalog:` references (a `package.json` references a catalog that does not declare the package, so `pnpm install` would fail), unused or misconfigured pnpm `overrides:` entries (an override forces a version no workspace package declares or resolves in `pnpm-lock.yaml`, or an override key/value is malformed), GraphQL documents linked by `#import`, plus opt-in API hygiene checks such as private type leaks\n- **Duplication**: repeated blocks from exact to semantic clones\n- **Complexity**: high-risk functions, file scores, hotspots, and refactor targets\n- **Architecture drift**: boundary violations across layers and modules\n\n## Why Fallow exists\n\nLinters check files. TypeScript checks types. Fallow checks the codebase.\n\nIt builds a module graph across the whole project so it can find problems that file-local tools cannot:\n\n| What | Linter | Fallow |\n|---|---|---|\n| Unused variable in a function | yes | no |\n| Unused export that nothing imports | no | yes |\n| File that nothing imports | no | yes |\n| Circular dependency across modules | no | yes |\n| Duplicate code blocks across files | no | yes |\n| Dependency in package.json never imported | no | yes |\n\n[Full comparison: fallow vs ESLint, Biome, knip, ts-prune](https://docs.fallow.tools/explanations/fallow-vs-linters)\n\n## Why teams using AI need Fallow\n\nAI accelerates code creation. It does not eliminate review, cleanup, or architecture drift.\n\nWhen Claude Code, Codex, Cursor, or other tools generate changes, teams still need to know:\n\n- did this introduce dead code?\n- did it duplicate logic that already existed?\n- did complexity get worse?\n- did the change cross a boundary it should not cross?\n- is this code on a hot path or a cold one?\n- what should the reviewer read closely first?\n\nFallow answers those questions with deterministic, graph-based analysis and structured output, so both humans and agents can act on facts instead of guesses.\n\n## How agents use Fallow\n\nAgents do not need to guess from limited context. They can call Fallow directly via the CLI or MCP.\n\nCommon agent workflow:\n\n1. generate or edit code\n2. run `fallow --format json`\n3. inspect dead code, duplication, health findings, and per-issue `actions`\n4. apply safe fixes or adjust the patch before opening a PR\n5. hand the result to a human reviewer with better evidence\n\n```bash\nnpx fallow --format json\nnpx fallow audit --format json\nnpx fallow fix --dry-run --format json\n```\n\nFor full adoption instead of one-off review, see the [Fallow compliance happy path](https://github.com/fallow-rs/fallow/blob/main/docs/fallow-compliance.md). It defines the end state clearly: repo-wide dead code and duplication findings are fixed or explicitly documented, `fallow health` reaches `Above threshold: 0` for the repo's chosen thresholds, and `fallow audit` becomes the change-set gate once adoption is wired in. It also includes a copy-paste agent onboarding prompt.\n\nSee [Agent integration](https://docs.fallow.tools/integrations/mcp) for MCP setup and the full list of structured tools.\n\n## More static commands\n\n```bash\nfallow audit                 # Audit changed files (verdict: pass/warn/fail)\nfallow explain unused-export # Explain a rule without analyzing\nfallow --production-health   # Combined mode: production health, full dead-code/dupes\nfallow watch                 # Re-analyze on file changes\nfallow fix                   # Apply automatic cleanup after previewing\n```\n\nCombined mode and `fallow audit` support per-analysis production mode. Precedence is CLI flags, then environment variables, then config:\n\n```jsonc\n{\n  \"production\": {\n    \"health\": true,\n    \"deadCode\": false,\n    \"dupes\": false\n  }\n}\n```\n\nUse `--production-health`, `--production-dead-code`, or `--production-dupes` for one invocation, or `FALLOW_PRODUCTION_HEALTH=true` and related env vars in CI. The global `--production` flag still enables production mode for every analysis.\n\nPrecedence (highest to lowest): CLI flags, per-analysis env var, global `FALLOW_PRODUCTION`, config. CLI flags only enable; env vars and config can also disable. Worked examples:\n\n```bash\n# Run health in production mode, dead-code and dupes on the full tree\nfallow --production-health\n\n# Same, via env var (useful in CI templates that pass env-only)\nFALLOW_PRODUCTION_HEALTH=true fallow\n\n# Per-analysis env wins over the global env, so this runs health in production mode\n# even though the global env says off (the typical CI-template defaults case)\nFALLOW_PRODUCTION=false FALLOW_PRODUCTION_HEALTH=true fallow\n\n# CLI flags beat env vars; this turns ALL three on regardless of any FALLOW_PRODUCTION_* env\nfallow --production\n```\n\n## Dead code\n\nFinds unused files, exports, dependencies, types, enum members, class members, unresolved imports, unlisted dependencies, duplicate exports, circular dependencies (including cross-package cycles in monorepos), boundary violations, type-only dependencies, test-only production dependencies, and stale suppression comments. Workspace package dependencies are checked like external packages, so unused or undeclared internal package edges are visible in monorepos. Entry points are auto-detected from package.json fields, framework conventions, and plugin patterns. Arrow-wrapped dynamic imports (`React.lazy`, `loadable`, `defineAsyncComponent`) are tracked as references. Script multiplexers (`concurrently`, `npm-run-all`) are analyzed to discover transitive script dependencies. JSDoc tags (`@public`, `@internal`, `@beta`, `@alpha`, `@expected-unused`) control export visibility. Private type leaks are currently opt-in API hygiene findings via `--private-type-leaks` or the `private-type-leaks` rule.\n\n```bash\nfallow dead-code                          # All dead code issues\nfallow dead-code --unused-exports         # Only unused exports\nfallow dead-code --private-type-leaks     # Opt-in private type leak API hygiene\nfallow dead-code --circular-deps          # Only circular dependencies\nfallow dead-code --boundary-violations    # Only boundary violations\nfallow dead-code --stale-suppressions     # Only stale suppression comments\nfallow dead-code --production             # Exclude test/dev files\nfallow dead-code --changed-since main     # Only changed files (for PRs)\nfallow dead-code --file src/utils.ts       # Single file (lint-staged integration)\nfallow dead-code --include-entry-exports  # Also check exports from entry files\nfallow dead-code --group-by owner         # Group by CODEOWNERS for team triage\nfallow dead-code --group-by directory     # Group by first directory component\nfallow dead-code --group-by package       # Group by workspace package (monorepo)\nfallow dead-code --group-by section       # Group by GitLab CODEOWNERS section\n```\n\n## Duplication\n\nFinds copy-pasted code blocks across your codebase. Suffix-array algorithm -- no quadratic pairwise comparison. Repeated atomic function calls are filtered by default, so long calls to an existing shared abstraction do not show up as refactoring work.\n\n```bash\nfallow dupes                              # Default (mild mode)\nfallow dupes --mode semantic              # Catch clones with renamed variables\nfallow dupes --skip-local                 # Only cross-directory duplicates\nfallow dupes --group-by owner             # Partition clone groups by CODEOWNERS team\nfallow dupes --group-by directory         # Partition clone groups by directory\nfallow dupes --trace src/utils.ts:42      # Show all clones of code at this location\n```\n\nFour detection modes: **strict** (exact tokens), **mild** (default, AST-based), **weak** (different string literals), **semantic** (renamed variables and literals).\n\n## Complexity\n\nSurfaces the most ",
+        "truncated": true,
+        "bytes": 36938,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.77.0: review envelope v2, re-export-cycle, silent-fail hardening",
+            "tag_name": "v2.77.0",
+            "published_at": "2026-05-21T17:47:38Z",
+            "body_excerpt": "A minor release focused on a v2 envelope for review-github / review-gitlab, a new re-export-cycle finding, an `ignoreDecorators` opt-out for unused-class-members, and a wide sweep of silent-fail hardening across config load, audit lifecycle, fix safety, LSP delivery, and Action / CI templates.\n\n## Highlights\n\n### Review envelope v2 for `--format review-github` / `--format review-gitlab`\n\nFive additive contract changes designed for consumer-side posting in regulated CI environments (no remote includes, no jq, no token delegation):\n\n- `summary: { body, fingerprint }` at envelope root, so one fallow invocation emits both the sticky summary and the inline comments with reconciliation primitives. Consumers upsert the summary by matching `summary.fingerprint` against existing comments instead of invoking fallow a second time. The legacy top-level `body` stays for v1 consumers (byte-identical to `summary.body`).\n- `marker_regex` plus `marker_regex_flags` at envelope root, both fields shipped explicitly because JavaScript RegExp rejects standalone `(?m)` inline groups. Construct with `new RegExp(env.marker_regex, env.marker_regex_flags)` on JS or `RegexBuilder::new(pat).multi_line(true).build()` on Rust.\n- Same-`(path, line)` merging in `comments[]` with a hashed-composite fingerprint (`merged:<16-char hash>`). Identity shifts when constituents change, so skip-if-fingerprint-exists logic naturally re-posts on content change.\n- UTF-8-safe body truncation at 65,536 bytes under the conservative floor of both vendors. Three co-present signals: typed `truncated: bool`, inline `<!-- fallow-truncated -->` HTML marker, and a `> Body truncated by fallow.` blockquote breadcrumb.\n- GitLab `position.old_path` for renamed files, so inline comments on renames anchor correctly via the discussion-position API.\n\nThe bundled `fallow ci reconcile-review` subcommand and both vendor scripts (`action/scripts/review.sh`, `ci/scripts/review.sh`) accept any `fallow-review-envelope/v<N>` schema and "
+          },
+          {
+            "name": "v2.76.0: --diff-file scopes every finding, schema-derive ladder lands, fallow_core deprecated",
+            "tag_name": "v2.76.0",
+            "published_at": "2026-05-19T12:59:06Z",
+            "body_excerpt": "## Highlights\r\n\r\n- **`--diff-file` now filters every finding, not just the runtime-coverage section.** A single flag scopes unused-export, complexity hotspot, clone family, boundary violation, and runtime-coverage findings to lines inside an added hunk, so the JSON `total_issues` already matches what your PR introduces. CI pipelines previously running a downstream jq filter (`filter-changed.jq`) can drop it; the `--diff-stdin` alias accepts `gh pr diff | fallow audit --diff-file -`. Closes [#424](https://github.com/fallow-rs/fallow/issues/424).\r\n\r\n- **`fallow fix` knows about pnpm-catalog comment blocks.** A new `fix.catalog.deletePrecedingComments` knob (`auto` default, plus `always` / `never`) deletes a contiguous YAML comment block when removing the catalog entry it documents, with two escape hatches: a `# fallow-keep` marker on any line and an `auto`-policy banner heuristic for `# === React 18 pins ===`-style headers. The JSON action gains an `entry_line` field alongside `line` so annotators can pick either anchor unambiguously. Closes [#360](https://github.com/fallow-rs/fallow/issues/360).\r\n\r\n- **`fallow fix` creates `.fallowrc.json` when no fallow config exists.** Previously the duplicate-export `add-to-config` fix told you to run `fallow init` first, then re-run `fallow fix --yes`. Now the fixer materialises the same framework-aware scaffolding `fallow init` would emit, layers your `ignoreExports` rules on top, and skips when invoked from a monorepo subpackage (with a targeted error pointing at the workspace root). `--dry-run` previews the write as a unified diff in both human and JSON modes. Closes [#332](https://github.com/fallow-rs/fallow/issues/332).\r\n\r\n- **Architecture boundaries: opt-in `allowTypeOnly` lets type-only imports cross zones.** `{ from: \"featureB\", allowTypeOnly: [\"featureA\"] }` allows `import type {...}`, inline `import { type Foo }` (when every named specifier carries the `type` qualifier), and `export type { Foo } from \"...\"` across zones"
+          },
+          {
+            "name": "v2.75.0: AdonisJS plugin + Glimmer multi-template + vitest auto-mock + Istanbul coverage fixes",
+            "tag_name": "v2.75.0",
+            "published_at": "2026-05-16T08:45:17Z",
+            "body_excerpt": "## Highlights\n\n- **AdonisJS plugin (v5/v6/v7)** ships under the framework category, taking the built-in plugin count from 94 to 95. Fallow now understands AdonisJS folder conventions, both rc shapes (`.adonisrc.json` and `adonisrc.ts`), the `@ioc:` virtual import prefix, and the assembler-hook arrays under `defineConfig`. Real-project validation on six AdonisJS playgrounds and starter kits cuts `unused_files` from 19/15/18/13/42/34 down to 2/0/0/0/3/1.\n- **Three correctness fixes** for Glimmer `.gts` parsing, vitest `vi.mock()` resolution, and Istanbul coverage matching on multiline typed async arrows.\n\n## Added\n\n- **AdonisJS plugin (v5/v6/v7)** added under the framework category. Covers controllers, models, middleware, validators, services, providers, preloads, commands, configs, contracts, database migrations / seeders / factories, the bootstrap files (`server.{ts,js}`, `ace`, `bin/**/*.{ts,js}`), the `@ioc:` virtual import prefix in v5, and the framework-managed peer packages that ship via the runtime container. `resolve_config` understands both rc shapes:\n\n  - `.adonisrc.json` (v5): parses `preloads`, `providers`, `commands`, `aceProviders` (string and `{ file, environment }` forms), `aliases`, `metaFiles[].pattern`, and `types[]`.\n  - `adonisrc.ts` (v6/v7): walks `defineConfig({...})` for thunk-wrapped lazy imports plus the assembler hook arrays under `hooks.*`, applies `directories.*` overrides as entry patterns, and reads the project's `package.json#imports` for the resolver's path-alias table.\n\n  Real-project validation (release build, `total_issues / unused_files`):\n\n  | Project | Before | After |\n  | --- | --- | --- |\n  | AdonisJS 6 playground (graphql) | 68 / 42 | 17 / 3 |\n  | AdonisJS 6 playground (openapi) | 55 / 34 | 14 / 1 |\n  | web-starter-kit | 32 / 19 | 11 / 2 |\n  | api-starter-kit | 27 / 15 | 9 / 0 |\n  | inertia-starter-kit | 32 / 18 | 10 / 0 |\n  | slim-starter-kit | 22 / 13 | 9 / 0 |\n\n  Zero regression on zod, preact, vite, next.js. As part of th"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 559,
+            "title": "bug: `--explain` is a no-op in human output and in combined-mode JSON",
+            "state": "closed",
+            "url": "https://github.com/fallow-rs/fallow/issues/559"
+          },
+          {
+            "number": 560,
+            "title": "ui: progress spinner is invisible; replace per-stage spinners with one process-wide spinner",
+            "state": "closed",
+            "url": "https://github.com/fallow-rs/fallow/issues/560"
+          },
+          {
+            "number": 561,
+            "title": "ci(windows): 8 audit base-snapshot tests return 0 unused exports where 5+ expected",
+            "state": "closed",
+            "url": "https://github.com/fallow-rs/fallow/issues/561"
+          }
+        ]
+      },
+      "root_files": [
+        ".cargo",
+        ".claude",
+        ".clippy.toml",
+        ".fallowrc.json",
+        ".githooks",
+        ".github",
+        ".gitignore",
+        ".rustfmt.toml",
+        "BENCHMARKS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTEXT.md",
+        "CONTRIBUTING.md",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "README.md",
+        "ROADMAP.md",
+        "SECURITY.md",
+        "_typos.toml",
+        "action.yml",
+        "action",
+        "assets",
+        "benchmarks",
+        "ci",
+        "commitlint.config.mjs",
+        "crates",
+        "decisions",
+        "deny.toml",
+        "docs",
+        "editors",
+        "fuzz",
+        "npm",
+        "package-lock.json",
+        "package.json",
+        "plugin-schema.json",
+        "release.toml",
+        "rust-toolchain.toml",
+        "schema.json",
+        "scripts",
+        "tests"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<p align=\"center\"> <picture> <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/fallow-rs/fallow/main/assets/logo-dark.svg\"> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/fallow-rs/fallow/main/assets/logo.svg\"> <img src=\"https://raw.githubusercontent.com/fallow-rs/fallow/main/assets/logo.svg\" alt=\"fallow\" width=\"290\"> </picture> </p>",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 1,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<p align=\"center\"> <strong>Codebase intelligence for TypeScript & JavaScript.</strong><br> Free static analysis for unused code, duplication, complexity, and architecture drift.<br> Optional runtime intelligence for hot paths, cold paths, and runtime-backed code decisions.<br> <strong>Built for AI-assisted development. No AI inside.</strong><br> <strong>Rust-native. Zero config. Sub-second.</strong> </p>",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 2,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<p align=\"center\"> <a href=\"https://github.com/fallow-rs/fallow/actions/workflows/ci.yml\"><img src=\"https://github.com/fallow-rs/fallow/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a> <a href=\"https://github.com/fallow-rs/fallow/actions/workflows/coverage.yml\"><img src=\"https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/fallow-rs/fallow/badges/coverage.json\" alt=\"Coverage\"></a> <a href=\"https://crates.io/crates/fallow-cli\"><img src=\"https://img.shields.io/crates/v/fallow-cli.svg\" alt=\"crates.io\"></a> <a href=\"https://www.npmjs.com/package/fallow\"><img src=\"https://img.shields.io/npm/v/fallow.svg\" alt=\"npm\"></a> <a href=\"https://github.com/fallow-rs/fallow/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg\" alt=\"MIT License\"></a> <a href=\"https://docs.fallow.tools\"><img src=\"https://img.shields.io/badge/docs-docs.fallow.tools-blue.svg\" alt=\"Documentation\"></a> </p>",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 3,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 4)",
+          "excerpt": "12 Unused files 47 Unused exports 8 Unused types 3 Unused dependencies 2 Circular dependencies",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 4,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 5)",
+          "excerpt": "18 Clone families 53 Clone groups 2,140 Duplicated lines 4.2% Duplication rate",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 5,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 6)",
+          "excerpt": "612 Functions analyzed 9 Above threshold 89.4 Average maintainability (good) ```",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 6,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 7)",
+          "excerpt": "95 framework plugins. No Node.js runtime required for static analysis. No config needed for the first run.",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 7,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/fallow-rs/fallow#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Fallow builds a project-wide understanding of your TS/JS codebase instead of checking one file at a time. Use it to review AI-generated changes faster, clean up dead code, reduce duplication, find risky complexity, and enforce architecture boundaries. Add the runtime layer when you want to know what actually executed in production.",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "segment": 8,
+            "language": "Rust"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/fallow-rs/fallow/issues/559",
+          "title": "bug: `--explain` is a no-op in human output and in combined-mode JSON",
+          "excerpt": "bug: `--explain` is a no-op in human output and in combined-mode JSON (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "number": 559
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/fallow-rs/fallow/issues/560",
+          "title": "ui: progress spinner is invisible; replace per-stage spinners with one process-wide spinner",
+          "excerpt": "ui: progress spinner is invisible; replace per-stage spinners with one process-wide spinner (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "number": 560
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/fallow-rs/fallow/issues/561",
+          "title": "ci(windows): 8 audit base-snapshot tests return 0 unused exports where 5+ expected",
+          "excerpt": "ci(windows): 8 audit base-snapshot tests return 0 unused exports where 5+ expected (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "number": 561
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/fallow-rs/fallow/releases",
+          "title": "v2.77.0",
+          "excerpt": "A minor release focused on a v2 envelope for review-github / review-gitlab, a new re-export-cycle finding, an `ignoreDecorators` opt-out for unused-class-members, and a wide sweep of silent-fail hardening across config load, audit lifecycle, fix safety, LSP delivery, and Action / CI templates. ## Highlights ### Review envelope v2 for `--format review-github` / `--format review-gitlab` Five additive contract changes designed for consumer-side posting in regulated CI environments (no remote includes, no jq, no token delegation): - `summary: { body, fingerprint }` at envelope root, so one fallow invocation emits both the sticky summary and the inline comments with reconciliation primitives. Consumers upsert the summary by matching `summary.fingerprint` against existing comments instead of invoking fallow a second time. The legacy top-level `body` stays for v1 consumers (byte-identical to `summary.body`). - `marker_regex` plus `marker_regex_flags` at envelope root, both fields shipped explicitly because JavaScript RegExp rejects standalone `(?m)` inline groups. Construct with `new RegExp(env.marker_regex, env.marker_regex_flags)` on JS or `RegexBuilder::new(pat).multi_line(true).build…",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "tag_name": "v2.77.0",
+            "published_at": "2026-05-21T17:47:38Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/fallow-rs/fallow/releases",
+          "title": "v2.76.0",
+          "excerpt": "## Highlights - **`--diff-file` now filters every finding, not just the runtime-coverage section.** A single flag scopes unused-export, complexity hotspot, clone family, boundary violation, and runtime-coverage findings to lines inside an added hunk, so the JSON `total_issues` already matches what your PR introduces. CI pipelines previously running a downstream jq filter (`filter-changed.jq`) can drop it; the `--diff-stdin` alias accepts `gh pr diff | fallow audit --diff-file -`. Closes [#424](https://github.com/fallow-rs/fallow/issues/424). - **`fallow fix` knows about pnpm-catalog comment blocks.** A new `fix.catalog.deletePrecedingComments` knob (`auto` default, plus `always` / `never`) deletes a contiguous YAML comment block when removing the catalog entry it documents, with two escape hatches: a `# fallow-keep` marker on any line and an `auto`-policy banner heuristic for `# === React 18 pins ===`-style headers. The JSON action gains an `entry_line` field alongside `line` so annotators can pick either anchor unambiguously. Closes [#360](https://github.com/fallow-rs/fallow/issues/360). - **`fallow fix` creates `.fallowrc.json` when no fallow config exists.** Previously the dupl…",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "tag_name": "v2.76.0",
+            "published_at": "2026-05-19T12:59:06Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/fallow-rs/fallow/releases",
+          "title": "v2.75.0",
+          "excerpt": "## Highlights - **AdonisJS plugin (v5/v6/v7)** ships under the framework category, taking the built-in plugin count from 94 to 95. Fallow now understands AdonisJS folder conventions, both rc shapes (`.adonisrc.json` and `adonisrc.ts`), the `@ioc:` virtual import prefix, and the assembler-hook arrays under `defineConfig`. Real-project validation on six AdonisJS playgrounds and starter kits cuts `unused_files` from 19/15/18/13/42/34 down to 2/0/0/0/3/1. - **Three correctness fixes** for Glimmer `.gts` parsing, vitest `vi.mock()` resolution, and Istanbul coverage matching on multiline typed async arrows. ## Added - **AdonisJS plugin (v5/v6/v7)** added under the framework category. Covers controllers, models, middleware, validators, services, providers, preloads, commands, configs, contracts, database migrations / seeders / factories, the bootstrap files (`server.{ts,js}`, `ace`, `bin/**/*.{ts,js}`), the `@ioc:` virtual import prefix in v5, and the framework-managed peer packages that ship via the runtime container. `resolve_config` understands both rc shapes: - `.adonisrc.json` (v5): parses `preloads`, `providers`, `commands`, `aceProviders` (string and `{ file, environment }` forms)…",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "tag_name": "v2.75.0",
+            "published_at": "2026-05-16T08:45:17Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/fallow-rs/fallow",
+          "title": "ROOT_FILES",
+          "excerpt": ".cargo, .claude, .clippy.toml, .fallowrc.json, .githooks, .github, .gitignore, .rustfmt.toml, BENCHMARKS.md, CHANGELOG.md, CLAUDE.md, CODE_OF_CONDUCT.md, CONTEXT.md, CONTRIBUTING.md, Cargo.lock, Cargo.toml, LICENSE, README.md, ROADMAP.md, SECURITY.md, _typos.toml, action.yml, action, assets, benchmarks, ci, commitlint.config.mjs, crates, decisions, deny.toml, docs, editors, fuzz, npm, package-lock.json, package.json, plugin-schema.json, release.toml, rust-toolchain.toml, schema.json, scripts, tests",
+          "fetched_at": "2026-05-22T06:51:25.399Z",
+          "meta": {
+            "repo_full_name": "fallow-rs/fallow",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "DemonKingSwarn/luffy",
+      "html_url": "https://github.com/DemonKingSwarn/luffy",
+      "description": "Spiritual successor of flix-cli and mov-cli",
+      "topics": [
+        "cli",
+        "commandline",
+        "download",
+        "flix-cli",
+        "go",
+        "luffy",
+        "mov-cli",
+        "movies",
+        "stream",
+        "tv"
+      ],
+      "language": "C",
+      "stargazers_count": 174,
+      "forks_count": 11,
+      "open_issues_count": 3,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-22T06:49:58Z",
+      "created_at": "2026-01-02T09:12:35Z",
+      "readme": {
+        "fetched": true,
+        "text": "<h1 align='center'>\n    LUFFY\n</h1>\n\n<br>\n\n<h3 align='center'>\n    Spiritual successor of flix-cli and mov-cli.\n</h3>\n\n\n<div align='center'>\n<br>\n\n\n![Language](https://img.shields.io/badge/-go-00ADD8.svg?style=for-the-badge&logo=go&logoColor=white)\n\n<a href=\"http://makeapullrequest.com\"><img src=\"https://img.shields.io/badge/PRs-welcome-brightgreen.svg\" alt=\"PRs Welcome\"></a>\n\n<img src=\"https://img.shields.io/badge/os-linux-brightgreen\" alt=\"OS linux\">\n<img src=\"https://img.shields.io/badge/os-mac-brightgreen\"alt=\"OS Mac\">\n<img src=\"https://img.shields.io/badge/os-windows-brightgreen\" alt=\"OS Windows\">\n<img src=\"https://img.shields.io/badge/os-android-brightgreen\" alt=\"OS Android\">\n\n<br>\n\n\n<a href=\"https://discord.gg/JF85vTkDyC\"><img src=\"https://invidget.switchblade.xyz/JF85vTkDyC\"></a><a href=\"https://matrix.to/#/#swarn-discord:chat.demonkingswarn.live\"><img src=\"./.assets/matrix-logo.svg\"></a>\n\n</div>\n<br>\n\n---\n\n![](./.assets/showcase.gif)\n\n---\n\n## Overview\n\n- [Installation](#installation)\n  - [Arch Linux](#1-arch-linux)\n  - [NixOS / Nix / MacOS](#2-nixos--nix--macos)\n  - [Debian-based or Ubuntu-based](#2-debian-based-or-ubuntu-based)\n  - [Fedora](#3-fedora)\n  - [MacOS](#5-macos)\n  - [Windows](#6-windows)\n  - [Go Install](#7-go-install)\n  - [Build from Source](#8-build-from-source)\n  - [Android Installation](#9-android-installation)\n- [Dependencies](#dependencies)\n- [Usage](#usage)\n  - [Flags](#flags)\n  - [Playback Controls](#playback-controls)\n  - [Examples](#examples)\n- [Configuration](#configuration)\n- [Hooks & MpvArgs](#hooks--mpvargs)\n  - [MpvArgs](#mpvargs)\n  - [Hooks](#hooks)\n- [Providers](#providers)\n\n > [!NOTE] \n > Before creating an issue, make sure to update luffy\n\n## Installation\n\n### 1. Arch Linux\n\n```sh\nparu -S luffy-bin\n```\n\n### 2. NixOS / Nix / MacOS\n\n#### Run without installing\n```bash\nnix run github:DemonKingSwarn/luffy\n```\n\n#### Install into profile\n```bash\nnix profile install github:DemonKingSwarn/luffy\n```\n\n#### NixOS flake input\n```nix\ninputs.luffy.url = \"github:DemonKingSwarn/luffy\";\n\nenvironment.systemPackages = [ inputs.luffy.packages.${system}.luffy ];\n```\n\n### 3. Debian-based or Ubuntu-based\n\n```sh\ncurl -fsSL https://demonkingswarn.is-a.dev/debmon-repo/pubkey.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/debmon-repo.gpg\n\necho \"deb [arch=amd64] https://demonkingswarn.is-a.dev/debmon-repo stable main\" | sudo tee /etc/apt/sources.list.d/debmon-repo.list\n\nsudo apt update\n\nsudo apt install -y luffy\n```\n\n### 4. Fedora\n\n```sh\necho '[fedmon-repo]\nname=fedmon-repo\nbaseurl=https://demonkingswarn.is-a.dev/fedmon-repo/rpms\nenabled=1\ngpgcheck=1\ngpgkey=https://demonkingswarn.is-a.dev/fedmon-repo/pubkey.gpg' | sudo tee /etc/yum.repos.d/fedmon-repo.repo\n\nsudo dnf update\n\nsudo dnf install -y luffy\n```\n\n### 5. MacOS\n\n```sh\nbrew tap gamedevCloudy/tools\nbrew install --cask iina\nbrew install luffy\n```\n\n### 6. Windows\n\nMake sure you have [scoop.sh](https://scoop.sh) installed on your system.\n\n```sh\nscoop bucket add demon-apps https://github.com/DemonKingSwarn/flix-cli-bucket.git\nscoop bucket add extras\nscoop install luffy\n```\n\n> [!IMPORTANT]\n> On windows if you want to use the `--show-image`, you need to use the `wezterm` terminal emulator. It is installed as a dependency on windows.\n\n### 7. Go Install\n\nIf you have Go installed, you can easily install Luffy:\n\n```bash\ngo install github.com/demonkingswarn/luffy@latest\n```\n\n### 8. Build from Source\n\n1.  Clone the repository:\n    ```bash\n    git clone https://github.com/demonkingswarn/luffy.git\n    cd luffy\n    ```\n\n2.  Build and install:\n    ```bash\n    go install .\n    ```\n    *Ensure your `$GOPATH/bin` is in your system's `PATH`.*\n\n### 9. Android Installation\n\nInstall termux [(Guide)](https://termux.com/)\n\n```sh\npkg up -y\npkg in fzf python-yt-dlp\ncurl -sL \"https://github.com/DemonKingSwarn/luffy/releases/download/v1.1.5/luffy-android-arm64\" -o $PREFIX/bin/luffy\nchmod +x $PREFIX/bin/luffy\n```\n\n\n# Dependencies\n\n- [`mpv`](https://mpv.io) - Video Player for Linux and Windows\n- [`vlc`](https://www.videolan.org/vlc/) - Alternate video player for Linux and Windows\n- [`iina`](https://iina.io) - Video Player for MacOS\n- [`vlc-android`](https://play.google.com/store/apps/details?id=org.videolan.vlc) - Video Player for Android\n- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) - Download manager\n- [`fzf`](https://github.com/junegunn/fzf) - For selection menus\n- [`chafa`](https://github.com/hpjansson/chafa) & [`libsixel`](https://github.com/saitoha/libsixel) - For poster previews (`--show-image`)\n\n## Usage\n\n```bash\nluffy [query] [flags]\n```\n\n`[query]` is the title you want to search for (e.g., \"breaking bad\", \"dune\", \"one piece\"). The query is optional when using `--history` or `--recommend`.\n\n### Flags\n\n| Flag | Alias | Description |\n|------|-------|-------------|\n| `--action` | `-a` | Action to perform: `play` (default) or `download`. |\n| `--season` | `-s` | (Series only) Specify the season number. |\n| `--episodes` | `-e` | (Series only) Specify a single episode (`5`) or a range (`1-5`). |\n| `--best` | `-b` | Auto-select the best available quality (skips fzf quality prompt). |\n| `--provider` | `-p` | Select provider (e.g. `sflix`, `braflix`). Overrides config. |\n| `--history` | `-H` | Browse watch history and resume a previous title. |\n| `--recommend` | `-r` | Get personalised recommendations based on watch history. |\n| `--show-image` | NA | Show poster previews in fzf (requires chafa and a supported terminal). |\n| `--debug` | `-d` | Print debug information (URLs, decryption steps, etc.). |\n| `--help` | `-h` | Show help message and exit. |\n\n### Playback Controls\n\nWhen watching a TV series, an fzf menu appears alongside the player with four options:\n\n| Action | Description |\n|--------|-------------|\n| **Next** | Kill the player and move to the next episode. |\n| **Previous** | Kill the player and move to the previous episode. |\n| **Replay** | Restart the current episode from the beginning. |\n| **Quit** | Kill the player and exit. |\n\n### Examples\n\n**Search & Play a Movie**\n```bash\nluffy \"dune\"\n```\n\n**Download a Movie**\n```bash\nluffy \"dune\" --action download\n```\n\n**Play a TV Episode**\n```bash\nluffy \"breaking bad\" -s 1 -e 1\n```\n\n**Download a Range of Episodes**\n```bash\nluffy \"stranger things\" -s 2 -e 1-5 -a download\n```\n\n**Auto-select Best Quality**\n```bash\nluffy \"dune\" --best\n```\n\n**Use a Different Provider**\n```bash\nluffy \"breaking bad\" --provider sflix\n```\n\n**Resume from Watch History**\n```bash\nluffy --history\n```\n\n**Get Personalised Recommendations**\n```bash\nluffy --recommend\n```\n\n**Recommendations with Poster Previews**\n```bash\nluffy --recommend --show-image\n```\n\n## Configuration\n\nThe config file lives at `~/.config/luffy/config.yaml`. All fields are optional; defaults are shown below.\n\n```yaml\n# Path to the fzf binary. Set to an absolute path if fzf is not on PATH.\nfzf_path: fzf\n\n# Video player: \"mpv\" (default) or \"vlc\". IINA is used automatically on macOS.\nplayer: mpv\n\n# chafa rendering backend for poster previews.\n# Options: sixel (default), kitty, iterm, symbols\nimage_backend: sixel\n\n# Default search provider.\nprovider: flixhq\n\n# Directory where downloaded files are saved. Defaults to home directory.\ndl_path: \"\"\n\n# Quality selection: leave empty to show an fzf prompt, or set to \"best\"\n# to always auto-select the highest available quality.\nquality: \"\"\n\n# Extra arguments appended to every mpv invocation (ignored on VLC/IINA/Android).\n# mpv_args:\n#   - \"--hwdec=auto\"\n#   - \"--volume=80\"\n\n# Lifecycle hooks — shell commands run at key playback events.\n# LUFFY_TITLE, LUFFY_URL, LUFFY_SEASON, LUFFY_EPISODE, LUFFY_EP_NAME,\n# LUFFY_PROVIDER, LUFFY_ACTION, LUFFY_STREAM_URL, and LUFFY_POSITION\n# are set in the environment for every hook.\n# hooks:\n#   on_play: 'notify-send \"Now playing\" \"$LUFFY_TITLE\"'\n#   on_exit: 'echo \"$LUFFY_TITLE stopped at ${LUFFY_POSITION}s\" >> ~/luffy.log'\n#   on_download: 'notify-send \"Downloading\" \"$LUFFY_TITLE\"'\n```\n\n> [!IMPORTANT]\n> To see poster images, your terminal emulator must support a graphics protocol.\n> Supported terminals include kitty, ghostty, WezTerm, and foot (sixel).\n>\n> If you use kitty or ghostty, set `image_backend: kitty` in your config.\n\n## Hooks & MpvArgs\n\nShell commands can be run at three lifecycle points, and extra mpv flags can be injected via config. See `docs/hooks.md` for the full reference.\n\n### MpvArgs\n\nExtra arguments appended verbatim to every mpv invocation (ignored on VLC / IINA / Android):\n\n```yaml\nmpv_args:\n  - \"--hwdec=auto\"\n  - \"--volume=80\"\n```\n\n### Hooks\n\n```yaml\nhooks:\n  on_play: 'notify-send \"Now playing\" \"$LUFFY_TITLE\"'\n  on_exit: 'echo \"$LUFFY_TITLE stopped at ${LUFFY_POSITION}s\" >> ~/luffy.log'\n  on_download: 'notify-send \"Downloading\" \"$LUFFY_TITLE\"'\n```\n\nEvery hook receives `LUFFY_TITLE`, `LUFFY_URL`, `LUFFY_SEASON`, `LUFFY_EPISODE`, `LUFFY_EP_NAME`, `LUFFY_PROVIDER`, `LUFFY_ACTION`, `LUFFY_STREAM_URL`, and `LUFFY_POSITION` as environment variables.\n\n# Providers\n\nYou can set the default provider in the config file (`~/.config/luffy/config.yaml`) or override it per-run with `--provider`.\n\n| Provider | `provider:` value | Content | Notes |\n|----------|-------------------|---------|-------|\n| Cineby | `cineby` | Movies & TV | Default. Uses VidKing embeds. Requires `agent-browser`. |\n| Anime (sub) | `anime` or `allanime` | Anime | Subtitled. Uses AllAnime. |\n| Anime (dub) | `anime-dub` or `allanime-dub` | Anime | Dubbed. Uses AllAnime. |\n\nExample config:\n```yaml\nprovider: cineby\n```\n\n> [!NOTE]\n> The cineby provider requires [`agent-browser`](https://github.com/steel-dev/agent-browser) to resolve streams. Make sure it is installed and available on your `PATH`.\n\n---\n\n## Debugging\n\nRun any command with `--debug` (`-d`) to print detailed information:\n\n```bash\nluffy \"breaking bad\" -s 1 -e 1 --debug\n```\n\nDebug output includes:\n- The embed URL being resolved\n- The master m3u8 URL\n- The referer header used\n- Number of subtitle tracks found\n- The exact mpv command being run\n\nIf playback fails, the debug output is almost always enough to diagnose the problem.\n\n---\n\n## Before Opening an Issue\n\nPlease try these steps first:\n\n1. **Update luffy** — most issues are already fixed in the latest version.\n   ```bash\n   go install github.com/demonkingswarn/luffy@latest\n   ```\n\n2. **Run with `--debug`** and read the output — it usually tells you exactly what failed.\n\n3. **Check if `agent-browser` is installed** (required for the cineby provider):\n   ```bash\n   agent-browser --version\n   ```\n\n4. **Try a different title** — the content may be unavailable on the provider.\n\n5. **Check the [Discord](https://discord.gg/JF85vTkDyC)** — someone may have already reported the same issue.\n\nIf none of the above helps, open an issue and include:\n- The exact command you ran\n- The full `--debug` output\n- Your OS and luffy version (`luffy --version` if available, or `git log -1 --oneline`)\n- Whether the issue is with a movie or TV show, and the title\n",
+        "truncated": false,
+        "bytes": 10945,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.2.1",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-05-22T06:38:00Z",
+            "body_excerpt": "- Added custom reverse-engineered implementation of cineby providers, removing the need for `agent-browser`\r\n- Removed `-w` / `--watch-in-browser` flag, which was introduced in #22, as the whole point of this program is to view from the CLI"
+          },
+          {
+            "name": "v1.2.0",
+            "tag_name": "v1.2.0",
+            "published_at": "2026-05-19T11:11:13Z",
+            "body_excerpt": "just a release for package managers, ignore"
+          },
+          {
+            "name": "v1.1.5",
+            "tag_name": "v1.1.5",
+            "published_at": "2026-04-19T11:52:22Z",
+            "body_excerpt": "fixed the issue where sometimes it would fail to get the megacloud client key."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 31,
+            "title": "No result - on the latest version",
+            "state": "open",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/31"
+          },
+          {
+            "number": 27,
+            "title": "Only movies",
+            "state": "open",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/27"
+          },
+          {
+            "number": 24,
+            "title": "go installation error",
+            "state": "closed",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/24"
+          },
+          {
+            "number": 6,
+            "title": "Alternative menu handler",
+            "state": "closed",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/6"
+          },
+          {
+            "number": 17,
+            "title": "most episodes/movies giving \"could not extract client key from megacloud page\"",
+            "state": "closed",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/17"
+          },
+          {
+            "number": 18,
+            "title": "Bug: File remains as .partial when segments fail (unexpected EOF)",
+            "state": "closed",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/18"
+          },
+          {
+            "number": 21,
+            "title": "Can we please report this \"fork\" of luffy?",
+            "state": "closed",
+            "url": "https://github.com/DemonKingSwarn/luffy/issues/21"
+          }
+        ]
+      },
+      "root_files": [
+        ".assets",
+        ".github",
+        ".gitignore",
+        ".opencode",
+        ".policies",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "cmd",
+        "config.yaml.example",
+        "core",
+        "disclaimer.org",
+        "docs",
+        "flake.lock",
+        "flake.nix",
+        "go.mod",
+        "go.sum",
+        "justfile",
+        "main.go",
+        "packaging",
+        "session.txt",
+        "vendor-patches",
+        "workflow-trigger"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 1)",
+          "excerpt": "![Language](https://img.shields.io/badge/-go-00ADD8.svg?style=for-the-badge&logo=go&logoColor=white)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 1,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 2)",
+          "excerpt": "<a href=\"http://makeapullrequest.com\"><img src=\"https://img.shields.io/badge/PRs-welcome-brightgreen.svg\" alt=\"PRs Welcome\"></a>",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 2,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<img src=\"https://img.shields.io/badge/os-linux-brightgreen\" alt=\"OS linux\"> <img src=\"https://img.shields.io/badge/os-mac-brightgreen\"alt=\"OS Mac\"> <img src=\"https://img.shields.io/badge/os-windows-brightgreen\" alt=\"OS Windows\"> <img src=\"https://img.shields.io/badge/os-android-brightgreen\" alt=\"OS Android\">",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 3,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 4)",
+          "excerpt": "<a href=\"https://discord.gg/JF85vTkDyC\"><img src=\"https://invidget.switchblade.xyz/JF85vTkDyC\"></a><a href=\"https://matrix.to/#/#swarn-discord:chat.demonkingswarn.live\"><img src=\"./.assets/matrix-logo.svg\"></a>",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 4,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- [Installation](#installation) - [Arch Linux](#1-arch-linux) - [NixOS / Nix / MacOS](#2-nixos--nix--macos) - [Debian-based or Ubuntu-based](#2-debian-based-or-ubuntu-based) - [Fedora](#3-fedora) - [MacOS](#5-macos) - [Windows](#6-windows) - [Go Install](#7-go-install) - [Build from Source](#8-build-from-source) - [Android Installation](#9-android-installation) - [Dependencies](#dependencies) - [Usage](#usage) - [Flags](#flags) - [Playback Controls](#playback-controls) - [Examples](#examples) - [Configuration](#configuration) - [Hooks & MpvArgs](#hooks--mpvargs) - [MpvArgs](#mpvargs) - [Hooks](#hooks) - [Providers](#providers)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 5,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 6)",
+          "excerpt": "#### Install into profile ```bash nix profile install github:DemonKingSwarn/luffy ```",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 6,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```sh curl -fsSL https://demonkingswarn.is-a.dev/debmon-repo/pubkey.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/debmon-repo.gpg",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 7,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/DemonKingSwarn/luffy#readme",
+          "title": "README (segment 8)",
+          "excerpt": "echo \"deb [arch=amd64] https://demonkingswarn.is-a.dev/debmon-repo stable main\" | sudo tee /etc/apt/sources.list.d/debmon-repo.list",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "segment": 8,
+            "language": "C"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/31",
+          "title": "No result - on the latest version",
+          "excerpt": "No result - on the latest version (state:open)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 31
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/27",
+          "title": "Only movies",
+          "excerpt": "Only movies (state:open)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 27
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/24",
+          "title": "go installation error",
+          "excerpt": "go installation error (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 24
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/6",
+          "title": "Alternative menu handler",
+          "excerpt": "Alternative menu handler (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 6
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/17",
+          "title": "most episodes/movies giving \"could not extract client key from megacloud page\"",
+          "excerpt": "most episodes/movies giving \"could not extract client key from megacloud page\" (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 17
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/18",
+          "title": "Bug: File remains as .partial when segments fail (unexpected EOF)",
+          "excerpt": "Bug: File remains as .partial when segments fail (unexpected EOF) (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 18
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/issues/21",
+          "title": "Can we please report this \"fork\" of luffy?",
+          "excerpt": "Can we please report this \"fork\" of luffy? (state:closed)",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "number": 21
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/releases",
+          "title": "v1.2.1",
+          "excerpt": "- Added custom reverse-engineered implementation of cineby providers, removing the need for `agent-browser` - Removed `-w` / `--watch-in-browser` flag, which was introduced in #22, as the whole point of this program is to view from the CLI",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "tag_name": "v1.2.1",
+            "published_at": "2026-05-22T06:38:00Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/releases",
+          "title": "v1.2.0",
+          "excerpt": "just a release for package managers, ignore",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "tag_name": "v1.2.0",
+            "published_at": "2026-05-19T11:11:13Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/DemonKingSwarn/luffy/releases",
+          "title": "v1.1.5",
+          "excerpt": "fixed the issue where sometimes it would fail to get the megacloud client key.",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "tag_name": "v1.1.5",
+            "published_at": "2026-04-19T11:52:22Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/DemonKingSwarn/luffy",
+          "title": "ROOT_FILES",
+          "excerpt": ".assets, .github, .gitignore, .opencode, .policies, AGENTS.md, LICENSE, README.md, cmd, config.yaml.example, core, disclaimer.org, docs, flake.lock, flake.nix, go.mod, go.sum, justfile, main.go, packaging, session.txt, vendor-patches, workflow-trigger",
+          "fetched_at": "2026-05-22T06:51:25.207Z",
+          "meta": {
+            "repo_full_name": "DemonKingSwarn/luffy",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "fallow-rs/fallow",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 3,
+      "releases_count": 3
+    },
+    {
+      "full_name": "DemonKingSwarn/luffy",
+      "evidence_count": 19,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 7,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 7,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "fallow-rs/fallow",
+      "ok": true,
+      "spec_path": "specs/2026-05-22/fallow-rs__fallow.json"
+    },
+    {
+      "repo": "DemonKingSwarn/luffy",
+      "ok": true,
+      "spec_path": "specs/2026-05-22/DemonKingSwarn__luffy.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "fallow-rs/fallow",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-22/fallow-rs__fallow.json"
+    },
+    {
+      "repo": "DemonKingSwarn/luffy",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-22/DemonKingSwarn__luffy.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "fallow-rs/fallow",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 3,
+          "cited": 3
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-22/fallow-rs__fallow.json"
+      ]
+    },
+    {
+      "repo": "DemonKingSwarn/luffy",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-22/DemonKingSwarn__luffy.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-22T06:51:39.800Z",
+      "run_id": "20260522T065119Z",
+      "repo": "fallow-rs/fallow",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "96a5afde3731d2bc077fd47af7a97f89a874d26dbe883b28017e8ab59270a468",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 10401
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14396,
+      "prompt_chars": 10401,
+      "completion_chars": 1548
+    },
+    {
+      "ts": "2026-05-22T06:51:54.988Z",
+      "run_id": "20260522T065119Z",
+      "repo": "fallow-rs/fallow",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "67f450851c9fc77958b7e635128c02b00b95da1e190b6c581743a4aec04e0a10",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 12169
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15188,
+      "prompt_chars": 12169,
+      "completion_chars": 1834
+    },
+    {
+      "ts": "2026-05-22T06:52:12.508Z",
+      "run_id": "20260522T065119Z",
+      "repo": "fallow-rs/fallow",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e98231c71f9ff25455cdeb0e9951b8eee17da6f9cb77608ee629ddef7c1bca81",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 14199
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17520,
+      "prompt_chars": 14199,
+      "completion_chars": 1990
+    },
+    {
+      "ts": "2026-05-22T06:52:26.420Z",
+      "run_id": "20260522T065119Z",
+      "repo": "fallow-rs/fallow",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "9807e3d3637ae446c7a52bfd208f99682683f01e6a41ee4d81d6b84f68157437",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 16398
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13911,
+      "prompt_chars": 16398,
+      "completion_chars": 1557
+    },
+    {
+      "ts": "2026-05-22T06:52:59.158Z",
+      "run_id": "20260522T065119Z",
+      "repo": "fallow-rs/fallow",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a87b8791c81db6bf6803491bc1baa458dbf1faceaf7a3cc6d0e95f4054014173",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 20835
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 32736,
+      "prompt_chars": 20835,
+      "completion_chars": 4345
+    },
+    {
+      "ts": "2026-05-22T06:53:09.443Z",
+      "run_id": "20260522T065119Z",
+      "repo": "DemonKingSwarn/luffy",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ebec6e548390e346fb770c2c42597bcc6ba5154ba4595620c1c7e9f28313bd0c",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 7358
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10269,
+      "prompt_chars": 7358,
+      "completion_chars": 1168
+    },
+    {
+      "ts": "2026-05-22T06:53:23.907Z",
+      "run_id": "20260522T065119Z",
+      "repo": "DemonKingSwarn/luffy",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6d4a6e05693782b5283d55bf9d78aec42145efad4829a8964813ad26bf44d8d7",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 8746
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14464,
+      "prompt_chars": 8746,
+      "completion_chars": 1531
+    },
+    {
+      "ts": "2026-05-22T06:53:41.115Z",
+      "run_id": "20260522T065119Z",
+      "repo": "DemonKingSwarn/luffy",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "7570de56230965f024cd664c5b524effc15fdc4b6b96af19393aec691fc88a2a",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 10481
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17208,
+      "prompt_chars": 10481,
+      "completion_chars": 1807
+    },
+    {
+      "ts": "2026-05-22T06:53:58.195Z",
+      "run_id": "20260522T065119Z",
+      "repo": "DemonKingSwarn/luffy",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5435f32176a91c7cc851a7a0111ffad274f2bfbd80598029fee4d04d9ebe91e1",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 12501
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17079,
+      "prompt_chars": 12501,
+      "completion_chars": 1902
+    },
+    {
+      "ts": "2026-05-22T06:54:23.257Z",
+      "run_id": "20260522T065119Z",
+      "repo": "DemonKingSwarn/luffy",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "1d424d40f4f94ebe86befb3c4d6e41b124f750ddf1cbb4e6b954d2f02996125f",
+      "input_stats": {
+        "evidence_count": 19,
+        "approx_chars": 17289
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 25061,
+      "prompt_chars": 17289,
+      "completion_chars": 2860
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "fallow-rs/fallow",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "DemonKingSwarn/luffy",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "fallow-rs/fallow",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "DemonKingSwarn/luffy",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 19,
+      "evidence_total_final": 19,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1779432679430,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "fallow-rs/fallow": 5,
+      "DemonKingSwarn/luffy": 5
+    },
+    "tokensApproxTotal": 37734,
+    "tokensApproxPerRepo": {
+      "fallow-rs/fallow": 21321,
+      "DemonKingSwarn/luffy": 16413
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "fallow-rs/fallow": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "Fallow is a Rust-native, zero-config static analysis tool for TypeScript/JavaScript codebases, offering fast detection of unused code, duplication, complexity, and architecture issues, with optional runtime intelligence. It features 95 framework plugins, sub-second performance, and strong CI integration, though minor UI and platform-specific bugs have recently been addressed.",
+        "highlights": [
+          "Rust-native, zero-config static analysis for TS/JS with sub-second performance",
+          "Detects unused code (files, exports, types, deps), duplication (4.2% rate), circular deps, and complexity hotspots",
+          "95 built-in framework plugins including recent AdonisJS support; no Node.js required for static analysis",
+          "Optional runtime layer for production-based hot/cold path insights",
+          "Active maintenance with recent releases enhancing CI workflows (e.g., --diff-file filtering, review comment envelopes)",
+          "Strong documentation, testing (CI badges), and community standards (CODE_OF_CONDUCT, SECURITY, CONTRIBUTING)"
+        ],
+        "risks": [
+          "Recent closed issues indicate minor but non-trivial bugs in Windows CI (E-IS-003), CLI output (--explain no-op, E-IS-001), and UI (invisible spinner, E-IS-002)",
+          "Heavy reliance on Rust ecosystem may limit contributor pool despite strong tooling"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "Fallow is a Rust-native code intelligence platform that invents a unified, project-wide static analysis model for TypeScript/JavaScript, combining detection of unused code, duplication, complexity, and architecture drift with optional runtime-backed insights—all without requiring Node.js or initial configuration.",
+        "highlights": [
+          "Invents a holistic codebase understanding by analyzing entire TS/JS projects at once rather than file-by-file, enabling cross-cutting insights like architecture boundary violations and re-export cycles [E-RD-008][E-RL-001]",
+          "Introduces a zero-config, sub-second Rust-native engine with 95 framework-specific plugins (including recent AdonisJS support) that interpret framework conventions, virtual imports, and config shapes to reduce false positives [E-RD-007][E-RL-003]",
+          "Pioneers integrated CI workflows with features like `--diff-file` filtering and v2 review envelopes that embed both summary and inline comments with reconciliation fingerprints, eliminating need for secondary tooling like jq [E-RL-002][E-RL-001]",
+          "Combines static analysis with optional production runtime intelligence to distinguish hot vs. cold code paths, enabling data-driven deletion of truly unused code [E-RD-002][E-RD-008]"
+        ],
+        "risks": [
+          "Invented abstractions may mask platform-specific edge cases, as evidenced by Windows CI test failures where unused exports were undercounted [E-IS-003]",
+          "Rapid feature invention (e.g., pnpm-catalog comment handling, review envelopes) increases surface area for subtle bugs like no-op CLI flags or UI regressions [E-IS-001][E-IS-002]"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "Fallow is a high-performance, Rust-native static analysis tool for TypeScript/JavaScript that delivers project-wide insights into code health with zero initial configuration, supported by 95 framework-aware plugins and optional runtime intelligence. It emphasizes CI integration, fast execution, and actionable findings like unused code, duplication, and architecture violations.",
+        "highlights": [
+          "Rust-native engine enables sub-second, zero-config analysis of entire TS/JS codebases without Node.js [E-RD-002][E-RD-007]",
+          "Project-wide understanding supports advanced findings: unused exports/files/types, clone families (4.2% duplication), circular deps, and architecture drift [E-RD-004][E-RD-005][E-RD-008]",
+          "95 framework plugins—including recent AdonisJS support—interpret conventions, virtual imports, and config files to reduce false positives [E-RD-007][E-RL-003]",
+          "CI-optimized features: `--diff-file` filters all findings to PR changes, and v2 review envelopes embed summary + inline comments with reconciliation fingerprints [E-RL-002][E-RL-001]",
+          "Optional runtime layer correlates static findings with production execution data for confident dead-code removal [E-RD-002][E-RD-008]"
+        ],
+        "risks": [
+          "Platform-specific test failures on Windows suggest incomplete cross-platform validation, risking inconsistent results in heterogeneous CI environments [E-IS-003]",
+          "Recent UI and CLI bugs (`--explain` no-op, invisible spinner) indicate potential gaps in end-to-end testing despite strong unit/CI coverage [E-IS-001][E-IS-002]",
+          "Rapid feature velocity (e.g., pnpm-catalog fixes, review envelopes) may introduce subtle regressions in complex workflows like LSP or CI template delivery [E-RL-001]"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "Fallow promises fast, zero-config static analysis with deep framework awareness and optional runtime intelligence, but recent bugs and platform inconsistencies raise doubts about reliability and maturity despite active development.",
+        "highlights": [
+          "Claims of 'zero config' and 'sub-second' analysis are compelling but not universally validated—Windows CI tests fail to detect expected unused exports [E-IS-003]",
+          "Marketing emphasizes 'no AI inside' and 'built for AI-assisted development,' which may conflate tooling utility with unsubstantiated productivity claims [E-RD-002]",
+          "Advanced features like v2 review envelopes and `--diff-file` filtering suggest sophisticated CI integration, yet basic UX issues (e.g., invisible spinner, broken `--explain`) persist [E-IS-001][E-IS-002][E-RL-001][E-RL-002]"
+        ],
+        "risks": [
+          "Inconsistent cross-platform behavior undermines trust in analysis accuracy, especially in Windows environments where core detection logic appears flawed [E-IS-003]",
+          "Rapid addition of framework plugins (e.g., AdonisJS) and complex features (pnpm-catalog handling, review envelopes) may outpace thorough validation, increasing risk of silent failures [E-RL-001][E-RL-003]",
+          "Overreliance on Rust-native performance claims without comparative benchmarks leaves 'sub-second' assertion unverified for real-world large codebases"
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Fallow\",\n    \"one_sentence\": \"Rust-native, zero-config static analysis for TypeScript/JavaScript that detects unused code, duplication, complexity, and architecture drift with optional runtime intelligence.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Analyze entire TS/JS codebases in sub-second time to produce actionable findings on dead code, clones, circular dependencies, and architectural violations, optionally enriched with production runtime data.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Audit Dashboard\",\n      \"purpose\": \"Display aggregated findings from static and optional runtime analysis including unused exports, clone families, complexity hotspots, and boundary violations.\",\n      \"primary_actions\": [\n        \"Run audit\",\n        \"Filter by diff\",\n        \"Export findings\",\n        \"Apply fixes\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"audit\",\n      \"purpose\": \"Perform static (and optionally runtime) analysis across the entire codebase to detect issues like unused code, duplication, and architecture drift.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"fix\",\n      \"purpose\": \"Apply automated fixes for detected issues, such as removing unused exports or catalog entries, with support for comment block handling.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"explain\",\n      \"purpose\": \"Provide detailed explanations for specific findings; currently exhibits no-op behavior in human output and combined-mode JSON.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"findings\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"category\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"location\",\n            \"type\": \"string\"\n        "
+      }
+    },
+    "DemonKingSwarn/luffy": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "scout",
+        "summary": "Luffy is a Go-based CLI media streaming tool supporting multiple platforms, with active maintenance and community engagement, but faces ongoing issues with content extraction reliability and open bug reports.",
+        "highlights": [
+          "Built in Go with cross-platform support (Linux, macOS, Windows, Android).",
+          "Offers diverse installation methods including Nix, APT, and Go install.",
+          "Actively maintained with recent releases addressing provider integration and key extraction fixes.",
+          "Encourages community contributions with 'PRs Welcome' badge."
+        ],
+        "risks": [
+          "Open issues indicate current failures in fetching results and limited content scope (e.g., 'Only movies').",
+          "Past issues reveal instability in stream extraction (e.g., 'could not extract client key') and download resilience.",
+          "Reliance on reverse-engineered providers may lead to fragility against upstream changes."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-005",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "inventor",
+        "summary": "Luffy innovates by replacing browser-dependent streaming with a custom reverse-engineered provider system in Go, enabling pure CLI media playback across platforms while integrating advanced packaging and configuration options.",
+        "highlights": [
+          "Replaced browser-based agent with custom reverse-engineered cineby provider implementation, eliminating external browser dependency [ID:E-RL-001].",
+          "Designed for cross-platform CLI media consumption with support for Linux, macOS, Windows, and Android [ID:E-RD-003].",
+          "Offers modern installation via Nix, APT repositories, and Go toolchain, demonstrating infrastructure-aware distribution [ID:E-RD-006, E-RD-007, E-RD-008].",
+          "Provides extensible configuration through hooks, mpvArgs, and modular provider design [ID:E-RD-005]."
+        ],
+        "risks": [
+          "Reverse-engineered providers (e.g., cineby, megacloud) are inherently fragile and prone to breakage from upstream changes, as seen in repeated client key extraction failures [ID:E-IS-005, E-RL-003].",
+          "Removal of browser fallback (--watch-in-browser) reduces user workaround options when CLI stream extraction fails [ID:E-RL-001].",
+          "Ongoing issues with content availability ('No result', 'Only movies') suggest incomplete or unstable provider coverage [ID:E-IS-001, E-IS-002]."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-005",
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "engineer",
+        "summary": "Luffy is a Go-based CLI media streaming tool that replaces browser-dependent playback with reverse-engineered provider integrations, offering cross-platform support and modern packaging but facing reliability challenges in content extraction and download resilience.",
+        "highlights": [
+          "Implemented custom reverse-engineered cineby provider, removing dependency on external browsers and the --watch-in-browser flag [ID:E-RL-001].",
+          "Supports Linux, macOS, Windows, and Android with installation options via Nix, APT, Go install, and source builds [ID:E-RD-003, E-RD-006, E-RD-007, E-RD-008].",
+          "Structured codebase with modular components (cmd, core) and configuration support for hooks and mpvArgs [ID:E-RF-001, E-RD-005].",
+          "Actively maintained with fixes for critical stream extraction issues like megacloud client key retrieval [ID:E-RL-003, E-IS-005]."
+        ],
+        "risks": [
+          "Fragile provider integrations: reverse-engineered logic for cineby and megacloud is susceptible to upstream changes, causing frequent breakage (e.g., 'could not extract client key') [ID:E-IS-005, E-RL-003, E-RL-001].",
+          "Incomplete content coverage: open issues report 'No result' and 'Only movies', indicating gaps or instability in provider implementations [ID:E-IS-001, E-IS-002].",
+          "Download unreliability: partial file retention on segment failure suggests insufficient error handling during streaming or downloading [ID:E-IS-006].",
+          "Removal of browser fallback limits user recovery options when CLI extraction fails [ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-RD-003",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RD-005",
+          "E-RL-003",
+          "E-IS-005",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role": "skeptic",
+        "summary": "Luffy presents itself as a robust CLI media streaming tool, but its reliance on fragile reverse-engineered providers, unresolved content-fetching failures, and removal of fallback mechanisms raise serious doubts about its reliability and long-term viability.",
+        "highlights": [
+          "Claims broad OS support (Linux, macOS, Windows, Android) [ID:E-RD-003], yet open issues show fundamental functionality failing ('No result', 'Only movies') [ID:E-IS-001, E-IS-002].",
+          "Promotes modern installation methods (Nix, APT repo) [ID:E-RD-006, E-RD-007, E-RD-008], but the underlying stream extraction logic repeatedly breaks due to dependency on unstable, reverse-engineered APIs [ID:E-IS-005, E-RL-003].",
+          "Removed browser-based fallback (--watch-in-browser) [ID:E-RL-001], eliminating user escape hatches when CLI extraction fails—despite evidence that such failures are common."
+        ],
+        "risks": [
+          "Core functionality is demonstrably broken for many users: open issues confirm inability to fetch results or access non-movie content, undermining the tool's primary purpose [ID:E-IS-001, E-IS-002].",
+          "Reverse-engineered provider integrations (e.g., cineby, megacloud) are inherently brittle; past fixes for 'client key extraction' [ID:E-RL-003] suggest recurring breakage likely to persist [ID:E-IS-005].",
+          "Partial file retention on download failure [ID:E-IS-006] indicates poor error handling, risking disk clutter and user confusion without clear recovery paths.",
+          "Self-hosted APT repository and Nix integration [ID:E-RD-007, E-RD-008] may streamline installation but concentrate trust in unmaintained or opaque infrastructure if project activity wanes."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-005",
+          "E-RL-003",
+          "E-RL-001",
+          "E-IS-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 19,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Luffy\",\n    \"one_sentence\": \"A Go-based CLI media streaming tool that enables cross-platform playback of movies and TV shows without requiring a browser.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User searches for media content via CLI, selects a title, and streams or downloads it using reverse-engineered provider integrations, with playback handled by mpv.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Media Selector\",\n      \"purpose\": \"Display search results and allow user to select media for playback or download.\",\n      \"primary_actions\": [\n        \"Search for movies or TV shows\",\n        \"Select item to stream\",\n        \"Select item to download\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Download and save a selected media item to local storage, handling segmented downloads and partial file cleanup on failure.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"items\",\n        \"fields\": [\n          {\n            \"name\": \"title\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"provider\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"url\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Implement core CLI interface for media search and selection\",\n          \"Integrate reverse-engineered cineby provider\",\n          \"Add mpv playback support with configurable args\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can install Luffy via Nix or APT and successfully stream a movie on Linux.\",\n    \"When megacloud client key extraction fails, the system provides a clear error instead of hanging.\"\n  ],\n  \"open_questions\": [\n    \"How will provider breakage be mitigated when upstream APIs change?\",\n    \"Can non-movie conte"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "fallow-rs/fallow",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 9,
+        "engineer": 11,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "DemonKingSwarn/luffy",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 10,
+        "engineer": 12,
+        "skeptic": 10,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=2",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=92 kept=5 limit=5",
+    "[deduper] existing_index_repos=316",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] DemonKingSwarn/luffy evidence total=19 readme=8 issue=7 release=3 root_files=1",
+    "[repo_card_builder] fallow-rs/fallow evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=34 gaps=0",
+    "[llm_spec_generator] fallow-rs/fallow canonical spec ok (iter=1) -> specs/2026-05-22/fallow-rs__fallow.json",
+    "[llm_spec_generator] DemonKingSwarn/luffy canonical spec ok (iter=1) -> specs/2026-05-22/DemonKingSwarn__luffy.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-22T06:51:19.430Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:19.458Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260522T065119Z"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:19.458Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:19.461Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:20.083Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:20.083Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:20.624Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:20.624Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:21.117Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:21.117Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:21.628Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:21.628Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:22.106Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:22.106Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:22.692Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:22.692Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:23.199Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:23.199Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:23.578Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:23.578Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.158Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.158Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.731Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.735Z",
+      "run_id": "20260522T065119Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 316
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.736Z",
+      "run_id": "20260522T065119Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.739Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-22T06:51:24.739Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fallow-rs__fallow/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.740Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fallow-rs__fallow/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.742Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fallow-rs__fallow/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.743Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "fallow-rs__fallow/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.746Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-22T06:51:24.746Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DemonKingSwarn__luffy/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.747Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DemonKingSwarn__luffy/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.748Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DemonKingSwarn__luffy/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:24.750Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "DemonKingSwarn__luffy/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.207Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 10945,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.207Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.207Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 7
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.207Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 461
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.208Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 19,
+        "readme": 8,
+        "issues": 7,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.398Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 36938,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.399Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.399Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.399Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 660
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.399Z",
+      "run_id": "20260522T065119Z",
+      "node": "repo_card_builder",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.403Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:25.403Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:39.800Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1548,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:51:54.988Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1834,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:12.509Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1990,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:26.420Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1557,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:59.158Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4345,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:59.171Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:59.173Z",
+      "run_id": "20260522T065119Z",
+      "node": "artifacts",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-22/fallow-rs__fallow.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:59.173Z",
+      "run_id": "20260522T065119Z",
+      "node": "artifacts",
+      "repo": "fallow-rs/fallow",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-22/fallow-rs__fallow.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:59.174Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 19,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 7,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-22T06:52:59.174Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 19,
+        "evidence_selected": 19,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-22T06:53:09.443Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1168,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:53:23.907Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1531,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:53:41.115Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1807,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:53:58.195Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1902,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.257Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2860,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.258Z",
+      "run_id": "20260522T065119Z",
+      "node": "llm_spec_generator",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.259Z",
+      "run_id": "20260522T065119Z",
+      "node": "artifacts",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-22/DemonKingSwarn__luffy.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.259Z",
+      "run_id": "20260522T065119Z",
+      "node": "artifacts",
+      "repo": "DemonKingSwarn/luffy",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-22/DemonKingSwarn__luffy.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.262Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.262Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1779432679430,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "fallow-rs/fallow": 5,
+          "DemonKingSwarn/luffy": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.263Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-22T06:54:23.263Z",
+      "run_id": "20260522T065119Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-22",
+    "evidence_dir": "evidence/2026-05-22"
+  }
+}

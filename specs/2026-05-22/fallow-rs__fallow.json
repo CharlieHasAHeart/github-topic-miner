@@ -1,0 +1,127 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Fallow",
+    "one_liner": "Rust-native, zero-config static analysis for TypeScript/JavaScript that detects unused code, duplication, complexity, and architecture drift with optional runtime intelligence."
+  },
+  "screens": [
+    {
+      "name": "Audit Dashboard",
+      "purpose": "Display aggregated findings from static and optional runtime analysis including unused exports, clone families, complexity hotspots, and boundary violations.",
+      "primary_actions": [
+        "Apply fixes",
+        "Export findings",
+        "Filter by diff",
+        "Run audit"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "audit",
+      "purpose": "Perform static (and optionally runtime) analysis across the entire codebase to detect issues like unused code, duplication, and architecture drift.",
+      "async": true,
+      "input": {
+        "category": "string",
+        "location": "string",
+        "message": "string",
+        "payload": "json",
+        "severity": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "explain",
+      "purpose": "Provide detailed explanations for specific findings; currently exhibits no-op behavior in human output and combined-mode JSON.",
+      "async": true,
+      "input": {
+        "category": "string",
+        "location": "string",
+        "message": "string",
+        "payload": "json",
+        "severity": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "fix",
+      "purpose": "Apply automated fixes for detected issues, such as removing unused exports or catalog entries, with support for comment block handling.",
+      "async": true,
+      "input": {
+        "category": "string",
+        "location": "string",
+        "message": "string",
+        "payload": "json",
+        "severity": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "findings",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "location",
+            "type": "TEXT"
+          },
+          {
+            "name": "message",
+            "type": "TEXT"
+          },
+          {
+            "name": "severity",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "framework_plugins",
+        "columns": [
+          {
+            "name": "conventions_understood",
+            "type": "JSON"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "version_support",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic CI output formatting",
+    "week 1: Implement core audit command with static analysis",
+    "week 1: Integrate framework plugin system",
+    "week 1: Support --diff-file filtering"
+  ],
+  "acceptance_tests": [
+    "Review envelopes include both summary and inline comments with reconciliation fingerprints.",
+    "Running fallow audit --diff-file filters all finding types to changed lines only.",
+    "The --explain flag produces visible output in human-readable mode.",
+    "Windows CI correctly reports expected count of unused exports in snapshot tests."
+  ]
+}
