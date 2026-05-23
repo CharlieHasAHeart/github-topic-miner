@@ -1,0 +1,2524 @@
+{
+  "run_id": "20260523T061437Z",
+  "generated_at": "2026-05-23T06:14:37.214Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 25,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 3,
+      "release": 4,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-23T06:18:20.914Z",
+    "repo_count": 320
+  },
+  "candidates": [
+    {
+      "full_name": "Seafoam-Labs/Shelly-ALPM",
+      "html_url": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+      "description": "Pacman alternative for ArchLinux, designed with you in mind.",
+      "topics": [
+        "archlinux",
+        "archlinux-community",
+        "archlinux-package",
+        "archlinuxgui",
+        "cachyos",
+        "cli",
+        "dotnet",
+        "garuda-linux",
+        "gtk",
+        "gtk4",
+        "linux",
+        "package-management",
+        "package-manager",
+        "pacman",
+        "shelly",
+        "shelly-cli",
+        "shelly-ui",
+        "visual"
+      ],
+      "language": "C#",
+      "stargazers_count": 574,
+      "forks_count": 41,
+      "open_issues_count": 32,
+      "license_spdx_id": "GPL-3.0",
+      "default_branch": "development",
+      "pushed_at": "2026-05-23T06:14:25Z",
+      "created_at": "2026-01-07T17:57:02Z"
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop and mobile.",
+      "topics": [
+        "ade",
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "ide",
+        "mobile-app",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 3098,
+      "forks_count": 216,
+      "open_issues_count": 177,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-23T06:14:20Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    },
+    {
+      "full_name": "Cranot/roam-code",
+      "html_url": "https://github.com/Cranot/roam-code",
+      "description": "Local codebase intelligence CLI + MCP server for AI coding agents: SQLite code graph, 28 languages, 238 commands, 224 MCP tools, change-safety gates, audit evidence, zero API keys.",
+      "topics": [
+        "ai-agents",
+        "ai-coding",
+        "cli",
+        "code-analysis",
+        "code-graph",
+        "code-intelligence",
+        "code-quality",
+        "code-review",
+        "developer-tools",
+        "graph-analysis",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "python",
+        "refactoring",
+        "software-architecture",
+        "sqlite",
+        "static-analysis",
+        "tree-sitter"
+      ],
+      "language": "Python",
+      "stargazers_count": 464,
+      "forks_count": 45,
+      "open_issues_count": 0,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-23T06:14:01Z",
+      "created_at": "2026-02-09T10:11:37Z"
+    },
+    {
+      "full_name": "codeforester/base",
+      "html_url": "https://github.com/codeforester/base",
+      "description": "Mac-first workspace orchestrator for bootstrapping developer environments, managing shell startup, and coordinating commands across peer project repos.",
+      "topics": [
+        "automation",
+        "bash-scripts",
+        "bootstrap",
+        "cli",
+        "dev-environment",
+        "developer-tools",
+        "dotfiles-macos",
+        "homebrew",
+        "macos",
+        "multi-repo",
+        "project-orchestration",
+        "shell",
+        "workspace",
+        "workspace-management",
+        "zsh"
+      ],
+      "language": "Shell",
+      "stargazers_count": 114,
+      "forks_count": 11,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-23T06:13:52Z",
+      "created_at": "2019-03-09T23:26:24Z"
+    },
+    {
+      "full_name": "generalaction/emdash",
+      "html_url": "https://github.com/generalaction/emdash",
+      "description": "Emdash is the Open-Source Agentic Development Environment (🧡 YC W26). Run multiple coding agents in parallel. Use any provider.",
+      "topics": [
+        "agenticdevelopment",
+        "agenticdevelopmentenvironment",
+        "ai",
+        "claude-code",
+        "cli",
+        "coding-agents",
+        "codingagents",
+        "containerization",
+        "docker",
+        "gitworktrees",
+        "jira",
+        "linear",
+        "llm",
+        "openai",
+        "opensource",
+        "orchestration",
+        "parallel-agents",
+        "parallelexecution",
+        "terminal"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 4591,
+      "forks_count": 466,
+      "open_issues_count": 131,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-23T06:13:15Z",
+      "created_at": "2025-08-28T07:19:57Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "codeforester/base",
+      "html_url": "https://github.com/codeforester/base",
+      "description": "Mac-first workspace orchestrator for bootstrapping developer environments, managing shell startup, and coordinating commands across peer project repos.",
+      "topics": [
+        "automation",
+        "bash-scripts",
+        "bootstrap",
+        "cli",
+        "dev-environment",
+        "developer-tools",
+        "dotfiles-macos",
+        "homebrew",
+        "macos",
+        "multi-repo",
+        "project-orchestration",
+        "shell",
+        "workspace",
+        "workspace-management",
+        "zsh"
+      ],
+      "language": "Shell",
+      "stargazers_count": 114,
+      "forks_count": 11,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-23T06:13:52Z",
+      "created_at": "2019-03-09T23:26:24Z"
+    },
+    {
+      "full_name": "generalaction/emdash",
+      "html_url": "https://github.com/generalaction/emdash",
+      "description": "Emdash is the Open-Source Agentic Development Environment (🧡 YC W26). Run multiple coding agents in parallel. Use any provider.",
+      "topics": [
+        "agenticdevelopment",
+        "agenticdevelopmentenvironment",
+        "ai",
+        "claude-code",
+        "cli",
+        "coding-agents",
+        "codingagents",
+        "containerization",
+        "docker",
+        "gitworktrees",
+        "jira",
+        "linear",
+        "llm",
+        "openai",
+        "opensource",
+        "orchestration",
+        "parallel-agents",
+        "parallelexecution",
+        "terminal"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 4591,
+      "forks_count": 466,
+      "open_issues_count": 131,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-23T06:13:15Z",
+      "created_at": "2025-08-28T07:19:57Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "codeforester/base",
+      "html_url": "https://github.com/codeforester/base",
+      "description": "Mac-first workspace orchestrator for bootstrapping developer environments, managing shell startup, and coordinating commands across peer project repos.",
+      "topics": [
+        "automation",
+        "bash-scripts",
+        "bootstrap",
+        "cli",
+        "dev-environment",
+        "developer-tools",
+        "dotfiles-macos",
+        "homebrew",
+        "macos",
+        "multi-repo",
+        "project-orchestration",
+        "shell",
+        "workspace",
+        "workspace-management",
+        "zsh"
+      ],
+      "language": "Shell",
+      "stargazers_count": 114,
+      "forks_count": 11,
+      "open_issues_count": 0,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-23T06:13:52Z",
+      "created_at": "2019-03-09T23:26:24Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Base\n\nBase is a foundational developer tooling repo for a multi-project workspace.\n\nIts job is not to be a product repo, a service repo, or a monorepo. Its job is\nto provide the common layer that sits above individual project repositories and\nmakes them easier to set up, run, and test in a consistent way.\n\nThis repository already existed as a shell-focused project. The next version of\nBase is a deliberate refactor of that idea into a broader workspace bootstrap\nand execution layer.\n\n## Why Base Exists\n\nMost real engineering environments are not a single repository.\n\nA developer may need:\n\n- one repo for shared tooling\n- several project repos checked out side by side\n- a consistent shell environment across machines\n- common shell and Python helper libraries\n- a clean way to run project commands through wrappers instead of directly\n\nBase exists to provide that missing common layer.\n\n## Top Goals\n\nBase is being refactored around three primary goals.\n\n### 1. Umbrella Interface for Multi-Project Setup and Test\n\nBase should give the user one entry point for setting up and validating a\nworkspace that contains multiple project repositories.\n\nExamples of the kind of interface Base should provide:\n\n- `basectl setup`\n- `basectl check`\n- `basectl setup <project>`\n- `basectl test`\n- `basectl test <project>`\n- `basectl doctor`\n- `basectl projects list`\n\nThe important idea is that the user should not need to memorize a different\nbootstrap story for every repository in the workspace.\n\nBase should be able to discover participating project repositories checked out\nnext to it under a shared parent directory, for example:\n\n```text\n~/work/\n  base/\n  banyanlabs/\n  bankbuddy/\n  blend/\n  brew/\n```\n\nOver time, each project repo can declare how Base should interact with it,\nlikely through a small project manifest or well-defined conventions.\n\n### 2. Shell Environment Management\n\nBase should manage shell environments at two levels:\n\n- global environment shared across the whole workspace\n- project-specific environment layered on top for an individual repo\n\nThat includes things like:\n\n- common shell initialization\n- PATH management\n- shared environment variables\n- host and OS detection\n- project-local activation hooks\n- predictable loading order\n\nThe goal is to make shell behavior explicit, inspectable, and repeatable instead\nof depending on a fragile mix of ad hoc dotfiles and one-off scripts.\n\n### 3. Common Shell and Python Libraries and Wrappers\n\nBase should provide a stable foundation for controlled CLI execution.\n\nThat includes:\n\n- shell libraries for logging, errors, files, Git, networking, and standard\n  helpers\n- Python wrappers for running Python-based tooling with the right environment\n- shell wrappers for sourcing shared libraries and normalizing execution context\n- a consistent convention for passing arguments, setting environment variables,\n  and reporting failures\n\nThe wrapper model matters because it keeps command behavior predictable. A CLI\nshould run inside a known environment instead of relying on whoever happened to\ninvoke it from whatever shell state they already had.\n\n## Public Command Surface\n\nBase exposes commands through a single public directory: `$BASE_HOME/bin`. That\ndirectory is added to `PATH` by Base's managed shell startup snippets.\n\n`bin/basectl` is the control-plane command. Additional public commands, when\nneeded, are tiny real launcher files in `bin/` that delegate to `basectl`; their\nimplementation remains under `cli/bash/commands/<command>/` or, in the future,\n`cli/python/commands/<command>/`.\n\nExample launcher:\n\n```bash\n#!/usr/bin/env bash\nexec \"$(dirname \"$0\")/basectl\" caff \"$@\"\n```\n\n## Compatibility\n\nBase is currently macOS-first.\n\nIntended supported platforms are:\n\n- macOS on Apple Silicon\n- macOS on Intel Macs\n- at least one Linux variant, with the first target still to be decided\n\nThe supported macOS version floor is still TBD. The current implementation\nassumes a modern macOS environment with Homebrew, Xcode Command Line Tools, a\nHomebrew-managed Bash, Git, and Python installed through Base setup.\n\nLinux support is a design target, but not yet an implemented or tested support\ncontract. OS-specific behavior should stay isolated behind small helpers instead\nof being scattered through command code. For example, the Base runtime prompt can\nprefer macOS `scutil` names while still falling back to generic `hostname`.\n\n## Shell Startup Files\n\nBase integrates with Bash and Zsh through small managed sections in the user's\nreal dotfiles. Base does not take over whole dotfiles.\n\nThe command that installs or refreshes those sections is:\n\n```bash\nbasectl update-profile\n```\n\nBy default it updates all four startup files:\n\n- `~/.bash_profile`\n- `~/.bashrc`\n- `~/.zprofile`\n- `~/.zshrc`\n\nMissing files are created. Existing files keep their non-Base content; Base only\nadds or replaces its marked section.\n\n`basectl update-profile` also creates `~/.base.d/profile.conf`, which records\nwhether the user has opted into Base's optional shell defaults. The managed\ndotfile sections stay minimal and defer PATH/default handling to the sourced\nBase snippets.\n\n`BASE_PROFILE_VERSION` records the schema version of this Base-managed file. It\nis reserved for future migrations and is not intended to be edited by users.\n\nBase also reads `~/.baserc` when it exists. Unlike `profile.conf`, `~/.baserc`\nis user-managed and may be hand-edited. It is intended for simple,\nshell-startup-safe Base preferences such as `BASE_DEBUG=1`; it should not become\na second `.bashrc` with arbitrary setup logic.\n\n`~/.baserc` must not set Base-owned runtime or profile variables such as\n`BASE_HOME`, `BASE_BIN_DIR`, `BASE_LIB_DIR`, `BASE_OS`, `BASE_SHELL`,\n`BASE_PROFILE_VERSION`, `BASE_ENABLE_BASH_DEFAULTS`, or\n`BASE_ENABLE_ZSH_DEFAULTS`. Base startup snippets reject and restore those\nvariables if `~/.baserc` tries to change them.\n\nBase-managed sections use explicit markers such as:\n\n```bash\n# --- BEGIN base bashrc MANAGED SECTION - DO NOT EDIT ---\n# ... Base-managed content ...\n# --- END base bashrc MANAGED SECTION - DO NOT EDIT ---\n```\n\n### Base Snippets\n\nThe managed sections source matching snippets under `lib/shell/`:\n\n- `lib/shell/bash_profile` for `~/.bash_profile`\n- `lib/shell/bashrc` for `~/.bashrc`\n- `lib/shell/zprofile` for `~/.zprofile`\n- `lib/shell/zshrc` for `~/.zshrc`\n\nThe names intentionally mirror the dotfiles they support, without leading dots\ninside the repository.\n\n### Login Profiles\n\n`bash_profile` and `zprofile` stay thin.\n\nFor Bash, Base makes the login-shell bridge explicit: the Bash profile snippet\nsources `~/.bashrc` with a guardrail. Bash needs this because login Bash shells\ndo not automatically read `~/.bashrc`.\n\nFor Zsh, Base does not source `~/.zshrc` from `zprofile`. Zsh already reads\n`~/.zshrc` for interactive shells.\n\n### Interactive RC Files\n\n`bashrc` and `zshrc` are where interactive shell behavior belongs.\n\nThey are responsible for:\n\n- guarding against non-interactive execution\n- guarding against repeated sourcing\n- deriving and exporting `BASE_HOME` from the sourced Base snippet\n- adding Base's `bin/` directory to `PATH` so `basectl` is available after login\n- keeping dotfile integration separate from the full Base runtime bootstrap\n- optionally enabling shared shell defaults when `basectl update-profile --defaults` is used\n\nThey do not source `base_init.sh`. Base runtime setup happens only when the\n`basectl` command runs a Base command, runs an explicit script path, or starts a\nBase-enabled Bash shell.\n\nWhen `basectl` starts an interactive Bash runtime shell, it uses Base's runtime\nrcfile rather than making Bash read `~/.bashrc` directly. That runtime rcfile\nsources the user's `~/.bashrc` once with guardrails, then loads `base_init.sh`,\nand finally sets the Base runtime prompt. This keeps user aliases and normal\ninteractive Bash behavior available while still letting Base own the runtime\nenvironment and final prompt.\n\n### Debugging Shell Startup\n\nSet `BASE_DEBUG=1` to make Base-managed shell startup snippets print diagnostic\nmessages while they run. This is intentionally independent of `base_init.sh` and\nstdlib logging, because dotfile debugging can happen before the Base runtime is\nloaded.\n\nFor normal terminal startup, put this in `~/.baserc`:\n\n```bash\nBASE_DEBUG=1\n```\n\nFor one-off checks, use an environment variable:\n\n```bash\nBASE_DEBUG=1 bash --rcfile ~/.bashrc -i\nBASE_DEBUG=1 zsh -i\nBASE_DEBUG=1 basectl\n```\n\nDiagnostics are printed to stderr and show which Base snippet loaded, how\n`BASE_HOME` was derived, whether `$BASE_HOME/bin` was added to `PATH`, whether\noptional shell defaults were enabled, and how the Base runtime shell was layered.\n\n### Standard Shell Defaults\n\nBase can provide optional, opinionated shell defaults, but they are not enabled\nby plain `basectl update-profile`.\n\nCurrent default-setting scripts are:\n\n- `lib/shell/base_defaults.sh` for shell-neutral defaults shared by Bash and Zsh\n- `lib/shell/bash_defaults.sh` for Bash-specific defaults\n- `lib/shell/zsh_defaults.sh` for Zsh-specific defaults\n\nUsers can opt in during profile updates with:\n\n```bash\nbasectl update-profile --defaults\n```\n\nThose defaults are intended to stay conservative:\n\n- aliases like `rm -i`, `cp -i`, `mv -i`\n- vi-style command editing\n- editor defaults\n- prompt defaults\n- history behavior\n\n## What Base Is Responsible For\n\nBase owns the shared developer-platform layer of the workspace.\n\nThat means Base should be responsible for:\n\n- bootstrapping the developer environment\n- discovering participating project repos\n- orchestrating setup and test flows across repos\n- managing shared shell initialization\n- providing common shell and Python helper libraries\n- providing wrappers and execution conventions for CLIs\n\n## What Base Is Not Responsible For\n\nBase should not absorb project-specific logic that belongs inside individual\nrepositories.\n\nEach project repo should still own:\n\n- its own source code\n- its own business logic\n- its own build details\n- its own runtime details\n- its own tests\n- its own project-specific setup steps\n\nBase should orchestrate those things, not replace them.\n\n## Mental Model\n\nThink of Base as the workspace control plane for local development.\n\nEach project repo remains independent. Base sits beside those repos and offers:\n\n- one place to bootstrap the workspace\n- one place to manage shared environments\n- one place to host common execution libraries and wrappers\n\nThat gives a multi-repo setup some of the ergonomic benefits people often reach\nfor in a monorepo, without forcing unrelated codebases into a single repository.\n\n## Likely Workspace Shape\n\nThe target shape looks roughly like this:\n\n```text\nwork/\n  base/\n    README.md\n    cli/\n      bash/\n      python/\n    lib/\n    manifests/\n  project-a/\n  project-b/\n  infra/\n```\n\nProjects should be able to opt into Base with minimal coupling. The exact\nmechanism is still being designed, but the intent is clear:\n\n- Base discovers projects in the shared workspace\n- projects expose a small contract to Base\n- Base provides common orchestration on top\n\n## Design Principles\n\nThe refactor should follow a few simple principles.\n\n1. Keep project repos independent.\n2. Prefer explicit conventions over hidden shell magic.\n3. Keep wrappers thin but reliable.\n4. Make setup and test flows idempotent where possible.\n5. Let Base provide the common layer without turning into a dumping ground for\n   project-specific behavior.\n\n## Status\n\nThis repository is being repositioned and refactored.\n\nThe current contents include useful shell-oriented building blocks from the\nolder version of Base. The goal now is to evolve those foundations into a more\ngeneral multi-project workspace tool.\n\nFor the evolving architecture and product-direction notes behind that refactor,\nsee [docs/design.md](docs/design.md). For the current `basectl` runtime and\ndispatch contract, see [docs/execution-model.md](docs/execution-model.md). For\necosystem boundary and integration decis",
+        "truncated": true,
+        "bytes": 12458,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "Base Classic: Shell Sharing Framework",
+            "tag_name": "classic-shell-framework",
+            "published_at": "2026-05-21T04:47:45Z",
+            "body_excerpt": "This release preserves the earlier version of Base before the project began its refactor into a Mac-first multi-repo workspace orchestrator.\r\n\r\nBase Classic focused on sharing Bash profiles, reusable shell libraries, and wrapped shell commands across hosts and teams.\r\n\r\nThe current `master` branch is now evolving Base in a broader direction:\r\n- developer environment bootstrap\r\n- managed shell startup\r\n- shared Bash/Python execution conventions\r\n- peer-repo workspace orchestration"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "STANDARDS.md",
+        "base_init.sh",
+        "bin",
+        "cli",
+        "docs",
+        "lib"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 1)",
+          "excerpt": "Its job is not to be a product repo, a service repo, or a monorepo. Its job is to provide the common layer that sits above individual project repositories and makes them easier to set up, run, and test in a consistent way.",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 1,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 2)",
+          "excerpt": "This repository already existed as a shell-focused project. The next version of Base is a deliberate refactor of that idea into a broader workspace bootstrap and execution layer.",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 2,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 3)",
+          "excerpt": "- one repo for shared tooling - several project repos checked out side by side - a consistent shell environment across machines - common shell and Python helper libraries - a clean way to run project commands through wrappers instead of directly",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 3,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Base should give the user one entry point for setting up and validating a workspace that contains multiple project repositories.",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 4,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 5)",
+          "excerpt": "- `basectl setup` - `basectl check` - `basectl setup <project>` - `basectl test` - `basectl test <project>` - `basectl doctor` - `basectl projects list`",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 5,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 6)",
+          "excerpt": "The important idea is that the user should not need to memorize a different bootstrap story for every repository in the workspace.",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 6,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Base should be able to discover participating project repositories checked out next to it under a shared parent directory, for example:",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 7,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/codeforester/base#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Over time, each project repo can declare how Base should interact with it, likely through a small project manifest or well-defined conventions.",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "segment": 8,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/codeforester/base/releases",
+          "title": "classic-shell-framework",
+          "excerpt": "This release preserves the earlier version of Base before the project began its refactor into a Mac-first multi-repo workspace orchestrator. Base Classic focused on sharing Bash profiles, reusable shell libraries, and wrapped shell commands across hosts and teams. The current `master` branch is now evolving Base in a broader direction: - developer environment bootstrap - managed shell startup - shared Bash/Python execution conventions - peer-repo workspace orchestration",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "tag_name": "classic-shell-framework",
+            "published_at": "2026-05-21T04:47:45Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/codeforester/base",
+          "title": "ROOT_FILES",
+          "excerpt": ".gitignore, LICENSE, README.md, STANDARDS.md, base_init.sh, bin, cli, docs, lib",
+          "fetched_at": "2026-05-23T06:14:42.994Z",
+          "meta": {
+            "repo_full_name": "codeforester/base",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "generalaction/emdash",
+      "html_url": "https://github.com/generalaction/emdash",
+      "description": "Emdash is the Open-Source Agentic Development Environment (🧡 YC W26). Run multiple coding agents in parallel. Use any provider.",
+      "topics": [
+        "agenticdevelopment",
+        "agenticdevelopmentenvironment",
+        "ai",
+        "claude-code",
+        "cli",
+        "coding-agents",
+        "codingagents",
+        "containerization",
+        "docker",
+        "gitworktrees",
+        "jira",
+        "linear",
+        "llm",
+        "openai",
+        "opensource",
+        "orchestration",
+        "parallel-agents",
+        "parallelexecution",
+        "terminal"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 4591,
+      "forks_count": 466,
+      "open_issues_count": 131,
+      "license_spdx_id": "Apache-2.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-23T06:13:15Z",
+      "created_at": "2025-08-28T07:19:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "<img alt=\"Emdash banner\" src=\"https://github.com/user-attachments/assets/a2ecaf3c-9d84-40ca-9a8e-d4f612cc1c6f\" />\n\n\n<div align=\"center\" style=\"margin:24px 0;\">\n  \n<br />\n\n[![Apache 2.0 License](https://img.shields.io/badge/License-Apache_2.0-555555.svg?labelColor=333333&color=666666)](./LICENSE.md)\n[![Downloads](https://img.shields.io/github/downloads/generalaction/emdash/total?labelColor=333333&color=666666)](https://github.com/generalaction/emdash/releases)\n[![GitHub Stars](https://img.shields.io/github/stars/generalaction/emdash?labelColor=333333&color=666666)](https://github.com/generalaction/emdash)\n[![Last Commit](https://img.shields.io/github/last-commit/generalaction/emdash?labelColor=333333&color=666666)](https://github.com/generalaction/emdash/commits/main)\n[![Commit Activity](https://img.shields.io/github/commit-activity/m/generalaction/emdash?labelColor=333333&color=666666)](https://github.com/generalaction/emdash/graphs/commit-activity)\n<br>\n[![Discord](https://img.shields.io/badge/Discord-join-%235462eb?labelColor=%235462eb&logo=discord&logoColor=%23f5f5f5)](https://discord.gg/f2fv7YxuR2)\n<a href=\"https://www.ycombinator.com\"><img src=\"https://img.shields.io/badge/Y%20Combinator-W26-orange\" alt=\"Y Combinator W26\"></a>\n[![Follow @emdashsh on X](https://img.shields.io/twitter/follow/emdashsh?logo=X&color=%23f5f5f5)](https://twitter.com/intent/follow?screen_name=emdashsh)\n\n<br />\n\n  <a href=\"https://emdash.sh/download\" style=\"display:inline-block; margin-right:8px; text-decoration:none; outline:none; border:none;\">\n    <img src=\"https://emdash.sh/media/readme/downloadforwindows.png\" alt=\"Download for Windows\" height=\"40\">\n  </a>\n  <a href=\"https://emdash.sh/download\" style=\"display:inline-block; margin-right:8px; text-decoration:none; outline:none; border:none;\">\n    <img src=\"https://emdash.sh/media/readme/downloadformacos.png\" alt=\"Download for macOS\" height=\"40\">\n  </a>\n  <a href=\"https://emdash.sh/download\" style=\"display:inline-block; text-decoration:none; outline:none; border:none;\">\n    <img src=\"https://emdash.sh/media/readme/downloadforlinux.png\" alt=\"Download for Linux\" height=\"40\">\n  </a>\n\n</div>\n\n<br />\n\nEmdash is a provider-agnostic desktop app that lets you run multiple coding agents in parallel, each isolated in its own git worktree, either locally or over SSH on a remote machine. We call it an Agentic Development Environment (ADE).\n\nEmdash supports 27 CLI agents, including Claude Code, Codex, OpenCode, Gemini and Amp. Users can directly pass Linear, GitHub, Jira, or Asana tickets to an agent, review diffs, test changes, create PRs, see CI/CD checks, and merge.\n\n**Develop on remote servers via SSH**\n\nConnect to remote machines via SSH/SFTP to work with remote codebases. Emdash supports SSH agent and key authentication, with secure credential storage in your OS keychain. Run agents on remote projects using the same parallel workflow as local development. [Learn more](https://www.emdash.sh/cloud)\n\n<div align=\"center\" style=\"margin:24px 0;\">\n\n[Installation](#installation) • [Providers](#providers) • [Contributing](#contributing) • [FAQ](#faq)\n\n</div>\n\n<img alt=\"Emdash product\" src=\"https://emdash.sh/media/blog/public-v1-beta/v1beta.jpg\" />\n\n# Installation\n\n### macOS\n- Homebrew: `brew install --cask emdash`\n- Apple Silicon: https://releases.emdash.sh/emdash-arm64.dmg\n- Intel x64: https://releases.emdash.sh/emdash-x64.dmg\n\n### Windows\n- Installer (x64): https://releases.emdash.sh/emdash-x64.msi\n- Portable (x64): https://releases.emdash.sh/emdash-x64.exe\n\n### Linux\n- AppImage (x64): https://releases.emdash.sh/emdash-x86_64.AppImage\n- Debian package (x64): https://releases.emdash.sh/emdash-amd64.deb\n\n### Release Overview\n\n**[Latest Releases (macOS • Windows • Linux)](https://github.com/generalaction/emdash/releases/latest)**\n\n# Providers\n\n<img alt=\"Providers banner\" src=\"https://github.com/user-attachments/assets/c7b32a3e-452c-4209-91ef-71bcd895e2df\" />\n\n### Supported CLI Providers\n\nEmdash currently supports 27 CLI providers, and we are adding new ones regularly. If you miss one, let us know or create a PR.\n\n| CLI Provider | Status | Install / Setup |\n| ----------- | ------ | ----------- |\n| [Amp](https://ampcode.com/manual#install) | ✅ Supported | <code>npm install -g @sourcegraph/amp@latest</code> |\n| [Auggie](https://docs.augmentcode.com/cli/overview) | ✅ Supported | <code>npm install -g @augmentcode/auggie</code> |\n| [Autohand Code](https://autohand.ai/code/) | ✅ Supported | <code>npm install -g autohand-cli</code> |\n| [Charm](https://github.com/charmbracelet/crush) | ✅ Supported | <code>npm install -g @charmland/crush</code> |\n| [Claude Code](https://docs.anthropic.com/claude/docs/claude-code) | ✅ Supported | <code>curl -fsSL https://claude.ai/install.sh &#124; bash</code> |\n| [Cline](https://docs.cline.bot/cline-cli/overview) | ✅ Supported | <code>npm install -g cline</code> |\n| [Codebuff](https://www.codebuff.com/docs/help/quick-start) | ✅ Supported | <code>npm install -g codebuff</code> |\n| [Codex](https://github.com/openai/codex) | ✅ Supported | <code>npm install -g @openai/codex</code> |\n| [Continue](https://docs.continue.dev/guides/cli) | ✅ Supported | <code>npm i -g @continuedev/cli</code> |\n| [Cursor](https://cursor.com/cli) | ✅ Supported | <code>curl https://cursor.com/install -fsS &#124; bash</code> |\n| [Devin](https://cli.devin.ai/docs) | ✅ Supported | <code>curl -fsSL https://cli.devin.ai/install.sh &#124; bash</code> |\n| [Droid](https://docs.factory.ai/cli/getting-started/quickstart) | ✅ Supported | <code>curl -fsSL https://app.factory.ai/cli &#124; sh</code> |\n| [Gemini](https://github.com/google-gemini/gemini-cli) | ✅ Supported | <code>npm install -g @google/gemini-cli</code> |\n| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) | ✅ Supported | <code>npm install -g @github/copilot</code> |\n| [Goose](https://block.github.io/goose/docs/quickstart/) | ✅ Supported | <code>curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh &#124; bash</code> |\n| [Hermes Agent](https://hermes-agent.nousresearch.com/docs/) | ✅ Supported | <code>curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh &#124; bash</code> |\n| [Jules](https://jules.google/docs/cli/reference/) | ✅ Supported | <code>npm install -g @google/jules</code> |\n| [Junie](https://junie.jetbrains.com/docs/junie-cli.html) | ✅ Supported | <code>curl -fsSL https://junie.jetbrains.com/install.sh &#124; bash</code> |\n| [Kilocode](https://kilo.ai/docs/cli) | ✅ Supported | <code>npm install -g @kilocode/cli</code> |\n| [Kimi](https://www.kimi.com/code/docs/en/kimi-cli/guides/getting-started.html) | ✅ Supported | <code>uv tool install kimi-cli</code> |\n| [Kiro (AWS)](https://kiro.dev/docs/cli/) | ✅ Supported | <code>curl -fsSL https://cli.kiro.dev/install &#124; bash</code> |\n| [Letta](https://docs.letta.com/letta-code/cli) | ✅ Supported | <code>npm install -g @letta-ai/letta-code</code> |\n| [Mistral Vibe](https://github.com/mistralai/mistral-vibe) | ✅ Supported | <code>curl -LsSf https://mistral.ai/vibe/install.sh &#124; bash</code> |\n| [OpenCode](https://opencode.ai/docs/cli/) | ✅ Supported | <code>npm install -g opencode-ai</code> |\n| [Pi](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | ✅ Supported | <code>npm install -g @mariozechner/pi-coding-agent</code> |\n| [Qwen Code](https://github.com/QwenLM/qwen-code) | ✅ Supported | <code>npm install -g @qwen-code/qwen-code</code> |\n| [Rovo Dev](https://support.atlassian.com/rovo/docs/install-and-run-rovo-dev-cli-on-your-device/) | ✅ Supported | <code>acli rovodev auth login</code> |\n\n### Issues\n\nEmdash allows you to pass issues, tickets, and support threads straight to your coding agent.\n\n| Tool | Status | Authentication |\n| ----------- | ------ | ----------- |\n| [Linear](https://linear.app) | ✅ Supported | Connect with a Linear API key. |\n| [Jira](https://www.atlassian.com/software/jira) | ✅ Supported | Provide your site URL, email, and Atlassian API token. |\n| [GitHub Issues](https://docs.github.com/en/issues) | ✅ Supported | Connect your GitHub account or authenticate via GitHub CLI (`gh auth login`). |\n| [GitLab Issues](https://docs.gitlab.com/user/project/issues/) | ✅ Supported | Provide your GitLab instance URL and a personal access token with `read_api` scope. |\n| [Asana](https://asana.com/) | ✅ Supported | Connect with an Asana personal access token. |\n| [Forgejo Issues](https://forgejo.org/) | ✅ Supported | Provide your Forgejo instance URL and API token. |\n| [Plain Threads](https://www.plain.com/) | ✅ Supported | Connect with a Plain API key. |\n\n# Contributing\n\nContributions welcome! See the [Contributing Guide](CONTRIBUTING.md) to get started, and join our [Discord](https://discord.gg/f2fv7YxuR2) to discuss.\n\n# FAQ\n\n<details>\n<summary><b>What telemetry do you collect and can I disable it?</b></summary>\n\n> We send **anonymous, allow‑listed events** (app start/close, feature usage names, app/platform versions) to PostHog.  \n> We **do not** send code, file paths, repo names, prompts, or PII.\n>\n> **Disable telemetry:**\n>\n> - In the app: **Settings → General → Privacy & Telemetry** (toggle off)\n> - Or via env var before launch:\n>\n> ```bash\n> TELEMETRY_ENABLED=false\n> ```\n>\n> Full details: see [Telemetry](https://emdash.sh/docs/telemetry).\n</details>\n\n<details>\n<summary><b>Where is my data stored?</b></summary>\n\n> **App data is local‑first**. We store app state in a local **SQLite** database:\n>\n> ```\n> macOS:   ~/Library/Application Support/emdash/emdash.db\n> Windows: %APPDATA%\\emdash\\emdash.db\n> Linux:   ~/.config/emdash/emdash.db\n> ```\n>\n> **Privacy Note:** While Emdash itself stores data locally, **when you use any coding agent (Claude Code, Codex, Qwen, etc.), your code and prompts are sent to that provider's cloud API servers** for processing. Each provider has their own data handling and retention policies.\n>\n> You can reset the local DB by deleting it (quit the app first). The file is recreated on next launch.\n</details>\n\n<details>\n<summary><b>How do I add a new provider?</b></summary>\n\n> Emdash is **provider‑agnostic** and built to add CLIs quickly.\n>\n> - Open a PR following the **Contributing Guide** (`CONTRIBUTING.md`).\n> - Include: provider name, how it’s invoked (CLI command), auth notes, and minimal setup steps.\n> - We’ll add it to the **Providers table** and wire up provider selection in the UI.\n>\n> If you’re unsure where to start, open an issue with the CLI’s link and typical commands.\n</details>\n\n<details>\n<summary><b>What permissions does Emdash need?</b></summary>\n\n> - **Filesystem/Git:** to read/write your repo and create **Git worktrees** for isolation.  \n> - **Network:** only for provider CLIs you choose to use (e.g., Codex, Claude) and optional GitHub actions.  \n> - **Local DB:** to store your app state in SQLite on your machine.\n>\n> Emdash itself does **not** send your code or chats to any servers. Third‑party CLIs may transmit data per their policies.\n</details>\n\n\n<details>\n<summary><b>Can I work with remote projects over SSH?</b></summary>\n\n> **Yes!** Emdash supports remote development via SSH.\n>\n> **Setup:**\n> 1. Go to **Settings → SSH Connections** and add your server details\n> 2. Choose authentication: SSH agent (recommended), private key, or password\n> 3. Add a remote project and specify the path on the server\n>\n> **Requirements:**\n> - SSH access to the remote server\n> - Git installed on the remote server\n> - For agent auth: SSH agent running with your key loaded (`ssh-add -l`)\n>\n> See [Remote Projects](https://emdash.sh/docs/remote-projects) for detailed setup instructions and [Bring Your Own Infrastructure](https://emdash.sh/docs/bring-your-own-infrastructure) for technical details.\n</details>\n\n[![Follow @emdashsh](https://img.shields.io/twitter/follow/emdashsh?style=social&label=Follow%20%40emdashsh)](https://x.com/emdashsh)\n[![Follow @rabanspiegel](https://img.shields.io/twitter/follo",
+        "truncated": true,
+        "bytes": 12347,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v1.1.24",
+            "tag_name": "v1.1.24",
+            "published_at": "2026-05-22T03:40:24Z",
+            "body_excerpt": "Emdash v1.1.24 is out!\r\n\r\nThis release brings major improvements to SSH and remote workflows (including ProxyJump, ProxyCommand, ForwardAgent, and better MaxSessions handling), a more polished navigation and sidebar experience, better task and PR flows, expanded terminal/open-in-app support, new integrations and providers (Neon, Antigravity, Asana polish), plus a long list of stability, performance, editor, and UI fixes across the app.\r\n\r\n<img width=\"1076\" height=\"860\" alt=\"HIz88ssaYAEfMyE\" src=\"https://github.com/user-attachments/assets/b71481d8-2e54-46c1-9a42-78cc5e6a90d6\" />\r\n\r\n## What's Changed\r\n* feat: improve GitHub auth source handling and connection flow by @jschwxrz in https://github.com/generalaction/emdash/pull/2071\r\n* UI: Normalize home action label casing by @arnestrickmann in https://github.com/generalaction/emdash/pull/2079\r\n* fix(ssh): show actionable MaxSessions panel when channels are exhausted by @jschwxrz in https://github.com/generalaction/emdash/pull/2080\r\n* feat: add worktree directory browser by @janburzinski in https://github.com/generalaction/emdash/pull/2083\r\n* fix: workspace bugs by @Davidknp in https://github.com/generalaction/emdash/pull/2086\r\n* feat: fix themes by @Davidknp in https://github.com/generalaction/emdash/pull/2089\r\n* fix: prioritize path truncation in changes sidebar by @jschwxrz in https://github.com/generalaction/emdash/pull/2090\r\n* v1.1.19 by @jschwxrz in https://github.com/generalaction/emdash/pull/2093\r\n* fix: create task from PR failing when branch already checked out in external worktree by @jschwxrz in https://github.com/generalaction/emdash/pull/2094\r\n* feat(sidebar): add search trigger that opens the command palette by @mezotv in https://github.com/generalaction/emdash/pull/2072\r\n* fix: show draft PR status icon by @janburzinski in https://github.com/generalaction/emdash/pull/2096\r\n* feat: reorganize left sidebar by @jschwxrz in https://github.com/generalaction/emdash/pull/2100\r\n* fix(tasks): pass task identity to"
+          },
+          {
+            "name": "v1.1.19",
+            "tag_name": "v1.1.19",
+            "published_at": "2026-05-18T21:56:31Z",
+            "body_excerpt": "Emdash v1.1.19 is out!\r\nThis release includes smoother SSH and remote project workflows, improvements to navigation and the command palette, better PR/diff tooling (including richer file list info and PR comment rendering), new integrations and providers (Asana, Linear updates, Grok CLI), plus a long list of stability, performance, and terminal fixes across platforms.\r\n\r\n<img width=\"1604\" height=\"896\" alt=\"appwindowcutofftop\" src=\"https://github.com/user-attachments/assets/33e45e09-499d-4360-94c1-e178dcfe0e87\" />\r\n\r\n## What's Changed\r\n* feat: improve ssh directory selector by @jschwxrz in https://github.com/generalaction/emdash/pull/2015\r\n* fix(settings): toggle settings shortcut by @janburzinski in https://github.com/generalaction/emdash/pull/1915\r\n* fix: task workspace bootstrap failing and add tests by @Davidknp in https://github.com/generalaction/emdash/pull/2018\r\n* feat(settings): improve terminal font picker by @janburzinski in https://github.com/generalaction/emdash/pull/1856\r\n* feat: add auto-approve permissions for Kiro by @nicolegros in https://github.com/generalaction/emdash/pull/2021\r\n* fix: duplicate terminal creation on last one close by @janburzinski in https://github.com/generalaction/emdash/pull/2019\r\n* v1.1.17 by @jschwxrz in https://github.com/generalaction/emdash/pull/2026\r\n* feat: add line stats in changes file list by @arnestrickmann in https://github.com/generalaction/emdash/pull/2016\r\n* feat: support RubyMine as a tool by @markahesketh in https://github.com/generalaction/emdash/pull/2027\r\n* feat: add quit confirmation modal by @arnestrickmann in https://github.com/generalaction/emdash/pull/2028\r\n* feat(command-palette): add feedback action by @janburzinski in https://github.com/generalaction/emdash/pull/2031\r\n* feat: add grok cli provider by @arnestrickmann in https://github.com/generalaction/emdash/pull/2032\r\n* fix: restore focus to previous element when modal closes by @nicolegros in https://github.com/generalaction/emdash/pull/2030\r\n* feat"
+          },
+          {
+            "name": "v1.1.16",
+            "tag_name": "v1.1.16",
+            "published_at": "2026-05-14T02:18:14Z",
+            "body_excerpt": "Emdash v1.1.16 is out!\r\n\r\nThis release brings major workflow and UX improvements across conversations, navigation, PR and diff tooling, remote/SSH project support, markdown rendering, and CLI provider integrations, along with a wide range of stability, performance, and quality-of-life fixes.\r\n\r\n<img width=\"2796\" height=\"1956\" alt=\"CleanShot 2026-05-13 at 19 06 13@2x\" src=\"https://github.com/user-attachments/assets/2030c268-633c-4087-aaf7-db2bc6339b29\" />\r\n\r\n## What's Changed\r\n* chore: create release 1.1.10 by @Davidknp in https://github.com/generalaction/emdash/pull/1885\r\n* feat: create terminal drawer by @Davidknp in https://github.com/generalaction/emdash/pull/1882\r\n* feat: mark task working after creating conversation with initial prompt by @jschwxrz in https://github.com/generalaction/emdash/pull/1887\r\n* feat(feedback): support image paste and drag-drop in feedback by @janburzinski in https://github.com/generalaction/emdash/pull/1883\r\n* feat: add copy branch action to task menus by @arnestrickmann in https://github.com/generalaction/emdash/pull/1891\r\n* feat(sidebar): support dropping folders to add projects by @janburzinski in https://github.com/generalaction/emdash/pull/1884\r\n* fix(tasks): show enter key in inline selectors by @janburzinski in https://github.com/generalaction/emdash/pull/1880\r\n* fix: autofocus modal fields by @janburzinski in https://github.com/generalaction/emdash/pull/1896\r\n* fix(settings): make Cmd+, only open settings, never toggle by @janburzinski in https://github.com/generalaction/emdash/pull/1898\r\n* feat: add lastinteracted property to conversations by @Davidknp in https://github.com/generalaction/emdash/pull/1903\r\n* Rename 'Junie CLI' to 'Junie' by @rabanspiegel in https://github.com/generalaction/emdash/pull/1894\r\n* chore: bump version to 1.1.11 by @arnestrickmann in https://github.com/generalaction/emdash/pull/1912\r\n* feat: add Trae open-in options by @arnestrickmann in https://github.com/generalaction/emdash/pull/1913\r\n* chore: refa"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 2124,
+            "title": "Show tabs in left rail as collapsible sub-items under tasks",
+            "state": "open",
+            "url": "https://github.com/generalaction/emdash/issues/2124"
+          },
+          {
+            "number": 2196,
+            "title": "[bug]: Severe UI lag regression in 1.1.24 — file tree deep-observed on every fs-watch event",
+            "state": "open",
+            "url": "https://github.com/generalaction/emdash/issues/2196"
+          },
+          {
+            "number": 1467,
+            "title": "Bug: Text input fields randomly stop accepting keyboard input",
+            "state": "closed",
+            "url": "https://github.com/generalaction/emdash/issues/1467"
+          }
+        ]
+      },
+      "root_files": [
+        ".eslintrc.json",
+        ".github",
+        ".gitignore",
+        "CONTRIBUTING.md",
+        "LICENSE.md",
+        "README.md",
+        "components.json",
+        "docs",
+        "images",
+        "instructions.md",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.js",
+        "src",
+        "tailwind.config.js",
+        "tsconfig.json",
+        "tsconfig.main.json",
+        "vite.config.ts"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 1)",
+          "excerpt": "<img alt=\"Emdash banner\" src=\"https://github.com/user-attachments/assets/a2ecaf3c-9d84-40ca-9a8e-d4f612cc1c6f\" />",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![Apache 2.0 License](https://img.shields.io/badge/License-Apache_2.0-555555.svg?labelColor=333333&color=666666)](./LICENSE.md) [![Downloads](https://img.shields.io/github/downloads/generalaction/emdash/total?labelColor=333333&color=666666)](https://github.com/generalaction/emdash/releases) [![GitHub Stars](https://img.shields.io/github/stars/generalaction/emdash?labelColor=333333&color=666666)](https://github.com/generalaction/emdash) [![Last Commit](https://img.shields.io/github/last-commit/generalaction/emdash?labelColor=333333&color=666666)](https://github.com/generalaction/emdash/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/m/generalaction/emdash?labelColor=333333&color=666666)](https://github.com/generalaction/emdash/graphs/commit-activity) <br> [![Discord](https://img.shields.io/badge/Discord-join-%235462eb?labelColor=%235462eb&logo=discord&logoColor=%23f5f5f5)](https://discord.gg/f2fv7YxuR2) <a href=\"https://www.ycombinator.com\"><img src=\"https://img.shields.io/badge/Y%20Combinator-W26-orange\" alt=\"Y Combinator W26\"></a> [![Follow @emdashsh on X](https://img.shields.io/twitter/follow/emdashsh?logo=X&color=%23f5f5f5)](https://twitter.com/…",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<a href=\"https://emdash.sh/download\" style=\"display:inline-block; margin-right:8px; text-decoration:none; outline:none; border:none;\"> <img src=\"https://emdash.sh/media/readme/downloadforwindows.png\" alt=\"Download for Windows\" height=\"40\"> </a> <a href=\"https://emdash.sh/download\" style=\"display:inline-block; margin-right:8px; text-decoration:none; outline:none; border:none;\"> <img src=\"https://emdash.sh/media/readme/downloadformacos.png\" alt=\"Download for macOS\" height=\"40\"> </a> <a href=\"https://emdash.sh/download\" style=\"display:inline-block; text-decoration:none; outline:none; border:none;\"> <img src=\"https://emdash.sh/media/readme/downloadforlinux.png\" alt=\"Download for Linux\" height=\"40\"> </a>",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 4)",
+          "excerpt": "Emdash is a provider-agnostic desktop app that lets you run multiple coding agents in parallel, each isolated in its own git worktree, either locally or over SSH on a remote machine. We call it an Agentic Development Environment (ADE).",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Emdash supports 27 CLI agents, including Claude Code, Codex, OpenCode, Gemini and Amp. Users can directly pass Linear, GitHub, Jira, or Asana tickets to an agent, review diffs, test changes, create PRs, see CI/CD checks, and merge.",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 6)",
+          "excerpt": "Connect to remote machines via SSH/SFTP to work with remote codebases. Emdash supports SSH agent and key authentication, with secure credential storage in your OS keychain. Run agents on remote projects using the same parallel workflow as local development. [Learn more](https://www.emdash.sh/cloud)",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 7)",
+          "excerpt": "[Installation](#installation) • [Providers](#providers) • [Contributing](#contributing) • [FAQ](#faq)",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/generalaction/emdash#readme",
+          "title": "README (segment 8)",
+          "excerpt": "<img alt=\"Emdash product\" src=\"https://emdash.sh/media/blog/public-v1-beta/v1beta.jpg\" />",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/generalaction/emdash/issues/2124",
+          "title": "Show tabs in left rail as collapsible sub-items under tasks",
+          "excerpt": "Show tabs in left rail as collapsible sub-items under tasks (state:open)",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "number": 2124
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/generalaction/emdash/issues/2196",
+          "title": "[bug]: Severe UI lag regression in 1.1.24 — file tree deep-observed on every fs-watch event",
+          "excerpt": "[bug]: Severe UI lag regression in 1.1.24 — file tree deep-observed on every fs-watch event (state:open)",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "number": 2196
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/generalaction/emdash/issues/1467",
+          "title": "Bug: Text input fields randomly stop accepting keyboard input",
+          "excerpt": "Bug: Text input fields randomly stop accepting keyboard input (state:closed)",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "number": 1467
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/generalaction/emdash/releases",
+          "title": "v1.1.24",
+          "excerpt": "Emdash v1.1.24 is out! This release brings major improvements to SSH and remote workflows (including ProxyJump, ProxyCommand, ForwardAgent, and better MaxSessions handling), a more polished navigation and sidebar experience, better task and PR flows, expanded terminal/open-in-app support, new integrations and providers (Neon, Antigravity, Asana polish), plus a long list of stability, performance, editor, and UI fixes across the app. <img width=\"1076\" height=\"860\" alt=\"HIz88ssaYAEfMyE\" src=\"https://github.com/user-attachments/assets/b71481d8-2e54-46c1-9a42-78cc5e6a90d6\" /> ## What's Changed * feat: improve GitHub auth source handling and connection flow by @jschwxrz in https://github.com/generalaction/emdash/pull/2071 * UI: Normalize home action label casing by @arnestrickmann in https://github.com/generalaction/emdash/pull/2079 * fix(ssh): show actionable MaxSessions panel when channels are exhausted by @jschwxrz in https://github.com/generalaction/emdash/pull/2080 * feat: add worktree directory browser by @janburzinski in https://github.com/generalaction/emdash/pull/2083 * fix: workspace bugs by @Davidknp in https://github.com/generalaction/emdash/pull/2086 * feat: fix themes by …",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "tag_name": "v1.1.24",
+            "published_at": "2026-05-22T03:40:24Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/generalaction/emdash/releases",
+          "title": "v1.1.19",
+          "excerpt": "Emdash v1.1.19 is out! This release includes smoother SSH and remote project workflows, improvements to navigation and the command palette, better PR/diff tooling (including richer file list info and PR comment rendering), new integrations and providers (Asana, Linear updates, Grok CLI), plus a long list of stability, performance, and terminal fixes across platforms. <img width=\"1604\" height=\"896\" alt=\"appwindowcutofftop\" src=\"https://github.com/user-attachments/assets/33e45e09-499d-4360-94c1-e178dcfe0e87\" /> ## What's Changed * feat: improve ssh directory selector by @jschwxrz in https://github.com/generalaction/emdash/pull/2015 * fix(settings): toggle settings shortcut by @janburzinski in https://github.com/generalaction/emdash/pull/1915 * fix: task workspace bootstrap failing and add tests by @Davidknp in https://github.com/generalaction/emdash/pull/2018 * feat(settings): improve terminal font picker by @janburzinski in https://github.com/generalaction/emdash/pull/1856 * feat: add auto-approve permissions for Kiro by @nicolegros in https://github.com/generalaction/emdash/pull/2021 * fix: duplicate terminal creation on last one close by @janburzinski in https://github.com/genera…",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "tag_name": "v1.1.19",
+            "published_at": "2026-05-18T21:56:31Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/generalaction/emdash/releases",
+          "title": "v1.1.16",
+          "excerpt": "Emdash v1.1.16 is out! This release brings major workflow and UX improvements across conversations, navigation, PR and diff tooling, remote/SSH project support, markdown rendering, and CLI provider integrations, along with a wide range of stability, performance, and quality-of-life fixes. <img width=\"2796\" height=\"1956\" alt=\"CleanShot 2026-05-13 at 19 06 13@2x\" src=\"https://github.com/user-attachments/assets/2030c268-633c-4087-aaf7-db2bc6339b29\" /> ## What's Changed * chore: create release 1.1.10 by @Davidknp in https://github.com/generalaction/emdash/pull/1885 * feat: create terminal drawer by @Davidknp in https://github.com/generalaction/emdash/pull/1882 * feat: mark task working after creating conversation with initial prompt by @jschwxrz in https://github.com/generalaction/emdash/pull/1887 * feat(feedback): support image paste and drag-drop in feedback by @janburzinski in https://github.com/generalaction/emdash/pull/1883 * feat: add copy branch action to task menus by @arnestrickmann in https://github.com/generalaction/emdash/pull/1891 * feat(sidebar): support dropping folders to add projects by @janburzinski in https://github.com/generalaction/emdash/pull/1884 * fix(tasks): s…",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "tag_name": "v1.1.16",
+            "published_at": "2026-05-14T02:18:14Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/generalaction/emdash",
+          "title": "ROOT_FILES",
+          "excerpt": ".eslintrc.json, .github, .gitignore, CONTRIBUTING.md, LICENSE.md, README.md, components.json, docs, images, instructions.md, package-lock.json, package.json, postcss.config.js, src, tailwind.config.js, tsconfig.json, tsconfig.main.json, vite.config.ts",
+          "fetched_at": "2026-05-23T06:14:43.179Z",
+          "meta": {
+            "repo_full_name": "generalaction/emdash",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "codeforester/base",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 1,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 0,
+      "releases_count": 1
+    },
+    {
+      "full_name": "generalaction/emdash",
+      "evidence_count": 15,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 3,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 3,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "codeforester/base",
+      "ok": true,
+      "spec_path": "specs/2026-05-23/codeforester__base.json"
+    },
+    {
+      "repo": "generalaction/emdash",
+      "ok": true,
+      "spec_path": "specs/2026-05-23/generalaction__emdash.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "codeforester/base",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-23/codeforester__base.json"
+    },
+    {
+      "repo": "generalaction/emdash",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-23/generalaction__emdash.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "codeforester/base",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 5,
+          "cited": 5
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-23/codeforester__base.json"
+      ]
+    },
+    {
+      "repo": "generalaction/emdash",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 3,
+          "cited": 3
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-23/generalaction__emdash.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-23T06:15:00.125Z",
+      "run_id": "20260523T061437Z",
+      "repo": "codeforester/base",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "171cf672f98ac4d852a8b3f2dfaaf126680ba8e86b7725f4f81199ca43917887",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 5145
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16941,
+      "prompt_chars": 5145,
+      "completion_chars": 1803
+    },
+    {
+      "ts": "2026-05-23T06:15:17.259Z",
+      "run_id": "20260523T061437Z",
+      "repo": "codeforester/base",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6bfb7569d8bfbbe43297083c50f8be28ceee7e1c4f61585a18d31e5b8c0359be",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 7156
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17133,
+      "prompt_chars": 7156,
+      "completion_chars": 1901
+    },
+    {
+      "ts": "2026-05-23T06:15:33.544Z",
+      "run_id": "20260523T061437Z",
+      "repo": "codeforester/base",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "29381f4ad76a1fb1cb26ee67e730df769c9a1117c2cd8763de46ab20e0a7e045",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 9257
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16285,
+      "prompt_chars": 9257,
+      "completion_chars": 1922
+    },
+    {
+      "ts": "2026-05-23T06:15:51.530Z",
+      "run_id": "20260523T061437Z",
+      "repo": "codeforester/base",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "d216226de4bdf9bdce0deaf7876c70d192fdd4753aed57bae1dc15acfc6ae03a",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 11380
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17986,
+      "prompt_chars": 11380,
+      "completion_chars": 2144
+    },
+    {
+      "ts": "2026-05-23T06:16:35.780Z",
+      "run_id": "20260523T061437Z",
+      "repo": "codeforester/base",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "751bf6f16ddcd10ae3d311c02ffbc1b6b6562e5ef131f9337951a6c9e8a59d72",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 16364
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 44249,
+      "prompt_chars": 16364,
+      "completion_chars": 5695
+    },
+    {
+      "ts": "2026-05-23T06:16:52.683Z",
+      "run_id": "20260523T061437Z",
+      "repo": "generalaction/emdash",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "dc744cb92dc8ad2778a257f8bf12cb66b28b2ae90e5acbe7b7b6fb0f8406f1bb",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 10243
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16886,
+      "prompt_chars": 10243,
+      "completion_chars": 1699
+    },
+    {
+      "ts": "2026-05-23T06:17:09.387Z",
+      "run_id": "20260523T061437Z",
+      "repo": "generalaction/emdash",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "561b6f8d43fa191975b2d469e9bb848fe1b4b6854d3024d05cb2a09dab2496cb",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 12158
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 16703,
+      "prompt_chars": 12158,
+      "completion_chars": 1849
+    },
+    {
+      "ts": "2026-05-23T06:17:27.613Z",
+      "run_id": "20260523T061437Z",
+      "repo": "generalaction/emdash",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "db13520bb93ffb7e2f70ad857fb05750554044b6f1f87d91a1278adbc0ec44a1",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 14207
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18226,
+      "prompt_chars": 14207,
+      "completion_chars": 1957
+    },
+    {
+      "ts": "2026-05-23T06:17:43.165Z",
+      "run_id": "20260523T061437Z",
+      "repo": "generalaction/emdash",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "e3981f7b8081ad88a7804b19f8e0424d54bf995ff1fa3bf1b638f4a0cc29ab01",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 16361
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15551,
+      "prompt_chars": 16361,
+      "completion_chars": 1598
+    },
+    {
+      "ts": "2026-05-23T06:18:20.911Z",
+      "run_id": "20260523T061437Z",
+      "repo": "generalaction/emdash",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "049289caec50c3bcba9dd663052ff7a67c2bfc7cbd75a55de62ab0554a95792e",
+      "input_stats": {
+        "evidence_count": 15,
+        "approx_chars": 20833
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 37745,
+      "prompt_chars": 20833,
+      "completion_chars": 5015
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "codeforester/base",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "generalaction/emdash",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "codeforester/base",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "generalaction/emdash",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 15,
+      "evidence_total_final": 15,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1779516877222,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "codeforester/base": 5,
+      "generalaction/emdash": 5
+    },
+    "tokensApproxTotal": 37174,
+    "tokensApproxPerRepo": {
+      "codeforester/base": 15693,
+      "generalaction/emdash": 21481
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "codeforester/base": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "scout",
+        "summary": "The repository 'codeforester/base' is a Mac-first workspace orchestrator designed to standardize developer environment setup, shell initialization, and command execution across multiple peer project repositories. It evolved from a shell-focused utility into a broader multi-repo coordination layer.",
+        "highlights": [
+          "Serves as a common layer above individual project repos to enable consistent setup, execution, and testing [ID:E-RD-001].",
+          "Provides a unified CLI (`basectl`) for workspace management tasks like setup, validation, testing, and project discovery [ID:E-RD-005].",
+          "Supports automatic discovery of adjacent project repositories and interaction via manifests or conventions [ID:E-RD-007, E-RD-008].",
+          "Originally a Bash-centric tool ('Base Classic'), now refactored toward Mac-first workspace orchestration with support for both shell and Python conventions [ID:E-RL-001, E-RD-002].",
+          "Promotes a clean separation: one repo for shared tooling, multiple side-by-side project repos, and standardized command wrappers [ID:E-RD-003, E-RD-006]."
+        ],
+        "risks": [
+          "Limited cross-platform support indicated by 'Mac-first' focus, potentially excluding Linux/Windows developers [ID:E-RL-001].",
+          "Project is in active refactor; the current `master` branch represents a significant shift from its original shell-only purpose, which may introduce instability or incomplete features [ID:E-RD-002, E-RL-001].",
+          "Reliance on directory layout conventions (e.g., peer repos under shared parent) could reduce flexibility or cause confusion if not well-documented [ID:E-RD-007]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "inventor",
+        "summary": "The repository introduces a novel workspace orchestration model that decouples shared developer tooling from individual project repositories, using a Mac-first approach to unify environment setup, shell initialization, and cross-repo command execution through a central CLI (`basectl`).",
+        "highlights": [
+          "Invents a 'common layer' architecture where one shared repo (Base) standardizes setup, testing, and execution for multiple adjacent project repos [ID:E-RD-001].",
+          "Introduces `basectl` as a unified interface for workspace lifecycle operations—setup, validation, testing, and diagnostics—reducing cognitive load across projects [ID:E-RD-005, E-RD-006].",
+          "Proposes automatic discovery of peer repositories under a shared parent directory, enabling dynamic workspace composition without hard-coded paths [ID:E-RD-007].",
+          "Evolves from a Bash-only dotfiles/shell library system ('Base Classic') into a multi-language (Bash/Python) workspace orchestrator with manifest-driven project integration [ID:E-RL-001, E-RD-002, E-RD-008].",
+          "Enforces consistent command execution via wrappers instead of direct invocation, promoting reproducibility and abstraction [ID:E-RD-003]."
+        ],
+        "risks": [
+          "The invented workspace model depends heavily on strict directory layout conventions, which may hinder adoption in less structured environments [ID:E-RD-007].",
+          "As a Mac-first invention, the solution may lack abstractions needed for cross-platform compatibility, limiting its generalizability [ID:E-RL-001].",
+          "The ongoing refactor from shell-centric to broader orchestration introduces uncertainty about stability and completeness of the new paradigm [ID:E-RD-002, E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "engineer",
+        "summary": "The repository implements a Mac-first workspace orchestrator that centralizes developer environment setup, shell initialization, and cross-repo command execution via a unified CLI (`basectl`), built on conventions for peer repository layout and manifest-driven integration.",
+        "highlights": [
+          "Provides a single shared repository (`base`) to manage consistent shell environments, helper libraries (Bash/Python), and command wrappers across multiple adjacent project repos [ID:E-RD-001, E-RD-003].",
+          "Exposes a structured CLI (`basectl`) with commands for setup, validation, testing, diagnostics, and project discovery, reducing per-project onboarding complexity [ID:E-RD-005, E-RD-006].",
+          "Automatically discovers peer project repositories under a common parent directory and supports future integration via project manifests or conventions [ID:E-RD-007, E-RD-008].",
+          "Evolves from a legacy Bash-focused dotfiles system ('Base Classic') into a broader orchestration layer, indicating architectural refactoring and expanded scope [ID:E-RL-001, E-RD-002].",
+          "File structure includes core components like `base_init.sh`, `bin`, `cli`, and `lib`, aligning with its role as a bootstrap and execution framework [ID:E-RF-001]."
+        ],
+        "risks": [
+          "Mac-first orientation may limit portability to Linux or Windows environments without significant adaptation [ID:E-RL-001].",
+          "Heavy reliance on strict directory layout (peer repos under shared parent) could break in non-conforming workflows or CI systems [ID:E-RD-007].",
+          "Ongoing refactor from shell-centric to multi-repo orchestrator suggests potential instability or incomplete implementation of new features [ID:E-RD-002, E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RF-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "skeptic",
+        "summary": "The repository promises a unified, Mac-first workspace orchestration layer but lacks evidence of robust implementation, cross-platform viability, or adoption beyond conceptual design.",
+        "highlights": [
+          "Claims to provide a 'common layer' for consistent setup and execution across repos, yet offers no proof of actual integration with real project repositories [ID:E-RD-001].",
+          "Promotes `basectl` as a central CLI, but no implementation details, usage examples, or output from these commands are provided in available evidence [ID:E-RD-005].",
+          "Relies on automatic discovery of peer repos under a shared parent directory—a fragile convention that assumes strict local filesystem control unlikely in CI/CD or containerized environments [ID:E-RD-007].",
+          "Admits to being in active refactor from a legacy shell-only tool, raising doubts about stability, backward compatibility, and completeness of the new architecture [ID:E-RD-002, E-RL-001].",
+          "Despite listing Python support, all structural evidence (e.g., `base_init.sh`, `lib`, `bin`) points to a shell-centric foundation with no visible Python integration [ID:E-RF-001, E-RD-003]."
+        ],
+        "risks": [
+          "Overpromising abstraction: The vision of seamless multi-repo orchestration is not substantiated by code, tests, or real-world usage patterns in the provided evidence.",
+          "Mac-first focus combined with zero open issues or community forks (only 11) suggests limited validation outside a narrow use case [ID:E-RL-001].",
+          "No manifest schema or convention specification is shown, making the claimed 'project declaration' mechanism purely speculative [ID:E-RD-008].",
+          "Directory-layout dependency creates brittleness; moving or renaming repos would break discovery without clear recovery mechanisms [ID:E-RD-007].",
+          "Absence of documentation beyond README excerpts and lack of releases (only one preserving the old version) indicate immaturity [ID:E-RL-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RL-001",
+          "E-RF-001",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Base\",\n    \"one_sentence\": \"A Mac-first workspace orchestrator that standardizes developer environment setup, shell initialization, and command execution across multiple peer project repositories.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User initializes a shared workspace with Base, which discovers adjacent project repositories and provides a unified CLI (`basectl`) to consistently set up, validate, test, and run commands across all projects without memorizing per-repo instructions.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Workspace Dashboard\",\n      \"purpose\": \"Display discovered project repositories and provide access to unified workspace actions like setup, validation, and testing.\",\n      \"primary_actions\": [\n        \"Run `basectl setup`\",\n        \"Run `basectl check`\",\n        \"List projects\",\n        \"Run `basectl test`\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"basectl_setup\",\n      \"purpose\": \"Bootstrap the entire workspace or a specific project repository using standardized conventions.\",\n      \"async\": true,\n      \"input\": {\n        \"project_name\": \"optional string\"\n      },\n      \"output\": {\n        \"success\": \"boolean\",\n        \"message\": \"string\"\n      }\n    },\n    {\n      \"name\": \"basectl_check\",\n      \"purpose\": \"Validate the current workspace state and report any inconsistencies or missing dependencies.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {\n        \"status\": \"string\",\n        \"issues\": \"array of strings\"\n      }\n    },\n    {\n      \"name\": \"basectl_test\",\n      \"purpose\": \"Execute standardized tests across the workspace or a specific project.\",\n      \"async\": true,\n      \"input\": {\n        \"project_name\": \"optional string\"\n      },\n      \"output\": {\n        \"results\": \"array of test outcomes\"\n      }\n    },\n    {\n      \"name\": \"basectl_doctor\",\n      \"purpose\": \"Diagnose common workspace setup and configuration issues.\",\n      \"async\": true,\n      \"input\": {},\n "
+      }
+    },
+    "generalaction/emdash": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "scout",
+        "summary": "Emdash is an open-source Agentic Development Environment (ADE) enabling parallel execution of coding agents across local and remote (SSH) environments, with integrations for major issue trackers and LLM providers. It is actively maintained with recent releases focusing on SSH workflows, UI/UX polish, and performance fixes, though notable open bugs indicate ongoing stability challenges.",
+        "highlights": [
+          "Positioned as a provider-agnostic ADE supporting 27 CLI agents (e.g., Claude Code, Gemini) and integrations with GitHub, Linear, Jira, and Asana [ID:E-RD-005].",
+          "Enables isolated agent execution in git worktrees, locally or over SSH, with secure credential storage and remote workflow support [ID:E-RD-004, E-RD-006].",
+          "Active development with frequent releases (v1.1.16 to v1.1.24) emphasizing SSH improvements, PR/diff tooling, and new provider integrations [ID:E-RL-003, E-RL-002, E-RL-001].",
+          "Strong community traction: 4.5K+ stars, Apache 2.0 license, and cross-platform desktop availability [ID:E-RD-002, E-RD-003]."
+        ],
+        "risks": [
+          "Open high-severity bug causing severe UI lag due to inefficient file tree observation in v1.1.24 [ID:E-IS-002].",
+          "Known issue with text input fields randomly becoming unresponsive, though marked closed—may indicate unresolved edge cases [ID:E-IS-003].",
+          "Feature request for collapsible sidebar tabs remains open, suggesting UX gaps in navigation scalability [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "inventor",
+        "summary": "Emdash introduces an innovative Agentic Development Environment (ADE) that enables parallel, isolated execution of multiple coding agents—locally or remotely via SSH—within git worktrees, while integrating with diverse LLM providers and issue trackers to streamline developer workflows.",
+        "highlights": [
+          "Pioneers the concept of an Agentic Development Environment (ADE), allowing concurrent, isolated agent runs in git worktrees for safe experimentation [ID:E-RD-004].",
+          "Supports 27 CLI-based coding agents (e.g., Claude Code, Gemini, Amp) and direct ingestion of tasks from GitHub, Linear, Jira, and Asana, enabling end-to-end agentic coding workflows [ID:E-RD-005].",
+          "Uniquely combines local and remote (SSH/SFTP) development with secure OS keychain-backed credential storage, extending agentic workflows to remote machines seamlessly [ID:E-RD-006].",
+          "Continuously enhances core infrastructure through frequent releases, adding features like terminal drawers, improved PR/diff tooling, and expanded provider support (e.g., Neon, Grok, Antigravity) [ID:E-RL-001, E-RL-002, E-RL-003]."
+        ],
+        "risks": [
+          "Architectural inefficiency in file system watching causes severe UI lag in v1.1.24, suggesting scalability challenges in real-time project monitoring [ID:E-IS-002].",
+          "Persistent input handling bugs (e.g., unresponsive text fields) may undermine user trust in interactive components critical for agent prompting and configuration [ID:E-IS-003].",
+          "Lack of collapsible navigation in the sidebar indicates incomplete information architecture for complex, multi-task agent environments [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "engineer",
+        "summary": "Emdash is a TypeScript-based Agentic Development Environment enabling parallel execution of coding agents in isolated git worktrees, with robust support for local and remote (SSH) workflows, integrations with 27+ CLI agents and issue trackers, and active development focused on performance, UX, and provider extensibility—though it faces notable stability risks from inefficient file watching and input handling bugs.",
+        "highlights": [
+          "Built with a modern TypeScript stack (Vite, Tailwind, ESLint) and structured with clear separation of concerns across src/, components.json, and typed configs [ID:E-RF-001].",
+          "Enables secure remote development via SSH/SFTP with OS keychain-backed credential storage and recent enhancements to ProxyJump, ForwardAgent, and MaxSessions handling [ID:E-RD-006, E-RL-001].",
+          "Supports orchestration of 27+ CLI agents (Claude Code, Gemini, Amp, etc.) and direct task ingestion from GitHub, Linear, Jira, and Asana for end-to-end agentic workflows [ID:E-RD-005].",
+          "Actively maintained with frequent, feature-rich releases (v1.1.16–v1.1.24) delivering terminal drawers, PR/diff improvements, and new provider integrations like Neon and Grok [ID:E-RL-003, E-RL-002, E-RL-001]."
+        ],
+        "risks": [
+          "Severe UI lag in v1.1.24 due to deep observation of the entire file tree on every fs-watch event—a likely architectural flaw in reactivity or caching [ID:E-IS-002].",
+          "Intermittent failure of text input fields to accept keyboard input, even if marked closed, suggesting unresolved focus or event propagation issues in the UI layer [ID:E-IS-003].",
+          "Lack of collapsible sidebar tabs for tasks indicates scalability limitations in navigation design as agent/task count grows [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RD-005",
+          "E-RL-003",
+          "E-RL-002",
+          "E-IS-002",
+          "E-IS-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role": "skeptic",
+        "summary": "Emdash presents an ambitious vision of an Agentic Development Environment but exhibits concerning gaps between its marketing claims and actual stability, with unresolved performance regressions, input reliability issues, and immature navigation—raising doubts about its readiness for serious development use despite active iteration.",
+        "highlights": [
+          "Claims support for 27 CLI agents and seamless remote SSH workflows, yet critical UI lag and input bugs undermine core usability [ID:E-RD-005, E-RD-006, E-IS-002, E-IS-003].",
+          "Frequent releases (v1.1.16–v1.1.24) emphasize new features over fixing fundamental flaws, suggesting prioritization of novelty over robustness [ID:E-RL-001, E-RL-002, E-RL-003].",
+          "Despite 4.5K+ stars and YC backing, open high-severity bugs and unaddressed UX scalability issues (e.g., non-collapsible sidebar) indicate potential overpromising relative to delivery [ID:E-IS-001, E-IS-002]."
+        ],
+        "risks": [
+          "The severe UI lag in v1.1.24 caused by inefficient file tree observation suggests poor architectural decisions that could worsen with larger codebases [ID:E-IS-002].",
+          "Closed-but-recurring text input failure hints at flaky event handling that may disrupt agent prompting—a core workflow [ID:E-IS-003].",
+          "Absence of collapsible task navigation implies the UI hasn’t been stress-tested with realistic multi-agent workloads [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-006",
+          "E-IS-002",
+          "E-IS-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 15,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Emdash\",\n    \"one_sentence\": \"Emdash is an open-source Agentic Development Environment that enables parallel execution of multiple coding agents in isolated git worktrees, locally or over SSH.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users create tasks from issue trackers (GitHub, Linear, Jira, Asana), assign them to one of 27+ supported CLI coding agents (e.g., Claude Code, Gemini), run agents in isolated git worktrees either locally or remotely via SSH, review diffs, test changes, and manage pull requests—all within a unified desktop interface.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Workspace\",\n      \"purpose\": \"Primary interface for managing tasks, agent conversations, file navigation, and PR/diff reviews.\",\n      \"primary_actions\": [\n        \"Create new task from issue tracker\",\n        \"Run coding agent on selected task\",\n        \"Review and apply diffs\",\n        \"Open terminal drawer\",\n        \"Navigate remote SSH projects\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings\",\n      \"purpose\": \"Configure SSH connections, provider credentials, terminal preferences, and application behavior.\",\n      \"primary_actions\": [\n        \"Manage SSH keys and ProxyJump settings\",\n        \"Toggle terminal drawer visibility\",\n        \"Update provider integrations\",\n        \"Adjust file watching behavior\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist user input or agent-generated content to disk or database.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"list_items\",\n      \"purpose\": \"Retrieve list of tasks, agents, or files for display in UI.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"tasks\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \""
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "codeforester/base",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 8,
+        "engineer": 9,
+        "skeptic": 8,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "generalaction/emdash",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 11,
+        "inventor": 9,
+        "engineer": 9,
+        "skeptic": 8,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=318",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] codeforester/base evidence total=10 readme=8 issue=0 release=1 root_files=1",
+    "[repo_card_builder] generalaction/emdash evidence total=15 readme=8 issue=3 release=3 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=25 gaps=0",
+    "[llm_spec_generator] codeforester/base canonical spec ok (iter=1) -> specs/2026-05-23/codeforester__base.json",
+    "[llm_spec_generator] generalaction/emdash canonical spec ok (iter=1) -> specs/2026-05-23/generalaction__emdash.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-23T06:14:37.222Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:37.243Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260523T061437Z"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:37.243Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:37.247Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:37.828Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:37.828Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:38.485Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:38.485Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:38.973Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:38.973Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:39.529Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:39.529Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:40.041Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:40.041Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:40.615Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:40.615Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:41.121Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:41.121Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:41.527Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:41.527Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.036Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.036Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.596Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.600Z",
+      "run_id": "20260523T061437Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 318
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.601Z",
+      "run_id": "20260523T061437Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.604Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-23T06:14:42.604Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "codeforester__base/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.605Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "codeforester__base/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.606Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "codeforester__base/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.608Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "codeforester__base/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.609Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-23T06:14:42.609Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "generalaction__emdash/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.611Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "generalaction__emdash/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.612Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "generalaction__emdash/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.614Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "generalaction__emdash/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.994Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12458,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.994Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.994Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.994Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 390
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:42.995Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 8,
+        "issues": 0,
+        "releases": 1,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.179Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 12347,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.179Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.179Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.179Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 570
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.180Z",
+      "run_id": "20260523T061437Z",
+      "node": "repo_card_builder",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 15,
+        "readme": 8,
+        "issues": 3,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.183Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 1,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-23T06:14:43.183Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:15:00.125Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1803,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:15:17.259Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1901,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:15:33.544Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1922,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:15:51.530Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2144,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:35.780Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5695,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:35.795Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:35.796Z",
+      "run_id": "20260523T061437Z",
+      "node": "artifacts",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-23/codeforester__base.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:35.797Z",
+      "run_id": "20260523T061437Z",
+      "node": "artifacts",
+      "repo": "codeforester/base",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-23/codeforester__base.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:35.797Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 15,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 3,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:35.797Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 15,
+        "evidence_selected": 15,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-23T06:16:52.683Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1699,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:17:09.387Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1849,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:17:27.613Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1957,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:17:43.165Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1598,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.911Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 5015,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.913Z",
+      "run_id": "20260523T061437Z",
+      "node": "llm_spec_generator",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.914Z",
+      "run_id": "20260523T061437Z",
+      "node": "artifacts",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-23/generalaction__emdash.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.914Z",
+      "run_id": "20260523T061437Z",
+      "node": "artifacts",
+      "repo": "generalaction/emdash",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-23/generalaction__emdash.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.917Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.917Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1779516877222,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "codeforester/base": 5,
+          "generalaction/emdash": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.917Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-23T06:18:20.917Z",
+      "run_id": "20260523T061437Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-23",
+    "evidence_dir": "evidence/2026-05-23"
+  }
+}

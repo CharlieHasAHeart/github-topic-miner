@@ -1,0 +1,137 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Emdash",
+    "one_liner": "Emdash is an open-source Agentic Development Environment that enables parallel execution of multiple coding agents in isolated git worktrees, locally or over SSH."
+  },
+  "screens": [
+    {
+      "name": "Main Workspace",
+      "purpose": "Primary interface for managing tasks, agent conversations, file navigation, and PR/diff reviews.",
+      "primary_actions": [
+        "Create new task from issue tracker",
+        "Navigate remote SSH projects",
+        "Open terminal drawer",
+        "Review and apply diffs",
+        "Run coding agent on selected task"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure SSH connections, provider credentials, terminal preferences, and application behavior.",
+      "primary_actions": [
+        "Adjust file watching behavior",
+        "Manage SSH keys and ProxyJump settings",
+        "Toggle terminal drawer visibility",
+        "Update provider integrations"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "list_items",
+      "purpose": "Retrieve list of tasks, agents, or files for display in UI.",
+      "async": true,
+      "input": {
+        "cli_command": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "provider": "string",
+        "query": "string?"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Persist user input or agent-generated content to disk or database.",
+      "async": true,
+      "input": {
+        "cli_command": "string",
+        "payload": "json",
+        "provider": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "cli_command",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "ssh_connections",
+        "columns": [
+          {
+            "name": "credentials_stored",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "host",
+            "type": "TEXT"
+          },
+          {
+            "name": "proxy_jump",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tasks",
+        "columns": [
+          {
+            "name": "agent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_ticket_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          },
+          {
+            "name": "worktree_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build main screen layout with sidebar and editor pane",
+    "week 1: Implement core task-agent binding logic",
+    "week 1: Integrate basic SSH/SFTP connection handler",
+    "week 1: Set up isolated git worktree management"
+  ],
+  "acceptance_tests": [
+    "Application remains responsive during heavy file system activity without deep-observing entire tree on every fs-watch event.",
+    "Tasks created from GitHub/Linear/Jira appear in collapsible sidebar under their respective providers.",
+    "Text input fields consistently accept keyboard input across all screens and modal states.",
+    "User can successfully run a coding agent on a remote SSH project using OS keychain-stored credentials."
+  ]
+}

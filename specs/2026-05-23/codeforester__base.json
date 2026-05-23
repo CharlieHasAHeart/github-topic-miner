@@ -1,0 +1,138 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Base",
+    "one_liner": "A Mac-first workspace orchestrator that standardizes developer environment setup, shell initialization, and command execution across multiple peer project repositories."
+  },
+  "screens": [
+    {
+      "name": "Workspace Dashboard",
+      "purpose": "Display discovered project repositories and provide access to unified workspace actions like setup, validation, and testing.",
+      "primary_actions": [
+        "List projects",
+        "Run `basectl check`",
+        "Run `basectl setup`",
+        "Run `basectl test`"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "basectl_check",
+      "purpose": "Validate the current workspace state and report any inconsistencies or missing dependencies.",
+      "async": true,
+      "input": {
+        "manifest_present": "boolean",
+        "name": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "issues": "string",
+        "status": "string"
+      }
+    },
+    {
+      "name": "basectl_doctor",
+      "purpose": "Diagnose common workspace setup and configuration issues.",
+      "async": true,
+      "input": {
+        "manifest_present": "boolean",
+        "name": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "diagnostics": "string"
+      }
+    },
+    {
+      "name": "basectl_projects_list",
+      "purpose": "Discover and list all participating project repositories adjacent to Base under a shared parent directory.",
+      "async": true,
+      "input": {
+        "manifest_present": "boolean",
+        "name": "string",
+        "path": "string",
+        "payload": "json"
+      },
+      "output": {
+        "projects": "string"
+      }
+    },
+    {
+      "name": "basectl_setup",
+      "purpose": "Bootstrap the entire workspace or a specific project repository using standardized conventions.",
+      "async": true,
+      "input": {
+        "project_name": "string"
+      },
+      "output": {
+        "message": "string",
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "basectl_test",
+      "purpose": "Execute standardized tests across the workspace or a specific project.",
+      "async": true,
+      "input": {
+        "project_name": "string"
+      },
+      "output": {
+        "results": "string"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "manifest_present",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "workspace_config",
+        "columns": [
+          {
+            "name": "base_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "parent_dir",
+            "type": "TEXT"
+          },
+          {
+            "name": "shell_profile_loaded",
+            "type": "BOOLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build core `basectl` CLI with setup, check, and list commands",
+    "week 1: Create basic workspace validation routines",
+    "week 1: Implement project discovery logic based on shared parent directory layout",
+    "week 2: Add support for project-specific setup via conventions or manifests",
+    "week 2: Implement test orchestration across discovered projects",
+    "week 2: Integrate shell environment bootstrap via `base_init.sh`"
+  ],
+  "acceptance_tests": [
+    "Given a Base repo and two project repos checked out side-by-side under a common parent, when the user runs `basectl projects list`, then both project names are returned.",
+    "When the user runs `basectl check`, then the system validates that all required tools and conventions are present and reports any missing components.",
+    "When the user runs `basectl setup`, then a consistent shell environment is initialized and shared libraries are made available across all discovered projects."
+  ]
+}
