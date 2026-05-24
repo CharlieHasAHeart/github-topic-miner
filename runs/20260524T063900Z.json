@@ -1,0 +1,3249 @@
+{
+  "run_id": "20260524T063900Z",
+  "generated_at": "2026-05-24T06:39:00.914Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 91,
+    "candidates_kept": 5,
+    "candidates_deduped": 2,
+    "new_candidates": 3,
+    "repo_cards_built": 3,
+    "gaps_count": 0,
+    "specs_attempted": 3,
+    "specs_succeeded": 3,
+    "specs_failed": 0,
+    "evidence_validated": 3,
+    "evidence_valid_ok": 3,
+    "evidence_valid_failed": 0,
+    "evidence_written": 3,
+    "evidence_write_failed": 0,
+    "evidence_total": 32,
+    "evidence_by_type": {
+      "readme": 23,
+      "issue": 3,
+      "release": 3,
+      "root_files": 3
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-24T06:43:19.311Z",
+    "repo_count": 323
+  },
+  "candidates": [
+    {
+      "full_name": "lineofflight/frankfurter",
+      "html_url": "https://github.com/lineofflight/frankfurter",
+      "description": "💱 Currency data API",
+      "topics": [
+        "api",
+        "currency",
+        "currency-api",
+        "currency-converter",
+        "currency-exchange",
+        "currency-exchange-rates",
+        "forex",
+        "money",
+        "ruby"
+      ],
+      "language": "Ruby",
+      "stargazers_count": 1500,
+      "forks_count": 154,
+      "open_issues_count": 24,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:50Z",
+      "created_at": "2018-03-08T14:40:57Z"
+    },
+    {
+      "full_name": "scylladb/scylla-cluster-tests",
+      "html_url": "https://github.com/scylladb/scylla-cluster-tests",
+      "description": "Tests for Scylla Clusters",
+      "topics": [
+        "cassandra",
+        "cql",
+        "scylladb",
+        "test-automation",
+        "testing-framework"
+      ],
+      "language": "Python",
+      "stargazers_count": 73,
+      "forks_count": 110,
+      "open_issues_count": 296,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-24T06:38:33Z",
+      "created_at": "2015-12-29T23:03:42Z"
+    },
+    {
+      "full_name": "Correia-jpv/fucking-terminals-are-sexy",
+      "html_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy",
+      "description": "💥 A curated list of Terminal frameworks, plugins & resources for CLI lovers. With repository stars⭐ and forks🍴",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "cli",
+        "cli-lovers",
+        "cli-tool",
+        "command-line",
+        "curated-list",
+        "terminal",
+        "terminal-colors",
+        "terminal-graphics",
+        "terminal-theme",
+        "terminal-ui"
+      ],
+      "language": "Shell",
+      "stargazers_count": 57,
+      "forks_count": 3,
+      "open_issues_count": 0,
+      "license_spdx_id": "CC0-1.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:33Z",
+      "created_at": "2022-02-06T12:24:59Z"
+    },
+    {
+      "full_name": "stablyai/orca",
+      "html_url": "https://github.com/stablyai/orca",
+      "description": "Orca is the next-gen ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop and mobile.",
+      "topics": [
+        "ade",
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor-agent",
+        "ghostty",
+        "ide",
+        "mobile-app",
+        "opencode",
+        "orchestration",
+        "parallel-agents",
+        "pi",
+        "terminal",
+        "worktrees"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 3157,
+      "forks_count": 217,
+      "open_issues_count": 182,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:17Z",
+      "created_at": "2026-03-17T03:28:57Z"
+    },
+    {
+      "full_name": "harryzcy/mailbox",
+      "html_url": "https://github.com/harryzcy/mailbox",
+      "description": "Versatile email infrastructure on AWS serverless",
+      "topics": [
+        "api",
+        "aws",
+        "aws-apigateway",
+        "aws-dynamodb",
+        "aws-lambda",
+        "aws-s3",
+        "aws-ses",
+        "aws-sqs",
+        "go",
+        "mailbox",
+        "mailbox-service",
+        "self-hosted",
+        "serverless"
+      ],
+      "language": "Go",
+      "stargazers_count": 253,
+      "forks_count": 15,
+      "open_issues_count": 4,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:37:56Z",
+      "created_at": "2021-01-01T15:41:41Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "lineofflight/frankfurter",
+      "html_url": "https://github.com/lineofflight/frankfurter",
+      "description": "💱 Currency data API",
+      "topics": [
+        "api",
+        "currency",
+        "currency-api",
+        "currency-converter",
+        "currency-exchange",
+        "currency-exchange-rates",
+        "forex",
+        "money",
+        "ruby"
+      ],
+      "language": "Ruby",
+      "stargazers_count": 1500,
+      "forks_count": 154,
+      "open_issues_count": 24,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:50Z",
+      "created_at": "2018-03-08T14:40:57Z"
+    },
+    {
+      "full_name": "scylladb/scylla-cluster-tests",
+      "html_url": "https://github.com/scylladb/scylla-cluster-tests",
+      "description": "Tests for Scylla Clusters",
+      "topics": [
+        "cassandra",
+        "cql",
+        "scylladb",
+        "test-automation",
+        "testing-framework"
+      ],
+      "language": "Python",
+      "stargazers_count": 73,
+      "forks_count": 110,
+      "open_issues_count": 296,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-24T06:38:33Z",
+      "created_at": "2015-12-29T23:03:42Z"
+    },
+    {
+      "full_name": "Correia-jpv/fucking-terminals-are-sexy",
+      "html_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy",
+      "description": "💥 A curated list of Terminal frameworks, plugins & resources for CLI lovers. With repository stars⭐ and forks🍴",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "cli",
+        "cli-lovers",
+        "cli-tool",
+        "command-line",
+        "curated-list",
+        "terminal",
+        "terminal-colors",
+        "terminal-graphics",
+        "terminal-theme",
+        "terminal-ui"
+      ],
+      "language": "Shell",
+      "stargazers_count": 57,
+      "forks_count": 3,
+      "open_issues_count": 0,
+      "license_spdx_id": "CC0-1.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:33Z",
+      "created_at": "2022-02-06T12:24:59Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "lineofflight/frankfurter",
+      "html_url": "https://github.com/lineofflight/frankfurter",
+      "description": "💱 Currency data API",
+      "topics": [
+        "api",
+        "currency",
+        "currency-api",
+        "currency-converter",
+        "currency-exchange",
+        "currency-exchange-rates",
+        "forex",
+        "money",
+        "ruby"
+      ],
+      "language": "Ruby",
+      "stargazers_count": 1500,
+      "forks_count": 154,
+      "open_issues_count": 24,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:50Z",
+      "created_at": "2018-03-08T14:40:57Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Frankfurter\n\n[Frankfurter](https://frankfurter.dev) is an open-source currency data API that tracks daily exchange rates from institutional sources.\n\n## Deployment\n\nThe public API runs at <https://api.frankfurter.dev>. If you prefer to host your own instance, you can run Frankfurter with Docker.\n\n### Using Docker\n\nThe quickest way to get started:\n\n```bash\ndocker run -d -p 8080:8080 lineofflight/frankfurter\n```\n\nFor production, mount a volume to persist the SQLite database across container restarts and set any optional API keys:\n\n```bash\ndocker run -d -p 8080:8080 \\\n  -e DATABASE_URL=sqlite:///app/data/frankfurter.sqlite3 \\\n  -e BAM_API_KEY=your_key \\\n  -e BANXICO_API_KEY=your_key \\\n  -e BCCH_USER=your_email \\\n  -e BCCH_PASS=your_password \\\n  -e BOT_API_KEY=your_key \\\n  -e FRED_API_KEY=your_key \\\n  -e TCMB_API_KEY=your_key \\\n  -v ./data:/app/data \\\n  --pull always \\\n  lineofflight/frankfurter\n```\n\nWithout a mounted volume, the database is ephemeral and some endpoints may return empty data until their initial backfill completes.\n\nSome data providers require API keys. All are free and optional:\n\n- `BAM_API_KEY` — Bank Al-Maghrib (Morocco). Register at [apihelpdesk.centralbankofmorocco.ma](https://apihelpdesk.centralbankofmorocco.ma/apis).\n- `BANXICO_API_KEY` — Banco de México. Register at [banxico.org.mx](https://www.banxico.org.mx/SieAPIRest/service/v1/).\n- `BCCH_USER` / `BCCH_PASS` — Banco Central de Chile. Register at [si3.bcentral.cl](https://si3.bcentral.cl/Siete/es/Siete/API).\n- `BOT_API_KEY` — Bank of Thailand. Register at [portal.api.bot.or.th](https://portal.api.bot.or.th).\n- `FRED_API_KEY` — Federal Reserve. Register at [fred.stlouisfed.org](https://fred.stlouisfed.org/docs/api/api_key.html).\n- `TCMB_API_KEY` — Turkish Central Bank. Register at [evds3.tcmb.gov.tr](https://evds3.tcmb.gov.tr).\n\n## Contributing\n\nSee [AGENTS.md](AGENTS.md) for development setup and guidelines.\n\nBuilt a library or tool with Frankfurter? Share it in [Show and Tell](https://github.com/lineofflight/frankfurter/discussions/categories/show-and-tell)\n",
+        "truncated": false,
+        "bytes": 2081,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.0.2",
+            "tag_name": "v2.0.2",
+            "published_at": "2026-05-21T11:20:59Z",
+            "body_excerpt": "\n### Fixed\n\n- Ensure `/v2/rates` date-range queries return the same rates as `/v2/rates?date=…` for any given date.\n\n"
+          },
+          {
+            "name": "v2.0.1",
+            "tag_name": "v2.0.1",
+            "published_at": "2026-05-19T07:57:11Z",
+            "body_excerpt": "\n### Fixed\n\n- `/v2/rates` date-range queries no longer duplicate the first row of the response.\n\n"
+          },
+          {
+            "name": "v2.0.0",
+            "tag_name": "v2.0.0",
+            "published_at": "2026-05-18T11:31:23Z",
+            "body_excerpt": "\nNew multi-provider API at `/v2/`. The v1 API is unchanged and remains available indefinitely at `/v1/`.\n\n### Migrating from v1\n\n- Change your base URL from `/v1/latest` to `/v2/rates`.\n- Rates are now an array of `{\"date\", \"base\", \"quote\", \"rate\"}` objects instead of `{\"base\", \"date\", \"rates\": {\"USD\": 1.23}}`.\n- The `symbols` parameter is renamed to `quotes`.\n- `from` and `to` are used for date ranges.\n- JSONP is not supported in v2.\n\n### Added\n\n- `/v2/rates` — blended exchange rates from 50+ institutional providers, derived from a USD-anchored blend so reciprocals and cross-rate triangles round to 1.0. Non-USD-base queries may differ from a single provider in the 4th to 5th decimal. (#343)\n- `/v2/rate/{base}/{quote}` and `/v2/rate/{base}/{quote}/{date}` — single pair, latest or historical.\n- `/v2/providers` — data sources with date ranges, currency coverage, `rate_type`, and `country_code`.\n- `/v2/currencies` — provider coverage per currency, including peg metadata (anchor and fixed rate).\n- Precious metal quotes (XAU, XAG, XPT, XPD).\n- IMF Special Drawing Rights (XDR), including SDR cross rates as a primary source. (#333, #335)\n- Historical currency support — pre-euro and pre-redenomination codes (DEM, FRF, NLG, CYP, etc.) where providers serve them.\n- Pegged currency expansion at query time; pegged rates snap to the exact peg, and cross-base requests for pegged quotes are anchored through the peg's base. Pegs act as a source, so `?providers=` excludes them along with other unlisted sources. (#323)\n- `expand=providers` on `/v2/rates` — each provider's individual rate as `[{ \"key\", \"rate\" }]`; excluded providers (outliers, peg overrides) are flagged `excluded: true`. CSV form `ECB:0.92|BOC:0.93`, `*`-suffixed when excluded. (#323)\n- `providers` parameter to scope rates and currencies to specific sources.\n- `group` parameter to downsample time series (`week` or `month`).\n- CSV and NDJSON streaming output.\n- Outlier detection and recency-weighted blending.\n- Rows ar"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 442,
+            "title": "Add Central Bank of Solomon Islands (CBSI) provider",
+            "state": "closed",
+            "url": "https://github.com/lineofflight/frankfurter/issues/442"
+          },
+          {
+            "number": 445,
+            "title": "Add Central Bank of Bahrain (CBB-BH) provider",
+            "state": "closed",
+            "url": "https://github.com/lineofflight/frankfurter/issues/445"
+          }
+        ]
+      },
+      "root_files": [
+        ".agents",
+        ".claude",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".irbrc",
+        ".rubocop.yml",
+        ".rubocop_todo.yml",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "Dockerfile",
+        "Gemfile",
+        "Gemfile.lock",
+        "LICENSE",
+        "Procfile",
+        "README.md",
+        "Rakefile",
+        "bin",
+        "boot.rb",
+        "config.ru",
+        "config",
+        "db",
+        "lib",
+        "mise.toml",
+        "spec"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[Frankfurter](https://frankfurter.dev) is an open-source currency data API that tracks daily exchange rates from institutional sources.",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 1,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 2)",
+          "excerpt": "The public API runs at <https://api.frankfurter.dev>. If you prefer to host your own instance, you can run Frankfurter with Docker.",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 2,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 3)",
+          "excerpt": "For production, mount a volume to persist the SQLite database across container restarts and set any optional API keys:",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 3,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 4)",
+          "excerpt": "```bash docker run -d -p 8080:8080 \\ -e DATABASE_URL=sqlite:///app/data/frankfurter.sqlite3 \\ -e BAM_API_KEY=your_key \\ -e BANXICO_API_KEY=your_key \\ -e BCCH_USER=your_email \\ -e BCCH_PASS=your_password \\ -e BOT_API_KEY=your_key \\ -e FRED_API_KEY=your_key \\ -e TCMB_API_KEY=your_key \\ -v ./data:/app/data \\ --pull always \\ lineofflight/frankfurter ```",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 4,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Without a mounted volume, the database is ephemeral and some endpoints may return empty data until their initial backfill completes.",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 5,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 6)",
+          "excerpt": "- `BAM_API_KEY` — Bank Al-Maghrib (Morocco). Register at [apihelpdesk.centralbankofmorocco.ma](https://apihelpdesk.centralbankofmorocco.ma/apis). - `BANXICO_API_KEY` — Banco de México. Register at [banxico.org.mx](https://www.banxico.org.mx/SieAPIRest/service/v1/). - `BCCH_USER` / `BCCH_PASS` — Banco Central de Chile. Register at [si3.bcentral.cl](https://si3.bcentral.cl/Siete/es/Siete/API). - `BOT_API_KEY` — Bank of Thailand. Register at [portal.api.bot.or.th](https://portal.api.bot.or.th). - `FRED_API_KEY` — Federal Reserve. Register at [fred.stlouisfed.org](https://fred.stlouisfed.org/docs/api/api_key.html). - `TCMB_API_KEY` — Turkish Central Bank. Register at [evds3.tcmb.gov.tr](https://evds3.tcmb.gov.tr).",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 6,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/lineofflight/frankfurter#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Built a library or tool with Frankfurter? Share it in [Show and Tell](https://github.com/lineofflight/frankfurter/discussions/categories/show-and-tell)",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "segment": 7,
+            "language": "Ruby"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/lineofflight/frankfurter/issues/442",
+          "title": "Add Central Bank of Solomon Islands (CBSI) provider",
+          "excerpt": "Add Central Bank of Solomon Islands (CBSI) provider (state:closed)",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "number": 442
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/lineofflight/frankfurter/issues/445",
+          "title": "Add Central Bank of Bahrain (CBB-BH) provider",
+          "excerpt": "Add Central Bank of Bahrain (CBB-BH) provider (state:closed)",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "number": 445
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/lineofflight/frankfurter/releases",
+          "title": "v2.0.2",
+          "excerpt": "### Fixed - Ensure `/v2/rates` date-range queries return the same rates as `/v2/rates?date=…` for any given date.",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "tag_name": "v2.0.2",
+            "published_at": "2026-05-21T11:20:59Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/lineofflight/frankfurter/releases",
+          "title": "v2.0.1",
+          "excerpt": "### Fixed - `/v2/rates` date-range queries no longer duplicate the first row of the response.",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "tag_name": "v2.0.1",
+            "published_at": "2026-05-19T07:57:11Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/lineofflight/frankfurter/releases",
+          "title": "v2.0.0",
+          "excerpt": "New multi-provider API at `/v2/`. The v1 API is unchanged and remains available indefinitely at `/v1/`. ### Migrating from v1 - Change your base URL from `/v1/latest` to `/v2/rates`. - Rates are now an array of `{\"date\", \"base\", \"quote\", \"rate\"}` objects instead of `{\"base\", \"date\", \"rates\": {\"USD\": 1.23}}`. - The `symbols` parameter is renamed to `quotes`. - `from` and `to` are used for date ranges. - JSONP is not supported in v2. ### Added - `/v2/rates` — blended exchange rates from 50+ institutional providers, derived from a USD-anchored blend so reciprocals and cross-rate triangles round to 1.0. Non-USD-base queries may differ from a single provider in the 4th to 5th decimal. (#343) - `/v2/rate/{base}/{quote}` and `/v2/rate/{base}/{quote}/{date}` — single pair, latest or historical. - `/v2/providers` — data sources with date ranges, currency coverage, `rate_type`, and `country_code`. - `/v2/currencies` — provider coverage per currency, including peg metadata (anchor and fixed rate). - Precious metal quotes (XAU, XAG, XPT, XPD). - IMF Special Drawing Rights (XDR), including SDR cross rates as a primary source. (#333, #335) - Historical currency support — pre-euro and pre-redeno…",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "tag_name": "v2.0.0",
+            "published_at": "2026-05-18T11:31:23Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/lineofflight/frankfurter",
+          "title": "ROOT_FILES",
+          "excerpt": ".agents, .claude, .dockerignore, .github, .gitignore, .irbrc, .rubocop.yml, .rubocop_todo.yml, AGENTS.md, CHANGELOG.md, CLAUDE.md, Dockerfile, Gemfile, Gemfile.lock, LICENSE, Procfile, README.md, Rakefile, bin, boot.rb, config.ru, config, db, lib, mise.toml, spec",
+          "fetched_at": "2026-05-24T06:39:05.838Z",
+          "meta": {
+            "repo_full_name": "lineofflight/frankfurter",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "scylladb/scylla-cluster-tests",
+      "html_url": "https://github.com/scylladb/scylla-cluster-tests",
+      "description": "Tests for Scylla Clusters",
+      "topics": [
+        "cassandra",
+        "cql",
+        "scylladb",
+        "test-automation",
+        "testing-framework"
+      ],
+      "language": "Python",
+      "stargazers_count": 73,
+      "forks_count": 110,
+      "open_issues_count": 296,
+      "license_spdx_id": "AGPL-3.0",
+      "default_branch": "master",
+      "pushed_at": "2026-05-24T06:38:33Z",
+      "created_at": "2015-12-29T23:03:42Z",
+      "readme": {
+        "fetched": true,
+        "text": "# SCT - Scylla Cluster Tests\n\nSCT tests are designed to test Scylla database on physical/virtual servers under high read/write load.\nCurrently, the tests are run using built in unittest\nThese tests automatically create:\n\n* Scylla clusters - Run Scylla database\n* Loader machines - used to run load generators like cassandra-stress\n* Monitoring server - uses official Scylla Monitoring [repo](https://github.com/scylladb/scylla-monitoring) to monitor Scylla clusters and Loaders\n\n## Quickstart\n\n#### Option 1 - Config AWS using OKTA (preferred option)\n\nhttps://www.notion.so/AWS-864b26157112426f8e74bab61001425d\n\n#### Option 2 - Config AWS using AWS credentials\n```bash\n# install aws cli\nsudo apt install awscli # Debian/Ubuntu\nsudo dnf install awscli # Redhat/Fedora\n# or follow amazon instructions to get it: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html\n\n# Ask your AWS account admin to create a user and access key for AWS) and then configure AWS\n\n> aws configure\nAWS Access Key ID [****************7S5A]:\nAWS Secret Access Key [****************5NcH]:\nDefault region name [us-east-1]:\nDefault output format [None]:\n\n# if using OKTA, use any of the tools to create the AWS profile, and export it as such,\n# anywhere you are gonna use hydra command (replace DeveloperAccessRole with the name of your profile):\nexport AWS_PROFILE=DeveloperAccessRole\n\n# Install hydra (docker holding all requirements for running SCT)\nsudo ./install-hydra.sh\n\n# if using podman, we need to disable enforcing of short name usage, without it monitoring stack won't run from withing hydra\necho 'unqualified-search-registries = [\"registry.fedoraproject.org\", \"registry.access.redhat.com\", \"docker.io\", \"quay.io\"]\nshort-name-mode=\"permissive\"\n' > ~/.config/containers/registries.conf\n```\n\n### Run a test\n#### Disable Argus (if not needed for testing)\nTo disable Argus reporting during testing, set the following environment variable:\n```bash\nexport SCT_ENABLE_ARGUS=false\n```\n### Logs Location\n\nAll logs generated during test runs can be found in the `~/sct-results` directory.\n\nExample running test using Hydra using `test-cases/PR-provision-test.yaml` configuration file\n\n#### Run test locally with AWS backend:\n```bash\nexport SCT_SCYLLA_VERSION=5.2.1\n# Test fails to report to Argus. So we need to disable it\nexport SCT_ENABLE_ARGUS=false\n# configuration is needed for running from a local development machine (default communication is via private addresses)\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend aws --config test-cases/PR-provision-test.yaml --config configurations/network_config/test_communication_public.yaml\n\n# Run with IPv6 configuration\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend aws --config test-cases/PR-provision-test.yaml --config configurations/network_config/all_addresses_ipv6_public.yaml\n\n```\n\n#### Run test using [SCT Runner](./docs/sct-runners.md) with AWS backend:\n```bash\nhydra create-runner-instance --cloud-provider <cloud_name> -r <region_name> -z <az> -t <test-id> -d <run_duration>\n\nexport SCT_SCYLLA_VERSION=5.2.1\n# For choose correct network configuration, check test jenkins pipeline.\n# All predefined configurations are located under `configurations/network_config`\nhydra --execute-on-runner <runner-ip|`cat sct_runner_ip> \"run-test longevity_test.LongevityTest.test_custom_time --backend aws --config test-cases/PR-provision-test.yaml\"\n```\n\n#### Run test locally with GCE backend:\n```bash\nexport SCT_SCYLLA_VERSION=5.2.1\nexport SCT_IP_SSH_CONNECTIONS=\"public\"\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend gce --config test-cases/PR-provision-test.yaml\n```\n\n#### Run test locally with Azure backend:\n```bash\nexport SCT_SCYLLA_VERSION=5.2.1\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend azure --config test-cases/PR-provision-test.yaml\n```\n\n#### Run test locally with docker backend:\nIf you wish to run the tests on a local machine, ensure you have Docker installed and running.\nIf necessary, set a higher value for asynchronous I/O by:\n```bash\nsudo nano /etc/sysctl.conf\n# Edit or add the following line:\n# fs.aio-max-nr=3000000\n# Save and exit the file, then apply the changes:\nsudo sysctl -p\n```\nFor the purpose of debugging a simple logic of a nemesis, for example, it would be recommended to use Docker backend.\n```bash\n# **NOTE:** user should be part of sudo group, and setup with passwordless access,\n# see https://unix.stackexchange.com/a/468417 for example on how to setup\n\n# example of running specific docker version\nexport SCT_SCYLLA_VERSION=5.2.1\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend docker --config test-cases/PR-provision-test-docker.yaml\n```\n\n#### Run test with ScyllaDB Cloud (xcloud) backend:\n```bash\nexport SCT_SCYLLA_VERSION=2025.3.0\nexport SCT_XCLOUD_PROVIDER=aws\nexport SCT_XCLOUD_ENV=lab\n\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend xcloud --config test-cases/PR-provision-test.yaml\n```\nFor more details on xcloud backend, see [xcloud backend documentation](./docs/xcloud-backend.md)\n\nYou can specify a specific scylla version by:\n```bash\n# Simple version (release)\nexport SCT_SCYLLA_VERSION=2025.1\n\n# Branch version (nightly)\nexport SCT_SCYLLA_VERSION=master:latest\n\n# Full version tag (specific build with commit hash)\nexport SCT_SCYLLA_VERSION=2024.2.5-0.20250221.cb9e2a54ae6d-1\n```\n\nFor detailed information on full version tag support, see `docs/full-version-tag-usage.md`\n\nFor debugging a standard nemesis setup you can simply use a default nemesis setup.\nUse the yaml files as in https://github.com/scylladb/scylla-cluster-tests/blob/master/jenkins-pipelines/oss/nemesis/longevity-5gb-1h-AbortRepairMonkey-docker.jenkinsfile:\n```bash\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend docker \\\n-c configurations/nemesis/longevity-5gb-1h-nemesis.yaml \\\n-c configurations/nemesis/AbortRepairMonkey.yaml \\\n-c configurations/nemesis/additional_configs/docker_backend.yaml\n```\nFor debugging a specific nemesis setup you can edit the nemesis configuration to run.\nChange the relevant parameters in test-cases/PR-provision-test-docker.yaml like below:\n```yaml\ntest_duration: 60\nstress_cmd: \"cassandra-stress write cl=QUORUM duration=5m -schema 'replication(strategy=NetworkTopologyStrategy,replication_factor=3) ' -mode cql3 native -rate threads=10 -pop seq=1..100000 -log interval=5\"\nn_db_nodes: 4\nnemesis_class_name: 'SisyphusMonkey'\nnemesis_selector: 'DecommissionMonkey'  # Filter to run only DecommissionMonkey\nnemesis_interval: 5\n```\nThe `nemesis_class_name` specifies the runner (e.g. `SisyphusMonkey`), while `nemesis_selector` filters which nemesis classes to include using boolean flag expressions or class names.\nFor more details on nemesis architecture, flags, and configuration, see the [Nemesis Developer Guide](./docs/nemesis.md).\nFor docker backend supported nemesis, check [docker backend specifics](./docs/docker-backend-overview.md).\n```bash\n#### You can also enter the containerized SCT environment using:\n```bash\nhydra bash\n```\n\n#### List resources being used by user:\n```bash\n# NOTE: Only use `whoami` if your local use is the same as your okta/email username\nhydra list-resources --user `whoami`\n```\n\n#### Reuse already running cluster:\n```bash\nexport SCT_REUSE_CLUSTER=$(cat ~/sct-results/latest/test_id)\nhydra run-test longevity_test.LongevityTest.test_custom_time --backend aws --config test-cases/PR-provision-test.yaml --config configurations/network_config/test_communication_public.yaml\n```\nMore details on reusing a cluster can be found in [reuse_cluster](./docs/reuse_cluster.md)\n\n#### Clear resources:\n```bash\nhydra clean-resources --user `whoami`\n# by default, it only cleans aws resources\n# to clean other backends, specify manually\nhydra clean-resources --user `whoami` -b gce\n```\n\n#### Clear resources being used by the last test run:\n```bash\nSCT_CLUSTER_BACKEND= hydra clean-resources --test-id `cat ~/sct-results/latest/test_id`\n```\n\n## [Install local development environment](docs/install-local-env.md)\n## [Frequently Asked Questions (FAQ)](docs/faq.md)\n## [Contribution instructions](docs/contrib.md)\n\n## Supported backends\n\n* `aws` - the mostly used backed, most longevity run on top of this backend\n* `gce` - most of the artifacts and rolling upgrades run on top of this backend\n* `azure` -\n* `docker` - should be used for local development\n* `baremetal` - can be used to run with already setup cluster\n* `xcloud` - ScyllaDB Cloud managed clusters\n\n* `k8s-eks` -\n* `k8s-gke` -\n* `k8s-local-kind` - used for run k8s functional test locally\n* `k8s-local-kind-gce` - used for run k8s functional test locally on GCE\n* `k8s-local-kind-aws` - used for run k8s functional test locally on AWS\n\n## Configuring test run configuration YAML\n\nTake a look at the `test-cases/PR-provision-test.yaml` file. It contains a number of\nconfigurable test parameters, such as DB cluster instance types and AMI IDs.\nIn this example, we're assuming that you have copied `test-cases/PR-provision-test.yaml`\nto `test-cases/your_config.yaml`.\n\nAll the test run configurations are stored in `test-cases` directory.\n\nImportant: Some tests use custom hardcoded operations due to their nature,\nso those tests won't honor what is set in `test-cases/your_config.yaml`.\n\n### Configuration Documentation\n\n- **[SCT Configuration Guide](./docs/sct-configuration.md)** - Comprehensive guide on how the configuration system works and how to add new options\n- **[Configuration Options Reference](./docs/configuration_options.md)** - Auto-generated list of all available configuration options\n\n\n## Development Plans\n\n![Progress Roadmap](docs/plans/assets/progress-roadmap.svg)\n\nActive implementation plans for SCT are tracked in [docs/plans/MASTER.md](docs/plans/MASTER.md).\nFor guidelines on creating new plans, see [docs/plans/INSTRUCTIONS.md](docs/plans/INSTRUCTIONS.md).\n\n## Types of Tests\n### [Artifact tests](./docs/artifacts_test.md)\n### [Longevity Tests](./docs/longevity.md) (TODO: write explanation for them)\n### Upgrade Tests (TODO: write explanation for them)\n### Performance Tests (TODO: write explanation for them)\n### Features Tests (TODO: write explanation for them)\n### Manager Tests (TODO: write explanation for them)\n### [K8S Functional Tests](./docs/k8s-functional-test.md)\n### [Microbenchmarking Tests](./docs/microbenchmarking.md)\n### [Performance Tests](./docs/performance-tests.md)\n### [Cassandra -> Scylla Migration Tests](./docs/cs-to-scylla-migration.md)\n",
+        "truncated": false,
+        "bytes": 10540,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 9705,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/scylladb/scylla-cluster-tests/issues/9705"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".devcontainer",
+        ".git-blame-ignore-revs",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".python-version",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "Dockerfile",
+        "Jenkinsfile",
+        "LICENSE.AGPL",
+        "README.md",
+        "argus",
+        "argus_report_templates",
+        "artifacts_test.py",
+        "cdc_replication_test.py",
+        "cluster_configuration_tests.py",
+        "commitlint.config.js",
+        "configurations",
+        "conftest.py",
+        "data_dir",
+        "defaults",
+        "docker",
+        "docs",
+        "functional_tests",
+        "gemini_test.py",
+        "grow_cluster_test.py",
+        "ics_space_amplification_goal_test.py",
+        "install-hydra.sh",
+        "install-prereqs.sh",
+        "jenkins-pipelines",
+        "jepsen_test.py",
+        "jupyter",
+        "longevity_alternator_ttl_test.py",
+        "longevity_balancer_test.py",
+        "longevity_large_partition_test.py",
+        "longevity_lwt_test.py",
+        "longevity_oos_test.py",
+        "longevity_sla_test.py",
+        "longevity_test.py",
+        "longevity_tombstone_gc_test.py",
+        "longevity_twcs_test.py",
+        "mgmt_cli_test.py",
+        "mgmt_upgrade_test.py",
+        "microbenchmarking_test.py",
+        "performance_regression_alternator_test.py",
+        "performance_regression_cdc_test.py",
+        "performance_regression_gradual_grow_throughput.py",
+        "performance_regression_lwt_test.py"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 1)",
+          "excerpt": "SCT tests are designed to test Scylla database on physical/virtual servers under high read/write load. Currently, the tests are run using built in unittest These tests automatically create:",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 1,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 2)",
+          "excerpt": "* Scylla clusters - Run Scylla database * Loader machines - used to run load generators like cassandra-stress * Monitoring server - uses official Scylla Monitoring [repo](https://github.com/scylladb/scylla-monitoring) to monitor Scylla clusters and Loaders",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 2,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 3)",
+          "excerpt": "#### Option 2 - Config AWS using AWS credentials ```bash # install aws cli sudo apt install awscli # Debian/Ubuntu sudo dnf install awscli # Redhat/Fedora # or follow amazon instructions to get it: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 3,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 4)",
+          "excerpt": "# Ask your AWS account admin to create a user and access key for AWS) and then configure AWS",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 4,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 5)",
+          "excerpt": "> aws configure AWS Access Key ID [****************7S5A]: AWS Secret Access Key [****************5NcH]: Default region name [us-east-1]: Default output format [None]:",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 5,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 6)",
+          "excerpt": "# if using OKTA, use any of the tools to create the AWS profile, and export it as such, # anywhere you are gonna use hydra command (replace DeveloperAccessRole with the name of your profile): export AWS_PROFILE=DeveloperAccessRole",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 6,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 7)",
+          "excerpt": "# Install hydra (docker holding all requirements for running SCT) sudo ./install-hydra.sh",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 7,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests#readme",
+          "title": "README (segment 8)",
+          "excerpt": "# if using podman, we need to disable enforcing of short name usage, without it monitoring stack won't run from withing hydra echo 'unqualified-search-registries = [\"registry.fedoraproject.org\", \"registry.access.redhat.com\", \"docker.io\", \"quay.io\"] short-name-mode=\"permissive\" ' > ~/.config/containers/registries.conf ```",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "segment": 8,
+            "language": "Python"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests/issues/9705",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "number": 9705
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/scylladb/scylla-cluster-tests",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .devcontainer, .git-blame-ignore-revs, .github, .gitignore, .pre-commit-config.yaml, .python-version, AGENTS.md, CLAUDE.md, Dockerfile, Jenkinsfile, LICENSE.AGPL, README.md, argus, argus_report_templates, artifacts_test.py, cdc_replication_test.py, cluster_configuration_tests.py, commitlint.config.js, configurations, conftest.py, data_dir, defaults, docker, docs, functional_tests, gemini_test.py, grow_cluster_test.py, ics_space_amplification_goal_test.py, install-hydra.sh, install-prereqs.sh, jenkins-pipelines, jepsen_test.py, jupyter, longevity_alternator_ttl_test.py, longevity_balancer_test.py, longevity_large_partition_test.py, longevity_lwt_test.py, longevity_oos_test.py, longevity_sla_test.py, longevity_test.py, longevity_tombstone_gc_test.py, longevity_twcs_test.py, mgmt_cli_test.py, mgmt_upgrade_test.py, microbenchmarking_test.py, performance_regression_alternator_test.py, performance_regression_cdc_test.py, performance_regression_gradual_grow_throughput.py, performance_regression_lwt_test.py",
+          "fetched_at": "2026-05-24T06:39:05.847Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylla-cluster-tests",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "Correia-jpv/fucking-terminals-are-sexy",
+      "html_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy",
+      "description": "💥 A curated list of Terminal frameworks, plugins & resources for CLI lovers. With repository stars⭐ and forks🍴",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "cli",
+        "cli-lovers",
+        "cli-tool",
+        "command-line",
+        "curated-list",
+        "terminal",
+        "terminal-colors",
+        "terminal-graphics",
+        "terminal-theme",
+        "terminal-ui"
+      ],
+      "language": "Shell",
+      "stargazers_count": 57,
+      "forks_count": 3,
+      "open_issues_count": 0,
+      "license_spdx_id": "CC0-1.0",
+      "default_branch": "main",
+      "pushed_at": "2026-05-24T06:38:33Z",
+      "created_at": "2022-02-06T12:24:59Z",
+      "readme": {
+        "fetched": true,
+        "text": "[![Terminals_Are_Sexy_Logo](https://camo.githubusercontent.com/e9d11666cb60e6a6781dd8676ac06b9a1233bdfcbb603ac60eccd5f5c1a8ed33/68747470733a2f2f7765622e617263686976652e6f72672f7765622f323031373038323032303130313369665f2f687474703a2f2f6e696b6f6c61736b616d612e6d652f636f6e74656e742f696d616765732f323031372f30322f7465726d696e616c735f6172655f736578792e706e67)\n\n# Terminals Are Sexy [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)\n\n> A curated list of Terminal frameworks, plugins & resources for CLI lovers.\n\nCheck out my 🌎 [blog](nikolaskama.me/) and follow me on 🌎 [Twitter](twitter.com/nikolaskama).\n\n[![Build Status](https://travis-ci.org/k4m4/terminals-are-sexy.svg?branch=master)](https://travis-ci.org/k4m4/terminals-are-sexy)\n[![GitHub Stars](https://img.shields.io/github/stars/k4m4/terminals-are-sexy.svg)](https://github.com/correia-jpv/fucking-terminals-are-sexy/stargazers)\n\n\n## Table of Contents\n\n1. [Shells](#shells)\n    - [Base Shells](#base-shells)\n    - [ZSH](#zsh)\n    - [Bash](#bash)\n    - [Git](#git)\n    - [Fish](#fish)\n1. [Terminal Emulation Applications](#terminal-emulation-applications)\n1. [Package Managers](#package-managers)\n    - [Universal](#universal)\n    - [macOS](#macos)\n    - [Linux](#linux)\n    - [Windows](#windows)\n1. [Text Editors](#text-editors)\n1. [Tools and Plugins](#tools-and-plugins)\n1. [Communication](#communication)\n1. [Other](#other)\n    - [Community](#community)\n    - [Other Sexy Lists](#other-sexy-lists)\n    \t- [Awesome](#awesome)\n    \t- [Misc](#misc)\n    - [Contributing](#contributing)\n\n- - -\n\n## Shells\n\n*Sexy frameworks, plugins and resources for your sexy shell.*\n\n### Base Shells\n\n* <b><code>&nbsp;&nbsp;2634⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;368🍴</code></b> [Ammonite-Shell](https://github.com/lihaoyi/ammonite)) - An object shell with a Scala-like scripting language.\n* 🌎 [bash](www.gnu.org/software/bash/) - GNU Project's shell (Bourne Again SHell).\n* 🌎 [fish](fishshell.com/) - Smart and user-friendly command line shell.\n* <b><code>&nbsp;53583⭐</code></b> <b><code>&nbsp;&nbsp;8316🍴</code></b> [PowerShell](https://github.com/PowerShell/PowerShell)) - Automation and configuration tool/framework that is optimized for dealing with structured data.\n* 🌎 [xonsh](xon.sh/) - Python-ish, BASHwards-looking shell language and command prompt.\n* 🌎 [zsh](www.zsh.org/) - Powerful shell with scripting language.\n\n### ZSH\n\n* <b><code>&nbsp;&nbsp;&nbsp;122⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;22🍴</code></b> [alf](https://github.com/psyrendust/alf)) - Out of this world super fast and configurable framework for zsh.\n* <b><code>&nbsp;&nbsp;&nbsp;&nbsp;32⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4🍴</code></b> [ant-zsh](https://github.com/anthraxx/ant-zsh)) - Tiny and lightweight ZSH configuration environment for special customization needs.\n* <b><code>&nbsp;&nbsp;1676⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;63🍴</code></b> [antibody](https://github.com/getantibody/antibody)) - Faster and simpler antigen written in Golang.\n* <b><code>&nbsp;&nbsp;8315⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;289🍴</code></b> [antigen](https://github.com/zsh-users/antigen)) - Plugin manager for zsh, inspired by oh-my-zsh and vundle.\n* <b><code>&nbsp;&nbsp;&nbsp;231⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;33🍴</code></b> [dotzsh](https://github.com/dotphiles/dotzsh)) - Community driven framework for zsh.\n* <b><code>&nbsp;&nbsp;4653⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;421🍴</code></b> [liquidprompt](https://github.com/nojhan/liquidprompt)) - Full-featured & carefully designed adaptive prompt for Bash & Zsh.\n* <b><code>187202⭐</code></b> <b><code>&nbsp;26373🍴</code></b> [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)) - Delightful community-driven framework for managing your zsh configuration.\n* <b><code>&nbsp;13427⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;918🍴</code></b> [powerlevel9k](https://github.com/bhilburn/powerlevel9k)) - Super flexible awesome powerline ZSH theme.\n* <b><code>&nbsp;14537⭐</code></b> <b><code>&nbsp;&nbsp;4452🍴</code></b> [prezto](https://github.com/sorin-ionescu/prezto)) - Configuration framework for Zsh.\n* <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2🍴</code></b> [pumice](https://github.com/ryutamaki/pumice)) - Lightweight plugin manager for zsh.\n* <b><code>&nbsp;14252⭐</code></b> <b><code>&nbsp;&nbsp;1004🍴</code></b> [pure](https://github.com/sindresorhus/pure)) - Pretty, minimal and fast ZSH prompt.\n* <b><code>&nbsp;&nbsp;&nbsp;619⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;20🍴</code></b> [slimzsh](https://github.com/changs/slimzsh)) - Small, usable configuration for ZSH.\n* <b><code>&nbsp;&nbsp;&nbsp;&nbsp;47⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8🍴</code></b> [zeesh](https://github.com/zeekay/zeesh)) - Cross-platform Zsh framework.\n* <b><code>&nbsp;&nbsp;1518⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;99🍴</code></b> [zgen](https://github.com/tarjoilija/zgen)) - Lightweight and simple plugin manager for ZSH.\n* <b><code>&nbsp;&nbsp;&nbsp;&nbsp;31⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5🍴</code></b> [zilsh](https://github.com/zilsh/zilsh)) - Zsh config system that aims to appeal more to power-users and follow the simplistic approach of vim-pathogen.\n* <b><code>&nbsp;&nbsp;4625⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;182🍴</code></b> [zim](https://github.com/Eriner/zim)) - Zsh configuration framework with blazing speed and modular extensions.\n* <b><code>&nbsp;&nbsp;&nbsp;131⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6🍴</code></b> [zinit](https://github.com/zdharma/zinit)) - Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode, services.\n* <b><code>&nbsp;&nbsp;&nbsp;&nbsp;35⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3🍴</code></b> [zoppo](https://github.com/zoppo/zoppo)) - Crippled configuration framework for Zsh.\n* <b><code>&nbsp;&nbsp;6025⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;227🍴</code></b> [zplug](https://github.com/zplug/zplug)) - Next-generation plugin manager for zsh.\n* <b><code>&nbsp;&nbsp;&nbsp;397⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;26🍴</code></b> [zpm](https://github.com/zpm-zsh/zpm)) - Plugin manager for zsh similar to vim-plug.\n* <b><code>&nbsp;35567⭐</code></b> <b><code>&nbsp;&nbsp;1933🍴</code></b> [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)) - Fish-like autosuggestions for zsh.\n* <b><code>&nbsp;&nbsp;&nbsp;190⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5🍴</code></b> [zsh-pony](https://github.com/mika/zsh-pony)) - Covers customizing ZSH without a framework.\n* <b><code>&nbsp;&nbsp;&nbsp;895⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;105🍴</code></b> [zsh-quickstart-kit](https://github.com/unixorn/zsh-quickstart-kit)) - Simple zsh quickstart for using zsh and zgen.\n* <b><code>&nbsp;22649⭐</code></b> <b><code>&nbsp;&nbsp;1372🍴</code></b> [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)) - Fish shell like syntax highlighting for Zsh.\n* <b><code>&nbsp;&nbsp;&nbsp;326⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;26🍴</code></b> [zshdb](https://github.com/rocky/zshdb)) - ZSH debugger.\n* <b><code>&nbsp;&nbsp;&nbsp;270⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;54🍴</code></b> [ztanesh](https://github.com/miohtama/ztanesh)) - Aims to improve your UNIX command line experience and productivity with the the configuration provided by the ztanesh project.\n* <b><code>&nbsp;&nbsp;&nbsp;156⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;12🍴</code></b> [zulu](https://github.com/zulu-zsh/zulu)) - Total environment manager for ZSH 5+.\n* <b><code>&nbsp;&nbsp;&nbsp;224⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;27🍴</code></b> [zunit](https://github.com/molovo/zunit)) - Powerful unit testing framework for ZSH.\n\n### Bash\n\n* <b><code>&nbsp;&nbsp;&nbsp;620⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;36🍴</code></b> [aliases](https://github.com/sebglazebrook/aliases)) - Contextual, dynamic, organized aliases for the bash shell.\n* <b><code>&nbsp;15069⭐</code></b> <b><code>&nbsp;&nbsp;2303🍴</code></b> [bash-it](https://github.com/Bash-it/bash-it)) - Collection of community Bash commands and scripts.\n* <b><code>&nbsp;&nbsp;&nbsp;907⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;168🍴</code></b> [bash-powerline](https://github.com/riobard/bash-powerline)) - Powerline-style Bash prompt in pure Bash script.\n* <b><code>&nbsp;&nbsp;2121⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;94🍴</code></b> [bash-sensible](https://github.com/mrzool/bash-sensible)) - Attempt at saner Bash defaults.\n* <b><code>&nbsp;&nbsp;1559⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;121🍴</code></b> [bashtrap](https://github.com/barryclark/bashstrap)) - Quick way to spruce up OSX terminal.\n* <b><code>&nbsp;&nbsp;4433⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;238🍴</code></b> [hstr](https://github.com/dvorka/hstr)) - Bash History Suggest Box.\n* <b><code>&nbsp;&nbsp;4653⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;421🍴</code></b> [liquidprompt](https://github.com/nojhan/liquidprompt)) - Full-featured & carefully designed adaptive prompt for Bash & Zsh.\n\n### Git\n\n* <b><code>&nbsp;&nbsp;6924⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;989🍴</code></b> [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt)) - Informative and fancy Bash prompt for Git users.\n* <b><code>&nbsp;&nbsp;1160⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;94🍴</code></b> [git-extra-commands](https://github.com/unixorn/git-extra-commands)) - Collection of useful extra commands for git\n* <b><code>&nbsp;&nbsp;&nbsp;327⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;97🍴</code></b> [git-prompt](https://github.com/lvv/git-prompt)) - Bash prompt with Git, SVN and HG modules.\n* <b><code>&nbsp;&nbsp;2580⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;85🍴</code></b> [git-radar](https://github.com/michaeldfallen/git-radar)) - Heads up display for git\n* <b><code>&nbsp;&nbsp;&nbsp;745⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;86🍴</code></b> [git-sh](https://github.com/rtomayko/git-sh)) - Customized Bash environment suitable for Git work.\n* <b><code>&nbsp;&nbsp;&nbsp;&nbsp;79⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6🍴</code></b> [gittify](https://github.com/momeni/gittify)) - Colorful Bash prompt + customized Git aliases.\n* <b><code>&nbsp;&nbsp;3713⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;279🍴</code></b> [oh-my-git](https://github.com/arialdomartini/oh-my-git)) - Opinionated git prompt for bash and zsh.\n* <b><code>&nbsp;&nbsp;1155⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;152🍴</code></b> [sexy-bash-prompt](https://github.com/twolfson/sexy-bash-prompt)) - Bash prompt with colors, Git statuses, and Git branches.\n\n### Fish\n\n* <b><code>&nbsp;&nbsp;9249⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;280🍴</code></b> [Fisher](https://github.com/jorgebucaran/fisher)) - Package manager for the fish shell.\n* <b><code>&nbsp;11316⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;806🍴</code></b> [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish)) - The Fishshell Framework.\n\n**[⬆ back to top](#table-of-contents)**\n\n## Terminal Emulation Applications\n\n*Sexy 3rd party terminal emulation applications.*\n\n* <b><code>&nbsp;64181⭐</code></b> <b><code>&nbsp;&nbsp;3460🍴</code></b> [Alacritty](https://github.com/jwilm/alacritty)) - Cross-platform, GPU-accelerated terminal emulator.\n* <b><code>&nbsp;26901⭐</code></b> <b><code>&nbsp;&nbsp;2073🍴</code></b> [Cmder](https://github.com/cmderdev/cmder)) - Lovely console emulator package for Windows.\n* <b><code>&nbsp;&nbsp;9125⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;606🍴</code></b> [ConEmu](https://github.com/Maximus5/ConEmu)) - Customizable Windows terminal with tabs, splits, quake-style and more.\n* <b><code>&nbsp;&nbsp;2921⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;226🍴</code></b> [ConsoleZ](https://github.com/cbucher/console)) - Windows console window enhancement. It is a f",
+        "truncated": true,
+        "bytes": 35201,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".github",
+        ".gitignore",
+        ".travis.yml",
+        "Makefile",
+        "README.md",
+        "code-of-conduct.md",
+        "contributing.md",
+        "custom_theme",
+        "docs",
+        "license",
+        "mkdocs.yml",
+        "readme.md",
+        "terminals_are_sexy.sh"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Terminals_Are_Sexy_Logo](https://camo.githubusercontent.com/e9d11666cb60e6a6781dd8676ac06b9a1233bdfcbb603ac60eccd5f5c1a8ed33/68747470733a2f2f7765622e617263686976652e6f72672f7765622f323031373038323032303130313369665f2f687474703a2f2f6e696b6f6c61736b616d612e6d652f636f6e74656e742f696d616765732f323031372f30322f7465726d696e616c735f6172655f736578792e706e67)",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 1,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 2)",
+          "excerpt": "# Terminals Are Sexy [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 2,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Check out my 🌎 [blog](nikolaskama.me/) and follow me on 🌎 [Twitter](twitter.com/nikolaskama).",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 3,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 4)",
+          "excerpt": "[![Build Status](https://travis-ci.org/k4m4/terminals-are-sexy.svg?branch=master)](https://travis-ci.org/k4m4/terminals-are-sexy) [![GitHub Stars](https://img.shields.io/github/stars/k4m4/terminals-are-sexy.svg)](https://github.com/correia-jpv/fucking-terminals-are-sexy/stargazers)",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 4,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 5)",
+          "excerpt": "1. [Shells](#shells) - [Base Shells](#base-shells) - [ZSH](#zsh) - [Bash](#bash) - [Git](#git) - [Fish](#fish) 1. [Terminal Emulation Applications](#terminal-emulation-applications) 1. [Package Managers](#package-managers) - [Universal](#universal) - [macOS](#macos) - [Linux](#linux) - [Windows](#windows) 1. [Text Editors](#text-editors) 1. [Tools and Plugins](#tools-and-plugins) 1. [Communication](#communication) 1. [Other](#other) - [Community](#community) - [Other Sexy Lists](#other-sexy-lists) - [Awesome](#awesome) - [Misc](#misc) - [Contributing](#contributing)",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 5,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 6)",
+          "excerpt": "* <b><code>&nbsp;&nbsp;2634⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;368🍴</code></b> [Ammonite-Shell](https://github.com/lihaoyi/ammonite)) - An object shell with a Scala-like scripting language. * 🌎 [bash](www.gnu.org/software/bash/) - GNU Project's shell (Bourne Again SHell). * 🌎 [fish](fishshell.com/) - Smart and user-friendly command line shell. * <b><code>&nbsp;53583⭐</code></b> <b><code>&nbsp;&nbsp;8316🍴</code></b> [PowerShell](https://github.com/PowerShell/PowerShell)) - Automation and configuration tool/framework that is optimized for dealing with structured data. * 🌎 [xonsh](xon.sh/) - Python-ish, BASHwards-looking shell language and command prompt. * 🌎 [zsh](www.zsh.org/) - Powerful shell with scripting language.",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 6,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 7)",
+          "excerpt": "* <b><code>&nbsp;&nbsp;&nbsp;122⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;22🍴</code></b> [alf](https://github.com/psyrendust/alf)) - Out of this world super fast and configurable framework for zsh. * <b><code>&nbsp;&nbsp;&nbsp;&nbsp;32⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4🍴</code></b> [ant-zsh](https://github.com/anthraxx/ant-zsh)) - Tiny and lightweight ZSH configuration environment for special customization needs. * <b><code>&nbsp;&nbsp;1676⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;63🍴</code></b> [antibody](https://github.com/getantibody/antibody)) - Faster and simpler antigen written in Golang. * <b><code>&nbsp;&nbsp;8315⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;289🍴</code></b> [antigen](https://github.com/zsh-users/antigen)) - Plugin manager for zsh, inspired by oh-my-zsh and vundle. * <b><code>&nbsp;&nbsp;&nbsp;231⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;33🍴</code></b> [dotzsh](https://github.com/dotphiles/dotzsh)) - Community driven framework for zsh. * <b><code>&nbsp;&nbsp;4653⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;421🍴</code></b> [liquidprompt](https://github.com/nojhan/liquidprompt)) - Full-featured & carefully designed adaptive prompt for…",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 7,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy#readme",
+          "title": "README (segment 8)",
+          "excerpt": "* <b><code>&nbsp;&nbsp;&nbsp;620⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;36🍴</code></b> [aliases](https://github.com/sebglazebrook/aliases)) - Contextual, dynamic, organized aliases for the bash shell. * <b><code>&nbsp;15069⭐</code></b> <b><code>&nbsp;&nbsp;2303🍴</code></b> [bash-it](https://github.com/Bash-it/bash-it)) - Collection of community Bash commands and scripts. * <b><code>&nbsp;&nbsp;&nbsp;907⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;168🍴</code></b> [bash-powerline](https://github.com/riobard/bash-powerline)) - Powerline-style Bash prompt in pure Bash script. * <b><code>&nbsp;&nbsp;2121⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;&nbsp;94🍴</code></b> [bash-sensible](https://github.com/mrzool/bash-sensible)) - Attempt at saner Bash defaults. * <b><code>&nbsp;&nbsp;1559⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;121🍴</code></b> [bashtrap](https://github.com/barryclark/bashstrap)) - Quick way to spruce up OSX terminal. * <b><code>&nbsp;&nbsp;4433⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;238🍴</code></b> [hstr](https://github.com/dvorka/hstr)) - Bash History Suggest Box. * <b><code>&nbsp;&nbsp;4653⭐</code></b> <b><code>&nbsp;&nbsp;&nbsp;421🍴</code></b> [liquidprompt](https://…",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "segment": 8,
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/Correia-jpv/fucking-terminals-are-sexy",
+          "title": "ROOT_FILES",
+          "excerpt": ".github, .gitignore, .travis.yml, Makefile, README.md, code-of-conduct.md, contributing.md, custom_theme, docs, license, mkdocs.yml, readme.md, terminals_are_sexy.sh",
+          "fetched_at": "2026-05-24T06:39:05.721Z",
+          "meta": {
+            "repo_full_name": "Correia-jpv/fucking-terminals-are-sexy",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "lineofflight/frankfurter",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 7,
+        "issue": 2,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 2,
+      "releases_count": 3
+    },
+    {
+      "full_name": "scylladb/scylla-cluster-tests",
+      "evidence_count": 10,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 0
+    },
+    {
+      "full_name": "Correia-jpv/fucking-terminals-are-sexy",
+      "evidence_count": 9,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 0,
+      "releases_count": 0
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "lineofflight/frankfurter",
+      "ok": true,
+      "spec_path": "specs/2026-05-24/lineofflight__frankfurter.json"
+    },
+    {
+      "repo": "scylladb/scylla-cluster-tests",
+      "ok": true,
+      "spec_path": "specs/2026-05-24/scylladb__scylla-cluster-tests.json"
+    },
+    {
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "ok": true,
+      "spec_path": "specs/2026-05-24/Correia-jpv__fucking-terminals-are-sexy.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "lineofflight/frankfurter",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-24/lineofflight__frankfurter.json"
+    },
+    {
+      "repo": "scylladb/scylla-cluster-tests",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-24/scylladb__scylla-cluster-tests.json"
+    },
+    {
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-24/Correia-jpv__fucking-terminals-are-sexy.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "lineofflight/frankfurter",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 3,
+          "cited": 3
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-24/lineofflight__frankfurter.json"
+      ]
+    },
+    {
+      "repo": "scylladb/scylla-cluster-tests",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 1,
+          "cited": 1
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-24/scylladb__scylla-cluster-tests.json"
+      ]
+    },
+    {
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-24/Correia-jpv__fucking-terminals-are-sexy.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-24T06:39:21.117Z",
+      "run_id": "20260524T063900Z",
+      "repo": "lineofflight/frankfurter",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b295be36b14fe739e184e97f32f050d77cd89a78791981cba436a10bb33327d8",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 6871
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15266,
+      "prompt_chars": 6871,
+      "completion_chars": 1523
+    },
+    {
+      "ts": "2026-05-24T06:39:34.436Z",
+      "run_id": "20260524T063900Z",
+      "repo": "lineofflight/frankfurter",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a61dc3ec73835e779ec9d64779db9afbe58dbb6d8fcf0c4341cec4851731a8fe",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 8602
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13319,
+      "prompt_chars": 8602,
+      "completion_chars": 1639
+    },
+    {
+      "ts": "2026-05-24T06:39:48.735Z",
+      "run_id": "20260524T063900Z",
+      "repo": "lineofflight/frankfurter",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "19afb6bb5c2ae9d0edb3d743b9adde88024e522c7d6d58673973b4dd5ba5972b",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 10421
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14298,
+      "prompt_chars": 10421,
+      "completion_chars": 1609
+    },
+    {
+      "ts": "2026-05-24T06:40:03.766Z",
+      "run_id": "20260524T063900Z",
+      "repo": "lineofflight/frankfurter",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a748fe4b0db014195fb34ccf3b840aadb93e246f249ede0f75a3edc2dd9b4b08",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 12223
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15030,
+      "prompt_chars": 12223,
+      "completion_chars": 1628
+    },
+    {
+      "ts": "2026-05-24T06:40:35.215Z",
+      "run_id": "20260524T063900Z",
+      "repo": "lineofflight/frankfurter",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "13a85a38825de4b47ded74267c2b4e5860625bc5acf9aa6985500d70f13ce81f",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 16695
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 31449,
+      "prompt_chars": 16695,
+      "completion_chars": 3978
+    },
+    {
+      "ts": "2026-05-24T06:40:49.374Z",
+      "run_id": "20260524T063900Z",
+      "repo": "scylladb/scylla-cluster-tests",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3da8a078559f728d2c8583e1f6f8782f9ff40f5c2639526226b8a805aeb9ba85",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 5635
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14145,
+      "prompt_chars": 5635,
+      "completion_chars": 1388
+    },
+    {
+      "ts": "2026-05-24T06:41:01.859Z",
+      "run_id": "20260524T063900Z",
+      "repo": "scylladb/scylla-cluster-tests",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "42b6bb15ac4d0355b703686ea1ae4d34beb9f467bda8138df2a12c0fc0549da3",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 7223
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12485,
+      "prompt_chars": 7223,
+      "completion_chars": 1651
+    },
+    {
+      "ts": "2026-05-24T06:41:16.078Z",
+      "run_id": "20260524T063900Z",
+      "repo": "scylladb/scylla-cluster-tests",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3475d16cceca89b01af50f247b3bd6d6ca6b3db287dd046a31823a43773647e1",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 9054
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14219,
+      "prompt_chars": 9054,
+      "completion_chars": 1659
+    },
+    {
+      "ts": "2026-05-24T06:41:30.728Z",
+      "run_id": "20260524T063900Z",
+      "repo": "scylladb/scylla-cluster-tests",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "0ce138c62029f96484c81ad2588dc12e31d4852c7843ac6607861fe82cbcd9ca",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 10902
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14650,
+      "prompt_chars": 10902,
+      "completion_chars": 1909
+    },
+    {
+      "ts": "2026-05-24T06:41:53.227Z",
+      "run_id": "20260524T063900Z",
+      "repo": "scylladb/scylla-cluster-tests",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a16ffaae2b8d8121ac3836b6e897293499c7eb3fc1c497dfce76841f46d6dc4e",
+      "input_stats": {
+        "evidence_count": 10,
+        "approx_chars": 15615
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 22498,
+      "prompt_chars": 15615,
+      "completion_chars": 2659
+    },
+    {
+      "ts": "2026-05-24T06:42:07.088Z",
+      "run_id": "20260524T063900Z",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6f04ab16aef579a8cd28de83d5f3d72395aa47ab24f31cb9c3fee95ce4d6d784",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 7404
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13858,
+      "prompt_chars": 7404,
+      "completion_chars": 1567
+    },
+    {
+      "ts": "2026-05-24T06:42:24.909Z",
+      "run_id": "20260524T063900Z",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "aa7d2bcbf8625cd648b1ac1abca2c7ada44ce2dc8f261d7c4fa82122624c8b23",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 9170
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 17820,
+      "prompt_chars": 9170,
+      "completion_chars": 1735
+    },
+    {
+      "ts": "2026-05-24T06:42:39.929Z",
+      "run_id": "20260524T063900Z",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "dd4d1ef633d2235f5d81a470823f40d5c4fdce0af67559ece75c95d168734f44",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 11100
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15020,
+      "prompt_chars": 11100,
+      "completion_chars": 1747
+    },
+    {
+      "ts": "2026-05-24T06:42:55.868Z",
+      "run_id": "20260524T063900Z",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "71f26b2712b568518654be62b513d03bccd1ee1633c99cc5656544efd3e3d87e",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 13035
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15939,
+      "prompt_chars": 13035,
+      "completion_chars": 1866
+    },
+    {
+      "ts": "2026-05-24T06:43:19.309Z",
+      "run_id": "20260524T063900Z",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "363108db48242be0968c56610b4ad90249fb344428db0f792d9acaf8c1caf378",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 17704
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 23441,
+      "prompt_chars": 17704,
+      "completion_chars": 2836
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "lineofflight/frankfurter",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "scylladb/scylla-cluster-tests",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "lineofflight/frankfurter",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "scylladb/scylla-cluster-tests",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 10,
+      "evidence_total_final": 10,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 9,
+      "evidence_total_final": 9,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 3,
+    "attempts_used_hist": {
+      "0": 3,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 3,
+    "success": 3
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1779604740924,
+    "llmCallsTotal": 15,
+    "llmCallsPerRepo": {
+      "lineofflight/frankfurter": 5,
+      "scylladb/scylla-cluster-tests": 5,
+      "Correia-jpv/fucking-terminals-are-sexy": 5
+    },
+    "tokensApproxTotal": 47769,
+    "tokensApproxPerRepo": {
+      "lineofflight/frankfurter": 16300,
+      "scylladb/scylla-cluster-tests": 14426,
+      "Correia-jpv/fucking-terminals-are-sexy": 17043
+    },
+    "reposProcessed": 3,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "lineofflight/frankfurter": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "Frankfurter is an open-source Ruby-based currency data API that aggregates daily exchange rates from over 50 institutional sources. It offers both a public hosted API and self-hosted Docker deployment, with recent v2 enhancements introducing a more flexible and accurate multi-provider rate blending system.",
+        "highlights": [
+          "Public API available at https://api.frankfurter.dev with option for self-hosting via Docker [E-RD-002].",
+          "v2 API introduces blended exchange rates from 50+ providers, improved data structure, and new endpoints like /v2/rate/{base}/{quote} [E-RL-003].",
+          "Supports integration with multiple central bank APIs requiring individual registration and API keys (e.g., Banxico, Bank of Thailand) [E-RD-006].",
+          "Active maintenance shown by recent releases fixing critical query behavior in date-range endpoints [E-RL-001, E-RL-002].",
+          "Community engagement encouraged through 'Show and Tell' discussions for tools built with Frankfurter [E-RD-007]."
+        ],
+        "risks": [
+          "Self-hosted instances risk data loss or incomplete responses if database volume isn't persisted across restarts [E-RD-003, E-RD-005].",
+          "Reliance on external central bank APIs introduces potential availability and authentication complexity due to required per-provider keys [E-RD-004, E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RL-003",
+          "E-RD-006",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-007",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "Frankfurter is an inventive open-source currency data API that synthesizes exchange rate data from over 50 institutional providers into a unified, USD-anchored blended rate system, enabling accurate cross-rates and reciprocal consistency—uncommon in typical forex APIs.",
+        "highlights": [
+          "Invents a novel blended-rate model anchored to USD, ensuring cross-rate triangles and reciprocals round to 1.0, improving mathematical consistency over single-provider rates [E-RL-003].",
+          "Architects a modular multi-provider ingestion framework, evidenced by recent additions of CBSI and CBB-BH providers, allowing extensible integration of central bank sources [E-IS-001, E-IS-002].",
+          "Designs a self-hostable Dockerized service with environment-driven provider key injection, enabling private deployments while maintaining compatibility with diverse authentication schemes (API keys, email/password) [E-RD-004, E-RD-006].",
+          "Introduces a redesigned v2 API with granular endpoints like /v2/rate/{base}/{quote}/{date}, offering precise historical pair queries absent in many public forex APIs [E-RL-003]."
+        ],
+        "risks": [
+          "The inventive blended-rate model may obscure source attribution or introduce subtle biases if provider weighting or USD anchoring assumptions are not transparent [E-RL-003].",
+          "Extensibility via per-provider credentials increases operational complexity for self-hosters, potentially limiting adoption despite technical ingenuity [E-RD-004, E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RL-003",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RD-004",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "Frankfurter is a Ruby-based, Docker-deployable currency data API that aggregates and blends exchange rates from 50+ institutional providers into a mathematically consistent USD-anchored model, with a well-documented v2 API and support for self-hosting using provider-specific credentials.",
+        "highlights": [
+          "Self-hosted deployment via Docker supports persistent SQLite storage and environment-based configuration for multiple central bank API integrations [E-RD-003, E-RD-004, E-RD-005].",
+          "v2 API introduces a robust data model with array-based rate responses, accurate cross-rate consistency, and dedicated endpoints for single-pair historical queries [E-RL-003].",
+          "Recent releases address critical correctness issues in date-range query logic, indicating active maintenance and attention to data integrity [E-RL-001, E-RL-002].",
+          "Modular provider architecture allows incremental addition of new central banks, as demonstrated by recent integrations like CBSI and CBB-BH [E-IS-001, E-IS-002]."
+        ],
+        "risks": [
+          "Ephemeral database in Docker deployments can lead to missing or incomplete rate data until backfill completes, requiring explicit volume mounting for production use [E-RD-003, E-RD-005].",
+          "Operational complexity increases with the number of external API dependencies, each requiring separate registration and credential management [E-RD-004, E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RL-003",
+          "E-RL-001",
+          "E-RL-002",
+          "E-IS-001",
+          "E-IS-002",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "Frankfurter presents itself as a robust, open-source currency API with a novel blended-rate model, but its reliability hinges on numerous external dependencies and opaque data blending logic, while self-hosting introduces significant operational fragility.",
+        "highlights": [
+          "Claims of '50+ institutional providers' lack transparency on weighting, freshness, or fallback behavior when sources fail [E-RL-003].",
+          "Self-hosted deployments risk returning empty or incomplete data if volume persistence is misconfigured—a critical flaw for production use [E-RD-003, E-RD-005].",
+          "Recent fixes for date-range query duplication and inconsistency suggest underlying data integrity issues in core functionality [E-RL-001, E-RL-002].",
+          "Mandatory per-provider registration (e.g., email/password for Chile, API keys for others) creates a high barrier to reliable self-hosting and raises questions about scalability [E-RD-004, E-RD-006]."
+        ],
+        "risks": [
+          "The USD-anchored blended rate model may produce misleading cross-rates if source discrepancies are smoothed without clear error bounds or provenance [E-RL-003].",
+          "Ephemeral database behavior by default undermines trust in local deployments, especially for historical queries during initial backfill [E-RD-005].",
+          "Dependency on dozens of central bank APIs—each with independent uptime, rate limits, and auth schemes—introduces unquantified systemic fragility [E-RD-006]."
+        ],
+        "evidence_ids": [
+          "E-RL-003",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RD-004",
+          "E-RD-006"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Frankfurter\",\n    \"one_sentence\": \"An open-source currency data API that aggregates and blends daily exchange rates from over 50 institutional sources into a mathematically consistent USD-anchored model.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Fetches daily exchange rates from multiple central bank and institutional providers, blends them into a unified USD-anchored rate set, and serves them via a RESTful API with support for historical queries and cross-rate consistency.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"API Dashboard\",\n      \"purpose\": \"Display available endpoints, provider coverage, and usage instructions for the Frankfurter currency API.\",\n      \"primary_actions\": [\n        \"Query latest blended rates\",\n        \"Fetch historical rates by date range\",\n        \"Retrieve single currency pair rates\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"fetch_blended_rates\",\n      \"purpose\": \"Retrieve blended exchange rates from multiple institutional providers for specified base/quote currencies and date(s).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"list_providers\",\n      \"purpose\": \"Return metadata about all integrated institutional data sources including coverage, country codes, and rate types.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"rates\",\n        \"fields\": [\n          {\n            \"name\": \"date\",\n            \"type\": \"DATE\"\n          },\n          {\n            \"name\": \"base\",\n            \"type\": \"TEXT\"\n          },\n          {\n            \"name\": \"quote\",\n            \"type\": \"TEXT\"\n          },\n          {\n            \"name\": \"rate\",\n            \"type\": \"DECIMAL\"\n          }\n        ]\n      },\n      {\n        \"name\": \"providers\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"TEXT\"\n          },\n          {\n            \"name\": \"coun"
+      }
+    },
+    "scylladb/scylla-cluster-tests": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "scout",
+        "summary": "The repository scylladb/scylla-cluster-tests is a Python-based test automation framework for ScyllaDB clusters, designed to run under high load using components like loader machines and monitoring servers. It relies heavily on AWS infrastructure and provides setup instructions involving AWS CLI configuration, Docker (via 'hydra'), and optional Podman support.",
+        "highlights": [
+          "SCT tests simulate real-world ScyllaDB workloads using dedicated loader and monitoring nodes [ID:E-RD-001][ID:E-RD-002].",
+          "AWS credentials and CLI setup are required prerequisites, with explicit guidance for both standard and OKTA-based authentication [ID:E-RD-003][ID:E-RD-004][ID:E-RD-005][ID:E-RD-006].",
+          "The framework uses a Docker-based environment called 'hydra' installed via install-hydra.sh to encapsulate dependencies [ID:E-RD-007].",
+          "Support for Podman is documented but requires manual configuration to disable short-name enforcement [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Heavy reliance on AWS infrastructure may limit local or non-cloud testing flexibility.",
+          "Manual AWS credential handling increases risk of misconfiguration or accidental exposure if not managed securely."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "inventor",
+        "summary": "The scylladb/scylla-cluster-tests repository implements a containerized, cloud-native testing framework for ScyllaDB that orchestrates multi-node clusters, load generators, and monitoring stacks. It introduces 'hydra'—a Docker-based execution environment—as a core abstraction to encapsulate test dependencies and ensure reproducibility across AWS-backed infrastructure.",
+        "highlights": [
+          "Introduces 'hydra', a Docker-based runtime (installed via install-hydra.sh) that bundles all test dependencies, enabling consistent execution environments [ID:E-RD-007].",
+          "Architects a tripartite test topology: Scylla clusters for storage, loader machines for stress generation (e.g., cassandra-stress), and a dedicated monitoring server using Scylla’s official stack [ID:E-RD-001][ID:E-RD-002].",
+          "Supports enterprise identity workflows by accommodating OKTA-integrated AWS profiles through the AWS_PROFILE environment variable [ID:E-RD-006].",
+          "Extends container compatibility beyond Docker to Podman, though requiring manual override of short-name resolution policies for monitoring services to function [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Tight coupling between the test framework and AWS infrastructure may hinder portability to other cloud providers or on-premises setups without significant re-engineering.",
+          "Manual AWS credential configuration steps increase surface area for security missteps, especially in shared or CI environments where secrets management is not automated."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "engineer",
+        "summary": "The scylladb/scylla-cluster-tests repository provides a Python-based, containerized test framework for validating ScyllaDB clusters under load, using a Docker environment called 'hydra' and requiring AWS infrastructure for provisioning test resources. It orchestrates Scylla nodes, loader machines, and monitoring services, with explicit setup steps for AWS CLI, credential management, and optional Podman support.",
+        "highlights": [
+          "Test infrastructure is composed of three components: Scylla clusters, loader machines (e.g., running cassandra-stress), and a monitoring server based on the official Scylla Monitoring stack [ID:E-RD-001][ID:E-RD-002].",
+          "The 'hydra' Docker environment, installed via install-hydra.sh, encapsulates all dependencies needed to run tests consistently [ID:E-RD-007].",
+          "AWS CLI configuration is mandatory, with documented support for both direct credentials and OKTA-integrated roles via AWS_PROFILE [ID:E-RD-003][ID:E-RD-004][ID:E-RD-005][ID:E-RD-006].",
+          "Podman is supported as an alternative to Docker but requires manual configuration of registry short-name resolution to run the monitoring stack [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Dependency on AWS for cluster provisioning limits testing flexibility in non-AWS or air-gapped environments without significant adaptation.",
+          "Manual handling of AWS credentials in setup instructions poses a security risk if users inadvertently commit or expose secrets."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role": "skeptic",
+        "summary": "The scylladb/scylla-cluster-tests repository presents itself as a robust test framework for ScyllaDB, but its heavy dependence on AWS, manual credential handling, and lack of abstraction for infrastructure provisioning raise concerns about portability, security, and maintainability.",
+        "highlights": [
+          "Claims of comprehensive testing are undermined by mandatory AWS dependency, with no clear path for local, multi-cloud, or air-gapped execution [ID:E-RD-003][ID:E-RD-004][ID:E-RD-005].",
+          "Security hygiene is questionable: README instructs users to manually input AWS credentials via 'aws configure', increasing risk of accidental leakage in logs or config files [ID:E-RD-005].",
+          "The 'hydra' Docker environment promises reproducibility, yet requires platform-specific workarounds (e.g., Podman registry config) that suggest fragility in container abstraction [ID:E-RD-007][ID:E-RD-008].",
+          "Despite 296 open issues and active development, there's no evidence of automated dependency updates or vulnerability management beyond a generic 'Dependency Dashboard' issue [ID:E-IS-001]."
+        ],
+        "risks": [
+          "Over-reliance on AWS makes the framework unsuitable for organizations using alternative cloud providers or on-prem deployments without substantial rework.",
+          "Manual AWS credential setup contradicts modern DevOps practices like IAM roles, temporary tokens, or secret managers, exposing users to avoidable security pitfalls.",
+          "Lack of documented support for non-AWS environments suggests limited real-world validation outside ScyllaDB’s internal AWS-centric workflows.",
+          "Absence of release tags or versioning (0 releases) implies unstable or continuously-breaking changes, reducing trust for external adopters."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 10,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Scylla Cluster Tester\",\n    \"one_sentence\": \"A containerized test automation framework for validating ScyllaDB clusters under high load using orchestrated loader and monitoring nodes.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"The system provisions a Scylla cluster, deploys loader machines to generate read/write stress (e.g., via cassandra-stress), and runs a dedicated monitoring server using the official Scylla Monitoring stack—all orchestrated within a Docker-based 'hydra' environment on AWS infrastructure.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Test Orchestration Dashboard\",\n      \"purpose\": \"Display and control the lifecycle of Scylla cluster tests including provisioning, execution, and monitoring.\",\n      \"primary_actions\": [\n        \"Launch new test run\",\n        \"View active clusters\",\n        \"Access monitoring dashboard\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist test configuration or results to storage.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"test_runs\",\n        \"fields\": [\n          {\n            \"name\": \"cluster_id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"loader_nodes\",\n            \"type\": \"array\"\n          },\n          {\n            \"name\": \"monitoring_endpoint\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up hydra Docker environment\",\n          \"Configure AWS credentials for test provisioning\",\n          \"Deploy minimal Scylla cluster with one loader node\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"System can launch a Scylla cluster and associated loader machine using hydra on AWS.\"\n  ],\n  \"open_questions\": [\n    \"How would this framework adapt to non-AWS cloud providers or on-prem deploym"
+      }
+    },
+    "Correia-jpv/fucking-terminals-are-sexy": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "scout",
+        "summary": "The repository 'fucking-terminals-are-sexy' is a curated list of terminal-related tools, shells, plugins, and resources, styled as an 'awesome list' with embedded star/fork metrics and external links. It includes documentation files, CI configuration, and a shell script, but appears to be a fork or rebrand of an existing project with inconsistent attribution.",
+        "highlights": [
+          "Presents a well-structured, categorized list of CLI tools including shells (ZSH, Bash, Fish), terminal emulators, package managers, and plugins.",
+          "Includes popularity indicators (GitHub stars and forks) directly in the README for listed projects, aiding user evaluation.",
+          "Features standard open-source files: Code of Conduct, Contributing guide, License, Makefile, and Travis CI config.",
+          "Uses the 'Awesome' badge and follows the awesome-list convention, targeting CLI enthusiasts."
+        ],
+        "risks": [
+          "README contains mixed or outdated references: build badge points to original repo (k4m4/terminals-are-sexy), not this fork.",
+          "Repository name uses aggressive language ('fucking-terminals-are-sexy'), which may affect professional adoption.",
+          "Low activity: only 57 stars and 3 forks, with no issues or releases, suggesting limited maintenance or community engagement.",
+          "Potential attribution confusion: blog/Twitter links point to 'nikolaskama', while GitHub handle is 'Correia-jpv'."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RF-001",
+          "E-RD-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "inventor",
+        "summary": "The repository repurposes and extends the 'Terminals Are Sexy' concept into a more aggressively branded but functionally similar curated list of terminal tools, with minor structural additions like a shell script and documentation files, yet introduces attribution inconsistencies and branding risks without clear novel technical innovation.",
+        "highlights": [
+          "Introduces a custom shell script 'terminals_are_sexy.sh' not present in the original, suggesting an attempt at added utility [ID:E-RF-001].",
+          "Maintains and displays star/fork metrics inline for listed projects, enabling quick popularity assessment [ID:E-RD-006, ID:E-RD-007, ID:E-RD-008].",
+          "Organizes terminal ecosystem components into detailed, navigable categories (shells, emulators, package managers, etc.) enhancing discoverability [ID:E-RD-005].",
+          "Includes standard open-source infrastructure (Makefile, Travis CI, Code of Conduct) indicating intent for community contribution [ID:E-RF-001]."
+        ],
+        "risks": [
+          "No evidence of original tooling or framework—functions purely as a repackaged list without inventive technical contribution.",
+          "Branding conflict: aggressive repo name ('fucking-terminals-are-sexy') clashes with professional contexts and may deter adoption.",
+          "Attribution drift: external links point to 'nikolaskama' while GitHub user is 'Correia-jpv', creating confusion about authorship [ID:E-RD-003].",
+          "Build badge and some references still point to original 'k4m4/terminals-are-sexy' repo, undermining fork legitimacy [ID:E-RD-004]."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RD-003",
+          "E-RD-004"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "engineer",
+        "summary": "The repository is a forked and rebranded version of an existing 'awesome list' for terminal tools, providing a categorized catalog with embedded popularity metrics. It includes basic project infrastructure but shows signs of incomplete forking, attribution inconsistencies, and no original technical implementation beyond curation.",
+        "highlights": [
+          "Well-structured README categorizes terminal components (shells, emulators, package managers, plugins) with direct links and inline GitHub star/fork counts for quick assessment [ID:E-RD-005, ID:E-RD-006, ID:E-RD-007, ID:E-RD-008].",
+          "Contains standard engineering artifacts: Makefile, Travis CI config (.travis.yml), license, and contribution guidelines, suggesting intent for maintainability [ID:E-RF-001].",
+          "Includes a custom shell script 'terminals_are_sexy.sh', though its functionality is undocumented and unverified [ID:E-RF-001]."
+        ],
+        "risks": [
+          "Build status badge references the original upstream repository (k4m4/terminals-are-sexy), not this fork, indicating incomplete migration or maintenance [ID:E-RD-004].",
+          "Author attribution mismatch: README links to 'nikolaskama.me' and Twitter handle, while the GitHub owner is 'Correia-jpv', raising provenance concerns [ID:E-RD-003].",
+          "No evidence of automated testing, issue tracking, or releases; low activity (57 stars, 3 forks, 0 issues) suggests abandonment or minimal upkeep [ID:E-RF-001].",
+          "Aggressive naming ('fucking-terminals-are-sexy') may hinder professional adoption or integration into enterprise environments."
+        ],
+        "evidence_ids": [
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "skeptic",
+        "summary": "The repository presents itself as a curated list of terminal tools but exhibits significant signs of being an unmaintained, improperly forked rebrand with attribution inconsistencies, misleading badges, and no substantive original contribution—raising doubts about its reliability and purpose.",
+        "highlights": [
+          "Claims curation value via inline star/fork counts for listed projects, yet offers no verification, updates, or selection rationale beyond copying existing data [ID:E-RD-006, ID:E-RD-007, ID:E-RD-008].",
+          "Includes standard open-source files (e.g., Makefile, license), but their presence appears performative given zero issues, releases, or recent meaningful activity [ID:E-RF-001].",
+          "Uses the 'Awesome' badge and structure to imply community endorsement, but lacks active maintenance or clear differentiation from the original 'terminals-are-sexy' project [ID:E-RD-002]."
+        ],
+        "risks": [
+          "Build status badge points to the upstream repo (k4m4/terminals-are-sexy), falsely implying CI validation for this fork, which may mislead users about stability or test coverage [ID:E-RD-004].",
+          "Author identity is ambiguous: external links reference 'nikolaskama', while the GitHub owner is 'Correia-jpv', suggesting possible impersonation, abandoned handoff, or lack of ownership clarity [ID:E-RD-003].",
+          "Aggressive naming ('fucking-terminals-are-sexy') combined with low engagement (57 stars, 3 forks, no issues) indicates likely abandonment or meme-driven creation rather than serious utility [ID:E-RF-001].",
+          "No evidence that listed tools are vetted, tested, or compatible—users risk adopting outdated or insecure software based on stale metrics."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Fucking Terminals Are Sexy\",\n    \"one_sentence\": \"A curated list of terminal frameworks, plugins, and resources for CLI lovers, featuring inline GitHub stars and forks.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Users browse categorized terminal tools (shells, emulators, package managers, etc.) with popularity metrics to discover and adopt CLI utilities.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Main Catalog\",\n      \"purpose\": \"Display a navigable, categorized list of terminal-related tools with embedded popularity indicators.\",\n      \"primary_actions\": [\n        \"Browse shells\",\n        \"Explore terminal emulators\",\n        \"View package managers\",\n        \"Discover plugins and themes\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"save_item\",\n      \"purpose\": \"Persist a selected terminal tool entry locally for offline reference.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"terminal_tools\",\n        \"fields\": [\n          {\n            \"name\": \"name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"category\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"stars\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"forks\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"url\",\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Parse README structure into categorized data model\",\n          \"Implement local persistence for saved tools\",\n          \"Render main catalog screen with filtering by category\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"User can view all terminal tools grouped by category (shells, emulators, etc.) with star/fork counts.\",\n    \"User can save a terminal tool entry for offline "
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "lineofflight/frankfurter",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 9,
+        "inventor": 5,
+        "engineer": 9,
+        "skeptic": 7,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "scylladb/scylla-cluster-tests",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 8,
+        "inventor": 5,
+        "engineer": 8,
+        "skeptic": 6,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 6,
+        "inventor": 7,
+        "engineer": 7,
+        "skeptic": 7,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=1",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=91 kept=5 limit=5",
+    "[deduper] existing_index_repos=320",
+    "[deduper] candidates_total=5 new=3 skipped=2",
+    "[repo_card_builder] Correia-jpv/fucking-terminals-are-sexy evidence total=9 readme=8 issue=0 release=0 root_files=1",
+    "[repo_card_builder] lineofflight/frankfurter evidence total=13 readme=7 issue=2 release=3 root_files=1",
+    "[repo_card_builder] scylladb/scylla-cluster-tests evidence total=10 readme=8 issue=1 release=0 root_files=1",
+    "[repo_card_builder] built=3 readme_ok=3/3 evidence_total=32 gaps=0",
+    "[llm_spec_generator] lineofflight/frankfurter canonical spec ok (iter=1) -> specs/2026-05-24/lineofflight__frankfurter.json",
+    "[llm_spec_generator] scylladb/scylla-cluster-tests canonical spec ok (iter=1) -> specs/2026-05-24/scylladb__scylla-cluster-tests.json",
+    "[llm_spec_generator] Correia-jpv/fucking-terminals-are-sexy canonical spec ok (iter=1) -> specs/2026-05-24/Correia-jpv__fucking-terminals-are-sexy.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-24T06:39:00.924Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:00.951Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260524T063900Z"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:00.951Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:00.955Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:01.453Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:01.453Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:01.909Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:01.909Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:02.309Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:02.309Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:02.751Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:02.751Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:03.191Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:03.191Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:03.669Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:03.669Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:04.142Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:04.142Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:04.388Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:04.388Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:04.833Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:04.833Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.430Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.434Z",
+      "run_id": "20260524T063900Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 320
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.435Z",
+      "run_id": "20260524T063900Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 3,
+        "skipped": 2,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.437Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-24T06:39:05.437Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lineofflight__frankfurter/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.438Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lineofflight__frankfurter/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.440Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lineofflight__frankfurter/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.442Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lineofflight__frankfurter/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.443Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-24T06:39:05.443Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylla-cluster-tests/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.444Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylla-cluster-tests/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.447Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylla-cluster-tests/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.448Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylla-cluster-tests/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.450Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-24T06:39:05.450Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Correia-jpv__fucking-terminals-are-sexy/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.451Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Correia-jpv__fucking-terminals-are-sexy/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.452Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Correia-jpv__fucking-terminals-are-sexy/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.454Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "Correia-jpv__fucking-terminals-are-sexy/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.721Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 35201,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.721Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.721Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.721Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 271
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.722Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 9,
+        "readme": 8,
+        "issues": 0,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.838Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 2081,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.838Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.838Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.838Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 401
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.839Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 7,
+        "issues": 2,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.847Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 10540,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.847Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.847Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.847Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 404
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.847Z",
+      "run_id": "20260524T063900Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 10,
+        "readme": 8,
+        "issues": 1,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.851Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 7,
+          "issue": 2,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:05.851Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:21.117Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1523,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:34.436Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1639,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:39:48.735Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1609,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:03.766Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1628,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:35.215Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 3978,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:35.228Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:35.229Z",
+      "run_id": "20260524T063900Z",
+      "node": "artifacts",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-24/lineofflight__frankfurter.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:35.229Z",
+      "run_id": "20260524T063900Z",
+      "node": "artifacts",
+      "repo": "lineofflight/frankfurter",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-24/lineofflight__frankfurter.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:35.229Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 10,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:35.229Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 10,
+        "evidence_selected": 10,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:40:49.374Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1388,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:01.859Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1651,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:16.078Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1659,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:30.728Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1909,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:53.227Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2659,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:53.228Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:53.229Z",
+      "run_id": "20260524T063900Z",
+      "node": "artifacts",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-24/scylladb__scylla-cluster-tests.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:53.229Z",
+      "run_id": "20260524T063900Z",
+      "node": "artifacts",
+      "repo": "scylladb/scylla-cluster-tests",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-24/scylladb__scylla-cluster-tests.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:53.230Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 9,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-24T06:41:53.230Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 9,
+        "evidence_selected": 9,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-24T06:42:07.088Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1567,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:42:24.909Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1735,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:42:39.929Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1747,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:42:55.868Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1866,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.309Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2836,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.310Z",
+      "run_id": "20260524T063900Z",
+      "node": "llm_spec_generator",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.310Z",
+      "run_id": "20260524T063900Z",
+      "node": "artifacts",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-24/Correia-jpv__fucking-terminals-are-sexy.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.311Z",
+      "run_id": "20260524T063900Z",
+      "node": "artifacts",
+      "repo": "Correia-jpv/fucking-terminals-are-sexy",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-24/Correia-jpv__fucking-terminals-are-sexy.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.315Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 3,
+        "attempts_used_hist": {
+          "0": 3,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.315Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1779604740924,
+        "llmCallsTotal": 15,
+        "llmCallsPerRepo": {
+          "lineofflight/frankfurter": 5,
+          "scylladb/scylla-cluster-tests": 5,
+          "Correia-jpv/fucking-terminals-are-sexy": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 3,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.315Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-24T06:43:19.315Z",
+      "run_id": "20260524T063900Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 3,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-24",
+    "evidence_dir": "evidence/2026-05-24"
+  }
+}

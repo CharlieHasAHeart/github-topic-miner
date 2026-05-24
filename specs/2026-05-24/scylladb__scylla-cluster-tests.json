@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Scylla Cluster Tester",
+    "one_liner": "A containerized test automation framework for validating ScyllaDB clusters under high load using orchestrated loader and monitoring nodes."
+  },
+  "screens": [
+    {
+      "name": "Test Orchestration Dashboard",
+      "purpose": "Display and control the lifecycle of Scylla cluster tests including provisioning, execution, and monitoring.",
+      "primary_actions": [
+        "Access monitoring dashboard",
+        "Launch new test run",
+        "View active clusters"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist test configuration or results to storage.",
+      "async": true,
+      "input": {
+        "cluster_id": "string",
+        "loader_nodes": "json",
+        "monitoring_endpoint": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "test_runs",
+        "columns": [
+          {
+            "name": "cluster_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "loader_nodes",
+            "type": "JSON"
+          },
+          {
+            "name": "monitoring_endpoint",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Configure AWS credentials for test provisioning",
+    "week 1: Deploy minimal Scylla cluster with one loader node",
+    "week 1: Set up hydra Docker environment"
+  ],
+  "acceptance_tests": [
+    "System can launch a Scylla cluster and associated loader machine using hydra on AWS."
+  ]
+}

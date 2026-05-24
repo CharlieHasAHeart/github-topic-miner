@@ -1,0 +1,108 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Frankfurter",
+    "one_liner": "An open-source currency data API that aggregates and blends daily exchange rates from over 50 institutional sources into a mathematically consistent USD-anchored model."
+  },
+  "screens": [
+    {
+      "name": "API Dashboard",
+      "purpose": "Display available endpoints, provider coverage, and usage instructions for the Frankfurter currency API.",
+      "primary_actions": [
+        "Fetch historical rates by date range",
+        "Query latest blended rates",
+        "Retrieve single currency pair rates"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_blended_rates",
+      "purpose": "Retrieve blended exchange rates from multiple institutional providers for specified base/quote currencies and date(s).",
+      "async": true,
+      "input": {
+        "country_code": "string",
+        "currencies": "string",
+        "payload": "json",
+        "rate_type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list_providers",
+      "purpose": "Return metadata about all integrated institutional data sources including coverage, country codes, and rate types.",
+      "async": true,
+      "input": {
+        "country_code": "string",
+        "currencies": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "query": "string?",
+        "rate_type": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "country_code",
+            "type": "TEXT"
+          },
+          {
+            "name": "currencies",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "rate_type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "rates",
+        "columns": [
+          {
+            "name": "base",
+            "type": "TEXT"
+          },
+          {
+            "name": "date",
+            "type": "DATETIME"
+          },
+          {
+            "name": "quote",
+            "type": "TEXT"
+          },
+          {
+            "name": "rate",
+            "type": "REAL"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Expose /v2/rates and /v2/providers endpoints",
+    "week 1: Implement Dockerized deployment with SQLite persistence",
+    "week 1: Integrate at least three central bank APIs (e.g., Banxico, BOT, FRED)"
+  ],
+  "acceptance_tests": [
+    "Cross-rate triangles (e.g., EUR→USD→JPY vs EUR→JPY) round to 1.0 within 5 decimal places due to USD anchoring.",
+    "Date-range queries to /v2/rates return consistent rates matching single-date queries for each day in the range.",
+    "Self-hosted instance with mounted volume retains historical rate data across container restarts."
+  ]
+}

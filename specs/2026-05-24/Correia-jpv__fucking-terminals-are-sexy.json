@@ -1,0 +1,76 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Fucking Terminals Are Sexy",
+    "one_liner": "A curated list of terminal frameworks, plugins, and resources for CLI lovers, featuring inline GitHub stars and forks."
+  },
+  "screens": [
+    {
+      "name": "Main Catalog",
+      "purpose": "Display a navigable, categorized list of terminal-related tools with embedded popularity indicators.",
+      "primary_actions": [
+        "Browse shells",
+        "Discover plugins and themes",
+        "Explore terminal emulators",
+        "View package managers"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist a selected terminal tool entry locally for offline reference.",
+      "async": true,
+      "input": {
+        "category": "string",
+        "forks": "int",
+        "name": "string",
+        "payload": "json",
+        "stars": "int",
+        "url": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "terminal_tools",
+        "columns": [
+          {
+            "name": "category",
+            "type": "TEXT"
+          },
+          {
+            "name": "forks",
+            "type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "stars",
+            "type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement local persistence for saved tools",
+    "week 1: Parse README structure into categorized data model",
+    "week 1: Render main catalog screen with filtering by category"
+  ],
+  "acceptance_tests": [
+    "User can save a terminal tool entry for offline access.",
+    "User can view all terminal tools grouped by category (shells, emulators, etc.) with star/fork counts."
+  ]
+}
