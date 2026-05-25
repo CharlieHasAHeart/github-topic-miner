@@ -1,0 +1,83 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "IFC-lite",
+    "one_liner": "Parse, view, query, edit, and export IFC files in the browser using a Rust/WASM core and WebGPU rendering."
+  },
+  "screens": [
+    {
+      "name": "Main Viewer",
+      "purpose": "Display loaded IFC models with interactive 3D navigation, entity selection, property inspection, and editing controls.",
+      "primary_actions": [
+        "Drag-and-drop IFC file upload",
+        "Select and inspect building elements",
+        "Toggle visibility of model components",
+        "Translate or delete selected entities"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "remove_entity",
+      "purpose": "Remove an IFC entity from the model and clean up its associated GPU buffers and bounding box data.",
+      "async": true,
+      "input": {
+        "express_id": "int",
+        "payload": "json",
+        "properties": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "translate_entity",
+      "purpose": "Apply a positional delta to a specific IFC entity and update its rendered mesh in the WebGPU scene.",
+      "async": true,
+      "input": {
+        "express_id": "int",
+        "payload": "json",
+        "properties": "json",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "ifc_entities",
+        "columns": [
+          {
+            "name": "express_id",
+            "type": "INTEGER"
+          },
+          {
+            "name": "properties",
+            "type": "JSON"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add translate/remove commands with mesh synchronization",
+    "week 1: Enable basic entity selection and property display",
+    "week 1: Implement drag-and-drop file loading",
+    "week 1: Integrate Rust/WASM IFC parser with WebGPU renderer"
+  ],
+  "acceptance_tests": [
+    "After translating an IFC entity, its rendered mesh updates immediately without requiring a full re-parse.",
+    "Removing an entity cleans up GPU memory and removes it from spatial queries.",
+    "The viewer loads and displays IFC2X3, IFC4, and IFC5 models without crashing."
+  ]
+}

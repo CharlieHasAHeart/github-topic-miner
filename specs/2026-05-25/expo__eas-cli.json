@@ -1,0 +1,106 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "EAS CLI",
+    "one_liner": "Fastest way to build, submit, and update iOS and Android apps using Expo's cloud infrastructure."
+  },
+  "screens": [
+    {
+      "name": "Command Palette",
+      "purpose": "Primary interface for executing EAS CLI commands such as build, branch operations, and account management.",
+      "primary_actions": [
+        "Authenticate account",
+        "Manage branches",
+        "Run build command"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "eas_account_login",
+      "purpose": "Authenticate user via browser or SSO to access Expo services.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platforms": "json",
+        "sdk_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "eas_branch_list",
+      "purpose": "List available update branches for the current project.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platforms": "json",
+        "sdk_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "eas_build",
+      "purpose": "Initiate a cloud build for iOS or Android using project configuration and pinned CLI version.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "platforms": "json",
+        "sdk_version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "app_config",
+        "columns": [
+          {
+            "name": "platforms",
+            "type": "JSON"
+          },
+          {
+            "name": "sdk_version",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "eas_config",
+        "columns": [
+          {
+            "name": "build_profiles",
+            "type": "JSON"
+          },
+          {
+            "name": "cli_version",
+            "type": "TEXT"
+          },
+          {
+            "name": "submit_profiles",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core command routing based on oclif architecture",
+    "week 1: Integrate version enforcement from eas.json",
+    "week 1: Support basic build and login flows"
+  ],
+  "acceptance_tests": [
+    "CLI enforces version specified in eas.json and refuses to run if mismatched",
+    "eas go pre-selects SDK version from app.json when available",
+    "Login supports both browser and SSO flags as documented"
+  ]
+}

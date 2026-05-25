@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Gravitee API Management",
+    "one_liner": "An open-source, modular API management platform that enables organizations to control access, manage lifecycles, and monitor APIs with high performance and flexibility."
+  },
+  "screens": [
+    {
+      "name": "API Console Dashboard",
+      "purpose": "Central interface for API lifecycle management including creation, deployment, monitoring, and policy configuration.",
+      "primary_actions": [
+        "Configure access policies",
+        "Create new API",
+        "Deploy API to gateway",
+        "View analytics and logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist API definition or configuration to the repository layer.",
+      "async": true,
+      "input": {
+        "definition": "json",
+        "name": "string",
+        "payload": "json",
+        "version": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "apis",
+        "columns": [
+          {
+            "name": "definition",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Bootstrap Docker-based local deployment workflow",
+    "week 1: Implement basic API definition persistence using repository layer",
+    "week 1: Set up modular monorepo structure with core components (gateway, console, portal)"
+  ],
+  "acceptance_tests": [
+    "Gateway correctly routes requests to the configured backend based on saved API definition",
+    "Saved API is accessible via the developer portal",
+    "User can create and save an API definition via the console UI"
+  ]
+}
