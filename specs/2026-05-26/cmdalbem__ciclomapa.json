@@ -1,0 +1,102 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Ciclomapa",
+    "one_liner": "An open platform to democratize access to bike maps of Brazilian cities by combining OpenStreetMap data with an intuitive web interface."
+  },
+  "screens": [
+    {
+      "name": "City Cycling Map Viewer",
+      "purpose": "Display interactive, simplified cycling infrastructure data for any Brazilian city using mirrored OpenStreetMap data.",
+      "primary_actions": [
+        "Click to edit map data directly in OpenStreetMap",
+        "Download GeoJSON data with one click",
+        "Select a Brazilian city to view its cycling infrastructure"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "export_geojson",
+      "purpose": "Generate and serve GeoJSON representation of current city's cycling infrastructure from Firebase mirror.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "state": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "update_osm_mirror",
+      "purpose": "Manually trigger a refresh of the Firebase mirror from OpenStreetMap to ensure data freshness.",
+      "async": true,
+      "input": {
+        "name": "string",
+        "payload": "json",
+        "state": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "cities",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "state",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "cycling_infrastructure",
+        "columns": [
+          {
+            "name": "city_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "geometry",
+            "type": "TEXT"
+          },
+          {
+            "name": "infrastructure_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "osm_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add one-click GeoJSON export functionality",
+    "week 1: Implement city selector and map rendering with simplified OSM tags",
+    "week 1: Integrate direct link to OSM editor for selected features",
+    "week 1: Set up Firebase mirror schema for OSM cycling data"
+  ],
+  "acceptance_tests": [
+    "Clicking 'Edit in OSM' opens correct location and feature in OpenStreetMap editor.",
+    "GeoJSON download button produces valid file containing all visible cycling features.",
+    "Manual update command successfully refreshes Firebase mirror from latest OSM data.",
+    "User can select any Brazilian city and see its cycling infrastructure rendered with semantic colors."
+  ]
+}

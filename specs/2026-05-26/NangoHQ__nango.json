@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Nango",
+    "one_liner": "An open-source platform for building product integrations with 800+ APIs using AI or hand-coded TypeScript functions."
+  },
+  "screens": [
+    {
+      "name": "Integration Dashboard",
+      "purpose": "View and manage connected API integrations, monitor sync status, and embed white-label auth flows.",
+      "primary_actions": [
+        "Deploy integration function",
+        "Embed auth UI",
+        "View connection details"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist integration configuration or connection metadata to storage.",
+      "async": true,
+      "input": {
+        "credentials": "json",
+        "payload": "json",
+        "provider": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "connections",
+        "columns": [
+          {
+            "name": "credentials",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create basic integration template",
+    "week 1: Implement OAuth2 connection flow",
+    "week 1: Set up local Nango development environment"
+  ],
+  "acceptance_tests": [
+    "Integration function executes in managed runtime and returns valid API response through proxy",
+    "User can successfully connect to a supported API via embedded auth UI"
+  ]
+}

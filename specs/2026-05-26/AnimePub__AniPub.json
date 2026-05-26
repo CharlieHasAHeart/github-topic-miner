@@ -1,0 +1,147 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AniPub",
+    "one_liner": "A modern, ad-free, privacy-first anime streaming platform with AI assistance and community features."
+  },
+  "screens": [
+    {
+      "name": "Anime Details",
+      "purpose": "Show comprehensive information about a specific anime including plot, ratings, streaming links, and community comments.",
+      "primary_actions": [
+        "Add to watchlist",
+        "Post comment",
+        "Rate anime",
+        "Watch episode"
+      ]
+    },
+    {
+      "name": "Home",
+      "purpose": "Display featured, trending, and categorized anime with responsive layout and genre shortcuts.",
+      "primary_actions": [
+        "Navigate by genre",
+        "Search anime",
+        "View anime details"
+      ]
+    },
+    {
+      "name": "Login / Registration",
+      "purpose": "Authenticate users with email/password and planned GitHub OAuth.",
+      "primary_actions": [
+        "Register account",
+        "Sign in",
+        "Sign in with GitHub (planned)"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "fetch_ai_response",
+      "purpose": "Query AniPub AI 'Zero Two' for recommendations, trivia, or summaries.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "rating_avg": "float",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "rate_anime",
+      "purpose": "Submit a user rating for an anime title.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "rating_avg": "float",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "save_item",
+      "purpose": "Save an anime or episode to the user's watchlist or playlist.",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "rating_avg": "float",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "anime",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "rating_avg",
+            "type": "REAL"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "comments",
+        "columns": [
+          {
+            "name": "anime_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "user_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "users",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "username",
+            "type": "TEXT"
+          },
+          {
+            "name": "watchlist",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement core routing for home, details, and login screens",
+    "week 1: Integrate basic watchlist saving functionality",
+    "week 1: Set up user rating submission and display"
+  ],
+  "acceptance_tests": [
+    "Community comments appear in threaded view on anime details page.",
+    "Streaming links on details page load functional video sources.",
+    "User can log in using /login route and access personalized features.",
+    "User can navigate from home screen to anime details page via click."
+  ]
+}
