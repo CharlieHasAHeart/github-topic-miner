@@ -1,0 +1,84 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Reflex VLA",
+    "one_liner": "Deploy any Vision-Language-Action model to edge GPUs with verified ONNX parity and one-command installation."
+  },
+  "screens": [
+    {
+      "name": "Deployment Dashboard",
+      "purpose": "Display real-time inference status, model selection, and performance metrics for deployed VLA agents.",
+      "primary_actions": [
+        "Apply A2C2 correction head",
+        "Chat with robot fleet",
+        "Enable CUDA Graphs acceleration",
+        "Serve model with TensorRT"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "chat_fleet",
+      "purpose": "Enable natural language interaction with deployed robot fleet using reflex chat.",
+      "async": true,
+      "input": {
+        "correction_enabled": "boolean",
+        "execution_provider": "string",
+        "model_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "serve_model",
+      "purpose": "Launch a VLA model server with hardware-optimized execution providers and optional correction heads.",
+      "async": true,
+      "input": {
+        "correction_enabled": "boolean",
+        "execution_provider": "string",
+        "model_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "vla_deployments",
+        "columns": [
+          {
+            "name": "correction_enabled",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "execution_provider",
+            "type": "TEXT"
+          },
+          {
+            "name": "model_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add bounded A2C2 correction head with Huber loss",
+    "week 1: Expose --cuda-graphs flag for low-jitter inference",
+    "week 1: Implement platform-aware installer with auto-extras selection",
+    "week 1: Integrate TensorRTExecutionProvider as default on NVIDIA GPUs"
+  ],
+  "acceptance_tests": [
+    "A2C2 correction head must produce bounded outputs (±3.0) and restore 8/10 task success on LIBERO after catastrophic regression fix.",
+    "Installer must detect Jetson Nano and exit early with unsupported hardware message.",
+    "ONNX export must achieve cos = +1.000000 parity across SmolVLA, pi0, pi0.5, and GR00T N1.6 on shared seeded inputs.",
+    "reflex serve with [gpu] extras must default to TensorrtExecutionProvider and achieve ≥5.5× speedup on A10G vs ORT-CUDA fallback."
+  ]
+}

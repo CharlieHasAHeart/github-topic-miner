@@ -1,0 +1,120 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "tldx",
+    "one_liner": "A Go-based CLI tool for bulk domain availability checking with combinatorial generation, real-time streaming, and AI agent integration via MCP."
+  },
+  "screens": [
+    {
+      "name": "Domain Availability Checker",
+      "purpose": "Generate and validate domain name candidates based on user-defined patterns and filters.",
+      "primary_actions": [
+        "Choose output format",
+        "Enable only-available filtering",
+        "Select TLDs or use presets",
+        "Specify keywords, prefixes, suffixes, or regex patterns",
+        "Start availability check"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "completion",
+      "purpose": "Generate autocompletion script for the specified shell.",
+      "async": false,
+      "input": {
+        "available": "boolean",
+        "domain": "string",
+        "payload": "json",
+        "source_keyword": "string",
+        "tld": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "mcp",
+      "purpose": "Start an MCP (Model Context Protocol) server over stdio for AI agent integration.",
+      "async": true,
+      "input": {
+        "available": "boolean",
+        "domain": "string",
+        "payload": "json",
+        "source_keyword": "string",
+        "tld": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "show-tld-presets",
+      "purpose": "Display available TLD presets for quick selection of curated TLD sets.",
+      "async": false,
+      "input": {
+        "available": "boolean",
+        "domain": "string",
+        "payload": "json",
+        "source_keyword": "string",
+        "tld": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "domains",
+        "columns": [
+          {
+            "name": "available",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "domain",
+            "type": "TEXT"
+          },
+          {
+            "name": "source_keyword",
+            "type": "TEXT"
+          },
+          {
+            "name": "tld",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tld_presets",
+        "columns": [
+          {
+            "name": "preset_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "tlds",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add support for --only-available and --limit flags",
+    "week 1: Implement core domain permutation engine (prefixes, suffixes, brace expansion)",
+    "week 1: Implement text and JSON-stream output formats",
+    "week 1: Integrate concurrent RDAP/DNS availability checker"
+  ],
+  "acceptance_tests": [
+    "Given 'tldx openai -p get,use -s ly,hub -t com,io,ai --only-available', it outputs only available domains like 'getopenaily.com' and exits with code 0 if any are found.",
+    "Input from stdin ('tldx -i -') correctly processes newline-separated keywords.",
+    "The 'tldx mcp' command starts an MCP server as introduced in v1.4.0.",
+    "When no domains are available under '--only-available', the tool exits with code 2."
+  ]
+}
