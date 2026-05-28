@@ -1,0 +1,249 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ggsrun",
+    "one_liner": "A CLI tool to execute Google Apps Script (GAS) locally and manage Google Drive files with support for OAuth2, Service Account, and advanced I/O features."
+  },
+  "screens": [
+    {
+      "name": "Main Terminal Interface",
+      "purpose": "Provide command-line access to all ggsrun functionality including script execution and file operations on Google Drive.",
+      "primary_actions": [
+        "execute GAS functions",
+        "manage permissions",
+        "search and list files",
+        "upload/download files"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "download",
+      "purpose": "Downloads files from Google Drive.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "driveinformation",
+      "purpose": "Get drive information.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "exe1",
+      "purpose": "Updates project and executes the function in the project.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "exe2",
+      "purpose": "Uploads GAS and executes the script using Execution API.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "filelist",
+      "purpose": "Outputs a file list on Google Drive.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "permissions",
+      "purpose": "Manage file permissions.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "revisionfiles",
+      "purpose": "Retrieves revision list and files.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "searchfiles",
+      "purpose": "Search files on Google Drive using search query and regex.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "updateproject",
+      "purpose": "Updates project on Google Drive.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "upload",
+      "purpose": "Uploads files to Google Drive.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "webapps",
+      "purpose": "Uploads GAS and executes the script without OAuth using Web Apps.",
+      "async": true,
+      "input": {
+        "executionMethod": "string",
+        "files": "json",
+        "payload": "json",
+        "scriptId": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "GASProject",
+        "columns": [
+          {
+            "name": "executionMethod",
+            "type": "TEXT"
+          },
+          {
+            "name": "files",
+            "type": "JSON"
+          },
+          {
+            "name": "scriptId",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "GoogleDriveFile",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "mimeType",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "parents",
+            "type": "JSON"
+          },
+          {
+            "name": "permissions",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic upload/download commands with progress feedback",
+    "week 1: Implement core authentication flow for Google Drive and GAS",
+    "week 1: Support script execution via Execution API",
+    "week 2: Add Shared Drive (Omni-Drive) support",
+    "week 2: Implement parallel I/O for file operations",
+    "week 2: Integrate intelligent MIME/GAS type resolution",
+    "week 3: Add regex-based file search",
+    "week 3: Add Web Apps execution without OAuth",
+    "week 3: Implement revision tracking and permission management"
+  ],
+  "acceptance_tests": [
+    "System recovers gracefully when attempting to access an empty file list without panicking.",
+    "User can download a file from Google Drive and see real-time progress percentage and speed.",
+    "User can execute a GAS function using Execution API after uploading the project.",
+    "User can search for files using both standard queries and regular expressions."
+  ]
+}

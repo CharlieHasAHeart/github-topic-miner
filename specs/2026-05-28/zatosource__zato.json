@@ -1,0 +1,62 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Zato Integration Platform",
+    "one_liner": "A Python-based open-source platform for automating, integrating, and orchestrating business systems, APIs, workflows, and hardware assets across regulated industries."
+  },
+  "screens": [
+    {
+      "name": "Integration Dashboard",
+      "purpose": "Orchestrate and monitor API integrations, service connections, and workflow executions.",
+      "primary_actions": [
+        "Create new REST endpoint connection",
+        "Send structured request payload",
+        "View response from external service"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "send_rest_request",
+      "purpose": "Send a structured request to a pre-configured REST endpoint and return the response payload.",
+      "async": true,
+      "input": {
+        "balance": "float",
+        "currency": "string",
+        "user_id": "int"
+      },
+      "output": {
+        "response_data": "json"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "rest_endpoints",
+        "columns": [
+          {
+            "name": "auth_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "url",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic request/response handler",
+    "week 1: Implement core REST connector interface",
+    "week 1: Integrate with endpoint configuration table"
+  ],
+  "acceptance_tests": [
+    "Given a configured REST endpoint named 'Billing', when a request with user_id=123, balance=1357, currency='USD' is sent, then the system returns valid response data."
+  ]
+}

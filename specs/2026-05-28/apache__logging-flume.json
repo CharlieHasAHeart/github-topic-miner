@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Apache Flume",
+    "one_liner": "A distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data."
+  },
+  "screens": [
+    {
+      "name": "Flume Agent Dashboard",
+      "purpose": "Monitor and manage active Flume agents, their sources, channels, and sinks.",
+      "primary_actions": [
+        "Inspect channel backlog",
+        "Start agent",
+        "Stop agent",
+        "View event throughput"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist Flume configuration or event metadata to storage.",
+      "async": true,
+      "input": {
+        "body": "json",
+        "event_id": "string",
+        "headers": "json",
+        "payload": "json",
+        "timestamp": "timestamp"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "flume_events",
+        "columns": [
+          {
+            "name": "body",
+            "type": "BLOB"
+          },
+          {
+            "name": "event_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "headers",
+            "type": "JSON"
+          },
+          {
+            "name": "timestamp",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Define core data model for Flume events",
+    "week 1: Implement basic agent lifecycle control",
+    "week 1: Set up channel buffering mechanism"
+  ],
+  "acceptance_tests": [
+    "Agent recovers buffered events from disk after unexpected shutdown.",
+    "System ingests log events from a source and delivers them to a sink without loss under normal conditions."
+  ]
+}

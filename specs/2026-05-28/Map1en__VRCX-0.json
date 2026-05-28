@@ -1,0 +1,196 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "VRCX-0",
+    "one_liner": "A lightweight, modern desktop companion for VRChat built with Tauri and React, offering lower resource usage and active feature development."
+  },
+  "screens": [
+    {
+      "name": "App Launcher",
+      "purpose": "Configure and launch external applications alongside VRChat.",
+      "primary_actions": [
+        "Add/remove launch shortcuts",
+        "Manage app settings",
+        "Start apps with VRChat"
+      ]
+    },
+    {
+      "name": "Main Feed",
+      "purpose": "Display and organize VRChat friend activity with support for multi-column layouts and filtering.",
+      "primary_actions": [
+        "Launch VRChat instances",
+        "Switch between feed columns",
+        "View friend status updates"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Adjust application preferences including notifications, localization, and data migration options.",
+      "primary_actions": [
+        "Access third-party notices",
+        "Configure auto-login",
+        "Toggle desktop notification sounds"
+      ]
+    },
+    {
+      "name": "Themes",
+      "purpose": "Manage background images, default themes, and community-submitted themes with CSS override support.",
+      "primary_actions": [
+        "Enable daily image rotation",
+        "Install community themes",
+        "Select local background images"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "install_community_theme",
+      "purpose": "Download and apply a community-submitted theme from a supported repository.",
+      "async": true,
+      "input": {
+        "app_name": "string",
+        "executable_path": "string",
+        "launch_with_vrchat": "boolean",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "launch_steam_app",
+      "purpose": "Start or close Steam-based applications via the autolauncher system.",
+      "async": true,
+      "input": {
+        "app_name": "string",
+        "executable_path": "string",
+        "launch_with_vrchat": "boolean",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "migrate_vrcx_data",
+      "purpose": "Automatically import existing VRCX database and settings on first launch without modifying original files.",
+      "async": true,
+      "input": {
+        "app_name": "string",
+        "executable_path": "string",
+        "launch_with_vrchat": "boolean",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "update_feed_columns",
+      "purpose": "Save and load user-defined feed column configurations including scope and density.",
+      "async": true,
+      "input": {
+        "app_name": "string",
+        "executable_path": "string",
+        "launch_with_vrchat": "boolean",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "autolaunch_apps",
+        "columns": [
+          {
+            "name": "app_name",
+            "type": "TEXT"
+          },
+          {
+            "name": "executable_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "launch_with_vrchat",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "community_themes",
+        "columns": [
+          {
+            "name": "installed",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "repository_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "theme_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "feed_column_config",
+        "columns": [
+          {
+            "name": "column_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "density",
+            "type": "TEXT"
+          },
+          {
+            "name": "scope",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "vrcx_migration_state",
+        "columns": [
+          {
+            "name": "migrated_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "source_path",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic friend feed display",
+    "week 1: Implement core Tauri + React scaffolding",
+    "week 1: Integrate automatic VRCX data migration command",
+    "week 2: Add support for local background images",
+    "week 2: Build App Launcher UI and backend logic",
+    "week 2: Implement theme management page",
+    "week 3: Add community theme installation flow",
+    "week 3: Develop multi-column feed layout engine",
+    "week 3: Implement desktop notification sound toggle",
+    "week 4: Conduct end-to-end testing of migration and autolaunch",
+    "week 4: Finalize settings navigation and localization",
+    "week 4: Prepare release build with installer packaging"
+  ],
+  "acceptance_tests": [
+    "App Launcher successfully starts a configured Steam application when VRChat launches.",
+    "Feed Columns mode displays friend activity split into two custom columns with different scopes (e.g., friends vs. groups).",
+    "On first launch, VRCX-0 detects and migrates an existing VRCX database without altering the original files.",
+    "The Themes page allows selection of a local image as background and persists the choice across restarts.",
+    "Unfriend actions generate exactly one log entry in the activity feed."
+  ]
+}

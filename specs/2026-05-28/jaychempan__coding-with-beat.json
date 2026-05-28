@@ -1,0 +1,184 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Coding with Beat",
+    "one_liner": "A retro pixel DJ for AI coding terminals that plays mood-aware music, shows synced lyrics, reacts to coding events, and generates personalized listening reports from play history."
+  },
+  "screens": [
+    {
+      "name": "Listening Report Dashboard",
+      "purpose": "Present data-driven insights from listening history in an 860px HTML dashboard with visualizations like personality radar, heatmaps, and trend analysis.",
+      "primary_actions": [
+        "Compare top artists and genres over time",
+        "Explore music personality scores",
+        "View daily/hourly play distribution"
+      ]
+    },
+    {
+      "name": "Terminal Pixel DJ",
+      "purpose": "Display real-time music playback, synced lyrics, and emotional reactions (e.g., panic on test failure) within the coding terminal.",
+      "primary_actions": [
+        "Play/pause music",
+        "Trigger history-based recommendations via natural language",
+        "View current track and lyrics"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "history_search",
+      "purpose": "Analyze listening patterns and run multi-angle smart search for personalized recommendations.",
+      "async": true,
+      "input": {
+        "artist": "string",
+        "payload": "json",
+        "played_at": "timestamp",
+        "source": "string",
+        "title": "string",
+        "track_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "list_history",
+      "purpose": "Read and return user's native Apple Music play log or fallback local history.log entries.",
+      "async": true,
+      "input": {
+        "artist": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "played_at": "timestamp",
+        "query": "string?",
+        "source": "string",
+        "title": "string",
+        "track_id": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "list_loved",
+      "purpose": "Access Apple Music liked songs directly from AI terminal via MCP tooling.",
+      "async": true,
+      "input": {
+        "artist": "string",
+        "limit": "int?",
+        "offset": "int?",
+        "played_at": "timestamp",
+        "query": "string?",
+        "source": "string",
+        "title": "string",
+        "track_id": "string"
+      },
+      "output": {
+        "items": "json",
+        "total": "int?"
+      }
+    },
+    {
+      "name": "search_loved",
+      "purpose": "Search within user's loved tracks using natural language queries.",
+      "async": true,
+      "input": {
+        "artist": "string",
+        "payload": "json",
+        "played_at": "timestamp",
+        "source": "string",
+        "title": "string",
+        "track_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "history_log",
+        "columns": [
+          {
+            "name": "artist",
+            "type": "TEXT"
+          },
+          {
+            "name": "played_at",
+            "type": "DATETIME"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "track_id",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "profile",
+        "columns": [
+          {
+            "name": "band_track_counts",
+            "type": "JSON"
+          },
+          {
+            "name": "daily_plays",
+            "type": "JSON"
+          },
+          {
+            "name": "estimated_hours",
+            "type": "REAL"
+          },
+          {
+            "name": "peak_band",
+            "type": "TEXT"
+          },
+          {
+            "name": "personality_scores",
+            "type": "JSON"
+          },
+          {
+            "name": "trend_detail",
+            "type": "JSON"
+          },
+          {
+            "name": "unique_artist_count",
+            "type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Implement basic pixel DJ terminal display with lyrics sync",
+    "week 1: Integrate Apple Music playback control via AppleScript",
+    "week 1: Log played tracks to local history.log as fallback",
+    "week 2: Build core profile summarization logic (unique_artist_count, estimated_hours)",
+    "week 2: Enable natural language recommendation triggers",
+    "week 2: Expose list_history and list_loved MCP commands",
+    "week 3: Add event hooks for commit/test-failure reactions",
+    "week 3: Develop HTML report v1 with basic stats",
+    "week 3: Inject routing rules into CLAUDE.md and AGENTS.md during install",
+    "week 4: Implement personality scoring across 5 dimensions",
+    "week 4: Launch bilingual user feedback survey integration",
+    "week 4: Upgrade to v2 dashboard with 8 modules including radar chart and trend arrows"
+  ],
+  "acceptance_tests": [
+    "Given a test failure event in the terminal, the pixel DJ displays a panic animation.",
+    "Given a user viewing the HTML report dashboard, they see an 860px-wide layout with 8 modules including heatmap, radar chart, and trend indicators.",
+    "Given a user who says 'recommend something based on my history', then the system analyzes top artists and style tags and returns ranked suggestions.",
+    "Given a user with Apple Music play history, when they run 'show my recently played tracks', then the system returns tracks from native logs.",
+    "Given installation on macOS, loved-track routing rules are injected into ~/.claude/CLAUDE.md and AGENTS.md."
+  ]
+}
