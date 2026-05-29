@@ -1,0 +1,1816 @@
+{
+  "run_id": "20260529T065652Z",
+  "generated_at": "2026-05-29T06:56:52.100Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 92,
+    "candidates_kept": 5,
+    "candidates_deduped": 4,
+    "new_candidates": 1,
+    "repo_cards_built": 1,
+    "gaps_count": 0,
+    "specs_attempted": 1,
+    "specs_succeeded": 1,
+    "specs_failed": 0,
+    "evidence_validated": 1,
+    "evidence_valid_ok": 1,
+    "evidence_valid_failed": 0,
+    "evidence_written": 1,
+    "evidence_write_failed": 0,
+    "evidence_total": 21,
+    "evidence_by_type": {
+      "readme": 8,
+      "issue": 9,
+      "release": 3,
+      "root_files": 1
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-05-29T06:58:26.342Z",
+    "repo_count": 338
+  },
+  "candidates": [
+    {
+      "full_name": "fallow-rs/fallow",
+      "html_url": "https://github.com/fallow-rs/fallow",
+      "description": "Codebase intelligence for TypeScript and JavaScript. Free static layer: unused code, duplication, circular deps, complexity hotspots, architecture boundaries. Optional paid runtime layer: hot-path review and cold-path deletion evidence from real production traffic. Rust-native, sub-second, 95 framework plugins.",
+      "topics": [
+        "cli",
+        "code-duplication",
+        "code-quality",
+        "codebase-intelligence",
+        "copy-paste-detection",
+        "dead-code",
+        "developer-tools",
+        "duplicate-code",
+        "javascript",
+        "linter",
+        "oxc",
+        "runtime-intelligence",
+        "rust",
+        "static-analysis",
+        "typescript",
+        "unused-code",
+        "unused-dependencies",
+        "unused-exports"
+      ],
+      "language": "Rust",
+      "stargazers_count": 2492,
+      "forks_count": 64,
+      "open_issues_count": 27,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-29T06:56:52Z",
+      "created_at": "2026-03-17T08:40:57Z"
+    },
+    {
+      "full_name": "teng-lin/notebooklm-py",
+      "html_url": "https://github.com/teng-lin/notebooklm-py",
+      "description": "Unofficial Python API and agentic skill for Google NotebookLM. Full programmatic access to NotebookLM's features—including capabilities the web UI doesn't expose—via Python, CLI, and AI agents like Claude Code, Codex, and OpenClaw.",
+      "topics": [
+        "agentic-skill",
+        "api",
+        "claude",
+        "claude-skills",
+        "google-notebooklm",
+        "notebooklm",
+        "notebooklm-api",
+        "notebooklm-skill",
+        "openclaw-skills",
+        "podcast-generator",
+        "python",
+        "python-api",
+        "sdk",
+        "skills"
+      ],
+      "language": "Python",
+      "stargazers_count": 15441,
+      "forks_count": 2113,
+      "open_issues_count": 18,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-29T06:56:44Z",
+      "created_at": "2026-01-07T15:27:19Z"
+    },
+    {
+      "full_name": "fastrepl/anarlog",
+      "html_url": "https://github.com/fastrepl/anarlog",
+      "description": "Open source Granola AI Alternative",
+      "topics": [
+        "local-first",
+        "notetaking",
+        "open-source",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "language": "Rust",
+      "stargazers_count": 8536,
+      "forks_count": 621,
+      "open_issues_count": 27,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-29T06:56:33Z",
+      "created_at": "2024-12-09T02:51:21Z"
+    },
+    {
+      "full_name": "lidge-jun/cli-jaw",
+      "html_url": "https://github.com/lidge-jun/cli-jaw",
+      "description": "🦈 2-line install personal AI assistant. 11 AI runtime surfaces (Claude, Codex, Cursor, Gemini, Grok, Antigravity, OpenCode, Copilot), 200+ skills, zero ban risk.",
+      "topics": [
+        "ai",
+        "assistant",
+        "automation",
+        "claude",
+        "cli",
+        "codex",
+        "copilot",
+        "gemini",
+        "mcp",
+        "multi-agent",
+        "opencode",
+        "orchestrator",
+        "telegram-bot",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 128,
+      "forks_count": 17,
+      "open_issues_count": 8,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-29T06:53:34Z",
+      "created_at": "2026-02-25T00:18:14Z"
+    },
+    {
+      "full_name": "alistaitsacle/free-llm-api-keys",
+      "html_url": "https://github.com/alistaitsacle/free-llm-api-keys",
+      "description": "Free LLM API keys for GPT-5.5, Claude, DeepSeek, Gemini, Grok — copy, paste, use. Updated 3-5x daily. No credit card needed.",
+      "topics": [
+        "ai",
+        "api",
+        "api-key",
+        "api-keys",
+        "chatgpt",
+        "claude",
+        "deepseek",
+        "free",
+        "free-api",
+        "free-api-key",
+        "free-gpt",
+        "free-llm",
+        "gemini",
+        "gpt",
+        "gpt4",
+        "grok",
+        "large-language-models",
+        "llm",
+        "llm-api",
+        "openai"
+      ],
+      "language": "Python",
+      "stargazers_count": 1143,
+      "forks_count": 117,
+      "open_issues_count": 1,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-05-29T06:52:07Z",
+      "created_at": "2026-03-23T03:28:17Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "lidge-jun/cli-jaw",
+      "html_url": "https://github.com/lidge-jun/cli-jaw",
+      "description": "🦈 2-line install personal AI assistant. 11 AI runtime surfaces (Claude, Codex, Cursor, Gemini, Grok, Antigravity, OpenCode, Copilot), 200+ skills, zero ban risk.",
+      "topics": [
+        "ai",
+        "assistant",
+        "automation",
+        "claude",
+        "cli",
+        "codex",
+        "copilot",
+        "gemini",
+        "mcp",
+        "multi-agent",
+        "opencode",
+        "orchestrator",
+        "telegram-bot",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 128,
+      "forks_count": 17,
+      "open_issues_count": 8,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-29T06:53:34Z",
+      "created_at": "2026-02-25T00:18:14Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "lidge-jun/cli-jaw",
+      "html_url": "https://github.com/lidge-jun/cli-jaw",
+      "description": "🦈 2-line install personal AI assistant. 11 AI runtime surfaces (Claude, Codex, Cursor, Gemini, Grok, Antigravity, OpenCode, Copilot), 200+ skills, zero ban risk.",
+      "topics": [
+        "ai",
+        "assistant",
+        "automation",
+        "claude",
+        "cli",
+        "codex",
+        "copilot",
+        "gemini",
+        "mcp",
+        "multi-agent",
+        "opencode",
+        "orchestrator",
+        "telegram-bot",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 128,
+      "forks_count": 17,
+      "open_issues_count": 8,
+      "license_spdx_id": "MIT",
+      "default_branch": "master",
+      "pushed_at": "2026-05-29T06:53:34Z",
+      "created_at": "2026-02-25T00:18:14Z",
+      "readme": {
+        "fetched": true,
+        "text": "<div align=\"center\">\n\n# CLI-JAW\n\n### Your personal AI agent. 2 lines to install. 11 AI runtime surfaces in one dashboard.\n\n[![npm](https://img.shields.io/npm/v/cli-jaw)](https://npmjs.com/package/cli-jaw)\n[![Version](https://img.shields.io/badge/v2.0.16-GA-brightgreen)](https://github.com/lidge-jun/cli-jaw/releases)\n[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://typescriptlang.org)\n[![Node](https://img.shields.io/badge/node-%3E%3D22-blue)](https://nodejs.org)\n[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)\n[![Docker](https://img.shields.io/badge/Docker-supported-2496ED?logo=docker&logoColor=white)](#-docker)\n\n**English** / [한국어](README.ko.md) / [中文](README.zh-CN.md) / [日本語](README.ja.md)\n\n</div>\n\n## Install\n\n<details>\n<summary><b>Safe install</b> — for existing users who want minimal changes</summary>\n\n```bash\n# macOS / Linux\nJAW_SAFE=1 npm install -g cli-jaw    # skips optional tool/runtime setup\njaw init                              # interactive setup later when you're ready\n```\n\nWindows users should use the WSL install path below. Native PowerShell is not the supported CLI-JAW install target.\n\n</details>\n\n```bash\n# macOS / Linux / WSL with Node.js 22+ already installed\nnpm install -g cli-jaw\njaw dashboard\n```\n\nThat's it. Open **http://localhost:3457** and you have a personal AI agent. Requires [Node.js 22+](https://nodejs.org).\n\n> **First time?** The default npm install initializes CLI-JAW and attempts native Claude setup. Other AI CLIs are optional; install them all during npm setup with `CLI_JAW_INSTALL_CLI_TOOLS=1 npm install -g cli-jaw` on macOS/Linux. On Windows, use the WSL install path below.\n\n<details>\n<summary><b>macOS one-click</b> — don't have Node.js? This installs everything</summary>\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/lidge-jun/cli-jaw/master/scripts/install.sh | bash\nsource \"${ZDOTDIR:-$HOME}/.zshrc\" 2>/dev/null || true\nbash \"$(npm root -g)/cli-jaw/scripts/verify-fresh-install.sh\"\n```\n\n</details>\n\n<details>\n<summary><b>Windows (WSL — Windows Subsystem for Linux)</b> — one-click from scratch</summary>\n\n```powershell\n# 1. Install WSL (PowerShell as Admin)\nwsl --install\n```\n\nRestart, open **Ubuntu**, then:\n\n```bash\n# 2. Install CLI-JAW + all dependencies\ncurl -fsSL https://raw.githubusercontent.com/lidge-jun/cli-jaw/master/scripts/install-wsl.sh | bash\nsource ~/.bashrc\njaw dashboard\nbash \"$(npm root -g)/cli-jaw/scripts/verify-fresh-install.sh\"\n```\n\nFrom Windows PowerShell into WSL, run commands through a login shell so the WSL profile PATH is loaded:\n\n```powershell\nwsl.exe -d Ubuntu -- bash -lc \"jaw dashboard\"\n```\n\n</details>\n\n<details>\n<summary><b>Fresh-machine evidence</b> — maintainer release check</summary>\n\nRun this on a clean VM before publishing installer changes. It writes environment snapshots, installer logs, the exact collector/installer/verifier scripts that ran, their SHA-256 hashes, verifier logs, and new-shell PATH probes into `~/cli-jaw-fresh-install-evidence-*`.\n\n```bash\n# macOS Terminal\nCOLLECTOR=/tmp/cli-jaw-collect-fresh-install-evidence.sh\ncurl -fsSL https://raw.githubusercontent.com/lidge-jun/cli-jaw/master/scripts/collect-fresh-install-evidence.sh -o \"$COLLECTOR\"\nbash \"$COLLECTOR\" --target macos\n\n# Ubuntu inside WSL\nCOLLECTOR=/tmp/cli-jaw-collect-fresh-install-evidence.sh\ncurl -fsSL https://raw.githubusercontent.com/lidge-jun/cli-jaw/master/scripts/collect-fresh-install-evidence.sh -o \"$COLLECTOR\"\nbash \"$COLLECTOR\" --target wsl\n```\n\nFrom Windows PowerShell, enter the supported WSL path:\n\n```powershell\nwsl.exe -d Ubuntu -- bash -lc 'COLLECTOR=/tmp/cli-jaw-collect-fresh-install-evidence.sh; curl -fsSL https://raw.githubusercontent.com/lidge-jun/cli-jaw/master/scripts/collect-fresh-install-evidence.sh -o \"$COLLECTOR\"; bash \"$COLLECTOR\" --target wsl'\n```\n\nIf the collector says `powershell.exe` is not available inside WSL, run this from Windows PowerShell before auditing:\n\n```powershell\nwsl.exe -d Ubuntu -- bash -lc 'EVIDENCE_DIR=\"$(ls -dt ~/cli-jaw-fresh-install-evidence-* | head -1)\"; { echo \"command=wsl.exe -d Ubuntu -- bash -lc jaw --version\"; jaw --version; } | tee \"$EVIDENCE_DIR/33-powershell-to-wsl-probe.log\"'\n```\n\nFor an unmerged branch or local VM checkout, pass the local installer and verifier explicitly:\n\n```bash\nbash scripts/collect-fresh-install-evidence.sh --target macos --install-script scripts/install.sh --verifier-script scripts/verify-fresh-install.sh\nbash scripts/collect-fresh-install-evidence.sh --target wsl --install-script scripts/install-wsl.sh --verifier-script scripts/verify-fresh-install.sh\n```\n\nAudit each collected directory before treating it as target evidence:\n\n```bash\nEVIDENCE_DIR=\"$(ls -dt ~/cli-jaw-fresh-install-evidence-* | head -1)\"\nAUDITOR=\"$(npm root -g)/cli-jaw/scripts/audit-fresh-install-evidence.mjs\"\nnode \"$AUDITOR\" \"$EVIDENCE_DIR\" --target macos\nnode \"$AUDITOR\" \"$EVIDENCE_DIR\" --target wsl\n\n# For a local checkout, audit with the checkout's auditor:\nnode scripts/audit-fresh-install-evidence.mjs \"$EVIDENCE_DIR\" --target macos\nnode scripts/audit-fresh-install-evidence.mjs \"$EVIDENCE_DIR\" --target wsl\n```\n\nBefore publishing installer changes, run the matrix gate with both strict evidence directories:\n\n```bash\nGATE=\"$(npm root -g)/cli-jaw/scripts/verify-release-evidence.mjs\"\nnode \"$GATE\" --macos /path/to/macos-evidence --wsl /path/to/wsl-evidence\n\n# For a local checkout:\nnode scripts/verify-release-evidence.mjs --macos /path/to/macos-evidence --wsl /path/to/wsl-evidence\n```\n\nThe matrix gate rejects evidence collected with stale collector, installer, or verifier scripts; archived evidence scripts must match the current package or checkout that runs the gate.\n\nWhen `scripts/release.sh`, `scripts/release-preview.sh`, or `npm publish` detects installer-sensitive changes since the previous tag, it runs this same matrix gate before any git push or npm publish. Set the evidence directories before starting a release:\n\n```bash\nCLI_JAW_MACOS_EVIDENCE_DIR=/path/to/macos-evidence \\\nCLI_JAW_WSL_EVIDENCE_DIR=/path/to/wsl-evidence \\\nbash scripts/release.sh patch\n```\n\n</details>\n\n<details>\n<summary><b>Docker</b></summary>\n\n```bash\ndocker compose up -d       # → http://localhost:3457\n```\n\n</details>\n\n---\n\n## What is CLI-JAW?\n\nCLI-JAW is an open-source platform that unifies the AI coding CLIs you already use — Claude, Claude E, AI-E, Antigravity, Codex, Codex App, Cursor, Gemini, Grok, OpenCode, and Copilot — into **one assistant with one memory and one dashboard**.\n\nYour main CLI (the “Boss”) calls the others as “employees.” You stop copy-pasting between apps and start giving orders from a single place.\n\n- **No API keys needed** — routes through subscriptions you already pay for\n- **No per-token billing** — flat monthly cost, same as what you already have\n- **Runs locally** — your code never leaves your machine\n\n<div align=\"center\">\n\n![CLI-JAW Manager Dashboard](docs/screenshots/manager-dashboard-light.png)\n\n</div>\n\n---\n\n## Authenticate\n\nYou only need **one**. Pick whichever subscription you already have:\n\n```bash\n# Free options (no credit card needed)\ncopilot login        # GitHub Copilot (free tier available)\nopencode             # OpenCode — free models available\n\n# Paid (monthly subscription you already pay for)\nclaude auth login    # Anthropic Claude Max\ncodex login          # OpenAI ChatGPT Pro\ncursor-agent login   # Cursor\ngemini               # Google Gemini Advanced\ngrok login --oauth   # xAI Grok / Grok Heavy\n```\n\nCheck everything at once: `jaw doctor`\n\n<details>\n<summary>Example jaw doctor output</summary>\n\n```\n🦈 CLI-JAW Doctor — 13 checks\n\n ✅ Node.js        v22.15.0\n ✅ Claude CLI      installed\n ✅ Codex CLI       installed\n ✅ Cursor CLI      installed\n ⚠️ Gemini CLI      not found (optional)\n ✅ OpenCode CLI    installed\n ✅ Copilot CLI     installed\n ✅ Database        jaw.db OK\n ✅ Skills          32 active, 194 reference\n ✅ MCP (plugins)   3 servers configured\n ✅ Memory          structured/ exists\n ✅ Server          port 3457 available\n```\n\n</details>\n\n---\n\n## The Dashboard\n\nThe dashboard is your command center. It's a local web app at `http://localhost:3457`.\n\n### Instance Manager\n\nSee every running AI instance — start, stop, restart with one click. Preview live Web UIs directly in the dashboard.\n\n<div align=\"center\">\n\n![Dashboard Navigator](docs/screenshots/dashboard-navigator.png)\n\n</div>\n\n### Kanban Board\n\nDrag instance cards into lanes (Backlog → Ready → In Progress → Review → Done). Track what each AI session is working on.\n\n<div align=\"center\">\n\n![Kanban Board](docs/screenshots/dashboard-kanban.png)\n\n</div>\n\n### Priority Matrix\n\nEisenhower matrix for your tasks and reminders. Prioritize what matters.\n\n<div align=\"center\">\n\n![Priority Matrix](docs/screenshots/priority-matrix.png)\n\n</div>\n\n### Notes\n\nA mini-Obsidian inside the dashboard. Folders, visual (WYSIWYG) + raw + split editing, KaTeX (math rendering), Mermaid (diagram-as-code), syntax-highlighted code blocks.\n\n<div align=\"center\">\n\n![Notes Editor](docs/screenshots/notes-wysiwyg.png)\n\n</div>\n\n### Agent Status\n\nMonitor each AI engine's health and usage at a glance.\n\n<div align=\"center\">\n\n![Claude Status](docs/screenshots/claude-status-widget.png)\n\n</div>\n\n### Desktop App\n\nPrefer a native window to a browser tab? CLI-JAW ships an **Electron desktop shell** — a thin native wrapper that boots the manager dashboard and supervises the underlying `jaw dashboard serve` process for you. Nothing to keep open in a terminal, no tab to lose.\n\n```bash\n# one-time, from the repo root\nnpm install && npm --prefix electron install\n\nnpm run electron:dev          # develop with hot reload\nnpm run electron:dist:mac     # build a universal .dmg + .zip  (also :win / :linux)\n```\n\nThe packaged app lands in `electron/dist/` (`cli-jaw.app`, `cli-jaw-<version>-universal.dmg`). Native modules (`better-sqlite3`, `playwright-core`, `sharp`, `canvas`) live only in the manager server — the Electron main process never loads them. Builds are currently **unsigned / un-notarized**, so on first launch macOS Gatekeeper needs a right-click → **Open**.\n\n---\n\n## How the Employee System Works\n\nThis is the core idea: **your main CLI calls other CLIs as workers.**\n\nYou talk to one AI (the \"Boss\"). When it needs specialized work, it dispatches tasks to employees — each running their own CLI with their own model:\n\n```\nYou: \"Fix the frontend styling and update the API endpoint\"\n\nBoss (Claude) thinks...\n  ├── Dispatches to Frontend employee (OpenCode) → \"Fix the CSS grid layout in dashboard.tsx\"\n  ├── Dispatches to Backend employee (Codex)     → \"Update /api/users to return pagination metadata\"\n  └── Synthesizes both results for you\n```\n\n```bash\n# Under the hood, it's one command:\njaw dispatch --agent \"Frontend\" --task \"Fix the CSS grid layout in dashboard.tsx\"\n```\n\nEmployees are other AI CLIs configured in your settings. Each has its own session, its own model, its own context. The Boss reviews their output before presenting it to you.\n\n### Employees vs. Sub-agents\n\nThese are different things:\n\n| | Employees | Sub-agents |\n|---|---|---|\n| **What** | Other AI CLIs (Codex, OpenCode, etc.) configured as workers | Built-in parallel task tool within a single CLI |\n| **When** | Multi-specialist work across different codebases or domains | Internal research, file reads, parallel analysis |\n| **How** | `jaw dispatch --agent \"Name\" --task \"...\"` | Automatic — the CLI spawns them internally |\n\nUse employees for \"Frontend does CSS, Backend does API.\" Use sub-agents for \"read these 5 files in parallel before deciding.\"\n\n---\n\n## AI Runtime Surfaces\n\nNo per-token API billing. Route through subscriptions you already pay for.\n\n| CLI | Default Model | Auth | Cost |\n|---|---|---|---|\n| **Claude** | `sonnet` | `claude auth login` | Claude Max subscription |\n| **Claude E** | `sonnet` | underlying `claude auth login` | Experimental interactive Claude wrapper |\n| **AI-E** | provider-selected | selected provider auth | Multi-provider runtime wrapp",
+        "truncated": true,
+        "bytes": 24671,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v2.1.1",
+            "tag_name": "v2.1.1",
+            "published_at": "2026-05-29T04:40:24Z",
+            "body_excerpt": "## Release v2.1.1\n\n**Previous**: v2.1.0\n**Commits**: 2\n\n### Changes\n- fix(electron): make app Reload/Hard Reload reload the main window\n- feat(interview): collapsible Known/Unknown tracker so it doesn't bury the chat\n\n### Desktop / Electron\n- Electron shell validated with `npm --prefix electron run typecheck` and `npm --prefix electron run build`.\n- npm package boundary validated with `npm run check:electron-no-native`; Electron app artifacts remain outside the npm package.\n- Desktop app distribution remains separate from `npm install -g cli-jaw`.\n- macOS, Windows, and Linux desktop assets are built by GitHub Actions after this release is published, then attached to this GitHub Release.\n#### ⚠️ Desktop app downloads are unsigned\nThe desktop assets attached by GitHub Actions are **unsigned** (no Apple Developer ID / Windows code-signing cert configured).\n\n- macOS: Gatekeeper will block first launch. Either right-click → Open → Open, or remove the quarantine attribute:\n  ```sh\n  xattr -d com.apple.quarantine /Applications/cli-jaw.app\n  ```\n- Windows: SmartScreen will warn on first run. Click \"More info\" → \"Run anyway\".\n- Linux: AppImage downloads may need execute permission before launch.\n- For trusted distribution, install via `npm install -g cli-jaw` instead."
+          },
+          {
+            "name": "v2.1.0",
+            "tag_name": "v2.1.0",
+            "published_at": "2026-05-29T04:06:17Z",
+            "body_excerpt": "## Release v2.1.0\n\n**Previous**: v2.0.17-preview.20260529041409\n**Commits**: 13\n\n### Changes\n- [agent] chore: release v2.0.17\n- [agent] chore: release v2.0.17\n- fix audit findings: type safety, focus scoping, permission denylist\n- update devlog submodule pointer\n- guide AI to use cli-jaw goal CLI instead of slash commands\n- add cli-jaw goal subcommand for goal lifecycle management\n- implement K2+K3 context shortcuts and power user features\n- implement Cmd+W tab close and Cmd+1-4 tab switching (K0+K1)\n- ci(desktop): pin Python 3.11 so node-gyp can rebuild node-pty\n- docs(readme): fix broken center alignment (smart quotes) + bump version badge to v2.0.16\n- fix(release): create GitHub Release before npm publish so publish failures don't skip it\n- remove right panel max-width caps entirely\n- widen right panel max width from 520px to 1200px\n\n### Desktop / Electron\n- Electron shell validated with `npm --prefix electron run typecheck` and `npm --prefix electron run build`.\n- npm package boundary validated with `npm run check:electron-no-native`; Electron app artifacts remain outside the npm package.\n- Desktop app distribution remains separate from `npm install -g cli-jaw`.\n- macOS, Windows, and Linux desktop assets are built by GitHub Actions after this release is published, then attached to this GitHub Release.\n#### ⚠️ Desktop app downloads are unsigned\nThe desktop assets attached by GitHub Actions are **unsigned** (no Apple Developer ID / Windows code-signing cert configured).\n\n- macOS: Gatekeeper will block first launch. Either right-click → Open → Open, or remove the quarantine attribute:\n  ```sh\n  xattr -d com.apple.quarantine /Applications/cli-jaw.app\n  ```\n- Windows: SmartScreen will warn on first run. Click \"More info\" → \"Run anyway\".\n- Linux: AppImage downloads may need execute permission before launch.\n- For trusted distribution, install via `npm install -g cli-jaw` instead."
+          },
+          {
+            "name": "v2.0.17",
+            "tag_name": "v2.0.17",
+            "published_at": "2026-05-29T03:51:17Z",
+            "body_excerpt": "## Release v2.0.17\n\n**Previous**: v2.0.17-preview.20260529041409\n**Commits**: 11\n\n### Changes\n- fix audit findings: type safety, focus scoping, permission denylist\n- update devlog submodule pointer\n- guide AI to use cli-jaw goal CLI instead of slash commands\n- add cli-jaw goal subcommand for goal lifecycle management\n- implement K2+K3 context shortcuts and power user features\n- implement Cmd+W tab close and Cmd+1-4 tab switching (K0+K1)\n- ci(desktop): pin Python 3.11 so node-gyp can rebuild node-pty\n- docs(readme): fix broken center alignment (smart quotes) + bump version badge to v2.0.16\n- fix(release): create GitHub Release before npm publish so publish failures don't skip it\n- remove right panel max-width caps entirely\n- widen right panel max width from 520px to 1200px\n\n### Desktop / Electron\n- Electron shell validated with `npm --prefix electron run typecheck` and `npm --prefix electron run build`.\n- npm package boundary validated with `npm run check:electron-no-native`; Electron app artifacts remain outside the npm package.\n- Desktop app distribution remains separate from `npm install -g cli-jaw`.\n- macOS, Windows, and Linux desktop assets are built by GitHub Actions after this release is published, then attached to this GitHub Release.\n#### ⚠️ Desktop app downloads are unsigned\nThe desktop assets attached by GitHub Actions are **unsigned** (no Apple Developer ID / Windows code-signing cert configured).\n\n- macOS: Gatekeeper will block first launch. Either right-click → Open → Open, or remove the quarantine attribute:\n  ```sh\n  xattr -d com.apple.quarantine /Applications/cli-jaw.app\n  ```\n- Windows: SmartScreen will warn on first run. Click \"More info\" → \"Run anyway\".\n- Linux: AppImage downloads may need execute permission before launch.\n- For trusted distribution, install via `npm install -g cli-jaw` instead."
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 219,
+            "title": "Intermittent: dispatch to claude-e employee fails with 'Claude exited before SessionStart (exit 1)'",
+            "state": "open",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/219"
+          },
+          {
+            "number": 213,
+            "title": "feat/quota: adopt official Cursor/AGY/Grok quota surfaces when exposed",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/213"
+          },
+          {
+            "number": 218,
+            "title": "Dark mode audit: 16 findings across dashboard CSS/JS/theme system",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/218"
+          },
+          {
+            "number": 217,
+            "title": "Reminders dark mode: hardcoded light-only colors in CSS",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/217"
+          },
+          {
+            "number": 216,
+            "title": "Minimal runtime policy hooks for long-running agents",
+            "state": "open",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/216"
+          },
+          {
+            "number": 153,
+            "title": "feat(manager): auto-switch notes tab on employee note creation",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/153"
+          },
+          {
+            "number": 199,
+            "title": "feat: Telegram과 Discord 동시 활성 또는 send endpoint 독립 동작 지원",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/199"
+          },
+          {
+            "number": 16,
+            "title": "feat: Web UI debug console MVP",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/16"
+          },
+          {
+            "number": 211,
+            "title": "feat(runtime): investigate Cursor CLI agent integration",
+            "state": "closed",
+            "url": "https://github.com/lidge-jun/cli-jaw/issues/211"
+          }
+        ]
+      },
+      "root_files": [
+        ".claude",
+        ".dockerignore",
+        ".env.example",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".gitmodules",
+        ".npmignore",
+        ".pabcd-plan-chat-scroll.md",
+        ".shared_plan.md",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "DashboardNoteFileResponse",
+        "Dockerfile",
+        "Dockerfile.dev",
+        "LICENSE",
+        "README.ja.md",
+        "README.ko.md",
+        "README.md",
+        "README.zh-CN.md",
+        "TESTS.md",
+        "audit_test_output.txt",
+        "bin",
+        "build-local",
+        "devlog",
+        "docker-compose.yml",
+        "docs",
+        "electron",
+        "image",
+        "lib",
+        "native",
+        "officecli",
+        "package-lock.json",
+        "package.json",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "prompts",
+        "public",
+        "scripts",
+        "server.ts",
+        "skills_ref",
+        "src",
+        "structure",
+        "tests",
+        "tsconfig.build.json",
+        "tsconfig.frontend.json",
+        "tsconfig.json",
+        "types"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 1)",
+          "excerpt": "### Your personal AI agent. 2 lines to install. 11 AI runtime surfaces in one dashboard.",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 2)",
+          "excerpt": "[![npm](https://img.shields.io/npm/v/cli-jaw)](https://npmjs.com/package/cli-jaw) [![Version](https://img.shields.io/badge/v2.0.16-GA-brightgreen)](https://github.com/lidge-jun/cli-jaw/releases) [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://typescriptlang.org) [![Node](https://img.shields.io/badge/node-%3E%3D22-blue)](https://nodejs.org) [![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE) [![Docker](https://img.shields.io/badge/Docker-supported-2496ED?logo=docker&logoColor=white)](#-docker)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 3)",
+          "excerpt": "<details> <summary><b>Safe install</b> — for existing users who want minimal changes</summary>",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 4)",
+          "excerpt": "```bash # macOS / Linux JAW_SAFE=1 npm install -g cli-jaw # skips optional tool/runtime setup jaw init # interactive setup later when you're ready ```",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 5)",
+          "excerpt": "Windows users should use the WSL install path below. Native PowerShell is not the supported CLI-JAW install target.",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 6)",
+          "excerpt": "```bash # macOS / Linux / WSL with Node.js 22+ already installed npm install -g cli-jaw jaw dashboard ```",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 7)",
+          "excerpt": "That's it. Open **http://localhost:3457** and you have a personal AI agent. Requires [Node.js 22+](https://nodejs.org).",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/lidge-jun/cli-jaw#readme",
+          "title": "README (segment 8)",
+          "excerpt": "> **First time?** The default npm install initializes CLI-JAW and attempts native Claude setup. Other AI CLIs are optional; install them all during npm setup with `CLI_JAW_INSTALL_CLI_TOOLS=1 npm install -g cli-jaw` on macOS/Linux. On Windows, use the WSL install path below.",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/219",
+          "title": "Intermittent: dispatch to claude-e employee fails with 'Claude exited before SessionStart (exit 1)'",
+          "excerpt": "Intermittent: dispatch to claude-e employee fails with 'Claude exited before SessionStart (exit 1)' (state:open)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 219
+          }
+        },
+        {
+          "id": "E-IS-002",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/213",
+          "title": "feat/quota: adopt official Cursor/AGY/Grok quota surfaces when exposed",
+          "excerpt": "feat/quota: adopt official Cursor/AGY/Grok quota surfaces when exposed (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 213
+          }
+        },
+        {
+          "id": "E-IS-003",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/218",
+          "title": "Dark mode audit: 16 findings across dashboard CSS/JS/theme system",
+          "excerpt": "Dark mode audit: 16 findings across dashboard CSS/JS/theme system (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 218
+          }
+        },
+        {
+          "id": "E-IS-004",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/217",
+          "title": "Reminders dark mode: hardcoded light-only colors in CSS",
+          "excerpt": "Reminders dark mode: hardcoded light-only colors in CSS (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 217
+          }
+        },
+        {
+          "id": "E-IS-005",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/216",
+          "title": "Minimal runtime policy hooks for long-running agents",
+          "excerpt": "Minimal runtime policy hooks for long-running agents (state:open)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 216
+          }
+        },
+        {
+          "id": "E-IS-006",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/153",
+          "title": "feat(manager): auto-switch notes tab on employee note creation",
+          "excerpt": "feat(manager): auto-switch notes tab on employee note creation (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 153
+          }
+        },
+        {
+          "id": "E-IS-007",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/199",
+          "title": "feat: Telegram과 Discord 동시 활성 또는 send endpoint 독립 동작 지원",
+          "excerpt": "feat: Telegram과 Discord 동시 활성 또는 send endpoint 독립 동작 지원 (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 199
+          }
+        },
+        {
+          "id": "E-IS-008",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/16",
+          "title": "feat: Web UI debug console MVP",
+          "excerpt": "feat: Web UI debug console MVP (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 16
+          }
+        },
+        {
+          "id": "E-IS-009",
+          "type": "issue",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/issues/211",
+          "title": "feat(runtime): investigate Cursor CLI agent integration",
+          "excerpt": "feat(runtime): investigate Cursor CLI agent integration (state:closed)",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "number": 211
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/releases",
+          "title": "v2.1.1",
+          "excerpt": "## Release v2.1.1 **Previous**: v2.1.0 **Commits**: 2 ### Changes - fix(electron): make app Reload/Hard Reload reload the main window - feat(interview): collapsible Known/Unknown tracker so it doesn't bury the chat ### Desktop / Electron - Electron shell validated with `npm --prefix electron run typecheck` and `npm --prefix electron run build`. - npm package boundary validated with `npm run check:electron-no-native`; Electron app artifacts remain outside the npm package. - Desktop app distribution remains separate from `npm install -g cli-jaw`. - macOS, Windows, and Linux desktop assets are built by GitHub Actions after this release is published, then attached to this GitHub Release. #### ⚠️ Desktop app downloads are unsigned The desktop assets attached by GitHub Actions are **unsigned** (no Apple Developer ID / Windows code-signing cert configured). - macOS: Gatekeeper will block first launch. Either right-click → Open → Open, or remove the quarantine attribute: ```sh xattr -d com.apple.quarantine /Applications/cli-jaw.app ``` - Windows: SmartScreen will warn on first run. Click \"More info\" → \"Run anyway\". - Linux: AppImage downloads may need execute permission before launch. - F…",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "tag_name": "v2.1.1",
+            "published_at": "2026-05-29T04:40:24Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/releases",
+          "title": "v2.1.0",
+          "excerpt": "## Release v2.1.0 **Previous**: v2.0.17-preview.20260529041409 **Commits**: 13 ### Changes - [agent] chore: release v2.0.17 - [agent] chore: release v2.0.17 - fix audit findings: type safety, focus scoping, permission denylist - update devlog submodule pointer - guide AI to use cli-jaw goal CLI instead of slash commands - add cli-jaw goal subcommand for goal lifecycle management - implement K2+K3 context shortcuts and power user features - implement Cmd+W tab close and Cmd+1-4 tab switching (K0+K1) - ci(desktop): pin Python 3.11 so node-gyp can rebuild node-pty - docs(readme): fix broken center alignment (smart quotes) + bump version badge to v2.0.16 - fix(release): create GitHub Release before npm publish so publish failures don't skip it - remove right panel max-width caps entirely - widen right panel max width from 520px to 1200px ### Desktop / Electron - Electron shell validated with `npm --prefix electron run typecheck` and `npm --prefix electron run build`. - npm package boundary validated with `npm run check:electron-no-native`; Electron app artifacts remain outside the npm package. - Desktop app distribution remains separate from `npm install -g cli-jaw`. - macOS, Windows,…",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "tag_name": "v2.1.0",
+            "published_at": "2026-05-29T04:06:17Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/lidge-jun/cli-jaw/releases",
+          "title": "v2.0.17",
+          "excerpt": "## Release v2.0.17 **Previous**: v2.0.17-preview.20260529041409 **Commits**: 11 ### Changes - fix audit findings: type safety, focus scoping, permission denylist - update devlog submodule pointer - guide AI to use cli-jaw goal CLI instead of slash commands - add cli-jaw goal subcommand for goal lifecycle management - implement K2+K3 context shortcuts and power user features - implement Cmd+W tab close and Cmd+1-4 tab switching (K0+K1) - ci(desktop): pin Python 3.11 so node-gyp can rebuild node-pty - docs(readme): fix broken center alignment (smart quotes) + bump version badge to v2.0.16 - fix(release): create GitHub Release before npm publish so publish failures don't skip it - remove right panel max-width caps entirely - widen right panel max width from 520px to 1200px ### Desktop / Electron - Electron shell validated with `npm --prefix electron run typecheck` and `npm --prefix electron run build`. - npm package boundary validated with `npm run check:electron-no-native`; Electron app artifacts remain outside the npm package. - Desktop app distribution remains separate from `npm install -g cli-jaw`. - macOS, Windows, and Linux desktop assets are built by GitHub Actions after this …",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "tag_name": "v2.0.17",
+            "published_at": "2026-05-29T03:51:17Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/lidge-jun/cli-jaw",
+          "title": "ROOT_FILES",
+          "excerpt": ".claude, .dockerignore, .env.example, .gitattributes, .github, .gitignore, .gitmodules, .npmignore, .pabcd-plan-chat-scroll.md, .shared_plan.md, AGENTS.md, CHANGELOG.md, CLAUDE.md, CONTRIBUTING.md, DashboardNoteFileResponse, Dockerfile, Dockerfile.dev, LICENSE, README.ja.md, README.ko.md, README.md, README.zh-CN.md, TESTS.md, audit_test_output.txt, bin, build-local, devlog, docker-compose.yml, docs, electron, image, lib, native, officecli, package-lock.json, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, prompts, public, scripts, server.ts, skills_ref, src, structure, tests, tsconfig.build.json, tsconfig.frontend.json, tsconfig.json, types",
+          "fetched_at": "2026-05-29T06:56:57.134Z",
+          "meta": {
+            "repo_full_name": "lidge-jun/cli-jaw",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "lidge-jun/cli-jaw",
+      "evidence_count": 21,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 9,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": true,
+      "issues_count": 9,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "lidge-jun/cli-jaw",
+      "ok": true,
+      "spec_path": "specs/2026-05-29/lidge-jun__cli-jaw.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "lidge-jun/cli-jaw",
+      "ok": true,
+      "evidence_path": "evidence/2026-05-29/lidge-jun__cli-jaw.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "lidge-jun/cli-jaw",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 2,
+          "cited": 2
+        },
+        "commands": {
+          "total": 2,
+          "cited": 2
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-05-29/lidge-jun__cli-jaw.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-05-29T06:57:12.584Z",
+      "run_id": "20260529T065652Z",
+      "repo": "lidge-jun/cli-jaw",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5e7b4a4a16b10470e8084e2ce03352929e46cd074ccceb33ced42c0d3ad06fc2",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 10824
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 15445,
+      "prompt_chars": 10824,
+      "completion_chars": 1682
+    },
+    {
+      "ts": "2026-05-29T06:57:26.273Z",
+      "run_id": "20260529T065652Z",
+      "repo": "lidge-jun/cli-jaw",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a90301ceacbcd951be10ef2eeae4fc7c9e387a56382ca50b19ac7009dce1d9bd",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 12698
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13688,
+      "prompt_chars": 12698,
+      "completion_chars": 1851
+    },
+    {
+      "ts": "2026-05-29T06:57:44.760Z",
+      "run_id": "20260529T065652Z",
+      "repo": "lidge-jun/cli-jaw",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "eb26c465d56689ffb0494dea56edb4c8600973e3e18bc162ee2ae6ba62eb76c3",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 14765
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 18486,
+      "prompt_chars": 14765,
+      "completion_chars": 2265
+    },
+    {
+      "ts": "2026-05-29T06:57:58.479Z",
+      "run_id": "20260529T065652Z",
+      "repo": "lidge-jun/cli-jaw",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "6b292bff6cb040d015b79e1652b23e529ca6b7b169e97b6be1f4b6677b626c90",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 17211
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13718,
+      "prompt_chars": 17211,
+      "completion_chars": 1769
+    },
+    {
+      "ts": "2026-05-29T06:58:26.327Z",
+      "run_id": "20260529T065652Z",
+      "repo": "lidge-jun/cli-jaw",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "c5d60440d3cbeda00f2ba7a61eff32587a4754817ad5706f1724d6b6c457d995",
+      "input_stats": {
+        "evidence_count": 21,
+        "approx_chars": 21854
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 27846,
+      "prompt_chars": 21854,
+      "completion_chars": 4022
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "lidge-jun/cli-jaw",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "lidge-jun/cli-jaw",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 21,
+      "evidence_total_final": 21,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 1,
+    "attempts_used_hist": {
+      "0": 1,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 1,
+    "success": 1
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1780037812108,
+    "llmCallsTotal": 5,
+    "llmCallsPerRepo": {
+      "lidge-jun/cli-jaw": 5
+    },
+    "tokensApproxTotal": 22237,
+    "tokensApproxPerRepo": {
+      "lidge-jun/cli-jaw": 22237
+    },
+    "reposProcessed": 1,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "lidge-jun/cli-jaw": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "scout",
+        "summary": "CLI-JAW is a TypeScript-based personal AI assistant orchestrator supporting 11 AI runtimes and 200+ skills, installable via npm with optional native tooling. It offers a local dashboard and multi-agent capabilities but has known stability issues with certain AI backends and lacks code signing for desktop builds.",
+        "highlights": [
+          "Installs in 2 lines via npm on macOS/Linux/WSL with Node.js 22+, offering a unified dashboard for 11 AI runtimes including Claude, Gemini, Grok, and Cursor.",
+          "Supports safe install mode (JAW_SAFE=1) to defer optional runtime setup and provides Docker support.",
+          "Recent releases (v2.1.1, v2.1.0) include UI enhancements, goal lifecycle CLI commands, keyboard shortcuts, and fixes for type safety and dark mode.",
+          "Active development with closed issues showing feature work on Telegram/Discord integration, debug console, and quota surface adoption."
+        ],
+        "risks": [
+          "Intermittent failures when dispatching to claude-e employee (exit 1 before SessionStart), indicating runtime instability.",
+          "Desktop app downloads are unsigned on all platforms, triggering OS security warnings (Gatekeeper on macOS, SmartScreen on Windows).",
+          "Windows native PowerShell is unsupported; users must rely on WSL, limiting accessibility.",
+          "Dark mode implementation had multiple hardcoded light-only styles, suggesting ongoing UX polish needs."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-007",
+          "E-IS-008",
+          "E-IS-009"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "inventor",
+        "summary": "CLI-JAW is an inventive multi-agent AI orchestrator that unifies 11 diverse AI runtimes into a single local dashboard with minimal setup, enabling users to manage complex automation workflows through a CLI-first, extensible architecture.",
+        "highlights": [
+          "Invents a unified interface for 11 heterogeneous AI runtimes (Claude, Cursor, Grok, etc.) via a 2-line npm install, abstracting backend complexity behind a consistent local dashboard at http://localhost:3457.",
+          "Introduces a modular skill system (>200 skills) and goal lifecycle CLI commands, allowing structured agent behavior without relying on slash commands.",
+          "Supports optional native AI toolchain setup during install but offers JAW_SAFE=1 mode for deferred configuration, balancing convenience with user control.",
+          "Demonstrates inventive integration patterns with external platforms (Telegram, Discord) and development environments (Cursor CLI), suggesting a composable agent runtime model."
+        ],
+        "risks": [
+          "The inventive runtime abstraction may mask instability in underlying AI services, as evidenced by intermittent Claude-e dispatch failures (exit 1 before SessionStart).",
+          "Unsigned desktop builds undermine trust in the inventive Electron-based delivery model, exposing users to OS-level security warnings.",
+          "Heavy reliance on Node.js 22+ and WSL for Windows limits accessibility and may fragment the user experience across platforms.",
+          "Rapid feature invention (e.g., quota surfaces, policy hooks) may outpace robustness engineering, as seen in repeated dark mode CSS oversights."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-002",
+          "E-IS-007",
+          "E-IS-009",
+          "E-RL-001",
+          "E-RL-002"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "engineer",
+        "summary": "CLI-JAW is a TypeScript-based, CLI-first AI agent orchestrator that integrates 11 AI runtimes and 200+ skills into a local dashboard served at http://localhost:3457. It uses a modular architecture with optional native tooling, supports Docker and WSL (but not native Windows PowerShell), and ships an unsigned Electron desktop app alongside the npm package.",
+        "highlights": [
+          "Built with TypeScript 5.7 and requires Node.js >=22; installs via `npm install -g cli-jaw` with optional runtime setup controlled by environment flags like `JAW_SAFE=1` or `CLI_JAW_INSTALL_CLI_TOOLS=1`.",
+          "Local dashboard UI is actively developed, with recent releases (v2.1.0, v2.1.1) adding keyboard shortcuts, goal lifecycle CLI commands, debug console, and responsive layout improvements (e.g., right panel widened to 1200px).",
+          "Multi-agent dispatch system supports Telegram/Discord integrations and experimental backends like Cursor and Claude-e, though some exhibit instability.",
+          "Project structure includes dedicated directories for Electron, Docker, prompts, skills, and tests, indicating a layered engineering approach with separation of concerns."
+        ],
+        "risks": [
+          "Intermittent runtime failure when dispatching to claude-e ('Claude exited before SessionStart (exit 1)'), suggesting insufficient process lifecycle management or error handling in agent spawning logic.",
+          "Desktop app builds are unsigned across macOS, Windows, and Linux, triggering OS security warnings and undermining deployment trust—especially critical for a tool managing AI agents with potential access to user data.",
+          "Windows support limited to WSL; native PowerShell installation is explicitly unsupported, creating a platform gap and potential friction for non-WSL Windows developers.",
+          "Repeated dark mode issues (hardcoded light colors, 16 audit findings) indicate weak theming abstraction or lack of automated visual regression testing in frontend engineering practices."
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-IS-001",
+          "E-IS-003",
+          "E-IS-004",
+          "E-IS-007",
+          "E-IS-008",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role": "skeptic",
+        "summary": "CLI-JAW promises a powerful, unified AI agent experience but exhibits concerning gaps in stability, security, and platform support that undermine its production readiness.",
+        "highlights": [
+          "Claims 'zero ban risk' and '11 AI runtime surfaces' yet relies on unstable integrations like claude-e, which fails intermittently before session start.",
+          "Promotes a 2-line install but hides significant caveats: Windows users must use WSL, and default installs attempt native setup that may fail or require manual intervention.",
+          "Advertises a desktop app but distributes unsigned binaries, knowingly exposing users to OS security blocks without mitigation.",
+          "Touts dark mode support despite documented evidence of hardcoded light-only styles and 16+ theming issues, suggesting superficial UX claims."
+        ],
+        "risks": [
+          "The core promise of reliable multi-agent orchestration is contradicted by open issues showing fundamental runtime instability (e.g., claude-e exit 1), raising doubts about robustness under real-world use.",
+          "Unsigned desktop builds indicate either negligence in distribution security or an unwillingness to invest in basic trust infrastructure, making it unsuitable for security-conscious users.",
+          "Platform exclusion (no native Windows support) and dependency on cutting-edge Node.js 22+ limit accessibility and increase adoption friction beyond the advertised simplicity.",
+          "Repeated theming oversights suggest a pattern of prioritizing feature velocity over polish and accessibility, potentially masking deeper technical debt in the frontend architecture."
+        ],
+        "evidence_ids": [
+          "E-IS-001",
+          "E-RD-005",
+          "E-RL-001",
+          "E-IS-003",
+          "E-IS-004",
+          "E-RD-008"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 21,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"CLI-JAW\",\n    \"one_sentence\": \"A personal AI agent orchestrator that unifies 11 AI runtimes into a single local dashboard with minimal setup.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"User installs CLI-JAW via npm, initializes the agent, and interacts through a local web dashboard at http://localhost:3457 to manage goals, dispatch tasks across multiple AI runtimes (e.g., Claude, Cursor, Grok), and view notes or debug output.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Dashboard\",\n      \"purpose\": \"Central interface for managing AI agents, viewing chat sessions, goal status, and notes.\",\n      \"primary_actions\": [\n        \"Start new goal\",\n        \"Switch between agent tabs\",\n        \"View known/unknown tracker\",\n        \"Access debug console\"\n      ]\n    },\n    {\n      \"id\": \"settings\",\n      \"name\": \"Settings\",\n      \"purpose\": \"Configure runtime preferences, AI tool integrations, and appearance (e.g., dark mode).\",\n      \"primary_actions\": [\n        \"Toggle dark mode\",\n        \"Manage AI runtime connections\",\n        \"Set quota policies\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"dispatch_agent\",\n      \"purpose\": \"Send a task to a specific AI runtime employee (e.g., claude-e, cursor).\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"goal_lifecycle\",\n      \"purpose\": \"Manage creation, update, and completion of user-defined goals via CLI.\",\n      \"async\": false,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"agents\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"runtime\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"status\",\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"goals\",\n        \"fields\": [\n          {\n            \"name\": \"id\",\n            \"type"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "lidge-jun/cli-jaw",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 12,
+        "engineer": 12,
+        "skeptic": 6,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=2",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=92 kept=5 limit=5",
+    "[deduper] existing_index_repos=337",
+    "[deduper] candidates_total=5 new=1 skipped=4",
+    "[repo_card_builder] lidge-jun/cli-jaw evidence total=21 readme=8 issue=9 release=3 root_files=1",
+    "[repo_card_builder] built=1 readme_ok=1/1 evidence_total=21 gaps=0",
+    "[llm_spec_generator] lidge-jun/cli-jaw canonical spec ok (iter=1) -> specs/2026-05-29/lidge-jun__cli-jaw.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-05-29T06:56:52.108Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:52.128Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260529T065652Z"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:52.128Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:52.131Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:52.717Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:52.717Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:53.150Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:53.150Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:53.561Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:53.561Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:54.041Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:54.041Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:54.542Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:54.542Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:55.015Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:55.015Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:55.538Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:55.538Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:55.824Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:55.824Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.299Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.299Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.750Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.753Z",
+      "run_id": "20260529T065652Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 337
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.755Z",
+      "run_id": "20260529T065652Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 1,
+        "skipped": 4,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.758Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-05-29T06:56:56.758Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lidge-jun__cli-jaw/readme.json"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.759Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lidge-jun__cli-jaw/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.761Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lidge-jun__cli-jaw/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:56.762Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "lidge-jun__cli-jaw/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.134Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 24671,
+        "truncated": true
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.134Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.134Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 9
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.134Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 376
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.135Z",
+      "run_id": "20260529T065652Z",
+      "node": "repo_card_builder",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 21,
+        "readme": 8,
+        "issues": 9,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.138Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 21,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 9,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-05-29T06:56:57.139Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 21,
+        "evidence_selected": 21,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-05-29T06:57:12.584Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1682,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:57:26.273Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1851,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:57:44.760Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2265,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:57:58.479Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1769,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.327Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4022,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.340Z",
+      "run_id": "20260529T065652Z",
+      "node": "llm_spec_generator",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.342Z",
+      "run_id": "20260529T065652Z",
+      "node": "artifacts",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-05-29/lidge-jun__cli-jaw.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.342Z",
+      "run_id": "20260529T065652Z",
+      "node": "artifacts",
+      "repo": "lidge-jun/cli-jaw",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-05-29/lidge-jun__cli-jaw.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.346Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 1,
+        "attempts_used_hist": {
+          "0": 1,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.346Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1780037812108,
+        "llmCallsTotal": 5,
+        "llmCallsPerRepo": {
+          "lidge-jun/cli-jaw": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 1,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.346Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-05-29T06:58:26.346Z",
+      "run_id": "20260529T065652Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 1,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-05-29",
+    "evidence_dir": "evidence/2026-05-29"
+  }
+}

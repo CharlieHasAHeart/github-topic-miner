@@ -1,0 +1,107 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CLI-JAW",
+    "one_liner": "A personal AI agent orchestrator that unifies 11 AI runtimes into a single local dashboard with minimal setup."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Central interface for managing AI agents, viewing chat sessions, goal status, and notes.",
+      "primary_actions": [
+        "Access debug console",
+        "Start new goal",
+        "Switch between agent tabs",
+        "View known/unknown tracker"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure runtime preferences, AI tool integrations, and appearance (e.g., dark mode).",
+      "primary_actions": [
+        "Manage AI runtime connections",
+        "Set quota policies",
+        "Toggle dark mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "dispatch_agent",
+      "purpose": "Send a task to a specific AI runtime employee (e.g., claude-e, cursor).",
+      "async": true,
+      "input": {
+        "payload": "json",
+        "runtime": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "goal_lifecycle",
+      "purpose": "Manage creation, update, and completion of user-defined goals via CLI.",
+      "async": false,
+      "input": {
+        "payload": "json",
+        "runtime": "string",
+        "status": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agents",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "runtime",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "goals",
+        "columns": [
+          {
+            "name": "description",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "state",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add basic dark mode support with theme toggle",
+    "week 1: Build local dashboard with goal input and chat view",
+    "week 1: Implement core dispatch mechanism for 2+ AI runtimes"
+  ],
+  "acceptance_tests": [
+    "Dark mode renders all UI elements with appropriate contrast and no hardcoded light colors.",
+    "Dispatching a task to claude-e succeeds without premature exit under normal conditions.",
+    "Goal lifecycle commands (create/update/complete) function via CLI and reflect in UI.",
+    "User can install CLI-JAW via `npm install -g cli-jaw` on macOS/Linux with Node.js 22+ and launch dashboard at http://localhost:3457."
+  ]
+}
