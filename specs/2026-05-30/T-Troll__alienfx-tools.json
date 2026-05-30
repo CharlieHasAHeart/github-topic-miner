@@ -1,0 +1,168 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "AlienFX Tools",
+    "one_liner": "A lightweight suite for direct hardware control of Alienware lighting, fans, and power profiles without AWCC."
+  },
+  "screens": [
+    {
+      "name": "AlienFX Control Dashboard",
+      "purpose": "Central interface for managing lighting zones, fan speeds, power modes, and monitoring system health.",
+      "primary_actions": [
+        "Adjust fan curves or set fixed RPM",
+        "Configure lighting effects per zone",
+        "Enable/disable AWCC integration",
+        "Launch system monitor in tray",
+        "Switch power profiles"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure tool behavior, startup options, sensor sources, and privilege requirements.",
+      "primary_actions": [
+        "Disable AWCC service (requires admin)",
+        "Enable fan control (requires admin)",
+        "Select BIOS vs EC sensor source",
+        "Set working directory",
+        "Toggle 'Start with Windows'"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "apply_lighting_profile",
+      "purpose": "Apply a configured lighting effect or profile to connected AlienFX devices using direct USB HID commands.",
+      "async": true,
+      "input": {
+        "config_id": "string",
+        "file_path": "string",
+        "fix_ids": "json?",
+        "power_mode": "string",
+        "temp_rpm_curve": "json",
+        "uses_bios_sensors": "boolean"
+      },
+      "output": {
+        "changed": "boolean?",
+        "diff": "string?",
+        "message": "string?",
+        "ok": "boolean"
+      }
+    },
+    {
+      "name": "probe_hardware_devices",
+      "purpose": "Detect connected AlienFX-compatible lighting and thermal devices through USB and ACPI enumeration.",
+      "async": true,
+      "input": {
+        "config_id": "string",
+        "payload": "json",
+        "power_mode": "string",
+        "temp_rpm_curve": "json",
+        "uses_bios_sensors": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "set_fan_curve",
+      "purpose": "Send fan control commands via ACPI BIOS function calls to adjust fan speeds based on temperature or manual input.",
+      "async": true,
+      "input": {
+        "config_id": "string",
+        "payload": "json",
+        "power_mode": "string",
+        "temp_rpm_curve": "json",
+        "uses_bios_sensors": "boolean"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "fan_configs",
+        "columns": [
+          {
+            "name": "config_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "power_mode",
+            "type": "TEXT"
+          },
+          {
+            "name": "temp_rpm_curve",
+            "type": "JSON"
+          },
+          {
+            "name": "uses_bios_sensors",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "hardware_devices",
+        "columns": [
+          {
+            "name": "detected",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "device_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "interface_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "vendor_product",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "lighting_profiles",
+        "columns": [
+          {
+            "name": "effect_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "profile_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "trigger_condition",
+            "type": "TEXT"
+          },
+          {
+            "name": "zone_mapping",
+            "type": "JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build basic ACPI fan command dispatcher using BIOS function calls",
+    "week 1: Create device probing logic for known Alienware models",
+    "week 1: Design main screen UI with zone-based lighting editor",
+    "week 1: Implement core USB HID communication layer for lighting control",
+    "week 2: Add profile switching based on application launch or power state",
+    "week 2: Add tray tooltip showing fan RPM percent and thermal status",
+    "week 2: Implement settings panel with admin-gated options",
+    "week 2: Integrate system monitoring for CPU/GPU temp into lighting effects"
+  ],
+  "acceptance_tests": [
+    "Fan control adjusts RPM via ACPI BIOS calls without direct EC access and respects BIOS safety limits",
+    "GUI disables AWCC service when 'Disable AWCC' is enabled (requires UAC approval)",
+    "LightFX emulation allows legacy Dell LightFX games to control system lighting",
+    "On Alienware m15 R1, lighting effects update at ≥60cps without AWCC running",
+    "Tool starts correctly at Windows login with proper working directory and detects all lighting zones"
+  ]
+}

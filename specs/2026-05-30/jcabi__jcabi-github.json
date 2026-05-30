@@ -1,0 +1,111 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "jcabi-github",
+    "one_liner": "A Java object-oriented wrapper for the GitHub REST API with built-in fake server support for isolated testing."
+  },
+  "screens": [
+    {
+      "name": "GitHub API Interaction Console",
+      "purpose": "Demonstrate core GitHub operations like creating repos, issues, and comments using the jcabi-github OOP API.",
+      "primary_actions": [
+        "Authenticate with GitHub token",
+        "Create repository issue",
+        "Post comment to issue",
+        "Switch to custom GitHub instance"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "configure_custom_github",
+      "purpose": "Configure connection to a self-hosted GitHub instance using a custom URI.",
+      "async": true,
+      "input": {
+        "api_endpoint": "string",
+        "owner": "string",
+        "payload": "json",
+        "repo_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "create_issue",
+      "purpose": "Create a new GitHub issue in a specified repository using the jcabi-github API.",
+      "async": true,
+      "input": {
+        "api_endpoint": "string",
+        "owner": "string",
+        "payload": "json",
+        "repo_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "post_comment",
+      "purpose": "Post a comment to an existing GitHub issue via the jcabi-github object interface.",
+      "async": true,
+      "input": {
+        "api_endpoint": "string",
+        "owner": "string",
+        "payload": "json",
+        "repo_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "github_repos",
+        "columns": [
+          {
+            "name": "api_endpoint",
+            "type": "TEXT"
+          },
+          {
+            "name": "owner",
+            "type": "TEXT"
+          },
+          {
+            "name": "repo_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "oauth_tokens",
+        "columns": [
+          {
+            "name": "scope",
+            "type": "TEXT"
+          },
+          {
+            "name": "token_value",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build fake GitHub server for offline testing",
+    "week 1: Create basic issue and comment interaction commands",
+    "week 1: Implement RtGitHub wrapper with OAuth and URI constructors"
+  ],
+  "acceptance_tests": [
+    "Failing tests are removed or refactored during maintenance without breaking core functionality.",
+    "User can connect to a custom GitHub instance (e.g., https://github.mydomain.com) via URI configuration.",
+    "User can create a GitHub issue using valid OAuth token and default API endpoint.",
+    "User can post a comment to an existing issue without network calls by using fake GitHub server."
+  ]
+}

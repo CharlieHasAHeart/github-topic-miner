@@ -1,0 +1,100 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Telegram Web K",
+    "one_liner": "A GPL v3-licensed progressive web app implementing a full-featured Telegram client based on Webogram."
+  },
+  "screens": [
+    {
+      "name": "Main Chat Interface",
+      "purpose": "Display active chats, messages, and enable real-time communication.",
+      "primary_actions": [
+        "Open media viewer",
+        "Send message",
+        "View chat list"
+      ]
+    },
+    {
+      "name": "Settings Panel",
+      "purpose": "Configure app behavior, sync preferences, and manage drafts.",
+      "primary_actions": [
+        "Adjust privacy settings",
+        "Manage draft messages",
+        "Toggle notifications"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_draft",
+      "purpose": "Persist draft message content to local storage with synchronization intent.",
+      "async": true,
+      "input": {
+        "license_type": "string",
+        "package_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "sync_drafts",
+      "purpose": "Attempt to synchronize draft messages between web and desktop clients.",
+      "async": true,
+      "input": {
+        "license_type": "string",
+        "package_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "dependencies",
+        "columns": [
+          {
+            "name": "license_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "package_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "drafts",
+        "columns": [
+          {
+            "name": "chat_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "content",
+            "type": "TEXT"
+          },
+          {
+            "name": "last_modified",
+            "type": "DATETIME"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build production bundle using node build",
+    "week 1: Deploy via Docker using tweb.production profile",
+    "week 1: Set up pnpm-based dev environment"
+  ],
+  "acceptance_tests": [
+    "App must serve correctly at http://localhost:8080 after pnpm start (E-RD-003).",
+    "Draft messages entered in web client should persist after reload (E-IS-001)."
+  ]
+}
