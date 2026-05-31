@@ -1,0 +1,166 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Agentplane",
+    "one_liner": "Git-native workflow control for coding agents with approved plans, verification, and reviewable evidence."
+  },
+  "screens": [
+    {
+      "name": "Agentplane Dashboard",
+      "purpose": "Orchestrate and monitor AI agent workflows with task execution, evidence capture, and recipe management.",
+      "primary_actions": [
+        "Initialize new workflow",
+        "Run task with evidence capture",
+        "View task artifacts and verification logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "demo",
+      "purpose": "Run a demonstration workflow showcasing core capabilities.",
+      "async": false,
+      "input": {
+        "agent_action": "json",
+        "git_diff": "string",
+        "payload": "json",
+        "task_id": "string",
+        "verification_result": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "init",
+      "purpose": "Initialize Agentplane configuration and local context in a repository.",
+      "async": false,
+      "input": {
+        "agent_action": "json",
+        "git_diff": "string",
+        "payload": "json",
+        "task_id": "string",
+        "verification_result": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "quickstart",
+      "purpose": "Launch a guided quickstart workflow for new users.",
+      "async": false,
+      "input": {
+        "agent_action": "json",
+        "git_diff": "string",
+        "payload": "json",
+        "task_id": "string",
+        "verification_result": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "task_run",
+      "purpose": "Execute a task with lazy hydration and observability tracing.",
+      "async": true,
+      "input": {
+        "agent_action": "json",
+        "git_diff": "string",
+        "payload": "json",
+        "task_id": "string",
+        "verification_result": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "agent_change_records",
+        "columns": [
+          {
+            "name": "agent_action",
+            "type": "JSON"
+          },
+          {
+            "name": "git_diff",
+            "type": "TEXT"
+          },
+          {
+            "name": "task_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "verification_result",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "recipes",
+        "columns": [
+          {
+            "name": "mandatory_evidence",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          },
+          {
+            "name": "signature",
+            "type": "TEXT"
+          },
+          {
+            "name": "steps",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "tasks",
+        "columns": [
+          {
+            "name": "context",
+            "type": "JSON"
+          },
+          {
+            "name": "evidence_artifacts",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "plan",
+            "type": "JSON"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Establish Git-visible evidence capture pipeline",
+    "week 1: Implement core task runner with lazy hydration",
+    "week 1: Integrate Ed25519-signed recipe validation"
+  ],
+  "acceptance_tests": [
+    "Branch_pr route guidance provides safe next actions with clear prompt fields.",
+    "Playbook recipe layer enforces mandatory evidence capture during debug/sync/land operations.",
+    "Slim task index payload loads quickly while supporting full task hydration on demand.",
+    "Task runner produces observable trace artifacts and command surfaces during execution."
+  ]
+}

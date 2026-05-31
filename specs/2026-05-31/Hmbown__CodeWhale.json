@@ -1,0 +1,80 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "CodeWhale",
+    "one_liner": "Terminal coding agent for DeepSeek V4 that streams reasoning blocks, edits local workspaces with approval gates, and includes an auto mode that chooses both model and thinking level per turn."
+  },
+  "screens": [
+    {
+      "name": "Main TUI Screen",
+      "purpose": "Display streaming reasoning blocks and proposed code edits with approval gates for user interaction.",
+      "primary_actions": [
+        "Approve or reject file edits",
+        "Toggle auto mode",
+        "View reasoning trace"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "codewhale",
+      "purpose": "Dispatcher command that launches the `codewhale-tui` runtime for interactive sessions.",
+      "async": true,
+      "input": {
+        "approved": "boolean",
+        "file_path": "string",
+        "payload": "json",
+        "proposed_content": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "codewhale-tui",
+      "purpose": "Interactive terminal user interface runtime that handles streaming reasoning and edit approvals.",
+      "async": true,
+      "input": {
+        "approved": "boolean",
+        "file_path": "string",
+        "payload": "json",
+        "proposed_content": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "workspace_edits",
+        "columns": [
+          {
+            "name": "approved",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "file_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "proposed_content",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Ensure `codewhale` and `codewhale-tui` binaries are co-located during all installation methods",
+    "week 1: Implement approval gate for local file edits",
+    "week 1: Integrate DeepSeek V4 with dynamic model/thinking-level selection"
+  ],
+  "acceptance_tests": [
+    "In auto mode, the agent selects different models or reasoning levels across consecutive turns based on task complexity.",
+    "User can install via npm and successfully run `codewhale` which launches `codewhale-tui` without errors."
+  ]
+}

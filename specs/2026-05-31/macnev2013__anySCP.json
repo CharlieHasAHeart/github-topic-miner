@@ -1,0 +1,173 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "anySCP",
+    "one_liner": "A modern desktop client for SSH, SFTP, and S3 with a clean, powerful interface."
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Display host and cloud storage cards with quick actions to launch terminals or file explorers.",
+      "primary_actions": [
+        "Launch SSH terminal",
+        "Open SFTP/S3 file explorer"
+      ]
+    },
+    {
+      "name": "File Explorer",
+      "purpose": "Browse and transfer files via SFTP or SCP (with automatic fallback) or S3-compatible storage.",
+      "primary_actions": [
+        "Navigate remote directories",
+        "Upload/download files"
+      ]
+    },
+    {
+      "name": "Settings",
+      "purpose": "Configure appearance, connections, and application behavior including theme selection.",
+      "primary_actions": [
+        "Manage connection profiles",
+        "Switch between light/dark themes"
+      ]
+    },
+    {
+      "name": "SSH Terminal",
+      "purpose": "Provide interactive shell access to remote hosts with support for split panes and command snippets.",
+      "primary_actions": [
+        "Execute shell commands",
+        "Manage port forwarding"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "browse_files",
+      "purpose": "List remote files using SFTP or fallback SCP transport depending on server capabilities.",
+      "async": true,
+      "input": {
+        "credentials": "string",
+        "host": "string",
+        "payload": "json",
+        "protocol": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "connect_ssh",
+      "purpose": "Establish SSH connection to a remote host for terminal or file operations.",
+      "async": true,
+      "input": {
+        "credentials": "string",
+        "endpoint": "string",
+        "host": "string",
+        "protocol": "string",
+        "timeout_ms": "int?"
+      },
+      "output": {
+        "connected": "boolean",
+        "connected_at": "timestamp",
+        "endpoint": "string"
+      }
+    },
+    {
+      "name": "save_connection",
+      "purpose": "Persist connection details securely using OS keychain without cloud sync.",
+      "async": true,
+      "input": {
+        "credentials": "string",
+        "host": "string",
+        "payload": "json",
+        "protocol": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "transfer_file",
+      "purpose": "Upload or download files using SFTP or SCP with portable command handling across GNU, BSD, and busybox environments.",
+      "async": true,
+      "input": {
+        "credentials": "string",
+        "host": "string",
+        "payload": "json",
+        "protocol": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "connections",
+        "columns": [
+          {
+            "name": "credentials",
+            "type": "TEXT"
+          },
+          {
+            "name": "host",
+            "type": "TEXT"
+          },
+          {
+            "name": "protocol",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "snippets",
+        "columns": [
+          {
+            "name": "command",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "transfers",
+        "columns": [
+          {
+            "name": "destination",
+            "type": "TEXT"
+          },
+          {
+            "name": "source",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build SFTP browser with drag-and-drop support",
+    "week 1: Implement core SSH terminal with split panes",
+    "week 2: Add SCP fallback logic for servers without SFTP",
+    "week 2: Integrate OS keychain for secure credential storage",
+    "week 3: Add command snippet management UI",
+    "week 3: Implement S3-compatible cloud storage browser",
+    "week 4: Develop unified dashboard with host/cloud cards",
+    "week 4: Implement light/dark theme switching in settings"
+  ],
+  "acceptance_tests": [
+    "Credentials are never sent to any external service and remain stored only in OS keychain.",
+    "File transfers work consistently across GNU Linux, Alpine (busybox), and macOS/BSD remote servers.",
+    "On macOS, user can connect via SSH and open an SFTP file browser that lists remote files correctly.",
+    "User can switch to light theme in Settings and it persists after restart without flash of dark theme.",
+    "When SFTP subsystem is disabled on server, file browser automatically falls back to SCP without user intervention."
+  ]
+}
