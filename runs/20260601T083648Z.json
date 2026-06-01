@@ -1,0 +1,2429 @@
+{
+  "run_id": "20260601T083648Z",
+  "generated_at": "2026-06-01T08:36:48.616Z",
+  "config_path": "github-topic-miner/config/miner.config.json",
+  "config": {
+    "topics": [
+      "tauri",
+      "unit-testing",
+      "vite",
+      "wails",
+      "webapp",
+      "github-api",
+      "cassandra",
+      "cinnamon",
+      "api",
+      "cli"
+    ],
+    "perTopicLimit": 10,
+    "minStars": 50,
+    "pushedWithinDays": 30,
+    "maxNewReposPerRun": 5,
+    "maxItersGapLoop": 2,
+    "allowRefresh": false,
+    "llm": {
+      "provider": "qwen",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2
+    },
+    "output": {
+      "specDir": "specs",
+      "runsDir": "runs"
+    },
+    "gapLoop": {
+      "enabled": true,
+      "maxIters": 2,
+      "evidenceMaxTotal": 30,
+      "readmeFallbackEnabled": true,
+      "readmeFallbackPaths": [
+        "README.md",
+        "docs/README.md",
+        "docs/index.md"
+      ],
+      "issuesExtraLimit": 25,
+      "issuesKeywordBoost": true,
+      "issuesKeywordTopK": 12,
+      "releasesExtraLimit": 5,
+      "rerunStrategy": "synth_only",
+      "writeReportsEachIter": true
+    },
+    "budget": {
+      "enabled": true,
+      "maxReposPerRun": 10,
+      "maxGapItersPerRepo": 2,
+      "maxLlmCallsPerRepo": 8,
+      "maxRepairAttempts": 2,
+      "maxEvidenceLinesForPrompt": 30,
+      "maxWallTimeSeconds": 900,
+      "maxTotalLlmCallsPerRun": 60,
+      "maxTotalTokensApproxPerRun": 250000,
+      "maxTotalCostUsd": null
+    },
+    "regression": {
+      "enabled": false,
+      "suiteName": "baseline",
+      "repos": [
+        "rqlite/rqlite",
+        "speakeasy-api/speakeasy"
+      ],
+      "runMode": "bridge_only",
+      "outputDir": "regression",
+      "failOnRegressionDrop": true,
+      "thresholds": {
+        "minSpecsSucceeded": 1,
+        "maxAvgAttemptsUsed": 1,
+        "maxAvgGapIters": 2
+      }
+    },
+    "pruning": {
+      "enabled": true,
+      "iter2PlusStrategy": "synth_only",
+      "skipScoutInventorWhenIterGt1": true,
+      "skipEngineerWhenIterGt1": true,
+      "rerunSynthWithoutEnrichOnce": true
+    },
+    "topicSelection": {
+      "enabled": true,
+      "sourcePath": "github-topic-miner/config/topics/seed_pool.json",
+      "statePath": "specs/topic_selection_state.json",
+      "batchSize": 10,
+      "coreRatio": 0.5,
+      "adjacentRatio": 0.3,
+      "exploreRatio": 0.2,
+      "cooldownRuns": 3,
+      "lowYieldFreezeThreshold": 3,
+      "lowYieldFreezeRuns": 3
+    }
+  },
+  "topic_selection_summary": {
+    "enabled": true,
+    "batch_size": 10,
+    "quotas": {
+      "core": 5,
+      "adjacent": 3,
+      "explore": 2
+    },
+    "source_path": "github-topic-miner/config/topics/seed_pool.json",
+    "state_path": "specs/topic_selection_state.json",
+    "skipped_by_cooldown": 1,
+    "skipped_by_freeze": 0
+  },
+  "status": "ok",
+  "stats": {
+    "topics_searched": 10,
+    "candidates_found": 92,
+    "candidates_kept": 5,
+    "candidates_deduped": 3,
+    "new_candidates": 2,
+    "repo_cards_built": 2,
+    "gaps_count": 0,
+    "specs_attempted": 2,
+    "specs_succeeded": 2,
+    "specs_failed": 0,
+    "evidence_validated": 2,
+    "evidence_valid_ok": 2,
+    "evidence_valid_failed": 0,
+    "evidence_written": 2,
+    "evidence_write_failed": 0,
+    "evidence_total": 22,
+    "evidence_by_type": {
+      "readme": 16,
+      "issue": 1,
+      "release": 3,
+      "root_files": 2
+    }
+  },
+  "index_summary": {
+    "version": 1,
+    "updated_at": "2026-06-01T08:39:14.504Z",
+    "repo_count": 346
+  },
+  "candidates": [
+    {
+      "full_name": "opnsense/core",
+      "html_url": "https://github.com/opnsense/core",
+      "description": "OPNsense GUI, API and systems backend",
+      "topics": [
+        "api",
+        "bsd",
+        "captive-portal",
+        "firewall",
+        "gui",
+        "hacktoberfest",
+        "ips",
+        "proxy",
+        "routing",
+        "shaping",
+        "vpn"
+      ],
+      "language": "PHP",
+      "stargazers_count": 4452,
+      "forks_count": 954,
+      "open_issues_count": 340,
+      "license_spdx_id": "BSD-2-Clause",
+      "default_branch": "master",
+      "pushed_at": "2026-06-01T08:36:24Z",
+      "created_at": "2014-12-13T15:43:50Z"
+    },
+    {
+      "full_name": "scylladb/scylladb",
+      "html_url": "https://github.com/scylladb/scylladb",
+      "description": "NoSQL data store using the Seastar framework, compatible with Apache Cassandra and Amazon DynamoDB",
+      "topics": [
+        "c-plus-plus",
+        "cassandra",
+        "cpp",
+        "database",
+        "nosql",
+        "scylla",
+        "seastar"
+      ],
+      "language": "C++",
+      "stargazers_count": 15575,
+      "forks_count": 1494,
+      "open_issues_count": 3582,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-06-01T08:36:21Z",
+      "created_at": "2014-12-24T13:16:33Z"
+    },
+    {
+      "full_name": "esengine/DeepSeek-Reasonix",
+      "html_url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "description": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "topics": [
+        "agent",
+        "agent-framework",
+        "ai-agent",
+        "ai-coding",
+        "cli",
+        "coding-agent",
+        "deepseek",
+        "developer-tools",
+        "ink",
+        "llm",
+        "prompt-caching",
+        "r1",
+        "terminal",
+        "tool-use",
+        "tui",
+        "typescript"
+      ],
+      "language": "Go",
+      "stargazers_count": 15633,
+      "forks_count": 918,
+      "open_issues_count": 447,
+      "license_spdx_id": "MIT",
+      "default_branch": "main-v2",
+      "pushed_at": "2026-06-01T08:36:17Z",
+      "created_at": "2026-04-21T08:27:02Z"
+    },
+    {
+      "full_name": "duffelhq/duffel-api-javascript",
+      "html_url": "https://github.com/duffelhq/duffel-api-javascript",
+      "description": "JavaScript client library for the Duffel API",
+      "topics": [
+        "api",
+        "api-client",
+        "client-library",
+        "duffel",
+        "duffel-api",
+        "flights-api",
+        "javascript",
+        "nodejs",
+        "travel-api",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 54,
+      "forks_count": 27,
+      "open_issues_count": 7,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-06-01T08:36:12Z",
+      "created_at": "2021-04-15T15:32:15Z"
+    },
+    {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development",
+        "integration-framework",
+        "integrations",
+        "ipaas",
+        "low-code",
+        "low-code-platform",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "n8n",
+        "no-code",
+        "self-hosted",
+        "typescript",
+        "workflow",
+        "workflow-automation"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 190545,
+      "forks_count": 58184,
+      "open_issues_count": 1502,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-06-01T08:35:47Z",
+      "created_at": "2019-06-22T09:24:21Z"
+    }
+  ],
+  "new_candidates": [
+    {
+      "full_name": "scylladb/scylladb",
+      "html_url": "https://github.com/scylladb/scylladb",
+      "description": "NoSQL data store using the Seastar framework, compatible with Apache Cassandra and Amazon DynamoDB",
+      "topics": [
+        "c-plus-plus",
+        "cassandra",
+        "cpp",
+        "database",
+        "nosql",
+        "scylla",
+        "seastar"
+      ],
+      "language": "C++",
+      "stargazers_count": 15575,
+      "forks_count": 1494,
+      "open_issues_count": 3582,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-06-01T08:36:21Z",
+      "created_at": "2014-12-24T13:16:33Z"
+    },
+    {
+      "full_name": "duffelhq/duffel-api-javascript",
+      "html_url": "https://github.com/duffelhq/duffel-api-javascript",
+      "description": "JavaScript client library for the Duffel API",
+      "topics": [
+        "api",
+        "api-client",
+        "client-library",
+        "duffel",
+        "duffel-api",
+        "flights-api",
+        "javascript",
+        "nodejs",
+        "travel-api",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 54,
+      "forks_count": 27,
+      "open_issues_count": 7,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-06-01T08:36:12Z",
+      "created_at": "2021-04-15T15:32:15Z"
+    }
+  ],
+  "repo_cards": [
+    {
+      "full_name": "scylladb/scylladb",
+      "html_url": "https://github.com/scylladb/scylladb",
+      "description": "NoSQL data store using the Seastar framework, compatible with Apache Cassandra and Amazon DynamoDB",
+      "topics": [
+        "c-plus-plus",
+        "cassandra",
+        "cpp",
+        "database",
+        "nosql",
+        "scylla",
+        "seastar"
+      ],
+      "language": "C++",
+      "stargazers_count": 15575,
+      "forks_count": 1494,
+      "open_issues_count": 3582,
+      "license_spdx_id": "NOASSERTION",
+      "default_branch": "master",
+      "pushed_at": "2026-06-01T08:36:21Z",
+      "created_at": "2014-12-24T13:16:33Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Scylla\n\n[![Slack](https://img.shields.io/badge/slack-scylla-brightgreen.svg?logo=slack)](http://slack.scylladb.com)\n[![Twitter](https://img.shields.io/twitter/follow/ScyllaDB.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=ScyllaDB)\n\n## What is Scylla?\n\nScylla is the real-time big data database that is API-compatible with Apache Cassandra and Amazon DynamoDB.\nScylla embraces a shared-nothing approach that increases throughput and storage capacity to realize order-of-magnitude performance improvements and reduce hardware costs.\n\nFor more information, please see the [ScyllaDB web site].\n\n[ScyllaDB web site]: https://www.scylladb.com\n\n## Build Prerequisites\n\nScylla is fairly fussy about its build environment, requiring very recent\nversions of the C++23 compiler and of many libraries to build. The document\n[HACKING.md](HACKING.md) includes detailed information on building and\ndeveloping Scylla, but to get Scylla building quickly on (almost) any build\nmachine, Scylla offers a [frozen toolchain](tools/toolchain/README.md).\nThis is a pre-configured Docker image which includes recent versions of all\nthe required compilers, libraries and build tools. Using the frozen toolchain\nallows you to avoid changing anything in your build machine to meet Scylla's\nrequirements - you just need to meet the frozen toolchain's prerequisites\n(mostly, Docker or Podman being available).\n\n## Building Scylla\n\nBuilding Scylla with the frozen toolchain `dbuild` is as easy as:\n\n```bash\n$ git submodule update --init --force --recursive\n$ ./tools/toolchain/dbuild ./configure.py\n$ ./tools/toolchain/dbuild ninja build/release/scylla\n```\n\nFor further information, please see:\n\n* [Developer documentation] for more information on building Scylla.\n* [Build documentation] on how to build Scylla binaries, tests, and packages.\n* [Docker image build documentation] for information on how to build Docker images.\n\n[developer documentation]: HACKING.md\n[build documentation]: docs/dev/building.md\n[docker image build documentation]: dist/docker/redhat/README.md\n\n## Running Scylla\n\nTo start Scylla server, run:\n\n```bash\n$ ./tools/toolchain/dbuild ./build/release/scylla --workdir tmp --smp 1 --developer-mode 1\n```\n\nThis will start a Scylla node with one CPU core allocated to it and data files stored in the `tmp` directory.\nThe `--developer-mode` is needed to disable the various checks Scylla performs at startup to ensure the machine is configured for maximum performance (not relevant on development workstations).\nPlease note that you need to run Scylla with `dbuild` if you built it with the frozen toolchain.\n\nFor more run options, run:\n\n```bash\n$ ./tools/toolchain/dbuild ./build/release/scylla --help\n```\n\n## Testing\n\n[![Build with the latest Seastar](https://github.com/scylladb/scylladb/actions/workflows/seastar.yaml/badge.svg)](https://github.com/scylladb/scylladb/actions/workflows/seastar.yaml) [![Check Reproducible Build](https://github.com/scylladb/scylladb/actions/workflows/reproducible-build.yaml/badge.svg)](https://github.com/scylladb/scylladb/actions/workflows/reproducible-build.yaml) [![clang-nightly](https://github.com/scylladb/scylladb/actions/workflows/clang-nightly.yaml/badge.svg)](https://github.com/scylladb/scylladb/actions/workflows/clang-nightly.yaml)\n\nSee [test.py manual](docs/dev/testing.md).\n\n## Scylla APIs and compatibility\nBy default, Scylla is compatible with Apache Cassandra and its API - CQL.\nThere is also support for the API of Amazon DynamoDB™,\nwhich needs to be enabled and configured in order to be used. For more\ninformation on how to enable the DynamoDB™ API in Scylla,\nand the current compatibility of this feature as well as Scylla-specific extensions, see\n[Alternator](docs/alternator/alternator.md) and\n[Getting started with Alternator](docs/alternator/getting-started.md).\n\n## Documentation\n\nDocumentation can be found [here](docs/dev/README.md).\nSeastar documentation can be found [here](http://docs.seastar.io/master/index.html).\nUser documentation can be found [here](https://docs.scylladb.com/).\n\n## Training\n\nTraining material and online courses can be found at [Scylla University](https://university.scylladb.com/).\nThe courses are free, self-paced and include hands-on examples. They cover a variety of topics including Scylla data modeling,\nadministration, architecture, basic NoSQL concepts, using drivers for application development, Scylla setup, failover, compactions,\nmulti-datacenters and how Scylla integrates with third-party applications.\n\n## Contributing to Scylla\n\nIf you want to report a bug or submit a pull request or a patch, please read the [contribution guidelines].\n\nIf you are a developer working on Scylla, please read the [developer guidelines].\n\n[contribution guidelines]: CONTRIBUTING.md\n[developer guidelines]: HACKING.md\n\n## Contact\n\n* The [community forum] and [Slack channel] are for users to discuss configuration, management, and operations of ScyllaDB.\n* The [developers mailing list] is for developers and people interested in following the development of ScyllaDB to discuss technical topics.\n\n[Community forum]: https://forum.scylladb.com/\n\n[Slack channel]: http://slack.scylladb.com/\n\n[Developers mailing list]: https://groups.google.com/forum/#!forum/scylladb-dev\n",
+        "truncated": false,
+        "bytes": 5288,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": []
+      },
+      "issues": {
+        "fetched": true,
+        "items": []
+      },
+      "root_files": [
+        ".clang-format",
+        ".dockerignore",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".gitmodules",
+        ".gitorderfile",
+        ".mailmap",
+        "AGENTS.md",
+        "CMakeLists.txt",
+        "CONTRIBUTING.md",
+        "Doxyfile",
+        "HACKING.md",
+        "LICENSE-ScyllaDB-Source-Available.md",
+        "NOTICE.txt",
+        "ORIGIN",
+        "README.md",
+        "SCYLLA-VERSION-GEN",
+        "abseil",
+        "absl-flat_hash_map.cc",
+        "absl-flat_hash_map.hh",
+        "alternator",
+        "amplify.yml",
+        "api",
+        "audit",
+        "auth",
+        "backlog_controller.hh",
+        "backlog_controller_fwd.hh",
+        "bin",
+        "build_mode.hh",
+        "bytes.cc",
+        "bytes.hh",
+        "bytes_fwd.hh",
+        "bytes_ostream.hh",
+        "cartesian_product.hh",
+        "cdc",
+        "client_data.cc",
+        "client_data.hh",
+        "clocks-impl.cc",
+        "clocks-impl.hh",
+        "cmake",
+        "compaction",
+        "conf",
+        "configure.py",
+        "coverage_excludes.txt",
+        "coverage_sources.list",
+        "cql3",
+        "data_dictionary",
+        "db",
+        "db_clock.hh"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 1)",
+          "excerpt": "[![Slack](https://img.shields.io/badge/slack-scylla-brightgreen.svg?logo=slack)](http://slack.scylladb.com) [![Twitter](https://img.shields.io/twitter/follow/ScyllaDB.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=ScyllaDB)",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 1,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 2)",
+          "excerpt": "Scylla is the real-time big data database that is API-compatible with Apache Cassandra and Amazon DynamoDB. Scylla embraces a shared-nothing approach that increases throughput and storage capacity to realize order-of-magnitude performance improvements and reduce hardware costs.",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 2,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 3)",
+          "excerpt": "Scylla is fairly fussy about its build environment, requiring very recent versions of the C++23 compiler and of many libraries to build. The document [HACKING.md](HACKING.md) includes detailed information on building and developing Scylla, but to get Scylla building quickly on (almost) any build machine, Scylla offers a [frozen toolchain](tools/toolchain/README.md). This is a pre-configured Docker image which includes recent versions of all the required compilers, libraries and build tools. Using the frozen toolchain allows you to avoid changing anything in your build machine to meet Scylla's requirements - you just need to meet the frozen toolchain's prerequisites (mostly, Docker or Podman being available).",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 3,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 4)",
+          "excerpt": "```bash $ git submodule update --init --force --recursive $ ./tools/toolchain/dbuild ./configure.py $ ./tools/toolchain/dbuild ninja build/release/scylla ```",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 4,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 5)",
+          "excerpt": "* [Developer documentation] for more information on building Scylla. * [Build documentation] on how to build Scylla binaries, tests, and packages. * [Docker image build documentation] for information on how to build Docker images.",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 5,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 6)",
+          "excerpt": "[developer documentation]: HACKING.md [build documentation]: docs/dev/building.md [docker image build documentation]: dist/docker/redhat/README.md",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 6,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 7)",
+          "excerpt": "```bash $ ./tools/toolchain/dbuild ./build/release/scylla --workdir tmp --smp 1 --developer-mode 1 ```",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 7,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/scylladb/scylladb#readme",
+          "title": "README (segment 8)",
+          "excerpt": "This will start a Scylla node with one CPU core allocated to it and data files stored in the `tmp` directory. The `--developer-mode` is needed to disable the various checks Scylla performs at startup to ensure the machine is configured for maximum performance (not relevant on development workstations). Please note that you need to run Scylla with `dbuild` if you built it with the frozen toolchain.",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "segment": 8,
+            "language": "C++"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/scylladb/scylladb",
+          "title": "ROOT_FILES",
+          "excerpt": ".clang-format, .dockerignore, .gitattributes, .github, .gitignore, .gitmodules, .gitorderfile, .mailmap, AGENTS.md, CMakeLists.txt, CONTRIBUTING.md, Doxyfile, HACKING.md, LICENSE-ScyllaDB-Source-Available.md, NOTICE.txt, ORIGIN, README.md, SCYLLA-VERSION-GEN, abseil, absl-flat_hash_map.cc, absl-flat_hash_map.hh, alternator, amplify.yml, api, audit, auth, backlog_controller.hh, backlog_controller_fwd.hh, bin, build_mode.hh, bytes.cc, bytes.hh, bytes_fwd.hh, bytes_ostream.hh, cartesian_product.hh, cdc, client_data.cc, client_data.hh, clocks-impl.cc, clocks-impl.hh, cmake, compaction, conf, configure.py, coverage_excludes.txt, coverage_sources.list, cql3, data_dictionary, db, db_clock.hh",
+          "fetched_at": "2026-06-01T08:36:54.946Z",
+          "meta": {
+            "repo_full_name": "scylladb/scylladb",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "full_name": "duffelhq/duffel-api-javascript",
+      "html_url": "https://github.com/duffelhq/duffel-api-javascript",
+      "description": "JavaScript client library for the Duffel API",
+      "topics": [
+        "api",
+        "api-client",
+        "client-library",
+        "duffel",
+        "duffel-api",
+        "flights-api",
+        "javascript",
+        "nodejs",
+        "travel-api",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "stargazers_count": 54,
+      "forks_count": 27,
+      "open_issues_count": 7,
+      "license_spdx_id": "MIT",
+      "default_branch": "main",
+      "pushed_at": "2026-06-01T08:36:12Z",
+      "created_at": "2021-04-15T15:32:15Z",
+      "readme": {
+        "fetched": true,
+        "text": "# Duffel API JavaScript Client\n\nA JavaScript client library for the Duffel API.\n\n**Content**\n\n- [Prerequisites](#prerequisites)\n- [Install](#install)\n- [Continuous Integration](#client-ci)\n- [Contributing](../docs/CONTRIBUTING.md)\n- [How to test](#test)\n- [Documentation](#documentation)\n\n## Prerequisites\n\n- Node >= 18.16.0\n\n## Install\n\nYou can install the dependencies for this library by executing the following command:\n\n```\nyarn install\n```\n\n## Test\n\nYou can run the test suite for this library by executing the following command:\n\n```\nyarn test\n```\n\n## Lint\n\nYou can run the linters configured for this library by executing the following command:\n\n```\nyarn lint\n```\n\n## Installation\n\nYou can install this library into your current project by executing the following command:\n\n```\nyarn add @duffel/api\n```\n\nIf you need to create a new API operation class, just type `yarn generate:operation` and you will be prompted with a few questions. This script will create the relevant operation folder and files for you.\n\n## Committing to the repository\n\nTo be able to publish the correct version to [npm](https://www.npmjs.com), this project is currently following [Angular conventional commit message guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) which is based on [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). This commit message guideline allows the [semantic-release GitHub action](##client-ci) to be triggered.\n\n### CommitLint to the rescue\n\nBefore creating a commit you should run a [husky hook](https://www.npmjs.com/package/husky) which will check if the commit structure is valid or not. If you don't want to create the commit manually, you can use `yarn commit` which will use `commitzen` to help you out creating the message.\n\n## Client CI\n\nEvery time a commit is merged to main, a GitHub Action is run to analyse the commit messages with [`semantic-release`](https://github.com/semantic-release/semantic-release) and automatically update the current version to be deployed by following semantic versioning. When the deployment is complete, the action updates the package version, using Duffel's machine user (`@duffel-bot`) as the author, and this change will be automatically approved by the GitHub Action via the [`autoapprove` workflow] (../.github/workflows/autoapprove.yml).\n\n### Continuous Integration\n\n1. Developer opens pull request to main\n2. Pull request is merged\n3. GitHub Actions are triggered and the commits are analysed\n   - if there's a breaking change, bump the major version\n   - if there's a feature commit, bump the minor version\n   - if there's a fix, bump the patch version\n4. Deploy the new version\n   a. Publish to npm\n   b. Create and push a git tag\n   c. Publish a GitHub release with the relevant commits and descriptions\n5. After the release is published then a pull request is automatically created and approved via a GitHub Action to bump the package version\n\n## Documentation\n\nYou can learn more about the Duffel API and this library in our [documentation](https://duffel.com/docs).\n",
+        "truncated": false,
+        "bytes": 3086,
+        "source": "api"
+      },
+      "releases": {
+        "fetched": true,
+        "items": [
+          {
+            "name": "v4.25.0",
+            "tag_name": "v4.25.0",
+            "published_at": "2026-04-24T15:21:23Z",
+            "body_excerpt": "# [4.25.0](https://github.com/duffelhq/duffel-api-javascript/compare/v4.24.2...v4.25.0) (2026-04-24)\n\n\n### Features\n\n* **stays:** add name to rate ([d7db7c4](https://github.com/duffelhq/duffel-api-javascript/commit/d7db7c467c54a15d818cf0137836a7b50b307681))\n\n\n\n"
+          },
+          {
+            "name": "v4.24.2",
+            "tag_name": "v4.24.2",
+            "published_at": "2026-04-20T14:51:26Z",
+            "body_excerpt": "## [4.24.2](https://github.com/duffelhq/duffel-api-javascript/compare/v4.24.1...v4.24.2) (2026-04-20)\n\n\n### Bug Fixes\n\n* last version bump for this round of vulnerabilities ([a203fce](https://github.com/duffelhq/duffel-api-javascript/commit/a203fce4111f10dd6291d2519411305b290a9ef3))\n\n\n\n"
+          },
+          {
+            "name": "v4.24.1",
+            "tag_name": "v4.24.1",
+            "published_at": "2026-04-20T09:53:14Z",
+            "body_excerpt": "## [4.24.1](https://github.com/duffelhq/duffel-api-javascript/compare/v4.24.0...v4.24.1) (2026-04-20)\n\n\n### Bug Fixes\n\n* bump dependencies to fix vulnerabilities ([c177213](https://github.com/duffelhq/duffel-api-javascript/commit/c177213908ba7dccbb8cf5d4f68b70b7653bf13f))\n* bump node and the terser plugin ([04ae7c4](https://github.com/duffelhq/duffel-api-javascript/commit/04ae7c4d173bab60139f63b068801bb673f4752c))\n\n\n\n"
+          }
+        ]
+      },
+      "issues": {
+        "fetched": true,
+        "items": [
+          {
+            "number": 525,
+            "title": "Dependency Dashboard",
+            "state": "open",
+            "url": "https://github.com/duffelhq/duffel-api-javascript/issues/525"
+          }
+        ]
+      },
+      "root_files": [
+        ".eslintrc.js",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".nvmrc",
+        ".prettierignore",
+        ".tool-versions",
+        ".yarnrc.yml",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "babel.config.js",
+        "commitlint.config.js",
+        "docs",
+        "examples",
+        "jest.config.ts",
+        "package.json",
+        "prettier.config.js",
+        "rollup.config.mjs",
+        "scripts",
+        "src",
+        "tsconfig.json",
+        "yarn.lock"
+      ],
+      "evidence": [
+        {
+          "id": "E-RD-001",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 1)",
+          "excerpt": "- [Prerequisites](#prerequisites) - [Install](#install) - [Continuous Integration](#client-ci) - [Contributing](../docs/CONTRIBUTING.md) - [How to test](#test) - [Documentation](#documentation)",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 1,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-002",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 2)",
+          "excerpt": "You can install the dependencies for this library by executing the following command:",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 2,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-003",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 3)",
+          "excerpt": "You can run the linters configured for this library by executing the following command:",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 3,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-004",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 4)",
+          "excerpt": "You can install this library into your current project by executing the following command:",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 4,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-005",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 5)",
+          "excerpt": "If you need to create a new API operation class, just type `yarn generate:operation` and you will be prompted with a few questions. This script will create the relevant operation folder and files for you.",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 5,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-006",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 6)",
+          "excerpt": "To be able to publish the correct version to [npm](https://www.npmjs.com), this project is currently following [Angular conventional commit message guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) which is based on [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). This commit message guideline allows the [semantic-release GitHub action](##client-ci) to be triggered.",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 6,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-007",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 7)",
+          "excerpt": "Before creating a commit you should run a [husky hook](https://www.npmjs.com/package/husky) which will check if the commit structure is valid or not. If you don't want to create the commit manually, you can use `yarn commit` which will use `commitzen` to help you out creating the message.",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 7,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-RD-008",
+          "type": "readme",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript#readme",
+          "title": "README (segment 8)",
+          "excerpt": "Every time a commit is merged to main, a GitHub Action is run to analyse the commit messages with [`semantic-release`](https://github.com/semantic-release/semantic-release) and automatically update the current version to be deployed by following semantic versioning. When the deployment is complete, the action updates the package version, using Duffel's machine user (`@duffel-bot`) as the author, and this change will be automatically approved by the GitHub Action via the [`autoapprove` workflow] (../.github/workflows/autoapprove.yml).",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "segment": 8,
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "E-IS-001",
+          "type": "issue",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript/issues/525",
+          "title": "Dependency Dashboard",
+          "excerpt": "Dependency Dashboard (state:open)",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "number": 525
+          }
+        },
+        {
+          "id": "E-RL-001",
+          "type": "release",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript/releases",
+          "title": "v4.25.0",
+          "excerpt": "# [4.25.0](https://github.com/duffelhq/duffel-api-javascript/compare/v4.24.2...v4.25.0) (2026-04-24) ### Features * **stays:** add name to rate ([d7db7c4](https://github.com/duffelhq/duffel-api-javascript/commit/d7db7c467c54a15d818cf0137836a7b50b307681))",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "tag_name": "v4.25.0",
+            "published_at": "2026-04-24T15:21:23Z"
+          }
+        },
+        {
+          "id": "E-RL-002",
+          "type": "release",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript/releases",
+          "title": "v4.24.2",
+          "excerpt": "## [4.24.2](https://github.com/duffelhq/duffel-api-javascript/compare/v4.24.1...v4.24.2) (2026-04-20) ### Bug Fixes * last version bump for this round of vulnerabilities ([a203fce](https://github.com/duffelhq/duffel-api-javascript/commit/a203fce4111f10dd6291d2519411305b290a9ef3))",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "tag_name": "v4.24.2",
+            "published_at": "2026-04-20T14:51:26Z"
+          }
+        },
+        {
+          "id": "E-RL-003",
+          "type": "release",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript/releases",
+          "title": "v4.24.1",
+          "excerpt": "## [4.24.1](https://github.com/duffelhq/duffel-api-javascript/compare/v4.24.0...v4.24.1) (2026-04-20) ### Bug Fixes * bump dependencies to fix vulnerabilities ([c177213](https://github.com/duffelhq/duffel-api-javascript/commit/c177213908ba7dccbb8cf5d4f68b70b7653bf13f)) * bump node and the terser plugin ([04ae7c4](https://github.com/duffelhq/duffel-api-javascript/commit/04ae7c4d173bab60139f63b068801bb673f4752c))",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "tag_name": "v4.24.1",
+            "published_at": "2026-04-20T09:53:14Z"
+          }
+        },
+        {
+          "id": "E-RF-001",
+          "type": "root_files",
+          "source_url": "https://github.com/duffelhq/duffel-api-javascript",
+          "title": "ROOT_FILES",
+          "excerpt": ".eslintrc.js, .github, .gitignore, .husky, .nvmrc, .prettierignore, .tool-versions, .yarnrc.yml, CONTRIBUTING.md, LICENSE, README.md, babel.config.js, commitlint.config.js, docs, examples, jest.config.ts, package.json, prettier.config.js, rollup.config.mjs, scripts, src, tsconfig.json, yarn.lock",
+          "fetched_at": "2026-06-01T08:36:54.917Z",
+          "meta": {
+            "repo_full_name": "duffelhq/duffel-api-javascript",
+            "path": "/"
+          }
+        }
+      ]
+    }
+  ],
+  "repo_cards_summary": [
+    {
+      "full_name": "scylladb/scylladb",
+      "evidence_count": 9,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 0,
+        "release": 0,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 0,
+      "releases_count": 0
+    },
+    {
+      "full_name": "duffelhq/duffel-api-javascript",
+      "evidence_count": 13,
+      "evidence_by_type": {
+        "readme": 8,
+        "issue": 1,
+        "release": 3,
+        "root_files": 1
+      },
+      "readme_truncated": false,
+      "issues_count": 1,
+      "releases_count": 3
+    }
+  ],
+  "gaps": [],
+  "spec_results": [
+    {
+      "repo": "scylladb/scylladb",
+      "ok": true,
+      "spec_path": "specs/2026-06-01/scylladb__scylladb.json"
+    },
+    {
+      "repo": "duffelhq/duffel-api-javascript",
+      "ok": true,
+      "spec_path": "specs/2026-06-01/duffelhq__duffel-api-javascript.json"
+    }
+  ],
+  "evidence_results": [
+    {
+      "repo": "scylladb/scylladb",
+      "ok": true,
+      "evidence_path": "evidence/2026-06-01/scylladb__scylladb.json"
+    },
+    {
+      "repo": "duffelhq/duffel-api-javascript",
+      "ok": true,
+      "evidence_path": "evidence/2026-06-01/duffelhq__duffel-api-javascript.json"
+    }
+  ],
+  "evidence_reports": [
+    {
+      "repo": "scylladb/scylladb",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 1,
+          "cited": 1
+        },
+        "tables": {
+          "total": 1,
+          "cited": 1
+        },
+        "acceptance_tests": {
+          "total": 2,
+          "cited": 2
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-06-01/scylladb__scylladb.json"
+      ]
+    },
+    {
+      "repo": "duffelhq/duffel-api-javascript",
+      "ok": true,
+      "missing_evidence_ids": [],
+      "invalid_structure": [],
+      "coverage": {
+        "app": true,
+        "core_loop": true,
+        "screens": {
+          "total": 1,
+          "cited": 1
+        },
+        "commands": {
+          "total": 4,
+          "cited": 4
+        },
+        "tables": {
+          "total": 2,
+          "cited": 2
+        },
+        "acceptance_tests": {
+          "total": 4,
+          "cited": 4
+        },
+        "ratio": 1
+      },
+      "unused_evidence_ids": [],
+      "notes": [
+        "bridge report: reports/2026-06-01/duffelhq__duffel-api-javascript.json"
+      ]
+    }
+  ],
+  "llm_audits": [
+    {
+      "ts": "2026-06-01T08:37:04.507Z",
+      "run_id": "20260601T083648Z",
+      "repo": "scylladb/scylladb",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "f8db71f158f6334732ec87b583b8ac1462f15bfb0b2b5db01a830b0db701de97",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 5834
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9557,
+      "prompt_chars": 5834,
+      "completion_chars": 1085
+    },
+    {
+      "ts": "2026-06-01T08:37:14.185Z",
+      "run_id": "20260601T083648Z",
+      "repo": "scylladb/scylladb",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "a9e7739fbff12991f0bd75b67098fb8e824115f1255683638d5dbdfc0778bb7c",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 7106
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 9678,
+      "prompt_chars": 7106,
+      "completion_chars": 1306
+    },
+    {
+      "ts": "2026-06-01T08:37:22.116Z",
+      "run_id": "20260601T083648Z",
+      "repo": "scylladb/scylladb",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "435b784c951a04f9eb4bf6854bd4650a958dfd24afa141d84d49602eac9788cf",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 8591
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 7931,
+      "prompt_chars": 8591,
+      "completion_chars": 1294
+    },
+    {
+      "ts": "2026-06-01T08:37:32.200Z",
+      "run_id": "20260601T083648Z",
+      "repo": "scylladb/scylladb",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "3fc8d2525b4ca86e1c4e8179bc8ba0f5779a64a536ef0741fff3f992bbb83654",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 10061
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 10084,
+      "prompt_chars": 10061,
+      "completion_chars": 1440
+    },
+    {
+      "ts": "2026-06-01T08:37:51.279Z",
+      "run_id": "20260601T083648Z",
+      "repo": "scylladb/scylladb",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "53773c980763d3622b7865cd88e5980f5510b9b937d49a920d7dfb0438d93a34",
+      "input_stats": {
+        "evidence_count": 9,
+        "approx_chars": 14306
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 19079,
+      "prompt_chars": 14306,
+      "completion_chars": 2916
+    },
+    {
+      "ts": "2026-06-01T08:38:03.921Z",
+      "run_id": "20260601T083648Z",
+      "repo": "duffelhq/duffel-api-javascript",
+      "iter": 1,
+      "role": "scout",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "5bcf31bd8c03bc5c0c7663e90f1008e0fedd1fbcb2d77f359ef1cb69ddac28bf",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 6862
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 12629,
+      "prompt_chars": 6862,
+      "completion_chars": 1356
+    },
+    {
+      "ts": "2026-06-01T08:38:15.845Z",
+      "run_id": "20260601T083648Z",
+      "repo": "duffelhq/duffel-api-javascript",
+      "iter": 1,
+      "role": "inventor",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "908460b11b825e31122c4c63d87359c9c254b9c09dfb818f18479d11671a41cd",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 8414
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 11924,
+      "prompt_chars": 8414,
+      "completion_chars": 1202
+    },
+    {
+      "ts": "2026-06-01T08:38:30.674Z",
+      "run_id": "20260601T083648Z",
+      "repo": "duffelhq/duffel-api-javascript",
+      "iter": 1,
+      "role": "engineer",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "ba76ba5bea8976467c81f2e0027efa4ea4bf5452e056859433fc957653cd6e94",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 9792
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 14829,
+      "prompt_chars": 9792,
+      "completion_chars": 1617
+    },
+    {
+      "ts": "2026-06-01T08:38:44.141Z",
+      "run_id": "20260601T083648Z",
+      "repo": "duffelhq/duffel-api-javascript",
+      "iter": 1,
+      "role": "skeptic",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "dfd880617aa98d273298c52e6794832b53a0abb0d6cdd8198bfe737f68ff4af3",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 11610
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 13467,
+      "prompt_chars": 11610,
+      "completion_chars": 1618
+    },
+    {
+      "ts": "2026-06-01T08:39:14.502Z",
+      "run_id": "20260601T083648Z",
+      "repo": "duffelhq/duffel-api-javascript",
+      "iter": 1,
+      "role": "synth_wire",
+      "model": "qwen3-max-2026-01-23",
+      "temperature": 0.2,
+      "prompt_hash": "b5270eea33b2e7f4c70875099c195f8f6215d37c664632902aa373f33bff3a74",
+      "input_stats": {
+        "evidence_count": 13,
+        "approx_chars": 16058
+      },
+      "output_stats": {
+        "json_parse_ok": false,
+        "schema_ok": false,
+        "unknown_evidence_ids_count": 0
+      },
+      "correction_retry": false,
+      "retry_count": 0,
+      "duration_ms": 30360,
+      "prompt_chars": 16058,
+      "completion_chars": 4537
+    }
+  ],
+  "per_repo_bridge": [
+    {
+      "repo": "scylladb/scylladb",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    },
+    {
+      "repo": "duffelhq/duffel-api-javascript",
+      "ok": true,
+      "coverage_ratio": 0,
+      "unknown_ids_count": 0,
+      "empty_fields_count": 0,
+      "attempts_used": 0
+    }
+  ],
+  "per_repo_gap_loop": [
+    {
+      "repo": "scylladb/scylladb",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 9,
+      "evidence_total_final": 9,
+      "evidence_added_total": 0,
+      "last_error": null
+    },
+    {
+      "repo": "duffelhq/duffel-api-javascript",
+      "attempts_used": 1,
+      "success": true,
+      "evidence_total_initial": 13,
+      "evidence_total_final": 13,
+      "evidence_added_total": 0,
+      "last_error": null
+    }
+  ],
+  "bridge_attempts_summary": {
+    "total_repos": 2,
+    "attempts_used_hist": {
+      "0": 2,
+      "1": 0,
+      "2": 0
+    },
+    "attempts_used_rate0": 1
+  },
+  "gap_loop_summary": {
+    "total": 2,
+    "success": 2
+  },
+  "fail_taxonomy_summary": {
+    "FETCH_FAILED": 0,
+    "EVIDENCE_INSUFFICIENT": 0,
+    "BRIDGE_WIRE_INVALID": 0,
+    "BRIDGE_CANONICAL_INVALID": 0,
+    "EVIDENCE_GATE_UNKNOWN_ID": 0,
+    "QUALITY_GATE_EMPTY_CITATIONS": 0,
+    "QUALITY_GATE_LOW_COVERAGE": 0,
+    "REPAIR_EXHAUSTED": 0,
+    "BUDGET_CUTOFF": 0,
+    "UNKNOWN": 0
+  },
+  "budget_snapshot_end": {
+    "runStartMs": 1780303008623,
+    "llmCallsTotal": 10,
+    "llmCallsPerRepo": {
+      "scylladb/scylladb": 5,
+      "duffelhq/duffel-api-javascript": 5
+    },
+    "tokensApproxTotal": 29255,
+    "tokensApproxPerRepo": {
+      "scylladb/scylladb": 13487,
+      "duffelhq/duffel-api-javascript": 15768
+    },
+    "reposProcessed": 2,
+    "stopReason": null
+  },
+  "role_outputs": {
+    "scylladb/scylladb": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "scout",
+        "summary": "ScyllaDB is a high-performance NoSQL database compatible with Apache Cassandra and Amazon DynamoDB, built in C++ using the Seastar framework. It emphasizes performance through a shared-nothing architecture and provides developer tooling via a frozen Docker-based toolchain to manage complex build dependencies.",
+        "highlights": [
+          "API-compatible with Apache Cassandra and Amazon DynamoDB",
+          "Uses a shared-nothing architecture for high throughput and scalability",
+          "Relies on a frozen Docker toolchain to simplify building with recent C++23 and library requirements",
+          "Developer mode available to bypass production performance checks during local development"
+        ],
+        "risks": [
+          "High build environment complexity may deter casual contributors",
+          "Dependency on Docker/Podman for consistent builds adds containerization as a hard prerequisite",
+          "Large number of open issues (3582) may indicate maintenance or stability challenges"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "inventor",
+        "summary": "ScyllaDB is a high-performance NoSQL database built with C++ and the Seastar framework, offering API compatibility with Apache Cassandra and Amazon DynamoDB. It leverages a shared-nothing architecture for scalability and provides a containerized frozen toolchain to manage its demanding build requirements.",
+        "highlights": [
+          "API-compatible with both Apache Cassandra and Amazon DynamoDB, enabling drop-in replacements in existing ecosystems",
+          "Shared-nothing architecture delivers order-of-magnitude performance gains and reduced hardware costs",
+          "Frozen Docker-based toolchain encapsulates complex C++23 compiler and library dependencies for reproducible builds",
+          "Developer mode and dbuild wrapper simplify local testing by disabling production checks and abstracting environment setup"
+        ],
+        "risks": [
+          "Heavy reliance on a custom frozen toolchain may hinder adoption by developers unfamiliar with containerized builds",
+          "Strict build prerequisites (recent C++23 toolchain) create barriers to entry despite toolchain abstraction",
+          "High number of open issues (3582) suggests potential technical debt or resource constraints in maintenance"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "engineer",
+        "summary": "ScyllaDB is a high-performance NoSQL database implemented in C++ using the Seastar framework, offering API compatibility with Apache Cassandra and Amazon DynamoDB. It employs a shared-nothing architecture for scalability and performance, and uses a containerized frozen toolchain to manage its strict build dependencies, including recent C++23 requirements.",
+        "highlights": [
+          "API-compatible with Apache Cassandra and Amazon DynamoDB, enabling interoperability with existing ecosystems",
+          "Shared-nothing architecture delivers significant throughput and cost efficiency gains",
+          "Frozen Docker-based toolchain (via dbuild) encapsulates complex compiler and library dependencies for reproducible builds",
+          "Developer mode (--developer-mode) disables production performance checks for easier local development and testing"
+        ],
+        "risks": [
+          "Build process complexity may impede onboarding of new contributors despite toolchain abstraction",
+          "Mandatory use of Docker/Podman for consistent builds introduces containerization as a hard dependency",
+          "Large number of open issues (3582) may reflect unresolved bugs or maintenance bottlenecks"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role": "skeptic",
+        "summary": "ScyllaDB promises high performance and compatibility but imposes significant barriers to entry through its rigid build process and opaque development practices, raising questions about accessibility, maintainability, and real-world usability outside controlled environments.",
+        "highlights": [
+          "Claims of 'order-of-magnitude performance improvements' lack benchmark evidence in the README or linked docs",
+          "Build process is entirely dependent on a proprietary 'frozen toolchain' Docker image, limiting transparency and flexibility",
+          "Developer mode disables critical startup checks, potentially masking configuration issues during testing",
+          "No public release tags or versioning strategy evident from repository metadata, despite being a production database"
+        ],
+        "risks": [
+          "Over-reliance on containerized builds may obscure dependency conflicts and hinder debugging or customization",
+          "Absence of tagged releases (releases_count: 0) suggests instability or lack of clear version management for users",
+          "High open issue count (3582) combined with complex build requirements may indicate poor contributor onboarding and slow issue resolution",
+          "Shared-nothing architecture benefits are asserted but not substantiated with reproducible performance data in provided materials"
+        ],
+        "evidence_ids": [
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-008",
+          "E-RF-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 9,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"ScyllaDB\",\n    \"one_sentence\": \"A high-performance NoSQL database compatible with Apache Cassandra and Amazon DynamoDB, built on a shared-nothing architecture using C++ and the Seastar framework.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"ScyllaDB ingests, stores, and serves real-time big data workloads by leveraging its shared-nothing architecture to maximize throughput and minimize latency, while maintaining API compatibility with Cassandra and DynamoDB for seamless integration.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Database Node Dashboard\",\n      \"purpose\": \"Display node status, performance metrics, and configuration options for a ScyllaDB instance.\",\n      \"primary_actions\": [\n        \"Start node with developer mode\",\n        \"Configure work directory and CPU cores\",\n        \"View build and runtime logs\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"start_scylla_node\",\n      \"purpose\": \"Launch a ScyllaDB node using the frozen toolchain with specified parameters like workdir, SMP count, and developer mode.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"scylla_nodes\",\n        \"fields\": [\n          {\n            \"name\": \"workdir\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"smp_cores\",\n            \"type\": \"integer\"\n          },\n          {\n            \"name\": \"developer_mode\",\n            \"type\": \"boolean\"\n          }\n        ]\n      }\n    ]\n  },\n  \"mvp_plan\": {\n    \"milestones\": [\n      {\n        \"week\": 1,\n        \"tasks\": [\n          \"Set up frozen toolchain environment using dbuild\",\n          \"Build Scylla from source with configure.py and ninja\",\n          \"Run local Scylla node in developer mode with tmp workdir\"\n        ]\n      }\n    ]\n  },\n  \"acceptance_tests\": [\n    \"Verify that Scylla can be built using the frozen toolchain without modifying the host system.\",\n    \"Confirm that"
+      }
+    },
+    "duffelhq/duffel-api-javascript": {
+      "scout": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "scout",
+        "summary": "The repository is an actively maintained TypeScript client library for the Duffel API, featuring automated releases via semantic versioning, strong developer tooling (linting, testing, code generation), and recent security-focused dependency updates.",
+        "highlights": [
+          "Uses semantic-release with conventional commits for fully automated versioning and publishing to npm [ID:E-RD-006][ID:E-RD-008].",
+          "Includes developer productivity tools like operation scaffolding (`yarn generate:operation`) and commit assistance (`yarn commit`) [ID:E-RD-005][ID:E-RD-007].",
+          "Recent releases include security fixes through dependency bumps, indicating active vulnerability management [ID:E-RL-002][ID:E-RL-003].",
+          "Well-structured project with standard tooling (ESLint, Prettier, Husky, Jest) and comprehensive README documentation [ID:E-RF-001][ID:E-RD-002][ID:E-RD-003][ID:E-RD-004]."
+        ],
+        "risks": [
+          "Open Dependency Dashboard issue suggests ongoing or pending dependency updates, which may indicate technical debt or exposure if not addressed promptly [ID:E-IS-001]."
+        ],
+        "evidence_ids": [
+          "E-RD-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-004",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RF-001",
+          "E-RL-001",
+          "E-RL-002",
+          "E-RL-003"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "inventor": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "inventor",
+        "summary": "The repository demonstrates a well-automated, developer-friendly SDK with strong conventions for code generation, commit hygiene, and release management, enabling rapid and reliable iteration on API client features.",
+        "highlights": [
+          "Automated operation scaffolding via `yarn generate:operation` accelerates development of new API endpoints [ID:E-RD-005].",
+          "Commit message standardization enforced via Husky and assisted by Commitzen ensures compatibility with semantic-release workflows [ID:E-RD-007].",
+          "Fully automated semantic versioning and npm publishing powered by conventional commits and GitHub Actions reduces human error in releases [ID:E-RD-006][ID:E-RD-008].",
+          "Recent feature additions (e.g., adding name to rate in Stays API) show active evolution of the client to match API capabilities [ID:E-RL-001]."
+        ],
+        "risks": [
+          "Heavy reliance on automation (semantic-release, auto-approve bot) could mask subtle breaking changes if commit conventions are misapplied or tests are insufficient [ID:E-RD-006][ID:E-RD-008]."
+        ],
+        "evidence_ids": [
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "engineer": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "engineer",
+        "summary": "The repository is a well-structured TypeScript SDK with robust automation for linting, testing, code generation, and semantic releases, supported by strong developer tooling and recent security-focused maintenance.",
+        "highlights": [
+          "Project uses modern JavaScript tooling including ESLint, Prettier, Husky, Jest, and Rollup as evidenced by root files and README instructions [ID:E-RF-001][ID:E-RD-002][ID:E-RD-003].",
+          "New API operations can be scaffolded automatically via `yarn generate:operation`, streamlining client development [ID:E-RD-005].",
+          "Commit messages follow Angular/conventional commits enforced by Husky and assisted by Commitizen, enabling reliable semantic versioning [ID:E-RD-006][ID:E-RD-007].",
+          "Releases are fully automated via semantic-release on main branch merges, with version bumps and npm publishing handled by GitHub Actions [ID:E-RD-008].",
+          "Recent patch releases explicitly address dependency vulnerabilities, showing active security maintenance [ID:E-RL-002][ID:E-RL-003]."
+        ],
+        "risks": [
+          "An open Dependency Dashboard issue indicates pending or ongoing dependency updates, which may represent unresolved technical debt or security exposure [ID:E-IS-001].",
+          "Automated releases depend heavily on correct commit message formatting; any deviation could lead to incorrect versioning or missed releases despite test coverage."
+        ],
+        "evidence_ids": [
+          "E-RF-001",
+          "E-RD-002",
+          "E-RD-003",
+          "E-RD-005",
+          "E-RD-006",
+          "E-RD-007",
+          "E-RD-008",
+          "E-RL-002",
+          "E-RL-003",
+          "E-IS-001"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "skeptic": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role": "skeptic",
+        "summary": "While the repository shows signs of active maintenance and automation, several red flags suggest potential reliability and security concerns, including unresolved dependency issues, future-dated releases, and over-reliance on automated processes without clear safeguards.",
+        "highlights": [
+          "Releases are dated in the future (e.g., v4.25.0 on 2026-04-24), raising questions about release integrity or CI/CD misconfiguration [ID:E-RL-001].",
+          "An open Dependency Dashboard issue indicates unaddressed or accumulating dependency updates, which may signal neglect or hidden vulnerabilities [ID:E-IS-001].",
+          "Automated publishing via semantic-release and auto-approval by a bot (@duffel-bot) lacks visible human oversight, increasing risk of incorrect or malicious releases [ID:E-RD-008]."
+        ],
+        "risks": [
+          "Future-dated releases contradict normal software release practices and may indicate testing artifacts or broken versioning logic, undermining trust in version history [ID:E-RL-001][ID:E-RL-002][ID:E-RL-003].",
+          "Security fixes are reactive (bumping dependencies post-vulnerability) rather than proactive, and the open Dependency Dashboard suggests ongoing exposure [ID:E-IS-001][ID:E-RL-002][ID:E-RL-003].",
+          "Heavy automation (commit linting, release, approval) assumes perfect adherence to conventions; any bypass or error could silently compromise release correctness [ID:E-RD-006][ID:E-RD-007][ID:E-RD-008]."
+        ],
+        "evidence_ids": [
+          "E-RL-001",
+          "E-IS-001",
+          "E-RD-008",
+          "E-RL-002",
+          "E-RL-003",
+          "E-RD-006",
+          "E-RD-007"
+        ],
+        "unknown_evidence_ids": []
+      },
+      "synth": {
+        "iter": 1,
+        "selected_evidence": 13,
+        "role_context_keys": [
+          "scout",
+          "inventor",
+          "engineer",
+          "skeptic"
+        ],
+        "wire_raw": "{\n  \"app\": {\n    \"name\": \"Duffel API JavaScript Client\",\n    \"one_sentence\": \"A TypeScript client library for interacting with the Duffel travel API, featuring automated code generation, semantic releases, and strong developer tooling.\",\n    \"inspired_by\": null\n  },\n  \"core_loop\": \"Developers install the library, generate new API operation scaffolds using CLI commands, write or modify client logic following conventional commit standards, and rely on automated CI/CD to lint, test, version, and publish updates.\",\n  \"screens\": [\n    {\n      \"id\": \"main\",\n      \"name\": \"Developer Workspace\",\n      \"purpose\": \"Primary interface for developers to interact with the SDK through CLI commands and code editing.\",\n      \"primary_actions\": [\n        \"Install library dependencies\",\n        \"Generate new API operation scaffold\",\n        \"Run linters and tests\",\n        \"Commit changes with standardized messages\"\n      ]\n    }\n  ],\n  \"rust_commands\": [\n    {\n      \"name\": \"install_dependencies\",\n      \"purpose\": \"Installs project dependencies as specified in package.json.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"generate_operation\",\n      \"purpose\": \"Scaffolds a new API operation folder and files via interactive CLI prompt.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"run_lint\",\n      \"purpose\": \"Executes configured linters (ESLint, Prettier) to enforce code quality.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    },\n    {\n      \"name\": \"commit_with_conventional_message\",\n      \"purpose\": \"Creates a commit using Commitzen to ensure Angular/conventional commit format compliance.\",\n      \"async\": true,\n      \"input\": {},\n      \"output\": {}\n    }\n  ],\n  \"data_model\": {\n    \"tables\": [\n      {\n        \"name\": \"api_operations\",\n        \"fields\": [\n          {\n            \"name\": \"operation_name\",\n            \"type\": \"string\"\n          },\n          {\n            \"name\": \"endpoint_"
+      }
+    }
+  },
+  "role_outputs_summary": [
+    {
+      "repo": "scylladb/scylladb",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 4,
+        "inventor": 4,
+        "engineer": 4,
+        "skeptic": 4,
+        "synth": 0
+      }
+    },
+    {
+      "repo": "duffelhq/duffel-api-javascript",
+      "role_status": {
+        "scout": true,
+        "inventor": true,
+        "engineer": true,
+        "skeptic": true,
+        "synth": true
+      },
+      "evidence_ids_count": {
+        "scout": 12,
+        "inventor": 5,
+        "engineer": 10,
+        "skeptic": 7,
+        "synth": 0
+      }
+    }
+  ],
+  "logs": [
+    "[repo_finder] topic=\"tauri\" returned=10",
+    "[repo_finder] topic=\"unit-testing\" returned=10",
+    "[repo_finder] topic=\"vite\" returned=10",
+    "[repo_finder] topic=\"wails\" returned=10",
+    "[repo_finder] topic=\"webapp\" returned=10",
+    "[repo_finder] topic=\"github-api\" returned=10",
+    "[repo_finder] topic=\"cassandra\" returned=10",
+    "[repo_finder] topic=\"cinnamon\" returned=2",
+    "[repo_finder] topic=\"api\" returned=10",
+    "[repo_finder] topic=\"cli\" returned=10",
+    "[repo_finder] total_found=92 kept=5 limit=5",
+    "[deduper] existing_index_repos=344",
+    "[deduper] candidates_total=5 new=2 skipped=3",
+    "[repo_card_builder] duffelhq/duffel-api-javascript evidence total=13 readme=8 issue=1 release=3 root_files=1",
+    "[repo_card_builder] scylladb/scylladb evidence total=9 readme=8 issue=0 release=0 root_files=1",
+    "[repo_card_builder] built=2 readme_ok=2/2 evidence_total=22 gaps=0",
+    "[llm_spec_generator] scylladb/scylladb canonical spec ok (iter=1) -> specs/2026-06-01/scylladb__scylladb.json",
+    "[llm_spec_generator] duffelhq/duffel-api-javascript canonical spec ok (iter=1) -> specs/2026-06-01/duffelhq__duffel-api-javascript.json"
+  ],
+  "events": [
+    {
+      "ts": "2026-06-01T08:36:48.623Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "TOPICS_SELECTED",
+      "data": {
+        "count": 10,
+        "enabled": true,
+        "quotas": {
+          "core": 5,
+          "adjacent": 3,
+          "explore": 2
+        }
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:48.642Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_START",
+      "data": {
+        "run_id": "20260601T083648Z"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:48.642Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_CONFIG_LOADED",
+      "data": {
+        "topics": 10,
+        "model": "qwen3-max-2026-01-23"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:48.645Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "tauri"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:49.274Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "tauri",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:49.274Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "unit-testing"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:49.894Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "unit-testing",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:49.894Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "vite"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:50.496Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "vite",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:50.496Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "wails"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:51.150Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "wails",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:51.150Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "webapp"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:51.694Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "webapp",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:51.694Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "github-api"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:52.298Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "github-api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:52.298Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cassandra"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:52.976Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cassandra",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:52.976Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cinnamon"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:53.323Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cinnamon",
+        "count": 2
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:53.323Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "api"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:53.908Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "api",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:53.908Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_START",
+      "data": {
+        "topic": "cli"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.471Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_finder",
+      "repo": null,
+      "level": "info",
+      "event": "TOPIC_SEARCH_OK",
+      "data": {
+        "topic": "cli",
+        "count": 10
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.474Z",
+      "run_id": "20260601T083648Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "INDEX_LOADED",
+      "data": {
+        "repo_count": 344
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.475Z",
+      "run_id": "20260601T083648Z",
+      "node": "deduper",
+      "repo": null,
+      "level": "info",
+      "event": "DEDUPE_DONE",
+      "data": {
+        "total": 5,
+        "kept": 2,
+        "skipped": 3,
+        "refreshed": 0
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.478Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-06-01T08:36:54.478Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylladb/readme.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.479Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylladb/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.481Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylladb/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.482Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "scylladb__scylladb/root_files_master.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.484Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_START",
+      "data": {}
+    },
+    {
+      "ts": "2026-06-01T08:36:54.484Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "duffelhq__duffel-api-javascript/readme.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.485Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "duffelhq__duffel-api-javascript/releases_3.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.486Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "duffelhq__duffel-api-javascript/issues_10.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.488Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "CACHE_MISS",
+      "data": {
+        "key": "duffelhq__duffel-api-javascript/root_files_main.json"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.917Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 3086,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.917Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 3
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.917Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.917Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 433
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.918Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 13,
+        "readme": 8,
+        "issues": 1,
+        "releases": 3,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.946Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "FETCH_README_OK",
+      "data": {
+        "bytes": 5288,
+        "truncated": false
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.946Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "FETCH_RELEASES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.946Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "FETCH_ISSUES_OK",
+      "data": {
+        "count": 0
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.946Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "GITHUB_FETCH_BATCH_OK",
+      "data": {
+        "cached_hits": 0,
+        "cached_misses": 4,
+        "duration_ms": 468
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.946Z",
+      "run_id": "20260601T083648Z",
+      "node": "repo_card_builder",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "EVIDENCE_PACK_BUILT",
+      "data": {
+        "total": 9,
+        "readme": 8,
+        "issues": 0,
+        "releases": 0,
+        "root_files": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.949Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 9,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 0,
+          "release": 0,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-06-01T08:36:54.949Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 9,
+        "evidence_selected": 9,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:04.507Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1085,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:14.185Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1306,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:22.116Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1294,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:32.200Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1440,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:51.279Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 2916,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:51.290Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:51.291Z",
+      "run_id": "20260601T083648Z",
+      "node": "artifacts",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-06-01/scylladb__scylladb.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:51.292Z",
+      "run_id": "20260601T083648Z",
+      "node": "artifacts",
+      "repo": "scylladb/scylladb",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-06-01/scylladb__scylladb.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:51.292Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "EVIDENCE_SELECTED",
+      "data": {
+        "iter": 1,
+        "selected_count": 13,
+        "focusHintSummary": {
+          "need_commands": false,
+          "need_tests": false,
+          "need_tables": false,
+          "need_screens": false,
+          "need_core": false,
+          "keywords_count": 0
+        },
+        "type_counts": {
+          "readme": 8,
+          "issue": 1,
+          "release": 3,
+          "root_files": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-06-01T08:37:51.292Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "GAP_ITER_START",
+      "data": {
+        "iter": 1,
+        "evidence_total": 13,
+        "evidence_selected": 13,
+        "rerun_strategy": "synth_only"
+      }
+    },
+    {
+      "ts": "2026-06-01T08:38:03.921Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1356,
+        "tokensApprox": "[redacted]",
+        "role": "scout",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:38:15.845Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1202,
+        "tokensApprox": "[redacted]",
+        "role": "inventor",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:38:30.674Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1617,
+        "tokensApprox": "[redacted]",
+        "role": "engineer",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:38:44.141Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 1618,
+        "tokensApprox": "[redacted]",
+        "role": "skeptic",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.502Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "BUDGET_LLM_CALL_RECORDED",
+      "data": {
+        "promptChars": "[redacted]",
+        "completionChars": 4537,
+        "tokensApprox": "[redacted]",
+        "role": "synth_wire",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.504Z",
+      "run_id": "20260601T083648Z",
+      "node": "llm_spec_generator",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "GAP_SUCCESS",
+      "data": {
+        "iter": 1,
+        "coverage_ratio": 0
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.504Z",
+      "run_id": "20260601T083648Z",
+      "node": "artifacts",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "SPEC_WRITE_OK",
+      "data": {
+        "spec_path": "specs/2026-06-01/duffelhq__duffel-api-javascript.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.504Z",
+      "run_id": "20260601T083648Z",
+      "node": "artifacts",
+      "repo": "duffelhq/duffel-api-javascript",
+      "level": "info",
+      "event": "EVIDENCE_WRITE_OK",
+      "data": {
+        "evidence_path": "evidence/2026-06-01/duffelhq__duffel-api-javascript.json",
+        "iter": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.508Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "BRIDGE_ATTEMPTS_SUMMARY",
+      "data": {
+        "total_repos": 2,
+        "attempts_used_hist": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        },
+        "attempts_used_rate0": 1
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.508Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_BUDGET_SUMMARY",
+      "data": {
+        "runStartMs": 1780303008623,
+        "llmCallsTotal": 10,
+        "llmCallsPerRepo": {
+          "scylladb/scylladb": 5,
+          "duffelhq/duffel-api-javascript": 5
+        },
+        "tokensApproxTotal": "[redacted]",
+        "tokensApproxPerRepo": "[redacted]",
+        "reposProcessed": 2,
+        "stopReason": null
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.508Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_FAIL_TAXONOMY_SUMMARY",
+      "data": {
+        "FETCH_FAILED": 0,
+        "EVIDENCE_INSUFFICIENT": 0,
+        "BRIDGE_WIRE_INVALID": 0,
+        "BRIDGE_CANONICAL_INVALID": 0,
+        "EVIDENCE_GATE_UNKNOWN_ID": 0,
+        "QUALITY_GATE_EMPTY_CITATIONS": 0,
+        "QUALITY_GATE_LOW_COVERAGE": 0,
+        "REPAIR_EXHAUSTED": 0,
+        "BUDGET_CUTOFF": 0,
+        "UNKNOWN": 0
+      }
+    },
+    {
+      "ts": "2026-06-01T08:39:14.508Z",
+      "run_id": "20260601T083648Z",
+      "node": "bootstrap",
+      "repo": null,
+      "level": "info",
+      "event": "RUN_DONE",
+      "data": {
+        "specs_succeeded": 2,
+        "specs_failed": 0
+      }
+    }
+  ],
+  "artifacts_summary": {
+    "spec_dir": "specs/2026-06-01",
+    "evidence_dir": "evidence/2026-06-01"
+  }
+}

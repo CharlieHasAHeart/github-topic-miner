@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ScyllaDB",
+    "one_liner": "A high-performance NoSQL database compatible with Apache Cassandra and Amazon DynamoDB, built on a shared-nothing architecture using C++ and the Seastar framework."
+  },
+  "screens": [
+    {
+      "name": "Database Node Dashboard",
+      "purpose": "Display node status, performance metrics, and configuration options for a ScyllaDB instance.",
+      "primary_actions": [
+        "Configure work directory and CPU cores",
+        "Start node with developer mode",
+        "View build and runtime logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "start_scylla_node",
+      "purpose": "Launch a ScyllaDB node using the frozen toolchain with specified parameters like workdir, SMP count, and developer mode.",
+      "async": true,
+      "input": {
+        "developer_mode": "boolean",
+        "payload": "json",
+        "smp_cores": "int",
+        "workdir": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "scylla_nodes",
+        "columns": [
+          {
+            "name": "developer_mode",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "smp_cores",
+            "type": "INTEGER"
+          },
+          {
+            "name": "workdir",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build Scylla from source with configure.py and ninja",
+    "week 1: Run local Scylla node in developer mode with tmp workdir",
+    "week 1: Set up frozen toolchain environment using dbuild"
+  ],
+  "acceptance_tests": [
+    "Confirm that a Scylla node starts successfully with --developer-mode and stores data in the specified workdir.",
+    "Verify that Scylla can be built using the frozen toolchain without modifying the host system."
+  ]
+}

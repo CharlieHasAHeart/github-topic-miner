@@ -1,0 +1,131 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Duffel API JavaScript Client",
+    "one_liner": "A TypeScript client library for interacting with the Duffel travel API, featuring automated code generation, semantic releases, and strong developer tooling."
+  },
+  "screens": [
+    {
+      "name": "Developer Workspace",
+      "purpose": "Primary interface for developers to interact with the SDK through CLI commands and code editing.",
+      "primary_actions": [
+        "Commit changes with standardized messages",
+        "Generate new API operation scaffold",
+        "Install library dependencies",
+        "Run linters and tests"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "commit_with_conventional_message",
+      "purpose": "Creates a commit using Commitzen to ensure Angular/conventional commit format compliance.",
+      "async": true,
+      "input": {
+        "endpoint_path": "string",
+        "http_method": "string",
+        "operation_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "generate_operation",
+      "purpose": "Scaffolds a new API operation folder and files via interactive CLI prompt.",
+      "async": true,
+      "input": {
+        "endpoint_path": "string",
+        "http_method": "string",
+        "operation_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "install_dependencies",
+      "purpose": "Installs project dependencies as specified in package.json.",
+      "async": true,
+      "input": {
+        "endpoint_path": "string",
+        "http_method": "string",
+        "operation_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_lint",
+      "purpose": "Executes configured linters (ESLint, Prettier) to enforce code quality.",
+      "async": true,
+      "input": {
+        "endpoint_path": "string",
+        "http_method": "string",
+        "operation_name": "string",
+        "payload": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "api_operations",
+        "columns": [
+          {
+            "name": "endpoint_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "http_method",
+            "type": "TEXT"
+          },
+          {
+            "name": "operation_name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "releases",
+        "columns": [
+          {
+            "name": "change_type",
+            "type": "TEXT"
+          },
+          {
+            "name": "release_date",
+            "type": "TEXT"
+          },
+          {
+            "name": "version",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add script for generating new API operation scaffolds",
+    "week 1: Configure semantic-release with conventional commits",
+    "week 1: Implement core client structure with HTTP transport layer",
+    "week 1: Set up project with standard tooling (ESLint, Prettier, Husky, Jest)"
+  ],
+  "acceptance_tests": [
+    "Commits created via `yarn commit` pass Husky validation and trigger correct semantic versioning.",
+    "Merging to main triggers automated release workflow that publishes correct version to npm.",
+    "New API operations can be generated via `yarn generate:operation` and integrate cleanly into the build.",
+    "Security-related dependency bumps are applied promptly as evidenced by patch releases."
+  ]
+}
