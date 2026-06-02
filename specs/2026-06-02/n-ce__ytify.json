@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "ytify",
+    "one_liner": "Efficient YouTube Audio Streaming, Effortlessly, Anywhere."
+  },
+  "screens": [
+    {
+      "name": "Main Player Screen",
+      "purpose": "Display currently playing track, playback controls, queue management, and dynamic theming based on artwork.",
+      "primary_actions": [
+        "Add to Queue",
+        "Play/Pause",
+        "Reorder Queue",
+        "Switch to Radio Mode"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Save a track or playlist to user's personal library or collections.",
+      "async": true,
+      "input": {
+        "items": "json",
+        "payload": "json",
+        "title": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "collections",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "items",
+            "type": "JSON"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build main player screen with dynamic theming",
+    "week 1: Enable basic queue management (add/remove/reorder)",
+    "week 1: Implement core audio streaming from YouTube with low-buffering logic"
+  ],
+  "acceptance_tests": [
+    "Dynamic theme updates correctly based on current track artwork.",
+    "User can play audio from YouTube without failure under poor network conditions."
+  ]
+}

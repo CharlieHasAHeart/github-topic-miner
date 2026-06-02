@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Inference Gateway",
+    "one_liner": "An open-source, cloud-native proxy that unifies access to multiple LLM providers through a consistent OpenAI-compatible API."
+  },
+  "screens": [
+    {
+      "name": "Gateway Dashboard",
+      "purpose": "Display active providers, MCP tool status, and request metrics for monitoring and control.",
+      "primary_actions": [
+        "Enable/disable vision support",
+        "Toggle MCP middleware",
+        "View streaming logs"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "route_inference_request",
+      "purpose": "Forward an inference request to the appropriate LLM provider based on configuration and model selection.",
+      "async": true,
+      "input": {
+        "api_key": "string",
+        "base_url": "string",
+        "payload": "json",
+        "provider_id": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "providers",
+        "columns": [
+          {
+            "name": "api_key",
+            "type": "TEXT"
+          },
+          {
+            "name": "base_url",
+            "type": "TEXT"
+          },
+          {
+            "name": "provider_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add MCP tool discovery and injection middleware",
+    "week 1: Implement core proxy routing for OpenAI and Ollama",
+    "week 1: Support basic streaming response handling"
+  ],
+  "acceptance_tests": [
+    "Gateway successfully proxies a /chat/completions request to OpenAI and returns a non-streaming response.",
+    "When MCP_ENABLE=true, tools from connected MCP servers are automatically injected into LLM requests.",
+    "With ENABLE_VISION=true, image inputs in requests are processed by vision-capable models like GPT-4o."
+  ]
+}

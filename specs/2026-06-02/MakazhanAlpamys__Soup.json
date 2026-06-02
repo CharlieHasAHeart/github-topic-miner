@@ -1,0 +1,177 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Soup",
+    "one_liner": "Fine-tune LLMs in one command with local execution, automated compliance, and supply-chain security."
+  },
+  "screens": [
+    {
+      "name": "Main CLI Interface",
+      "purpose": "Provide unified entry point for all Soup commands including init, train, serve, adapters, attest, and env operations.",
+      "primary_actions": [
+        "Generate compliance reports",
+        "Initialize project with template",
+        "Serve trained model",
+        "Sign/verify adapters",
+        "Start fine-tuning job"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "soup_adapters_sign",
+      "purpose": "Cryptographically sign model adapters using ed25519 to ensure supply-chain integrity.",
+      "async": true,
+      "input": {
+        "adapter_id": "string",
+        "merkle_root": "string",
+        "payload": "json",
+        "public_key_used": "string",
+        "signature_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "soup_attest_emit",
+      "purpose": "Generate in-toto attestations with optional ed25519 signing for model provenance.",
+      "async": true,
+      "input": {
+        "adapter_id": "string",
+        "merkle_root": "string",
+        "payload": "json",
+        "public_key_used": "string",
+        "signature_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "soup_env_fix",
+      "purpose": "Render reproducible install plan from soup-env.lock without executing package manager.",
+      "async": false,
+      "input": {
+        "adapter_id": "string",
+        "merkle_root": "string",
+        "payload": "json",
+        "public_key_used": "string",
+        "signature_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "soup_train",
+      "purpose": "Execute end-to-end LLM fine-tuning with auto-configured QLoRA, energy tracking, and Annex XI compliance output.",
+      "async": true,
+      "input": {
+        "adapter_id": "string",
+        "merkle_root": "string",
+        "payload": "json",
+        "public_key_used": "string",
+        "signature_path": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "adapters",
+        "columns": [
+          {
+            "name": "adapter_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "merkle_root",
+            "type": "TEXT"
+          },
+          {
+            "name": "public_key_used",
+            "type": "TEXT"
+          },
+          {
+            "name": "signature_path",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "compliance_reports",
+        "columns": [
+          {
+            "name": "format",
+            "type": "TEXT"
+          },
+          {
+            "name": "grid_country",
+            "type": "TEXT"
+          },
+          {
+            "name": "report_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "top_domains",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "training_jobs",
+        "columns": [
+          {
+            "name": "annex_xi_pdf_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "audit_log_entry",
+            "type": "JSON"
+          },
+          {
+            "name": "co2_g",
+            "type": "REAL"
+          },
+          {
+            "name": "config_path",
+            "type": "TEXT"
+          },
+          {
+            "name": "energy_kwh",
+            "type": "REAL"
+          },
+          {
+            "name": "job_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Add HIPAA/SOC2-style local audit logging",
+    "week 1: Generate Markdown Annex XI report with top domains",
+    "week 1: Implement core `soup train` command with QLoRA support",
+    "week 1: Integrate offline codecarbon energy tracker",
+    "week 2: Add PDF rendering for compliance reports",
+    "week 2: Build `soup attest` with in-toto statement emission",
+    "week 2: Implement ed25519 signing for adapters",
+    "week 2: Wire `soup env fix` from lockfile"
+  ],
+  "acceptance_tests": [
+    "Every invocation of `soup train` appends a structured audit log record to ~/.soup/audit.log in SOC2/HIPAA-compatible format.",
+    "Executing `soup env fix` outputs a reproducible uv pip install command block derived from soup-env.lock without side effects.",
+    "Running `soup train --track-energy --annex-xi report.pdf` produces a PDF containing EU AI Act Annex XI content with auto-extracted top domains and CO2/kWh metrics.",
+    "The command `soup adapters sign --backend ed25519 --key test.pem` generates a valid detached signature over the adapter Merkle root."
+  ]
+}
