@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Project Piper CI/CD Library",
+    "one_liner": "A Go-based Jenkins shared library providing reusable steps and default pipelines for SAP-centric CI/CD workflows."
+  },
+  "screens": [
+    {
+      "name": "Pipeline Configuration Dashboard",
+      "purpose": "Configure and manage CI/CD pipeline steps and parameters for SAP integration scenarios.",
+      "primary_actions": [
+        "Customize step parameters",
+        "Select default pipeline template",
+        "Trigger pipeline execution"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "save_item",
+      "purpose": "Persist pipeline configuration or step parameters to version-controlled storage.",
+      "async": true,
+      "input": {
+        "parameters": "json",
+        "payload": "json",
+        "step_name": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "pipeline_steps",
+        "columns": [
+          {
+            "name": "parameters",
+            "type": "JSON"
+          },
+          {
+            "name": "step_name",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Connect to repository for step metadata retrieval",
+    "week 1: Implement basic pipeline configuration UI",
+    "week 1: Integrate core Project Piper steps into Jenkins environment"
+  ],
+  "acceptance_tests": [
+    "Confirm pipeline execution uses latest released version of shared library steps",
+    "Ensure ERROR_ONLY log output option reduces log volume as expected",
+    "Verify that helmExecute respects additionalParameters in lint, test, and uninstall modes"
+  ]
+}

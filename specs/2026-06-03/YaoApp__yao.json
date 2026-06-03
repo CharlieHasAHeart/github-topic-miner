@@ -1,0 +1,118 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Yao",
+    "one_liner": "An open-source runtime for building AI agents and web applications shipped as a single binary."
+  },
+  "screens": [
+    {
+      "name": "Chat UI (CUI)",
+      "purpose": "Built-in conversation interface for interacting with AI agents.",
+      "primary_actions": [
+        "Send message to agent",
+        "Trigger multi-agent delegation",
+        "View agent response"
+      ]
+    },
+    {
+      "name": "SUI Pages",
+      "purpose": "Component-based web UI with server-side rendering for full-stack applications.",
+      "primary_actions": [
+        "Bind to data models",
+        "Handle user input",
+        "Render dynamic components"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "delegate_agent",
+      "purpose": "Delegate tasks to specialist agents or run multiple agents in parallel.",
+      "async": true,
+      "input": {
+        "definition": "string",
+        "payload": "json",
+        "relations": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "manage_api_keys",
+      "purpose": "Handle API key management for external LLM providers like OpenAI and Anthropic.",
+      "async": true,
+      "input": {
+        "definition": "string",
+        "payload": "json",
+        "relations": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "run_hook",
+      "purpose": "Execute TypeScript Create or Next hooks within the V8 engine to intercept and process agent requests.",
+      "async": true,
+      "input": {
+        "definition": "string",
+        "payload": "json",
+        "relations": "json"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "data_models",
+        "columns": [
+          {
+            "name": "definition",
+            "type": "TEXT"
+          },
+          {
+            "name": "relations",
+            "type": "JSON"
+          }
+        ]
+      },
+      {
+        "name": "skills",
+        "columns": [
+          {
+            "name": "agent_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "skill_pack",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Create SUI page linked to model",
+    "week 1: Define basic data model",
+    "week 1: Implement REST API endpoint",
+    "week 1: Set up Yao runtime binary",
+    "week 2: Add Create Hook for input validation",
+    "week 2: Add Next Hook for output processing",
+    "week 2: Configure LLM executor with OpenAI",
+    "week 2: Test agent delegation"
+  ],
+  "acceptance_tests": [
+    "Agent executes a CLI sandboxed command (e.g., code generation) and returns result securely.",
+    "API keys are managed securely and used to authenticate with external LLM providers.",
+    "Multi-agent delegation works in parallel with session-scoped memory isolation.",
+    "Pure Hook routes request deterministically without invoking AI.",
+    "User can send a message via CUI and receive a response from an LLM-powered agent."
+  ]
+}

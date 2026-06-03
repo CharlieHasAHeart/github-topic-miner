@@ -1,0 +1,222 @@
+{
+  "schema_version": 3,
+  "app": {
+    "name": "Meelo",
+    "one_liner": "A self-hosted music server designed for collectors, emphasizing rich metadata, versioned albums/songs, and first-class music video support."
+  },
+  "screens": [
+    {
+      "name": "Album Detail",
+      "purpose": "Display main album release alongside other versions, B-sides, and associated music videos.",
+      "primary_actions": [
+        "Play all tracks",
+        "Switch between album releases",
+        "View linked music videos"
+      ]
+    },
+    {
+      "name": "Artist Profile",
+      "purpose": "Show artist discography, area, and rare/unreleased tracks.",
+      "primary_actions": [
+        "Browse albums by artist",
+        "See artist area from MusicBrainz",
+        "View rare tracks"
+      ]
+    },
+    {
+      "name": "Library Browser",
+      "purpose": "Browse albums, artists, and songs with deduplicated views while accessing alternate versions and related content.",
+      "primary_actions": [
+        "Navigate to artist page showing rare tracks and area",
+        "Play song or music video",
+        "View album details including releases and related tracks"
+      ]
+    }
+  ],
+  "rust_commands": [
+    {
+      "name": "classify_music_video",
+      "purpose": "Categorize video files as music videos, interviews, behind-the-scenes, or trailers.",
+      "async": true,
+      "input": {
+        "album_artists": "json",
+        "main_release_id": "string",
+        "payload": "json",
+        "title": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "detect_song_versions",
+      "purpose": "Group similar tracks into song versions to avoid duplication in browsing views.",
+      "async": true,
+      "input": {
+        "album_artists": "json",
+        "main_release_id": "string",
+        "payload": "json",
+        "title": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    },
+    {
+      "name": "scan_library",
+      "purpose": "Ingest and parse local music files, extract embedded metadata, and enrich with external sources like MusicBrainz.",
+      "async": true,
+      "input": {
+        "album_artists": "json",
+        "main_release_id": "string",
+        "payload": "json",
+        "title": "string",
+        "type": "string"
+      },
+      "output": {
+        "ok": "boolean",
+        "result": "json?"
+      }
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "albums",
+        "columns": [
+          {
+            "name": "album_artists",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "main_release_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "artists",
+        "columns": [
+          {
+            "name": "area",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "name",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "music_videos",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "song_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "type",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "releases",
+        "columns": [
+          {
+            "name": "album_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_main",
+            "type": "BOOLEAN"
+          }
+        ]
+      },
+      {
+        "name": "songs",
+        "columns": [
+          {
+            "name": "featuring_artists",
+            "type": "JSON"
+          },
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "is_rare",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "title",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "tracks",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT"
+          },
+          {
+            "name": "release_id",
+            "type": "TEXT"
+          },
+          {
+            "name": "song_id",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "mvp_plan": [
+    "week 1: Build library scanner with basic metadata extraction",
+    "week 1: Create deduplicated browsing view for albums and songs",
+    "week 1: Implement core data model for albums, releases, songs, and tracks",
+    "week 2: Add music video classification pipeline",
+    "week 2: Implement song version grouping logic",
+    "week 2: Integrate MusicBrainz for artist area and album type",
+    "week 3: Build artist profile showing rare tracks and area",
+    "week 3: Develop album detail screen with release switching",
+    "week 3: Enable playback queue with loop functionality"
+  ],
+  "acceptance_tests": [
+    "Artists display their geographic area when available from MusicBrainz.",
+    "B-sides and rare tracks appear on relevant album and artist pages but not in main browsing flows.",
+    "Given an album with multiple releases, only the main release appears in library browsing, but all releases are accessible on the album page.",
+    "Music videos are displayed on album and song pages and categorized correctly (e.g., not mixed with interviews).",
+    "When a song has multiple versions across releases, it appears once in song lists but links to all track instances."
+  ]
+}
